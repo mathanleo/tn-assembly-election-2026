@@ -1,0 +1,450 @@
+.slide-container {
+    background: linear-gradient(90deg, #FFFEF5 0%, #FFF4EB 45.4%, #FFFEF5 100%);
+    padding: 3rem 2.5rem;
+    height: fit-content;
+    margin: 15px 0px;
+    /* margin: 10px 5vw; */
+}
+
+
+.viewall_relative_div {
+    position: relative;
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.view_all {
+    width: 77px;
+    height: 34px;
+    position: absolute;
+    right: 0;
+    bottom:-40px;
+    border-radius: 4px;
+    padding: 10px;
+    gap: 10px;
+    border: none;
+    font-weight: 500;
+    font-size: 12px;
+    float: right;
+    background-color: #E3E3E3;
+    /* margin-bottom: 1rem; */
+    color: #344054;
+    background: #E3E3E3;
+    /* padding: 10px */
+}
+
+.view_all a {
+    text-decoration: none;
+}
+
+.topContainer {
+    display: flex;
+}
+
+.big_fights_div {
+    padding: 0.5rem 0rem;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+/* #big_fights_heading {
+    font-family: 'Roboto';
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 37.5px;
+    letter-spacing: 0.04em;
+     width: 75%; 
+} */
+
+
+.won_class {
+    color: #FFFFFF;
+}
+
+.lost_class {
+    color: #EB6161;
+}
+
+
+.hands_div {
+    position: relative;
+    width: 30%;
+}
+
+.hands {
+    position: absolute;
+    right: 20%;
+    bottom: 0%;
+    height: 100%;
+    width: 100px;
+    height: 80px;
+}
+
+.party_img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.description {
+    padding: 10px;
+}
+
+.description_details {
+    color: rgb(102, 106, 160);
+}
+
+.votes_section {
+    color: rgb(202, 37, 158);
+}
+
+.big_fights {
+    font-family: 'Roboto';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 37.5px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    margin: 10px 0px;
+    /* width: 25%; */
+}
+
+.heading_state {
+    font-family: 'Roboto';
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.card {
+    position: relative;
+    height: 180px;
+    /* max-width: 600px; */
+    /* min-width: 300px; */
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
+    border-radius: 8px;
+    /* box-shadow: 0px 4px 6px -2px #10182808;
+    box-shadow: 0px 12px 16px -4px #10182814; */
+    transition: all 0.5s ease;
+}
+
+.card:hover {
+    scale: 1.05;
+}
+
+
+.state_name {
+    font-weight: 530;
+    font-size: 0.8rem;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: linear-gradient(90deg, #F5E2D5 0%, #F9EBD2 90.4%);
+    font-family: 'Roboto';
+    line-height: 16.41px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 2% 3%;
+    border-radius: 0px 5px 0px 20px;
+    z-index: 2;
+}
+
+.state_party_slot {
+    font-family: 'Roboto';
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+.cand_img1 {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    transition: all 0.3s ease;
+}
+
+.cand_desc1 {
+    display: flex;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    align-items: center;
+    width: 80%;
+}
+
+.cand_desc2 {
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    align-items: center;
+}
+
+.cand_name1 {
+    font-family: 'Roboto';
+    font-size: 0.7rem;
+    margin: 60px 10px 25px 10px;
+    display: inline-block;
+    min-width: 60px;
+    font-weight: 600;
+    flex-wrap: wrap;
+}
+
+.party_symbol {
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    bottom: -8%;
+    right: -8%;
+    width: 30px;
+    height: 30px;
+    z-index: 3;
+}
+
+.img_container {
+    position: relative;
+    height: 20%;
+}
+
+.lead_bar {
+    display: flex;
+    position: absolute;
+    width: 190px;
+    top: 52px;
+    left: 2px;
+    padding: 5px 10px;
+    font-size: 70%;
+    justify-content: left;
+    box-sizing: content-box;
+}
+
+.leadbar {
+    display: inline-block;
+    align-items: center;
+    padding: 5px 10px;
+    /* width: 70%; */
+    height: 25px;
+    background: linear-gradient(90deg, #5DB455 0%, #517F4D 100%);
+}
+
+.trail_bar {
+    display: flex;
+    position: absolute;
+    /* justify-content: center; */
+    align-items: center;
+    width: 190px;
+    /* height: 15px; */
+    position: absolute;
+    bottom: -5px;
+    left: 5px;
+    /* margin-top: 10px; */
+    padding: 5px 5px;
+    font-size: 70%;
+    box-sizing: content-box;
+}
+
+.trailbar {
+    display: inline-block;
+    justify-content: center;
+    height: 25px;
+    text-align: center;
+    background: linear-gradient(90deg, #EB6161 0%, #EA1C1C 100%);
+}
+
+.desc_container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 80%;
+    height: 5rem;
+}
+
+.img_map {
+    position: absolute;
+    bottom: 10px;
+    width: 25%;
+    height: 40%;
+    right: 10px;
+    background-color: transparent;
+}
+
+.last_update {
+    position: absolute;
+    font-size: 0.5rem;
+    color: rgb(139, 143, 147);
+    right: 15px;
+    bottom: 0px;
+}
+
+.cand_desc2 .desc_container {
+    width: 9rem;
+}
+
+.cand_name1 {
+    position: absolute;
+    bottom: 0px;
+}
+
+.align_container {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-button-prev {
+    color: rgb(75, 74, 74);
+    margin: auto;
+}
+
+.swiper-button-next {
+    color: rgb(75, 74, 74);
+    margin: auto;
+}
+
+.swiper-button-next::after {
+    font-size: 20px;
+}
+
+.swiper-button-prev::after {
+    font-size: 20px;
+}
+
+.cancel_state {
+    background: linear-gradient(90deg, #FFFEF5 0%, #FFF4EB 45.4%, #FFFEF5 100%);
+}
+
+@media (max-width: 400px) {
+
+    /* .card {
+        min-width: 180px;
+    } */
+    .cand_name1 {
+        font-size: 0.5rem;
+        margin: 35px 10px;
+    }
+
+    .img_map {
+        width: 12vw;
+        height: 7vw;
+        margin-bottom: 3vw;
+    }
+    .big_fights {
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 20.5px;
+    }
+
+    .hands {
+        height: 50px;
+        width: 60px;
+    }
+
+    .state_name,
+    .state_party_slot {
+        font-size: 0.5rem;
+    }
+
+    .heading_state {
+        font-family: 'Roboto';
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+
+@media ((min-width: 401px) and (max-width: 700px)) {
+
+    /* .card {
+        min-width: 350px;
+    } */
+    .cand_name1 {
+        font-size: 0.6rem;
+        margin: 35px 10px;
+    }
+
+    .img_map {
+        width: 12vw;
+        height: 7vw;
+        margin-bottom: 3vw;
+    }
+
+    .big_fights {
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 20.5px;
+    }
+
+    .hands {
+        height: 100%;
+        margin-top: 12%;
+    }
+
+    .hands {
+        height: 50px;
+        width: 60px;
+    }
+
+    .heading_state {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .state_name,
+    .state_party_slot {
+        font-size: 0.6rem;
+        padding: 3px 8px;
+    }
+}
+
+@media ((min-width: 700px) and (max-width: 1000px)) {
+
+    /* .card {
+        min-width: 400px;
+    } */
+    .cand_name1 {
+        font-size: 0.6rem;
+        margin: 35px 10px;
+    }
+
+    .img_map {
+        width: 8vw;
+        height: 6vw;
+        margin-bottom: 2vw;
+    }
+
+    .won_class, .lost_class {
+        font-family: 'Roboto';
+        font-size: 0.7rem;
+        margin-left: 10px;
+        margin-top: 3px;
+    }
+
+    .hands {
+        height: 100%;
+        margin-top: 6%;
+    }
+
+    .big_fights {
+        font-size: 20px;
+        font-weight: 900;
+        line-height: 20.5px;
+    }
+
+    .heading_state {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 20.5px;
+    }
+}
+
+@media ((min-width: 1001px) and (max-width: 1200px)) {
+    .cand_desc2 .desc_container {
+        width: 8rem;
+    }
+
+    .img_map {
+        width: 4rem;
+    }
+}

@@ -1,0 +1,203 @@
+.ribbon {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #fff;
+}
+.gradient-text-nda {
+  font-size: bold;
+  background: linear-gradient(90deg, #ff8d00, #ff4600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-text-inda {
+  font-size: bold;
+  background: linear-gradient(90deg, #0084c6, #0084c6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.gradient-text-oth {
+  font-size: bold;
+  background: linear-gradient(90deg, #646e81, #181b20);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+.ribbon {
+  --f: .5em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 1.8;
+  padding-inline: 1.5lh;
+  padding-bottom: var(--f);
+  border-image: conic-gradient(#0008 0 0) 51%/var(--f);
+  clip-path: polygon(100% calc(100% - var(--f)), 100% 100%, calc(100% - var(--f)) calc(100% - var(--f)), var(--f) calc(100% - var(--f)), 0 100%, 0 calc(100% - var(--f)), 999px calc(100% - var(--f) - 999px), calc(100% - 999px) calc(100% - var(--f) - 999px));
+  transform: translate(calc((1 - cos(45deg)) * 100%), -100%) rotate(45deg);
+  transform-origin: 0% 100%;
+  background-color: rgba(240, 68, 56, 255);
+}
+
+.d-flex {
+  align-items: center;
+}
+
+.custom-img {
+  width: 21px;
+}
+
+.iribbon {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.iribbon {
+  --r: 25px;
+  padding-right: calc(var(--r) + .25em);
+  line-height: 1;
+  clip-path: polygon(-100vw 0, calc(100% - var(--r)) 0, 100% 50%, calc(100% - var(--r)) 100%, -100vw 100%);
+  border-image: conic-gradient(#45ada8 0 0) fill 0 /100vw;
+  width: 150px;
+  min-height: 42px;
+}
+
+.custom-container {
+  background: linear-gradient(to right, rgba(217, 242, 252, 255), rgba(190, 234, 241, 255));
+  border-radius: 10px;
+  padding: 0;
+  margin: 0.725rem;
+  /* max-height: 172px; */
+  max-width: 300px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* margin: 1rem; */
+  /* height: 18.75rem; */
+  /* animation: loader 3s;
+   */
+  animation: loader 3s   infinite linear;
+  transition: all 0.5s ease;
+}
+.custom-container:hover{
+  scale: 1.05;
+  .wid{
+      scale: 1.05;
+      padding-bottom: 0.3rem;
+  }
+}
+
+.custom-temp {
+  width: 70%;
+  /* padding-bottom: 1.5rem; */
+}
+
+.custom-person-image {
+  width: 50%;
+}
+
+.custom-card-title {
+  margin-bottom: 5px;
+  font-size: 1.25rem;
+  font-weight: bolder;
+  color: rgba(0, 132, 198, 255);
+}
+
+.custom-subheaders {
+  gap: 8px;
+  align-items: center;
+}
+
+.custom-card-text {
+  color: rgb(48, 48, 48);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+.custom-iribbon {
+  background: linear-gradient(to right, rgba(134, 205, 234, 255), rgba(101, 163, 188, 255));
+  align-items: start;
+}
+
+.custom-iribbon-text {
+  font-weight: 100;
+  font-size: small;
+}
+
+.custom-iribbon-text-votes {
+  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.row-padding {
+  padding: 4rem;
+}
+
+.custom-person-image img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  object-fit: cover;  
+  border-radius: 0 1.25rem 1.25rem 0;
+}
+
+
+/* --------------------------------------------------------------------------------------------- */
+.card-body{
+  padding: 0.725rem 0 0 0.725rem;
+  margin-bottom: 7px;
+}
+.card-title{
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 700;
+}
+h6{
+  margin: 0;
+  font-size: 14px;
+}
+p{
+  margin-bottom: 0;
+}
+.wid{
+  width: 100px; 
+  margin-right:10px;
+  transition: all 0.5s ease;
+}
+
+
+/* @media (max-width:500px) {
+  .custom-container{
+      width: 90%;
+  }
+} */
+@media screen and (min-width:500px) and (max-width:720px) {
+  .custom-container{
+      width: 260px;
+  }
+}
+@media screen and (min-width: 1260px) and (max-width: 1422px) {
+  .custom-container {
+    width: 260px;
+  }
+}
+
+
+/* Cards displayed on the "See More" page */
+#see-more-page .custom-container {
+  width: calc(30% - 16px); /* Adjust as needed based on margins and gutters */
+}
+#candID{
+  height: 130px;
+  width: 100px;
+}
+/* Adjust the margins and paddings to ensure proper spacing */

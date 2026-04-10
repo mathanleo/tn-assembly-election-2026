@@ -1,0 +1,320 @@
+{
+    "Andaman and Nicobar Islands": {
+        "NDA": {},
+        "INDIA": {
+            "INC": 1
+        },
+        "OTH": {}
+    },
+    "Andhra Pradesh": {
+        "NDA": {},
+        "INDIA": {},
+        "OTH": {
+            "YSRCP": 22,
+            "TDP": 3
+        }
+    },
+    "Arunachal Pradesh": {
+        "NDA": {
+            "BJP": 2
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Assam": {
+        "NDA": {
+            "BJP": 9,
+            "BOPF": 1
+        },
+        "INDIA": {
+            "INC": 3
+        },
+        "OTH": {
+            "AIUDF": 1
+        }
+    },
+    "Bihar": {
+        "NDA": {
+            "BJP": 17,
+            "JD(U)": 16,
+            "LJP": 6
+        },
+        "INDIA": {
+            "INC": 1
+        },
+        "OTH": {}
+    },
+    "Chandigarh": {
+        "NDA": {
+            "BJP": 1
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Chhattisgarh": {
+        "NDA": {
+            "BJP": 9
+        },
+        "INDIA": {
+            "INC": 2
+        },
+        "OTH": {}
+    },
+    "Dadra and Nagar Haveli": {
+        "NDA": {
+            "BJP": 2
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Goa": {
+        "NDA": {
+            "BJP": 1
+        },
+        "INDIA": {
+            "INC": 1
+        },
+        "OTH": {}
+    },
+    "Gujarat": {
+        "NDA": {
+            "BJP": 26
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Haryana": {
+        "NDA": {
+            "BJP": 10
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Himachal Pradesh": {
+        "NDA": {
+            "BJP": 4
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Jammu and Kashmir": {
+        "NDA": {
+            "BJP": 3
+        },
+        "INDIA": {
+            "JKNC": 3
+        },
+        "OTH": {}
+    },
+    "Jharkhand": {
+        "NDA": {
+            "BJP": 11,
+            "AJSUP": 1
+        },
+        "INDIA": {
+            "JMM": 1,
+            "INC": 1
+        },
+        "OTH": {}
+    },
+    "Karnataka": {
+        "NDA": {
+            "BJP": 25
+        },
+        "INDIA": {
+            "INC": 1,
+            "JD(S)": 2
+        },
+        "OTH": {}
+    },
+    "Kerala": {
+        "NDA": {},
+        "INDIA": {
+            "CPIM": 1,
+            "INC": 15,
+            "RSP": 1,
+            "KEC(M)": 1,
+            "IUML": 2
+        },
+        "OTH": {}
+    },
+    "Lakshadweep": {
+        "NDA": {},
+        "INDIA": {
+            "NCP(SP)": 1
+        },
+        "OTH": {}
+    },
+    "Madhya Pradesh": {
+        "NDA": {
+            "BJP": 28
+        },
+        "INDIA": {
+            "INC": 1
+        },
+        "OTH": {}
+    },
+    "Maharashtra": {
+        "NDA": {
+            "BJP": 23,
+            "SHS": 14
+        },
+        "INDIA": {
+            "NCP(SP)": 3,
+            "INC": 1,
+            "SHS(UBT)": 5,
+            "NCP": 1
+        },
+        "OTH": {
+            "AIMIM": 1
+        }
+    },
+    "Manipur": {
+        "NDA": {
+            "BJP": 1
+        },
+        "INDIA": {},
+        "OTH": {
+            "NPF": 1
+        }
+    },
+    "Meghalaya": {
+        "NDA": {},
+        "INDIA": {
+            "INC": 1
+        },
+        "OTH": {
+            "NPEP": 1
+        }
+    },
+    "Mizoram": {
+        "NDA": {},
+        "INDIA": {},
+        "OTH": {
+            "MNF": 1
+        }
+    },
+    "Nagaland": {
+        "NDA": {
+            "NDPP": 1
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "NCT OF Delhi": {
+        "NDA": {
+            "BJP": 7
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Odisha": {
+        "NDA": {
+            "BJP": 8
+        },
+        "INDIA": {
+            "INC": 1
+        },
+        "OTH": {
+            "BJD": 12
+        }
+    },
+    "Puducherry": {
+        "NDA": {},
+        "INDIA": {
+            "INC": 1
+        },
+        "OTH": {}
+    },
+    "Punjab": {
+        "NDA": {
+            "SAD": 2,
+            "BJP": 2
+        },
+        "INDIA": {
+            "INC": 8
+        },
+        "OTH": {
+            "AAP": 1
+        }
+    },
+    "Rajasthan": {
+        "NDA": {
+            "BJP": 24,
+            "RLP": 1
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Sikkim": {
+        "NDA": {},
+        "INDIA": {},
+        "OTH": {
+            "SKM": 1
+        }
+    },
+    "Tamil Nadu": {
+        "NDA": {
+            "ADMK": 1
+        },
+        "INDIA": {
+            "DMK": 24,
+            "INC": 8,
+            "VCK": 1,
+            "CPIM": 2,
+            "CPI": 2,
+            "IUML": 1
+        },
+        "OTH": {}
+    },
+    "Telangana": {
+        "NDA": {
+            "BJP": 4
+        },
+        "INDIA": {
+            "INC": 3
+        },
+        "OTH": {
+            "TRS": 9,
+            "AIMIM": 1
+        }
+    },
+    "Tripura": {
+        "NDA": {
+            "BJP": 2
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "Uttar Pradesh": {
+        "NDA": {
+            "BJP": 62,
+            "ADAL": 2
+        },
+        "INDIA": {
+            "INC": 1
+        },
+        "OTH": {
+            "BSP": 10,
+            "SP": 5
+        }
+    },
+    "Uttarakhand": {
+        "NDA": {
+            "BJP": 5
+        },
+        "INDIA": {},
+        "OTH": {}
+    },
+    "West Bengal": {
+        "NDA": {
+            "BJP": 18
+        },
+        "INDIA": {
+            "INC": 2
+        },
+        "OTH": {
+            "AITC": 22
+        }
+    }
+}

@@ -1,0 +1,16 @@
+            #pmap svg {
+                width: 95%;
+                height: 95%;
+            }
+            #pmap svg .seat {
+                cursor: pointer;
+                transition: all 800ms;
+            }
+
+            /* European parliament colors */
+            #pmap .seat.nda { fill: #FF9933 }
+            #pmap .seat.upa { fill: #B9E6FE }
+            #pmap .seat.others { fill: #B7B7B7 }
+            #pmap .seat.NA { fill: #909090 }
+
+

@@ -1,0 +1,200 @@
+[
+    {
+        "lead": false,
+        "name": "Kangana Ranaut",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Mandi(Himachal Pradesh)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Arun Govil",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Meerut(Uttar pradesh)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Ravindra Shukla",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Gorakhpur(Uttar Pradesh)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "HEMAMALINI DHARMENDRA DEOL",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Mathura(Uttar Pradesh)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Manoj Tiwari",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Northeast Delhi(Delhi)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Yusuf Pathan",
+        "logoimg": "./images/imgs/TMC.png",
+        "pid": "TMC",
+        "place": "Baharampore(West Bengal)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/mahua.png",
+        "alliance": "OTH"
+    },
+    {
+        "lead": false,
+        "name": "Shatrughan Sinha",
+        "logoimg": "./images/imgs/TMC.png",
+        "pid": "TMC",
+        "place": "Asansol(West Bengal)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/mahua.png",
+        "alliance": "OTH"
+    },
+    {
+        "lead": false,
+        "name": "Devendra Jhajharia",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Churu(Rajasthan)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Dinesh Lal Yadav",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Azamgarh(Uttar Pradesh)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Suresh Gopi",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Thrissur(Kerala)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Radhika Sarathkumar",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Virudhunagar (Tamil Nadu)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Locket Chatterjee",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Hooghly(West Bengal)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Agnimitra Paul",
+        "logoimg": "./images/imgs/BJP.jpg",
+        "pid": "BJP",
+        "place": "Medinipur(West Benga)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/modi.png",
+        "alliance": "NDA"
+    },
+    {
+        "lead": false,
+        "name": "Saayoni Gosh",
+        "logoimg": "./images/imgs/TMC.png",
+        "pid": "TMC",
+        "place": "jadavpur(Kolkata)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/mahua.png",
+        "alliance": "OTH"
+    },
+    {
+        "lead": false,
+        "name": "Satabdi Roy",
+        "logoimg": "./images/imgs/TMC.png",
+        "pid": "TMC",
+        "place": "Birbhum(West Bengal)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/mahua.png",
+        "alliance": "OTH"
+    },
+    {
+        "lead": false,
+        "name": "Partha Bhowmick",
+        "logoimg": "./images/imgs/TMC.png",
+        "pid": "TMC",
+        "place": "Barrackpore(West Bengal)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/mahua.png",
+        "alliance": "OTH"
+    },
+    {
+        "lead": false,
+        "name": "Rachana Banerjee",
+        "logoimg": "./images/imgs/TMC.png",
+        "pid": "TMC",
+        "place": "Hooghly(West Bengal)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/mahua.png",
+        "alliance": "OTH"
+    },
+    {
+        "lead": false,
+        "name": "June Maliah",
+        "logoimg": "./images/imgs/TMC.png",
+        "pid": "TMC",
+        "place": "Medinipur(West Bengal)",
+        "votes": "WIP",
+        "lead2votes": "WIP",
+        "perimg": "./images/imgs/mahua.png",
+        "alliance": "OTH"
+    }
+]

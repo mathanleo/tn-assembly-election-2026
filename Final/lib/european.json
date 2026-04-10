@@ -1,0 +1,17 @@
+[
+    {
+        "id": "nda",
+        "name": "NDA",
+        "seats": 300
+      },
+      {
+        "id": "india",
+        "name": "I.N.D.I.A",
+        "seats": 200
+      },
+      {
+        "id": "others",
+        "name": "Others",
+        "seats": 43
+      }
+]

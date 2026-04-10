@@ -1,0 +1,177 @@
+{
+    "Andaman and Nicobar Islands": {
+        "NDA": 0,
+        "INDIA": 1,
+        "OTH": 0
+    },
+    "Andhra Pradesh": {
+        "NDA": 0,
+        "INDIA": 0,
+        "OTH": 25
+    },
+    "Arunachal Pradesh": {
+        "NDA": 2,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Assam": {
+        "NDA": 10,
+        "INDIA": 3,
+        "OTH": 1
+    },
+    "Bihar": {
+        "NDA": 39,
+        "INDIA": 1,
+        "OTH": 0
+    },
+    "Chandigarh": {
+        "NDA": 1,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Chhattisgarh": {
+        "NDA": 9,
+        "INDIA": 2,
+        "OTH": 0
+    },
+    "Dadra and Nagar Haveli": {
+        "NDA": 2,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Goa": {
+        "NDA": 1,
+        "INDIA": 1,
+        "OTH": 0
+    },
+    "Gujarat": {
+        "NDA": 26,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Haryana": {
+        "NDA": 10,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Himachal Pradesh": {
+        "NDA": 4,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Jammu and Kashmir": {
+        "NDA": 3,
+        "INDIA": 3,
+        "OTH": 0
+    },
+    "Jharkhand": {
+        "NDA": 12,
+        "INDIA": 2,
+        "OTH": 0
+    },
+    "Karnataka": {
+        "NDA": 25,
+        "INDIA": 3,
+        "OTH": 0
+    },
+    "Kerala": {
+        "NDA": 0,
+        "INDIA": 20,
+        "OTH": 0
+    },
+    "Lakshadweep": {
+        "NDA": 0,
+        "INDIA": 1,
+        "OTH": 0
+    },
+    "Madhya Pradesh": {
+        "NDA": 28,
+        "INDIA": 1,
+        "OTH": 0
+    },
+    "Maharashtra": {
+        "NDA": 37,
+        "INDIA": 10,
+        "OTH": 1
+    },
+    "Manipur": {
+        "NDA": 1,
+        "INDIA": 0,
+        "OTH": 1
+    },
+    "Meghalaya": {
+        "NDA": 0,
+        "INDIA": 1,
+        "OTH": 1
+    },
+    "Mizoram": {
+        "NDA": 0,
+        "INDIA": 0,
+        "OTH": 1
+    },
+    "Nagaland": {
+        "NDA": 1,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "NCT OF Delhi": {
+        "NDA": 7,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Odisha": {
+        "NDA": 8,
+        "INDIA": 1,
+        "OTH": 12
+    },
+    "Puducherry": {
+        "NDA": 0,
+        "INDIA": 1,
+        "OTH": 0
+    },
+    "Punjab": {
+        "NDA": 4,
+        "INDIA": 8,
+        "OTH": 1
+    },
+    "Rajasthan": {
+        "NDA": 25,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Sikkim": {
+        "NDA": 0,
+        "INDIA": 0,
+        "OTH": 1
+    },
+    "Tamil Nadu": {
+        "NDA": 1,
+        "INDIA": 38,
+        "OTH": 0
+    },
+    "Telangana": {
+        "NDA": 4,
+        "INDIA": 3,
+        "OTH": 10
+    },
+    "Tripura": {
+        "NDA": 2,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "Uttar Pradesh": {
+        "NDA": 64,
+        "INDIA": 1,
+        "OTH": 15
+    },
+    "Uttarakhand": {
+        "NDA": 5,
+        "INDIA": 0,
+        "OTH": 0
+    },
+    "West Bengal": {
+        "NDA": 18,
+        "INDIA": 2,
+        "OTH": 22
+    }
+}

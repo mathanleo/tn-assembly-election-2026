@@ -1,0 +1,150 @@
+.candiateNameDiv {
+  display: flex;
+  flex-direction: column;
+  border: none !important;
+}
+
+#statePolling,
+#stateTotalElectors {
+  text-align: center;
+  background: #eaecf0;
+}
+
+.candiateNameInnerDiv {
+  display: flex;
+}
+
+.tdata4 {
+  text-align: center;
+}
+
+.tdata5 {
+  text-align: center;
+}
+
+#constituency2024,
+#constituency2019 {
+  /* width: 560px; */
+  text-align: center;
+}
+
+#constituencyLeading,
+#constituency2019Leading {
+  /* min-width: 220px; */
+  text-align: center;
+  background: #71e084;
+}
+
+#constituencyTrailing {
+  /* min-width: 220px; */
+  text-align: center;
+  background: #e07171;
+}
+
+#constituency2024Margin,
+#constituency2019Margin {
+  /* width: 120px; */
+  text-align: center;
+  background: #e3e3e3;
+}
+
+#stateNDA2024 {
+  text-align: center;
+  background: #fadac6;
+}
+
+#stateNDA2019 {
+  text-align: center;
+  background: #ffe7d6;
+}
+#india-svg-2024 path,#india-svg-2019 path{
+  fill: #faf9f9;
+  /* Default color for states */
+  stroke: #000;
+  /* Border color */
+  stroke-width: 1;
+  /* Border width */
+  cursor: pointer;
+  /* Change cursor on hover */
+}
+#mapsContainer{
+  padding-top:10px ;
+  /* border:2px solid black; */
+  display: flex;
+  justify-content: center;
+  
+}
+.yearTitle{
+  font-size: 1.5rem;
+  font-family: "Roboto", sans-serif !important;
+
+  color: #344054;
+  font-weight: 600;
+  text-align: center;
+  transform:translateX(-20%);
+
+}
+
+#stateNDADifference,
+#stateINDIADifference,
+#stateOthersDifference {
+  text-align: center;
+  background: #ffffff;
+}
+
+#stateINDIA2019 {
+  text-align: center;
+  background: #d6f0ff;
+}
+
+#stateINDIA2024 {
+  text-align: center;
+  background: #c6e7fa;
+}
+
+#stateOthers2024 {
+  text-align: center;
+  background: #dfe2e2;
+}
+
+#stateOthers2019 {
+  text-align: center;
+  background: #e9e9e9;
+}
+
+#NDA2024Seats {
+  text-align: center;
+  background: #ffefde;
+}
+
+#NDA2019Seats {
+  text-align: center;
+  background: #fff3eb;
+}
+
+#NDADifference,
+#INDIADifference,
+#OthersDifference {
+  text-align: center;
+  background: #ffffff;
+}
+
+#INDIA2024Seats {
+  text-align: center;
+  background: #def3ff;
+}
+
+#INDIA2019Seats {
+  text-align: center;
+  background: #ebf8ff;
+}
+
+#Others2024Seats {
+  text-align: center;
+  background: #f0f0f0;
+}
+
+#Others2019Seats {
+  text-align: center;
+  background: #f7f7f7;
+}

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="indianElectionResult2024" content="HTML, CSS, JavaScript">
+   <meta name="2024 Indian Election Result Visualisation Live"
+      content="Detailed visualisation of 2024 Indian election with interactive graphs and tables">
+   <title>India General Election 2024</title>
+
+   <meta property="og:title" content="India General Election Results 2024" />
+   <meta property="og:url" content="https://www.results2024.in" />
+   <meta property="og:description" content="Crowdsourced insightful data visualizations for Lok Sabha Election Results 2024">
+   <meta property="og:image" itemprop="image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg"/>
+   <meta property="og:type" content="article" />
+   <meta property="og:locale" content="en_GB" />
+
+   <!-- Twitter open-graph tags -->
+
+   <meta name="twitter:site" value="@gradiouslabs" />
+   <meta name="twitter:card" content="summary_large_image">
+   
+   
+   <meta property="twitter:url" content="https://www.results2024.in"/>
+   <meta property="twitter:image:alt" content="Election 2024 Results">
+   <meta property="twitter:title" content="India General Election Results 2024">
+   <meta property="twitter:description"
+      content="Crowdsourced insightful data visualizations for Lok Sabha Election Results 2024">
+   <meta property="twitter:image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg">
+
+   <link rel="icon" type="image/x-icon" href="./images/imgs/Favion results2024.svg">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="./css/d3-parliament.css">
+      
+   
+   <script src="leaflet/index.js"></script>
+   <script src="./js/disclaimer.js"></script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JF3DM9WV3B"></script>
+   <script> window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-JF3DM9WV3B'); 
+   </script>
+
+   <script src="./js/index.js"></script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+   <script src="./js/statusTable.js"></script>
+   <script src="./js/marginTable.js"></script>
+   <script src="./lib/d3.v4.min.js" charset="utf-8"></script>
+   <script src="./lib/d3-parliament.min.js"></script>
+   <link rel="stylesheet" href="./css/styles.css">
+   <link rel="stylesheet" href="./css/cards.css">
+   <link rel="stylesheet" href="./css/styling.css">
+   <link rel="stylesheet" href="./css/disclaimer.css">
+   <link rel="stylesheet" href="leaflet/index.css" />
+   <link rel="stylesheet" href="./css/navbarStyles.css">
+   <link rel="stylesheet" href="./bighfights_css/swiper-bundle.min.css">
+   <link rel="stylesheet" href="./bighfights_css/bighfights_carousel.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+   <style>
+      .form-control {
+         width: 12.5rem;
+         border-radius: 0.5rem;
+         border: 0.063rem solid rgb(208, 213, 221, 1);
+         padding-left: 0.625rem;
+      }
+
+      /* Media Queries */
+   </style>
+</head>
+
+<body>
+   <!-- <div class="foreGround">
+      <div>Sample Data</div>
+      <div>2024 results awaited</div>
+   </div> -->
+
+   <link itemprop="thumbnailUrl" href="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg">
+
+   <span itemprop="thumbnail" itemscope itemtype="http://schema.org/ImageObject">
+      <link itemprop="url" href="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg">
+   </span>
+   <!-- 
+   <div id="disclaimer2024">You are viewing sample data.
+      2024 Results awaited.</div> -->
+   <nav class="navbarHead blur" id="navHeader">
+      <div class="headerlogo">
+         <a href="./index.html"><img src="./images/imgs/RESULTS2024LOGO.png" alt="Logo" /></a>
+      </div>
+      <div class="navigations">
+        <span id="menu" class="d-lg-none" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </span>
+        <div id="mobile-nav-content">
+          <ul id="nav-links">
+            <li>
+              <a href="https://2019.results2024.in" class="links">2019 Results</a>
+            </li>
+            <li>
+              <a href="cardsPage.html" class="links">Popular Candidates</a>
+            </li>
+            <li>
+              <a href="./celebCards.html" class="links">Celebrities</a>
+            </li>
+            <li><a href="./compare.html" class="links">'24 vs '19</a></li>
+            <li>
+              <a href="./bigfights_viewall.html" class="links">Big fights</a>
+            </li>
+            <div class="a2a_kit a2a_kit_size_26 a2a_default_style socialMedia">
+              <a class="a2a_button_facebook"></a>
+              <a class="a2a_button_twitter"></a>
+              <a class="a2a_button_whatsapp"></a>
+              <a class="a2a_button_linkedin"></a>
+              <a class="a2a_button_copy_link"></a>
+            </div>
+            <script
+              async
+              src="https://static.addtoany.com/menu/page.js"
+            ></script>
+          </ul>
+          <ul id="mobile-links">
+            <li><a href="./about.html" class="links">About Us</a></li>
+            <li><a href="./volunteers.html" class="links">Volunteers</a></li>
+            <li><a href="./disclaimer.html" class="links">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+   </nav>
+
+   <!-- Common Header -->
+   <header class="header">
+      <div class="container">
+         <div class="row ">
+         </div>
+      </div>
+   </header>
+   <!-- Main Content -->
+   <div class="body-main-content main-content blur" style="display: block;">
+
+      <div class="container-fluid ">
+         <!-- Page 1: Landing Page -->
+         <div class="container-fluid landing-page p-0 ">
+            <div class="row row1 mt-4 mx-lg-5 g-6 mx-sm-2 ">
+               <div class="col-12 col-md-6 order-md-1 order-2">
+                  <nav aria-label="breadcrumb">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item" id="breadcrumb-india" style="display: none;"><a href="#"
+                              onclick="resetBreadcrumb()">India</a></li>
+                        <li class="breadcrumb-item" id="breadcrumb-state" style="display: none;"></a></li>
+                        <li class="breadcrumb-item active" id="breadcrumb-constituency" style="display: none;"
+                           aria-current="page"></li>
+                     </ol>
+                  </nav>
+                  <div class="row ">
+                     <div class="col d-flex justify-content-end order-2 ">
+                        <div class="" style="width: 120px;">
+                           <select class=" " id="state-select" onchange="handleSelection()">
+                              <option value="default" selected>Select State</option>
+                              <!-- <option value="reset">Reset</option> -->
+                              <option data-st_code="35" value="35">Andaman and Nicobar Islands</option>
+                              <option data-st_code="37" value="37">Andhra Pradesh</option>
+                              <option data-st_code="12" value="12">Arunachal Pradesh</option>
+                              <option data-st_code="18" value="18">Assam</option>
+                              <option data-st_code="10" value="10">Bihar</option>
+                              <option data-st_code="4" value="4">Chandigarh</option>
+                              <option data-st_code="22" value="22">Chhattisgarh</option>
+                              <option data-st_code="26" value="26">Dadra and Nagar Haveli</option>
+                              <option data-st_code="25" value="25">Daman and Diu</option>
+                              <option data-st_code="7" value="7">NCT OF Delhi</option>
+                              <option data-st_code="30" value="30">Goa</option>
+                              <option data-st_code="24" value="24">Gujarat</option>
+                              <option data-st_code="6" value="6">Haryana</option>
+                              <option data-st_code="2" value="2">Himachal Pradesh</option>
+                              <option data-st_code="1" value="1">Jammu and Kashmir</option>
+                              <option data-st_code="20" value="20">Jharkhand</option>
+                              <option data-st_code="29" value="29">Karnataka</option>
+                              <option data-st_code="32" value="32">Kerala</option>
+                              <option data-st_code="31" value="31">Lakshadweep</option>
+                              <option data-st_code="23" value="23">Madhya Pradesh</option>
+                              <option data-st_code="27" value="27">Maharashtra</option>
+                              <option data-st_code="14" value="14">Manipur</option>
+                              <option data-st_code="17" value="17">Meghalaya</option>
+                              <option data-st_code="15" value="15">Mizoram</option>
+                              <option data-st_code="13" value="13">Nagaland</option>
+                              <option data-st_code="21" value="21">Odisha</option>
+                              <option data-st_code="34" value="34">Puducherry</option>
+                              <option data-st_code="3" value="3">Punjab</option>
+                              <option data-st_code="8" value="8">Rajasthan</option>
+                              <option data-st_code="11" value="11">Sikkim</option>
+                              <option data-st_code="33" value="33">Tamil Nadu</option>
+                              <option data-st_code="36" value="36">Telangana</option>
+                              <option data-st_code="16" value="16">Tripura</option>
+                              <option data-st_code="9" value="9">Uttar Pradesh</option>
+                              <option data-st_code="5" value="5">Uttarakhand</option>
+                              <option data-st_code="19" value="19">West Bengal</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col order-1">
+                        <div class="bt_grp">
+                           <button type="button" id="state-bt">States</button>
+                           <button type="button" id="consti-bt">Constituency</button>
+                        </div>
+                        <p id="st_con_heading" style="font-size: 24px; margin-top: 24px;display: none;"></p>
+                     </div>
+                  </div>
+                  <div id="india-map"></div>
+                  <div id="map" style="width: 100%; height:100vh;display: block;"></div>
+                  <div id="containertool"></div>
+               </div>
+               <div class="col-12 col-md-6 order-md-2 order-2">
+
+                  <div class="container">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div id="piechart" class="chart" style="height: 300px; width: 300px; display:none"></div>
+                        </div>
+                        <div class="col-md-6">
+                           <div id="piechart2" class="chart" style="height: 300px; width: 300px; display:none"></div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div id="donutchart" class="chart" style="height: 300px; width: 300px; display:none"></div>
+                        </div>
+                        <div class="col-md-6">
+                           <div id="votingDetails" style="display: none;"></div>
+                        </div>
+                     </div>
+                  </div>
+
+
+                  <div id="chartsContainer">
+                     <!-- <div id="square-container"></div> -->
+                     <div class="p-2" id="chartContainer">
+                        <!-- <h1 id="numberOfSeats">543</h1> -->
+                        <div id="myChart">
+                           <svg id="pmap" viewBox="0 0 60 30"></svg>
+                        </div>
+
+                        <!-- <div id="allianceChart2"></div> -->
+                        <!-- <div class="d-flex justify-content-center w-80 " style="height: 227px;">
+                           <svg id="allianceChart"  viewBox="1 900 900"></svg>
+                        </div> -->
+
+                     </div>
+                     <!-- div class="bar-container" id="bar-container">
+                        <div class="bar bar-1" id="bar1"></div>
+                        <div class="bar bar-2" id="bar2"></div>
+                        <div class="bar bar-3" id="bar3"></div>
+                        <div class="bar-label" id="bar-label"></div>
+                     </div>
+                     <div class="container p-0 mt-2">
+                        <div class="legend d-flex flex-row">
+                           <div class="legendLabel p-0">
+                              <span class="ndaLegend"></span> <span class="label">NDA</span>
+                           </div>
+                           <div class="legendLabel p-0">
+                              <span class="indiaLegend"></span> <span class="label">I.N.D.I.A</span>
+                           </div>
+                           <div class="legendLabel p-0">
+                              <span class="others"></span> <span class="label">Others</span>
+                           </div>
+                        </div>
+                     </div> -->
+                  </div>
+                  <!-- ----------------carousel------------------------------------ -->
+                  <div id="carouselContainer" class="">
+                     <!-- <div class="progress w-50  mx-auto justify-content-center mt-4">
+                        <div class="transition-timer-carousel-progress-bar " id="carouselProgress"></div>
+                        </div> -->
+                     <!-- Carousel Element -->
+
+                     <div class="totaldetails">
+                        <div class="resultdesc">
+                           <div>W - won</div>
+                           <div class="leaddescdiv">L - Leading</div>
+                        </div>
+                        <button class="toggleButton hidden">Show All</button>
+                     </div>
+
+                     <div id="carouselExampleIndicators" class="carousel slide w-100 p-1  rounded-2 "
+                        data-bs-ride="carousel">
+                        <!-- Carousel Indicators -->
+                        <!-- Carousel Inner -->
+                        <div class="carousel-inner ">
+                           <!-- Individual carousel items -->
+                           <div class="carousel-item active" id="ndaCarousel" data-bs-interval="4000">
+                              <div id="ndatitle">NDA
+                                 <!-- <button class="toggleButton" class="hidden ">Show All</button> -->
+                              </div>
+                              <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121528/javare15.png"
+                                 alt="Img 1" class="d-block w-100 h-50"> -->
+                              <div class="row ">
+                                 <div class="col-12 ">
+                                    <table class="table align-middle accordionTable table-sm m-0 w-100">
+                                       <thead>
+                                          <tr>
+                                             <th class="w-50">Party</th>
+                                             <th class="w-50">W/L</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody id="tbody1">
+
+
+                                       </tbody>
+                                    </table>
+                                 </div>
+                                 <!-- <div style="height: 100%" ></div> -->
+                                 <!-- <div class="col-sm-6 col-12 d-none d-sm-block hiddenRow">
+                                    <table class="table align-middle accordionTable  table-sm m-0">
+                                       <thead class="hide-on-small">
+                                          <tr>
+                                             <th class="col-6">Party</th>
+                                             <th class="col-6">Win/Lead</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody id="tbody2">
+                                       </tbody>
+                                    </table>
+                                 </div> -->
+                              </div>
+                           </div>
+                           <div class="carousel-item " id="indiaCarousel" data-bs-interval="4000">
+                              <div id="indiatitle">I.N.D.I.A
+                                 <!-- <button class="toggleButton" class="hidden ">Show All</button> -->
+                              </div>
+                              <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121356/jsre15.jpg" alt="Img 2"
+                                 class="d-block w-100 h-50"> -->
+                              <div class="row ">
+                                 <div class="col-12 ">
+                                    <table class="table align-middle accordionTable table-sm m-0 w-100">
+                                       <thead>
+                                          <tr>
+                                             <th class="w-50">Party</th>
+                                             <th class="w-50">W/L</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody id="tbody1">
+                                       </tbody>
+                                    </table>
+                                 </div>
+                                 <!-- <div style="height: 100%" ></div> -->
+                                 <!-- <div class="col-sm-6 col-12 d-none d-sm-block hiddenRow">
+                                    <table class="table align-middle accordionTable  table-sm m-0">
+                                       <thead class="hide-on-small">
+                                          <tr>
+                                             <th class="col-6">Party</th>
+                                             <th class="col-6">Win/Lead</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody id="tbody2">
+                                       </tbody>
+                                    </table>
+                                 </div> -->
+                              </div>
+                           </div>
+                           <div class="carousel-item" id="othersCarousel" data-bs-interval="4000">
+                              <div id="othtitle">Others
+                                 <!-- <button class="toggleButton" class="hidden ">Show All</button> -->
+                              </div>
+                              <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240215121356/jsre15.jpg" alt="Img 2"
+                                 class="d-block w-100 h-50"> -->
+                              <div class="row ">
+                                 <div class="col-12 ">
+                                    <table class="table align-middle accordionTable table-sm m-0 w-100">
+                                       <thead>
+                                          <tr>
+                                             <th class="w-50">Party</th>
+                                             <th class="w-50">W/L</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody id="tbody1">
+                                       </tbody>
+                                    </table>
+                                 </div>
+                                 <!-- <div style="height: 100%" ></div> -->
+                                 <!-- <div class="col-sm-6 col-12 d-none d-sm-block hiddenRow">
+                                    <table class="table align-middle accordionTable  table-sm m-0">
+                                       <thead class="hide-on-small">
+                                          <tr>
+                                             <th class="col-6">Party</th>
+                                             <th class="col-6">Win/Lead</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody id="tbody2">
+                                       </tbody>
+                                    </table>
+                                 </div> -->
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-indicators m-0 position-relative">
+                           <!-- Indicator buttons -->
+                           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                              class="active" aria-current="true" aria-label="Slide 1"></button>
+                           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                              aria-label="Slide 2"></button>
+                           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                              aria-label="Slide 3"></button>
+                        </div>
+                        <!-- Carousel Control buttons -->
+                        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                           data-bs-slide="prev">
+                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                           <span class="visually-hidden">Previous</span>
+                           </button>
+                           <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                           data-bs-slide="next">
+                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                           <span class="visually-hidden">Next</span>
+                           </button> -->
+                     </div>
+
+                     <!-- NEW -->
+                     <!-- <div class="totaldetails">
+                     <div class="resultdesc">
+                        <div>W - won</div>
+                        <div class="leaddescdiv">L - Leading</div>
+                     </div>
+                     <button class="toggleButton hidden">Show All</button>
+                  </div> -->
+                     <div class="non-carousel-content d-block d-md-none">
+                        <div id="ndaContent" class="col-6 col-sm-4">
+                           <div id="ndatitle1">NDA
+                              <!-- <button class="toggleButton hidden">Show All</button> -->
+                           </div>
+                           <div class="row">
+                              <div class="col-12">
+                                 <table class="table align-middle accordionTable table-sm m-0">
+                                    <thead>
+                                       <tr>
+                                          <th class="col-6">Party</th>
+                                          <th class="col-6">W/L</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody id="tbody1">
+                                       <!-- Data rows will be inserted here -->
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="seperateline"></div>
+                        <div id="indiaContent" class="col-6 col-sm-4">
+                           <div id="indiatitle1">I.N.D.I.A
+                              <!-- <button class="toggleButton hidden">Show All</button> -->
+                           </div>
+                           <div class="row">
+                              <div class="col-12">
+                                 <table class="table align-middle accordionTable table-sm m-0">
+                                    <thead>
+                                       <tr>
+                                          <th class="col-6">Party</th>
+                                          <th class="col-6">W/L</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody id="tbody1">
+                                       <!-- Data rows will be inserted here -->
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="seperateline"></div>
+                        <div id="othersContent" class="col-6 col-sm-4">
+                           <div id="othtitle1">Others
+                              <!-- <button class="toggleButton hidden">Show All</button> -->
+                           </div>
+                           <div class="row">
+                              <div class="col-12">
+                                 <table class="table align-middle accordionTable table-sm m-0">
+                                    <thead>
+                                       <tr>
+                                          <th class="col-6">Party</th>
+                                          <th class="col-6">W/L</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody id="tbody1">
+                                       <!-- Data rows will be inserted here -->
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="newcards" style="display: none;" class="row">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row row2 mt-3 mx-lg-5 g-6 mx-sm-2">
+            <div class="col-12 col-md-6" id="mainContainer" style="width: 642px;">
+               <div id="stateTabeleContainer" class="table-responsive-sm rounded-3 "
+                  style="margin-top: 0.9375rem; box-shadow: 0px 1px 3px 0px rgba(16, 24, 40, 0.1);">
+                  <div class="d-flex justify-content-end">
+                     <!-- <input class="form-control order-2" id="stateSearch" type="text" placeholder="Search"> -->
+                     <form class="search-container">
+                        <input class="form-control " type="text" id="stateSearch" placeholder="Search">
+                        <a href="#"><img class="search-icon"
+                              src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+                     </form>
+                     <div class="btn-group stateTableChevrons" role="group" aria-label="Basic example">
+                        <button type="button" class="fa fa-chevron-left" onclick="loadPrev()"></button>
+                        <button type="button" class="fa fa-chevron-right" onclick="loadNext()"></button>
+                     </div>
+
+                  </div>
+                  <table id="mainTable" class="table table-bordered rounded-2 mt-2" id="stateTable">
+                     <thead>
+                        <tr>
+                           <th class="col-3 col-md-2 col-lg-4  align-middle" id="stateRow" scope="col">State</th>
+                           <th class="col-3 col-md-2 col-lg-2  align-middle" id="NDA" scope="col">NDA</th>
+                           <th class="col-3 col-md-2 col-lg-2  align-middle" id="INDIA" scope="col">I.N.D.I.A</th>
+                           <th class="col-3 col-md-2 col-lg-2  align-middle" id="Others" scope="col">Others</th>
+                        </tr>
+                     </thead>
+                     <tr id="referenceRow">
+                        <td id="stateName"></td>
+                        <td id="NDASeats">nda<span class="positive">()</span></td>
+                        <td id="INDIASeats"><span class="positive">()</span></td>
+                        <td id="OthersSeats"></td>
+                     </tr>
+                     <tbody id="allianceBody">
+                     </tbody>
+                  </table>
+                  <div id="statePagination" class="d-flex justify-content-between">
+                     <button id="prevButton" type="button" class="btn border rounded-3 px-3 ml-4 mb-2">
+                        < Previous</button>
+                           <button id="nextButton" type="button" class="btn border rounded-3 px-3 mr-4 mb-2">Next
+                              ></button>
+                  </div>
+               </div>
+               <!-- ----------------State Table------------------------------------ -->
+               <!-- Constitunecy Table -->
+               <div id="Constituency-res" style="margin-top: 0.9375rem;" class="table-responsive-sm"
+                  style="display: none;">
+                  <table id="constTable" class="table  table-bordered" style="margin-top: 0rem;margin-bottom: 0rem;">
+                     <div id="theading" class="d-flex" style="display: flex; align-items: center; ">
+                     </div>
+
+                     <thead class="thead">
+                        <tr>
+                           <th class="col-1 col-lg-3 align-middle sticky"
+                              style="background:#EAECF0; color: #101828; font-weight: 400;">Constituency
+                           </th>
+                           <th class="col-1 col-lg-3 align-middle"
+                              style="background: #12B76A; text-align: center; color: white; ">Leading/Won</th>
+                           <th class="col-1 col-lg-3 align-middle"
+                              style="background: #F96343; text-align: center;color: white;"> Trailing/Lost
+                           </th>
+                           <th class="col-1 col-lg-3 align-middle"
+                              style=" text-align: center;background:#EAECF0; color: #101828; font-weight: 400;">Margin
+                           </th>
+                        </tr>
+                     </thead>
+                     <tbody id="table-body">
+                        <!-- Dynamic rows will be inserted here -->
+                     </tbody>
+                  </table>
+                  <div id="pagination-controls"
+                     style="display: flex; justify-content: space-between; margin-top: 0rem;">
+                     <!-- Pagination buttons will be inserted here -->
+                  </div>
+               </div>
+               <!-- table2 pavan -->
+               <div class="table-responsive-sm" id="Candidate-res" style="margin-top: 0.9375rem; display: none;">
+                  <table class="table table-bordered" style="margin-top: 0rem; margin-bottom: 0rem;">
+                     <div id="theading2" style="display: flex;align-items: center; ">
+                        <span id="constituency-name"></span>
+                        <input class="form-control" id="candidateinput" type="text" placeholder="Search">
+                     </div>
+                     <thead class="thead">
+                        <tr>
+                           <th style="background:#F9FAFB; color: #101828; position: sticky; left: 0;">Candidate</th>
+                           <th style="background: #F9FAFB; text-align: center; color: 101828;">Party</th>
+                           <th style="background: #F9FAFB; text-align: center;color: 101828; ">Votes</th>
+                           <th style="background:#F9FAFB; color: #101828;">Margin</th>
+                           <th style="background:#F9FAFB; color: #101828;">Margin</th>
+                           <th style="background:#F9FAFB; color: #101828;">2019Votes</th>
+                        </tr>
+                     </thead>
+                     <tbody class="candidateBody">
+                        <!-- Dynamic rows will be inserted here -->
+                     </tbody>
+                  </table>
+                  <div id="pagination-controls-candidates"
+                     style="display: flex; justify-content: space-between; margin-top: 0rem;">
+                     <!-- Pagination buttons will be inserted here -->
+                  </div>
+               </div>
+            </div>
+            <!-- HARI CONTAINER----------------------------------------------------- -->
+            <div class="col-12 col-md-6" id="cardsContainer">
+               <div class="root">
+                  <div class="cardsHeader">
+                     <h2>Popular Candidates</h2>
+
+                  </div>
+                  <div class="container-fluid" id="cardsID" style="padding: 0;">
+                     <div id="root">
+                        <!-- Rows with cards will be added here -->
+                     </div>
+                     <!-- End of the root -->
+                  </div>
+                  <button id="see-more-btn" class="button">View More</button>
+               </div>
+            </div>
+
+
+         </div>
+         <!-- <div class="row row3"></div>------------------Big fights-------- -->
+
+
+
+         <!-- ---------ROw here in case------- -->
+         <!-- Page 2: State Results -->
+         <div id="state-results">
+            <!-- Similar structure as landing page -->
+         </div>
+      </div>
+      <div id="carousel_part_id" class="slide-container swiper">
+         <div class="topContainer">
+            <div class="big_fights_div">
+               <h1 class="big_fights" id="big_fights_heading">BIG FIGHTS</h1>
+               <!-- <div ></div> -->
+            </div>
+            <div class="hands_div">
+               <img class="hands" src="./images/imgs2/hands.png" alt="">
+            </div>
+         </div>
+         <div class="slide-content">
+            <div class="card-wrapper swiper-wrapper" id="slider_div">
+            </div>
+         </div>
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
+         <div class="swiper-pagination"></div>
+         <div class="viewall_relative_div">
+            <div class="view_all"><a id="view_all" href="./bigfights_viewall.html">View more</a></div>
+         </div>
+      </div>
+
+      <div class="tablesDivOne ">
+         <div class="table-container">
+            <div class="table-header sticky">
+               <h3>High Margin</h3>
+               <p>Candidates with the highest winning/Leading votes</p>
+            </div>
+            <table class="custom-table-one table-bordered">
+               <thead>
+                  <tr>
+                     <th class="sticky columnOne" style="text-align: left;">Candidate Name</th>
+                     <th>Constituency</th>
+                     <th>Votes</th>
+                     <th style="background-color: #D1FADF;">Margin</th>
+                  </tr>
+               </thead>
+               <tbody>
+               </tbody>
+            </table>
+         </div>
+
+         <div class="table-container">
+            <div class="table-header sticky">
+               <h3>Low Margin</h3>
+               <p>Candidates with the lowest winning/Leading votes</p>
+            </div>
+            <table class="custom-table-two table-bordered">
+               <thead>
+                  <tr>
+                     <th class="sticky columnOne" style="text-align: left;">Candidate Name</th>
+                     <th>Constituency</th>
+                     <th>Votes</th>
+                     <th style="background-color: #FEE4E2;">Margin</th>
+                  </tr>
+               </thead>
+               <tbody>
+
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      <div class="tablesDivTwo">
+         <div class="table-container">
+            <div class="table-header sticky">
+               <h3>Richest Candidates</h3>
+               <p>Candidates with highest assets declared as per the Affidavit</p>
+            </div>
+            <table class="custom-table-three table-bordered">
+               <thead>
+                  <tr>
+                     <th class="sticky columnOne" style="text-align: left;">Candidate Name</th>
+                     <th>Constituency</th>
+                     <th style="background-color:#D1FADF;">Asset <br><span>(in Rs)</span></th>
+                     <th style="background-color:#FFFAEB;">2024 Votes <br><span>(Margin)</span></th>
+                     <th>Status</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr class="richestOne">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Chandra Sekhar Pemmasani
+                        <br><span><img src="./images/imgs/TDP.webp" alt="">TDP</span>
+                     </td>
+                     <td>Guntur</td>
+                     <td style="background-color: #ECFDF3;">5706+ Cr</td>
+                  </tr>
+                  <tr class="richestTwo">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Konda Vishweshwar Reddy
+                        <br><span><img src="./images/imgs/BJP.jpg" alt="">BJP</span>
+                     </td>
+                     <td>Chevella</td>
+                     <td style="background-color: #ECFDF3;">4568+ Cr</td>
+                  </tr>
+                  <tr class="richestThree">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Pallavi Shrinivas Dempo
+                        <br><span><img src="./images/imgs/BJP.jpg" alt="">BJP</span>
+                     </td>
+                     <td>South Goa</td>
+                     <td style="background-color: #ECFDF3;">1361+ Cr</td>
+                  </tr>
+                  <tr class="richestFour">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Naveen Jindal
+                        <br><span><img src="./images/imgs/BJP.jpg" alt="">BJP</span>
+                     </td>
+                     <td>Kurukshetra</td>
+                     <td style="background-color: #ECFDF3;">1230+ Cr</td>
+                  </tr>
+                  <tr class="richestFive">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Nakul Kamalnath
+                        <br><span><img src="./images/imgs/INC.png" alt="">INC</span>
+                     </td>
+                     <td>Gurugram</td>
+                     <td style="background-color: #ECFDF3;">716+ Cr</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+
+
+
+         <div class="table-container">
+            <div class="table-header sticky">
+               <h3>2019 High Margin Winners</h3>
+               <p class="candy">Candidates that won in 2019 with highest margin, contesting in 2024</p>
+            </div>
+            <table class="custom-table-four table-bordered">
+               <thead>
+                  <tr>
+                     <th class="sticky columnOne" style="text-align: left;margin-left:0.4rem;">Candidate Name</th>
+                     <th>Constituency</th>
+                     <th style="line-height: 1rem;background-color:#D6F0FF">2019 Votes<br><span>(Margin)</span></th>
+                     <th style="line-height: 1rem; background-color:#FFFAEB;">2024 Votes <br><span>(Margin)</span></th>
+                     <th>Status</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr class="poorestOne">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">C R Patil <br><span><img
+                              src="./images/imgs/BJP.jpg" alt="">BJP</span></td>
+                     <td>Navsari</td>
+                     <td style="background-color: #EBF8FF;">9,72,739 <br><span>6,89,668</span></td>
+                  </tr>
+                  <tr class="poorestTwo">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Krishan Pal
+                        <br><span><img src="./images/imgs/BJP.jpg" alt="">BJP</span>
+                     </td>
+                     <td>Faridabad</td>
+                     <td style="background-color: #EBF8FF;">9,13,222<br><span>6,38,239</span></td>
+                  </tr>
+                  <tr class="poorestThree">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Chandra Prakash Joshi
+                        <br><span><img src="./images/imgs/BJP.jpg" alt="">BJP</span>
+                     </td>
+                     <td>Chittorgarh</td>
+                     <td style="background-color: #EBF8FF;">9,82,942<br><span>5,76,247</span></td>
+                  </tr>
+                  <tr class="poorestFour">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Amit Anilchandra
+                        Shah<br><span><img src="./images/imgs/BJP.jpg" alt="">BJP</span></td>
+                     <td>Gandhinagar</td>
+                     <td style="background-color: #EBF8FF;">8,94,624 <br><span>5,57,014</span></td>
+                  </tr>
+                  <tr class="poorestFive">
+                     <td class="sticky columnOne" style="text-align: left;padding-left:1.4rem;">Hans Raj
+                        Hans<br><span><img src="./images/imgs/BJP.jpg" alt="">BJP</span></td>
+                     <td>Faridkot(2024) <br>North West Delhi(2019)</td>
+                     <td style="background-color: #EBF8FF;">8,48,663 <br><span>5,53,897</span></td>
+                  </tr>
+               </tbody>
+            </table>
+
+         </div>
+      </div>
+      <p class="notContesting d-none">Sanjay Bhatia, Subhash Chandra Baheria, Ranjanben Bhatt & Parvesh Sahib Singh
+         Verma
+         contested in 2019 but are not contesting in 2024 election. Their names have not been included.</p>
+      <!-- rajendar part -->
+      <div id="selectmapbtn">Select State</div>
+      <div class="selectmap">
+         <!-- Generate 35 grid items with images and labels -->
+         <div class="grid-item1" onclick="viewingstate(37)">
+            <img id="myg" src="./images/imgs2/andhra_pradesh.png">
+            <p id="myp">Andhra Pradesh</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(12)">
+            <img id="myg" src="./images/imgs2/arunachal_pradesh.png">
+            <p id="myp">Arunachal Pradesh</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(18)">
+            <img id="myg" src="./images/imgs2/assam.png">
+            <p id="myp">Assam</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(10)">
+            <img id="myg" src="./images/imgs2/bihar.png">
+            <p id="myp">Bihar</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(22)">
+            <img id="myg" src="./images/imgs2/chhattisgarh.png">
+            <p id="myp">Chhattisgarh</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(7)">
+            <img id="myg" src="./images/imgs2/nct_of_delhi.png">
+            <p id="myp">Delhi</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(24)">
+            <img id="myg" src="./images/imgs2/gujarat.png">
+            <p id="myp">Gujarat</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(30)">
+            <img id="myg" src="./images/imgs2/goa.png">
+            <p id="myp">Goa</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(6)">
+            <img id="myg" src="./images/imgs2/haryana.png">
+            <p id="myp">Haryana</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(2)">
+            <img id="myg" src="./images/imgs2/himachal_pradesh.png">
+            <p id="myp">Himachal pradesh</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(1)">
+            <img id="myg" src="./images/imgs2/Jammukashmir.svg">
+            <p id="myp">Jammu and Kashmir</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(20)">
+            <img id="myg" src="./images/imgs2/jharkhand.png">
+            <p id="myp">Jharkhand</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(29)">
+            <img id="myg" src="./images/imgs2/karnataka.png">
+            <p id="myp">Karnataka</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(32)">
+            <img id="myg" src="./images/imgs2/kerala.png">
+            <p id="myp">Kerala</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(31)">
+            <img id="myg" src="./images/imgs2/lakshadweep.png">
+            <p id="myp">Lakshadweep</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(23)">
+            <img id="myg" src="./images/imgs2/madhya_pradesh.png">
+            <p id="myp">Madya_pradesh</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(27)">
+            <img id="myg" src="./images/imgs2/maharashtra.png">
+            <p id="myp">Maharashtra</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(14)">
+            <img id="myg" src="./images/imgs2/manipur.png">
+            <p id="myp">Manipur</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(17)">
+            <img id="myg" src="./images/imgs2/meghalaya.png">
+            <p id="myp">Meghalaya</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(15)">
+            <img id="myg" src="./images/imgs2/mizoram.png">
+            <p id="myp">Mizoram</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(13)">
+            <img id="myg" src="./images/imgs2/nagaland.png">
+            <p id="myp">Nagaland</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(21)">
+            <img id="myg" src="./images/imgs2/odisha.png">
+            <p id="myp">Odisha</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(4)">
+            <img id="myg" src="./images/imgs2/chandigarh.svg">
+            <p id="myp">Chandigarh</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(3)">
+            <img id="myg" src="./images/imgs2/punjab.png">
+            <p id="myp">Punjab</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(8)">
+            <img id="myg" src="./images/imgs2/rajasthan.png">
+            <p id="myp">Rajasthan</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(11)">
+            <img id="myg" src="./images/imgs2/sikkim.png">
+            <p id="myp">Sikkim</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(33)">
+            <img id="myg" src="./images/imgs2/tamil_nadu.png">
+            <p id="myp">Tamil Nadu</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(36)">
+            <img id="myg" src="./images/imgs2/telangana.png">
+            <p id="myp">Telangana</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(16)">
+            <img id="myg" src="./images/imgs2/tripura.png">
+            <p id="myp">Tripura</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(19)">
+            <img id="myg" src="./images/imgs2/west_bengal.png">
+            <p id="myp">West bengal</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(9)">
+            <img id="myg" src="./images/imgs2/uttar_pradesh.png">
+            <p id="myp">Uttarpradesh</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(5)">
+            <img id="myg" src="./images/imgs2/uttarakhand.png">
+            <p id="myp">Uttarakhand</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(1)">
+            <img id="myg" src="./images/imgs2/Ladakh.svg">
+            <p id="myp">Ladakh</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(24)">
+            <img id="myg" src="./images/imgs2/dadranagarhaveli.svg">
+            <p id="myp">Dadra & Nagar Haveli</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(24)">
+            <img id="myg" src="./images/imgs2/Daman_DIu.svg">
+            <p id="myp">Daman and Diu</p>
+         </div>
+         <div class="grid-item1" onclick="viewingstate(35)">
+            <img id="myg" src="./images/imgs2/andaman_and_nicobar.svg">
+            <p id="myp">Andaman & Nicobar</p>
+         </div>
+      </div>
+   </div>
+   <!-- Common Footer -->
+   <div class="consent" id="consent">
+      <p class="consentText">Data on this website is being manually added from ECI website and may be delayed and is
+         error prone. <br> Information provided is for educational purposes only and should not be considered as
+         official election results. Please exercise caution. <br><a class="disclaimerLink" href="./disclaimer.html">Read
+            Complete Disclaimer.</a>
+      </p>
+      <div class="decisionButtons">
+         <button id="rejectConsent">Reject</button>
+         <button id="acceptConsent">Agree</button>
+      </div>
+   </div>
+   <div id="rejectConfirmation">
+      <div class="confirmationCard">
+         <img class="alertTriangle" src="./images/imgs/alert-triangle.svg" alt="">
+         <p class="consentHeading">Are you sure you want to reject?</p>
+         <p style="margin-right: 1rem;" class="consentDescription">You can't access the webpage unless you agree to the
+            disclaimer.</p>
+         <a href="./disclaimer.html" class="consentDisclaimer">Read Complete Disclaimer</a>
+         <div class="buttonContainer">
+            <button class="declineButton" id="cancelRejectModal">Cancel</button>
+            <button class="acceptButton" id="confirmRejectModal">Confirm</button>
+         </div>
+      </div>
+   </div>
+   </div>
+   <div id="disclaimer2019"> You are viewing 2019. For 2024 results, <a href="index.html">Click Here</a> </div>
+   <footer style="margin-top: 18px;" class="footer footerI">
+      <div class="footerText">
+         <p>Crafted with <img src="./images/imgs/heart.svg" style="width: 1.2rem;" alt="heart"> by Gradious</p>
+         <p><img style="width: 6.8rem;margin-bottom:0.2rem;" src="./images/imgs/RESULTS2024LOGOcropped.png" alt=""> is a
+            crowdsourced initiative for visualizing the 2024 Indian Parliamentary election results.
+            It is not a source of data.
+         </p>
+         <p style="margin: 2rem 0 0 0;" class="builtBy">Built by <img style="width:6rem;margin-bottom:0.2rem;"
+               src="./images/imgs/Gradious Logo.svg" alt=""></p>
+      </div>
+      <div class="footerLinks">
+         <a href="./about.html">About Us</a>
+         <a href="./volunteers.html">Volunteers</a>
+         <a href="./disclaimer.html">Disclaimer</a>
+         <div class="a2a_kit a2a_kit_size_36 a2a_default_style"
+            style="transform:translateX(-50%);margin:0.4rem 0 0 4.6rem;">
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_twitter"></a>
+            <a class="a2a_button_whatsapp"></a>
+            <a class="a2a_button_linkedin"></a>
+         </div>
+         <script async src="https://static.addtoany.com/menu/page.js"></script>
+         <script>
+            var a2a_config = a2a_config || {};
+            a2a_config.icon_color = "#003333";
+         </script>
+      </div>
+
+   </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="./js/script.js"></script>
+   <script src="./js/paths.js"></script>
+   <script src="./leaflet/index.js"></script>
+   <!-- <script src="./js/index.js"></script-->
+   <script src="./js/cards.js"></script>
+   <script src="./js/navbar.js"></script>
+   <script src="./bigfights_script/swiper-bundle.min.js"></script>
+
+   <link rel='stylesheet' href='https://bots.kore.ai/webclient/UI/dist/kore-ai-sdk.min.css'>
+   </link>
+   <script
+      src='https://bots.kore.ai/api/platform/websdkjs/7e0b057f4c7245008eb306284fc8e93465e45753a25445218226f4df69e851e0stbf'></script>
+   <script>KoreSDK.show(KoreSDK.chatConfig);</script>
+
+</body>
+
+</html>

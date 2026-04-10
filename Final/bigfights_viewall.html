@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Big Fights - India General Election 2024</title>
+    
+    <meta name="2024 Indian Election Result Visualisation Live"
+    content="Detailed visualisation of 2024 Indian election with interactive graphs and tables">  
+    <meta property="og:title" content="India General Election Results 2024" />
+    <meta property="og:url" content="https://www.results2024.in" />
+    <meta property="og:description" content="Crowdsourced insightful data visualizations for Lok Sabha Election Results 2024">
+    <meta property="og:image" itemprop="image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter open-graph tags -->
+    <meta name="twitter:site" value="@gradiouslabs"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.results2024.in"/>
+    <meta property="twitter:image:alt" content="Election 2024 Results">
+    <meta property="twitter:title" content="India General Election Results 2024">
+    <meta property="twitter:description" content="Crowdsourced insightful data visualizations for Lok Sabha Election Results 2024">
+    <meta property="twitter:image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg">
+    <link rel="icon" type="image/x-icon" href="./images/imgs/Favion results2024.svg">
+    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/disclaimer.css" />
+    <link rel="stylesheet" href="./css/navbarStyles.css" />
+    <link rel="stylesheet" href="./bighfights_css/bighfights_carousel.css" />
+    <link rel="stylesheet" href="./bighfights_css/bigfights_viewall.css" />
+    <link
+      rel="stylesheet"
+      href="https://fontawesome.com/icons/xmark?f=sharp&s=regular"
+    />
+    <script src="./js/disclaimer.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbarHead blur" id="navHeader">
+      <div class="headerlogo">
+        <a href="./index.html"
+          ><img src="./images/imgs/RESULTS2024LOGO.png" alt="Logo"
+        /></a>
+      </div>
+      <div class="navigations">
+        <span id="menu" class="d-lg-none" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </span>
+        <div id="mobile-nav-content">
+          <ul id="nav-links">
+            <li>
+              <a href="https://2019.results2024.in" class="links">2019 Results</a>
+            </li>
+            <li>
+              <a href="cardsPage.html" class="links">Popular Candidates</a>
+            </li>
+            <li>
+              <a href="./celebCards.html" class="links">Celebrities</a>
+            </li>
+            <li><a href="./compare.html" class="links">'24 vs '19</a></li>
+            <li>
+              <a href="./bigfights_viewall.html" class="links">Big fights</a>
+            </li>
+            <div class="a2a_kit a2a_kit_size_26 a2a_default_style socialMedia">
+              <a class="a2a_button_facebook"></a>
+              <a class="a2a_button_twitter"></a>
+              <a class="a2a_button_whatsapp"></a>
+              <a class="a2a_button_linkedin"></a>
+              <a class="a2a_button_copy_link"></a>
+            </div>
+            <script
+              async
+              src="https://static.addtoany.com/menu/page.js"
+            ></script>
+          </ul>
+          <ul id="mobile-links">
+            <li><a href="./about.html" class="links">About Us</a></li>
+            <li><a href="./volunteers.html" class="links">Volunteers</a></li>
+            <li><a href="./disclaimer.html" class="links">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- <div class="nav_links_div">
+        <span><img id="results2024" src="./images/imgs2/results2024.png" alt="results2024"></span>
+        <span id="right_nav_links">
+            <a class="nav_links" href="#">Popular Candidates</a>
+            <a class="nav_links" href="#">Big Fights</a>
+            <a class="nav_links" href="#">'24 vs '19</a>
+            <img id="share2_icon" class="nav_link" src="./images/imgs2/share-2.svg" alt="icon">
+        </span>
+    </div> -->
+    <div
+      id="body-div"
+      class="body-main-content main-content blur"
+      style="display: block"
+    >
+      <div id="back_top">
+        <div class="container-fluid">
+          <div class="flexing_div">
+            <div class="combine_div">
+              <div id="path_div">
+                <span id="home_span"
+                  ><a id="home_link" href="./index.html">Home</a></span
+                >
+                <span id="path_span">&gt;</span>
+                <span id="big_fights_span">Big Fights</span>
+              </div>
+              <div class="right_search">
+                <div id="heading_addleft_div">
+                  Big Fights
+                  <div class="search-container" id="search_conatiner">
+                    <input
+                      id="candname_search_bar1"
+                      type="text"
+                      class="search-input"
+                      placeholder="Search for state, constituency or candidate..."
+                    />
+                    <label for="candname_search_bar1"></label>
+                      <img
+                        class="search_icon"
+                        src="./images/imgs/search.svg"
+                        alt=""
+                      />
+                      <!-- <i class="fa-solid fa-magnifying-glass search_icon"></i> -->
+                    </label>
+                    <ul id="search_unorderlist1"></ul>
+                  </div>
+
+                  <div class="search_button" id="search_button">
+                    <!-- <img title="Search" src="./images/imgs2/search.svg" alt="search"> -->
+                    <label for="candname_search_bar2">
+                      <img
+                        class="searchimg2"
+                        src="./images/imgs/search.svg"
+                        alt=""
+                      />
+                      <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img id="hands_img" src="./images/imgs2/hands.png" alt="" />
+          </div>
+          <div class="enable_search" id="enable_search">
+            <input
+              id="candname_search_bar2"
+              type="text"
+              class="search-input"
+              placeholder="Search for state, constituency or candidate..."
+            />
+            <div>
+              <ul id="search_unorderlist2"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="for_background">
+      <div id="state_tag">
+        <span id="cancel_state_span">
+          <span id="state_tag_name"></span
+          ><i id="state_cancel_icon" class="fa-sharp fa-solid fa-xmark"></i
+        ></span>
+      </div>
+      </div>
+      <div id="back_bottom">
+        <div class="body_filled_with_cards">
+          <div id="more-cards-root">
+            <!-- dynamic cards adding  -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./bigfights_script/bigfights_viewall.js"></script>
+    <script src="./js/navbar.js"></script>
+    <div class="consent" id="consent">
+      <p class="consentText">
+        Data on this website is being manually added from ECI website and may be
+        delayed and is error prone. <br />
+        Information provided is for educational purposes only and should not be
+        considered as official election results. Please exercise caution.
+        <br /><a class="disclaimerLink" href="./disclaimer.html"
+          >Read Complete Disclaimer.</a
+        >
+      </p>
+      <div class="decisionButtons">
+        <button id="rejectConsent">Reject</button>
+        <button id="acceptConsent">Agree</button>
+      </div>
+    </div>
+    <div id="rejectConfirmation">
+      <div class="confirmationCard">
+        <img
+          class="alertTriangle"
+          src="./images/imgs/alert-triangle.svg"
+          alt=""
+        />
+        <p class="consentHeading">Are you sure you want to reject?</p>
+        <p style="margin-right: 1rem" class="consentDescription">
+          You can't access the webpage unless you agree to the disclaimer.
+        </p>
+        <a href="./disclaimer.html" class="consentDisclaimer"
+          >Read Complete Disclaimer</a
+        >
+        <div class="buttonContainer">
+          <button class="declineButton" id="cancelRejectModal">Cancel</button>
+          <button class="acceptButton" id="confirmRejectModal">Confirm</button>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footerText">
+        <p style="margin-bottom: 0">
+          Crafted with
+          <img
+            src="./images/imgs/heart.svg"
+            style="width: 1.2rem"
+            alt="heart"
+          />
+          by Gradious
+        </p>
+        <p>
+          <img
+            style="width: 6.8rem; margin-bottom: 0.2rem"
+            src="./images/imgs/RESULTS2024LOGOcropped.png"
+            alt=""
+          />
+          is a crowdsourced initiative for visualizing the 2024 Indian
+          Parliamentary election results. It is not a source of data.
+        </p>
+        <p style="margin: 2rem 0 0 0" class="builtBy">
+          Built by
+          <img
+            style="width: 6rem; margin-bottom: 0.2rem"
+            src="./images/imgs/Gradious Logo.svg"
+            alt=""
+          />
+        </p>
+      </div>
+      <div class="footerLinks">
+        <a href="./about.html">About Us</a>
+        <a href="./volunteers.html">Volunteers</a>
+        <a href="./disclaimer.html">Disclaimer</a>
+        <div
+          class="a2a_kit a2a_kit_size_36 a2a_default_style"
+          style="transform: translateX(-50%); margin: 0.4rem 0 0 4.6rem"
+        >
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_twitter"></a>
+          <a class="a2a_button_whatsapp"></a>
+          <a class="a2a_button_linkedin"></a>
+        </div>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <script>
+          var a2a_config = a2a_config || {};
+          a2a_config.icon_color = "#003333";
+        </script>
+      </div>
+    </footer>
+    <script src="./js/navbar.js"></script>
+  </body>
+</html>

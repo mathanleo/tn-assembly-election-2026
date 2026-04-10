@@ -1,0 +1,190 @@
+.navbar{
+  margin-bottom: 1rem;
+}
+
+.aboutContainer{
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.aboutP{
+  text-align: center;
+  font-size: 28px;
+  margin: 0.625rem 4.5rem;
+}
+
+.teamMembers{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 88%;
+  margin: 1rem auto;
+  align-items: center;
+}
+
+.name{
+  margin:0 0 0.4rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #344054;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.memberDetails{
+  width: 100%;
+  margin-left: 0.8rem;
+}
+
+.role{
+  font-size: 1.25rem;
+  /* margin: 0.125rem 0; */
+}
+
+.socials{
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.socials a{
+  cursor: pointer;
+  width: 11%;
+}
+
+.socials img{
+  width: 30px;
+}
+
+.member{
+  width: 22.5rem;
+  height: 7.5rem;
+  display: flex;
+  background: #F6F6F7;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.memberImage > img {
+  border-radius: 0.25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-height: 100%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.memberImage{
+  width: 120px;
+  padding-top: 30%;
+  margin:0 1rem;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 1280px) {
+  .member {
+    width: 20rem;
+  }
+
+  .teamMembers{
+    width: 92%;
+    justify-content: space-around;
+  }
+
+  .name{
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .member {
+    width: 18.8rem;
+  }
+  .teamMembers{
+    width: 94%;
+  }
+  .name{
+    margin-top: 1.2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .member {
+    width: 20rem;
+  }
+  .teamMembers{
+    width: 84%;
+  }
+} 
+
+@media (max-width: 800px) {
+  .member {
+    width: 18.4rem;
+  }
+  .teamMembers{
+    width: 88%;
+  }
+} 
+
+@media (max-width: 700px) {
+  .member {
+    width: 18rem;
+  }
+  .teamMembers{
+    width: 90%;
+  }
+} 
+
+@media (max-width: 660px) {
+  .member {
+    width: 22rem;
+  }
+  .teamMembers{
+    width: 84%;
+  }
+} 
+
+.socials img {
+  transition: filter 0.3s ease-in-out;
+}
+
+.linkedin:hover {
+  filter: drop-shadow(0 0 10px #385ce9);
+}
+
+.insta:hover {
+  filter: drop-shadow(0 0 10px #E1306C);
+}
+
+.facebook:hover {
+  filter: drop-shadow(0 0 10px #385ce9);
+}
+
+.twitter:hover{
+  filter: drop-shadow(0 0 10px #1DA1F2);
+}
+
+.github:hover{
+  filter: drop-shadow(0 0 10px #2B3137)
+}
+
+.gmail:hover{
+  filter: drop-shadow(0 0 10px #2B3137)
+}
+
+.member:hover {
+  transform: scale(1.05);
+}
+
+.member:hover .memberImage {
+  transform: scale(1.1);
+}
