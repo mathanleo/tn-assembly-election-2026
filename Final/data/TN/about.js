@@ -237,5 +237,245 @@
             ]
         }
     ]
+},
+{
+    "distNo": 2,
+    "distName": "Kanyakumari",
+    "consit": [
+        {
+            "constno": 219,
+            "constname": "Kanniyakumari",
+            "about": "Coastal tourism-driven constituency with fishing economy and high population density",
+            "problem": [
+                {
+                    "title": "Environment",
+                    "desc": "Coastal erosion threatening residential areas, tourism zones, and critical infrastructure along the shoreline"
+                },
+                {
+                    "title": "Employment",
+                    "desc": "Seasonal employment dependency due to tourism fluctuations affecting income stability"
+                },
+                {
+                    "title": "Infrastructure",
+                    "desc": "Traffic congestion and inadequate urban planning during peak tourist seasons"
+                },
+                {
+                    "title": "Water",
+                    "desc": "Pressure on drinking water supply due to high tourist inflow and population density"
+                },
+                {
+                    "title": "Sanitation",
+                    "desc": "Waste management challenges in tourist-heavy areas leading to environmental degradation"
+                },
+                {
+                    "title": "Coastal",
+                    "desc": "Fishing communities affected by declining fish catch and marine resource depletion"
+                },
+                {
+                    "title": "Environment",
+                    "desc": "Marine pollution impacting biodiversity and coastal livelihoods"
+                },
+                {
+                    "title": "Infrastructure",
+                    "desc": "Need for improved public transport and connectivity within tourist zones"
+                }
+            ]
+        },
+        {
+            "constno": 220,
+            "constname": "Nagercoil",
+            "about": "Urban administrative and commercial hub with growing infrastructure demands",
+            "problem": [
+                {
+                    "title": "Infrastructure",
+                    "desc": "Rapid urbanization leading to traffic congestion and inadequate road capacity"
+                },
+                {
+                    "title": "Water",
+                    "desc": "Increasing demand for drinking water causing supply stress in expanding urban areas"
+                },
+                {
+                    "title": "Sanitation",
+                    "desc": "Inefficient waste management and drainage systems causing urban hygiene issues"
+                },
+                {
+                    "title": "Employment",
+                    "desc": "Limited high-skill job opportunities forcing youth migration to larger cities"
+                },
+                {
+                    "title": "Infrastructure",
+                    "desc": "Frequent urban flooding due to poor stormwater drainage systems"
+                },
+                {
+                    "title": "Environment",
+                    "desc": "Loss of green cover due to urban expansion affecting environmental balance"
+                },
+                {
+                    "title": "Health",
+                    "desc": "Pressure on healthcare infrastructure due to population growth"
+                },
+                {
+                    "title": "Governance",
+                    "desc": "Delays in urban planning and project execution affecting city development"
+                }
+            ]
+        },
+        {
+            "constno": 221,
+            "constname": "Colachel",
+            "about": "Coastal constituency with strong fishing economy and exposure to climate risks",
+            "problem": [
+                {
+                    "title": "Coastal",
+                    "desc": "Severe coastal erosion damaging homes, roads, and fishing infrastructure"
+                },
+                {
+                    "title": "Employment",
+                    "desc": "Declining fish catch affecting livelihoods of fishing communities"
+                },
+                {
+                    "title": "Infrastructure",
+                    "desc": "Poor road connectivity in coastal villages limiting access to markets"
+                },
+                {
+                    "title": "Water",
+                    "desc": "Saltwater intrusion affecting freshwater availability in coastal areas"
+                },
+                {
+                    "title": "Environment",
+                    "desc": "Marine pollution and overfishing impacting long-term sustainability"
+                },
+                {
+                    "title": "Sanitation",
+                    "desc": "Inadequate waste disposal systems in coastal settlements"
+                },
+                {
+                    "title": "Disaster",
+                    "desc": "High vulnerability to cyclones and extreme weather events"
+                },
+                {
+                    "title": "Governance",
+                    "desc": "Demand for better coastal protection measures and disaster preparedness"
+                }
+            ]
+        },
+        {
+            "constno": 222,
+            "constname": "Padmanabhapuram",
+            "about": "Semi-urban constituency with agricultural base and heritage significance",
+            "problem": [
+                {
+                    "title": "Water",
+                    "desc": "Declining groundwater levels affecting both agriculture and domestic usage"
+                },
+                {
+                    "title": "Agriculture",
+                    "desc": "Rising input costs and reduced profitability impacting farmers"
+                },
+                {
+                    "title": "Infrastructure",
+                    "desc": "Poor road maintenance and connectivity in interior areas"
+                },
+                {
+                    "title": "Employment",
+                    "desc": "Lack of local employment opportunities leading to migration"
+                },
+                {
+                    "title": "Sanitation",
+                    "desc": "Inadequate sewage and waste management systems in growing towns"
+                },
+                {
+                    "title": "Tourism",
+                    "desc": "Underdeveloped infrastructure around heritage sites limiting tourism potential"
+                },
+                {
+                    "title": "Environment",
+                    "desc": "Encroachment and land-use changes affecting ecological balance"
+                },
+                {
+                    "title": "Health",
+                    "desc": "Limited access to advanced healthcare facilities in semi-urban regions"
+                }
+            ]
+        },
+        {
+            "constno": 223,
+            "constname": "Vilavancode",
+            "about": "Densely populated constituency with mixed urban-rural characteristics",
+            "problem": [
+                {
+                    "title": "Infrastructure",
+                    "desc": "High population density causing traffic congestion and pressure on public services"
+                },
+                {
+                    "title": "Water",
+                    "desc": "Irregular water supply in densely populated residential areas"
+                },
+                {
+                    "title": "Sanitation",
+                    "desc": "Waste disposal and drainage issues affecting public health"
+                },
+                {
+                    "title": "Employment",
+                    "desc": "Limited local job opportunities resulting in migration"
+                },
+                {
+                    "title": "Health",
+                    "desc": "Overburdened healthcare facilities due to population pressure"
+                },
+                {
+                    "title": "Environment",
+                    "desc": "Urban expansion reducing green cover and increasing pollution"
+                },
+                {
+                    "title": "Infrastructure",
+                    "desc": "Poor road conditions and lack of planned urban development"
+                },
+                {
+                    "title": "Governance",
+                    "desc": "Need for better urban governance and service delivery"
+                }
+            ]
+        },
+        {
+            "constno": 224,
+            "constname": "Killiyoor",
+            "about": "Coastal and rural constituency with agriculture and fishing-based economy",
+            "problem": [
+                {
+                    "title": "Coastal",
+                    "desc": "Coastal erosion damaging agricultural lands and residential areas"
+                },
+                {
+                    "title": "Agriculture",
+                    "desc": "Decline in agricultural productivity due to soil salinity and water issues"
+                },
+                {
+                    "title": "Water",
+                    "desc": "Saltwater intrusion affecting freshwater sources and irrigation"
+                },
+                {
+                    "title": "Employment",
+                    "desc": "Limited non-agricultural employment opportunities causing economic instability"
+                },
+                {
+                    "title": "Infrastructure",
+                    "desc": "Poor rural road connectivity affecting access to markets and services"
+                },
+                {
+                    "title": "Environment",
+                    "desc": "Environmental degradation due to coastal changes and human activity"
+                },
+                {
+                    "title": "Sanitation",
+                    "desc": "Inadequate sanitation facilities in rural and coastal villages"
+                },
+                {
+                    "title": "Disaster",
+                    "desc": "Frequent impact from extreme weather events affecting livelihoods"
+                }
+            ]
+        }
+    ]
 }
 ]
