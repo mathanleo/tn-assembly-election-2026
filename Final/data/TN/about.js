@@ -1927,6 +1927,139 @@
     }
 
   ]
+},
+{
+  distNo: 4,
+  distName: "Nilgiris",
+  consit: [
+
+    {
+      constno: 107,
+      constname: "Bhavanisagar",
+      about: "Bhavanisagar constituency is located in the plains bordering the Nilgiris and is supported by the Bhavanisagar Dam across the Bhavani river, one of the largest earthen dams in India. The region plays a crucial role in irrigation-based agriculture and forms part of the Lower Bhavani Project command area.",
+
+      problem: [
+        {
+          title: "Dependence on Bhavanisagar Dam water",
+          desc: "Agriculture in Bhavanisagar is highly dependent on water release from the Bhavanisagar Dam. Variations in rainfall and reservoir levels directly affect irrigation schedules, leading to uncertainty in crop planning and reduced agricultural productivity during low water availability periods."
+        },
+        {
+          title: "Groundwater depletion",
+          desc: "Increased reliance on borewells for irrigation has led to excessive groundwater extraction. Over time, this has resulted in declining water tables, making it difficult for farmers to access sufficient water and increasing the cost of agricultural operations."
+        },
+        {
+          title: "Drought conditions",
+          desc: "During years of insufficient rainfall, the inflow into the Bhavani river system decreases significantly, creating drought-like conditions. This affects not only agriculture but also drinking water availability and rural livelihoods."
+        }
+      ]
+    },
+
+    {
+      constno: 108,
+      constname: "Udhagamandalam",
+      about: "Udhagamandalam (Ooty) is a major hill station in the Nilgiris district, located within the Western Ghats, a UNESCO-recognized biodiversity hotspot. It is known for tourism, tea plantations, and ecological significance.",
+
+      problem: [
+        {
+          title: "Landslides during monsoon",
+          desc: "Heavy monsoon rainfall in the Nilgiris frequently triggers landslides due to the steep terrain and fragile soil structure. These landslides damage roads, disrupt connectivity, and pose risks to human settlements, especially in and around Ooty."
+        },
+        {
+          title: "Tourism pressure",
+          desc: "Large-scale tourist inflow throughout the year places significant pressure on infrastructure such as roads, water supply, and public facilities. Peak tourist seasons lead to overcrowding, traffic congestion, and strain on local resources."
+        },
+        {
+          title: "Waste management challenges",
+          desc: "Increased tourism and urban activity generate large volumes of waste. Managing waste in hilly terrain is challenging, leading to improper disposal in some areas and environmental degradation."
+        }
+      ]
+    },
+
+    {
+      constno: 109,
+      constname: "Gudalur",
+      about: "Gudalur is a forest-rich constituency located at the tri-junction of Tamil Nadu, Kerala, and Karnataka, with significant tribal population and proximity to major wildlife corridors.",
+
+      problem: [
+        {
+          title: "Human-wildlife conflict",
+          desc: "Gudalur region experiences frequent human-wildlife conflicts due to its proximity to forest areas. Elephants and other wild animals often enter agricultural lands, causing crop damage, property loss, and posing safety risks to residents."
+        },
+        {
+          title: "Forest land restrictions",
+          desc: "Regulations governing forest land usage limit agricultural expansion and livelihood activities for tribal communities, creating socio-economic challenges."
+        },
+        {
+          title: "Connectivity challenges",
+          desc: "The hilly terrain and dense forest cover limit road development and connectivity. This affects transportation, emergency services, and access to education and healthcare."
+        }
+      ]
+    },
+
+    {
+      constno: 110,
+      constname: "Coonoor",
+      about: "Coonoor is a major hill town in the Nilgiris known for its tea plantations, tourism, and scenic environment. It forms an important part of the hill economy.",
+
+      problem: [
+        {
+          title: "Landslides and road disruption",
+          desc: "Frequent heavy rains lead to landslides in Coonoor region, damaging roads and disrupting transportation between towns and villages in the Nilgiris."
+        },
+        {
+          title: "Tea plantation labour issues",
+          desc: "Workers in tea plantations often face wage-related concerns and physically demanding working conditions. The plantation economy relies heavily on manual labour with limited income growth."
+        },
+        {
+          title: "Water supply issues",
+          desc: "Due to the terrain and dependence on rainfall, some areas face irregular water supply, especially during dry seasons, affecting daily life."
+        }
+      ]
+    },
+
+    {
+      constno: 111,
+      constname: "Mettuppalayam",
+      about: "Mettuppalayam is located at the foothills of the Nilgiris and acts as a gateway to hill stations like Ooty. It supports both agriculture and tourism-related transportation activities.",
+
+      problem: [
+        {
+          title: "Flooding near Bhavani river",
+          desc: "Heavy rainfall in upstream regions can lead to increased water flow in the Bhavani river, causing flooding in low-lying areas of Mettuppalayam and affecting settlements and agricultural lands."
+        },
+        {
+          title: "Traffic congestion due to hill travel",
+          desc: "Mettuppalayam experiences heavy traffic congestion due to vehicles traveling to and from hill stations, particularly during tourist seasons, leading to delays and road stress."
+        },
+        {
+          title: "Water supply challenges",
+          desc: "Rising population and seasonal variations in water availability create pressure on local water supply systems, leading to shortages in certain areas."
+        }
+      ]
+    },
+
+    {
+      constno: 112,
+      constname: "Avanashi",
+      about: "Avanashi is part of the Tiruppur textile belt and is known for textile industries and agriculture, contributing to regional economic activity.",
+
+      problem: [
+        {
+          title: "Noyyal river pollution",
+          desc: "Discharge of industrial effluents from textile units contributes to pollution in the Noyyal river, affecting water quality used for irrigation and groundwater recharge."
+        },
+        {
+          title: "Groundwater depletion",
+          desc: "High demand for water in textile industries and agriculture has resulted in over-extraction of groundwater, reducing long-term availability."
+        },
+        {
+          title: "Industrial labour issues",
+          desc: "Workers in textile industries face long working hours, wage concerns, and limited job security due to the nature of industrial employment."
+        }
+      ]
+    }
+
+  ]
 }
 
 
