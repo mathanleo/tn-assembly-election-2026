@@ -1,0 +1,83 @@
+[
+  {
+    "distNo": 15,
+    "distName": "Karur",
+    "consit": [
+      {
+        "constno": 134,
+        "constname": "Aravakurichi",
+        "about": "Aravakurichi is a State Legislative Assembly constituency in Karur district of Tamil Nadu. Its constituency number is 134 and it forms part of the Karur Lok Sabha constituency.",
+        "problem": [
+          {
+            "title": "Civic Infrastructure Issues",
+            "desc": "Residents report lack of roads, drainage, and water supply facilities."
+          },
+          {
+            "title": "Public Accountability Issues",
+            "desc": "Concerns raised about lack of development work and MLA performance."
+          },
+          {
+            "title": "Election Law and Order Issues",
+            "desc": "Election-related tensions highlight administrative challenges."
+          }
+        ]
+      },
+      {
+        "constno": 135,
+        "constname": "Karur",
+        "about": "Karur is a State Legislative Assembly constituency in Karur district of Tamil Nadu. Its constituency number is 135 and it is one of the 234 constituencies in the state. It forms part of the Karur Lok Sabha constituency.",
+        "problem": [
+          {
+            "title": "Public Safety & Crowd Management Failure",
+            "desc": "A major crowd crush during a political rally highlighted serious gaps in crowd control, event management, and emergency response systems."
+          },
+          {
+            "title": "Drinking Water & Civic Infrastructure Issues",
+            "desc": "Residents have raised concerns about lack of drinking water supply, poor roads, and drainage problems."
+          },
+          {
+            "title": "Law and Order / Political Tensions",
+            "desc": "Reports of political clashes and policing concerns indicate challenges in maintaining law and order."
+          }
+        ]
+      },
+      {
+        "constno": 136,
+        "constname": "Krishnarayapuram (SC)",
+        "about": "Krishnarayapuram is a State Legislative Assembly constituency in Karur district of Tamil Nadu. Its constituency number is 136 and it is a Scheduled Caste (SC) reserved constituency. It forms part of the Karur Lok Sabha constituency.",
+        "problem": [
+          {
+            "title": "Drinking Water & Rural Infrastructure Issues",
+            "desc": "Rural areas face issues related to water supply, roads, and drainage."
+          },
+          {
+            "title": "Public Service Delivery Gaps",
+            "desc": "Residents report lack of consistent development and public services."
+          },
+          {
+            "title": "Election-Related Law and Order Concerns",
+            "desc": "Political activities have seen tensions and complaints about policing."
+          }
+        ]
+      },
+      {
+        "constno": 137,
+        "constname": "Kulithalai",
+        "about": "Kulithalai is a State Legislative Assembly constituency in Karur district of Tamil Nadu. Its constituency number is 137 and it forms part of the Perambalur Lok Sabha constituency.",
+        "problem": [
+          {
+            "title": "Water Supply & Irrigation Concerns",
+            "desc": "Agriculture depends on irrigation systems, and water availability affects productivity."
+          },
+          {
+            "title": "Rural Infrastructure Gaps",
+            "desc": "Residents face issues with roads, drainage, and public infrastructure."
+          },
+          {
+            "title": "Public Dissatisfaction with Governance",
+            "desc": "Voters express dissatisfaction over lack of development progress."
+          }
+        ]
+      }
+    ]
+  },
