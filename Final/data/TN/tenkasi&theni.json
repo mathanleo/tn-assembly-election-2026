@@ -1,4 +1,5 @@
-{
+let data = [
+  {
   distNo: 5,
   distName: "Tenkasi",
   consit: [
@@ -181,3 +182,4 @@
     }
   ]
 }
+]
