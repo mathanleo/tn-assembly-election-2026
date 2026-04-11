@@ -1,0 +1,208 @@
+{
+  distNo: 1,
+  distName: "Thiruvallur",
+  consit: [
+
+    {
+      constno: 1,
+      constname: "Gummidipoondi",
+      about: "Gummidipoondi is a State Legislative Assembly constituency in Thiruvallur district of Tamil Nadu. It is part of the Thiruvallur Lok Sabha constituency and was established in 1967. :contentReference[oaicite:0]{index=0}",
+      problem: [
+        {
+          title: "Industrial Pollution",
+          desc: "Industrial clusters in the region have raised concerns over air and water pollution affecting nearby villages."
+        },
+        {
+          title: "Water Scarcity",
+          desc: "Dependence on groundwater and industrial usage leads to water supply challenges."
+        },
+        {
+          title: "Labour & Industrial Safety Issues",
+          desc: "Presence of factories leads to concerns about worker safety and working conditions."
+        }
+      ]
+    },
+
+    {
+      constno: 2,
+      constname: "Ponneri (SC)",
+      about: "Ponneri is a State Legislative Assembly constituency in Thiruvallur district of Tamil Nadu. It is a Scheduled Caste reserved constituency and part of the Thiruvallur Lok Sabha constituency. :contentReference[oaicite:1]{index=1}",
+      problem: [
+        {
+          title: "Flooding & Drainage Issues",
+          desc: "Low-lying areas near rivers face flooding during monsoon due to poor drainage systems."
+        },
+        {
+          title: "Urban Expansion Pressure",
+          desc: "Being part of Chennai metropolitan region, rapid urbanisation creates infrastructure stress."
+        },
+        {
+          title: "Water Pollution",
+          desc: "Industrial and sewage discharge affects local water bodies and agriculture."
+        }
+      ]
+    },
+
+    {
+      constno: 3,
+      constname: "Tiruttani",
+      about: "Tiruttani is a State Legislative Assembly constituency in Thiruvallur district of Tamil Nadu. It is part of the Arakkonam Lok Sabha constituency and has been in existence since 1952. :contentReference[oaicite:2]{index=2}",
+      problem: [
+        {
+          title: "Temple Tourism Infrastructure",
+          desc: "High pilgrimage traffic creates pressure on roads, sanitation, and facilities."
+        },
+        {
+          title: "Water Supply Issues",
+          desc: "Seasonal water shortages affect both residents and visitors."
+        },
+        {
+          title: "Traffic Congestion",
+          desc: "Heavy inflow of devotees leads to congestion during festivals."
+        }
+      ]
+    },
+
+    {
+      constno: 4,
+      constname: "Thiruvallur",
+      about: "Thiruvallur is a State Legislative Assembly constituency in Thiruvallur district of Tamil Nadu. Its constituency number is 4 and it forms part of the Thiruvallur Lok Sabha constituency. :contentReference[oaicite:3]{index=3}",
+      problem: [
+        {
+          title: "Water Resource Management",
+          desc: "Dependence on reservoirs and groundwater creates supply challenges."
+        },
+        {
+          title: "Urbanisation Pressure",
+          desc: "Rapid growth near Chennai leads to stress on infrastructure and services."
+        },
+        {
+          title: "Flooding Issues",
+          desc: "Heavy rains cause flooding in low-lying areas due to drainage issues."
+        }
+      ]
+    },
+
+    {
+      constno: 5,
+      constname: "Poonamallee (SC)",
+      about: "Poonamallee is a State Legislative Assembly constituency in Thiruvallur district of Tamil Nadu. It is a Scheduled Caste reserved constituency and part of the Thiruvallur Lok Sabha constituency. :contentReference[oaicite:4]{index=4}",
+      problem: [
+        {
+          title: "Traffic Congestion",
+          desc: "Major highways and junctions face heavy congestion due to Chennai expansion."
+        },
+        {
+          title: "Urban Infrastructure Stress",
+          desc: "Rapid residential growth increases pressure on civic amenities."
+        },
+        {
+          title: "Water Supply Issues",
+          desc: "Growing population creates demand-supply gap in water resources."
+        }
+      ]
+    },
+
+    {
+      constno: 6,
+      constname: "Avadi",
+      about: "Avadi is a State Legislative Assembly constituency in Thiruvallur district of Tamil Nadu. It was formed after the 2008 delimitation and is part of the Thiruvallur Lok Sabha constituency. :contentReference[oaicite:5]{index=5}",
+      problem: [
+        {
+          title: "Urbanisation & Housing Pressure",
+          desc: "Rapid expansion as a Chennai suburb leads to housing and infrastructure challenges."
+        },
+        {
+          title: "Transport Congestion",
+          desc: "Heavy commuter traffic affects daily mobility."
+        },
+        {
+          title: "Water Supply & Drainage",
+          desc: "Urban growth causes stress on water supply and sewage systems."
+        }
+      ]
+    },
+
+    {
+      constno: 7,
+      constname: "Maduravoyal",
+      about: "Maduravoyal is a State Legislative Assembly constituency in Tamil Nadu formed after the 2008 delimitation. It includes parts of Chennai city and falls under the Sriperumbudur Lok Sabha constituency. :contentReference[oaicite:6]{index=6}",
+      problem: [
+        {
+          title: "Traffic & Flyover Infrastructure Issues",
+          desc: "Major flyover and road projects face delays affecting traffic movement."
+        },
+        {
+          title: "Urban Flooding",
+          desc: "Heavy rainfall leads to flooding in residential areas."
+        },
+        {
+          title: "Solid Waste Management",
+          desc: "Urban waste disposal remains a challenge."
+        }
+      ]
+    },
+
+    {
+      constno: 8,
+      constname: "Ambattur",
+      about: "Ambattur is a State Legislative Assembly constituency in Thiruvallur district of Tamil Nadu. It is part of the Thiruvallur Lok Sabha constituency and includes industrial and residential areas.",
+      problem: [
+        {
+          title: "Industrial Pollution",
+          desc: "Industrial estate activities contribute to air and water pollution."
+        },
+        {
+          title: "Urban Flooding",
+          desc: "Drainage issues lead to flooding during monsoons."
+        },
+        {
+          title: "Traffic Congestion",
+          desc: "High vehicle density causes congestion in key roads."
+        }
+      ]
+    },
+
+    {
+      constno: 9,
+      constname: "Madavaram",
+      about: "Madavaram is a State Legislative Assembly constituency formed after the 2008 delimitation. It is part of the Thiruvallur Lok Sabha constituency and includes areas like Manali and Puzhal. :contentReference[oaicite:7]{index=7}",
+      problem: [
+        {
+          title: "Waste Management Issues",
+          desc: "Large dumping yards create environmental and health concerns."
+        },
+        {
+          title: "Water Pollution",
+          desc: "Industrial and sewage discharge affects water bodies."
+        },
+        {
+          title: "Traffic & Infrastructure Pressure",
+          desc: "Urban growth leads to congestion and infrastructure stress."
+        }
+      ]
+    },
+
+    {
+      constno: 10,
+      constname: "Thiruvottiyur",
+      about: "Thiruvottiyur is a State Legislative Assembly constituency in northern Chennai and part of the Thiruvallur Lok Sabha constituency. It has existed since 1967. :contentReference[oaicite:8]{index=8}",
+      problem: [
+        {
+          title: "Coastal Pollution",
+          desc: "Industrial and port activities contribute to environmental issues."
+        },
+        {
+          title: "Urban Flooding",
+          desc: "Heavy rains lead to waterlogging due to drainage limitations."
+        },
+        {
+          title: "Housing & Urban Pressure",
+          desc: "High population density stresses infrastructure and services."
+        }
+      ]
+    }
+
+  ]
+}
+
