@@ -1,43 +1,43 @@
 [{
-    "distNo": 1,
-    "distName": "Thoothukudi",
-    "consit": [
+    distNo: 1,
+    distName: "Thoothukudi",
+    consit: [
         {
-            "constno": 213,
-            "constname": "Vilathikulam",
-            "about": "Rural, drought-prone constituency with agriculture-dependent economy and limited infrastructure",
-            "problem": [
+            constno: 213,
+            constname: "Vilathikulam",
+            about: "Rural, drought-prone constituency with agriculture-dependent economy and limited infrastructure",
+            problem: [
                 {
-                    "title": "Water",
-                    "desc": "Chronic water scarcity affecting drinking and irrigation due to low rainfall, groundwater depletion, and weak water management systems"
+                    title: "Water",
+                    desc: "Chronic water scarcity affecting drinking and irrigation due to low rainfall, groundwater depletion, and weak water management systems"
                 },
                 {
-                    "title": "Agriculture",
-                    "desc": "Frequent crop failures due to rain-fed dependency and climate variability impacting farmer income"
+                    title: "Agriculture",
+                    desc: "Frequent crop failures due to rain-fed dependency and climate variability impacting farmer income"
                 },
                 {
-                    "title": "Agriculture",
-                    "desc": "Delayed crop insurance and lack of financial protection leading to farmer debt cycles"
+                    title: "Agriculture",
+                    desc: "Delayed crop insurance and lack of financial protection leading to farmer debt cycles"
                 },
                 {
-                    "title": "Health",
-                    "desc": "Lack of functional hospitals and medical staff forcing residents to travel for treatment"
+                    title: "Health",
+                    desc: "Lack of functional hospitals and medical staff forcing residents to travel for treatment"
                 },
                 {
-                    "title": "Sanitation",
-                    "desc": "Poor sanitation infrastructure and maintenance despite ODF claims causing hygiene issues"
+                    title: "Sanitation",
+                    desc: "Poor sanitation infrastructure and maintenance despite ODF claims causing hygiene issues"
                 },
                 {
-                    "title": "Employment",
-                    "desc": "Decline in local jobs due to weak industrial presence and failing small-scale industries"
+                    title: "Employment",
+                    desc: "Decline in local jobs due to weak industrial presence and failing small-scale industries"
                 },
                 {
-                    "title": "Infrastructure",
-                    "desc": "Poor transport connectivity and lack of railway access limiting economic mobility"
+                    title: "Infrastructure",
+                    desc: "Poor transport connectivity and lack of railway access limiting economic mobility"
                 },
                 {
-                    "title": "Environment",
-                    "desc": "Illegal sand mining degrading river ecosystems and affecting water availability"
+                    title: "Environment",
+                    desc: "Illegal sand mining degrading river ecosystems and affecting water availability"
                 }
             ]
         },
@@ -477,7 +477,7 @@
             ]
         }
     ]
-}
+},
   {
   distNo: 3,
   distName: "Tenkasi",
