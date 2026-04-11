@@ -1795,6 +1795,139 @@
       },
     ],
   },
+  {
+  distNo: 3,
+  distName: "Erode",
+  consit: [
+
+    {
+      constno: 97,
+      constname: "Kumarapalayam",
+      about: "Kumarapalayam is a major textile and powerloom hub located near the Cauvery river, closely linked with the textile belt of Erode and Tiruppur.",
+
+      problem: [
+        {
+          title: "Textile dyeing pollution in Cauvery river",
+          desc: "A large number of textile dyeing and processing units in Kumarapalayam and surrounding areas discharge untreated or partially treated effluents into the Cauvery river. This leads to deterioration of water quality, affecting irrigation, aquatic life, and drinking water sources. Farmers downstream face reduced soil fertility and crop productivity due to contaminated water."
+        },
+        {
+          title: "Groundwater contamination",
+          desc: "Continuous seepage of industrial effluents into the soil has resulted in contamination of groundwater sources in textile belt regions. Borewell water in certain areas shows high chemical content, making it unsafe for drinking and agricultural use, thereby increasing dependency on alternative water sources."
+        },
+        {
+          title: "Labour issues in powerloom sector",
+          desc: "Workers employed in powerloom and textile units often face long working hours, limited job security, and wage-related challenges. The informal nature of employment in many units results in lack of social protection, affecting overall worker welfare and economic stability."
+        }
+      ]
+    },
+
+    {
+      constno: 98,
+      constname: "Erode East",
+      about: "Erode East is a major commercial and urban constituency known for the Erode turmeric market, one of the largest in India, and extensive textile trade.",
+
+      problem: [
+        {
+          title: "Turmeric market congestion",
+          desc: "The Erode turmeric market attracts a large number of traders, farmers, and transport vehicles, especially during peak trading seasons. This leads to severe congestion in surrounding roads, delays in goods movement, and logistical inefficiencies impacting trade operations."
+        },
+        {
+          title: "Urban drainage issues",
+          desc: "During heavy rainfall, several parts of Erode city experience waterlogging due to insufficient stormwater drainage systems and poor maintenance. This disrupts transportation, damages roads, and affects residential and commercial areas."
+        },
+        {
+          title: "Solid waste management challenges",
+          desc: "High population density and commercial activities generate large volumes of solid waste. Inadequate waste segregation and disposal systems lead to accumulation of garbage in certain areas, causing sanitation issues and environmental concerns."
+        }
+      ]
+    },
+
+    {
+      constno: 99,
+      constname: "Erode West",
+      about: "Erode West is an urban and semi-urban constituency with strong involvement in textile processing, trade, and small-scale industries.",
+
+      problem: [
+        {
+          title: "Noyyal river pollution",
+          desc: "Industrial discharge from textile processing units contributes to pollution in the Noyyal river, affecting water quality used for irrigation and groundwater recharge. This has long-term environmental impacts on agriculture and local ecosystems."
+        },
+        {
+          title: "Traffic congestion in urban areas",
+          desc: "Rapid urbanization and increase in vehicle usage have led to heavy traffic congestion in key roads and junctions. This affects daily commuting, increases travel time, and contributes to air pollution."
+        },
+        {
+          title: "Water supply pressure",
+          desc: "Growing population and industrial demand have increased pressure on existing water supply systems, leading to irregular distribution and shortages in certain residential areas."
+        }
+      ]
+    },
+
+    {
+      constno: 100,
+      constname: "Modakkurichi",
+      about: "Modakkurichi is primarily an agricultural constituency supported by irrigation from the Cauvery river system and groundwater sources.",
+
+      problem: [
+        {
+          title: "Dependence on Cauvery irrigation",
+          desc: "Farmers in Modakkurichi rely heavily on water released from the Cauvery river system for irrigation. Any delay or reduction in water release directly impacts crop cultivation cycles and agricultural productivity."
+        },
+        {
+          title: "Groundwater depletion",
+          desc: "Increased use of borewells for irrigation has led to a steady decline in groundwater levels. This reduces long-term water availability and increases the cost of farming."
+        },
+        {
+          title: "Drought conditions",
+          desc: "In years of low rainfall, the region experiences drought-like conditions that significantly reduce crop yield and affect farmer income."
+        }
+      ]
+    },
+
+    {
+      constno: 101,
+      constname: "Dharapuram",
+      about: "Dharapuram is a reserved (SC) constituency with agriculture as the main occupation, located in a semi-arid region of Tiruppur district.",
+
+      problem: [
+        {
+          title: "Amaravathi river water shortage",
+          desc: "Farmers depend on the Amaravathi river for irrigation, but reduced water flow due to seasonal variation and upstream usage affects farming activities and crop production."
+        },
+        {
+          title: "Drought-prone conditions",
+          desc: "The semi-arid climate and irregular rainfall patterns make Dharapuram highly prone to drought conditions, leading to reduced agricultural output and economic challenges for farmers."
+        },
+        {
+          title: "Rural drinking water issues",
+          desc: "Limited water sources and declining groundwater levels create drinking water shortages in villages, especially during summer months."
+        }
+      ]
+    },
+
+    {
+      constno: 102,
+      constname: "Kangayam",
+      about: "Kangayam is known for cattle breeding (Kangayam breed), coconut farming, and agriculture, forming a key part of the rural economy.",
+
+      problem: [
+        {
+          title: "Groundwater depletion",
+          desc: "Excessive extraction of groundwater for irrigation and farming activities has significantly reduced water availability, affecting both agriculture and domestic usage."
+        },
+        {
+          title: "Drought conditions",
+          desc: "Low rainfall and semi-arid climatic conditions frequently lead to drought situations, impacting crop production and cattle rearing."
+        },
+        {
+          title: "Agricultural challenges",
+          desc: "Farmers face difficulties due to changing climate patterns, lack of consistent irrigation support, and increasing input costs, leading to economic instability."
+        }
+      ]
+    }
+
+  ]
+}
 
 
 ]
