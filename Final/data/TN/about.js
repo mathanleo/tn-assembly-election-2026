@@ -483,7 +483,7 @@
   distName: "Tenkasi",
   consit: [
     {
-      constno: 1,
+      constno: 223,
       constname: "Alangulam",
       about: "Alangulam is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It includes Alangulam town and surrounding villages and is part of the Tirunelveli Lok Sabha constituency. Established in 1951, it is one of the 234 constituencies in Tamil Nadu with a mix of rural and semi-urban regions.",
       problem: [
@@ -502,7 +502,7 @@
       ]
     },
     {
-      constno: 2,
+      constno: 221,
       constname: "Kadayanallur",
       about: "Kadayanallur is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It is part of the Tenkasi Lok Sabha constituency and was established in 1967. The constituency includes a mix of semi-urban and rural areas with multiple towns and villages.",
       problem: [
@@ -521,7 +521,7 @@
       ]
     },
     {
-      constno: 3,
+      constno: 219,
       constname: "Sankarankovil (SC)",
       about: "Sankarankovil is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It is a Scheduled Caste (SC) reserved constituency and part of the Tenkasi Lok Sabha constituency. Established in 1951, it consists of predominantly rural areas including towns and villages.",
       problem: [
@@ -540,7 +540,7 @@
       ]
     },
     {
-      constno: 4,
+      constno: 222,
       constname: "Tenkasi",
       about: "Tenkasi is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It is part of the Tenkasi Lok Sabha constituency and was established in 1951. The constituency includes towns and surrounding areas within the district and is one of the 234 constituencies in the state.",
       problem: [
@@ -559,7 +559,7 @@
       ]
     },
     {
-      constno: 5,
+      constno: 220,
       constname: "Vasudevanallur (SC)",
       about: "Vasudevanallur is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It is a Scheduled Caste (SC) reserved constituency and part of the Tenkasi Lok Sabha constituency. Established in 1967, it includes a mix of towns and rural areas within the district.",
       problem: [
@@ -584,7 +584,7 @@
   distName: "Theni",
   consit: [
     {
-      constno: 1,
+      constno: 198,
       constname: "Andipatti",
       about: "Andipatti is a State Legislative Assembly constituency in Theni district of Tamil Nadu. It includes Andipatti town and surrounding areas and is part of the Theni Lok Sabha constituency. Established in 1962, it is one of the 234 constituencies in the state.",
       problem: [
@@ -603,7 +603,7 @@
       ]
     },
     {
-      constno: 2,
+      constno: 201,
       constname: "Cumbum",
       about: "Cumbum is a State Legislative Assembly constituency in Theni district of Tamil Nadu. It is part of the Theni Lok Sabha constituency and was established in 1951. The constituency includes towns and surrounding areas within the district and is one of the 234 constituencies in the state.",
       problem: [
@@ -622,7 +622,7 @@
       ]
     },
     {
-      constno: 3,
+      constno: 200,
       constname: "Bodinayakanur",
       about: "Bodinayakanur is a State Legislative Assembly constituency in Theni district of Tamil Nadu. It is part of the Theni Lok Sabha constituency and has been in existence since 1957. The constituency includes towns and surrounding areas within the district and is one of the 234 constituencies in the state.",
       problem: [
@@ -641,7 +641,7 @@
       ]
     },
     {
-      constno: 4,
+      constno: 119,
       constname: "Periyakulam (SC)",
       about: "Periyakulam is a State Legislative Assembly constituency in Theni district of Tamil Nadu. It is a Scheduled Caste (SC) reserved constituency and part of the Theni Lok Sabha constituency. Established in 1951, it includes the major towns of Theni and Periyakulam along with surrounding areas.",
       problem: [
