@@ -1272,6 +1272,117 @@
       }
 
     ]
+  }, {
+    distNo: 6,
+    distName: "Vellore",
+    consit: [
+
+      {
+        constno: 40,
+        constname: "Katpadi",
+        about: "Katpadi is a major educational and transportation hub in Vellore district, hosting important institutions such as VIT University and a major railway junction that connects different parts of South India. The constituency has seen rapid urban growth driven by education, healthcare, and connectivity.",
+
+        problem: [
+          {
+            title: "Severe traffic congestion near junction and institutions",
+            desc: "The presence of a major railway junction, universities, and hospitals leads to heavy daily movement of students, patients, and commuters. This results in frequent traffic congestion, especially during peak hours, affecting mobility and emergency services."
+          },
+          {
+            title: "Urban infrastructure pressure",
+            desc: "Rapid expansion of residential areas around educational institutions has increased demand for roads, drainage, and public services, leading to strain on existing infrastructure."
+          },
+          {
+            title: "Water supply challenges",
+            desc: "Increasing population and institutional demand have created pressure on local water supply systems, leading to irregular distribution and dependence on groundwater."
+          }
+        ]
+      },
+
+      {
+        constno: 43,
+        constname: "Vellore",
+        about: "Vellore constituency is a major urban center known for its historical significance, including Vellore Fort, and its globally recognized healthcare institution, Christian Medical College (CMC). It serves as an administrative, medical, and commercial hub in northern Tamil Nadu.",
+
+        problem: [
+          {
+            title: "Water scarcity due to Palar river depletion",
+            desc: "The Palar river, once a major water source, has become largely non-perennial due to over-extraction and upstream usage. This has led to heavy dependence on groundwater, causing frequent water shortages in the city."
+          },
+          {
+            title: "Urban traffic congestion",
+            desc: "High population density and increasing vehicle numbers have resulted in congestion in key roads and junctions, particularly around hospitals and commercial areas."
+          },
+          {
+            title: "Solid and biomedical waste management",
+            desc: "Presence of major hospitals like CMC generates significant biomedical waste. Managing this along with municipal waste creates challenges for proper disposal and environmental safety."
+          }
+        ]
+      },
+
+      {
+        constno: 44,
+        constname: "Anaikattu",
+        about: "Anaikattu is a semi-rural constituency with agriculture as the primary occupation. The region depends on seasonal rainfall and limited irrigation facilities, with a mix of farming and small-scale rural activities.",
+
+        problem: [
+          {
+            title: "Agricultural dependence on rainfall",
+            desc: "Farmers rely heavily on monsoon rainfall due to lack of major irrigation infrastructure, leading to unstable crop yields and income variability."
+          },
+          {
+            title: "Groundwater depletion",
+            desc: "Extensive use of borewells for irrigation has led to declining groundwater levels, making water access increasingly difficult during dry periods."
+          },
+          {
+            title: "Rural infrastructure limitations",
+            desc: "Villages face challenges such as poor road connectivity, limited healthcare facilities, and inadequate public services, affecting overall development."
+          }
+        ]
+      },
+
+      {
+        constno: 45,
+        constname: "Kilvaithinankuppam",
+        about: "Kilvaithinankuppam is a predominantly rural constituency where agriculture forms the backbone of the local economy, supported by seasonal rainfall and limited water resources.",
+
+        problem: [
+          {
+            title: "Water scarcity",
+            desc: "Limited rainfall and absence of strong irrigation infrastructure result in frequent water shortages for both agriculture and domestic use."
+          },
+          {
+            title: "Agricultural instability",
+            desc: "Dependence on rainfall leads to fluctuations in crop production, affecting farmer income and economic stability."
+          },
+          {
+            title: "Lack of infrastructure",
+            desc: "Basic facilities such as roads, healthcare, and education infrastructure are underdeveloped in certain rural areas."
+          }
+        ]
+      },
+
+      {
+        constno: 46,
+        constname: "Gudiyatham",
+        about: "Gudiyatham is a constituency with a mix of agriculture and small-scale industries, supporting a largely rural population with growing economic activity.",
+
+        problem: [
+          {
+            title: "Water scarcity and groundwater stress",
+            desc: "Irregular rainfall and overuse of groundwater have led to declining water levels, affecting both irrigation and drinking water availability."
+          },
+          {
+            title: "Agricultural challenges",
+            desc: "Farmers face uncertainty due to lack of consistent irrigation support, climate variability, and rising input costs."
+          },
+          {
+            title: "Limited employment opportunities",
+            desc: "Lack of major industries results in fewer job opportunities, leading to migration of youth to urban centers."
+          }
+        ]
+      }
+
+    ]
   }
 
 ]
