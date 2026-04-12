@@ -3274,6 +3274,341 @@
       ]
     }
   ]
+},
+{
+  distNo: 5,
+  distName: "Krishnagiri",
+  consit: [
+
+    {
+      constno: 51,
+      constname: "Uthangarai",
+      about: "Uthangarai is a semi-arid constituency with agriculture as the primary occupation. The region depends on seasonal rainfall and limited irrigation sources, with crops such as millets and groundnut cultivated in dryland conditions.",
+
+      problem: [
+        {
+          title: "Rain-fed agriculture dependency",
+          desc: "Agriculture in Uthangarai relies heavily on monsoon rainfall due to lack of major irrigation infrastructure. Irregular rainfall patterns lead to unstable crop yields and financial uncertainty for farmers."
+        },
+        {
+          title: "Groundwater depletion",
+          desc: "Increased reliance on borewells for irrigation has led to declining groundwater levels, making water access more difficult and increasing cultivation costs."
+        },
+        {
+          title: "Drought vulnerability",
+          desc: "The semi-arid climate and low rainfall frequently create drought-like conditions, impacting both agriculture and rural livelihoods."
+        }
+      ]
+    },
+
+    {
+      constno: 52,
+      constname: "Bargur",
+      about: "Bargur constituency is a hilly and forest-influenced region located near the Eastern Ghats, with a mix of agriculture and tribal settlements.",
+
+      problem: [
+        {
+          title: "Human-wildlife conflict",
+          desc: "Proximity to forest areas leads to frequent movement of wild animals such as elephants into agricultural lands, causing crop damage and safety concerns for villagers."
+        },
+        {
+          title: "Connectivity challenges",
+          desc: "Hilly terrain and scattered settlements limit road connectivity, affecting transportation, access to education, and healthcare services."
+        },
+        {
+          title: "Water scarcity",
+          desc: "Dependence on seasonal rainfall and limited water storage infrastructure results in water shortages during dry periods."
+        }
+      ]
+    },
+
+    {
+      constno: 53,
+      constname: "Krishnagiri",
+      about: "Krishnagiri constituency is an important administrative and commercial center, widely known for mango production and trade. The region also benefits from its strategic location along major national highways connecting Tamil Nadu and Karnataka.",
+
+      problem: [
+        {
+          title: "Highway traffic congestion",
+          desc: "National highways passing through Krishnagiri carry heavy interstate traffic, leading to congestion, delays, and increased risk of road accidents, especially in town areas."
+        },
+        {
+          title: "Water resource pressure",
+          desc: "Growing population and agricultural demand, especially in mango cultivation, have increased pressure on available water resources, leading to supply challenges."
+        },
+        {
+          title: "Urban expansion issues",
+          desc: "Rapid urbanization without proportional infrastructure development has created challenges in road maintenance, drainage, and public services."
+        }
+      ]
+    },
+
+    {
+      constno: 54,
+      constname: "Veppanahalli",
+      about: "Veppanahalli is a semi-urban constituency located near the Tamil Nadu–Karnataka border, with agriculture and cross-border trade contributing to its economy.",
+
+      problem: [
+        {
+          title: "Water scarcity",
+          desc: "Limited rainfall and dependence on groundwater lead to water shortages for both domestic and agricultural purposes."
+        },
+        {
+          title: "Agricultural instability",
+          desc: "Farmers face uncertainty due to irregular rainfall and lack of consistent irrigation support."
+        },
+        {
+          title: "Cross-border traffic pressure",
+          desc: "Movement of goods and vehicles across the state border leads to congestion and road wear in key transport routes."
+        }
+      ]
+    },
+
+    {
+      constno: 55,
+      constname: "Hosur",
+      about: "Hosur is a major industrial hub in Tamil Nadu, known for automobile, electronics, and manufacturing industries. Its proximity to Bengaluru has driven rapid industrialization and urban growth.",
+
+      problem: [
+        {
+          title: "Industrial pollution",
+          desc: "Rapid industrial growth has led to increased air and water pollution, affecting environmental quality and public health in surrounding areas."
+        },
+        {
+          title: "Traffic congestion and urban pressure",
+          desc: "High vehicle density due to industrial activity and proximity to Bengaluru results in severe traffic congestion and stress on urban infrastructure."
+        },
+        {
+          title: "Water supply challenges",
+          desc: "Industrial demand and population growth have increased pressure on water resources, leading to shortages in certain areas."
+        }
+      ]
+    },
+
+    {
+      constno: 56,
+      constname: "Thalli",
+      about: "Thalli constituency is a rural and hilly region located near the Karnataka border, often referred to as 'Little England' due to its climate. Agriculture and horticulture are the primary occupations.",
+
+      problem: [
+        {
+          title: "Water scarcity",
+          desc: "Despite favorable climate, limited water infrastructure and seasonal rainfall variations create water shortages for farming and domestic use."
+        },
+        {
+          title: "Connectivity limitations",
+          desc: "Hilly terrain and dispersed villages lead to poor road connectivity, affecting access to essential services."
+        },
+        {
+          title: "Agricultural challenges",
+          desc: "Farmers face issues related to irrigation, market access, and fluctuating crop prices."
+        }
+      ]
+    }
+
+  ]
+},{
+  distNo: 4,
+  distName: "Vellore",
+  consit: [
+
+    {
+      constno: 43,
+      constname: "Vellore",
+      about: "Vellore constituency is a major urban center known for its historical importance, educational institutions, and healthcare facilities, especially the Christian Medical College (CMC). It functions as an administrative and commercial hub with a rapidly growing urban population.",
+
+      problem: [
+        {
+          title: "Urban traffic congestion",
+          desc: "Increasing number of vehicles and narrow city roads have led to heavy traffic congestion in key areas of Vellore, particularly during peak hours, affecting daily commuting and emergency movement."
+        },
+        {
+          title: "Water scarcity due to Palar river depletion",
+          desc: "The Palar river, which once served as a major water source, now has significantly reduced flow due to over-extraction and upstream usage, leading to dependency on groundwater and water shortages."
+        },
+        {
+          title: "Waste management challenges",
+          desc: "Rapid urbanization and hospital-related waste generation create pressure on municipal waste management systems, leading to sanitation concerns in certain areas."
+        }
+      ]
+    },
+
+    {
+      constno: 44,
+      constname: "Katpadi",
+      about: "Katpadi is an important educational and transportation hub in Vellore district, hosting major institutions and a key railway junction, making it a central point for movement of people and services.",
+
+      problem: [
+        {
+          title: "Traffic congestion near railway junction",
+          desc: "Heavy movement of passengers, students, and vehicles around Katpadi junction causes frequent congestion, especially during peak travel hours."
+        },
+        {
+          title: "Infrastructure strain due to urban growth",
+          desc: "Expansion of residential and institutional areas has increased pressure on roads, drainage systems, and civic amenities."
+        },
+        {
+          title: "Water supply issues",
+          desc: "Rising population and demand have led to irregular water supply in certain parts of Katpadi."
+        }
+      ]
+    },
+
+    {
+      constno: 45,
+      constname: "Anaikattu",
+      about: "Anaikattu is a semi-rural constituency with agriculture as the primary occupation. The region depends on rainfall and limited irrigation facilities, with a mix of farming and small-scale activities.",
+
+      problem: [
+        {
+          title: "Agricultural dependency on rainfall",
+          desc: "Farmers in Anaikattu rely mainly on seasonal monsoon rains due to lack of major irrigation infrastructure, resulting in unpredictable crop production."
+        },
+        {
+          title: "Groundwater depletion",
+          desc: "Excessive use of borewells for irrigation has led to declining groundwater levels, making water access difficult during dry periods."
+        },
+        {
+          title: "Rural infrastructure limitations",
+          desc: "Villages face challenges such as poor road connectivity, limited healthcare access, and inadequate public facilities."
+        }
+      ]
+    },
+
+    {
+      constno: 46,
+      constname: "Kilvaithinankuppam",
+      about: "Kilvaithinankuppam is a predominantly rural constituency with agriculture forming the backbone of the local economy, supported by seasonal rainfall and limited water resources.",
+
+      problem: [
+        {
+          title: "Water scarcity",
+          desc: "Limited rainfall and insufficient irrigation facilities result in water shortages affecting both agriculture and domestic usage."
+        },
+        {
+          title: "Agricultural instability",
+          desc: "Dependence on rainfall leads to fluctuations in crop yield and income for farmers."
+        },
+        {
+          title: "Lack of infrastructure",
+          desc: "Basic infrastructure such as roads, healthcare, and education facilities are underdeveloped in certain rural areas."
+        }
+      ]
+    },
+
+    {
+      constno: 47,
+      constname: "Gudiyatham",
+      about: "Gudiyatham constituency has a mix of agriculture and small-scale industries, with a large rural population dependent on farming and local economic activities.",
+
+      problem: [
+        {
+          title: "Water scarcity",
+          desc: "Groundwater depletion and irregular rainfall create water shortages for drinking and irrigation purposes."
+        },
+        {
+          title: "Agricultural challenges",
+          desc: "Farmers face uncertainty due to lack of consistent irrigation support and changing climatic conditions."
+        },
+        {
+          title: "Employment limitations",
+          desc: "Limited industrial growth results in fewer employment opportunities, leading to migration of youth to urban areas."
+        }
+      ]
+    }
+
+  ]
+},
+{
+  distNo: 36,
+  distName: "Tirupattur",
+  consit: [
+
+    {
+      constno: 50,
+      constname: "Tirupattur",
+      about: "Tirupattur constituency is an administrative and semi-urban center with a mix of agriculture and small-scale industries. The region lies in the Palar river basin and depends heavily on groundwater and seasonal rainfall.",
+
+      problem: [
+        {
+          title: "Water scarcity in Palar basin",
+          desc: "The Palar river has significantly reduced flow due to over-extraction and lack of perennial water, leading to heavy dependence on groundwater. This results in recurring water shortages for both domestic use and agriculture."
+        },
+        {
+          title: "Urban infrastructure limitations",
+          desc: "Growing population and urban expansion have created pressure on roads, drainage systems, and public services, leading to congestion and civic issues in town areas."
+        },
+        {
+          title: "Agricultural dependency on rainfall",
+          desc: "Farmers depend on monsoon rainfall due to lack of major irrigation systems, resulting in unstable crop production and income variability."
+        }
+      ]
+    },
+
+    {
+      constno: 51,
+      constname: "Jolarpet",
+      about: "Jolarpet is a major railway junction in Tamil Nadu, acting as a key transport hub connecting southern and northern parts of India. It supports trade, mobility, and economic activity in the region.",
+
+      problem: [
+        {
+          title: "Traffic congestion near railway junction",
+          desc: "Heavy passenger movement, goods transport, and road traffic around Jolarpet junction create congestion, especially during peak travel hours, affecting mobility and infrastructure."
+        },
+        {
+          title: "Urban expansion pressure",
+          desc: "Growth of residential and commercial areas around the railway hub has increased demand for infrastructure, leading to strain on civic amenities."
+        },
+        {
+          title: "Water supply challenges",
+          desc: "Limited water sources and increasing population create irregular water supply in certain areas, especially during summer."
+        }
+      ]
+    },
+
+    {
+      constno: 52,
+      constname: "Vaniyambadi",
+      about: "Vaniyambadi is a major leather tanning and export hub in India, contributing significantly to the country's leather industry and providing employment to a large workforce.",
+
+      problem: [
+        {
+          title: "Leather industry pollution",
+          desc: "Effluent discharge from leather tanning units contributes to water and soil pollution, affecting nearby agricultural lands and ecosystems."
+        },
+        {
+          title: "Groundwater contamination",
+          desc: "Chemical waste from tanneries has led to contamination of groundwater sources, reducing water quality for drinking and irrigation."
+        },
+        {
+          title: "Worker health risks",
+          desc: "Workers in leather industries are exposed to chemicals, leading to respiratory and skin-related health problems due to prolonged exposure."
+        }
+      ]
+    },
+
+    {
+      constno: 53,
+      constname: "Ambur",
+      about: "Ambur is another key leather industry center known for its export-oriented manufacturing and contribution to the regional economy, especially in leather goods production.",
+
+      problem: [
+        {
+          title: "Industrial pollution from tanneries",
+          desc: "Leather processing units discharge chemical effluents that affect water bodies, soil quality, and surrounding agricultural activities."
+        },
+        {
+          title: "Water scarcity",
+          desc: "High industrial water consumption combined with limited natural water sources results in shortages for local residents."
+        },
+        {
+          title: "Labour welfare issues",
+          desc: "Workers in leather industries face long working hours, wage-related concerns, and limited job security due to informal employment structures."
+        }
+      ]
+    }
+
+  ]
 }
 
 
