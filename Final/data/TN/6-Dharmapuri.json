@@ -1,0 +1,164 @@
+[
+    {
+        "distNo": 7,
+        "distName": "Dharmapuri",
+        "consit": [
+            {
+                "constno": 60,
+                "constname": "Dharmapuri",
+                "about": "Dharmapuri constituency is a significant semi-arid and agricultural center in Dharmapuri district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Dharmapuri city and surrounding areas, and it is part of the Dharmapuri Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Severe water scarcity due to drought conditions and groundwater depletion"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Crop losses and unstable yields due to climate variability"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Limited industrial development leading to unemployment"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor rural roads and connectivity issues"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Limited healthcare facilities in rural areas"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Inadequate sanitation infrastructure"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Deforestation and water resource depletion affecting sustainability"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Need for better drought management and welfare implementation"
+                    }
+                ]
+            },
+            {
+                "constno": 61,
+                "constname": "Pennagaram",
+                "about": "Pennagaram constituency is a significant rural and forest-area constituency in Dharmapuri district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Dharmapuri city and surrounding areas, and it is part of the Dharmapuri Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Acute drinking water shortages in tribal and remote villages"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor road connectivity in hilly and forest areas"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Limited access to healthcare facilities in remote areas"
+                    },
+                    {
+                        "title": "Education",
+                        "desc": "Low educational infrastructure and school accessibility"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Lack of job opportunities beyond agriculture and forest work"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Forest degradation and human-wildlife conflicts"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Poor sanitation and lack of basic facilities"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Limited reach of government services in tribal areas"
+                    }
+                ]
+            },
+            {
+                "constno": 62,
+                "constname": "Palacode",
+                "about": "Palacode constituency is a significant agricultural and rural center in Dharmapuri district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Dharmapuri city and surrounding areas, and it is part of the Dharmapuri Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Declining groundwater levels affecting irrigation"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Fluctuating yields due to water scarcity and climate issues"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor transport connectivity in rural areas"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Limited industrial presence leading to migration"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Inadequate healthcare services"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Lack of sanitation infrastructure"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Soil degradation and resource depletion"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Slow development and lack of infrastructure investment"
+                    }
+                ]
+            },
+            {
+                "constno": 63,
+                "constname": "Harur",
+                "about": "Harur constituency is a significant reserved and rural center in Dharmapuri district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Dharmapuri city and surrounding areas, and it is part of the Dharmapuri Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Severe drinking water shortages and lack of irrigation systems"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Low agricultural productivity due to drought and poor soil conditions"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor connectivity and road conditions in remote villages"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "High unemployment and dependence on seasonal work"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Limited access to healthcare services in rural areas"
+                    },
+                    {
+                        "title": "Education",
+                        "desc": "Poor school infrastructure and low literacy levels"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Deforestation and ecological degradation"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Weak implementation of welfare schemes in marginalized communities"
+                    }
+                ]
+            }
+        ]
+    }
+]

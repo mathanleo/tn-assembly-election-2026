@@ -1,0 +1,222 @@
+{
+  "distNo": 7,
+  "distName": "Tiruvannamalai",
+  "consit": [
+    {
+      "constno": 62,
+      "constname": "Chengam (SC)",
+      "about": "A reserved constituency located at the foot of the Jawadhu Hills, defined by its tribal-adjacent population and rain-fed agriculture. It serves as a major gateway between Tiruvannamalai and the western districts of Tamil Nadu.",
+      "problem": [
+        {
+          "title": "Elephant-Human Conflict",
+          "desc": "Farmers in the hill-border villages face constant crop raids by wild elephants; solar fencing projects are incomplete, and compensation for lost life/crops is delayed by years."
+        },
+        {
+          "title": "Sathanur Dam Siltation",
+          "desc": "The primary water source for the region has lost 30% of its capacity due to silt; water release for the 'tail-end' farmers is highly irregular, leading to crop failure."
+        },
+        {
+          "title": "Lack of Cold Storage",
+          "desc": "As a major producer of tomatoes and seasonal vegetables, Chengam lacks a government-run cold storage unit, forcing farmers to dump produce during price crashes."
+        },
+        {
+          "title": "Tribal Road Connectivity",
+          "desc": "Dozens of mountain hamlets still lack all-weather blacktop roads, making it impossible for ambulances to reach patients during the monsoon."
+        },
+        {
+          "title": "Youth Migration",
+          "desc": "With no local industrial estates, nearly 40% of the rural youth migrate to Bengaluru or Chennai for low-wage construction work."
+        }
+      ]
+    },
+    {
+      "constno": 63,
+      "constname": "Tiruvannamalai",
+      "about": "The district headquarters and a world-renowned spiritual hub home to the Annamalaiyar Temple. It is an urbanizing constituency that balances massive seasonal pilgrim influx with a growing service-based economy.",
+      "problem": [
+        {
+          "title": "Girivalam Path Sanitation",
+          "desc": "Despite its global fame, the 14km Girivalam path struggles with open waste dumping and lack of adequate public toilets for the millions who visit during Pournami."
+        },
+        {
+          "title": "Traffic & Parking Crisis",
+          "desc": "The town lacks a dedicated multi-level parking facility; during festival seasons, the entire city becomes a gridlock, trapping local residents in their homes."
+        },
+        {
+          "title": "Underground Sewerage Failure",
+          "desc": "The long-pending UGD project remains partially functional, with raw sewage often overflowing into residential streets near the temple area."
+        },
+        {
+          "title": "Government Medical College Gaps",
+          "desc": "The local Medical College is under-equipped for specialized surgeries, forcing patients to travel 90km to Vellore (CMC) for emergency trauma care."
+        },
+        {
+          "title": "Unemployment in Arts Graduates",
+          "desc": "Despite numerous private colleges, there is no IT park or business hub, leading to high unemployment among the city's educated youth."
+        }
+      ]
+    },
+    {
+      "constno": 64,
+      "constname": "Kilpennathur",
+      "about": "A predominantly agrarian constituency situated on the eastern plains of the district. It is characterized by extensive paddy cultivation and a large network of village panchayats centered around the Kilpennathur town.",
+      "problem": [
+        {
+          "title": "Direct Purchase Center (DPC) Scams",
+          "desc": "Farmers report being forced to pay 'bribes' of ₹50 per bag to local agents at government paddy procurement centers just to offload their harvest."
+        },
+        {
+          "title": "Drinking Water Salinity",
+          "desc": "Groundwater in several blocks has turned hard and saline; the 'Hogenakkal Phase II' water scheme has yet to reach many interior habitations."
+        },
+        {
+          "title": "Crumbling School Buildings",
+          "desc": "Over 15 government primary schools in this constituency are currently operating in dilapidated structures that were officially declared unsafe in 2024."
+        },
+        {
+          "title": "Milk Cooperative Arrears",
+          "desc": "Dairy farmers are facing a 3-month delay in payments from state-run cooperatives, making it difficult for them to purchase cattle feed."
+        },
+        {
+          "title": "Encroached Irrigation Tanks",
+          "desc": "Major village tanks (Kanmais) are heavily encroached by local influencers, reducing their water-holding capacity and causing summer droughts."
+        }
+      ]
+    },
+    {
+      "constno": 65,
+      "constname": "Kalasapakkam",
+      "about": "A scenic constituency located along the Cheyyar river basin, known for its traditional farming and unique forest-adjacent geography. It is a region with a strong rural identity and a focus on essential agriculture.",
+      "problem": [
+        {
+          "title": "Cheyyar River Sand Mining",
+          "desc": "Illegal sand mining has lowered the riverbed significantly, causing the water table in surrounding agricultural wells to drop by 200 feet in just three years."
+        },
+        {
+          "title": "Lack of Emergency Care",
+          "desc": "The local Government Hospital lacks a 24/7 blood bank and ventilator support, requiring every emergency case to be referred to Tiruvannamalai."
+        },
+        {
+          "title": "Sugar Mill Shutdown",
+          "desc": "The closure of nearby sugar mills has left thousands of sugarcane growers with no place to crush their crops, forcing them to switch to less profitable grains."
+        },
+        {
+          "title": "Bridge Construction Delays",
+          "desc": "The long-promised bridge across the Cheyyar river at Polur-Kalasapakkam border remains a skeleton, forcing school kids to take 15km detours."
+        },
+        {
+          "title": "High Alcoholism Rates",
+          "desc": "Residents report a surge in illicit liquor and 'belt shops' in rural pockets, which has led to increased domestic violence and family debt."
+        }
+      ]
+    },
+    {
+      "constno": 66,
+      "constname": "Polur",
+      "about": "A major administrative and commercial hub in the northern part of the district. It is famous for its hilltop temples and serves as a vital junction connecting Vellore, Tiruvannamalai, and Chengam.",
+      "problem": [
+        {
+          "title": "Vanniyar Internal Reservation",
+          "desc": "The 10.5% internal reservation issue is a massive talking point here; the local community feels neglected by the current government's handling of the policy."
+        },
+        {
+          "title": "Interlinking of Rivers",
+          "desc": "The demand to interlink the Palar, Thenpennai, and Cheyyar rivers to recharge the dry groundwater table remains an unfulfilled poll promise from 2021."
+        },
+        {
+          "title": "Bus Stand Encroachment",
+          "desc": "The main Polur bus stand is too small for the 500+ buses passing through; illegal shops on the platform make it nearly impossible for passengers to stand."
+        },
+        {
+          "title": "Unemployment in Handloom",
+          "desc": "Traditional weavers in Polur are quitting the profession as power-looms produce cheaper imitations of their heritage designs without any GI protection."
+        },
+        {
+          "title": "Stagnant SIPCOT Demand",
+          "desc": "There is a persistent demand for a small-scale industrial park to process local groundnut and paddy, but no land has been allotted yet."
+        }
+      ]
+    },
+    {
+      "constno": 67,
+      "constname": "Arani",
+      "about": "World-renowned as a hub for 'Arani Silk,' this constituency is an industrial and weaving powerhouse. It is a high-density region where the economy is driven by handloom silk production and rice milling.",
+      "problem": [
+        {
+          "title": "Silk Park Stalemate",
+          "desc": "The proposed 'Arani Silk Park' project, first announced in 2002, is still stuck in land acquisition and environmental clearance."
+        },
+        {
+          "title": "Zari Price Inflation",
+          "desc": "The cost of pure gold/silver Zari has tripled in 2026, forcing weavers to shift to chemical alternatives."
+        },
+        {
+          "title": "Pollution from Rice Mills",
+          "desc": "Over 100 rice mills dump waste into open lands causing respiratory and groundwater contamination."
+        },
+        {
+          "title": "Railway Connectivity",
+          "desc": "Arani lacks direct rail connectivity and long-pending rail link proposals remain unimplemented."
+        },
+        {
+          "title": "Dying Handloom Societies",
+          "desc": "Cooperative weaving societies are in debt and subsidies are delayed, affecting livelihood security."
+        }
+      ]
+    },
+    {
+      "constno": 68,
+      "constname": "Cheyyar",
+      "about": "A rapidly urbanizing constituency hosting a major SIPCOT industrial estate, blending manufacturing industries with traditional agriculture.",
+      "problem": [
+        {
+          "title": "Land Acquisition Protests",
+          "desc": "Farmers oppose SIPCOT expansion, claiming fertile agricultural land is being acquired for industrial use."
+        },
+        {
+          "title": "Contract Labor Exploitation",
+          "desc": "Majority of workers are contract-based without job security or benefits."
+        },
+        {
+          "title": "Groundwater Depletion",
+          "desc": "Industrial water usage has caused severe depletion of groundwater in surrounding villages."
+        },
+        {
+          "title": "Housing Subsidy Gap",
+          "desc": "Government housing subsidies are insufficient due to rising construction costs."
+        },
+        {
+          "title": "Road Safety Issues",
+          "desc": "Industrial truck traffic has increased road accidents due to poor infrastructure."
+        }
+      ]
+    },
+    {
+      "constno": 69,
+      "constname": "Vandavasi (SC)",
+      "about": "A historic constituency known for traditional weaving and agriculture, with a large SC population dependent on rural labor and small industries.",
+      "problem": [
+        {
+          "title": "Korai Mat Industry Decline",
+          "desc": "Traditional mat weaving is declining due to competition from synthetic products."
+        },
+        {
+          "title": "SC Sub-Plan Fund Gaps",
+          "desc": "Reported diversion of funds meant for SC colony infrastructure development."
+        },
+        {
+          "title": "Higher Education Access",
+          "desc": "Lack of nearby government colleges forces long-distance travel for higher education."
+        },
+        {
+          "title": "Tail-end Irrigation Crisis",
+          "desc": "End-point canal areas receive little or no water for years."
+        },
+        {
+          "title": "Youth Unemployment",
+          "desc": "Younger generation migrates due to collapse of traditional weaving economy."
+        }
+      ]
+    }
+  ]
+}

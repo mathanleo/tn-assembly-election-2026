@@ -1,0 +1,114 @@
+{
+  "distNo": 20,
+  "distName": "Thiruvarur",
+  "consit": [
+    {
+      "constno": 166,
+      "constname": "Thiruthuraipoondi (SC)",
+      "about": "A coastal-agrarian constituency at the end of the Vennar system, it is highly disaster-prone and relies on traditional salt-resistant rice. It was established in 1951 as a reserved seat for Scheduled Castes.",
+      "problem": [
+        {
+          "title": "Coastal Erosion",
+          "desc": "The absence of sea walls in fishing hamlets has led to the sea swallowing residential lands and coconut groves in early 2026."
+        },
+        {
+          "title": "Muthupet Mangrove Decay",
+          "desc": "Encroachments and pollution are killing the mangroves, which are the district's only natural defense against cyclones."
+        },
+        {
+          "title": "Drainage Siltation",
+          "desc": "Monsoon water stays in the fields for weeks because the drainage canals are clogged, rotting the paddy before harvest."
+        },
+        {
+          "title": "Wage Payment Delays",
+          "desc": "Laborers under the 100-day work scheme (MGNREGA) report that payments have been pending for over 90 days."
+        },
+        {
+          "title": "Trauma Care Absence",
+          "desc": "The distance to the nearest major hospital results in many deaths during transit for accident victims on the coastal roads."
+        }
+      ]
+    },
+    {
+      "constno": 167,
+      "constname": "Mannargudi",
+      "about": "Established as a constituency in 1951, Mannargudi is known as the 'Granary of the Delta' and home to the Rajagopalaswamy Temple. It is a major center for both paddy agriculture and small-scale industry.",
+      "problem": [
+        {
+          "title": "UGD Project Delays",
+          "desc": "Ongoing underground drainage work has left city roads in a dug-up, hazardous condition for over three years with no completion in sight."
+        },
+        {
+          "title": "Coal Bed Methane Panic",
+          "desc": "Renewed government moves for hydrocarbon exploration in 2026 have triggered mass protests among the farming community."
+        },
+        {
+          "title": "Pamani River Pollution",
+          "desc": "Untreated effluents and plastic waste are being dumped into the Pamani river, which is the lifeline for local irrigation."
+        },
+        {
+          "title": "Lack of Agro-Industry",
+          "desc": "Despite being a top pulse producer, there is no government-run mill to process urad dal, leaving profit to middlemen."
+        },
+        {
+          "title": "Bus Stop Monopoly",
+          "desc": "Private bus operators frequently skip scheduled stops in rural hamlets, leaving elderly passengers and students stranded."
+        }
+      ]
+    },
+    {
+      "constno": 168,
+      "constname": "Thiruvarur",
+      "about": "The district headquarters and a cultural capital, famous for the Thyagarajaswamy Temple and the largest temple chariot in the state. It has been represented by political giants and is the core of the district's administrative life.",
+      "problem": [
+        {
+          "title": "Medical College Hygiene",
+          "desc": "The District Medical College suffers from severe hygiene issues, with stray dogs inside wards and broken toilet facilities."
+        },
+        {
+          "title": "Water Pipe Contamination",
+          "desc": "In the old town, rusted drinking water pipes run through sewage drains, leading to frequent outbreaks of water-borne diseases."
+        },
+        {
+          "title": "New Bus Stand Isolation",
+          "desc": "The bus stand's location far from the city center, without proper shuttle connectivity, has become a major grievance for commuters."
+        },
+        {
+          "title": "Temple Tank Silt",
+          "desc": "The massive Kamalambal tank is choked with plastic waste and sewage, as cleaning projects have been abandoned midway."
+        },
+        {
+          "title": "Stagnant SIDCO Estate",
+          "desc": "The local industrial estate lacks power and road infrastructure, preventing any new businesses from setting up shop and creating jobs."
+        }
+      ]
+    },
+    {
+      "constno": 169,
+      "constname": "Nannilam",
+      "about": "A central delta constituency purely dependent on the Vennar river basin. It was a reserved seat until 2011 and is one of the most fertile paddy-growing regions in Tamil Nadu, defined by its traditional village life.",
+      "problem": [
+        {
+          "title": "Vennar River Siltation",
+          "desc": "The riverbed is now higher than the off-take canals, preventing water from entering irrigation channels during the crucial sowing season."
+        },
+        {
+          "title": "Highway Paddy Drying",
+          "desc": "A total lack of drying yards forces farmers to use the Tiruvarur-Mayiladuthurai highway, leading to frequent accidents and loss of life."
+        },
+        {
+          "title": "No Govt Arts College",
+          "desc": "Nannilam remains one of the few taluks without a government degree college, forcing poor students to drop out due to travel costs."
+        },
+        {
+          "title": "PHC Night Closures",
+          "desc": "Primary Health Centers in rural Nannilam close after 4 PM, leaving residents without emergency care for snake bites or accidents."
+        },
+        {
+          "title": "Private Mill Monopoly",
+          "desc": "A few private rice millers control the prices in the region, often delaying payments to farmers for months."
+        }
+      ]
+    }
+  ]
+}

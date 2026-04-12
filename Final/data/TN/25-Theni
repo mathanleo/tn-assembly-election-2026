@@ -1,0 +1,83 @@
+{
+  distNo:25,
+  distName: "Theni",
+  consit: [
+    {
+      constno: 198,
+      constname: "Andipatti",
+      about: "Andipatti is a State Legislative Assembly constituency in Theni district of Tamil Nadu. It includes Andipatti town and surrounding areas and is part of the Theni Lok Sabha constituency. Established in 1962, it is one of the 234 constituencies in the state.",
+      problem: [
+        {
+          title: "Poor Basic Infrastructure",
+          desc: "Residents report poor road conditions, inadequate drainage systems, and lack of proper civic infrastructure. Several development works have remained incomplete over the years."
+        },
+        {
+          title: "Drinking Water Shortage",
+          desc: "Many areas face irregular and insufficient drinking water supply, forcing residents to depend on alternative sources for daily needs."
+        },
+        {
+          title: "Unresolved Development Issues",
+          desc: "Long-standing civic problems including infrastructure and public service gaps remain unresolved despite repeated demands from residents over multiple election cycles."
+        }
+      ]
+    },
+{
+      constno: 199,
+      constname: "Periyakulam (SC)",
+      about: "Periyakulam is a State Legislative Assembly constituency in Theni district of Tamil Nadu. It is a Scheduled Caste (SC) reserved constituency and part of the Theni Lok Sabha constituency. Established in 1951, it includes the major towns of Theni and Periyakulam along with surrounding areas.",
+      problem: [
+        {
+          title: "Agricultural Transport & Market Access Issues",
+          desc: "Farmers in the Periyakulam region reported difficulties in transporting agricultural produce to markets, leading to reduced income opportunities. The need to restore transport services for farm produce highlights gaps in rural logistics and market connectivity."
+        },
+        {
+          title: "Irrigation & Water Infrastructure Problems",
+          desc: "Irrigation infrastructure issues, including damaged pipelines and dependence on water sources like dams and rivers, affect agricultural productivity in the region. Water management remains a key concern for farming communities."
+        },
+        {
+          title: "Infrastructure & Public Service Gaps",
+          desc: "Reports indicate concerns regarding public infrastructure such as roads, welfare facilities, and basic services. Farmers and residents have raised demands for improved government support and faster implementation of development schemes."
+        }
+      ]
+    },
+{
+      constno: 200,
+      constname: "Bodinayakanur",
+      about: "Bodinayakanur is a State Legislative Assembly constituency in Theni district of Tamil Nadu. It is part of the Theni Lok Sabha constituency and has been in existence since 1957. The constituency includes towns and surrounding areas within the district and is one of the 234 constituencies in the state.",
+      problem: [
+        {
+          title: "Lack of Basic Amenities & Road Connectivity",
+          desc: "Residents in hill areas like Kurangani in the Bodinayakanur constituency have complained about poor road connectivity and lack of basic facilities. The issue has persisted over multiple terms, with villagers even threatening to boycott elections due to continued neglect."
+        },
+        {
+          title: "Livelihood Impact Due to Grazing Ban",
+          desc: "Pastoral communities in the Bodi region have protested against restrictions on forest grazing, stating that the ban has severely affected their traditional livelihoods and income sources."
+        },
+        {
+          title: "Agriculture & Irrigation Dependence",
+          desc: "Farming in Bodinayakanur depends heavily on canal-based irrigation systems. Water release decisions and availability directly impact crop cultivation, highlighting the region’s dependence on consistent irrigation infrastructure."
+        }
+      ]
+    },
+
+    {
+      constno: 201,
+      constname: "Cumbum",
+      about: "Cumbum is a State Legislative Assembly constituency in Theni district of Tamil Nadu. It is part of the Theni Lok Sabha constituency and was established in 1951. The constituency includes towns and surrounding areas within the district and is one of the 234 constituencies in the state.",
+      problem: [
+        {
+          title: "Illegal Quarrying & Law-and-Order Conflicts",
+          desc: "Disputes over stone quarrying activities in the Cumbum region have led to serious law-and-order issues, including violent clashes and protests by local residents demanding action against illegal quarry operations."
+        },
+        {
+          title: "Lack of Basic Facilities for Pilgrimage & Tourism",
+          desc: "Authorities were directed to improve facilities for devotees visiting temples in the Cumbum region, highlighting gaps in infrastructure, sanitation, and crowd management during major festivals."
+        },
+        {
+          title: "Public Safety & Infrastructure Concerns",
+          desc: "Incidents such as accidents, lack of proper safety measures in public spaces, and concerns around transport and civic infrastructure indicate gaps in public safety and urban management."
+        }
+      ]
+    },
+  ]
+};

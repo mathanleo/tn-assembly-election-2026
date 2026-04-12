@@ -1,0 +1,227 @@
+{
+  distNo: 9,
+  distName: "Salem",
+  consit: [
+
+    {
+      constno: 81,
+      constname: "Gangavalli (SC)",
+      about: "Gangavalli is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It was formed after the 2008 delimitation and is reserved for Scheduled Castes. It is part of the Kallakurichi Lok Sabha constituency and includes Gangavalli taluk and parts of Attur taluk. :contentReference[oaicite:0]{index=0}",
+      problem: [
+        {
+          title: "Road Safety & Accidents",
+          desc: "Fatal road accidents have been reported in Gangavalli region, highlighting safety concerns in rural roads. :contentReference[oaicite:1]{index=1}"
+        },
+        {
+          title: "Water Body Safety Issues",
+          desc: "Incidents of drowning in lakes indicate lack of safety measures and monitoring in rural water bodies. :contentReference[oaicite:2]{index=2}"
+        },
+        {
+          title: "Rural Infrastructure Gaps",
+          desc: "Rural areas face challenges in road connectivity, drainage, and public services."
+        }
+      ]
+    },
+
+    {
+      constno: 82,
+      constname: "Attur (SC)",
+      about: "Attur is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It is a Scheduled Caste reserved constituency and part of the Kallakurichi Lok Sabha constituency. It includes Attur town and surrounding areas. :contentReference[oaicite:3]{index=3}",
+      problem: [
+        {
+          title: "Water Body Safety & Drowning Incidents",
+          desc: "Multiple drowning incidents in lakes near Attur highlight lack of safety infrastructure. :contentReference[oaicite:4]{index=4}"
+        },
+        {
+          title: "Road Safety Concerns",
+          desc: "Accident-prone areas and rural road conditions pose risks to commuters."
+        },
+        {
+          title: "Public Safety & Emergency Response",
+          desc: "Delayed emergency response in rural areas affects accident outcomes."
+        }
+      ]
+    },
+
+    {
+      constno: 83,
+      constname: "Yercaud (ST)",
+      about: "Yercaud is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It is a Scheduled Tribe reserved constituency and part of the Kallakurichi Lok Sabha constituency. It includes hilly and forest areas. :contentReference[oaicite:5]{index=5}",
+      problem: [
+        {
+          title: "Ghat Road Accidents",
+          desc: "Accidents on Yercaud ghat roads, including fatal crashes, highlight dangerous terrain and road conditions. :contentReference[oaicite:6]{index=6}"
+        },
+        {
+          title: "Landslide & Weather Risks",
+          desc: "Heavy rains have led to travel bans and safety concerns due to landslides in hilly areas. :contentReference[oaicite:7]{index=7}"
+        },
+        {
+          title: "Election Rule Violations",
+          desc: "Cases of officials violating election conduct rules reflect governance and monitoring issues. :contentReference[oaicite:8]{index=8}"
+        }
+      ]
+    },
+
+    {
+      constno: 84,
+      constname: "Omalur",
+      about: "Omalur is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It forms part of the Salem Lok Sabha constituency and includes Omalur town and surrounding areas.",
+      problem: [
+        {
+          title: "Road Infrastructure Issues",
+          desc: "Road quality and connectivity issues affect transport and daily commute."
+        },
+        {
+          title: "Water Supply Issues",
+          desc: "Dependence on local water sources creates supply challenges."
+        },
+        {
+          title: "Urban Expansion Pressure",
+          desc: "Growing population puts pressure on civic infrastructure."
+        }
+      ]
+    },
+
+    {
+      constno: 85,
+      constname: "Mettur",
+      about: "Mettur is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It includes areas around the Mettur Dam and forms part of the Salem Lok Sabha constituency.",
+      problem: [
+        {
+          title: "Irrigation & Water Storage Issues",
+          desc: "Water levels in reservoirs impact agriculture and drinking water supply."
+        },
+        {
+          title: "Agricultural Dependency",
+          desc: "Farmers depend heavily on dam water for irrigation."
+        },
+        {
+          title: "Industrial Pollution Concerns",
+          desc: "Industrial activity in the region raises environmental concerns."
+        }
+      ]
+    },
+
+    {
+      constno: 86,
+      constname: "Edappadi",
+      about: "Edappadi is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It forms part of the Salem Lok Sabha constituency and includes Edappadi town and nearby regions.",
+      problem: [
+        {
+          title: "Road Safety Issues",
+          desc: "Highways and local roads are reported to be accident-prone."
+        },
+        {
+          title: "Transport Infrastructure",
+          desc: "Heavy traffic movement impacts connectivity and safety."
+        },
+        {
+          title: "Development Gaps",
+          desc: "Need for infrastructure upgrades to support economic growth."
+        }
+      ]
+    },
+
+    {
+      constno: 87,
+      constname: "Sankari",
+      about: "Sankari is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It forms part of the Namakkal Lok Sabha constituency and includes Sankari town and surrounding areas.",
+      problem: [
+        {
+          title: "Industrial Pollution",
+          desc: "Industrial zones contribute to pollution and environmental concerns."
+        },
+        {
+          title: "Traffic Congestion",
+          desc: "Heavy vehicle movement causes congestion and safety issues."
+        },
+        {
+          title: "Infrastructure Stress",
+          desc: "Rapid development increases pressure on public services."
+        }
+      ]
+    },
+
+    {
+      constno: 88,
+      constname: "Salem (West)",
+      about: "Salem West is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It forms part of the Salem Lok Sabha constituency and includes parts of Salem city.",
+      problem: [
+        {
+          title: "Urban Traffic Congestion",
+          desc: "High vehicle density leads to congestion in city areas."
+        },
+        {
+          title: "Waste Management Issues",
+          desc: "Urban waste disposal remains a challenge."
+        },
+        {
+          title: "Public Safety Concerns",
+          desc: "Urban crime and safety issues affect residents."
+        }
+      ]
+    },
+
+    {
+      constno: 89,
+      constname: "Salem (North)",
+      about: "Salem North is a State Legislative Assembly constituency in Salem district of Tamil Nadu and part of the Salem Lok Sabha constituency.",
+      problem: [
+        {
+          title: "Urban Infrastructure Pressure",
+          desc: "Rapid urban growth affects roads and services."
+        },
+        {
+          title: "Water Supply Issues",
+          desc: "Demand for drinking water exceeds supply in some areas."
+        },
+        {
+          title: "Traffic Management Issues",
+          desc: "Increasing vehicles create congestion problems."
+        }
+      ]
+    },
+
+    {
+      constno: 90,
+      constname: "Salem (South)",
+      about: "Salem South is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It forms part of the Salem Lok Sabha constituency and includes urban areas.",
+      problem: [
+        {
+          title: "Urban Development Challenges",
+          desc: "Infrastructure development struggles to keep pace with growth."
+        },
+        {
+          title: "Drainage & Flooding Issues",
+          desc: "Urban flooding occurs during heavy rains."
+        },
+        {
+          title: "Public Transport Issues",
+          desc: "Need for improved public transport systems."
+        }
+      ]
+    },
+
+    {
+      constno: 91,
+      constname: "Veerapandi",
+      about: "Veerapandi is a State Legislative Assembly constituency in Salem district of Tamil Nadu. It forms part of the Salem Lok Sabha constituency and includes rural and semi-urban areas.",
+      problem: [
+        {
+          title: "Rural Infrastructure Issues",
+          desc: "Villages face issues with roads and public services."
+        },
+        {
+          title: "Agriculture Challenges",
+          desc: "Farmers depend on rainfall and irrigation systems."
+        },
+        {
+          title: "Public Safety Issues",
+          desc: "Incidents during local events highlight safety concerns. :contentReference[oaicite:9]{index=9}"
+        }
+      ]
+    }
+
+  ]
+}

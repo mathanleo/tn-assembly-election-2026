@@ -92,27 +92,35 @@
       2024 Results awaited.</div> -->
    <nav class="navbarHead blur" id="navHeader">
       <div class="headerlogo">
-         <a href="./index.html"><img src="./images/imgs/RESULTS2024LOGO.png" alt="Logo" /></a>
+         <a href="./index.html" class="logo-container d-flex align-items-center text-decoration-none">
+            <img src="./images/imgs/TamilNadu_Logo.svg" alt="Logo" width="48" height="48"/>
+         <span class="logo-text">
+        <span class="tn">TN</span><span class="rest">2026.in</span>
+    </span>
+         </a>
       </div>
+
+      <!-- <span id="menu" onclick="toggleMenu()">
+         <i class="fas fa-bars"></i>
+      </span> -->
+
+      
       <div class="navigations">
         <span id="menu" class="d-lg-none" onclick="toggleMenu()">
-          <i class="fas fa-bars"></i>
+          <i class="fas fa-bars">
+            <span></span>
+          </i>
         </span>
+
         <div id="mobile-nav-content">
           <ul id="nav-links">
-            <li>
-              <a href="https://2019.results2024.in" class="links">2019 Results</a>
-            </li>
-            <li>
-              <a href="cardsPage.html" class="links">Popular Candidates</a>
-            </li>
-            <li>
-              <a href="./celebCards.html" class="links">Celebrities</a>
-            </li>
-            <li><a href="./compare.html" class="links">'24 vs '19</a></li>
-            <li>
-              <a href="./bigfights_viewall.html" class="links">Big fights</a>
-            </li>
+            <li><a href="index.html" class="links">Home</a></li>
+            <li><a href="#" class="links">Candidates</a></li>
+            <li><a href="#" class="links">Big Fights</a></li>
+            <li><a href="#" class="links">Head 2 Head</a></li>
+            <li><a href="#" class="links">2021 Results</a></li>
+
+
             <div class="a2a_kit a2a_kit_size_26 a2a_default_style socialMedia">
               <a class="a2a_button_facebook"></a>
               <a class="a2a_button_twitter"></a>
@@ -237,20 +245,20 @@
                   </div>
 
 
-                  <div id="chartsContainer">
+                  <!-- <div id="chartsContainer"> -->
                      <!-- <div id="square-container"></div> -->
-                     <div class="p-2" id="chartContainer">
+                     <!-- <div class="p-2" id="chartContainer"> -->
                         <!-- <h1 id="numberOfSeats">543</h1> -->
-                        <div id="myChart">
+                        <!-- <div id="myChart">
                            <svg id="pmap" viewBox="0 0 60 30"></svg>
-                        </div>
+                        </div> -->
 
                         <!-- <div id="allianceChart2"></div> -->
                         <!-- <div class="d-flex justify-content-center w-80 " style="height: 227px;">
                            <svg id="allianceChart"  viewBox="1 900 900"></svg>
                         </div> -->
 
-                     </div>
+                     <!-- </div> -->
                      <!-- div class="bar-container" id="bar-container">
                         <div class="bar bar-1" id="bar1"></div>
                         <div class="bar bar-2" id="bar2"></div>
@@ -270,7 +278,64 @@
                            </div>
                         </div>
                      </div> -->
-                  </div>
+                  <!-- </div> -->
+                   <div id="chartsContainer">
+  <div class="p-2" id="chartContainer">
+   <p style="font-size:18px; font-weight:600; color:#101828; margin-bottom:12px;">Contesting Candidates</p>
+    <div id="candidateCards" style="display:flex; gap:10px; flex-wrap:wrap;">
+
+      <!-- Card 1: stalin -->
+   <div style="width:151px; background:#FFFFFF; border:2px solid #B42318; border-radius:12px; padding:12px; display:flex; flex-direction:column; align-items:center; gap:8px; box-sizing:border-box;">
+  <img src="./images/candidates/stalin.png" alt="M K Stalin" style="width:134px; height:154px; object-fit:cover;">
+  <div style="display:flex; align-items:center; gap:6px;  width:134px; justify-content:space-between;">
+    <img src="./images/imgs/dmk_sym.png" alt="DMK" style="width:48px; height:48px; object-fit:contain;">
+    <div>
+      <div style="font-size:13px; font-weight:500; color:#101828;">M K Stalin</div>
+      <div style="font-size:11px; color:#6B7280;">DMK</div>
+    </div>
+  </div>
+</div>
+      
+
+      <!-- Card 2: eps -->
+     <div style="width:151px; background:#FFFFFF; border:2px solid #027A48; border-radius:12px; padding:12px; display:flex; flex-direction:column; align-items:center; gap:8px; box-sizing:border-box;">
+  <img src="./images/candidates/eps.png" alt="E.P.S" style="width:127px; height:157px; object-fit:cover;" onerror="this.style.display='none'">
+  <div style="display:flex; align-items:center; gap:6px; width:127px; justify-content:space-between;">
+    <img src="./images/imgs/admk.png" alt="ADMK" style="width:48px; height:48px; object-fit:contain;">
+    <div>
+      <div style="font-size:13px; font-weight:500; color:#101828;">E.P.S</div>
+      <div style="font-size:11px; color:#6B7280;">ADMK</div>
+    </div>
+  </div>
+</div>
+
+      <!-- Card 3: Seeman -->
+     <div style="width:151px; background:#FFFFFF; border:2px solid #6CE9A6; border-radius:12px; padding:12px; display:flex; flex-direction:column; align-items:center; gap:8px; box-sizing:border-box;">
+  <img src="./images/candidates/seeman.png" alt="Seeman" style="width:128px; height:158px; object-fit:cover;" onerror="this.style.display='none'">
+  <div style="display:flex; align-items:center; gap:6px;  width:128px; justify-content:space-between;">
+    <img src="./images/imgs/ntk.png" alt="NTK" style="width:48px; height:48px; object-fit:contain;">
+    <div>
+      <div style="font-size:13px; font-weight:500; color:#101828;">Seeman</div>
+      <div style="font-size:11px; color:#6B7280;">NTK</div>
+    </div>
+  </div>
+</div>
+
+      <!-- Card 4: Vijay -->
+    <div style="width:151px; background:#FFFFFF; border:2px solid #FDB022; border-radius:12px; padding:12px; display:flex; flex-direction:column; align-items:center; gap:8px; box-sizing:border-box;">
+  <img src="./images/candidates/vijay.png" alt="Vijay" style="width:128px; height:158px; object-fit:cover;" onerror="this.style.display='none'">
+  <div style="display:flex; align-items:center; gap:6px; width: 128px;justify-content:space-between;">
+    <img src="./images/imgs/TVK.png" alt="TVK" style="width:48px; height:48px; object-fit:contain;">
+    <div>
+      <div style="font-size:13px; font-weight:500; color:#101828;">Vijay</div>
+      <div style="font-size:11px; color:#6B7280;">TVK</div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
                   <!-- ----------------carousel------------------------------------ -->
                   <div id="carouselContainer" class="">
                      <!-- <div class="progress w-50  mx-auto justify-content-center mt-4">
@@ -981,7 +1046,7 @@
    </div>
    </div>
    <div id="disclaimer2019"> You are viewing 2019. For 2024 results, <a href="index.html">Click Here</a> </div>
-   <footer style="margin-top: 18px;" class="footer footerI">
+   <!-- <footer style="margin-top: 18px;" class="footer footerI">
       <div class="footerText">
          <p>Crafted with <img src="./images/imgs/heart.svg" style="width: 1.2rem;" alt="heart"> by Gradious</p>
          <p><img style="width: 6.8rem;margin-bottom:0.2rem;" src="./images/imgs/RESULTS2024LOGOcropped.png" alt=""> is a
@@ -1009,7 +1074,174 @@
          </script>
       </div>
 
-   </footer>
+   </footer> -->
+
+   <footer style="background-color: #ffffff; padding: 40px 60px 20px 60px;" class="footerI">
+  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+    
+    <!-- Column 1: Brand -->
+   <div style="display: flex; flex-direction: column; gap: 14px; width: 352px;">
+
+  <!-- Crafted With -->
+  <p style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054; margin: 0;">
+    Crafted with by <strong style="color:#101828;">Gradious</strong>
+  </p>
+
+  <!-- Description -->
+  <p style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054; margin: 0;">
+    <a href="#" style="color: #F55533; text-decoration: none;">TN2026.in</a> 
+    is a crowd sourced initiative for visualizing the 2024 Indian Parliamentary election results. 
+    It is not a source of data.
+  </p>
+
+  <!-- Built By -->
+  <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #344054; margin: 0;">
+    Built by
+  </p>
+
+  <!-- Logo -->
+  <div style="display: flex; align-items: center;">
+    <img src="./images/imgs/Gradious Logo.svg" alt="Gradious" style="width: 80px;">
+  </div>
+
+  <!-- Social Icons (184 x 32 Hug) -->
+  <div style="display: flex; gap: 12px; width: 184px;">
+
+    <!-- Facebook -->
+    <a href="#" style="width: 32px; height: 32px; background:#1877F2; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+      <img src="./images/imgs/fb_icon.svg" style="width:16px; height:16px;">
+    </a>
+
+    <!-- Instagram -->
+    <a href="#" style="width: 32px; height: 32px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+      background: radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" style="width:16px; height:16px;">
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="#" style="width: 32px; height: 32px; background:#0A66C2; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" style="width:16px; height:16px;">
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="#" style="width: 32px; height: 32px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" style="width:16px; height:16px;">
+    </a>
+
+    <!-- Twitter (24x24 inside 32x32) -->
+    <a href="#" style="width: 32px; height: 32px; background:#000; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" style="width:24px; height:24px;">
+    </a>
+
+  </div>
+
+</div>
+
+    <!-- Column 2: Quick Links -->
+    <div style="display: flex; flex-direction: column; gap: 15px; width: 113px;">
+  
+  <p style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; line-height: 20px; color: #101828; margin: 0;">
+    Quick Links
+  </p>
+
+  <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
+    
+    <li>
+      <a href="index.html" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        Home
+      </a>
+    </li>
+
+    <li>
+      <a href="#" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        Constituencies
+      </a>
+    </li>
+
+    <li>
+      <a href="#" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        Candidates
+      </a>
+    </li>
+
+    <li>
+      <a href="#" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        Big Fights
+      </a>
+    </li>
+
+    <li>
+      <a href="#" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        Head 2 Head
+      </a>
+    </li>
+
+    <li>
+      <a href="#" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        2021 Results
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+    <!-- Column 3: Quick Links 2 -->
+   <div style="display: flex; flex-direction: column; gap: 15px; width: 120px;">
+  
+  <p style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; line-height: 20px; color: #101828; margin: 0;">
+    Quick Links
+  </p>
+
+  <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
+    
+    <li>
+      <a href="#" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        Contact
+      </a>
+    </li>
+
+    <li>
+      <a href="./about.html" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        About Us
+      </a>
+    </li>
+
+    <li>
+      <a href="./disclaimer.html" style="text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054;">
+        Privacy Policy
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+    <!-- Column 4: Address -->
+    <div style="display: flex; flex-direction: column; gap: 14px; width: 260px;">
+
+  <!-- Logo + Title -->
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <img src="./images/imgs/Gradious Logo.svg" alt="Gradious" style="width: 80px; height: 80px;">
+    <strong style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; line-height: 20px; color: #101828;">
+   Gradious
+    </strong>
+  </div>
+
+  <!-- Address Heading -->
+  <p style="font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; line-height: 20px; color: #101828; margin: 0;">
+    Address
+  </p>
+
+  <!-- Address Content -->
+  <span style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 14px; line-height: 20px; color: #344054; letter-spacing: 0; display: block;">
+    Meet us at Level 1, 264, Lotus Heights, Near DMart, Kavuri Hills, Madhapur, Hyderabad, Telangana - 500033
+  </span>
+
+</div>
+
+
+</footer>
 
    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

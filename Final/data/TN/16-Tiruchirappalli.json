@@ -1,0 +1,320 @@
+[
+    {
+        "distNo": 16,
+        "distName": "Tiruchirappalli",
+        "consit": [
+            {
+                "constno": 139,
+                "constname": "Srirangam",
+                "about": "Srirangam constituency is a significant urban and religious center in Tiruchirappalli district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Tiruchirappalli city and surrounding areas, and it is part of the Tiruchirappalli Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Irregular drinking water supply and dependence on Cauvery leading to seasonal shortages and civic dissatisfaction"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor road conditions and inadequate drainage systems causing flooding and mosquito-related health issues"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Stagnant sewage and ineffective waste management creating hygiene problems in residential areas"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Public frustration due to delayed response to grievances and lack of local administrative effectiveness"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Frequent illness outbreaks due to poor sanitation and stagnant water conditions"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Overcrowding and congestion during religious and tourist seasons affecting mobility"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Pollution in Cauvery river affecting ecosystem and water usability"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Seasonal employment linked to tourism with lack of stable income opportunities"
+                    }
+                ]
+            },
+            {
+                "constno": 140,
+                "constname": "Tiruchirappalli West",
+                "about": "Tiruchirappalli West constituency is a significant urban and commercial center in Tiruchirappalli district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Tiruchirappalli city and surrounding areas, and it is part of the Tiruchirappalli Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Severe traffic congestion and poor road maintenance affecting daily commuting"
+                    },
+                    {
+                        "title": "Water",
+                        "desc": "Urban water shortages due to increasing population and supply constraints"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Inadequate drainage and waste management causing urban hygiene issues"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Urban flooding during monsoon due to weak stormwater drainage systems"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Limited high-paying jobs leading to underemployment among educated youth"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Air and noise pollution from traffic and urban density"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Overburdened hospitals and limited healthcare capacity"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Delays in infrastructure upgrades and inefficient civic management"
+                    }
+                ]
+            },
+            {
+                "constno": 141,
+                "constname": "Tiruchirappalli East",
+                "about": "Tiruchirappalli East constituency is a significant urban and industrial center in Tiruchirappalli district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Tiruchirappalli city and surrounding areas, and it is part of the Tiruchirappalli Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Road congestion and poor maintenance affecting transportation efficiency"
+                    },
+                    {
+                        "title": "Water",
+                        "desc": "Growing demand for water putting pressure on municipal supply systems"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Sewage and waste disposal inefficiencies impacting living conditions"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Industrial and vehicular pollution reducing air quality"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Lack of diversified employment opportunities in urban sectors"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Strain on healthcare infrastructure due to population density"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Insufficient public transport and mobility planning"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Slow execution of urban development projects"
+                    }
+                ]
+            },
+            {
+                "constno": 142,
+                "constname": "Thiruverumbur",
+                "about": "Thiruverumbur constituency is a significant industrial and suburban center in Tiruchirappalli district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Tiruchirappalli city and surrounding areas, and it is part of the Tiruchirappalli Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Environment",
+                        "desc": "Industrial pollution affecting air and water quality in surrounding areas"
+                    },
+                    {
+                        "title": "Water",
+                        "desc": "Groundwater depletion due to industrial and urban usage"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor road conditions in industrial areas causing logistics issues"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Skill mismatch between workforce and industrial job requirements"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Health risks due to exposure to industrial pollutants"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Improper industrial waste disposal affecting local environment"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Inadequate public transport for workers in industrial zones"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Weak enforcement of environmental regulations"
+                    }
+                ]
+            },
+            {
+                "constno": 143,
+                "constname": "Lalgudi",
+                "about": "Lalgudi constituency is a significant agricultural and rural center in Tiruchirappalli district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Tiruchirappalli city and surrounding areas, and it is part of the Tiruchirappalli Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Unreliable Cauvery water supply affecting irrigation and drinking needs"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Crop losses due to irregular water release and rainfall variability"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor rural road connectivity limiting market access"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Limited non-farm job opportunities causing migration"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Lack of proper sanitation infrastructure in villages"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Declining soil fertility affecting agricultural productivity"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Limited access to healthcare facilities in rural areas"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Demand for better irrigation planning and farmer support systems"
+                    }
+                ]
+            },
+            {
+                "constno": 144,
+                "constname": "Manachanallur",
+                "about": "Manachanallur constituency is a significant agricultural and rural center in Tiruchirappalli district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Tiruchirappalli city and surrounding areas, and it is part of the Tiruchirappalli Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Agriculture",
+                        "desc": "Declining paddy yields due to water shortages and climate variability"
+                    },
+                    {
+                        "title": "Water",
+                        "desc": "Heavy dependence on Cauvery irrigation creating uncertainty in farming cycles"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor road infrastructure affecting transportation of agricultural produce"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Limited industrial growth restricting job opportunities"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Basic sanitation gaps in rural households"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Groundwater overuse affecting long-term sustainability"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Limited healthcare facilities in rural areas"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Need for improved procurement and agricultural support policies"
+                    }
+                ]
+            },
+            {
+                "constno": 145,
+                "constname": "Musiri",
+                "about": "Musiri constituency is a significant rural and agricultural center in Tiruchirappalli district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Tiruchirappalli city and surrounding areas, and it is part of the Tiruchirappalli Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Irregular water supply affecting drinking and irrigation needs"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Crop instability due to rainfall fluctuations and water shortages"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor road connectivity limiting access to markets and services"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Lack of industries leading to dependence on agriculture"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Inadequate sanitation facilities in villages"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "River pollution affecting agriculture and water quality"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Limited access to healthcare in rural areas"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Need for better infrastructure and irrigation development"
+                    }
+                ]
+            },
+            {
+                "constno": 146,
+                "constname": "Thottiyam",
+                "about": "Thottiyam constituency is a significant agricultural and rural center in Tiruchirappalli district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Tiruchirappalli city and surrounding areas, and it is part of the Tiruchirappalli Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Dependence on river water causing shortages during dry seasons"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Reduced productivity due to water scarcity and soil degradation"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Weak road and transport infrastructure limiting connectivity"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Limited job opportunities outside agriculture"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Poor sanitation facilities in rural areas"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Over-extraction of groundwater affecting sustainability"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Limited healthcare access in remote areas"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Demand for improved irrigation and rural development planning"
+                    }
+                ]
+            }
+        ]
+    }
+]

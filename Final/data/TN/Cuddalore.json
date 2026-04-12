@@ -1,0 +1,251 @@
+let data =[
+  {
+    "distNo": 607,
+    "distName": "Cuddalore",
+    "consit": [
+      {
+        "constno": 151,
+        "constname": "Tittakudi (SC)",
+        "about": "The Agricultural Frontier. Tittakudi is a predominantly rural and reserved constituency situated at the edge of the district. It serves as a vital agricultural link between the Cuddalore and Perambalur districts.",
+        "problem": [
+          {
+            "title": "Wellington Reservoir Crisis",
+            "desc": "The lifeblood of local farming, the Wellington reservoir, is heavily silted. Farmers are demanding a complete desilting to restore its full storage capacity for paddy and sugarcane irrigation."
+          },
+          {
+            "title": "Lack of Agro-Industries",
+            "desc": "Despite being a sugar and grain hub, there are no government-run processing units nearby. Voters want a Sugar Mill or Ethanol Plant to ensure fair prices."
+          },
+          {
+            "title": "Rural Connectivity to Veppur",
+            "desc": "Interior villages in the Veppur block face poor road conditions. The demand is for a modernized road network connecting rural habitations to the Chennai-Trichy NH."
+          },
+          {
+            "title": "Healthcare Access",
+            "desc": "Residents currently travel to Perambalur or Cuddalore for emergencies. A fully equipped Taluk Government Hospital is a long-standing demand."
+          },
+          {
+            "title": "Vellar River Check-Dams",
+            "desc": "To prevent seasonal water waste into the sea, farmers are calling for a series of Check-Dams across the Vellar river."
+          }
+        ]
+      },
+      {
+        "constno": 152,
+        "constname": "Vriddhachalam",
+        "about": "The Ceramic & Trade Hub. Famous for its ancient temples and the \"Vriddhachalam Ceramics\" industry, this constituency is a major commercial and religious center in the district.",
+        "problem": [
+          {
+            "title": "Revival of the Ceramic Industry",
+            "desc": "The government-run ceramic industrial estate is in decline. Voters want subsidies and modern technology centers to revive its \"Ceramic City\" status."
+          },
+          {
+            "title": "Integrated Bus Terminus",
+            "desc": "The current bus stand is congested. The #1 urban demand is a new Integrated Bus Terminus on the outskirts to ease town traffic."
+          },
+          {
+            "title": "Manimuktha River Pollution",
+            "desc": "Illegal sewage dumping and sand mining in the Manimuktha river have ruined groundwater. Residents demand a River Restoration Project."
+          },
+          {
+            "title": "Agriculture Market Expansion",
+            "desc": "Farmers need a Regulated Market Complex with cold storage for perishables like vegetables and cashews grown in the nearby blocks."
+          },
+          {
+            "title": "Government Medical College Demand",
+            "desc": "As a major junction town, the lack of a Medical College or Tertiary Care Center is a major grievance for the local population."
+          }
+        ]
+      },
+      {
+        "constno": 153,
+        "constname": "Neyveli",
+        "about": "The Industrial Heartland. Home to NLC India Limited (NLCIL), this constituency is the district's powerhouse. However, its identity is deeply tied to the land-acquisition struggles of local residents.",
+        "problem": [
+          {
+            "title": "The \"Job for Land\" Fight",
+            "desc": "The #1 issue is permanent jobs and fair compensation for \"Project Affected Persons\" whose lands were taken by NLCIL decades ago."
+          },
+          {
+            "title": "Pollution & Health Monitoring",
+            "desc": "Residents complain of air and water pollution from mines and thermal plants. They demand Specialty Respiratory Clinics and stricter environmental monitoring."
+          },
+          {
+            "title": "Groundwater Depletion",
+            "desc": "Massive mining operations have lowered the water table. Voters want a Sustainable Water Recharge Scheme funded by CSR."
+          },
+          {
+            "title": "Contract Labor Regularization",
+            "desc": "Thousands of contract workers in NLCIL are demanding equal pay for equal work and permanent status."
+          },
+          {
+            "title": "Modernization of Neyveli Town",
+            "desc": "Beyond the NLC township, the surrounding residential areas lack proper roads and sanitation compared to company-maintained zones."
+          }
+        ]
+      },
+      {
+        "constno": 154,
+        "constname": "Panruti",
+        "about": "The Jackfruit & Cashew Capital. Known globally for its \"Panruti Jackfruit,\" this constituency is an agricultural heavyweight that balances farming with a busy trade center.",
+        "problem": [
+          {
+            "title": "Jackfruit Processing Park",
+            "desc": "Despite being a jackfruit hub, there is no government unit for value-addition. Voters demand an International Jackfruit Processing Zone."
+          },
+          {
+            "title": "Cashew Export Support",
+            "desc": "Small-scale cashew farmers are struggling against imports. The demand is for minimum support prices (MSP) and direct export facilities."
+          },
+          {
+            "title": "Bypass Road Completion",
+            "desc": "Panruti town faces chronic traffic jams due to heavy vehicles. The #1 urban demand is the immediate completion of the town bypass."
+          },
+          {
+            "title": "Drinking Water Salinity",
+            "desc": "Several villages near the Panruti-Cuddalore border report high salinity. The demand is for a Desalination or Combined Water Scheme."
+          },
+          {
+            "title": "Sankaraparani River Conservation",
+            "desc": "Encroachments on the riverbanks have led to flooding. Residents want a permanent bund and desilting project."
+          }
+        ]
+      },
+      {
+        "constno": 155,
+        "constname": "Cuddalore",
+        "about": "The District Headquarters. The administrative and coastal heart of the district. It faces the unique challenge of being a disaster-prone coastal zone with high industrialization.",
+        "problem": [
+          {
+            "title": "SIPCOT Pollution Control",
+            "desc": "Residents of the SIPCOT industrial belt suffer from chemical pollution. The demand is for a \"Green Zone\" buffer and a permanent health monitoring system."
+          },
+          {
+            "title": "Old Town Drainage",
+            "desc": "The \"Old Town\" area is low-lying and floods annually. A comprehensive Stormwater Drain network is the top priority for 2026."
+          },
+          {
+            "title": "Fishing Harbor Modernization",
+            "desc": "Fishermen in the Cuddalore Port area need dredging of the Gadilam river mouth and better jetty facilities for large trawlers."
+          },
+          {
+            "title": "Employment for Locals",
+            "desc": "Despite the presence of many private chemical companies, locals claim they are denied jobs. Voters want a \"Local Hire\" mandate."
+          },
+          {
+            "title": "Coastal Erosion Protection",
+            "desc": "Villages like Devanampattinam are losing land. The demand is for Groynes and Sea Walls to protect coastal habitations."
+          }
+        ]
+      },
+      {
+        "constno": 156,
+        "constname": "Kurinjipadi",
+        "about": "The Spinning & Rural Belt. A constituency that blends traditional spinning industries with agriculture, often representing the voice of the rural interior.",
+        "problem": [
+          {
+            "title": "Spinning Mill Revival",
+            "desc": "Many small-scale spinning units have closed. The demand is for subsidized electricity and credit for the weaving and spinning sector."
+          },
+          {
+            "title": "Cashew & Paddy Infrastructure",
+            "desc": "Farmers need more Direct Procurement Centres (DPCs) with covered sheds to prevent grain rot during rains."
+          },
+          {
+            "title": "Road Widening",
+            "desc": "The main arterial road to Cuddalore is narrow and accident-prone. Widening it into a four-lane highway is a major demand."
+          },
+          {
+            "title": "Rural Drinking Water",
+            "desc": "Many panchayats still rely on community wells that go dry. A piped water supply for every household is a core election promise."
+          },
+          {
+            "title": "Vocational Training for Youth",
+            "desc": "There is a lack of industrial training. Youth want a Government ITI focused on textile and mechanical trades."
+          }
+        ]
+      },
+      {
+        "constno": 157,
+        "constname": "Bhuvanagiri",
+        "about": "The Delta Gateway. The gateway to the Cauvery Delta in Cuddalore, this is a land of paddy, temples, and the historic birthplace of Saint Raghavendra.",
+        "problem": [
+          {
+            "title": "Tail-End Irrigation",
+            "desc": "As a tail-end Delta region, water scarcity is chronic. The demand is for the restoration of the Vellar and Coleroon canal systems."
+          },
+          {
+            "title": "Rice Mill Modernization",
+            "desc": "Local rice millers need modernization grants to compete with large private players and ensure farmers get better prices."
+          },
+          {
+            "title": "Pilgrimage Tourism",
+            "desc": "Bhuvanagiri has massive potential for religious tourism. Voters want a \"Spiritual Circuit\" development with better roads and lodging."
+          },
+          {
+            "title": "Flooding in Low-Lying Wards",
+            "desc": "The Bhuvanagiri municipality suffers from stagnant water every year. A permanent pumping and drainage system is requested."
+          },
+          {
+            "title": "Agriculture Insurance Reform",
+            "desc": "Farmers want a faster and transparent crop insurance assessment process for seasonal damages."
+          }
+        ]
+      },
+      {
+        "constno": 158,
+        "constname": "Chidambaram",
+        "about": "The Spiritual & Heritage Hub. Home to the world-famous Nataraja Temple and Annamalai University, Chidambaram is the district's primary cultural and academic center.",
+        "problem": [
+          {
+            "title": "Annamalai University Stability",
+            "desc": "The university is the town's economic engine. Voters demand continued government support and regularized salary/pension payments for staff."
+          },
+          {
+            "title": "Heritage Town Restoration",
+            "desc": "Chidambaram town needs a \"Heritage City\" status to get funds for underground drainage and cable-free streets near the temple."
+          },
+          {
+            "title": "Pichavaram Mangrove Tourism",
+            "desc": "While a major tourist spot, Pichavaram lacks world-class amenities. The demand is for sustainable tourism infrastructure that creates local jobs."
+          },
+          {
+            "title": "Traffic & Parking",
+            "desc": "The four \"Car Streets\" near the temple are congested. An Integrated Parking Complex is the #1 urban demand."
+          },
+          {
+            "title": "Coastal Water Management",
+            "desc": "In coastal villages, the lack of safe drinking water is a major issue. Extension of the Kollidam water scheme is critical."
+          }
+        ]
+      },
+      {
+        "constno": 159,
+        "constname": "Kattumannarkoil (SC)",
+        "about": "The Veeranam Belt. Home to the massive Veeranam tank, which supplies water to Chennai, this constituency is a crucial agricultural and SC-reserved segment.",
+        "problem": [
+          {
+            "title": "The \"Veeranam Paradox\"",
+            "desc": "While the tank supplies Chennai, local farmers often face water shortages. The demand is for guaranteed local allotment before water is diverted."
+          },
+          {
+            "title": "Desilting of Canal Networks",
+            "desc": "Feeding canals for the Veeranam tank are silted. Farmers want a comprehensive desilting project before the 2026 Mettur release."
+          },
+          {
+            "title": "Direct Procurement Centres (DPCs)",
+            "desc": "Being a massive paddy producer, the constituency needs more DPCs with concrete drying yards in every panchayat."
+          },
+          {
+            "title": "Rural Health Infrastructure",
+            "desc": "Local Primary Health Centres (PHCs) lack doctors and equipment. Upgrading them into 30-bed Community Health Centres is a priority."
+          },
+          {
+            "title": "Self-Employment for Youth",
+            "desc": "With few industries, youth want subsidized loans for agro-based startups (like vermicompost or organic fertilizer units)."
+          }
+        ]
+      }
+    ]
+  }
+]

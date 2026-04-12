@@ -1,0 +1,123 @@
+  {
+    "distNo": 10,
+    "distName": "Namakkal",
+    "consit": [
+{
+        "constno": 92,
+        "constname": "Rasipuram (SC)",
+        "about": "Rasipuram is a State Legislative Assembly constituency in Namakkal district of Tamil Nadu. Its constituency number is 92 and it is a Scheduled Caste (SC) reserved constituency.",
+        "problem": [
+          {
+            "title": "Rural Development Issues",
+            "desc": "Limited access to infrastructure and services in rural areas."
+          },
+          {
+            "title": "Social Welfare Concerns",
+            "desc": "Need for better implementation of welfare schemes."
+          },
+          {
+            "title": "Agricultural Challenges",
+            "desc": "Dependence on rainfall affects farming output."
+          }
+        ]
+      },
+{
+        "constno": 93,
+        "constname": "Senthamangalam (ST)",
+        "about": "Senthamangalam is a State Legislative Assembly constituency in Namakkal district of Tamil Nadu. Its constituency number is 93 and it is a Scheduled Tribe (ST) reserved constituency.",
+        "problem": [
+          {
+            "title": "Tribal Welfare Issues",
+            "desc": "Access to healthcare, education, and welfare schemes remains a concern."
+          },
+          {
+            "title": "Connectivity Issues",
+            "desc": "Hilly areas face road and infrastructure challenges."
+          },
+          {
+            "title": "Livelihood Challenges",
+            "desc": "Economic dependence on agriculture and forest resources."
+          }
+        ]
+      },
+
+ {
+        "constno": 94,
+        "constname": "Namakkal",
+        "about": "Namakkal is a State Legislative Assembly constituency in Namakkal district of Tamil Nadu. Its constituency number is 94 and it forms part of the Namakkal Lok Sabha constituency.",
+        "problem": [
+          {
+            "title": "Labour Shortage in Industry",
+            "desc": "Industrial sectors face workforce shortages affecting productivity."
+          },
+          {
+            "title": "Economic Disruptions",
+            "desc": "Local industries experience disruptions during election periods."
+          },
+          {
+            "title": "Employment Concerns",
+            "desc": "Residents express concerns over job stability and livelihood."
+          }
+        ]
+      },
+ {
+        "constno": 95,
+        "constname": "Paramathi Velur",
+        "about": "Paramathi Velur is a State Legislative Assembly constituency in Namakkal district of Tamil Nadu. Its constituency number is 95 and it forms part of the Namakkal Lok Sabha constituency.",
+        "problem": [
+          {
+            "title": "Agriculture Dependency",
+            "desc": "Farmers depend heavily on irrigation and rainfall."
+          },
+          {
+            "title": "Rural Infrastructure Issues",
+            "desc": "Gaps in roads, drainage, and public facilities exist."
+          },
+          {
+            "title": "Employment Challenges",
+            "desc": "Limited income opportunities affect economic stability."
+          }
+        ]
+      },
+{
+        "constno": 96,
+        "constname": "Tiruchengodu",
+        "about": "Tiruchengodu is a State Legislative Assembly constituency in Namakkal district of Tamil Nadu. Its constituency number is 96 and it forms part of the Namakkal Lok Sabha constituency.",
+        "problem": [
+          {
+            "title": "Industrial Labour Issues",
+            "desc": "Workforce instability affects industrial production."
+          },
+          {
+            "title": "Urban Infrastructure Pressure",
+            "desc": "Urbanisation increases pressure on roads and services."
+          },
+          {
+            "title": "Environmental Concerns",
+            "desc": "Pollution and waste management issues are increasing."
+          }
+        ]
+      }
+
+      {
+        "constno": 97,
+        "constname": "Kumarapalayam",
+        "about": "Kumarapalayam is a State Legislative Assembly constituency in Namakkal district of Tamil Nadu. Its constituency number is 97 and it was established in 2008. It forms part of the Erode Lok Sabha constituency.",
+        "problem": [
+          {
+            "title": "Solid Waste Management & Pollution",
+            "desc": "Improper waste disposal and burning cause environmental and health issues."
+          },
+          {
+            "title": "Basic Amenities Issues",
+            "desc": "Concerns about poor hostel facilities and infrastructure gaps."
+          },
+          {
+            "title": "Electricity Supply Issues",
+            "desc": "Residents face delays in electricity connections and service gaps."
+          }
+        ]
+      },
+    ]
+  }
+

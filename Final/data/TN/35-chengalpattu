@@ -1,0 +1,121 @@
+{
+  distNo: 35,
+  distName: "Chengalpattu",
+  consit: [
+{
+      constno: 30,
+      constname: "Pallavaram",
+      about: "Pallavaram is a State Legislative Assembly constituency in Chengalpattu district of Tamil Nadu. It was formed after the 2008 delimitation and forms part of the Sriperumbudur Lok Sabha constituency. :contentReference[oaicite:3]{index=3}",
+      problem: [
+        {
+          title: "Drainage & Sewage Issues",
+          desc: "Poor maintenance of underground drainage systems leads to sewage overflow and waterlogging. :contentReference[oaicite:4]{index=4}"
+        },
+        {
+          title: "Waste Management Problems",
+          desc: "Improper waste disposal and civic maintenance remain key concerns in urban areas. :contentReference[oaicite:5]{index=5}"
+        },
+        {
+          title: "Traffic Congestion",
+          desc: "High population density and urban growth create heavy traffic issues."
+        }
+      ]
+    },
+{
+      constno: 31,
+      constname: "Tambaram",
+      about: "Tambaram is a State Legislative Assembly constituency in Chengalpattu district of Tamil Nadu. It forms part of the Sriperumbudur Lok Sabha constituency and includes areas under Tambaram City Municipal Corporation. :contentReference[oaicite:7]{index=7}",
+      problem: [
+        {
+          title: "Poor Drainage Infrastructure",
+          desc: "Many areas lack proper drainage systems, leading to sewage overflow and waterlogging. :contentReference[oaicite:8]{index=8}"
+        },
+        {
+          title: "Rapid Urbanisation",
+          desc: "Population growth has increased pressure on civic amenities and services. :contentReference[oaicite:9]{index=9}"
+        },
+        {
+          title: "Waste Management Issues",
+          desc: "Improper waste disposal and maintenance problems affect public health. :contentReference[oaicite:10]{index=10}"
+        }
+      ]
+    },
+    {
+      constno: 32,
+      constname: "Chengalpattu",
+      about: "Chengalpattu is a State Legislative Assembly constituency in Chengalpattu district of Tamil Nadu. It is one of the 234 constituencies in the state and forms part of the Kancheepuram Lok Sabha constituency. It comprises parts of Chengalpattu taluk. :contentReference[oaicite:0]{index=0}",
+      problem: [
+        {
+          title: "Water Supply & Resource Issues",
+          desc: "Dependence on lakes and groundwater sources creates challenges in maintaining consistent drinking water supply."
+        },
+        {
+          title: "Urban Expansion Pressure",
+          desc: "Rapid development near Chennai increases pressure on roads, housing, and civic infrastructure."
+        },
+        {
+          title: "Flooding & Drainage Issues",
+          desc: "Heavy rains lead to waterlogging in low-lying areas due to inadequate drainage systems."
+        }
+      ]
+    },
+ {
+      constno: 33,
+      constname: "Thiruporur",
+      about: "Thiruporur is a State Legislative Assembly constituency in Chengalpattu district of Tamil Nadu. Its constituency number is 33 and it forms part of the Kancheepuram Lok Sabha constituency. :contentReference[oaicite:11]{index=11}",
+      problem: [
+        {
+          title: "Infrastructure & Road Connectivity",
+          desc: "Rapid growth along the ECR and OMR corridors requires improved road infrastructure."
+        },
+        {
+          title: "Urban Expansion Pressure",
+          desc: "Expansion of residential and IT zones increases demand for civic services."
+        },
+        {
+          title: "Water Resource Challenges",
+          desc: "Dependence on groundwater and limited sources affects water availability."
+        }
+      ]
+    }
+    {
+      constno: 34,
+      constname: "Cheyyur (SC)",
+      about: "Cheyyur is a State Legislative Assembly constituency in Chengalpattu district of Tamil Nadu. It is a Scheduled Caste (SC) reserved constituency and forms part of the Kancheepuram Lok Sabha constituency. :contentReference[oaicite:1]{index=1}",
+      problem: [
+        {
+          title: "Coastal & Rural Infrastructure Issues",
+          desc: "Rural coastal areas face issues in road connectivity and public services."
+        },
+        {
+          title: "Water Scarcity",
+          desc: "Dependence on seasonal rainfall affects drinking water availability."
+        },
+        {
+          title: "Livelihood Challenges",
+          desc: "Agriculture and fishing-based livelihoods are vulnerable to climate and environmental changes."
+        }
+      ]
+    },
+
+    {
+      constno: 35,
+      constname: "Maduranthakam (SC)",
+      about: "Maduranthakam is a State Legislative Assembly constituency in Chengalpattu district of Tamil Nadu. It is a Scheduled Caste reserved constituency and forms part of the Kancheepuram Lok Sabha constituency. :contentReference[oaicite:2]{index=2}",
+      problem: [
+        {
+          title: "Agricultural Water Dependency",
+          desc: "Farmers rely heavily on lakes and irrigation sources, making them vulnerable to water shortages."
+        },
+        {
+          title: "Flooding from Lakes",
+          desc: "Overflow of lakes during heavy rains leads to flooding in surrounding villages."
+        },
+        {
+          title: "Rural Infrastructure Gaps",
+          desc: "Issues in roads, drainage, and public facilities persist in rural areas."
+        }
+      ]
+    },
+  ]
+}

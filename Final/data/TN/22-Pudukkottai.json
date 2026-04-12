@@ -1,0 +1,76 @@
+{
+    "distNo": 21,
+    "distName": "Pudukkottai",
+    "consit": [
+        {
+            "constno": 180,
+            "constname": "Gandarvakottai",
+            "about": "Gandarvakottai constituency is a significant rural and agricultural center in Pudukkottai district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Pudukkottai city and surrounding areas, and it is part of the Pudukkottai Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+            "problem": [
+                {
+                    "title": "Water",
+                    "desc": "Irrigation water is unreliable: severe staff shortages and clogged canal regulators delay water reaching tail-end tanks, depriving farmers of promised supply"
+                },
+                {
+                    "title": "Agriculture",
+                    "desc": "Farmers face crop losses from unpredictable weather: recent unseasonal heavy rains submerged over 2,000 acres of mature paddy, and recurring droughts hurt yields"
+                }
+            ]
+        },
+        {
+            "constno": 181,
+            "constname": "Viralimalai",
+            "about": "Viralimalai constituency is a significant semi-arid and agricultural center in Pudukkottai district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Pudukkottai city and surrounding areas, and it is part of the Pudukkottai Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+            "problem": [
+                {
+                    "title": "Water",
+                    "desc": "Villages struggle with drinking and irrigation water shortages due to low rainfall and limited canal infrastructure"
+                }
+            ]
+        },
+        {
+            "constno": 182,
+            "constname": "Pudukkottai",
+            "about": "Pudukkottai constituency is a significant urban and district headquarters center in Pudukkottai district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Pudukkottai city and surrounding areas, and it is part of the Pudukkottai Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+            "problem": [
+                {
+                    "title": "Infrastructure",
+                    "desc": "Urban roads and drainage are stressed by rapid growth"
+                }
+            ]
+        },
+        {
+            "constno": 183,
+            "constname": "Thirumayam",
+            "about": "Thirumayam constituency is a significant rural and agricultural center in Pudukkottai district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Pudukkottai city and surrounding areas, and it is part of the Pudukkottai Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+            "problem": [
+                {
+                    "title": "Water",
+                    "desc": "Water supply is erratic"
+                }
+            ]
+        },
+        {
+            "constno": 184,
+            "constname": "Alangudi",
+            "about": "Alangudi constituency is a significant agricultural and coastal fringe center in Pudukkottai district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Pudukkottai city and surrounding areas, and it is part of the Pudukkottai Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+            "problem": [
+                {
+                    "title": "Water",
+                    "desc": "Saline water intrusion causes shortages"
+                }
+            ]
+        },
+        {
+            "constno": 185,
+            "constname": "Aranthangi",
+            "about": "Aranthangi constituency is a significant coastal-rural and agricultural center in Pudukkottai district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Pudukkottai city and surrounding areas, and it is part of the Pudukkottai Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+            "problem": [
+                {
+                    "title": "Water",
+                    "desc": "Drinking water shortages due to poor supply"
+                }
+            ]
+        }
+    ]
+}

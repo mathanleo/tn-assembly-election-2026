@@ -1,0 +1,93 @@
+let data = [
+{
+  distNo: 609,
+  distName: "Mayiladuthurai",
+  consit: [
+
+    {
+      constno: 161,
+      constname: "Mayiladuthurai",
+      about: "Mayiladuthurai Assembly Constituency (AC No. 161) serves as the district headquarters and is a major commercial and administrative hub of the newly formed Mayiladuthurai district. Known for its ancient temples, vibrant markets, and cultural heritage, the constituency is currently facing the growing pains of transitioning into a full-fledged district center. Despite being the administrative core, gaps in infrastructure, water management, and industrial development remain key concerns for voters ahead of the 2026 elections.",
+      problem: [
+        {
+          title: "The District Infrastructure Gap",
+          desc: "Since the formation of Mayiladuthurai district in 2020, residents feel that the expected administrative infrastructure has not fully materialized. Many key district-level offices continue to function from rented buildings or operate from neighboring districts, leading to inefficiencies and inconvenience for the public. Citizens are demanding the establishment of a centralized Integrated District Court and Administrative Complex that can house all major government departments and improve governance accessibility."
+        },
+        {
+          title: "Cauvery Water and Tail-End Despair",
+          desc: "As a tail-end region of the Cauvery Delta, Mayiladuthurai often suffers from inadequate water flow reaching its agricultural lands. Areas such as Mullaivasal and Needur face frequent water shortages, especially during critical farming seasons. The irrigation infrastructure, including regulators and canals, is over 100 years old and in need of urgent modernization. Farmers are demanding desilting of key rivers like Nandalar and Vettar, along with upgrades to regulator systems to ensure consistent water supply."
+        },
+        {
+          title: "The Railway Junction Bottleneck",
+          desc: "Mayiladuthurai is an important railway junction, but the level crossing near the bus stand has become a major urban bottleneck. Trains passing through the junction often cause traffic disruptions lasting up to 20 minutes multiple times a day, affecting commuters, traders, and emergency services. The primary demand from residents is the construction of a flyover at the railway gate to eliminate congestion and ensure smooth traffic movement."
+        },
+        {
+          title: "Underground Drainage Stagnation",
+          desc: "The existing Underground Drainage system in Mayiladuthurai covers less than 40 percent of the town. During monsoon seasons, sewage often mixes with rainwater in residential areas such as Kamaraj Nagar, creating serious sanitation issues and health risks. Residents are demanding a complete expansion and modernization of the UGD network to cover the entire town and improve public health conditions."
+        },
+        {
+          title: "Lack of Agro-Based Industry",
+          desc: "Despite being part of the fertile Cauvery Delta and a major producer of paddy and cotton, Mayiladuthurai lacks modern agro-based industries. There are no government-run rice mills or cotton ginning units to add value to agricultural produce. This has resulted in high levels of youth migration to urban centers in search of employment. The demand is for the establishment of agro-processing industries that can create local jobs and strengthen the rural economy."
+        }
+      ]
+    },
+
+    {
+      constno: 160,
+      constname: "Sirkali",
+      about: "Sirkali (SC) Assembly Constituency (AC No. 160) is a region that blends religious importance with agricultural and coastal livelihoods. It is home to the famous Vaitheeswaran Koil and lies in a unique geographic zone where the Cauvery river meets the Bay of Bengal. This creates a mix of farming, fishing, and tourism-related challenges that dominate the political discourse ahead of the 2026 elections.",
+      problem: [
+        {
+          title: "The Kollidam Bridge and Connectivity Issue",
+          desc: "The bridge over the Kollidam river is a critical lifeline connecting Sirkali to Chidambaram and surrounding regions. However, the existing structure is aging and insufficient to handle current traffic demands. Delays in the construction of a new bridge have caused major disruptions, forcing commuters and farmers to take long detours. Residents are demanding the timely completion of a high-capacity, permanent bridge before the 2026 monsoon season."
+        },
+        {
+          title: "Drinking Water Salinity Crisis",
+          desc: "In the coastal blocks of Sirkali, groundwater has become highly saline and unsuitable for consumption, commonly referred to as 'uppu thanni' by locals. This has created severe drinking water shortages for households. Residents are demanding the expansion of the Kollidam Combined Water Supply Scheme to ensure that every household receives safe and reliable drinking water."
+        },
+        {
+          title: "Paddy Procurement Delays",
+          desc: "Farmers in Sirkali face long waiting periods at Direct Procurement Centres, often waiting 10 to 15 days under open conditions to sell their harvested paddy. This exposes them to financial losses and physical hardship. The demand is for the construction of covered storage sheds and the implementation of faster electronic payment systems to streamline the procurement process."
+        },
+        {
+          title: "Vaitheeswaran Koil Tourism Infrastructure Gap",
+          desc: "Vaitheeswaran Koil attracts thousands of pilgrims every year, yet the town lacks essential infrastructure such as public toilets, organized parking, and proper crowd management systems. This limits the economic benefits for local traders and affects the overall visitor experience. Residents are demanding the development of a structured spiritual tourism circuit that enhances facilities and supports local businesses."
+        },
+        {
+          title: "Sea Erosion in Pazhayar",
+          desc: "The coastal village of Pazhayar is experiencing severe land loss due to continuous sea erosion. This threatens the livelihoods and homes of local fishing communities. Fishermen are demanding the construction of permanent sea walls (groynes) and the modernization of dredging systems for the Pazhayar fishing harbor to protect the coastline and ensure safe fishing operations."
+        }
+      ]
+    },
+
+    {
+      constno: 162,
+      constname: "Poompuhar",
+      about: "Poompuhar Assembly Constituency (AC No. 162) is a region rich in historical and cultural significance, known for its association with the ancient Tamil epic Silappathikaram. It covers a vast coastal stretch including Tharangambadi (Tranquebar) and the agricultural areas of Sembanarkoil. The constituency reflects a combination of heritage tourism potential, coastal challenges, and rural economic concerns.",
+      problem: [
+        {
+          title: "The Poompuhar Heritage Neglect",
+          desc: "Poompuhar holds immense historical importance, but its heritage assets such as the Silappathikaram Art Gallery and ancient ruins are in a state of neglect and decay. This represents a missed opportunity for tourism-driven economic growth. Residents are demanding a Mega Heritage Restoration Project that can transform Poompuhar into a global tourist destination similar to Mahabalipuram."
+        },
+        {
+          title: "Tharangambadi Fishing Harbor Demand",
+          desc: "The coastal town of Tharangambadi has long demanded a modern fishing harbor. Currently, fishermen face difficulties in docking their boats during high tides and lack access to proper cold storage facilities. This affects both safety and income. The demand is for the establishment of a fully equipped fishing harbor with modern infrastructure."
+        },
+        {
+          title: "Sea Water Intrusion in Sembanarkoil",
+          desc: "Agricultural lands in Sembanarkoil are being damaged by saltwater intrusion from the sea. This 'creeping salt' is reducing soil fertility and destroying paddy cultivation. Farmers are demanding the construction of check-dams across coastal inlets to prevent seawater intrusion and protect agricultural productivity."
+        },
+        {
+          title: "Road Connectivity to the ECR",
+          desc: "Many interior roads connecting rural areas to the East Coast Road (ECR) are narrow, poorly maintained, and filled with potholes. This hampers transportation of goods and daily commuting. A major demand is the upgrading of the Sembanarkoil-Tharangambadi road into a four-lane highway to improve connectivity and support economic activity."
+        },
+        {
+          title: "Unemployment and Vocational Training Gap",
+          desc: "The coastal population in Poompuhar faces limited employment opportunities due to the absence of specialized training institutions. There are no Marine Engineering colleges or Fisheries polytechnics in the region. Voters are demanding the establishment of a government institute focused on modern sea-farming, ship repair, and marine technology to equip youth with employable skills."
+        }
+      ]
+    }
+
+  ]
+}
+];

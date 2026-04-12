@@ -1,0 +1,101 @@
+{
+  distNo: 34,
+  distName: "Tenkasi",
+  consit: [
+ {
+      constno: 219,
+      constname: "Sankarankovil (SC)",
+      about: "Sankarankovil is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It is a Scheduled Caste (SC) reserved constituency and part of the Tenkasi Lok Sabha constituency. Established in 1951, it consists of predominantly rural areas including towns and villages.",
+      problem: [
+        {
+          title: "Crop Damage by Wild Animals",
+          desc: "Farmers face crop losses due to wild boars damaging crops such as paddy and corn in agricultural fields."
+        },
+        {
+          title: "Human–Wildlife Conflict",
+          desc: "Frequent intrusion of monkeys and elephants into human settlements and farmlands affects safety and agriculture."
+        },
+        {
+          title: "Agriculture Vulnerability",
+          desc: "Agriculture depends heavily on rainfall and is affected by climate variations and external environmental factors."
+        }
+      ]
+    },
+{
+      constno: 220,
+      constname: "Vasudevanallur (SC)",
+      about: "Vasudevanallur is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It is a Scheduled Caste (SC) reserved constituency and part of the Tenkasi Lok Sabha constituency. Established in 1967, it includes a mix of towns and rural areas within the district.",
+      problem: [
+        {
+          title: "Crop Damage by Wild Animals",
+          desc: "Wild boars entering farmlands have caused significant crop losses for farmers."
+        },
+        {
+          title: "Human–Wildlife Conflict",
+          desc: "Incidents involving monkeys and elephants near settlements and farms impact livelihoods and safety."
+        },
+        {
+          title: "Agriculture Dependency on Climate",
+          desc: "Farmers depend on rainfall and natural conditions, making agriculture vulnerable to climate changes."
+        }
+      ]
+    },
+{
+      constno: 221,
+      constname: "Kadayanallur",
+      about: "Kadayanallur is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It is part of the Tenkasi Lok Sabha constituency and was established in 1967. The constituency includes a mix of semi-urban and rural areas with multiple towns and villages.",
+      problem: [
+        {
+          title: "Crop Damage by Wild Animals",
+          desc: "Wild animals including boars have been reported to damage crops across agricultural regions."
+        },
+        {
+          title: "Human–Wildlife Conflict",
+          desc: "Monkey intrusion and elephant movement have increased near human settlements and farms."
+        },
+        {
+          title: "Agricultural Instability",
+          desc: "Crop production is affected by rainfall dependency and environmental challenges."
+        }
+      ]
+    },
+{
+      constno: 222,
+      constname: "Tenkasi",
+      about: "Tenkasi is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It is part of the Tenkasi Lok Sabha constituency and was established in 1951. The constituency includes towns and surrounding areas within the district and is one of the 234 constituencies in the state.",
+      problem: [
+        {
+          title: "Crop Damage by Wild Animals",
+          desc: "Wild boars damaging crops have become a major issue affecting farmers in the region."
+        },
+        {
+          title: "Human–Wildlife Conflict",
+          desc: "Monkey intrusion in public places and elephant movement in nearby forest areas pose safety risks."
+        },
+        {
+          title: "Agriculture & Climate Risk",
+          desc: "Farming activities depend heavily on rainfall and are impacted by seasonal variations."
+        }
+      ]
+    },
+{
+      constno: 223,
+      constname: "Alangulam",
+      about: "Alangulam is a State Legislative Assembly constituency in Tenkasi district of Tamil Nadu. It includes Alangulam town and surrounding villages and is part of the Tirunelveli Lok Sabha constituency. Established in 1951, it is one of the 234 constituencies in Tamil Nadu with a mix of rural and semi-urban regions.",
+      problem: [
+        {
+          title: "Crop Damage by Wild Animals",
+          desc: "Wild boars have caused extensive damage to crops like corn and paddy in agricultural lands."
+        },
+        {
+          title: "Human–Wildlife Conflict",
+          desc: "Encounters with monkeys and elephants near settlements affect both safety and farming."
+        },
+        {
+          title: "Agriculture Vulnerability",
+          desc: "Agricultural productivity is affected by rainfall dependency and environmental conditions."
+        }
+      ]
+    },
+  ]
+},

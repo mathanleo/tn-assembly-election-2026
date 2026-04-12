@@ -1,0 +1,222 @@
+{
+  "distNo": 21,
+  "distName": "Thanjavur",
+  "consit": [
+    {
+      "constno": 170,
+      "constname": "Thiruvidamarudur (SC)",
+      "about": "Established in 1951, this lower Cauvery delta constituency is a major agricultural hub home to the Mahalingaswamy Temple. It is historically significant for its brass-vessel cottage industries and remains a key center for the agrarian labor class.",
+      "problem": [
+        {
+          "title": "Handloom Wage Arrears",
+          "desc": "Weavers in Thirubhuvanam have not received wages from cooperative societies for over 4 months, leading to widespread financial distress."
+        },
+        {
+          "title": "Tail-end Water Scarcity",
+          "desc": "Despite proximity to the river, fields in interior blocks like Thiruppanandal frequently fail to receive irrigation due to clogged canal endings."
+        },
+        {
+          "title": "Bus Service Gaps",
+          "desc": "Public transport frequency to remote hamlets is nearly zero after 7 PM, stranding students and evening-shift workers."
+        },
+        {
+          "title": "Brass Raw Material Cost",
+          "desc": "High prices of raw copper and zinc have made traditional vessel-making unprofitable for small artisans without government subsidies."
+        },
+        {
+          "title": "School Infrastructure",
+          "desc": "Several rural government schools are operating in buildings that were declared unsafe years ago but have not been renovated."
+        }
+      ]
+    },
+    {
+      "constno": 171,
+      "constname": "Kumbakonam",
+      "about": "Known as the 'Temple Town,' Kumbakonam is the second largest city in the district and a vital commercial link between the delta and coastal regions. It is situated between the Cauvery and Arasalar rivers and serves as a major educational center.",
+      "problem": [
+        {
+          "title": "District Status Demand",
+          "desc": "The decade-long demand to make Kumbakonam a separate district headquarters remains unfulfilled, causing administrative delays for locals."
+        },
+        {
+          "title": "Sacred Tank Pollution",
+          "desc": "Untreated sewage continues to leak into the Mahamaham tank, despite multiple Smart City cleaning initiatives in early 2026."
+        },
+        {
+          "title": "Bypass Road Stalemate",
+          "desc": "The incomplete outer bypass road causes massive traffic jams inside the city during weekends and auspicious temple days."
+        },
+        {
+          "title": "Hospital Overcrowding",
+          "desc": "The Headquarters Hospital is severely understaffed and lacks enough beds to handle the high volume of patients from surrounding taluks."
+        },
+        {
+          "title": "Garbage Management",
+          "desc": "Lack of a modern waste processing plant has led to garbage being dumped in open canals, leading to health hazards in urban wards."
+        }
+      ]
+    },
+    {
+      "constno": 172,
+      "constname": "Papanasam",
+      "about": "An agrarian constituency established in 1951, Papanasam is a core part of the fertile rice bowl of Tamil Nadu. It is a major transit corridor on the Thanjavur-Kumbakonam highway, heavily reliant on paddy and sugarcane.",
+      "problem": [
+        {
+          "title": "Sugar Mill Payments",
+          "desc": "Sugarcane farmers are protesting against the local mill for failing to clear arrears totaling several crores for the last harvest cycle."
+        },
+        {
+          "title": "Island Bridge Delay",
+          "desc": "Residents of Melaramanallur remain isolated without a permanent bridge across the Kollidam, relying on unsafe boats during monsoon floods."
+        },
+        {
+          "title": "Hard Water Crisis",
+          "desc": "High TDS levels in groundwater have led to a surge in kidney-related ailments among the rural poor who cannot afford RO filters."
+        },
+        {
+          "title": "Paddy Drying Hazards",
+          "desc": "Lack of community drying yards forces farmers to dry their harvest on the main highway, causing frequent fatal road accidents."
+        },
+        {
+          "title": "Veterinary Doctor Vacancy",
+          "desc": "Rural veterinary centers are mostly closed or unstaffed, leaving cattle farmers without help during recent foot-and-mouth disease outbreaks."
+        }
+      ]
+    },
+    {
+      "constno": 173,
+      "constname": "Thiruvaiyaru",
+      "about": "Famous for the Saint Thyagaraja Aradhana music festival, this constituency is the cultural capital of the delta. It is situated on the banks of five rivers and is a core zone for heritage tourism and riverbank agriculture.",
+      "problem": [
+        {
+          "title": "Banana Cold Storage",
+          "desc": "Despite being a top banana producer, the absence of cold storage forces farmers to sell to middlemen at 50% below market value."
+        },
+        {
+          "title": "Cauvery Sewerage Entry",
+          "desc": "Untreated town sewage is directly released into the Cauvery, contaminating the water source for dozens of downstream villages."
+        },
+        {
+          "title": "Canal Desilting Fraud",
+          "desc": "Local farmers allege that canal desilting is only done on paper, while the actual channels remain choked with silt and weeds."
+        },
+        {
+          "title": "Traffic in Town Center",
+          "desc": "The lack of a proper bus terminal expansion in the town center creates permanent gridlock for inter-district mofussil buses."
+        },
+        {
+          "title": "Wild Boar Menace",
+          "desc": "Farmers on the riverbanks are losing entire crops to wild boar attacks, with no effective prevention or compensation from the forest department."
+        }
+      ]
+    },
+    {
+      "constno": 174,
+      "constname": "Thanjavur",
+      "about": "The district headquarters and a UNESCO World Heritage site featuring the Brihadeeswarar Temple. As a designated Smart City, it is the administrative heart and a major tourist destination for Chola-era heritage.",
+      "problem": [
+        {
+          "title": "Goods Shed Congestion",
+          "desc": "The location of the railway goods shed in the city center causes heavy lorry traffic that blocks Mary’s Corner for hours daily."
+        },
+        {
+          "title": "Moat Reclamation Delay",
+          "desc": "The Smart City project to clean the historic moat has stalled, turning the waterbody into a stagnant breeding ground for mosquitoes."
+        },
+        {
+          "title": "Youth Out-Migration",
+          "desc": "The total absence of IT parks or large manufacturing units has forced thousands of local graduates to leave the district for work."
+        },
+        {
+          "title": "Open Drain Menace",
+          "desc": "Several inner-city lanes still have open sewage drains, posing a major sanitation risk to residents and visitors alike."
+        },
+        {
+          "title": "Drinking Water Rationing",
+          "desc": "Uneven supply in newly added wards means some residents get water only once every four days during the summer months."
+        }
+      ]
+    },
+    {
+      "constno": 175,
+      "constname": "Orathanadu",
+      "about": "Established in 1967, Orathanadu is a predominantly rural constituency known for its strong agricultural roots and cattle rearing. It serves as a vital link between the Thanjavur delta and the southern dry belts.",
+      "problem": [
+        {
+          "title": "Hydrocarbon Survey Fear",
+          "desc": "Residents are in a state of panic over rumors of secretive soil testing for hydrocarbon extraction, which they believe will ruin the soil."
+        },
+        {
+          "title": "DPC Bribery Issues",
+          "desc": "Farmers at Direct Purchase Centres (DPCs) are being forced to pay handling charges of ₹40 per bag just to sell their paddy."
+        },
+        {
+          "title": "Groundwater Salinity",
+          "desc": "The water table has dropped significantly, and the available water is turning salty, making it unfit for drinking and farming."
+        },
+        {
+          "title": "College Transport",
+          "desc": "Rural female students face severe hardship due to the lack of buses during college hours, often forced to travel on foot-boards."
+        },
+        {
+          "title": "Cattle Disease Compensation",
+          "desc": "Farmers whose cattle died in the recent Lumpy Skin disease outbreak have yet to receive the promised government compensation."
+        }
+      ]
+    },
+    {
+      "constno": 176,
+      "constname": "Pattukkottai",
+      "about": "A major commercial town and the 'Coconut Capital' of the district, situated on a dry plateau. It is a key trading center for the southern delta and the nearby coastal fishing villages.",
+      "problem": [
+        {
+          "title": "Coconut Pest Outbreak",
+          "desc": "The Whitefly pest has destroyed 40% of the coconut yield in 2026, yet no subsidy or scientific aid has reached the farmers."
+        },
+        {
+          "title": "Incomplete Bypass",
+          "desc": "The Pattukkottai-Aranthangi bypass remains unfinished, forcing heavy trucks through the narrow main market streets."
+        },
+        {
+          "title": "Copra Procurement Price",
+          "desc": "With no government procurement center in the town, farmers are selling copra to private agents at ₹30 below the Minimum Support Price."
+        },
+        {
+          "title": "Saltwater Intrusion",
+          "desc": "Seawater is seeping into freshwater wells in the coastal border, killing coconut trees that were over 50 years old."
+        },
+        {
+          "title": "Rail Frequency",
+          "desc": "Despite gauge conversion, the lack of a direct daily express train to Chennai is hampering the local coconut and coir trade."
+        }
+      ]
+    },
+    {
+      "constno": 177,
+      "constname": "Peravurani",
+      "about": "Created in 1967, this constituency is the southernmost part of the district and is entirely dependent on the Grand Anicut (GA) canal. It is a hub for coconut farming and small-scale coir manufacturing units.",
+      "problem": [
+        {
+          "title": "Tail-end Canal Silt",
+          "desc": "The GA canal is so silted in this block that water rarely reaches the last 15 villages, leading to permanent crop failure."
+        },
+        {
+          "title": "No Govt Polytechnic",
+          "desc": "There is not a single government vocational institute in the taluk, leaving poor youth without skills for modern employment."
+        },
+        {
+          "title": "Hospital Referral Crisis",
+          "desc": "The local GH is essentially a first-aid station; any major accident or emergency is sent 75km away to Thanjavur GH."
+        },
+        {
+          "title": "Railway Underpass Flooding",
+          "desc": "Poorly designed railway underpasses flood during every rain, cutting off dozens of villages from the main market."
+        },
+        {
+          "title": "Coir Industry Debt",
+          "desc": "Rising electricity costs and a drop in export demand have pushed dozens of local coir fiber units into bankruptcy."
+        }
+      ]
+    }
+  ]
+}

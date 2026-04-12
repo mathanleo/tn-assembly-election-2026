@@ -1,0 +1,93 @@
+let data = [
+{
+  distNo: 611,
+  distName: "Nagapattinam",
+  consit: [
+
+    {
+      constno: 163,
+      constname: "Nagapattinam",
+      about: "Nagapattinam is the \"Coastal Soul\" of the Cauvery Delta. As a district defined by its 187km coastline and its status as the \"tail-end\" of the irrigation network, its politics are a high-stakes mix of maritime rights and agrarian survival. The district headquarters and a historic international port town. It is a diverse constituency where the interests of the fishing community, traders, and pilgrims (Nagore/Velankanni) intersect.",
+      problem: [
+        {
+          title: "The \"Tail-End\" Water Crisis",
+          desc: "Being at the very end of the Cauvery network, farmers here often receive water last and in the least quantity. The #1 demand is the modernization of the Vennar sub-basin to ensure water reaches the tail-end fields before the crop withers."
+        },
+        {
+          title: "Fishing Harbor Modernization",
+          desc: "The Nagapattinam fishing harbor has seen little upgrade since the 2004 tsunami. Fishermen are demanding dredging of the river mouth, better cold storage facilities, and a dedicated Fish Processing Park to prevent the current ₹20/kg loss incurred by transporting catch to Kerala for export."
+        },
+        {
+          title: "The Hospital Relocation Hardship",
+          desc: "The relocation of the Government Headquarters Hospital from the town center to Orathur village has created a massive healthcare gap. Voters are demanding a full-fledged Multi-Specialty Urban Health Center within the town limits for immediate emergency care."
+        },
+        {
+          title: "Stagnant Industrial Growth",
+          desc: "The closure of local steel mills and the underdevelopment of the SIDCO estate have led to massive youth migration. There is a loud call for a Port-Based Special Economic Zone (SEZ) to revive the town’s economy."
+        },
+        {
+          title: "Urban Decay & Sanitation",
+          desc: "In wards near Nagore and Pattinachery, irregular waste collection and dysfunctional sewage canals are major health hazards. Residents are pushing for a comprehensive Underground Drainage (UGD) system for the entire municipality."
+        }
+      ]
+    },
+
+    {
+      constno: 164,
+      constname: "Kilvelur",
+      about: "A traditionally left-leaning stronghold with a deep history of agrarian movements. It is a predominantly rural, Scheduled Caste-reserved seat focused on land rights and agricultural labor.",
+      problem: [
+        {
+          title: "Sea Water Intrusion",
+          desc: "Due to the low-lying terrain, seawater frequently enters irrigation canals, turning fertile land into saline wasteland. Farmers are demanding Check-Dams across coastal inlets to protect the \"Rice Bowl\" from salinity."
+        },
+        {
+          title: "Paddy Procurement Bottlenecks",
+          desc: "At the Direct Procurement Centres (DPCs), farmers face long delays and lack of storage. The demand is for Permanent Concrete Drying Yards and covered sheds to protect grain from unseasonal rains."
+        },
+        {
+          title: "Lack of Sports & Youth Infrastructure",
+          desc: "There is a severe lack of playgrounds or vocational training centers in the Kilvelur and Keezhayur blocks. Youth are demanding a Government Arts & Science College and a district-level sports stadium locally."
+        },
+        {
+          title: "Tsunami Housing Maintenance",
+          desc: "Many of the rehabilitation quarters built two decades ago are now in a dilapidated state. Residents are seeking a Special Housing Repair Grant to ensure these structures remain safe for the hundreds of families living there."
+        },
+        {
+          title: "Rural Road Connectivity",
+          desc: "Many \"Colony\" habitations remain poorly connected to the main state highways. The demand is for all-weather tar roads and improved mini-bus frequency for interior villages."
+        }
+      ]
+    },
+
+    {
+      constno: 165,
+      constname: "Vedaranyam",
+      about: "The southern tip of the district, famous for its salt pans, the Agasthiyampalli salt march history, and the Point Calimere wildlife sanctuary.",
+      problem: [
+        {
+          title: "The Salt Industry Crisis",
+          desc: "Thousands of families depend on small-scale salt production, but they lack a regulated market. The #1 demand is the establishment of a Salt Corporation to fix floor prices and provide weather-based insurance for salt workers."
+        },
+        {
+          title: "Sri Lankan Maritime Conflict",
+          desc: "Frequent arrests and boat seizures by the Sri Lankan Navy are a constant threat to livelihoods in Kodiakarai and Vedaranyam. Fishermen are demanding a permanent diplomatic desk and enhanced GPS-based \"Safe Zone\" monitoring."
+        },
+        {
+          title: "Drinking Water Scarcity",
+          desc: "Despite proximity to the sea, drinking water is a luxury. The demand is for the completion of the Vedaranyam Combined Water Supply Project to ensure every household receives Cauvery water."
+        },
+        {
+          title: "Eco-Tourism Potential",
+          desc: "Point Calimere (Kodiakarai) is a world-class sanctuary but lacks basic tourist amenities. Voters want a Sustainable Eco-Tourism Circuit that creates local jobs without harming the environment."
+        },
+        {
+          title: "The Rail Link Revival",
+          desc: "While the broad-gauge conversion is complete, locals are demanding more direct express trains to Chennai and Tiruchirapalli to help transport salt and dry fish to larger markets."
+        }
+      ]
+    }
+
+  ]
+}
+];

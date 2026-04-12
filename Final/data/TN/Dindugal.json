@@ -1,0 +1,195 @@
+ {
+        "distNo": 14,
+        "distName": "Dindigul",
+        "consit": [
+            {
+                "constno": 127,
+                "constname": "Palani",
+                "about": "A world-famous pilgrimage center housing the sacred abode of Lord Murugan and the tourist hub of Kodaikanal. Despite its high revenue generation, it faces severe administrative and environmental neglect.",
+                "problem": [
+                    {
+                        "title": "Sanitation and River Pollution",
+                        "desc": "The sacred Shanmuganadhi river is heavily polluted with sewage and waste dumping, while the town lacks a modern waste management system to handle the massive pilgrim footfall."
+                    },
+                    {
+                        "title": "District Bifurcation Demand",
+                        "desc": "Residents face extreme hardship traveling 70km to the Dindigul Collectorate; there is a massive, unmet demand for Palani to be declared a separate district headquarters."
+                    },
+                    {
+                        "title": "Incomplete Infrastructure",
+                        "desc": "Major projects like the Palani-Kodaikanal ropeway and the Palani-Erode railway line remain stuck in the proposal stage, hindering tourism and trade growth."
+                    },
+                    {
+                        "title": "Waterbody Siltation",
+                        "desc": "The Vaiyapuri tank, a key water source and landmark, is heavily silted and requires urgent desilting to prevent summer water crises."
+                    },
+                    {
+                        "title": "Cold Storage for Ayakudi Guavas",
+                        "desc": "Farmers of the famous Ayakudi guavas lack adequate government cold storage facilities, leading to post-harvest losses and price exploitation by middlemen."
+                    }
+                ]
+            },
+            {
+                "constno": 128,
+                "constname": "Oddanchatram",
+                "about": "South India's primary vegetable supply hub. While it moves over 1,000 tonnes of produce daily, its infrastructure has become a major bottleneck for the agrarian economy.",
+                "problem": [
+                    {
+                        "title": "Market Design Failure",
+                        "desc": "The new ₹21 crore Gandhi Market complex is a vertical failure; built on two levels without lifts, it is unusable for heavy vegetable sacks, forcing traders to stay in private lots."
+                    },
+                    {
+                        "title": "TASMAC Nuisance",
+                        "desc": "The persistence of a government liquor shop (TASMAC) right in front of the market complex creates a hostile and unsafe environment for women laborers and farmers."
+                    },
+                    {
+                        "title": "Traffic Paralysis",
+                        "desc": "The road connecting Palani Road to the market is too narrow for container trucks and buses, causing permanent gridlock during market hours."
+                    },
+                    {
+                        "title": "Lack of Integrated Processing",
+                        "desc": "Despite the massive volume of vegetables, there is zero government investment in local food processing or value-addition units."
+                    },
+                    {
+                        "title": "Inadequate Public Parking",
+                        "desc": "The absence of a designated heavy vehicle parking yard forces lorries to park on highways, leading to frequent accidents and congestion."
+                    }
+                ]
+            },
+            {
+                "constno": 129,
+                "constname": "Athoor",
+                "about": "A high-profile constituency often represented by senior ministers. It is a mix of traditional agriculture and expanding suburban residential zones.",
+                "problem": [
+                    {
+                        "title": "Water Supply Reliability",
+                        "desc": "Despite promises of Vaigai river water, many villages like Pillaiyarnatham still suffer from erratic drinking water supply during the peak summer months."
+                    },
+                    {
+                        "title": "Stalled Industrial Growth",
+                        "desc": "The announced TIDEL park and other industrial clusters are yet to see ground-level implementation, leading to high unemployment among local graduates."
+                    },
+                    {
+                        "title": "Reservoir Siltation",
+                        "desc": "The Kamarajar reservoir and surrounding check-dams have lost significant storage capacity due to decades of silt accumulation."
+                    },
+                    {
+                        "title": "Encroached Common Lands",
+                        "desc": "Illegal encroachments on water channels and grazing lands have reduced the natural groundwater recharge capacity of the constituency."
+                    },
+                    {
+                        "title": "Healthcare Access Gaps",
+                        "desc": "While a new hospital was announced, existing rural health centers are understaffed and lack basic emergency trauma care facilities."
+                    }
+                ]
+            },
+            {
+                "constno": 130,
+                "constname": "Nilakottai",
+                "about": "A reserved constituency and a global hub for jasmine cultivation. The entire local economy is sensitive to the volatile flower market and agricultural water availability.",
+                "problem": [
+                    {
+                        "title": "Perfume Factory Demand",
+                        "desc": "Jasmine farmers are forced to sell to private buyers at throwaway prices because the government has failed to establish a state-run perfume extraction unit."
+                    },
+                    {
+                        "title": "Secondary Healthcare Failure",
+                        "desc": "The Nilakottai Government Hospital lacks specialist doctors, with most patients being referred to Madurai for even standard medical procedures."
+                    },
+                    {
+                        "title": "Cold Storage for Floriculture",
+                        "desc": "Highly perishable flowers like roses and jasmine rot during market gluts due to the total absence of government-run cold storage."
+                    },
+                    {
+                        "title": "Groundwater Depletion",
+                        "desc": "Unregulated borewell digging for flower farms has caused the water table to drop to dangerous levels, affecting rural drinking water wells."
+                    },
+                    {
+                        "title": "Middlemen Exploitation",
+                        "desc": "Lack of a regulated market auction system for flowers allows middlemen to fix prices, leaving farmers with minimal profits."
+                    }
+                ]
+            },
+            {
+                "constno": 131,
+                "constname": "Natham",
+                "about": "A hilly terrain famous for its premium mango and coconut crops. It remains one of the most industrially backward regions in the district.",
+                "problem": [
+                    {
+                        "title": "Mango Value-Chain Gaps",
+                        "desc": "Premium Natham mangoes are sold raw to other districts; the absence of a local pulp factory or processing unit robs farmers of potential income."
+                    },
+                    {
+                        "title": "Wild Animal Crop Raids",
+                        "desc": "Farmers on the foothills face constant destruction by wild boars and peacocks, with the forest department offering little to no compensation."
+                    },
+                    {
+                        "title": "Poor Interior Roads",
+                        "desc": "Roads connecting hilly hamlets to the town are in deplorable condition, making it impossible for transport vehicles to reach farms during rains."
+                    },
+                    {
+                        "title": "Coconut Pest Infestation",
+                        "desc": "The recurring invasive pest attacks on coconut groves are not being addressed with sufficient scientific or financial aid from the government."
+                    },
+                    {
+                        "title": "High Migration Rates",
+                        "desc": "The total lack of local MSME units forces almost every educated youth to migrate to Chennai or Tiruppur for even low-wage work."
+                    }
+                ]
+            },
+            {
+                "constno": 132,
+                "constname": "Dindigul",
+                "about": "The district headquarters and the historic 'City of Locks.' As of 2026, the town is struggling with 'Old City' infrastructure that cannot handle its new status as a Corporation.",
+                "problem": [
+                    {
+                        "title": "Lock Industry Extinction",
+                        "desc": "The world-famous lock industry is dying due to zero modernization and lack of branding support, leaving thousands of heritage artisans in poverty."
+                    },
+                    {
+                        "title": "Bus Terminus Crisis",
+                        "desc": "The Kamarajar bus stand is paralyzed by load; the proposed Pallapatti terminus is stalled due to environmental protests, leaving the city in transit chaos."
+                    },
+                    {
+                        "title": "Chronic Sewage Overflows",
+                        "desc": "The underground drainage (UGD) system is incomplete and poorly designed, leading to raw sewage flooding the streets every time it rains."
+                    },
+                    {
+                        "title": "Gandhi Market Congestion",
+                        "desc": "The central vegetable market remains an unplanned mess with no parking, causing permanent traffic gridlock in the heart of the town."
+                    },
+                    {
+                        "title": "Industrial Pollution",
+                        "desc": "Effluent discharge from old tanneries continues to contaminate the local groundwater, making it unfit for consumption in several wards."
+                    }
+                ]
+            },
+            {
+                "constno": 133,
+                "constname": "Vedasandur",
+                "about": "A dry agrarian belt and a hub for small spinning mills. It is a region of high debt and low industrial diversity.",
+                "problem": [
+                    {
+                        "title": "Spinning Mill Closures",
+                        "desc": "High power tariffs and cotton price fluctuations have led to the closure of dozens of small spinning mills, creating a local employment crisis."
+                    },
+                    {
+                        "title": "Tobacco Market Collapse",
+                        "desc": "With the global shift away from tobacco, farmers have no government support or subsidy to transition to viable alternative crops."
+                    },
+                    {
+                        "title": "Shenbhagavalli Dam Ruin",
+                        "desc": "The failure to reconstruct the Shenbhagavalli check-dam has deprived thousands of acres of irrigation, turning fertile lands into scrub."
+                    },
+                    {
+                        "title": "Drinking Water Scarcity",
+                        "desc": "As a drought-prone belt, many villages still rely on overhead tanks that only receive water once every 10-15 days."
+                    },
+                    {
+                        "title": "Rural Debt Trap",
+                        "desc": "The failure of both the textile and agriculture sectors has pushed a majority of rural families into the clutches of private moneylenders."
+                    }
+                ]
+            }
+        ]
+    }

@@ -1,0 +1,277 @@
+{
+        "distNo": 24,
+        "distName": "Madurai",
+        "consit": [
+            {
+                "constno": 188,
+                "constname": "Melur",
+                "about": "An agrarian-heavy seat focused on the Kallazhagar Temple and granite industries. It serves as the gateway to Madurai from the northern and eastern districts.",
+                "problem": [
+                    {
+                        "title": "Summer Water Scarcity",
+                        "desc": "Heavy reliance on seasonal tanks and Periyar-Vaigai water which often fails to reach the tail-end areas during crucial cultivation periods."
+                    },
+                    {
+                        "title": "Stalled Rail Connectivity",
+                        "desc": "The long-pending Madurai-Melur-Karaikudi broad gauge rail project remains on paper, hindering industrial transport and pilgrim movement."
+                    },
+                    {
+                        "title": "Rural Road Neglect",
+                        "desc": "While main highways are paved, interior village roads connecting agricultural hamlets are crumbling and narrow, preventing easy market access."
+                    },
+                    {
+                        "title": "Granite Industry Decline",
+                        "desc": "The closure of many granite units has led to large-scale unemployment among local manual laborers who have no alternative skill sets."
+                    },
+                    {
+                        "title": "Paddy Procurement Delays",
+                        "desc": "Lack of sufficient Direct Procurement Centers (DPCs) forces farmers to wait for weeks or sell to middlemen at lower rates."
+                    }
+                ]
+            },
+            {
+                "constno": 189,
+                "constname": "Madurai East",
+                "about": "A mix of urban sprawl and rural pockets. It is currently witnessing rapid real-estate growth but lacks the infrastructure to match the population density.",
+                "problem": [
+                    {
+                        "title": "Sewage Overflow",
+                        "desc": "Inadequate underground drainage (UGD) in newly annexed wards leads to frequent sewage stagnation in residential streets."
+                    },
+                    {
+                        "title": "NH-87 Congestion",
+                        "desc": "Heavy traffic on the Paramakudi-Ramanathapuram section creates severe bottlenecks at junction points within the constituency."
+                    },
+                    {
+                        "title": "Drinking Water Gaps",
+                        "desc": "Many household extensions still rely on private tankers as the piped water supply has not expanded at the rate of housing construction."
+                    },
+                    {
+                        "title": "Unplanned Real Estate",
+                        "desc": "Rapid conversion of agricultural land into housing layouts without proper road width or storm-water drain planning."
+                    },
+                    {
+                        "title": "Public Health Center Shortage",
+                        "desc": "The rapid population increase in eastern suburbs has not been met with a corresponding increase in primary health facilities."
+                    }
+                ]
+            },
+            {
+                "constno": 190,
+                "constname": "Sholavandan",
+                "about": "An SC-reserved constituency known as the 'rice bowl' of Madurai. Life here revolves around the Vaigai River and traditional agriculture.",
+                "problem": [
+                    {
+                        "title": "Peranai Regulator Siltation",
+                        "desc": "Heavy silt accumulation in the regulator and canal systems reduces water flow efficiency to paddy fields during the monsoon."
+                    },
+                    {
+                        "title": "Lack of Cold Storage",
+                        "desc": "Banana and coconut farmers face massive losses due to the absence of modern processing units and government-run cold storage facilities."
+                    },
+                    {
+                        "title": "Vaigai Encroachment",
+                        "desc": "Illegal encroachments and waste dumping along the riverbanks have narrowed the river's path, increasing localized flood risks."
+                    },
+                    {
+                        "title": "Interior Connectivity",
+                        "desc": "Narrow bridges over irrigation canals are in dilapidated condition, making it dangerous for heavy agricultural vehicles to cross."
+                    },
+                    {
+                        "title": "Dwindling Ground Water",
+                        "desc": "Over-extraction for agriculture in non-canal areas has led to a dangerous drop in the water table, affecting drinking water wells."
+                    }
+                ]
+            },
+            {
+                "constno": 191,
+                "constname": "Madurai North",
+                "about": "A vital urban segment housing major government offices and the Mattuthavani market hub. It is the face of 'Modern Madurai' but faces 'Old City' issues.",
+                "problem": [
+                    {
+                        "title": "Panthalkudi Canal Stagnation",
+                        "desc": "The slow progress of canal works has turned this waterway into a breeding ground for mosquitoes and a source of foul smell."
+                    },
+                    {
+                        "title": "Market Chaos",
+                        "desc": "The Mattuthavani vegetable market lacks proper waste management and organized parking, leading to daily traffic gridlock."
+                    },
+                    {
+                        "title": "Rainwater Inundation",
+                        "desc": "Areas like Sellur and Bibikulam continue to face knee-deep waterlogging even after moderate rainfall due to clogged drains."
+                    },
+                    {
+                        "title": "Stalled Public Housing",
+                        "desc": "Several slum clearance board projects are lagging, forcing low-income families to live in precarious conditions along canal banks."
+                    },
+                    {
+                        "title": "Encroached Main Roads",
+                        "desc": "Major stretches like the 120-feet road are narrowed by illegal commercial parking and temporary sheds."
+                    }
+                ]
+            },
+            {
+                "constno": 192,
+                "constname": "Madurai South",
+                "about": "The historical heart of the city with extremely high population density. It is dominated by small-scale industries, traders, and heritage sites.",
+                "problem": [
+                    {
+                        "title": "Obsolete UGD System",
+                        "desc": "The drainage pipes in the historic core are nearly a century old and cannot handle the current load, leading to constant leaks."
+                    },
+                    {
+                        "title": "Encroached Footpaths",
+                        "desc": "Commercial activity has swallowed pedestrian spaces, forcing people to walk on roads and worsening traffic snarls."
+                    },
+                    {
+                        "title": "Slum Housing Quality",
+                        "desc": "Urban poor in wards like 39 and 43 live in dilapidated conditions with limited access to private sanitation."
+                    },
+                    {
+                        "title": "Air Pollution",
+                        "desc": "High density of old commercial vehicles and narrow lanes create pockets of severe air pollution that affect the elderly and children."
+                    },
+                    {
+                        "title": "Fire Safety Risk",
+                        "desc": "Many wholesale godowns operate in narrow lanes where a fire engine cannot enter, creating a ticking time bomb for the neighborhood."
+                    }
+                ]
+            },
+            {
+                "constno": 193,
+                "constname": "Madurai Central",
+                "about": "The political and religious center (Meenakshi Temple). High-profile seat currently navigating major infra overhaul like Goripalayam Flyover.",
+                "problem": [
+                    {
+                        "title": "Gridlock Traffic",
+                        "desc": "The narrow streets surrounding the temple are permanently choked, exacerbated by ongoing construction projects."
+                    },
+                    {
+                        "title": "Vaigai Pollution",
+                        "desc": "Direct discharge of untreated sewage and meat waste from Nelpettai into the river remains an unsolved environmental disaster."
+                    },
+                    {
+                        "title": "Unreliable Metro Progress",
+                        "desc": "Project delays due to feasibility disputes between Center and State have left residents without a mass transit solution."
+                    },
+                    {
+                        "title": "Parking Scarcity",
+                        "desc": "Lack of designated multi-level parking forces tourists and locals to park on-street, narrowing already tight lanes."
+                    },
+                    {
+                        "title": "Heritage Decay",
+                        "desc": "Beyond the main temple, several historic buildings and 'Mantapams' are suffering from neglect and illegal occupation."
+                    }
+                ]
+            },
+            {
+                "constno": 194,
+                "constname": "Madurai West",
+                "about": "A highly urbanized voter base. It is the residential hub for the city's middle class but struggles with 'extension area' neglect.",
+                "problem": [
+                    {
+                        "title": "Extension Area UGD",
+                        "desc": "Newly developed layouts in the western periphery are still waiting for integrated underground drainage lines."
+                    },
+                    {
+                        "title": "Public Space Shortage",
+                        "desc": "Despite high tax collection, residents lack sufficient public parks and recreational centers for the dense population."
+                    },
+                    {
+                        "title": "Primary Healthcare Strain",
+                        "desc": "Urban Primary Health Centers (UPHCs) are understaffed, forcing residents to travel to the distant Government Rajaji Hospital."
+                    },
+                    {
+                        "title": "Garbage Collection Gaps",
+                        "desc": "Outer wards report erratic door-to-door waste collection, leading to garbage being dumped in open vacant plots."
+                    },
+                    {
+                        "title": "Drinking Water Pressure",
+                        "desc": "High-altitude areas in the west suffer from very low pressure in the municipal water lines during summer months."
+                    }
+                ]
+            },
+            {
+                "constno": 195,
+                "constname": "Thiruparankundram",
+                "about": "A suburban hub centered on the Murugan hill shrine. It is rapidly transitioning from a pilgrim town to a major residential suburb.",
+                "problem": [
+                    {
+                        "title": "Deepathoon Dispute",
+                        "desc": "Ongoing legal and social tension regarding religious rights on the hill shrine continues to affect local communal harmony."
+                    },
+                    {
+                        "title": "Garbage Mismanagement",
+                        "desc": "Municipal waste collection has failed to reach the outer boundaries, leading to illegal burning of trash."
+                    },
+                    {
+                        "title": "Unplanned Urbanization",
+                        "desc": "Rapid construction of high-rises without widening existing narrow approach roads has made fire safety a nightmare."
+                    },
+                    {
+                        "title": "Railway Gate Delays",
+                        "desc": "Frequent closure of railway gates at key junctions cuts off entire neighborhoods for hours daily."
+                    },
+                    {
+                        "title": "Temple Tourism Infrastructure",
+                        "desc": "Lack of adequate public toilets and cloakrooms for the thousands of daily pilgrims visiting the Murugan temple."
+                    }
+                ]
+            },
+            {
+                "constno": 196,
+                "constname": "Thirumangalam",
+                "about": "A strategic administrative center and agricultural belt. It is a major transit point for all vehicles moving further south.",
+                "problem": [
+                    {
+                        "title": "Youth Unemployment",
+                        "desc": "Lack of major industrial estates or IT parks forces local graduates to migrate to larger cities for survival."
+                    },
+                    {
+                        "title": "Inadequate Bus Terminus",
+                        "desc": "The existing town bus stand is too small, leading to dangerous boarding conditions on the main highway."
+                    },
+                    {
+                        "title": "Paddy Procurement Corruption",
+                        "desc": "Farmers frequently report 'commission' demands and unfair trade practices at the Direct Procurement Centres (DPCs)."
+                    },
+                    {
+                        "title": "Highway Safety",
+                        "desc": "The intersection of the town road and the four-way highway is an accident blackspot lacking proper lighting and signals."
+                    },
+                    {
+                        "title": "Irrigation Canal Clogging",
+                        "desc": "Tail-end areas of the 58-canal project often receive no water due to illegal tapping and siltation upstream."
+                    }
+                ]
+            },
+            {
+                "constno": 197,
+                "constname": "Usilampatti",
+                "about": "Located between Madurai and Theni, it is a politically sensitive region with a deep socio-cultural history and agrarian roots.",
+                "problem": [
+                    {
+                        "title": "Healthcare Infrastructure",
+                        "desc": "The Government Headquarters Hospital lacks an adequate mortuary and specialized wards, forcing referrals to Madurai city."
+                    },
+                    {
+                        "title": "Drinking Water Scarcity",
+                        "desc": "The 58-canal project and local water schemes are insufficient to meet the needs of tail-end villages."
+                    },
+                    {
+                        "title": "Industrial Stagnation",
+                        "desc": "Zero major investments in the last decade have left the local economy entirely dependent on volatile agricultural returns."
+                    },
+                    {
+                        "title": "Educational Access",
+                        "desc": "Students from rural hamlets face poor public transport connectivity to reach colleges in Madurai or the local town."
+                    },
+                    {
+                        "title": "Livestock Support",
+                        "desc": "As a major cattle-rearing area, the lack of modern veterinary hospitals and fodder subsidies is hurting local livelihoods."
+                    }
+                ]
+            }
+        ]
+    }
+   

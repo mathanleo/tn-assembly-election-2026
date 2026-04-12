@@ -1,0 +1,121 @@
+let data = [
+{
+  distNo: 630,
+  distName: "Sivaganga",
+  consit: [
+
+    {
+      constno: 184,
+      constname: "Karaikudi",
+      about: "Karaikudi Assembly Constituency (AC No. 184) is the largest economic and educational hub of Sivaganga district. Recently upgraded to a Municipal Corporation in 2024, it is home to major institutions like Alagappa University and the Central Electrochemical Research Institute (CECRI). Known as the Oxford of South Tamil Nadu, Karaikudi blends heritage Chettinad architecture with modern urban expansion, making it a key center for education, business, and tourism.",
+      problem: [
+        {
+          title: "The District Headquarters Demand",
+          desc: "Despite being a Municipal Corporation and a major revenue generator, residents of Karaikudi are forced to travel nearly 50 kilometers to Sivaganga town for major administrative services. This has led to widespread dissatisfaction among citizens, who feel that the city's importance is not reflected in governance access. The demand for a separate Karaikudi district has become the number one campaign issue, with voters seeking decentralized administration and faster service delivery."
+        },
+        {
+          title: "Underground Drainage Failures",
+          desc: "As Karaikudi expands rapidly as an urban center, its sewage infrastructure has not kept pace. The existing Underground Drainage system is outdated and frequently overflows, especially in densely populated wards. This creates sanitation issues, foul odors, and health risks for residents. Citizens are demanding a complete overhaul and modernization of the UGD network under the new Municipal Corporation budget."
+        },
+        {
+          title: "The Film City and Creative Economy Demand",
+          desc: "Karaikudi is widely used as a shooting location due to its iconic Chettinad mansions and heritage sites. However, there is no formal infrastructure to support film production. This represents a missed economic opportunity for the region. Voters are demanding the establishment of a Mini Film City to promote tourism, create jobs in the service sector, and position Karaikudi as a major creative hub in Tamil Nadu."
+        },
+        {
+          title: "Railway Stoppages Issue",
+          desc: "The Karaikudi-Devakottai railway stretch sees several long-distance trains pass through without scheduled stops. This affects business owners, traders, and travelers who rely on rail connectivity for commerce and mobility. Local industries, particularly Chettinad snacks and textile businesses, are impacted. The demand is for scheduled stoppages for all major express trains to boost economic activity."
+        },
+        {
+          title: "Urban Traffic Decongestion",
+          desc: "Traffic congestion in Karaikudi, especially around the New Bus Stand area, has become a permanent problem due to increased vehicle flow and poor planning. Narrow roads and lack of proper traffic management lead to daily delays. Residents are demanding an Integrated Satellite Bus Terminus and the development of well-planned bypass roads to reduce congestion and improve urban mobility."
+        }
+      ]
+    },
+
+    {
+      constno: 185,
+      constname: "Tiruppattur",
+      about: "Tiruppattur Assembly Constituency (AC No. 185) is a traditional agrarian region known for its historic temples and extensive irrigation tank systems. It plays a vital role in the district’s agricultural economy and is often considered a VIP seat due to its long-standing association with senior political leadership. The constituency balances heritage, agriculture, and rural development challenges.",
+      problem: [
+        {
+          title: "The Tank-Chain Irrigation Crisis",
+          desc: "Tiruppattur relies on an ancient system of interconnected Public Works Department tanks for irrigation. However, many of these tanks are heavily silted and poorly maintained, disrupting the natural water flow. Farmers, especially in tail-end regions like Singampunari, are unable to receive adequate Vaigai water. The demand is for a permanent and modernized Kudimaramathu scheme to restore and maintain the tank system."
+        },
+        {
+          title: "Lack of Agriculture Processing Units",
+          desc: "Despite being a major producer of coconut and paddy, Tiruppattur lacks large-scale food processing infrastructure. Farmers are forced to sell raw produce to middlemen at low prices, reducing their income potential. The demand is for the establishment of a Cooperative Food Park that can process agricultural produce locally and increase farmers’ earnings."
+        },
+        {
+          title: "The Granite Industry Conflict",
+          desc: "The region is rich in granite resources, but local communities face environmental challenges such as dust pollution and land degradation. Despite large-scale extraction, residents feel that they do not benefit from adequate employment opportunities or corporate social responsibility initiatives. The demand is for stricter regulation, improved local employment quotas, and CSR-funded healthcare facilities."
+        },
+        {
+          title: "Drinking Water Salinity Issue",
+          desc: "In several interior villages of Tiruppattur, groundwater has become saline and unsuitable for consumption. This forces residents to depend on alternative sources, increasing their financial burden. The demand is for a dedicated pipeline extension from the Cauvery Combined Drinking Water Scheme to ensure safe and consistent water supply."
+        },
+        {
+          title: "Healthcare Gaps in Singampunari",
+          desc: "Residents of the Singampunari block face serious challenges in accessing emergency healthcare services. Due to the lack of specialist trauma care in local government hospitals, patients are often forced to travel to Madurai or Karaikudi during emergencies. The demand is for the establishment of specialist facilities and improved healthcare infrastructure within the block."
+        }
+      ]
+    },
+
+    {
+      constno: 186,
+      constname: "Sivaganga",
+      about: "Sivaganga Assembly Constituency (AC No. 186) serves as the administrative headquarters of the district and is home to the globally recognized Keezhadi archaeological site. The region reflects a blend of governance-focused development and deep historical pride, being associated with the legacy of the Maruthu Brothers. It plays a crucial role in both administration and cultural identity.",
+      problem: [
+        {
+          title: "The Administrative Shadow Effect",
+          desc: "Residents of Sivaganga town feel that their constituency is being overshadowed by the rapid urban growth of Karaikudi. Despite being the district headquarters, Sivaganga lacks key educational and institutional infrastructure. There is a strong demand for the establishment of a Government Law College and a Nursing College to strengthen its position as an administrative and educational center."
+        },
+        {
+          title: "Keezhadi Tourism Benefits Gap",
+          desc: "The Keezhadi archaeological site has gained international recognition, but the economic benefits have not significantly reached local residents. There is a lack of structured tourism infrastructure that can generate employment opportunities. Voters are demanding the creation of a Heritage Tourism Circuit that can support local guides, artisans, and hospitality businesses."
+        },
+        {
+          title: "Graphite Sector Expansion",
+          desc: "The TAMIN graphite unit in Sivaganga is considered an underutilized resource. Locals believe that expanding the unit into a full-scale manufacturing facility could generate large-scale employment opportunities for diploma holders and engineering graduates. The demand is for industrial expansion and value-added manufacturing within the constituency."
+        },
+        {
+          title: "Bypass Road Necessity",
+          desc: "Heavy vehicles passing through Sivaganga town create traffic congestion, accidents, and pollution. The absence of a proper bypass forces long-distance transport vehicles into narrow town roads. Residents are demanding the construction of a Southern Bypass Road to divert heavy traffic and improve road safety."
+        },
+        {
+          title: "Rain-Fed Farming Safety Net",
+          desc: "Agriculture in Sivaganga is almost entirely dependent on rainfall, making it highly vulnerable to drought conditions. Farmers in regions like Kalaiyarkoil face uncertainty every season. The primary demand is the completion of the Cauvery-Vaigai-Gundar Link Project to provide a reliable and permanent irrigation source."
+        }
+      ]
+    },
+
+    {
+      constno: 187,
+      constname: "Manamadurai",
+      about: "Manamadurai (SC) Assembly Constituency (AC No. 187) is known as the Pottery Capital of Tamil Nadu and is located along the Vaigai river. As a reserved constituency, it emphasizes social justice, artisan welfare, and rural-urban connectivity. The region is known for its traditional crafts, agriculture, and growing industrial aspirations.",
+      problem: [
+        {
+          title: "The Pottery and GI Tag Paradox",
+          desc: "Although Manamadurai pottery has received a Geographical Indication tag, local artisans continue to struggle due to high costs of raw materials such as clay, which must be sourced from PWD ponds at significant expense. This limits their profitability and growth. The demand is for a Pottery Industrial Estate that provides subsidized raw materials, modern facilities, and an export-oriented ecosystem."
+        },
+        {
+          title: "The Single Bridge Bottleneck",
+          desc: "Manamadurai town is divided by the Vaigai river, but it relies heavily on a single bridge for connectivity. This creates severe traffic congestion and safety risks, especially for school children and elderly residents. The demand is for the construction of a second bridge connecting Krishnarajapuram and the Railway Colony to improve mobility and safety."
+        },
+        {
+          title: "Chilli Oil Mill in Ilayangudi",
+          desc: "Farmers in Ilayangudi currently travel to Paramakudi to sell their chilli produce, which increases transportation costs and dependency on middlemen. Establishing a local Chilli Oil Mill would enable direct processing, reduce costs, and create employment opportunities within the constituency."
+        },
+        {
+          title: "Medical Waste Disposal Concerns",
+          desc: "Residents have raised strong objections to a private medical waste disposal unit proposed in the SIPCOT industrial area. There are concerns about environmental pollution and public health risks. Locals are demanding that the project be replaced with cleaner industries such as electronics manufacturing or other non-polluting sectors."
+        },
+        {
+          title: "Thirupuvanam Hospital Staffing Issues",
+          desc: "Although the Thirupuvanam Government Hospital has been upgraded to a Taluk Hospital, it lacks permanent specialist doctors such as anesthetists and surgeons. This forces residents to travel to Madurai for even basic surgical procedures. The demand is for full staffing of specialist positions to ensure accessible healthcare."
+        }
+      ]
+    }
+
+  ]
+}
+];

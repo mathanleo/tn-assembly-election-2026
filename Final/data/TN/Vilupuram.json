@@ -1,0 +1,114 @@
+{
+  "distNo": 8,
+  "distName": "Villupuram",
+  "consit": [
+    {
+      "constno": 73,
+      "constname": "Vanur (SC)",
+      "about": "A reserved constituency bordering the Union Territory of Puducherry. It is a mix of coastal hamlets and dry-land farming, primarily known for cashew and groundnut cultivation and the presence of the international township Auroville.",
+      "problem": [
+        {
+          "title": "Illegal Sand Mining",
+          "desc": "Widespread illegal sand quarrying in the riverbeds of the Varahanadi has led to a drastic drop in the water table, causing cashew trees to wither in 2026."
+        },
+        {
+          "title": "Auroville Buffer Zone Conflict",
+          "desc": "Local villagers are in a standoff with township authorities over land acquisition for the 'Crown Road' project, which threatens ancestral housing."
+        },
+        {
+          "title": "Cashew Processing Crisis",
+          "desc": "The absence of a government-run cashew processing plant forces farmers to sell raw nuts at low prices to private agents in Panruti."
+        },
+        {
+          "title": "Coastal Sea Erosion",
+          "desc": "Villages like Bommayarpalayam are losing houses to the rising sea; the demand for a permanent groyne or sea-wall remains unaddressed."
+        },
+        {
+          "title": "Lack of PHC Night Staff",
+          "desc": "Primary Health Centers in the block lack doctors after 5 PM, requiring patients to travel to JIPMER (Puducherry) for even minor emergencies."
+        }
+      ]
+    },
+    {
+      "constno": 74,
+      "constname": "Villupuram",
+      "about": "The district headquarters and a major railway junction. It is a dense urban center that serves as the administrative and commercial heart of the region, balancing trade with a large student population.",
+      "problem": [
+        {
+          "title": "Flyover Traffic Bottle-necks",
+          "desc": "The narrow exit points of the main flyovers create permanent gridlock near the old bus stand, especially during peak school and office hours."
+        },
+        {
+          "title": "Underground Drainage (UGD) Failure",
+          "desc": "The existing UGD system frequently chokes in the old town wards, causing sewage to stagnate in residential streets for days."
+        },
+        {
+          "title": "Garbage Yard Pollution",
+          "desc": "The municipal dump site near residential areas is prone to frequent fires, leading to severe air pollution and respiratory issues for locals in 2026."
+        },
+        {
+          "title": "Railway Station Parking",
+          "desc": "Inadequate parking at the Villupuram junction forces travelers to leave vehicles on the main road, leading to constant police fines and theft risks."
+        },
+        {
+          "title": "Youth Unemployment",
+          "desc": "Despite being an educational hub, the town lacks any IT or manufacturing industries, forcing graduates to migrate to Chennai for basic service jobs."
+        }
+      ]
+    },
+    {
+      "constno": 75,
+      "constname": "Vikravandi",
+      "about": "A key transit constituency located on the Chennai-Trichy National Highway. It is an agrarian belt famous for sugarcane and its strategic location that hosts numerous highway-side commercial establishments.",
+      "problem": [
+        {
+          "title": "Sugarcane Arrears Crisis",
+          "desc": "Private sugar mills in the region have failed to clear dues for the 2025-26 season, pushing many farming families into high-interest debt traps."
+        },
+        {
+          "title": "Highway Service Road Lack",
+          "desc": "Villagers living along the NH-45 face daily danger as they are forced to drive on the wrong side due to the absence of proper service roads."
+        },
+        {
+          "title": "Pollution from Toll Plaza",
+          "desc": "The high volume of idling trucks at the Vikravandi toll plaza has created a micro-pollution zone affecting nearby hamlets."
+        },
+        {
+          "title": "Lack of Cold Storage",
+          "desc": "Vegetable farmers report 30% wastage during summer due to absence of government storage facilities."
+        },
+        {
+          "title": "Stagnant SIDCO Project",
+          "desc": "The proposed industrial estate has seen no development in three years, limiting local employment opportunities."
+        }
+      ]
+    },
+    {
+      "constno": 76,
+      "constname": "Tirukkoyilur",
+      "about": "A historic town located on the banks of the Thenpennai River. It is famous for the Ulagalantha Perumal Temple and serves as a major commercial center for surrounding agrarian villages.",
+      "problem": [
+        {
+          "title": "Bifurcation Confusion",
+          "desc": "Administrative mismatch between revenue taluk (Kallakurichi) and assembly constituency (Villupuram) causes governance confusion."
+        },
+        {
+          "title": "Thenpennai River Encroachment",
+          "desc": "Illegal constructions narrow river flow, increasing flood risk during dam releases."
+        },
+        {
+          "title": "Under-equipped GH",
+          "desc": "District hospital lacks trauma care, forcing patients to travel long distances for emergency treatment."
+        },
+        {
+          "title": "Incomplete Bus Stand",
+          "desc": "Delayed construction due to land disputes forces commuters to use temporary unhygienic facilities."
+        },
+        {
+          "title": "Girl’s Education Gaps",
+          "desc": "Lack of nearby government girls’ school increases dropout rates in rural areas."
+        }
+      ]
+    }
+  ]
+}

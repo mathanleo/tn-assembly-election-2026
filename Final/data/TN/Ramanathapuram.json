@@ -1,0 +1,121 @@
+let data = [
+{
+  distNo: 623,
+  distName: "Ramanathapuram",
+  consit: [
+
+    {
+      constno: 209,
+      constname: "Paramakudi",
+      about: "The Paramakudi (SC) Assembly Constituency (No. 209) is often called the Gateway to the District, but for residents, that gateway is currently facing major bottlenecks. It is a key transit hub between Madurai and Ramanathapuram and also home to important handloom clusters like Emaneswaram. The constituency reflects a mix of urban congestion issues and traditional economic struggles, making the 2026 election highly focused on infrastructure and livelihood concerns.",
+      problem: [
+        {
+          title: "The Town vs Transit Traffic Crisis",
+          desc: "Paramakudi is a major junction between Madurai and Ramanathapuram, but its internal roads cannot handle the increasing traffic load. The current bus stand is located in a high-density area, causing constant traffic congestion and gridlock. The SS Kovil to Emaneswaram causeway becomes a major bottleneck during peak hours and annual memorial events, worsening the situation. The demand from residents is to shift the Integrated Bus Terminus to the junction of the Madurai-Ramanathapuram four-lane road. Additionally, voters are pushing for the construction of an alternative flyover or causeway between Jeeva Nagar and Paramakudi Town to decongest the main streets and improve traffic flow."
+        },
+        {
+          title: "The Weaving Sector Survival Crisis",
+          desc: "The famous handloom clusters of Emaneswaram and Paramakudi form the backbone of the local economy, but they are struggling to survive. High raw material costs, stiff competition from cheaper power loom products, and administrative delays in government subsidies such as the 10 percent yarn subsidy and rebate arrears have discouraged the younger generation from entering the profession. This has put the future of the traditional weaving sector at risk. The demand from the community is the modernization of state and union-run textile mills in Achangulam and Kamuthakudi to increase production capacity and provide stable employment opportunities."
+        },
+        {
+          title: "The Skipped Station Grievance",
+          desc: "Despite Paramakudi Railway Station generating high annual revenue of approximately ₹10 crore, it is often treated as a secondary stop. Around 12 major trains passing through the station do not have a scheduled halt, forcing local traders, students, and commuters to travel to nearby towns like Manamadurai or Ramanathapuram to board trains. This creates inconvenience, delays, and additional expenses. The demand is for immediate approval of stoppages for all major express trains, including the Madurai-Rameswaram Vande Bharat Express, to improve connectivity and support local economic activity."
+        },
+        {
+          title: "Vaigai River Health and Drainage Crisis",
+          desc: "The Vaigai River is the lifeline of Paramakudi, but it is facing serious environmental issues. Illegal sand mining and waste dumping into the riverbed are rampant, causing ecological damage. In addition, the town lacks a proper Underground Drainage system, leading to groundwater contamination and increased health risks, especially in newly developing residential areas. Residents are demanding strict enforcement against illegal sand mining activities and the rapid implementation of a comprehensive Underground Drainage network for the entire municipality."
+        },
+        {
+          title: "Lack of Recreational Spaces",
+          desc: "As Paramakudi continues to grow as an urban center, it lacks basic recreational infrastructure for families and children. There are very few public parks or designated leisure spaces, which affects community well-being and quality of life. The demand from residents is to develop unused spaces along the Ottapalam to Five Corner Road into a public park and a dedicated Food Street. This initiative would not only provide recreation but also boost local commerce and create a vibrant community space."
+        }
+      ]
+    },
+
+    {
+      constno: 210,
+      constname: "Tiruvadanai",
+      about: "The Tiruvadanai Assembly Constituency (No. 210) is known as the Rice Bowl of Ramanathapuram due to its strong agricultural base, particularly paddy cultivation. It also includes important coastal fishing regions such as Thondi. However, despite its agricultural importance, the constituency faces severe challenges related to irrigation, infrastructure, administrative access, and drinking water scarcity, making the 2026 election highly issue-driven for farmers and fishermen.",
+      problem: [
+        {
+          title: "The Rice Bowl Water Crisis",
+          desc: "Tiruvadanai is the largest paddy-producing block in Ramanathapuram district, but its agriculture is under immense stress. The region lies at the tail-end of the Vaigai river irrigation system, which means water rarely reaches most parts of the constituency. Except for areas like R.S. Mangalam, the majority of farmlands are not effectively connected to irrigation canals. Farmers are forced to depend on unpredictable seasonal rains and aging Public Works Department tanks that are not properly maintained. This leads to unstable crop yields and financial insecurity. The demand is for a strategic Canal Linking Project to bring Vaigai river water directly to drought-prone areas. Additionally, farmers are demanding the desilting of the R.S. Mangalam tank, the second largest tank in Tamil Nadu, to improve water storage and irrigation efficiency."
+        },
+        {
+          title: "The Thondi Fishing Harbor Demand",
+          desc: "The coastal town of Thondi is a major marine hub known for its dry fish and seafood exports, yet its infrastructure is outdated. Fishermen currently rely on temporary landing centers that are insufficient during rough weather and lack proper storage facilities. This results in losses and reduced income. The demand is for the construction of a modern, full-fledged fishing harbor in Thondi, including a permanent jetty and a cold storage processing park. This would eliminate dependency on middlemen and allow fishermen to directly access export markets and receive better prices."
+        },
+        {
+          title: "Lack of Direct Procurement Centres",
+          desc: "Farmers in Tiruvadanai face major logistical challenges when selling their paddy. They often have to travel 30 to 40 kilometers to reach Direct Procurement Centres located in areas like Uppur or Ramanathapuram town. The high transportation cost significantly reduces their profit margins. This discourages agricultural productivity and increases financial strain. The demand is to establish permanent Direct Procurement Centres in every major panchayat union within the constituency, especially in interior farming regions."
+        },
+        {
+          title: "The Administrative Limbo Issue",
+          desc: "Tiruvadanai faces a unique geographic and administrative challenge. Many key district-level government offices are located within the constituency boundaries but are far from Tiruvadanai town itself. This creates an administrative disconnect, where residents find it difficult to access services, and local concerns are often overshadowed by district-level priorities. The demand is for a clearer distribution of administrative services and the relocation of certain offices closer to the population centers within the constituency."
+        },
+        {
+          title: "Drinking Water and High Costs",
+          desc: "Despite government initiatives like the Jal Jeevan Mission and Cauvery Combined Drinking Water Scheme, implementation in Tiruvadanai’s interior villages is inconsistent. Many households are forced to rely on private suppliers and pay around ₹30 per pot of water. Coastal villages face additional challenges due to saline groundwater, making it unsuitable for consumption. The demand is for a dedicated drinking water pipeline system specifically for coastal areas and improved execution of existing water supply schemes."
+        }
+      ]
+    },
+
+    {
+      constno: 211,
+      constname: "Ramanathapuram",
+      about: "Ramanathapuram Assembly Constituency (No. 211) is the Headquarters Constituency of the district. It spans from the commercial center of Ramnad town to the religious hub of Rameswaram and the coastal town of Keelakarai. The constituency represents a unique blend of urban trade, massive religious tourism, and marine-based livelihoods, making it one of the most dynamic and complex regions in the district.",
+      problem: [
+        {
+          title: "The Drinking Water Deadlock",
+          desc: "Despite multiple government schemes, Ramanathapuram remains one of the most water-stressed constituencies in Tamil Nadu. Residents in many wards are still dependent on private water tankers, spending ₹30 to ₹50 per pot. Groundwater quality is deteriorating due to salinity caused by coastal proximity. The demand is for the full implementation of the Cauvery Combined Drinking Water Project and fixing distribution leakages affecting tail-end areas."
+        },
+        {
+          title: "Urban Infrastructure vs Corporation Dreams",
+          desc: "Ramanathapuram is growing rapidly, but infrastructure has not kept pace. The Underground Drainage system is outdated and frequently overflows during rains, creating health hazards. Traffic congestion in the bazaar and near the railway station is a daily issue. The demand is for an Integrated Bus Terminus and complete modernization of sewage systems."
+        },
+        {
+          title: "The Fishing Crisis and Deep Sea Rights",
+          desc: "Fishing communities in Mandapam, Pamban, and Rameswaram face serious challenges including arrests by the Sri Lankan Navy, rising fuel costs, and lack of cold storage. This has pushed many families into debt. The demand is for a permanent diplomatic solution and a Marine Processing Park."
+        },
+        {
+          title: "The Rameswaram Paradox",
+          desc: "Rameswaram attracts millions of pilgrims, but local infrastructure is poor. Waste management, public toilets, and rest areas are inadequate. Residents feel overcrowded. The demand is for a Special Development Authority to reinvest tourism revenue."
+        },
+        {
+          title: "The Job Migration Issue",
+          desc: "Despite having educational institutions, there are very few industries or IT parks. Youth are forced to migrate to cities like Madurai, Coimbatore, and Chennai. The demand is for incentives to promote local industries in food processing and textiles."
+        }
+      ]
+    },
+
+    {
+      constno: 212,
+      constname: "Mudukulathur",
+      about: "Mudukulathur Assembly Constituency (No. 212) is known as the Agrarian Engine of Ramanathapuram district. The region is almost entirely dependent on agriculture and allied activities such as chilli cultivation and palm-based livelihoods. However, water scarcity, market instability, and lack of infrastructure have created deep economic challenges for farmers and workers.",
+      problem: [
+        {
+          title: "The Mundu Chilli Crisis (Price vs Protection)",
+          desc: "Mudukulathur’s famous Mundu Chilli is facing a critical situation. In 2026, prices reached ₹36,000 per quintal due to crop losses caused by fruit rot disease and drought. However, most farmers have little stock to sell. Lack of storage forces immediate sale to middlemen. The demand is for a Chilli Welfare Board and cold storage facility."
+        },
+        {
+          title: "The Vaigai Overflow Only Status",
+          desc: "Despite proximity to the Parthibanur Dam, Mudukulathur receives only excess overflow water with no formal allocation. This makes agriculture uncertain. The demand is for a fixed water share through a state resolution."
+        },
+        {
+          title: "The Narippayur Desalination Failure",
+          desc: "The desalination plant has stopped functioning due to financial issues. Panchayats cannot afford operational costs. Thousands lack drinking water. The demand is for state intervention and sustainable funding."
+        },
+        {
+          title: "Neglect of the Palm Industry",
+          desc: "Over 15,000 families depend on palm trees, but lack of regulated markets forces them into debt. The demand is for a Palm Development Board and safety support."
+        },
+        {
+          title: "Unfulfilled VIP Promises",
+          desc: "Despite being represented by a senior minister, promises like a new Revenue Union and Engineering College remain unfulfilled. Voters demand accountability."
+        }
+      ]
+    }
+
+  ]
+}
+];

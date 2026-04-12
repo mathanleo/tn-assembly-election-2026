@@ -1,0 +1,164 @@
+[
+    {
+        "distNo": 6,
+        "distName": "Kallakurichi",
+        "consit": [
+            {
+                "constno": 78,
+                "constname": "Kallakurichi",
+                "about": "Kallakurichi constituency is a significant agriculture-dominated center in Kallakurichi district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Kallakurichi city and surrounding areas, and it is part of the Kallakurichi Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Severe water scarcity and declining groundwater levels affecting irrigation and drinking supply"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Crop losses due to irregular rainfall and dependence on rain-fed farming"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Limited industrial growth leading to lack of stable job opportunities"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor rural road connectivity affecting access to markets and services"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Inadequate healthcare facilities and shortage of medical professionals"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Poor sanitation infrastructure in rural and semi-urban areas"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Over-extraction of groundwater and land degradation impacting sustainability"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Slow implementation of welfare schemes and infrastructure projects"
+                    }
+                ]
+            },
+            {
+                "constno": 79,
+                "constname": "Sankarapuram",
+                "about": "Sankarapuram constituency is a significant rural and agricultural center in Kallakurichi district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Sankarapuram city and surrounding areas, and it is part of the Kallakurichi Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Chronic water shortages due to poor rainfall and limited irrigation systems"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Low productivity due to drought conditions and lack of modern farming support"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor road and transport facilities in remote villages"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Lack of non-agricultural employment opportunities causing migration"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Limited healthcare access in remote and tribal areas"
+                    },
+                    {
+                        "title": "Education",
+                        "desc": "Shortage of teachers and poor school infrastructure in rural areas"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Deforestation and land degradation affecting ecology and agriculture"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Inadequate delivery of government services in remote regions"
+                    }
+                ]
+            },
+            {
+                "constno": 80,
+                "constname": "Rishivandiyam",
+                "about": "Rishivandiyam constituency is a significant rural and agricultural center in Kallakurichi district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Rishivandiyam city and surrounding areas, and it is part of the Kallakurichi Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Water",
+                        "desc": "Irregular water supply affecting both domestic use and irrigation"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Crop failures due to dependence on monsoon rains"
+                    },
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Poor road conditions limiting connectivity"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Lack of industries leading to unemployment among youth"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Inadequate sanitation facilities in villages"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Insufficient healthcare services and facilities"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Soil degradation and declining agricultural productivity"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Delays in infrastructure development and welfare schemes"
+                    }
+                ]
+            },
+            {
+                "constno": 81,
+                "constname": "Ulundurpettai",
+                "about": "Ulundurpettai constituency is a significant semi-urban and agricultural center in Kallakurichi district, Tamil Nadu, known for its economic importance and diverse population. The constituency includes parts of Ulundurpettai city and surrounding areas, and it is part of the Kallakurichi Lok Sabha constituency. Established in 1951, it has a rich political history with diverse representation over the decades.",
+                "problem": [
+                    {
+                        "title": "Infrastructure",
+                        "desc": "Traffic congestion and road safety issues along major highways"
+                    },
+                    {
+                        "title": "Water",
+                        "desc": "Water shortages due to growing population and inadequate supply systems"
+                    },
+                    {
+                        "title": "Employment",
+                        "desc": "Limited industrial opportunities despite strategic location"
+                    },
+                    {
+                        "title": "Sanitation",
+                        "desc": "Poor waste management in growing town areas"
+                    },
+                    {
+                        "title": "Health",
+                        "desc": "Overburdened healthcare facilities"
+                    },
+                    {
+                        "title": "Agriculture",
+                        "desc": "Declining yields due to water scarcity and soil issues"
+                    },
+                    {
+                        "title": "Environment",
+                        "desc": "Pollution from vehicles and urban expansion"
+                    },
+                    {
+                        "title": "Governance",
+                        "desc": "Slow urban planning and infrastructure upgrades"
+                    }
+                ]
+            }
+        ]
+    }
+]
