@@ -1,0 +1,378 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color:#F5FBFF;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0px 80px;
+}
+.container1{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+nav#navHeader {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  height: 82px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  padding: 0 60px !important;
+  margin-top: 12px !important;
+  margin-right: 0 !important;
+  background-color: white !important;
+}
+
+.headerlogo {
+  display: flex;
+  margin: 0;
+  padding:0;
+  height: 58px;
+}
+
+.headerlogo img {
+  width: 48px;
+  height: 48px;
+  padding-bottom: 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 592px;
+  height: 58px;
+  text-decoration: none;
+}
+
+.logo-container img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-text .tn {
+  color: #FF0000;
+}
+
+.logo-text .rest {
+  color: #000000;
+}
+.logo-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 32px; 
+  font-weight: 500; /* Adjusted for better visibility like Figma */
+  line-height: 1;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navigations {
+  display: flex; 
+  /* align-items: center;  */
+
+  width: 635px;
+  height: 24px;
+
+  /* gap: 41px; */
+}
+
+.navigations ul {
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  gap: 41px;
+  margin: 0;
+  padding: 0;
+}
+
+.navigations li {
+  list-style-type: none;
+  position: relative;
+}
+
+.navigations li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 24px;
+  width: 100%;
+
+  line-height: 24px;
+  padding: 0;
+}
+
+.links:hover {
+
+  color: #F55533;
+}
+.links.active {
+  text-decoration: underline;
+  color: #F55533;
+}
+.links {
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+#candidates {
+  width: 87px;
+}
+
+#constituencies {
+  width: 113px;
+}
+
+#candidates {
+  width: 87px;
+}
+
+#bigfights {
+  width: 75px;
+}
+
+#head2head {
+  width: 99px;
+}
+
+#results2021 {
+  width: 97px;
+}
+
+.search-box {
+    width: 238px !important;
+    max-width: 238px !important;
+    height: 40px;
+    background: #F2F4F7;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+}
+
+.search-box .input-group-text {
+    background: #F2F4F7;
+    border: none;
+    padding: 8px;
+}
+
+.search-box .form-control {
+    background: #F2F4F7;
+    border: none;
+    box-shadow: none;
+    height: 40px;
+}
+
+.search-box .form-control:focus {
+    background: #F2F4F7;
+    box-shadow: none;
+}
+/* .header{
+    width: 1440px;
+    height: 82px;
+    margin-top: 40px;
+    margin-bottom: 1px;
+} */
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.candidate {
+    background-color: white;
+    width: 1200px;
+    border-radius: 16px;
+    border: 1px solid #d0d5dd;
+    padding: 16px 24px 24px 24px;
+    margin-top: 20px;
+}
+.top-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    padding-top: 100px; 
+    position: relative;  /* room for photo overflow */
+}
+
+.candidate-card {
+    width: 198px;
+    gap: 8px;
+    opacity: 1;
+    position:relative;
+    margin-left: 8px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* .candidate-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+} */
+
+/* Photo overlaps INTO the card deeply */
+.candidate-card .photo-wrap {
+    position: absolute;
+    top: -90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 157px;
+    height: 184px;         /* taller photo */
+    border-radius:120px;
+    overflow: hidden;
+    background: transparent;
+    z-index: 1; 
+}
+
+.candidate-card .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* Card body - photo overlaps first 130px of card */
+.candidate-card .card-body {
+    width: 182px;
+    height: 176px; /* top padding = photo overlap depth */
+    position: relative;
+    /* gap: 8px; */
+    display: flex;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-top: 5px;
+    flex-direction: column;
+    justify-content:flex-end;
+    align-items: center;
+    text-align: center;
+}
+.candidate-card .card-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 182px;
+    height: 82px;
+    /* gap: 8px; */
+}
+.candidate-card .candidate-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 3px 0;
+    z-index: 1;
+}
+
+.candidate-card .candidate-constituency {
+    font-size: 12px;
+    margin: 0 0 10px 0;
+    z-index: 1;
+}
+
+/* Party bar at bottom */
+.candidate-card .party-bar {
+    width: 100%;
+    height: 28px;
+    font-size: 15px;
+    font-weight: 700;
+    position: relative;
+}
+.ntk-bar{
+    background:#039855;
+    color: white;
+}
+.tvk-bar{
+    background:#FDB022;
+}
+.dmk-bar{
+    background:#FECDCA;
+}
+.aiadmk-bar{
+    background: #A6F4C5;
+}
+/* Logo circle inside party bar, left side */
+.candidate-card .party-logo-wrap {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    background-color: white;
+}
+
+.candidate-card .party-logo-wrap img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+.card-tvk    { 
+    background:#FEDF89; 
+    
+}
+.card-ntk    { 
+    background:#A6F4C5;
+    color: black;
+}
+.card-dmk    { 
+    background: #C8102E; 
+}
+.card-aiadmk { background:#027A48; }
+.card-dmk .candidate-name,
+.card-dmk .candidate-constituency {
+    color: white;
+}
+
+.card-aiadmk .candidate-name,
+.card-aiadmk .candidate-constituency {
+    color: white;
+}
+/* ── Filter Tabs ── */
+.filter-tabs {
+    display: flex;
+    align-items: center;
+    gap: 49px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 7px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    height: 44px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border: none;
+    background:#F8E0DB;
+    color:#E54B2A;
+    transition: all 0.2s;
+}
+
+.filter-btn.active {
+    background: #fff;
+    color: #f97066;
+    border: 1.5px solid #f97066;
+    font-weight: 600;
+}
+
+.filter-btn:hover {
+    background:transparent ;
+    border: 1.5px solid #f97066;
+}
