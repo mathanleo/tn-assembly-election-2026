@@ -1049,6 +1049,139 @@
       }
 
     ]
+  },,
+  {
+    distNo: 5,
+    distName: "Krishnagiri",
+    consit: [
+
+      {
+        constno: 51,
+        constname: "Uthangarai",
+        about: "Uthangarai is a semi-arid constituency characterized by dryland agriculture and rural settlements. The region depends largely on monsoon rainfall and limited groundwater resources, with crops such as millets, groundnut, and pulses forming the backbone of the local economy.",
+
+        problem: [
+          {
+            title: "Rain-fed agriculture dependency",
+            desc: "Agriculture in Uthangarai is highly dependent on seasonal monsoon rainfall due to lack of major irrigation infrastructure. Irregular rainfall patterns often lead to unstable crop yields and financial uncertainty for farmers."
+          },
+          {
+            title: "Groundwater depletion",
+            desc: "Increased reliance on borewells for irrigation has led to declining groundwater levels, making water access more difficult and increasing cultivation costs over time."
+          },
+          {
+            title: "Drought vulnerability",
+            desc: "The semi-arid climate and low rainfall make the region prone to drought conditions, affecting both agriculture and drinking water availability."
+          }
+        ]
+      },
+
+      {
+        constno: 52,
+        constname: "Bargur",
+        about: "Bargur is a hilly constituency located near the Eastern Ghats, featuring forest areas, tribal settlements, and scattered rural villages. The region has ecological significance and supports agriculture, livestock, and forest-based livelihoods.",
+
+        problem: [
+          {
+            title: "Human-wildlife conflict",
+            desc: "Due to proximity to forest areas, elephants and other wildlife frequently enter agricultural lands and villages, causing crop damage, property loss, and safety concerns for residents."
+          },
+          {
+            title: "Limited connectivity",
+            desc: "The hilly terrain and dispersed settlements result in poor road connectivity, affecting transportation, access to healthcare, and education services."
+          },
+          {
+            title: "Water scarcity",
+            desc: "Dependence on rainfall and lack of major water infrastructure lead to seasonal water shortages for both agriculture and domestic use."
+          }
+        ]
+      },
+
+      {
+        constno: 53,
+        constname: "Krishnagiri",
+        about: "Krishnagiri constituency is an important administrative and commercial center, widely known as a major mango-producing region in India. It is strategically located along national highways connecting Tamil Nadu and Karnataka, supporting trade and logistics.",
+
+        problem: [
+          {
+            title: "Highway traffic congestion",
+            desc: "Major national highways passing through Krishnagiri carry heavy interstate traffic, leading to congestion, increased travel time, and higher accident risk in urban stretches."
+          },
+          {
+            title: "Water resource pressure",
+            desc: "Agriculture, especially mango cultivation, and population growth have increased demand on water resources, leading to supply challenges."
+          },
+          {
+            title: "Urban expansion issues",
+            desc: "Rapid urbanization has created pressure on infrastructure such as roads, drainage, and public services, resulting in congestion and civic issues."
+          }
+        ]
+      },
+
+      {
+        constno: 54,
+        constname: "Veppanahalli",
+        about: "Veppanahalli is a semi-urban constituency located near the Tamil Nadu–Karnataka border, with agriculture and cross-border trade forming key components of the local economy.",
+
+        problem: [
+          {
+            title: "Water scarcity",
+            desc: "Limited rainfall and dependence on groundwater lead to recurring water shortages for both agriculture and domestic use."
+          },
+          {
+            title: "Agricultural instability",
+            desc: "Farmers face uncertainty due to irregular rainfall and lack of consistent irrigation support."
+          },
+          {
+            title: "Cross-border traffic pressure",
+            desc: "Movement of goods and vehicles across the state border contributes to road congestion and infrastructure strain."
+          }
+        ]
+      },
+
+      {
+        constno: 55,
+        constname: "Hosur",
+        about: "Hosur is one of the major industrial hubs in Tamil Nadu, known for automobile, electronics, and manufacturing industries. Its proximity to Bengaluru has driven rapid industrialization, urbanization, and economic growth.",
+
+        problem: [
+          {
+            title: "Industrial pollution",
+            desc: "Rapid industrial development has led to increased air and water pollution, affecting environmental quality and public health in surrounding areas."
+          },
+          {
+            title: "Traffic congestion",
+            desc: "High volume of industrial transport and commuter traffic between Hosur and Bengaluru causes severe congestion and delays."
+          },
+          {
+            title: "Water demand pressure",
+            desc: "Industrial and population growth have significantly increased water demand, leading to shortages in some areas."
+          }
+        ]
+      },
+
+      {
+        constno: 56,
+        constname: "Thalli",
+        about: "Thalli is a rural and hilly constituency near the Karnataka border, often referred to as 'Little England' due to its relatively cooler climate. Agriculture and horticulture are the main occupations.",
+
+        problem: [
+          {
+            title: "Water scarcity",
+            desc: "Despite favorable climate, limited water infrastructure and seasonal rainfall variations lead to water shortages."
+          },
+          {
+            title: "Connectivity challenges",
+            desc: "Hilly terrain and dispersed villages result in limited road infrastructure, affecting accessibility to services."
+          },
+          {
+            title: "Agricultural challenges",
+            desc: "Farmers face issues related to irrigation, market access, and fluctuating crop prices."
+          }
+        ]
+      }
+
+    ]
   }
 
 ]
