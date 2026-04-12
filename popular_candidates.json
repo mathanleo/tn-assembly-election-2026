@@ -1,0 +1,442 @@
+[
+  {
+    "id": 1,
+    "name": "M.K. Stalin",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Kolathur",
+    "ac_no": "13",
+    "notes": "Incumbent Chief Minister of Tamil Nadu; DMK President; CM face of SPA alliance"
+  },
+  {
+    "id": 2,
+    "name": "Udhayanidhi Stalin",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Chepauk-Thiruvallikeni",
+    "ac_no": "19",
+    "notes": "Deputy Chief Minister; son of MK Stalin; re-nominated sitting MLA"
+  },
+  {
+    "id": 3,
+    "name": "Edappadi K. Palaniswami (EPS)",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Edappadi",
+    "ac_no": "78",
+    "notes": "AIADMK General Secretary; former CM; CM face of NDA; won 2021 by 93,802-vote margin"
+  },
+  {
+    "id": 4,
+    "name": "C. Joseph Vijay",
+    "party": "Tamilaga Vettri Kazhagam (TVK)",
+    "constituency": "Perambur",
+    "ac_no": "12",
+    "notes": "Actor-politician; TVK founder & president; CM face; filed nomination March 30, 2026"
+  },
+  {
+    "id": 5,
+    "name": "O. Panneerselvam",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Bodinayakkanur",
+    "ac_no": "220",
+    "notes": "Former Chief Minister of TN; expelled from AIADMK in 2022; joined DMK in 2026"
+  },
+  {
+    "id": 6,
+    "name": "V. Senthil Balaji",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Coimbatore South",
+    "ac_no": "155",
+    "notes": "Senior DMK minister; shifted from Karur to high-profile Coimbatore South"
+  },
+  {
+    "id": 7,
+    "name": "Dr. P.T.R. Palanivel Thiagarajan",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Madurai Central",
+    "ac_no": "182",
+    "notes": "Finance Minister of Tamil Nadu; re-nominated sitting MLA"
+  },
+  {
+    "id": 8,
+    "name": "Seeman",
+    "party": "Naam Tamilar Katchi (NTK)",
+    "constituency": "Karaikudi",
+    "ac_no": "204",
+    "notes": "NTK Chief Coordinator; founder; contesting against sitting Congress MLA; NTK fields 234 candidates"
+  },
+  {
+    "id": 9,
+    "name": "Duraimurugan",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Katpadi",
+    "ac_no": "40",
+    "notes": "Senior DMK minister; re-nominated sitting MLA"
+  },
+  {
+    "id": 10,
+    "name": "K.N. Nehru",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Trichy West",
+    "ac_no": "168",
+    "notes": "Senior DMK minister; re-nominated sitting MLA"
+  },
+  {
+    "id": 11,
+    "name": "Anbil Mahesh Poyyamozhi",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Thiruvembur",
+    "ac_no": "164",
+    "notes": "Minister for School Education; re-nominated sitting MLA"
+  },
+  {
+    "id": 12,
+    "name": "Ma. Subramanian",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Saidapet",
+    "ac_no": "23",
+    "notes": "Minister for Health; re-nominated sitting MLA"
+  },
+  {
+    "id": 13,
+    "name": "Geetha Jeevan",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Thoothukudi",
+    "ac_no": "234",
+    "notes": "Senior DMK woman leader; former union minister; re-nominated"
+  },
+  {
+    "id": 14,
+    "name": "D. Jayakumar",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Royapuram",
+    "ac_no": "17",
+    "notes": "Senior AIADMK leader; former minister; sitting MLA"
+  },
+  {
+    "id": 15,
+    "name": "S.P. Velumani",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Thondamuthur",
+    "ac_no": "157",
+    "notes": "Former minister; senior AIADMK leader; re-nominated"
+  },
+  {
+    "id": 16,
+    "name": "C.Ve. Shanmugam",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Mailam",
+    "ac_no": "88",
+    "notes": "Former minister; AIADMK legal wing leader"
+  },
+  {
+    "id": 17,
+    "name": "P. Thangamani",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Kumarapalayam",
+    "ac_no": "118",
+    "notes": "Former minister for Electricity; senior AIADMK leader"
+  },
+  {
+    "id": 18,
+    "name": "Dr. C. Vijayabaskar",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Viralimalai",
+    "ac_no": "177",
+    "notes": "Former minister for Health; senior AIADMK leader"
+  },
+  {
+    "id": 19,
+    "name": "Sellur K. Raju",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Madurai West",
+    "ac_no": "184",
+    "notes": "Former minister; AIADMK candidate in Madurai"
+  },
+  {
+    "id": 20,
+    "name": "B. Valarmathi",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Thousand Lights",
+    "ac_no": "20",
+    "notes": "AIADMK women's wing secretary; former minister"
+  },
+  {
+    "id": 21,
+    "name": "N. Anand",
+    "party": "Tamilaga Vettri Kazhagam (TVK)",
+    "constituency": "Thyagarayanagar",
+    "ac_no": "24",
+    "notes": "TVK General Secretary; senior TVK leader"
+  },
+  {
+    "id": 22,
+    "name": "Vanathi Srinivasan",
+    "party": "Bharatiya Janata Party (BJP)",
+    "constituency": "Coimbatore(North)",
+    "ac_no": "118",
+    "notes": "BJP TN women's wing president; former MLA from Coimbatore South"
+  },
+  {
+    "id": 23,
+    "name": "Tamilisai Soundararajan",
+    "party": "Bharatiya Janata Party (BJP)",
+    "constituency": "Mylapore",
+    "ac_no": "25",
+    "notes": "Former TN BJP President; former Governor of Telangana"
+  },
+  {
+    "id": 24,
+    "name": "Sowmiya Anbumani",
+    "party": "Pattali Makkal Katchi (PMK)",
+    "constituency": "Dharmapuri",
+    "ac_no": "59",
+    "notes": "Daughter of Anbumani Ramadoss; PMK candidate"
+  },
+  {
+    "id": 25,
+    "name": "K. Krishnasamy",
+    "party": "Puthiya Tamilagam",
+    "constituency": "OTTAPIDARAM",
+    "ac_no": "217",
+    "notes": "Puthiya Tamilagam founder; prominent Dalit leader; party released 70 candidate lists"
+  },
+  {
+    "id": 26,
+    "name": "Dr. T.R.B. Rajaa",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Mannargudi",
+    "ac_no": "135",
+    "notes": "Minister for Industries; PhD scholar candidate; re-nominated"
+  },
+  {
+    "id": 27,
+    "name": "P.K. Sekar Babu",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Harbour",
+    "ac_no": "18",
+    "notes": "Minister for Hindu Religious and Charitable Endowments; re-nominated"
+  },
+  {
+    "id": 28,
+    "name": "Nainar Nagenthran",
+    "party": "Bharatiya Janata Party (BJP)",
+    "constituency": "SATTUR",
+    "ac_no": "204",
+    "notes": "BJP Tamil Nadu President; part of NDA alliance"
+  },
+  {
+    "id": 29,
+    "name": "K.P. Munusamy",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Veppanahalli",
+    "ac_no": "64",
+    "notes": "Senior AIADMK leader; former minister"
+  },
+  {
+    "id": 30,
+    "name": "Thangam Thennarasu",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Tiruchuli",
+    "ac_no": "197",
+    "notes": "Cabinet minister; re-nominated sitting MLA"
+  },
+  {
+    "id": 31,
+    "name": "E.V. Velu",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Tiruvannamalai",
+    "ac_no": "63",
+    "notes": "Senior DMK minister; re-nominated sitting MLA; won 2021 by 94,673-vote margin"
+  },
+  {
+    "id": 32,
+    "name": "I. Periyasamy",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Athoor",
+    "ac_no": "129",
+    "notes": "Senior DMK minister; re-nominated sitting MLA; won 2021 by record 1,35,571-vote margin"
+  },
+  {
+    "id": 33,
+    "name": "I.P. Senthilkumar",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Dindigul",
+    "ac_no": "132",
+    "notes": "Son of senior DMK minister I. Periyasamy; fielded by DMK from Dindigul"
+  },
+  {
+    "id": 34,
+    "name": "Karthik Mohan",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Villivakkam",
+    "ac_no": "14",
+    "notes": "Close aide of Deputy CM Udhayanidhi Stalin; key contest vs TVK's Adhav Arjuna and AIADMK"
+  },
+  {
+    "id": 35,
+    "name": "M.R.K. Panneerselvam",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Kurinjipadi",
+    "ac_no": "156",
+    "notes": "Senior DMK minister; re-nominated sitting MLA; won 2021 by 17,527-vote margin"
+  },
+  {
+    "id": 36,
+    "name": "M. Appavu",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Radhapuram",
+    "ac_no": "228",
+    "notes": "Cabinet minister; re-nominated sitting MLA; won 2021 by 5,925-vote margin"
+  },
+  {
+    "id": 37,
+    "name": "K.S. Masthan",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Gingee",
+    "ac_no": "70",
+    "notes": "Senior DMK leader; re-nominated sitting MLA; won 2021 by 35,803-vote margin"
+  },
+  {
+    "id": 38,
+    "name": "L. Murugan",
+    "party": "Bharatiya Janata Party (BJP)",
+    "constituency": "Avanashi",
+    "ac_no": "112",
+    "notes": "Union Minister of State for I&B; former TN BJP President; contesting Avanashi under NDA"
+  },
+  {
+    "id":39,
+    "name":"K.A.Sengottaiyan",
+    "party":"Tamilaga Vettri Kazhagam (TVK)",
+    "constituency":"GOBICHETTIPALAYAM",
+    "ac_no":"106",
+    "notes":"A nine-time MLA from the Gobichettipalayam constituency"
+  },
+  {
+    "id":40,
+    "name":"R.B.UDHAYAKUMAR",
+    "party":"All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency":"Thirumangalam",
+    "ac_no":"196",
+    "notes":"R.B. Udhayakumar is a senior AIADMK leader, former Revenue Minister, and a prominent star campaigner"
+  },
+  {
+    "id":41,
+    "name":"Anitha R.Radhakirshnan",
+    "party":"Dravida Munnetra Kazhagam (DMK)",
+    "constituency":"Tiruchendur",
+    "ac_no":"215",
+    "notes":"An Indian politician who has served as the Minister for Fisheries, Fishermen Welfare, and Animal Husbandry in the Government of Tamil Nadu since May 2021."
+  },
+  {
+    "id":42,
+    "name":"S.Inigo Irudayaraj",
+    "party":"Dravida Munnetra Kazhagam (DMK)",
+    "constituency":"Tiruchirappalli(East)",
+    "ac_no":"141",
+    "notes":"Member of Legislative Assembly of Tamil Nadu"
+  },
+  {
+    "id": 43,
+    "name": "S. Vadivel Ravanan",
+    "party": "Pattali Makkal Katchi (PMK)",
+    "constituency": "Keezhvelur",
+    "ac_no": "164",
+    "notes": "PMK General Secretary; contesting from Keezhvelur (SC reserved) under NDA"
+  },
+  {
+    "id": 44,
+    "name": "K.N. Sekar",
+    "party": "Pattali Makkal Katchi (PMK)",
+    "constituency": "Ambattur",
+    "ac_no": "8",
+    "notes": "PMK State Deputy President; contesting from Ambattur under NDA alliance"
+  },
+  {
+    "id": 45,
+    "name": "M. Thilagabama",
+    "party": "Pattali Makkal Katchi (PMK)",
+    "constituency": "Perambur",
+    "ac_no": "12",
+    "notes": "PMK candidate in Perambur; high-profile 3-way contest vs TVK's Vijay and DMK's R.D. Sekar"
+  },
+  {
+    "id": 46,
+    "name": "M. Boominathan",
+    "party": "Marumalarchi Dravida Munnetra Kazhagam (MDMK)",
+    "constituency": "Madurai South",
+    "ac_no": "192",
+    "notes": "MDMK sitting MLA; won 2021 by 6,515 margin; re-nominated by MDMK; contesting under DMK's Rising Sun symbol"
+  },
+  {
+    "id": 47,
+    "name": "K. Selvaperunthagai",
+    "party": "Indian National Congress (INC)",
+    "constituency": "Sriperumbudur",
+    "ac_no": "29",
+    "notes": "TN Congress PCC Chief; re-nominated sitting MLA from Sriperumbudur (SC reserved)"
+  },
+  {
+    "id": 48,
+    "name": "Dr. A. Chella Kumar",
+    "party": "Indian National Congress (INC)",
+    "constituency": "Krishnagiri",
+    "ac_no": "53",
+    "notes": "Former MP; Congress candidate for Krishnagiri under SPA alliance"
+  },
+  {
+    "id": 49,
+    "name": "Adhav Arjuna",
+    "party": "Tamilaga Vettri Kazhagam (TVK)",
+    "constituency": "Villivakkam",
+    "ac_no": "14",
+    "notes": "TVK General Secretary; party election campaign manager; key 3-way contest vs DMK and AIADMK"
+  },
+  {
+    "id": 50,
+    "name": "Natham R. Viswanathan",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Natham",
+    "ac_no": "131",
+    "notes": "Senior AIADMK leader; former minister; re-nominated sitting MLA; won 2021 by 11,932 margin"
+  },
+  {
+    "id": 51,
+    "name": "O.S. Manian",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Vedaranyam",
+    "ac_no": "165",
+    "notes": "Former AIADMK minister; re-nominated sitting MLA; won 2021 by 12,329 margin"
+  },
+  {
+    "id": 52,
+    "name": "K.T. Rajenthra Bhalaji",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Sivakasi",
+    "ac_no": "205",
+    "notes": "Former AIADMK minister; shifted to Sivakasi in 2026 (contested Rajapalayam in 2021)"
+  },
+  {
+    "id": 53,
+    "name": "M.R. Vijayabhaskar",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Karur",
+    "ac_no": "135",
+    "notes": "Former minister for Revenue; re-contesting Karur; lost 2021 to Senthil Balaji by 12,448 margin"
+  },
+  {
+    "id": 54,
+    "name": "Pollachi V. Jayaraman",
+    "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+    "constituency": "Pollachi",
+    "ac_no": "123",
+    "notes": "Senior AIADMK leader; re-nominated sitting MLA; won 2021 by razor-thin 1,725-vote margin"
+  },
+  {
+    "id": 55,
+    "name": "Karunaas S",
+    "party": "Dravida Munnetra Kazhagam (DMK)",
+    "constituency": "Sivaganga",
+    "ac_no": "186",
+    "notes": "An Indian actor, comedian, musician and politician in the Tamil film industry. "
+  }
+]
