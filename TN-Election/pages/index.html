@@ -1,146 +1,193 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | TN Election 2026</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | TN Election 2026</title>
 
-    <!-- Step 1: Global styles always first -->
-    <link rel="stylesheet" href="../css/global.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- Step 2: Component styles -->
-    <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/tn-map.css" />
+</head>
 
-    <!-- Step 3: Page specific styles -->
-    <link rel="stylesheet" href="../css/home.css" />
-  </head>
+<body data-page="index">
+  <div id="navbar-container"></div>
 
-  <body data-page="index">
-    <!-- Navbar renders here — do not remove -->
-    <div id="navbar-container"></div>
+  <main>
+    <section class="map-section">
 
-    <main>
-      <!-- ==============================
-         SECTION 1: CM CANDIDATES
-         Freshers: Do not edit HTML here.
-         Edit data in data/cm-candidates.js
-         ============================== -->
-      <section class="home-section">
-        <h2 class="home-section__title">Chief Minister Candidates</h2>
-
-        <!-- Cards render here by cm-candidates.js -->
-        <div class="cm-candidates__grid" id="cm-candidates-container">
-          <!-- JS will fill this -->
+      <!-- ── Top bar: TN title (left) + Search (right) ── -->
+      <div class="map-topbar">
+        <div class="map-topbar__title">
+          <img src="../assets/tn-emblem.png" alt="TN" onerror="this.style.display='none'" />
+          <span>Tamilnadu Legislative Assembly 2026</span>
         </div>
-      </section>
 
-      <!-- ==============================
-         SECTION 2: ALLIANCE TABLE
-         Freshers: Do not edit HTML here.
-         Edit data in data/alliances.js
-         ============================== -->
-      <section class="home-section" style="padding-top: 0">
-        <div class="alliance-table">
-          <!-- Alliance colour headers -->
-          <div class="alliance-table__headers">
-            <div class="alliance-table__header alliance-table__header--nda">
-              NDA
+        <!-- Search moved here — top right -->
+        <div class="map-search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input id="map-search-input" type="text" placeholder="Search Constituency…" />
+          <div class="map-search-results" id="map-search-results"></div>
+        </div>
+      </div>
+
+      <!-- ── Body: Map LEFT | CM cards + Alliance RIGHT ── -->
+      <div class="map-body">
+
+        <!-- Map canvas -->
+        <div class="map-right">
+          <svg id="tn-map-svg"></svg>
+        </div>
+
+        <!-- Right column: CM Candidates + Alliance Table -->
+        <div class="map-content-right">
+
+          <!-- CM Candidates -->
+          <div class="cm-candidates__grid" id="cm-candidates-container">
+            <!-- filled by cm-candidates.js -->
+          </div>
+
+          <!-- Alliance Table -->
+          <div class="alliance-table">
+            <div class="alliance-table__headers">
+              <div class="alliance-table__header alliance-table__header--nda">NDA</div>
+              <div class="alliance-table__vdivider-head"></div>
+              <div class="alliance-table__header alliance-table__header--spa">SPA</div>
+              <div class="alliance-table__vdivider-head"></div>
+              <div class="alliance-table__header alliance-table__header--others">Others</div>
             </div>
-            <div class="alliance-table__vdivider-head"></div>
-            <div class="alliance-table__header alliance-table__header--spa">
-              SPA
+
+            <div class="alliance-table__subheaders">
+              <div class="alliance-table__subheader alliance-table__subheader--nda">
+                <span>Parties</span><span>Seat sharing</span>
+              </div>
+              <div class="alliance-table__vdivider"></div>
+              <div class="alliance-table__subheader alliance-table__subheader--spa">
+                <span>Parties</span><span>Seat sharing</span>
+              </div>
+              <div class="alliance-table__vdivider"></div>
+              <div class="alliance-table__subheader alliance-table__subheader--others">
+                <span>Parties</span><span>Seat sharing</span>
+              </div>
             </div>
-            <div class="alliance-table__vdivider-head"></div>
-            <div class="alliance-table__header alliance-table__header--others">
-              Others
+
+            <div class="alliance-table__body">
+              <div class="alliance-table__col" id="alliance-col-nda"></div>
+              <div class="alliance-table__vdivider"></div>
+              <div class="alliance-table__col" id="alliance-col-spa"></div>
+              <div class="alliance-table__vdivider"></div>
+              <div class="alliance-table__col" id="alliance-col-others"></div>
+            </div>
+
+            <div class="alliance-table__footer">
+              <button class="alliance-table__viewall-btn" id="alliance-viewall-btn" onclick="toggleAllianceView()">
+                View all
+              </button>
+            </div>
+
+            <div class="alliance-table__total">
+              Total <strong>234</strong> seats
             </div>
           </div>
 
-          <!-- Sub-headers -->
-          <div class="alliance-table__subheaders">
-            <div
-              class="alliance-table__subheader alliance-table__subheader--nda"
-            >
-              <span>Parties</span><span>Seat sharing</span>
-            </div>
-            <div class="alliance-table__vdivider"></div>
-            <div
-              class="alliance-table__subheader alliance-table__subheader--spa"
-            >
-              <span>Parties</span><span>Seat sharing</span>
-            </div>
-            <div class="alliance-table__vdivider"></div>
-            <div
-              class="alliance-table__subheader alliance-table__subheader--others"
-            >
-              <span>Parties</span><span>Seat sharing</span>
-            </div>
-          </div>
+        </div>
+        <!-- /map-content-right -->
+      </div>
+      <!-- /map-body -->
 
-          <!-- Party rows — filled by alliance-table.js -->
-          <div class="alliance-table__body">
-            <div class="alliance-table__col" id="alliance-col-nda"></div>
-            <div class="alliance-table__vdivider"></div>
-            <div class="alliance-table__col" id="alliance-col-spa"></div>
-            <div class="alliance-table__vdivider"></div>
-            <div class="alliance-table__col" id="alliance-col-others"></div>
-          </div>
-
-          <!-- View all / less button -->
-          <div class="alliance-table__footer">
-            <button
-              class="alliance-table__viewall-btn"
-              id="alliance-viewall-btn"
-              onclick="toggleAllianceView()"
-            >
-              View all
-            </button>
-          </div>
-
-          <!-- Total seats -->
-          <div class="alliance-table__total">
-            Total <strong>234</strong> seats
+      <!-- ── Bottom Stats Bar ── -->
+      <div class="map-stats-bar">
+        <div class="map-stats-bar__item">
+          <div class="map-stats-bar__bar map-stats-bar__bar--red"></div>
+          <div>
+            <div class="map-stats-bar__label">Total Voters</div>
+            <div class="map-stats-bar__value" id="map-total-voters">7.2 Crores</div>
           </div>
         </div>
-      </section>
+        <div class="map-stats-bar__item">
+          <div class="map-stats-bar__bar map-stats-bar__bar--blue"></div>
+          <div>
+            <div class="map-stats-bar__label">Male</div>
+            <div class="map-stats-bar__value" id="map-voters-male">3,61,37,975</div>
+          </div>
+        </div>
+        <div class="map-stats-bar__item">
+          <div class="map-stats-bar__bar map-stats-bar__bar--pink"></div>
+          <div>
+            <div class="map-stats-bar__label">Female</div>
+            <div class="map-stats-bar__value" id="map-voters-female">3,60,09,055</div>
+          </div>
+        </div>
+        <div class="map-stats-bar__item">
+          <div class="map-stats-bar__bar map-stats-bar__bar--green"></div>
+          <div>
+            <div class="map-stats-bar__label">Others</div>
+            <div class="map-stats-bar__value" id="map-voters-others">22,364</div>
+          </div>
+        </div>
+      </div>
 
-      <!-- ==============================
-         MORE SECTIONS — Coming soon
-         Each fresher adds their module below
-         ============================== -->
-    </main>
+    </section>
 
-    <!-- ==============================
-       SCRIPTS — Order matters!
-       1. Data files first
-       2. Shared components second
-       3. Page modules last
-       ============================== -->
+    <!-- Hidden — kept for JS compatibility (tn-map.js populates these) -->
+    <div id="map-legend" style="display:none"></div>
 
-    <!-- Data -->
-    <script src="../data/navbar.js"></script>
-    <script src="../data/cm-candidates.js"></script>
-    <script src="../data/alliances.js"></script>
+    <!-- Tooltip -->
+    <div class="map-tooltip" id="map-tooltip"></div>
 
-    <!-- Shared components -->
-    <script src="../js/components/navbar.js"></script>
+    <!-- Popup -->
+    <div class="map-popup-overlay" id="map-popup-overlay">
+      <div class="map-popup" style="position:relative">
+        <div class="popup-header">
+          <div class="popup-name" id="popup-name">—</div>
+          <button class="popup-close" id="popup-close-btn" aria-label="Close">×</button>
+        </div>
+        <div class="popup-body">
+          <div class="popup-section-label">Candidate</div>
+          <div id="popup-candidates"></div>
+          <div class="popup-section-label">Current MLA</div>
+          <div id="popup-mla"></div>
+        </div>
+        <div class="popup-footer">
+          <button class="popup-view-btn" onclick="viewConstituencyDetails()">
+            View full details ›
+          </button>
+        </div>
+      </div>
+    </div>
 
-    <!-- Home page modules -->
-    <script src="../js/home/cm-candidates.js"></script>
-    <script src="../js/home/alliance-table.js"></script>
+  </main>
 
-    <!-- Other home modules (uncomment as freshers complete them) -->
-    <!-- <script src="../data/stats.js"></script> -->
-    <!-- <script src="../js/home/stats-bar.js"></script> -->
-    <!-- <script src="../data/candidates.js"></script> -->
-    <!-- <script src="../js/home/popular-candidates.js"></script> -->
-  </body>
+  <!-- Data -->
+  <script src="../data/navbar.js"></script>
+  <script src="../data/cm-candidates.js"></script>
+  <script src="../data/alliances.js"></script>
+  <script src="../data/constituencies.js"></script>
+  <script src="../data/results2021.js"></script>
+  <script src="../data/candidates.js"></script>
+  <script src="../data/tn-map-topo.js"></script>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+
+  <!-- Components -->
+  <script src="../js/components/navbar.js"></script>
+
+  <!-- Page modules -->
+  <script src="../js/home/cm-candidates.js"></script>
+  <script src="../js/home/alliance-table.js"></script>
+  <script src="../js/home/tn-map.js"></script>
+</body>
+
 </html>
