@@ -1,0 +1,360 @@
+/* ============================================
+   css/home.css
+   Styles for Home page sections:
+     1. CM Candidates
+     2. Alliance Table
+   Freshers: Mobile first — always!
+   ============================================ */
+
+/* ==========================================
+   SECTION WRAPPER (shared)
+   ========================================== */
+.home-section {
+  padding: var(--gap-lg) var(--gap-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-section__title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: var(--gap-md);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================
+   1. CM CANDIDATES
+   ========================================== */
+
+/* Grid — 2 columns on mobile */
+.cm-candidates__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap-md);
+}
+
+/* 4 columns on laptop */
+@media (min-width: 993px) {
+  .cm-candidates__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Individual card */
+.cm-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 2.5px solid transparent; /* color set by JS from data */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--gap-md);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cm-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Photo area */
+.cm-card__photo-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1.1;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.cm-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Party icon — overlaps photo at bottom */
+.cm-card__icon-wrap {
+  width: 42px;
+  height: 42px;
+  margin-top: -21px; /* pull up to overlap photo */
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--color-white);
+  background: var(--color-white);
+  flex-shrink: 0;
+}
+
+.cm-card__icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Name & party */
+.cm-card__name {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-top: var(--gap-sm);
+  text-align: center;
+  padding: 0 var(--gap-sm);
+  line-height: 1.3;
+}
+
+.cm-card__party {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-top: 3px;
+}
+
+/* ==========================================
+   2. ALLIANCE TABLE
+   ========================================== */
+.alliance-table {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+/* ---- Alliance header row (NDA / SPA / Others) ---- */
+.alliance-table__headers {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+}
+
+.alliance-table__header {
+  padding: 11px var(--gap-md);
+  font-size: var(--font-md);
+  font-weight: 800;
+  color: var(--color-white);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.alliance-table__header--nda {
+  background: #e05a46;
+}
+.alliance-table__header--spa {
+  background: #5b68b8;
+}
+.alliance-table__header--others {
+  background: #8a93a8;
+}
+.alliance-table__vdivider-head {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ---- Sub-header row (Parties | Seat sharing) ---- */
+.alliance-table__subheaders {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.alliance-table__subheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px var(--gap-md);
+  font-size: var(--font-sm);
+  font-weight: 700;
+}
+
+.alliance-table__subheader--nda {
+  color: #e05a46;
+}
+.alliance-table__subheader--spa {
+  color: #5b68b8;
+}
+.alliance-table__subheader--others {
+  color: #8a93a8;
+}
+.alliance-table__vdivider {
+  background: var(--color-border);
+}
+
+/* ---- Party columns body ---- */
+.alliance-table__body {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+}
+
+.alliance-table__col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Individual party row ---- */
+.alliance-table__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-sm);
+  padding: 8px var(--gap-md);
+  border-bottom: 1px solid #f5f5f5;
+  min-height: 40px;
+  transition: background 0.15s;
+}
+
+.alliance-table__row:last-child {
+  border-bottom: none;
+}
+.alliance-table__row:hover {
+  background: #fafafa;
+}
+
+.alliance-table__party-info {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  flex: 1;
+  min-width: 0; /* allows text-overflow to work */
+}
+
+/* SVG icon */
+.alliance-table__party-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Initials fallback circle */
+.alliance-table__party-initials {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 9px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+.alliance-table__party-name {
+  font-size: 12px;
+  color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Seat count */
+.alliance-table__seats {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-dark);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.alliance-table__seats--empty {
+  color: #cbd5e1;
+}
+
+/* ---- View all button ---- */
+.alliance-table__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px var(--gap-md);
+  border-top: 1px solid #f5f5f5;
+}
+
+.alliance-table__viewall-btn {
+  background: none;
+  border: none;
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-family: inherit;
+  padding: 4px 0;
+  transition: color 0.2s;
+}
+
+.alliance-table__viewall-btn:hover {
+  color: #5b68b8;
+}
+
+/* ---- Total seats footer ---- */
+.alliance-table__total {
+  background: #eef3ff;
+  border-top: 1px solid var(--color-border);
+  padding: 12px var(--gap-md);
+  text-align: center;
+  font-size: var(--font-md);
+  color: #555;
+}
+
+.alliance-table__total strong {
+  font-size: var(--font-lg);
+  font-weight: 900;
+  color: var(--color-dark);
+}
+
+/* ==========================================
+   RESPONSIVE — Tablet (577px - 992px)
+   Alliance table switches to tab style
+   ========================================== */
+@media (max-width: 992px) {
+  .home-section {
+    padding: var(--gap-md);
+  }
+
+  /* Stack columns vertically on tablet/mobile */
+  .alliance-table__headers,
+  .alliance-table__subheaders,
+  .alliance-table__body {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hide vertical dividers */
+  .alliance-table__vdivider,
+  .alliance-table__vdivider-head {
+    display: none;
+  }
+
+  /* Add spacing between stacked sections */
+  .alliance-table__col {
+    border-bottom: 4px solid var(--color-bg);
+  }
+
+  .alliance-table__col:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE — Mobile (up to 576px)
+   ========================================== */
+@media (max-width: 576px) {
+  .home-section__title {
+    font-size: var(--font-lg);
+  }
+
+  .cm-card__name {
+    font-size: var(--font-sm);
+  }
+
+  .alliance-table__party-name {
+    font-size: 11px;
+  }
+
+  .alliance-table__seats {
+    font-size: 11px;
+  }
+}

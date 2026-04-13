@@ -1,0 +1,112 @@
+/* ============================================
+   css/global.css
+   Freshers: This is the FOUNDATION file.
+   All pages import this first.
+   Do NOT change variable names.
+   ============================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+  /* Colors */
+  --color-primary: #e05a46; /* TN Red - used for active/highlight */
+  --color-spa: #5b68b8; /* SPA Blue */
+  --color-others: #8a93a8; /* Others Grey */
+  --color-dark: #1a1a2e; /* Dark text */
+  --color-muted: #6b7280; /* Grey text */
+  --color-border: #e2e8f0; /* Light border */
+  --color-bg: #eef2f7; /* Page background */
+  --color-white: #ffffff;
+
+  /* Font Sizes */
+  --font-xs: 11px;
+  --font-sm: 12px;
+  --font-md: 14px;
+  --font-lg: 16px;
+  --font-xl: 20px;
+  --font-xxl: 28px;
+
+  /* Spacing */
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
+
+  /* Navbar height — used by all pages for top padding */
+  --navbar-height: 60px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 999px;
+}
+
+/* ---------- Breakpoints (READ ONLY - reference) ----------
+   Mobile  : max-width 576px
+   Tablet  : 577px - 992px
+   Laptop  : 993px and above
+----------------------------------------------------------- */
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito", "Segoe UI", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  font-size: var(--font-lg);
+  line-height: 1.6;
+  /* Push content below fixed navbar */
+  padding-top: var(--navbar-height);
+}
+
+/* ---------- Images always fluid ---------- */
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Links ---------- */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- Tables always scrollable on small screens ---------- */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- Utility: hide on mobile ---------- */
+.hide-mobile {
+  display: block;
+}
+@media (max-width: 576px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* ---------- Utility: hide on laptop ---------- */
+.hide-laptop {
+  display: none;
+}
+@media (max-width: 992px) {
+  .hide-laptop {
+    display: block;
+  }
+}

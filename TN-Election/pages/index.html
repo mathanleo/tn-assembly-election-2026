@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | TN Election 2026</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Step 1: Global styles always first -->
+    <link rel="stylesheet" href="../css/global.css" />
+
+    <!-- Step 2: Component styles -->
+    <link rel="stylesheet" href="../css/navbar.css" />
+
+    <!-- Step 3: Page specific styles -->
+    <link rel="stylesheet" href="../css/home.css" />
+  </head>
+
+  <body data-page="index">
+    <!-- Navbar renders here — do not remove -->
+    <div id="navbar-container"></div>
+
+    <main>
+      <!-- ==============================
+         SECTION 1: CM CANDIDATES
+         Freshers: Do not edit HTML here.
+         Edit data in data/cm-candidates.js
+         ============================== -->
+      <section class="home-section">
+        <h2 class="home-section__title">Chief Minister Candidates</h2>
+
+        <!-- Cards render here by cm-candidates.js -->
+        <div class="cm-candidates__grid" id="cm-candidates-container">
+          <!-- JS will fill this -->
+        </div>
+      </section>
+
+      <!-- ==============================
+         SECTION 2: ALLIANCE TABLE
+         Freshers: Do not edit HTML here.
+         Edit data in data/alliances.js
+         ============================== -->
+      <section class="home-section" style="padding-top: 0">
+        <div class="alliance-table">
+          <!-- Alliance colour headers -->
+          <div class="alliance-table__headers">
+            <div class="alliance-table__header alliance-table__header--nda">
+              NDA
+            </div>
+            <div class="alliance-table__vdivider-head"></div>
+            <div class="alliance-table__header alliance-table__header--spa">
+              SPA
+            </div>
+            <div class="alliance-table__vdivider-head"></div>
+            <div class="alliance-table__header alliance-table__header--others">
+              Others
+            </div>
+          </div>
+
+          <!-- Sub-headers -->
+          <div class="alliance-table__subheaders">
+            <div
+              class="alliance-table__subheader alliance-table__subheader--nda"
+            >
+              <span>Parties</span><span>Seat sharing</span>
+            </div>
+            <div class="alliance-table__vdivider"></div>
+            <div
+              class="alliance-table__subheader alliance-table__subheader--spa"
+            >
+              <span>Parties</span><span>Seat sharing</span>
+            </div>
+            <div class="alliance-table__vdivider"></div>
+            <div
+              class="alliance-table__subheader alliance-table__subheader--others"
+            >
+              <span>Parties</span><span>Seat sharing</span>
+            </div>
+          </div>
+
+          <!-- Party rows — filled by alliance-table.js -->
+          <div class="alliance-table__body">
+            <div class="alliance-table__col" id="alliance-col-nda"></div>
+            <div class="alliance-table__vdivider"></div>
+            <div class="alliance-table__col" id="alliance-col-spa"></div>
+            <div class="alliance-table__vdivider"></div>
+            <div class="alliance-table__col" id="alliance-col-others"></div>
+          </div>
+
+          <!-- View all / less button -->
+          <div class="alliance-table__footer">
+            <button
+              class="alliance-table__viewall-btn"
+              id="alliance-viewall-btn"
+              onclick="toggleAllianceView()"
+            >
+              View all
+            </button>
+          </div>
+
+          <!-- Total seats -->
+          <div class="alliance-table__total">
+            Total <strong>234</strong> seats
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================
+         MORE SECTIONS — Coming soon
+         Each fresher adds their module below
+         ============================== -->
+    </main>
+
+    <!-- ==============================
+       SCRIPTS — Order matters!
+       1. Data files first
+       2. Shared components second
+       3. Page modules last
+       ============================== -->
+
+    <!-- Data -->
+    <script src="../data/navbar.js"></script>
+    <script src="../data/cm-candidates.js"></script>
+    <script src="../data/alliances.js"></script>
+
+    <!-- Shared components -->
+    <script src="../js/components/navbar.js"></script>
+
+    <!-- Home page modules -->
+    <script src="../js/home/cm-candidates.js"></script>
+    <script src="../js/home/alliance-table.js"></script>
+
+    <!-- Other home modules (uncomment as freshers complete them) -->
+    <!-- <script src="../data/stats.js"></script> -->
+    <!-- <script src="../js/home/stats-bar.js"></script> -->
+    <!-- <script src="../data/candidates.js"></script> -->
+    <!-- <script src="../js/home/popular-candidates.js"></script> -->
+  </body>
+</html>
