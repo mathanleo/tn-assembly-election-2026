@@ -21,19 +21,34 @@
     <div id="navbar-container"></div>
 
     <main>
-      <section style="padding: 40px 24px; text-align: center; color: #6b7280">
-        <h1 style="font-size: 24px; font-weight: 800; color: #1a1a2e">
-          Big Fights Page
-        </h1>
-        <p style="margin-top: 8px">
-          Modules will be added here by each fresher.
-        </p>
+      <section class="bigfights-page">
+ 
+        <!-- Filter Tabs -->
+        <div class="bigfight-tabs">
+          <button class="bigfight-tab bigfight-tab--active" data-filter="all">
+            Big Fights
+          </button>
+          <button class="bigfight-tab" data-filter="popular">
+            Popular Battles
+          </button>
+        </div>
+ 
+        <!-- Cards Grid — JS injects cards here -->
+        <div class="bigfight-grid" id="bigfight-cards-container"></div>
+ 
       </section>
     </main>
 
+    <!-- Step 1: Data -->
     <script src="../data/navbar.js"></script>
+    <script src="../data/bigfights.js"></script>
+    <script src="../data/head_to_head.js"></script>
+
+    <!-- Step 2: Shared components -->
     <script src="../js/components/navbar.js"></script>
-    <!-- <script src="../data/bigfights.js"></script> -->
-    <!-- <script src="../js/bigfights/bigfight-cards.js"></script> -->
+
+    <!-- Step 3: Page modules -->
+    <script src="../js/bigfights/bigfight-cards.js"></script>
+    <script src="../js/bigfights/popular-battles.js"></script>
   </body>
 </html>
