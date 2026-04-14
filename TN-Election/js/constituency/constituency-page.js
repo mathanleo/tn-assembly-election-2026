@@ -26,17 +26,111 @@ function renderHeader(c){
   if(desc) desc.textContent=c.name+' State Assembly constituency (No. '+c.id+') is located in '+c.district+' district. It is a '+c.type+' constituency classified as '+c.reserved_status+'. Parliament constituency: '+(c.pc_name||'—')+'.';
 }
 
+// function renderMinister(c){
+//   var container=document.getElementById('minister-cards');
+//   if(!container)return;
+//   var mlaInit=(c.current_mla||c.mla_2021||'MLA').split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+//   var mpInit=(c.mp_name||'MP').split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+//   container.innerHTML=
+//     '<div class="minister-card">'+
+//       '<div class="minister-avatar" style="background:'+getPartyColor(c.current_mla_party||c.mla_party_2021||'')+';color:#fff">'+mlaInit+'</div>'+
+//       '<div class="minister-info"><div class="m-role">MLA</div><div class="m-name">'+(c.current_mla||c.mla_2021||'—')+'</div><div class="m-party">'+(c.current_mla_party||c.mla_party_2021||'')+'</div></div>'+
+//     '</div>'+
+//     (c.mp_name?'<div class="minister-card"><div class="minister-avatar" style="background:'+getPartyColor(c.mp_party||'')+';color:#fff">'+mpInit+'</div><div class="minister-info"><div class="m-role">MP</div><div class="m-name">'+c.mp_name+'</div><div class="m-party">'+(c.mp_party||'')+'</div></div></div>':'');
+// }
+
+// ── Helper functions (add above renderMinister) ──────────────
+function getMLAImagePath(constituencyId){
+  return '../assets/images/candidates/mla/2021/'+constituencyId+'.jpg';
+}
+
+// function getMPImagePath(mpConstituency){
+//   var normalized = mpConstituency
+//     .toLowerCase()
+//     .replace(/[()]/g,'')
+//     .replace(/\s+/g,'-')
+//     .replace(/-+/g,'-')
+//     .trim();
+//   return '../assets/images/candidates/mp/'+normalized+'.jpg';
+// }
+
+function getMPImagePath(mpConstituency){
+  var base = '../assets/images/candidates/mp/';
+  var withSuffix    = mpConstituency;                                    // "Tiruvallur (SC)"
+  var noSpace       = mpConstituency.replace(/\s*\(/,'(');               // "Tiruvallur(SC)"
+  var withoutSuffix = mpConstituency.replace(/\s*\([^)]*\)/g,'').trim();// "Tiruvallur"
+  return base + withSuffix + '.jpg';  // start with exact match
+}
+
+// ── Updated renderMinister ────────────────────────────────────
 function renderMinister(c){
   var container=document.getElementById('minister-cards');
   if(!container)return;
+
   var mlaInit=(c.current_mla||c.mla_2021||'MLA').split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
   var mpInit=(c.mp_name||'MP').split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
+
+  var mlaImgPath = getMLAImagePath(c.id);
+  var mpImgPath  = getMPImagePath(c.mp_constituency||'');
+
+  // MLA avatar — tries image first, falls back to initials
+  var mlaAvatar =
+    '<div class="minister-avatar" style="background:'+getPartyColor(c.current_mla_party||c.mla_party_2021||'')+';color:#fff;overflow:hidden;padding:0">'+
+      '<img src="'+mlaImgPath+'" alt="'+mlaInit+'" '+
+        'style="width:100%;height:100%;object-fit:cover" '+
+        'onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'+
+      '<span style="display:none;width:100%;height:100%;align-items:center;justify-content:center">'+mlaInit+'</span>'+
+    '</div>';
+
+  // MP avatar — tries image first, falls back to initials
+  // var mpAvatar =
+  //   '<div class="minister-avatar" style="background:'+getPartyColor(c.mp_party||'')+';color:#fff;overflow:hidden;padding:0">'+
+  //     '<img src="'+mpImgPath+'" alt="'+mpInit+'" '+
+  //       'style="width:100%;height:100%;object-fit:cover" '+
+  //       'onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'+
+  //     '<span style="display:none;width:100%;height:100%;align-items:center;justify-content:center">'+mpInit+'</span>'+
+  //   '</div>';
+
+  var base      = '../assets/images/candidates/mp/';
+var mpCon     = c.mp_constituency||'';
+var noSpace   = mpCon.replace(/\s*\(/,'(');
+var noSuffix  = mpCon.replace(/\s*\([^)]*\)/g,'').trim();
+
+var mpAvatar =
+  '<div class="minister-avatar" style="background:'+getPartyColor(c.mp_party||'')+';color:#fff;overflow:hidden;padding:0">'+
+    '<img src="'+base+mpCon+'.jpg" '+
+      'alt="'+mpInit+'" '+
+      'style="width:100%;height:100%;object-fit:cover" '+
+      'onerror="this.src=\''+base+noSpace+'.jpg\';'+
+               'this.onerror=function(){'+
+                 'this.src=\''+base+noSuffix+'.jpg\';'+
+                 'this.onerror=function(){'+
+                   'this.style.display=\'none\';'+
+                   'this.nextSibling.style.display=\'flex\';'+
+                 '};'+
+               '};">'+
+    '<span style="display:none;width:100%;height:100%;align-items:center;justify-content:center">'+mpInit+'</span>'+
+  '</div>';
+
   container.innerHTML=
     '<div class="minister-card">'+
-      '<div class="minister-avatar" style="background:'+getPartyColor(c.current_mla_party||c.mla_party_2021||'')+';color:#fff">'+mlaInit+'</div>'+
-      '<div class="minister-info"><div class="m-role">MLA</div><div class="m-name">'+(c.current_mla||c.mla_2021||'—')+'</div><div class="m-party">'+(c.current_mla_party||c.mla_party_2021||'')+'</div></div>'+
+      mlaAvatar+
+      '<div class="minister-info">'+
+        '<div class="m-role">MLA</div>'+
+        '<div class="m-name">'+(c.current_mla||c.mla_2021||'—')+'</div>'+
+        '<div class="m-party">'+(c.current_mla_party||c.mla_party_2021||'')+'</div>'+
+      '</div>'+
     '</div>'+
-    (c.mp_name?'<div class="minister-card"><div class="minister-avatar" style="background:'+getPartyColor(c.mp_party||'')+';color:#fff">'+mpInit+'</div><div class="minister-info"><div class="m-role">MP</div><div class="m-name">'+c.mp_name+'</div><div class="m-party">'+(c.mp_party||'')+'</div></div></div>':'');
+    (c.mp_name?
+      '<div class="minister-card">'+
+        mpAvatar+
+        '<div class="minister-info">'+
+          '<div class="m-role">MP</div>'+
+          '<div class="m-name">'+c.mp_name+'</div>'+
+          '<div class="m-party">'+(c.mp_party||'')+'</div>'+
+        '</div>'+
+      '</div>':''
+    );
 }
 
 function renderCandidates(constId){
