@@ -73,8 +73,13 @@ function buildMap() {
   var container = document.getElementById('tn-map-svg');
   if (!container) { console.warn('No #tn-map-svg found'); return; }
 
-  var width  = container.clientWidth  || 600;
-  var height = container.clientHeight || 700;
+  // Use the parent container's dimensions so the map fills the left column
+  var parent = container.parentElement;
+  var width  = parent.clientWidth  || container.clientWidth  || 500;
+  var height = parent.clientHeight || container.clientHeight || 700;
+
+  // Ensure minimum sensible height
+  if (height < 400) height = 500;
 
   // D3 SVG setup
   var svg = d3.select('#tn-map-svg')
@@ -101,8 +106,8 @@ function buildMap() {
   var topoKey = Object.keys(tnMapTopo.objects)[0]; // 'tn_ac_2021'
   var features = topojson.feature(tnMapTopo, tnMapTopo.objects[topoKey]).features;
 
-  // Projection — fit to container
-  var projection = d3.geoMercator().fitSize([width * 1.1, height * 1.1], {
+  // Projection — fit tightly to fill the column
+  var projection = d3.geoMercator().fitSize([width * 0.95, height * 0.95], {
     type: 'FeatureCollection',
     features: features
   });

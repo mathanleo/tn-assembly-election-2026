@@ -14,6 +14,14 @@
   display: none !important;
 }
 
+/* ── Full-page map wrapper ───────────────────── */
+.map-section-inner {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  min-height: 600px;
+  align-items: stretch;
+}
+
 /* ── Top Bar ─────────────────────────────────── */
 .map-topbar {
   display: flex;
@@ -92,9 +100,9 @@
 /* ── Body Layout ─────────────────────────────── */
 .map-body {
   display: grid;
-  /* 45% for map, rest for content — matches Image 2 proportion */
-  grid-template-columns: 55% 45%;
-  align-items: start;
+  grid-template-columns: 40% 60%;
+  align-items: stretch;
+  min-height: 500px;
 }
 
 /* ── Map Container (left) ────────────────────── */
@@ -102,27 +110,20 @@
   position: relative;
   background: #EAF1FB;
   display: flex;
-  /* align-items: flex-start; */
   align-items: center;
   justify-content: center;
-  padding: 0;
-  /* No overflow hidden — let map breathe */
-  /* overflow: visible; */
-  /* padding: 12px 4px 12px 16px; */
-  /* Match the height of the right column content */
-  /* min-height: 620px; */
-  min-height: 750px;
+  padding: 12px 8px 12px 12px;
+  align-self: stretch;
+  min-height: 500px;
+  max-height: 580px;
 }
 
-/* The SVG itself — fill the full container width */
+/* The SVG itself — fill the full container */
 #tn-map-svg {
   width: 100%;
-  /* height: auto; */
   height: 100%;
-  /* CRITICAL: remove any max-height cap */
-  /* max-height: none !important; */
-  /* display: block; */
-  max-height: 750px;
+  max-height: none;
+  display: block;
 }
 
 /* Constituency paths */
@@ -325,7 +326,14 @@
 /* ── Responsive ──────────────────────────────── */
 @media (max-width: 992px) {
   .map-body { grid-template-columns: 1fr; }
-  .map-right { padding: 12px; min-height: 420px; }
+  .map-right {
+    padding: 12px;
+    min-height: 420px;
+    align-self: auto;
+    /* Give it a fixed height on mobile so map is visible */
+    height: 420px;
+  }
+  #tn-map-svg { max-height: 400px; }
   .map-content-right { padding: 0 16px 16px; }
   .map-stats-bar { grid-template-columns: repeat(2, 1fr); }
   .map-stats-bar__item:nth-child(2) { border-right: none; }
