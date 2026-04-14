@@ -116,6 +116,34 @@ function buildMap() {
   // Tooltip element
   var tooltip = document.getElementById('map-tooltip');
 
+  // ── SVG defs: orange hologram glow filter ──────────────────
+  var defs = svg.append('defs');
+
+  var filter = defs.append('filter')
+    .attr('id', 'hologram-glow')
+    .attr('x', '-30%').attr('y', '-30%')
+    .attr('width', '160%').attr('height', '160%');
+
+  filter.append('feGaussianBlur')
+    .attr('in', 'SourceGraphic')
+    .attr('stdDeviation', '3')
+    .attr('result', 'blur');
+
+  filter.append('feColorMatrix')
+    .attr('in', 'blur')
+    .attr('type', 'matrix')
+    .attr('values', '1 0.4 0 0 0.1  0.4 0.2 0 0 0  0 0 0 0 0  0 0 0 1.5 0')
+    .attr('result', 'orangeGlow');
+
+  var feMerge = filter.append('feMerge');
+  feMerge.append('feMergeNode').attr('in', 'orangeGlow');
+  feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
+
+  // ── Hover name display (above the map) ─────────────────────
+  // NOTE: Your HTML needs this inside .map-right:
+  //   <div id="map-hover-label" class="map-hover-label"></div>
+  var hoverLabel = document.getElementById('map-hover-label');
+
   // Draw constituencies
   g.selectAll('.constituency-path')
     .data(features)
@@ -124,29 +152,47 @@ function buildMap() {
     .attr('class', 'constituency-path')
     .attr('id', function(d) { return 'path-' + d.properties.AC_NO; })
     .attr('d', path)
-    .attr('fill', '#E5E7EB')  // clean grey
-    // .attr('fill', function(d) { return getConstColor(d.properties.AC_NO); })
-    // .on('mousemove', function(event, d) {
-    //   var name = d.properties.AC_NAME;
-    //   tooltip.textContent = name;
-    //   tooltip.classList.add('is-visible');
-    //   tooltip.style.left = (event.clientX + 12) + 'px';
-    //   tooltip.style.top  = (event.clientY - 28) + 'px';
-    // })
-    // .on('mouseleave', function() {
-    //   tooltip.classList.remove('is-visible');
-    // })
+    .attr('fill', '#E5E7EB')
+    .on('mousemove', function(event, d) {
+      var name = d.properties.AC_NAME || d.properties.ac_name || '';
+      // Show name in the label above the map
+      if (hoverLabel) {
+        hoverLabel.textContent = name;
+        hoverLabel.classList.add('is-visible');
+      }
+      // Also show floating tooltip
+      tooltip.textContent = name;
+      tooltip.classList.add('is-visible');
+      tooltip.style.left = (event.clientX + 14) + 'px';
+      tooltip.style.top  = (event.clientY - 34) + 'px';
+    })
+    .on('mouseleave', function() {
+      if (hoverLabel) hoverLabel.classList.remove('is-visible');
+      tooltip.classList.remove('is-visible');
+    })
     .on('click', function(event, d) {
       event.stopPropagation();
       tooltip.classList.remove('is-visible');
       openPopup(d.properties.AC_NO);
-      // Highlight selected
-      d3.selectAll('.constituency-path').classed('highlighted', false);
-      d3.select(this).classed('highlighted', true);
+      // Remove highlight from all, apply orange hologram to clicked
+      d3.selectAll('.constituency-path')
+        .classed('highlighted', false)
+        .attr('filter', null)
+        .attr('fill', '#E5E7EB');
+      d3.select(this)
+        .classed('highlighted', true)
+        .attr('fill', '#FF8C00')
+        .attr('filter', 'url(#hologram-glow)');
     });
 
-  // Close popup when clicking map background
-  svg.on('click', function() { closePopup(); });
+  // Close popup when clicking map background — reset highlight
+  svg.on('click', function() {
+    d3.selectAll('.constituency-path')
+      .classed('highlighted', false)
+      .attr('filter', null)
+      .attr('fill', '#E5E7EB');
+    closePopup();
+  });
 }
 
 // ── Popup ─────────────────────────────────────────────────────
@@ -201,7 +247,10 @@ function openPopup(constId) {
 
 function closePopup() {
   document.getElementById('map-popup-overlay').classList.remove('is-open');
-  d3.selectAll('.constituency-path').classed('highlighted', false);
+  d3.selectAll('.constituency-path')
+    .classed('highlighted', false)
+    .attr('filter', null)
+    .attr('fill', '#E5E7EB');
   selectedConstId = null;
 }
 

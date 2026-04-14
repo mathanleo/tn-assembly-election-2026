@@ -126,22 +126,44 @@
   display: block;
 }
 
+/* ── Hover label above the map ───────────────── */
+.map-hover-label {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(20, 20, 40, 0.82);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 10;
+  border: 1px solid rgba(255,140,0,0.4);
+}
+.map-hover-label.is-visible { opacity: 1; }
+
 /* Constituency paths */
 .constituency-path {
   stroke: #FFFFFF;
   stroke-width: 0.5;
   cursor: pointer;
-  transition: opacity 0.15s, stroke-width 0.15s;
+  transition: fill 0.15s, stroke-width 0.15s, opacity 0.15s;
 }
 .constituency-path:hover {
-  stroke: #444;
+  stroke: #ff8c00;
   stroke-width: 1.5;
-  opacity: 0.80;
+  opacity: 0.85;
+  fill: #ffaa01 !important;
 }
 .constituency-path.highlighted {
-  stroke: #222;
+  stroke: #FF6000;
   stroke-width: 2;
-  filter: brightness(0.85);
 }
 
 /* ── All party fill → neutral gray (no color map) ── */
