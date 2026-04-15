@@ -30,6 +30,114 @@ function getMLAImagePath(constituencyId){
   return '../assets/images/candidates/mla/2021/'+constituencyId+'.jpg';
 }
 
+function getPartyOrder(p){
+  var key=(p||'').toUpperCase();
+  if(key==='DMK') return 1;
+  if(key==='ADMK') return 2;
+  if(key==='NTK') return 3;
+  if(key==='TVK') return 4;
+  if(key==='IND' || key==='INDEPENDENT') return 5;
+  return 6;
+}
+
+function sortCandidatesByParty(list){
+  return list.slice().sort(function(a,b){
+    var orderA=getPartyOrder(a.party);
+    var orderB=getPartyOrder(b.party);
+    if(orderA!==orderB) return orderA-orderB;
+    return String(a.name||'').localeCompare(String(b.name||''), 'en', {sensitivity:'base'});
+  });
+}
+
+function normalizePartyKey(p){
+  return (p||'').toString().trim().toUpperCase();
+}
+
+function normalizeCandidateName(name){
+  return (name||'').toString()
+    .trim()
+    .replace(/[\.\,\'\"\`]/g,'')
+    .replace(/&/g,' AND ')
+    .replace(/[^A-Z0-9 ]+/gi,' ')
+    .replace(/\s+/g,' ')
+    .trim()
+    .toUpperCase();
+}
+
+function candidateNameKey(name){
+  var normalized=normalizeCandidateName(name);
+  var tokens=normalized.split(' ').filter(Boolean);
+  var filtered=tokens.filter(function(token){return token.length>1;});
+  if(filtered.length>1) return filtered.join(' ');
+  return tokens.join(' ');
+}
+
+function candidateTailKey(name){
+  var tokens=normalizeCandidateName(name).split(' ').filter(Boolean);
+  if(tokens.length>=2){
+    return tokens.slice(-2).join(' ');
+  }
+  return tokens.join(' ');
+}
+
+function findMatchingCandidate(cand, candidateList){
+  if(!cand || !candidateList || !candidateList.length) return null;
+  var candName=normalizeCandidateName(cand.name||cand.candidate||'');
+  var candParty=normalizePartyKey(cand.party||cand.party_short||cand.party_full||'');
+  if(!candName) return null;
+
+  var exactMatch=candidateList.find(function(item){
+    if(!item.name) return false;
+    var itemName=normalizeCandidateName(item.name);
+    var itemParty=normalizePartyKey(item.party_short||item.party||item.party_full||'');
+    return itemName===candName && (!candParty || !itemParty || itemParty===candParty);
+  });
+  if(exactMatch) return exactMatch;
+
+  var candidateKey=candidateNameKey(candName);
+  var candidateTail=candidateTailKey(candName);
+
+  var fuzzyMatch=candidateList.find(function(item){
+    if(!item.name) return false;
+    var itemName=normalizeCandidateName(item.name);
+    var itemKey=candidateNameKey(itemName);
+    var itemTail=candidateTailKey(itemName);
+    var itemParty=normalizePartyKey(item.party_short||item.party||item.party_full||'');
+
+    if(itemKey && candidateKey && itemKey===candidateKey) {
+      return !candParty || !itemParty || itemParty===candParty;
+    }
+    if(itemTail && candidateTail && itemTail===candidateTail) {
+      return !candParty || !itemParty || itemParty===candParty;
+    }
+    return false;
+  });
+  return fuzzyMatch || null;
+}
+
+function buildCandidateEntry(cand, allInConst){
+  var name=cand.name||cand.candidate||'';
+  var party=cand.party||cand.party_short||cand.party_full||'IND';
+  var photo=cand.photo||'';
+  var id=cand.id||'';
+
+  var matchedCandidate = (!photo || !id) ? findMatchingCandidate(cand, allInConst) : null;
+  if(matchedCandidate){
+    if(!photo && matchedCandidate.photo){
+      photo=matchedCandidate.photo;
+    }
+    if(!id && matchedCandidate.id){
+      id=matchedCandidate.id;
+    }
+  }
+
+  if(!photo && id){
+    photo='../assets/images/candidates/mla/2026/'+id+'.jpg';
+  }
+
+  return { name:name, party:party, photo:photo, id:id || '' };
+}
+
 function renderMinister(c){
   var container=document.getElementById('minister-cards');
   if(!container)return;
@@ -78,14 +186,58 @@ function renderMinister(c){
     );
 }
 
+function getConstituencyCandidates(constId){
+  var constMeta=constituenciesData[constId]||{};
+  var allInConst=(typeof allCandidatesByConstituency!=='undefined'&&allCandidatesByConstituency[(constMeta.name||'').toUpperCase()])||[];
+
+  var candidates=(typeof candidates2026Data!=='undefined'&&candidates2026Data[constId])||[];
+  if(candidates.length){
+    return candidates.map(function(c){
+      return buildCandidateEntry(c, allInConst);
+    });
+  }
+
+  if(typeof constituenciesWithCandidates!=='undefined'&&constituenciesWithCandidates[constId]){
+    var histData=constituenciesWithCandidates[constId].candidates||[];
+    if(histData.length){
+      return histData.map(function(c){
+        return buildCandidateEntry(c, allInConst);
+      });
+    }
+  }
+
+  if(allInConst.length){
+    return allInConst.map(function(c){
+      return buildCandidateEntry(c, allInConst);
+    });
+  }
+
+  return [];
+}
+
 function renderCandidates(constId){
   var container=document.getElementById('candidates-scroll');
   if(!container)return;
 
-  var candidates=(typeof candidates2026Data!=='undefined'&&candidates2026Data[constId])||[];
+  var candidates=getConstituencyCandidates(constId);
+
+  candidates=sortCandidatesByParty(candidates);
+  if(candidates.length>5){
+    var topFive=candidates.slice(0,5);
+    var fifth=topFive[4];
+    if(fifth && getPartyOrder(fifth.party)===5){
+      var replacement=candidates.slice(5).find(function(c){
+        return getPartyOrder(c.party)===6;
+      });
+      if(replacement){
+        topFive[4]=replacement;
+      }
+    }
+    candidates=topFive;
+  }
 
   if(candidates.length===0){
-    container.innerHTML='<div style="padding:20px;color:#6B7280;font-size:13px;font-style:italic">2026 candidates data coming soon…</div>';
+    container.innerHTML='<div style="padding:20px;color:#6B7280;font-size:13px;font-style:italic">Candidates data not available</div>';
     return;
   }
 
@@ -240,6 +392,12 @@ function renderAssemblyDetails(c){
   }).join('');
 }
 
+function getSelectedConstituencyId(){
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id') || localStorage.getItem('selectedConstId');
+  return id ? String(id) : null;
+}
+
 function renderMiniMap(constId){
   if(typeof d3==='undefined'||typeof topojson==='undefined'||typeof tnMapTopo==='undefined')return;
   var svgEl=document.getElementById('const-mini-svg');if(!svgEl)return;
@@ -267,11 +425,98 @@ function renderMiniMap(constId){
   }
 }
 
+function viewAllCandidates(constId){
+  var constMeta=constituenciesData[constId]||{};
+  var allInConst=(typeof allCandidatesByConstituency!=='undefined'&&allCandidatesByConstituency[(constMeta.name||'').toUpperCase()])||[];
+  var allCandidates=(typeof candidates2026Data!=='undefined'&&candidates2026Data[constId])||[];
+  
+  if(allCandidates.length){
+    allCandidates=allCandidates.map(function(c){
+      return buildCandidateEntry(c, allInConst);
+    });
+  }
+
+  if(allCandidates.length===0&&typeof constituenciesWithCandidates!=='undefined'&&constituenciesWithCandidates[constId]){
+    var histData=constituenciesWithCandidates[constId].candidates||[];
+    if(histData.length){
+      allCandidates=histData.map(function(c){
+        var entry=buildCandidateEntry(c, allInConst);
+        return {
+          name: entry.name,
+          party: entry.party,
+          photo: entry.photo,
+          age: c.age||'',
+          address: c.address||''
+        };
+      });
+    }
+  }
+
+  if(allCandidates.length===0 && allInConst.length){
+    allCandidates=allInConst.map(function(c){
+      var entry=buildCandidateEntry(c, allInConst);
+      return {
+        name: entry.name,
+        party: entry.party,
+        photo: entry.photo,
+        age: c.age||'',
+        address: c.address||''
+      };
+    });
+  }
+
+  allCandidates=sortCandidatesByParty(allCandidates);
+
+  if(allCandidates.length===0){
+    alert('No candidates data available.');
+    return;
+  }
+
+  var lines=allCandidates.map(function(c,idx){
+    return '<tr>'+
+      '<td style="padding:12px;text-align:center;font-weight:600;color:#475569">'+(idx+1)+'</td>'+
+      '<td style="padding:12px;color:#1F2937;font-weight:500">'+c.name+'</td>'+
+      '<td style="padding:12px;"><span style="background:'+getPartyColor(c.party)+';color:#fff;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:600">'+c.party+'</span></td>'+
+      '<td style="padding:12px;color:#6B7280;font-size:13px">'+(c.age||'—')+'</td>'+
+    '</tr>';
+  }).join('');
+
+  var modal=document.createElement('div');
+  modal.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(2px)';
+  modal.innerHTML=
+    '<div style="background:#fff;border-radius:12px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 25px rgba(0,0,0,0.15)">'+
+      '<div style="padding:20px;border-bottom:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff">'+
+        '<h3 style="margin:0;color:#1F2937;font-size:16px;font-weight:700">All Contesting Candidates</h3>'+
+        '<button onclick="this.closest(\'[data-modal]\').remove()" style="background:none;border:none;font-size:24px;color:#6B7280;cursor:pointer;padding:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center">×</button>'+
+      '</div>'+
+      '<div style="padding:20px">'+
+        '<table style="width:100%;border-collapse:collapse">'+
+          '<thead>'+
+            '<tr style="border-bottom:2px solid #E5E7EB;background:#F9FAFB">'+
+              '<th style="padding:12px;text-align:left;font-weight:600;color:#6B7280;font-size:12px;text-transform:uppercase">S.No</th>'+
+              '<th style="padding:12px;text-align:left;font-weight:600;color:#6B7280;font-size:12px;text-transform:uppercase">Name</th>'+
+              '<th style="padding:12px;text-align:left;font-weight:600;color:#6B7280;font-size:12px;text-transform:uppercase">Party</th>'+
+              '<th style="padding:12px;text-align:left;font-weight:600;color:#6B7280;font-size:12px;text-transform:uppercase">Age</th>'+
+            '</tr>'+
+          '</thead>'+
+          '<tbody>'+lines+'</tbody>'+
+        '</table>'+
+      '</div>'+
+    '</div>';
+  modal.setAttribute('data-modal','true');
+  modal.addEventListener('click',function(e){if(e.target===modal)modal.remove();});
+  document.body.appendChild(modal);
+}
+
 document.addEventListener('DOMContentLoaded',function(){
-  var constId=localStorage.getItem('selectedConstId')||'13';
+  var constId=getSelectedConstituencyId();
+  if(!constId){
+    document.body.innerHTML='<div style="padding:40px;text-align:center">No constituency selected. <a href="index.html">Go Home</a></div>';
+    return;
+  }
   var c=constituenciesData[constId];
   if(!c){
-    document.body.innerHTML='<div style="padding:40px;text-align:center">Not found. <a href="index.html">Go Home</a></div>';
+    document.body.innerHTML='<div style="padding:40px;text-align:center">Constituency not found. <a href="index.html">Go Home</a></div>';
     return;
   }
   renderHeader(c);
@@ -281,4 +526,12 @@ document.addEventListener('DOMContentLoaded',function(){
   renderCensus(c);
   renderAssemblyDetails(c);
   renderMiniMap(constId);
+  
+  // Attach view-all button handler
+  var viewAllBtn=document.getElementById('view-all-btn');
+  if(viewAllBtn){
+    viewAllBtn.addEventListener('click',function(){
+      viewAllCandidates(constId);
+    });
+  }
 });

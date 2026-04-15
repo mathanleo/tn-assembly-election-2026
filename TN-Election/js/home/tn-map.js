@@ -194,30 +194,32 @@ function openPopup(constId, x, y, mapRect) {
   var c = constituenciesData[selectedConstId];
   if (!c) return;
 
+  function resolvePartyKey(candidate) {
+    return (candidate.party || candidate.party_short || candidate.party_full || '').toString().trim().toUpperCase();
+  }
+
+  function renderCandidateLine(candidate) {
+    var party = resolvePartyKey(candidate) || 'IND';
+    var imageHtml = '';
+    if (candidate.photo) {
+      imageHtml = '<img class="popup-party-icon" src="' + candidate.photo + '" alt="' + party + '" onerror="this.style.display=\'none\'">';
+    } else if (PARTY_ICONS[party]) {
+      imageHtml = '<img class="popup-party-icon" src="' + PARTY_ICONS[party] + '" alt="' + party + '" onerror="this.style.display=\'none\'">';
+    } else {
+      imageHtml = '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + party.slice(0,2) + '</div>';
+    }
+
+    return '<div class="popup-candidate-row">' +
+      '<span class="popup-cand-name">' + (candidate.name || (party + ' candidate')) + '</span>' +
+      '<div class="popup-party-wrap">' + imageHtml +
+        '<span class="popup-party-name">' + party + '</span>' +
+      '</div>' +
+    '</div>';
+  }
+
   // Header
   document.getElementById('popup-name').textContent =
     c.name.toUpperCase() + ' (' + c.reserved_status + ')';
-
-  // Candidates 2026
-  var candidates = candidates2026Data[selectedConstId] || [];
-  var candContainer = document.getElementById('popup-candidates');
-
-  if (candidates.length === 0) {
-    candContainer.innerHTML = '<div class="popup-placeholder">Candidates data coming soon…</div>';
-  } else {
-    candContainer.innerHTML = candidates.map(function(cand) {
-      var iconHtml = cand.photo
-        ? '<img class="popup-party-icon" src="' + cand.photo + '" alt="' + cand.party + '" onerror="this.style.display=\'none\'">'
-        : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + cand.party.slice(0,2) + '</div>';
-
-      return '<div class="popup-candidate-row">' +
-        '<span class="popup-cand-name">' + cand.name + '</span>' +
-        '<div class="popup-party-wrap">' + iconHtml +
-          '<span class="popup-party-name">' + cand.party + '</span>' +
-        '</div>' +
-      '</div>';
-    }).join('');
-  }
 
   // Current MLA
   var mlaName  = c.current_mla  || c.mla_2021  || '—';
