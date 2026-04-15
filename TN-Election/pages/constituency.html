@@ -1,144 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Constituency | TN Election 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="../css/global.css"/>
-    <link rel="stylesheet" href="../css/navbar.css"/>
-    <link rel="stylesheet" href="../css/constituency.css"/>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Constituency | TN Election 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="../css/global.css"/>
-    <link rel="stylesheet" href="../css/navbar.css"/>
-    <link rel="stylesheet" href="../css/constituency.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Constituency | TN Election 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/constituency.css"/>
 </head>
 <body data-page="constituency">
 
-    <div id="navbar-container"></div>
-    <div id="navbar-container"></div>
+  <div id="navbar-container"></div>
 
-    <main class="const-page">
-        <button class="const-back" onclick="goHome()">
-            ‹ <span id="const-breadcrumb">Back</span>
-        </button>
-    <main class="const-page">
-        <button class="const-back" onclick="goHome()">
-            ‹ <span id="const-breadcrumb">Back</span>
-        </button>
+  <main class="const-page">
 
-        <div class="const-hero-outer">
-            <div class="const-left-col">
-                <div class="const-mini-map">
-                    <svg id="const-mini-svg"></svg>
-                </div>
-                <div class="const-description">
-                    <p id="const-description-text"></p>
-                    <div class="ministry-label">Ministery Details</div>
-                    <div class="minister-cards" id="minister-cards"></div>
-                </div>
-            </div>
-        <div class="const-hero-outer">
-            <div class="const-left-col">
-                <div class="const-mini-map">
-                    <svg id="const-mini-svg"></svg>
-                </div>
-                <div class="const-description">
-                    <p id="const-description-text"></p>
-                    <div class="ministry-label">Ministery Details</div>
-                    <div class="minister-cards" id="minister-cards"></div>
-                </div>
-            </div>
+    <!-- Back button -->
+    <button class="const-back" onclick="goHome()">
+      ‹ <span id="const-breadcrumb">Back</span>
+    </button>
 
-            <div class="const-right-col">
-                <div class="section-heading">Contesting Candidates</div>
-                <div class="candidates-scroll-wrap">
-                    <div class="candidates-scroll" id="candidates-scroll"></div>
-                </div>
-                <div style="text-align:right;margin-top:12px;margin-bottom:24px">
-                    <button class="view-all-btn">View all</button>
-                </div>
-            <div class="const-right-col">
-                <div class="section-heading">Contesting Candidates</div>
-                <div class="candidates-scroll-wrap">
-                    <div class="candidates-scroll" id="candidates-scroll"></div>
-                </div>
-                <div style="text-align:right;margin-top:12px;margin-bottom:24px">
-                    <button class="view-all-btn">View all</button>
-                </div>
+    <!-- Hero: two-column — left: map+description | right: candidates + history -->
+    <div class="const-hero-outer">
 
-                <div class="section-heading">Historical Trajectory</div>
-                <div class="history-grid" id="history-cards"></div>
-            </div>
+      <!-- LEFT COLUMN -->
+      <div class="const-left-col">
+        <div class="const-mini-map">
+          <svg id="const-mini-svg"></svg>
         </div>
-                <div class="section-heading">Historical Trajectory</div>
-                <div class="history-grid" id="history-cards"></div>
-            </div>
+        <div class="const-description">
+          <p id="const-description-text"></p>
+          <div class="ministry-label">Ministery Details</div>
+          <div class="minister-cards" id="minister-cards"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: candidates + historical trajectory stacked -->
+      <div class="const-right-col">
+
+        <!-- Contesting Candidates -->
+        <div class="section-heading">Contesting Candidates</div>
+        <div class="candidates-scroll-wrap">
+          <div class="candidates-scroll" id="candidates-scroll"></div>
+        </div>
+        <div style="text-align:right;margin-top:12px;margin-bottom:24px">
+          <button class="view-all-btn" id="view-all-btn">View all</button>
         </div>
 
-        <div class="census-assembly-grid">
-            <div class="chart-card">
-                <div class="chart-title">Census Details</div>
-                <div class="dual-pie-wrap">
-                    <div class="pie-block">
-                        <div class="pie-sub-label">Total Population : <span id="census-population">—</span></div>
-                        <div class="pie-row">
-                            <canvas id="population-pie"></canvas>
-                            <div class="pie-legend" id="pop-legend"></div>
-                        </div>
-                    </div>
-                    <div class="pie-divider"></div>
-                    <div class="pie-block">
-                        <div class="pie-sub-label">Total Voters : <span id="census-total">—</span></div>
-                        <div class="pie-row">
-                            <canvas id="voter-pie"></canvas>
-                            <div class="pie-legend" id="voter-legend"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <div class="census-assembly-grid">
-            <div class="chart-card">
-                <div class="chart-title">Census Details</div>
-                <div class="dual-pie-wrap">
-                    <div class="pie-block">
-                        <div class="pie-sub-label">Total Population : <span id="census-population">—</span></div>
-                        <div class="pie-row">
-                            <canvas id="population-pie"></canvas>
-                            <div class="pie-legend" id="pop-legend"></div>
-                        </div>
-                    </div>
-                    <div class="pie-divider"></div>
-                    <div class="pie-block">
-                        <div class="pie-sub-label">Total Voters : <span id="census-total">—</span></div>
-                        <div class="pie-row">
-                            <canvas id="voter-pie"></canvas>
-                            <div class="pie-legend" id="voter-legend"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Historical Trajectory — inside right col, below candidates -->
+        <div class="section-heading">Historical Trajectory</div>
+        <div class="history-grid" id="history-cards"></div>
 
-            <div class="chart-card">
-                <div class="chart-title">Assembly Details</div>
-                <div class="assembly-table" id="assembly-cards"></div>
-            </div>
-        </div>
-    </main>
-            <div class="chart-card">
-                <div class="chart-title">Assembly Details</div>
-                <div class="assembly-table" id="assembly-cards"></div>
-            </div>
-        </div>
-    </main>
+      </div>
 
-    <script src="../data/navbar.js"></script>
-    <script src="../data/constituencies.js"></script>
-    <script src="../data/results2021.js"></script> <script src="../data/candidates2026.js"></script>
-    <script src="../data/tn-map-topo.js"></script>
+    </div>
+
+    <!-- Census Details + Assembly Details -->
+    <div class="census-assembly-grid">
+
+      <!-- Census -->
+      <div class="chart-card">
+        <div class="chart-title">Census Details</div>
+        <div class="dual-pie-wrap">
+
+          <!-- Population pie -->
+          <div class="pie-block">
+            <div class="pie-sub-label">Total Population : <span id="census-population">—</span></div>
+            <div class="pie-row">
+              <canvas id="population-pie" width="120" height="120"></canvas>
+              <div class="pie-legend">
+                <div class="pie-legend-item">
+                  <div class="pie-dot" style="background:#34D399"></div>
+                  <div>
+                    <div class="pie-label">Male</div>
+                    <div class="pie-value" id="pop-male">—</div>
+                  </div>
+                </div>
+                <div class="pie-legend-item">
+                  <div class="pie-dot" style="background:#818CF8"></div>
+                  <div>
+                    <div class="pie-label">Female</div>
+                    <div class="pie-value" id="pop-female">—</div>
+                  </div>
+                </div>
+                <div class="pie-legend-item">
+                  <div class="pie-dot" style="background:#94A3B8"></div>
+                  <div>
+                    <div class="pie-label">Others</div>
+                    <div class="pie-value" id="pop-others">—</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pie-divider"></div>
+
+          <!-- Voters pie -->
+          <div class="pie-block">
+            <div class="pie-sub-label">Total Voters : <span id="census-total">—</span></div>
+            <div class="pie-row">
+              <canvas id="voter-pie" width="120" height="120"></canvas>
+              <div class="pie-legend">
+                <div class="pie-legend-item">
+                  <div class="pie-dot" style="background:#3B82F6"></div>
+                  <div>
+                    <div class="pie-label">Male</div>
+                    <div class="pie-value" id="census-male">—</div>
+                  </div>
+                </div>
+                <div class="pie-legend-item">
+                  <div class="pie-dot" style="background:#EC4899"></div>
+                  <div>
+                    <div class="pie-label">Female</div>
+                    <div class="pie-value" id="census-female">—</div>
+                  </div>
+                </div>
+                <div class="pie-legend-item">
+                  <div class="pie-dot" style="background:#94A3B8"></div>
+                  <div>
+                    <div class="pie-label">Others</div>
+                    <div class="pie-value" id="census-others">—</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Assembly details -->
+      <div class="chart-card">
+        <div class="chart-title">Assembly Details</div>
+        <div class="assembly-table" id="assembly-cards"></div>
+      </div>
+
+    </div>
+
+  </main>
 
   <!-- DATA -->
   <script src="../data/navbar.js"></script>
@@ -153,7 +155,9 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 
-    <script src="../js/components/navbar.js"></script>
-    <script src="../js/constituency/constituency-page.js"></script>
+  <!-- COMPONENTS + PAGE -->
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/constituency/constituency-page.js"></script>
+
 </body>
 </html>
