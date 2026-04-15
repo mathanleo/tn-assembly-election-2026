@@ -28,6 +28,15 @@
    ========================================== */
 
 /* Grid — 2 columns on mobile */
+.cm-candidates__title {
+  font-size: var(--font-md);
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: var(--gap-sm);
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
 .cm-candidates__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -405,7 +414,6 @@
   }
 }
 
-
 /* parties table  */
 
 /* Container Card */
@@ -415,4 +423,56 @@
   width: 100%;
   padding: 2rem 1.5rem;
   background: #f0f4f8;
+}
+/* ==========================================
+   POPULAR CANDIDATES — Home page preview
+   Card styles come from candidates.css (reused)
+   ========================================== */
+
+.popular-candidates-section {
+  padding: var(--gap-lg) var(--gap-xl);
+  background: var(--color-bg);
+}
+
+.popular-candidates-section .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gap-lg);
+}
+
+.popular-candidates-section .section-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+/* View all button — used in header and bottom */
+.hpc__viewall-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--gap-lg);
+}
+
+.hpc__viewall-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  font-family: inherit;
+  padding: 9px 22px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+
+.hpc__viewall-btn:hover {
+  background: #c94832;
+}
+
+@media (max-width: 992px) {
+  .popular-candidates-section {
+    padding: var(--gap-md);
+  }
 }

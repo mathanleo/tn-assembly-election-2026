@@ -1,252 +1,288 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | TN Election 2026</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | TN Election 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/tn-map.css" />
 
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="../css/navbar.css" />
-  <link rel="stylesheet" href="../css/home.css" />
-  <link rel="stylesheet" href="../css/tn-map.css" />
+    <link rel="stylesheet" href="../css/manifestos.css" />
+    <link rel="stylesheet" href="../css/candidates.css" />
+    <link rel="stylesheet" href="../css/bigfights.css" />
+    <link rel="stylesheet" href="../css/richest-highmargin.css" />
+    <link rel="stylesheet" href="../css/constituency-table.css" />
+  </head>
 
-  <link rel="stylesheet" href="../css/manifestos.css"/>
-  <link rel="stylesheet" href="../css/richest-highmargin.css" />
-  <link rel="stylesheet" href="../css/constituency-table.css" />
-  
-</head>
+  <body data-page="index">
+    <div id="navbar-container"></div>
 
-<body data-page="index">
-  <div id="navbar-container"></div>
-
-  <main>
-    <section class="map-section">
-
-      <!-- ── Body: Map LEFT | CM cards + Alliance RIGHT ── -->
-      <div class="map-body">
-
-        <!-- Map canvas -->
-        <div class="map-right">
-
-          <!-- Search bar — top left of map column -->
-          <div class="map-search">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input id="map-search-input" type="text" placeholder="Search Constituency…" />
-            <div class="map-search-results" id="map-search-results"></div>
-          </div>
-
-          <!-- Map SVG fills remaining space -->
-          <div class="map-svg-wrap">
-            <svg id="tn-map-svg"></svg>
-          </div>
-
-          <!-- Popup anchored inside map-right -->
-          <div class="map-popup" id="map-popup">
-            <div class="popup-header">
-              <div class="popup-name" id="popup-name">—</div>
-              <button class="popup-close" id="popup-close-btn" aria-label="Close">×</button>
-            </div>
-            <div class="popup-body">
-              <div class="popup-section-label">Candidate</div>
-              <div id="popup-candidates"></div>
-              <div class="popup-section-label">Current MLA</div>
-              <div id="popup-mla"></div>
-            </div>
-            <div class="popup-footer">
-              <button class="popup-view-btn" onclick="viewConstituencyDetails()">
-                View full details ›
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right column: CM Candidates + Alliance Table -->
-        <div class="map-content-right">
-
-          <!-- CM Candidates -->
-          <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
-          <div class="cm-candidates__grid" id="cm-candidates-container">
-            <!-- filled by cm-candidates.js -->
-          </div>
-
-          <!-- Alliance Table -->
-          <div class="alliance-table">
-            <div class="alliance-table__headers">
-              <div class="alliance-table__header alliance-table__header--nda">NDA</div>
-              <div class="alliance-table__vdivider-head"></div>
-              <div class="alliance-table__header alliance-table__header--spa">SPA</div>
-              <div class="alliance-table__vdivider-head"></div>
-              <div class="alliance-table__header alliance-table__header--others">Others</div>
+    <main>
+      <section class="map-section">
+        <!-- ── Body: Map LEFT | CM cards + Alliance RIGHT ── -->
+        <div class="map-body">
+          <!-- Map canvas -->
+          <div class="map-right">
+            <!-- Search bar — top left of map column -->
+            <div class="map-search">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                id="map-search-input"
+                type="text"
+                placeholder="Search Constituency…"
+              />
+              <div class="map-search-results" id="map-search-results"></div>
             </div>
 
-            <div class="alliance-table__subheaders">
-              <div class="alliance-table__subheader alliance-table__subheader--nda">
-                <span>Parties</span><span>Seat sharing</span>
+            <!-- Map SVG fills remaining space -->
+            <div class="map-svg-wrap">
+              <svg id="tn-map-svg"></svg>
+            </div>
+
+            <!-- Popup anchored inside map-right -->
+            <div class="map-popup" id="map-popup">
+              <div class="popup-header">
+                <div class="popup-name" id="popup-name">—</div>
+                <button
+                  class="popup-close"
+                  id="popup-close-btn"
+                  aria-label="Close"
+                >
+                  ×
+                </button>
               </div>
-              <div class="alliance-table__vdivider"></div>
-              <div class="alliance-table__subheader alliance-table__subheader--spa">
-                <span>Parties</span><span>Seat sharing</span>
+              <div class="popup-body">
+                <div class="popup-section-label">Candidate</div>
+                <div id="popup-candidates"></div>
+                <div class="popup-section-label">Current MLA</div>
+                <div id="popup-mla"></div>
               </div>
-              <div class="alliance-table__vdivider"></div>
-              <div class="alliance-table__subheader alliance-table__subheader--others">
-                <span>Parties</span><span>Seat sharing</span>
+              <div class="popup-footer">
+                <button
+                  class="popup-view-btn"
+                  onclick="viewConstituencyDetails()"
+                >
+                  View full details ›
+                </button>
               </div>
             </div>
+          </div>
 
-            <div class="alliance-table__body">
-              <div class="alliance-table__col" id="alliance-col-nda"></div>
-              <div class="alliance-table__vdivider"></div>
-              <div class="alliance-table__col" id="alliance-col-spa"></div>
-              <div class="alliance-table__vdivider"></div>
-              <div class="alliance-table__col" id="alliance-col-others"></div>
+          <!-- Right column: CM Candidates + Alliance Table -->
+          <div class="map-content-right">
+            <!-- CM Candidates -->
+            <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
+            <div class="cm-candidates__grid" id="cm-candidates-container">
+              <!-- filled by cm-candidates.js -->
             </div>
 
-            <div class="alliance-table__footer">
-              <button class="alliance-table__viewall-btn" id="alliance-viewall-btn" onclick="toggleAllianceView()">
-                View all
-              </button>
+            <!-- Alliance Table -->
+            <div class="alliance-table">
+              <div class="alliance-table__headers">
+                <div class="alliance-table__header alliance-table__header--nda">
+                  NDA
+                </div>
+                <div class="alliance-table__vdivider-head"></div>
+                <div class="alliance-table__header alliance-table__header--spa">
+                  SPA
+                </div>
+                <div class="alliance-table__vdivider-head"></div>
+                <div
+                  class="alliance-table__header alliance-table__header--others"
+                >
+                  Others
+                </div>
+              </div>
+
+              <div class="alliance-table__subheaders">
+                <div
+                  class="alliance-table__subheader alliance-table__subheader--nda"
+                >
+                  <span>Parties</span><span>Seat sharing</span>
+                </div>
+                <div class="alliance-table__vdivider"></div>
+                <div
+                  class="alliance-table__subheader alliance-table__subheader--spa"
+                >
+                  <span>Parties</span><span>Seat sharing</span>
+                </div>
+                <div class="alliance-table__vdivider"></div>
+                <div
+                  class="alliance-table__subheader alliance-table__subheader--others"
+                >
+                  <span>Parties</span><span>Seat sharing</span>
+                </div>
+              </div>
+
+              <div class="alliance-table__body">
+                <div class="alliance-table__col" id="alliance-col-nda"></div>
+                <div class="alliance-table__vdivider"></div>
+                <div class="alliance-table__col" id="alliance-col-spa"></div>
+                <div class="alliance-table__vdivider"></div>
+                <div class="alliance-table__col" id="alliance-col-others"></div>
+              </div>
+
+              <div class="alliance-table__footer">
+                <button
+                  class="alliance-table__viewall-btn"
+                  id="alliance-viewall-btn"
+                  onclick="toggleAllianceView()"
+                >
+                  View all
+                </button>
+              </div>
+
+              <div class="alliance-table__total">
+                Total <strong>234</strong> seats
+              </div>
             </div>
+          </div>
+          <!-- /map-content-right -->
+        </div>
+        <!-- /map-body -->
 
-            <div class="alliance-table__total">
-              Total <strong>234</strong> seats
+        <!-- ── Bottom Stats Bar ── -->
+        <div class="map-stats-bar">
+          <div class="map-stats-bar__item">
+            <div class="map-stats-bar__bar map-stats-bar__bar--red"></div>
+            <div class="map-stats-bar__text">
+              <span class="map-stats-bar__label">Total Voters</span>
+              <span class="map-stats-bar__value" id="map-total-voters">—</span>
             </div>
           </div>
-
-        </div>
-        <!-- /map-content-right -->
-      </div>
-      <!-- /map-body -->
-
-      <!-- ── Bottom Stats Bar ── -->
-      <div class="map-stats-bar">
-        <div class="map-stats-bar__item">
-          <div class="map-stats-bar__bar map-stats-bar__bar--red"></div>
-          <div class="map-stats-bar__text">
-            <span class="map-stats-bar__label">Total Voters</span>
-            <span class="map-stats-bar__value" id="map-total-voters">—</span>
+          <div class="map-stats-bar__item">
+            <div class="map-stats-bar__bar map-stats-bar__bar--blue"></div>
+            <div class="map-stats-bar__text">
+              <span class="map-stats-bar__label">Male</span>
+              <span class="map-stats-bar__value" id="map-voters-male">—</span>
+            </div>
+          </div>
+          <div class="map-stats-bar__item">
+            <div class="map-stats-bar__bar map-stats-bar__bar--pink"></div>
+            <div class="map-stats-bar__text">
+              <span class="map-stats-bar__label">Female</span>
+              <span class="map-stats-bar__value" id="map-voters-female">—</span>
+            </div>
+          </div>
+          <div class="map-stats-bar__item">
+            <div class="map-stats-bar__bar map-stats-bar__bar--green"></div>
+            <div class="map-stats-bar__text">
+              <span class="map-stats-bar__label">Others</span>
+              <span class="map-stats-bar__value" id="map-voters-others">—</span>
+            </div>
           </div>
         </div>
-        <div class="map-stats-bar__item">
-          <div class="map-stats-bar__bar map-stats-bar__bar--blue"></div>
-          <div class="map-stats-bar__text">
-            <span class="map-stats-bar__label">Male</span>
-            <span class="map-stats-bar__value" id="map-voters-male">—</span>
-          </div>
+      </section>
+
+      <!-- Hidden — kept for JS compatibility (tn-map.js populates these) -->
+      <div id="map-legend" style="display: none"></div>
+
+      <!-- Tooltip -->
+      <div class="map-tooltip" id="map-tooltip"></div>
+
+      <!-- SECTION 2 : POPULAR CANDIDATES -->
+      <section
+        class="popular-candidates-section"
+        id="popular-candidates-section"
+      >
+        <div class="section-header">
+          <h2 class="section-title">Popular Candidates</h2>
+          <a href="candidates.html" class="hpc__viewall-btn">View all</a>
         </div>
-        <div class="map-stats-bar__item">
-          <div class="map-stats-bar__bar map-stats-bar__bar--pink"></div>
-          <div class="map-stats-bar__text">
-            <span class="map-stats-bar__label">Female</span>
-            <span class="map-stats-bar__value" id="map-voters-female">—</span>
-          </div>
+        <div id="popular-candidates-container"></div>
+      </section>
+
+      <!-- SECTION 3 : BIG FIGHTS  -->
+      <section
+        class="big-fights-preview-section"
+        id="big-fights-preview-section"
+      >
+        <div class="section-header">
+          <h2 class="section-title">Big Fights</h2>
+          <a href="bigfights.html" class="section-viewall-btn">View all</a>
         </div>
-        <div class="map-stats-bar__item">
-          <div class="map-stats-bar__bar map-stats-bar__bar--green"></div>
-          <div class="map-stats-bar__text">
-            <span class="map-stats-bar__label">Others</span>
-            <span class="map-stats-bar__value" id="map-voters-others">—</span>
-          </div>
+        <!-- Your friend fills this container via js/home/big-fights-preview.js -->
+        <div id="big-fights-preview-container"></div>
+      </section>
+
+      <!-- SECTION 4 : MANIFESTOS -->
+      <section class="manifestos-section" id="manifestos-section">
+        <div class="section-header">
+          <h2 class="section-title">Manifestos</h2>
         </div>
-      </div>
+        <!-- filled by js/home/manifestos.js -->
+        <div class="manifestos-grid" id="manifestos-container"></div>
+      </section>
 
-    </section>
+      <!-- SECTION 5 : RICHEST CANDIDATES -->
+      <section class="richest-candidates-section">
+        <div id="richest-candidates-container"></div>
+      </section>
 
-    <!-- Hidden — kept for JS compatibility (tn-map.js populates these) -->
-    <div id="map-legend" style="display:none"></div>
+      <section class="constituency-table-section">
+        <div id="constituency-container"></div>
+      </section>
 
-    <!-- Tooltip -->
-    <div class="map-tooltip" id="map-tooltip"></div>
-
-
-
-     <!-- SECTION 2 : POPULAR CANDIDATES -->
-      <section class="popular-candidates-section" id="popular-candidates-section">
-      <div class="section-header">
-        <h2 class="section-title">Popular Candidates</h2>
-      </div>
-      <!-- Your friend fills this container via js/home/popular-candidates.js -->
-      <div id="popular-candidates-container"></div>
-    </section>
-
-    <!-- SECTION 3 : BIG FIGHTS  -->
-      <section class="big-fights-preview-section" id="big-fights-preview-section">
-      <div class="section-header">
-        <h2 class="section-title">Big Fights</h2>
-        <a href="pages/bigfights.html" class="section-viewall-btn">View all</a>
-      </div>
-      <!-- Your friend fills this container via js/home/big-fights-preview.js -->
-      <div id="big-fights-preview-container"></div>
-    </section>
-
-    <!-- SECTION 4 : MANIFESTOS -->
-       <section class="manifestos-section" id="manifestos-section">
-      <div class="section-header">
-        <h2 class="section-title">Manifestos</h2>
-      </div>
-      <!-- filled by js/home/manifestos.js -->
-      <div class="manifestos-grid" id="manifestos-container"></div>
-    </section>
-
-    <!-- SECTION 5 : RICHEST CANDIDATES -->
-<section class="richest-candidates-section">
-  <div id="richest-candidates-container"></div>
-</section>
-
-<section class="constituency-table-section">
-      <div id="constituency-container"></div> 
-    </section>
-
- 
-    <!-- ── Footer ── -->
+      <!-- ── Footer ── -->
       <div id="footer-container"></div>
+    </main>
 
-  </main>
+    <!-- Data -->
+    <script src="../data/navbar.js"></script>
+    <script src="../data/cm-candidates.js"></script>
+    <script src="../data/alliances.js"></script>
+    <script src="../data/constituencies.js"></script>
+    <script src="../data/results2021.js"></script>
+    <script src="../data/candidates.js"></script>
+    <script src="../data/candidates2026.js"></script>
+    <script src="../data/tn-map-topo.js"></script>
 
-  <!-- Data -->
-  <script src="../data/navbar.js"></script>
-  <script src="../data/cm-candidates.js"></script>
-  <script src="../data/alliances.js"></script>
-  <script src="../data/constituencies.js"></script>
-  <script src="../data/results2021.js"></script>
-  <script src="../data/candidates.js"></script>
-  <script src="../data/candidates2026.js"></script>
-  <script src="../data/tn-map-topo.js"></script>
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 
-  <!-- Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+    <!-- Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/footer.js"></script>
 
-  <!-- Components -->
-  <script src="../js/components/navbar.js"></script>
-  <script src="../js/components/footer.js"></script>
+    <!-- Page modules -->
+    <script src="../js/home/cm-candidates.js"></script>
+    <script src="../js/home/alliance-table.js"></script>
+    <script src="../js/home/tn-map.js"></script>
 
-  <!-- Page modules -->
-  <script src="../js/home/cm-candidates.js"></script>
-  <script src="../js/home/alliance-table.js"></script>
-  <script src="../js/home/tn-map.js"></script>
-  
+    <script src="../js/candidates/candidate-cards.js"></script>
+    <script src="../js/home/popular-candidates.js"></script>
+    <script src="../data/bigfights.js"></script>
+    <script src="../js/bigfights/bigfight-cards.js"></script>
+    <script src="../js/home/big-fights-preview.js"></script>
+    <script src="../data/manifestos.js"></script>
 
-  <script src="../js/home/popular-candidates.js"></script>
-  <script src="../js/home/big-fights-preview.js"></script>
-  <script src="../data/manifestos.js"></script>
-
-  <script src="../data/constituencies.js"></script>
-<script src="../data/results2021.js"></script>
-
-  <!-- <script type="module" src="../js/home/richest-highmargin.js"></script> -->
-   <!-- <script type="module" src="../data/richest-candidate.js"></script> -->
-<!-- <script type="module" src="../data/top-winners-data.js"></script> -->
-<script type="module" src="../js/home/richest-highmargin.js"></script>
-<script type="module" src="../js/home/constituency-table.js"></script>
-</body>
-
+    <!-- <script type="module" src="../js/home/richest-highmargin.js"></script> -->
+    <!-- <script type="module" src="../data/richest-candidate.js"></script> -->
+    <!-- <script type="module" src="../data/top-winners-data.js"></script> -->
+    <script type="module" src="../js/home/richest-highmargin.js"></script>
+    <script type="module" src="../js/home/constituency-table.js"></script>
+  </body>
 </html>
