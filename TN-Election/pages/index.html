@@ -25,32 +25,29 @@
   <main>
     <section class="map-section">
 
-      <!-- ── Top bar: TN title (left) + Search (right) ── -->
-      <div class="map-topbar">
-        <div class="map-topbar__title">
-          <img src="../assets/tn-emblem.png" alt="TN" onerror="this.style.display='none'" />
-          <span>Tamilnadu Legislative Assembly 2026</span>
-        </div>
-
-        <!-- Search moved here — top right -->
-        <div class="map-search">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-          <input id="map-search-input" type="text" placeholder="Search Constituency…" />
-          <div class="map-search-results" id="map-search-results"></div>
-        </div>
-      </div>
-
       <!-- ── Body: Map LEFT | CM cards + Alliance RIGHT ── -->
       <div class="map-body">
 
         <!-- Map canvas -->
         <div class="map-right">
-          <svg id="tn-map-svg"></svg>
-          <!-- Popup anchored inside map -->
+
+          <!-- Search bar — top left of map column -->
+          <div class="map-search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input id="map-search-input" type="text" placeholder="Search Constituency…" />
+            <div class="map-search-results" id="map-search-results"></div>
+          </div>
+
+          <!-- Map SVG fills remaining space -->
+          <div class="map-svg-wrap">
+            <svg id="tn-map-svg"></svg>
+          </div>
+
+          <!-- Popup anchored inside map-right -->
           <div class="map-popup" id="map-popup">
             <div class="popup-header">
               <div class="popup-name" id="popup-name">—</div>
@@ -74,6 +71,7 @@
         <div class="map-content-right">
 
           <!-- CM Candidates -->
+          <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
           <div class="cm-candidates__grid" id="cm-candidates-container">
             <!-- filled by cm-candidates.js -->
           </div>
@@ -130,30 +128,30 @@
       <div class="map-stats-bar">
         <div class="map-stats-bar__item">
           <div class="map-stats-bar__bar map-stats-bar__bar--red"></div>
-          <div>
-            <div class="map-stats-bar__label">Total Voters</div>
-            <div class="map-stats-bar__value" id="map-total-voters"> 5,67,07,380</div>
+          <div class="map-stats-bar__text">
+            <span class="map-stats-bar__label">Total Voters</span>
+            <span class="map-stats-bar__value" id="map-total-voters">—</span>
           </div>
         </div>
         <div class="map-stats-bar__item">
           <div class="map-stats-bar__bar map-stats-bar__bar--blue"></div>
-          <div>
-            <div class="map-stats-bar__label">Male</div>
-            <div class="map-stats-bar__value" id="map-voters-male">2,77,38,925</div>
+          <div class="map-stats-bar__text">
+            <span class="map-stats-bar__label">Male</span>
+            <span class="map-stats-bar__value" id="map-voters-male">—</span>
           </div>
         </div>
         <div class="map-stats-bar__item">
           <div class="map-stats-bar__bar map-stats-bar__bar--pink"></div>
-          <div>
-            <div class="map-stats-bar__label">Female</div>
-            <div class="map-stats-bar__value" id="map-voters-female"> 2,89,60,838</div>
+          <div class="map-stats-bar__text">
+            <span class="map-stats-bar__label">Female</span>
+            <span class="map-stats-bar__value" id="map-voters-female">—</span>
           </div>
         </div>
         <div class="map-stats-bar__item">
           <div class="map-stats-bar__bar map-stats-bar__bar--green"></div>
-          <div>
-            <div class="map-stats-bar__label">Others</div>
-            <div class="map-stats-bar__value" id="map-voters-others">7617</div>
+          <div class="map-stats-bar__text">
+            <span class="map-stats-bar__label">Others</span>
+            <span class="map-stats-bar__value" id="map-voters-others">—</span>
           </div>
         </div>
       </div>

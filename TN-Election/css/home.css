@@ -308,18 +308,17 @@
 
 /* ==========================================
    RESPONSIVE — Tablet (577px - 992px)
-   Alliance table switches to tab style
    ========================================== */
 @media (max-width: 992px) {
   .home-section {
     padding: var(--gap-md);
   }
 
-  /* Stack columns vertically on tablet/mobile */
+  /* Hide the grouped headers row and grouped sub-headers row
+     — we add per-column colored headers via ::before instead */
   .alliance-table__headers,
-  .alliance-table__subheaders,
-  .alliance-table__body {
-    grid-template-columns: 1fr;
+  .alliance-table__subheaders {
+    display: none;
   }
 
   /* Hide vertical dividers */
@@ -328,13 +327,60 @@
     display: none;
   }
 
-  /* Add spacing between stacked sections */
-  .alliance-table__col {
-    border-bottom: 4px solid var(--color-bg);
+  /* Stack the 3 columns vertically */
+  .alliance-table__body {
+    display: flex;
+    flex-direction: column;
   }
 
+  /* Each column gets its own colored header via ::before */
+  .alliance-table__col {
+    border-bottom: 6px solid var(--color-bg);
+  }
   .alliance-table__col:last-child {
     border-bottom: none;
+  }
+
+  /* NDA column header */
+  #alliance-col-nda::before {
+    content: "NDA";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e05a46;
+    color: #fff;
+    font-size: var(--font-md);
+    font-weight: 800;
+    padding: 10px var(--gap-md);
+    letter-spacing: 0.05em;
+  }
+
+  /* SPA column header */
+  #alliance-col-spa::before {
+    content: "SPA";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5b68b8;
+    color: #fff;
+    font-size: var(--font-md);
+    font-weight: 800;
+    padding: 10px var(--gap-md);
+    letter-spacing: 0.05em;
+  }
+
+  /* Others column header */
+  #alliance-col-others::before {
+    content: "Others";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #8a93a8;
+    color: #fff;
+    font-size: var(--font-md);
+    font-weight: 800;
+    padding: 10px var(--gap-md);
+    letter-spacing: 0.05em;
   }
 }
 

@@ -73,13 +73,16 @@ function buildMap() {
   var container = document.getElementById('tn-map-svg');
   if (!container) { console.warn('No #tn-map-svg found'); return; }
 
-  // Use the parent container's dimensions so the map fills the left column
-  var parent = container.parentElement;
-  var width  = parent.clientWidth  || container.clientWidth  || 500;
-  var height = parent.clientHeight || container.clientHeight || 700;
+  // Read dimensions from the SVG wrapper (not the SVG itself)
+  // The wrapper is a flex child that fills remaining space after the header
+  var svgWrap = document.querySelector('.map-svg-wrap');
+  var parent  = svgWrap || container.parentElement;
+  var width   = parent.clientWidth  || 420;
+  var height  = parent.clientHeight || 480;
 
-  // Ensure minimum sensible height
-  if (height < 400) height = 500;
+  // Fallback minimum
+  if (width  < 100) width  = 420;
+  if (height < 200) height = 480;
 
   // D3 SVG setup
   var svg = d3.select('#tn-map-svg')
@@ -115,8 +118,6 @@ function buildMap() {
 
   // Tooltip element
   var tooltip = document.getElementById('map-tooltip');
-
-  // ── SVG defs: orange hologram glow filter ──────────────────
   var defs = svg.append('defs');
 
   var filter = defs.append('filter')
@@ -139,12 +140,7 @@ function buildMap() {
   feMerge.append('feMergeNode').attr('in', 'orangeGlow');
   feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
 
-  // ── Hover name display (above the map) ─────────────────────
-  // NOTE: Your HTML needs this inside .map-right:
-  //   <div id="map-hover-label" class="map-hover-label"></div>
-  var hoverLabel = document.getElementById('map-hover-label');
-
-  // Draw constituencies
+  // ── SVG defs: orange hologram glow filter ──────────────────
   g.selectAll('.constituency-path')
     .data(features)
     .enter()
@@ -155,19 +151,13 @@ function buildMap() {
     .attr('fill', '#E5E7EB')
     .on('mousemove', function(event, d) {
       var name = d.properties.AC_NAME || d.properties.ac_name || '';
-      // Show name in the label above the map
-      if (hoverLabel) {
-        hoverLabel.textContent = name;
-        hoverLabel.classList.add('is-visible');
-      }
-      // Also show floating tooltip
+      // Show floating tooltip near cursor
       tooltip.textContent = name;
       tooltip.classList.add('is-visible');
       tooltip.style.left = (event.clientX + 14) + 'px';
       tooltip.style.top  = (event.clientY - 34) + 'px';
     })
     .on('mouseleave', function() {
-      if (hoverLabel) hoverLabel.classList.remove('is-visible');
       tooltip.classList.remove('is-visible');
     })
     .on('click', function(event, d) {
@@ -386,16 +376,40 @@ function initSearch() {
 
 // ── Stats bar ─────────────────────────────────────────────────
 function buildStats() {
-  var total = Object.values(constituenciesData).reduce(function(s,c) { return s+c.total_voters; }, 0);
-  var el = document.getElementById('map-total-voters');
-  if (el) el.textContent = (total/10000000).toFixed(2) + ' Cr';
+  var total   = 0, male = 0, female = 0, others = 0;
+
+  Object.values(constituenciesData).forEach(function(c) {
+    total  += c.total_voters  || 0;
+    male   += c.male_voters   || 0;
+    female += c.female_voters || 0;
+    others += c.other_voters  || 0;
+  });
+
+  // Helper: format number with Indian comma style
+  function fmt(n) {
+    return n.toLocaleString('en-IN');
+  }
+
+  var elTotal  = document.getElementById('map-total-voters');
+  var elMale   = document.getElementById('map-voters-male');
+  var elFemale = document.getElementById('map-voters-female');
+  var elOthers = document.getElementById('map-voters-others');
+
+  if (elTotal)  elTotal.textContent  = (total / 10000000).toFixed(1) + ' Crores';
+  if (elMale)   elMale.textContent   = fmt(male);
+  if (elFemale) elFemale.textContent = fmt(female);
+  if (elOthers) elOthers.textContent = fmt(others);
 }
 
 // ── Init ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
   buildLegend();
   buildStats();
-  buildMap();
+  // Use requestAnimationFrame so the flex layout is fully rendered
+  // before we read the container dimensions for the map
+  requestAnimationFrame(function() {
+    buildMap();
+  });
   initSearch();
 
   // Popup close button
