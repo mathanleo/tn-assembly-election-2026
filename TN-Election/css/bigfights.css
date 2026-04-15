@@ -17,24 +17,44 @@ body[data-page="bigfights"] main {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 0; /* allows flex child to shrink and scroll */
+  min-height: 0;
 }
 @media (min-width: 993px) {
   .bigfights-page { padding: var(--gap-lg) var(--gap-xl); }
 }
 
+/* ---------- Header Row (search + tabs) ---------- */
+.bigfights-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  flex-shrink: 0;
+  margin-bottom: var(--gap-md);
+}
+
+@media (min-width: 993px) {
+  .bigfights-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 /* ---------- Filter Tabs ---------- */
 .bigfight-tabs {
   display: flex;
-  gap: 20px;
-  flex-shrink: 0;      /* never compress — always fully visible */
-  position: sticky;
-  top: 0;
-  justify-content: space-between;
-  background: var(--color-bg); /* match page bg so it hides content behind it */
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
   z-index: 100;
-  padding-top: var(--gap-sm); 
 }
+.bigfight-tabs::-webkit-scrollbar { display: none; }
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+}
+
 .bigfight-tab {
   padding: 8px 22px;
   border-radius: 8px;
@@ -47,6 +67,7 @@ body[data-page="bigfights"] main {
   cursor: pointer;
   min-height: 44px;
   transition: all 0.18s ease;
+  white-space: nowrap;
 }
 .bigfight-tab--active {
   background: white;
@@ -58,12 +79,17 @@ body[data-page="bigfights"] main {
   color: var(--color-primary);
 }
 
-/* ============================================
-   BIG FIGHTS — Card Grid
-   ============================================ */
+/* ---------- Search ---------- */
 .candidates-search {
   position: relative;
-  margin-bottom: var(--gap-md);
+  width: 100%;
+}
+
+@media (min-width: 993px) {
+  .candidates-search {
+    width: 320px;
+    flex-shrink: 0;
+  }
 }
 
 .candidates-search__input {
@@ -77,16 +103,14 @@ body[data-page="bigfights"] main {
   color: var(--color-dark);
   outline: none;
   transition: border-color 0.2s ease;
+  box-sizing: border-box;
 }
-
 .candidates-search__input:focus {
   border-color: var(--color-primary);
 }
-
 .candidates-search__input::placeholder {
   color: var(--color-muted);
 }
-
 .candidates-search__icon {
   position: absolute;
   left: 14px;
@@ -97,36 +121,25 @@ body[data-page="bigfights"] main {
   width: 16px;
   height: 16px;
 }
-.bigfight-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--gap-md);
-}
-@media (min-width: 577px) {
-  .bigfight-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 993px) {
-  .bigfight-grid { grid-template-columns: repeat(3, 1fr); }
-}
-/* #bigfight-cards-container{
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-} */
-/* ---------- Fight Card ---------- */
+
+/* ============================================
+   BIG FIGHTS — Cards Container
+   ============================================ */
 #bigfight-cards-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 8px;
-  overflow-y: auto;          /* ONLY this scrolls */
-  flex: 1;                   /* fills remaining height below sticky tabs */
-  min-height: 0;             /* required for flex+overflow to work */
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
   align-content: flex-start;
   padding-bottom: var(--gap-lg);
   scrollbar-width: thin;
   scrollbar-color: var(--color-border) transparent;
 }
+
+/* ---------- Fight Card ---------- */
 .fight-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
@@ -139,14 +152,13 @@ body[data-page="bigfights"] main {
   position: relative;
   overflow: visible;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  min-width: 0; /* prevents grid blowout */
+  min-width: 0;
 }
 .fight-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.11);
 }
 
-/* Constituency tag — top right corner */
 .fight-card__constituency {
   position: absolute;
   top: -1px;
@@ -166,7 +178,6 @@ body[data-page="bigfights"] main {
   border-left: 1px solid var(--color-border);
 }
 
-/* Candidate row */
 .fight-card__candidate {
   display: flex;
   align-items: center;
@@ -174,7 +185,6 @@ body[data-page="bigfights"] main {
   padding-top: 4px;
 }
 
-/* Photo wrap */
 .fight-card__photo-wrap {
   position: relative;
   width: 56px;
@@ -204,7 +214,6 @@ body[data-page="bigfights"] main {
   height: 65%;
 }
 
-/* Party logo badge */
 .fight-card__party-logo {
   position: absolute;
   bottom: -2px;
@@ -233,7 +242,6 @@ body[data-page="bigfights"] main {
   text-align: center;
 }
 
-/* Candidate info */
 .fight-card__info { flex: 1; min-width: 0; }
 .fight-card__name-line {
   font-size: var(--font-md);
@@ -261,7 +269,6 @@ body[data-page="bigfights"] main {
   box-sizing: border-box;
 }
 
-/* Progress bar */
 .fight-card__progress-wrap { padding: 2px 0; }
 .fight-card__progress-bar {
   display: flex;
@@ -273,7 +280,6 @@ body[data-page="bigfights"] main {
 }
 .fight-card__bar { height: 100%; }
 
-/* Empty state */
 .bigfight-empty {
   grid-column: 1 / -1;
   text-align: center;
@@ -285,7 +291,6 @@ body[data-page="bigfights"] main {
 /* ============================================
    POPULAR BATTLES — Dropdown
    ============================================ */
-
 .pop-dropdown {
   position: absolute;
   top: 52px;
@@ -298,7 +303,6 @@ body[data-page="bigfights"] main {
   min-width: 240px;
   overflow: hidden;
   animation: dropIn 0.15s ease both;
-  
 }
 @keyframes dropIn {
   from { opacity: 0; transform: translateY(-6px); }
@@ -328,7 +332,7 @@ body[data-page="bigfights"] main {
   font-size: var(--font-sm);
   font-weight: 800;
   white-space: nowrap;
-  background:linear-gradient(red,black);
+  background: linear-gradient(red, black);
 }
 .pop-dd__icon {
   width: 16px;
@@ -352,7 +356,6 @@ body[data-page="bigfights"] main {
 /* ============================================
    POPULAR BATTLES — Results count
    ============================================ */
-
 .pop-results-count {
   font-size: var(--font-md);
   font-weight: 600;
@@ -368,7 +371,6 @@ body[data-page="bigfights"] main {
 /* ============================================
    POPULAR BATTLES — Card Grid (3 cols)
    ============================================ */
-
 .pop-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -387,7 +389,7 @@ body[data-page="bigfights"] main {
   border-radius: var(--radius-lg);
   overflow: hidden;
   position: relative;
-  background:#FFFFFF;
+  background: #FFFFFF;
   opacity: 80%;
   box-shadow: 0 4px 16px rgba(0,0,0,0.18);
   min-height: 180px;
@@ -397,15 +399,11 @@ body[data-page="bigfights"] main {
   box-shadow: 0 10px 28px rgba(0,0,0,0.28);
 }
 
-/* Gradient layer */
 .pop-card__bg {
   position: absolute;
   inset: 0;
-  
   z-index: 0;
 }
-
-/* Glow layer */
 .pop-card__glow {
   position: absolute;
   inset: 0;
@@ -414,8 +412,6 @@ body[data-page="bigfights"] main {
   background-position: center;
   pointer-events: none;
 }
-
-/* Content */
 .pop-card__content {
   position: relative;
   z-index: 2;
@@ -424,16 +420,14 @@ body[data-page="bigfights"] main {
   flex-direction: column;
   padding: 10px 14px 14px;
 }
-
-/* Constituency title */
 .pop-card__title {
   text-align: center;
   font-size: 12px;
   font-weight: 900;
-  color:black;
+  color: black;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background:transparent;
+  background: transparent;
   border-radius: var(--radius-sm);
   padding: 4px 8px;
   margin-bottom: 10px;
@@ -442,8 +436,6 @@ body[data-page="bigfights"] main {
   text-overflow: ellipsis;
   z-index: 4;
 }
-
-/* Versus row */
 .pop-card__versus {
   display: flex;
   align-items: flex-end;
@@ -451,8 +443,6 @@ body[data-page="bigfights"] main {
   flex: 1;
   gap: 4px;
 }
-
-/* Candidate column */
 .pop-card__candidate {
   display: flex;
   flex-direction: column;
@@ -460,8 +450,6 @@ body[data-page="bigfights"] main {
   gap: 5px;
   flex: 1;
 }
-
-/* Photo wrap */
 .pop-card__photo-wrap {
   position: relative;
   display: flex;
@@ -475,7 +463,6 @@ body[data-page="bigfights"] main {
 .pop-card__photo {
   width: 100%;
   height: 100%;
-  
   object-fit: contain;
   object-position: bottom;
   display: block;
@@ -483,7 +470,6 @@ body[data-page="bigfights"] main {
 }
 .pop-card__photo--flip { transform: scaleX(-1); }
 
-/* Party badge on photo */
 .pop-card__badge {
   position: absolute;
   bottom: 0;
@@ -510,8 +496,6 @@ body[data-page="bigfights"] main {
   color: #fff;
   line-height: 1;
 }
-
-/* Name + party label */
 .pop-card__name {
   font-size: 9px;
   font-weight: 800;
@@ -529,8 +513,6 @@ body[data-page="bigfights"] main {
   letter-spacing: 0.05em;
   text-align: center;
 }
-
-/* VS badge */
 .pop-card__vs {
   font-size: 18px;
   font-weight: 900;

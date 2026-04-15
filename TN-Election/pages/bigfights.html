@@ -22,30 +22,22 @@
 
     <main>
       <section class="bigfights-page">
+       <div class="bigfights-header">
+    <div class="bigfight-tabs">
+      <div class="btn-group">
+        <button class="bigfight-tab bigfight-tab--active" data-filter="all">Big Fights</button>
+        <button class="bigfight-tab" data-filter="popular">Popular Battles</button>
+      </div>
+    </div>
 
-        <!-- Filter Tabs -->
-        <div class="bigfight-tabs">
-          <div class="btn-group"> <button class="bigfight-tab bigfight-tab--active" data-filter="all">
-            Big Fights
-          </button>
-          <button class="bigfight-tab" data-filter="popular">
-            Popular Battles
-          </button>
-          </div>
-          <div class="candidates-search">
-            <svg class="candidates-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input
-              type="text"
-              id="candidates-search-input"
-              class="candidates-search__input"
-              placeholder="Search Candidate"
-              autocomplete="off"
-            />
-          </div>
-        </div>
+    <div class="candidates-search">
+      <svg class="candidates-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="candidates-search-input" class="candidates-search__input" placeholder="Search Candidate" autocomplete="off" />
+    </div>
+  </div>
 
         <!-- Cards injected by JS -->
         <div id="bigfight-cards-container"></div>
