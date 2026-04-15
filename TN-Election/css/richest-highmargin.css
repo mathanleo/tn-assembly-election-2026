@@ -1,0 +1,178 @@
+/* ============================================
+   richest-highmargin.css
+   ============================================ */
+
+.stats-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 2rem 1.5rem;
+  background: #f0f4f8;
+  box-sizing: border-box;
+}
+
+/* ── Shared Box ── */
+.stats-box {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Left box — 426px wide, 428px height hug */
+.stats-box--richest {
+  width: 426px;
+}
+
+/* Right box — 460px wide, 428px height fill */
+.stats-box--margin {
+  width: 460px;
+}
+
+/* ── Title & Subtitle ── */
+.stats-box__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+  line-height: 1.3;
+  font-family: 'Nunito', sans-serif;
+}
+
+.stats-box__subtitle {
+  font-size: 11px;
+  color: #888888;
+  margin: 0 0 4px;
+  line-height: 1.4;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ── Table ── */
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* ── Column widths: Richest (175 + 127 + 100 = 402px inside 426px box) ── */
+.stats-box--richest .col-name { width: 175px; }
+.stats-box--richest .col-cons { width: 127px; }
+.stats-box--richest .col-val  { width: 100px; }
+
+/* ── Column widths: High Margin (199 + 164 + 97 = 460px inside 460px box) ── */
+.stats-box--margin .col-name { width: 199px; }
+.stats-box--margin .col-cons { width: 164px; }
+.stats-box--margin .col-val  { width: 97px;  }
+
+/* ── Table Head ── */
+.stats-table th {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888888;
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: 'Nunito', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.stats-table th.th-highlight {
+  background: #e8f5e9;
+  color: #2e7d32;
+  text-align: center;
+  border-radius: 6px 6px 0 0;
+  border-bottom: none;
+  line-height: 1.2;
+}
+
+.stats-table th.th-highlight .th-sub {
+  display: block;
+  font-size: 9px;
+  font-weight: 400;
+  color: #4caf50;
+}
+
+/* ── Table Body ── */
+.stats-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid #f5f5f5;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #222222;
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
+}
+
+.stats-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Candidate name cell ── */
+.cand-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.3;
+  white-space: normal;
+  font-family: 'Nunito', sans-serif;
+}
+
+.party-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.party-label {
+  font-size: 10px;
+  color: #888888;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ── Party Flag Images ── */
+.flag-img {
+  width: 18px;
+  height: 12px;
+  object-fit: cover;
+  border-radius: 1px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ── Fallback CSS flags (if image fails to load) ── */
+.flag-img.dmk-fallback  { background: linear-gradient(to bottom, #000 50%, #cc0000 50%); }
+.flag-img.admk-fallback { background: linear-gradient(to bottom, #cc0000 33.3%, #000 33.3%, #000 66.6%, #fff 66.6%); border: 0.5px solid #ccc; }
+.flag-img.tvk-fallback  { background: linear-gradient(to bottom, #cc0000 33.3%, #000 33.3%, #000 66.6%, #cc0000 66.6%); }
+
+/* ── Constituency cell ── */
+.cons-cell {
+  font-size: 12px;
+  color: #444444;
+  white-space: normal;
+  line-height: 1.3;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ── Badge cell ── */
+.badge-cell {
+  text-align: center;
+}
+
+.highlight-badge {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 700;
+  font-size: 11px;
+  border-radius: 4px;
+  padding: 3px 7px;
+  white-space: nowrap;
+  display: inline-block;
+  font-family: 'Nunito', sans-serif;
+}
