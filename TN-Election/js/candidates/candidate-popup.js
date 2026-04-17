@@ -1446,9 +1446,8 @@ function buildCompetitorCard(comp) {
 
   var hasPhoto = comp.photo && comp.photo.length > 0;
   var photoHTML = hasPhoto
-    ? '<img src="' + comp.photo + '" alt="' + comp.name + '" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block"/>'
+    ? '<img src="' + comp.photo + '" alt="' + comp.name + '" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block" onerror="this.onerror=null; this.src=\'../assets/images/candidates/default/default.png\';"" />'
     : buildPopupSilhouette();
-
   return (
     '<div class="pcomp-card" data-comp-id="' + comp.id + '" style="cursor:pointer" title="View ' + (comp.name||'').trim() + '">' +
       '<div class="pcomp-card__photo-wrap">' + photoHTML + '</div>' +
