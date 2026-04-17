@@ -1,154 +1,224 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="IndianElectionResult" content="HTML, CSS, JavaScript" />
+    <meta
+      name="Indian Election Result Visualisation Live"
+      content="Detailed visualisation of Indian election with interactive graphs and tables"
+    />
+    <title>India Election Results</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="IndianElectionResult" content="HTML, CSS, JavaScript" />
-  <meta name="Indian Election Result Visualisation Live"
-    content="Detailed visualisation of Indian election with interactive graphs and tables" />
-  <title>India Election Results</title>
+    <meta property="og:title" content="India Election Results" />
+    <meta property="og:url" content="https://www.bharathelection.com" />
+    <meta
+      property="og:description"
+      content="Crowdsourced insightful data visualizations for Election Results"
+    />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_GB" />
 
-  <meta property="og:title" content="India Election Results" />
-  <meta property="og:url" content="https://www.bharathelection.com" />
-  <meta property="og:description" content="Crowdsourced insightful data visualizations for Election Results" />
-  <meta property="og:image" itemprop="image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg" />
-  <meta property="og:type" content="article" />
-  <meta property="og:locale" content="en_GB" />
+    <!-- Twitter open-graph tags -->
+    <meta name="twitter:site" value="@gradiouslabs" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Twitter open-graph tags -->
-  <meta name="twitter:site" value="@gradiouslabs" />
-  <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.bharathelection.com" />
+    <meta property="twitter:image:alt" content="Election Results" />
+    <meta property="twitter:title" content="India Election Results" />
+    <meta
+      property="twitter:description"
+      content="Crowdsourced insightful data visualizations for Election Results"
+    />
+    <meta
+      property="twitter:image"
+      content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./images/imgs/Favion results2024.svg"
+    />
 
-  <meta property="twitter:url" content="https://www.bharathelection.com" />
-  <meta property="twitter:image:alt" content="Election Results" />
-  <meta property="twitter:title" content="India Election Results" />
-  <meta property="twitter:description" content="Crowdsourced insightful data visualizations for Election Results" />
-  <meta property="twitter:image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg" />
-  <link rel="icon" type="image/x-icon" href="./images/imgs/Favion results2024.svg" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-S62DCSRH0X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-S62DCSRH0X");
+    </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S62DCSRH0X"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-S62DCSRH0X");
-  </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/tn-map.css" />
 
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="../css/navbar.css" />
-  <link rel="stylesheet" href="../css/home.css" />
-  <link rel="stylesheet" href="../css/tn-map.css" />
+    <link rel="stylesheet" href="../css/manifestos.css" />
+    <link rel="stylesheet" href="../css/candidates.css" />
+    <link rel="stylesheet" href="../css/bigfights.css" />
+    <link rel="stylesheet" href="../css/richest-highmargin.css" />
+    <link rel="stylesheet" href="../css/constituency-table.css" />
+  </head>
 
-  <link rel="stylesheet" href="../css/manifestos.css" />
-  <link rel="stylesheet" href="../css/candidates.css" />
-  <link rel="stylesheet" href="../css/bigfights.css" />
-  <link rel="stylesheet" href="../css/richest-highmargin.css" />
-  <link rel="stylesheet" href="../css/constituency-table.css" />
-</head>
+  <body data-page="index">
+    <div id="navbar-container"></div>
 
-<body data-page="index">
-  <div id="navbar-container"></div>
+    <main>
+      <section class="map-section">
+        <!-- ── Body: Map LEFT | CM cards + Alliance RIGHT ── -->
+        <div class="map-body">
+          <!-- Map canvas -->
+          <div class="map-right">
+            <!-- Search bar — top left of map column -->
+            <div class="map-search">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                id="map-search-input"
+                type="text"
+                placeholder="Search Constituency…"
+              />
+              <div class="map-search-results" id="map-search-results"></div>
+            </div>
 
-  <main>
-    <section class="map-section">
-      <!-- ── Body: Map LEFT | CM cards + Alliance RIGHT ── -->
-      <div class="map-body">
-        <!-- Map canvas -->
-        <div class="map-right">
-          <!-- Search bar — top left of map column -->
-          <div class="map-search">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input id="map-search-input" type="text" placeholder="Search Constituency…" />
-            <div class="map-search-results" id="map-search-results"></div>
+            <!-- Map SVG fills remaining space -->
+            <div class="map-svg-wrap">
+              <svg id="tn-map-svg"></svg>
+            </div>
+
+            <!-- Popup anchored inside map-right -->
+            <div class="map-popup" id="map-popup">
+              <div class="popup-header">
+                <div class="popup-name" id="popup-name">—</div>
+                <button
+                  class="popup-close"
+                  id="popup-close-btn"
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+              </div>
+              <div class="popup-body">
+                <div class="popup-section-label">Current MLA</div>
+                <div id="popup-mla"></div>
+                <div class="popup-section-label">Contesting Candidates</div>
+                <div id="popup-candidates"></div>
+              </div>
+              <div class="popup-footer">
+                <button
+                  class="popup-view-btn"
+                  onclick="viewConstituencyDetails()"
+                >
+                  View full details ›
+                </button>
+              </div>
+            </div>
           </div>
 
-          <!-- Map SVG fills remaining space -->
-          <div class="map-svg-wrap">
-            <svg id="tn-map-svg"></svg>
-          </div>
-
-          <!-- Popup anchored inside map-right -->
-          <div class="map-popup" id="map-popup">
-            <div class="popup-header">
-              <div class="popup-name" id="popup-name">—</div>
-              <button class="popup-close" id="popup-close-btn" aria-label="Close">
-                ×
-              </button>
-            </div>
-            <div class="popup-body">
-              <div class="popup-section-label">Current MLA</div>
-              <div id="popup-mla"></div>
-              <div class="popup-section-label">Contesting Candidates</div>
-              <div id="popup-candidates"></div>
-            </div>
-            <div class="popup-footer">
-              <button class="popup-view-btn" onclick="viewConstituencyDetails()">
-                View full details ›
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right column: CM Candidates + Alliance Table -->
-        <div class="map-content-right">
-          <!-- CM Candidates -->
-          <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
-          <div class="cm-candidates__grid" id="cm-candidates-container">
-            <!-- filled by cm-candidates.js -->
-          </div>
-
-          <!-- Alliance Table -->
-          <div class="alliance-table">
-            <div class="alliance-table__headers">
-              <div class="alliance-table__header alliance-table__header--nda">
-                NDA
+          <!-- Right column: CM Candidates + Alliance Table -->
+          <div class="map-content-right">
+            <!-- CM Candidates -->
+            <div style="display: flex; flex-direction: column; gap: 24px">
+              <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
+              <div class="cm-candidates__grid" id="cm-candidates-container">
+                <!-- filled by cm-candidates.js -->
               </div>
-              <div class="alliance-table__vdivider-head"></div>
-              <div class="alliance-table__header alliance-table__header--spa">
-                SPA
-              </div>
-              <div class="alliance-table__vdivider-head"></div>
-              <div class="alliance-table__header alliance-table__header--others">
-                Others
+
+              <!-- Alliance Table -->
+              <div class="alliance-table">
+                <div class="alliance-table__headers">
+                  <div
+                    class="alliance-table__header alliance-table__header--nda"
+                  >
+                    NDA
+                  </div>
+                  <div class="alliance-table__vdivider-head"></div>
+                  <div
+                    class="alliance-table__header alliance-table__header--spa"
+                  >
+                    SPA
+                  </div>
+                  <div class="alliance-table__vdivider-head"></div>
+                  <div
+                    class="alliance-table__header alliance-table__header--others"
+                  >
+                    Others
+                  </div>
+                </div>
+
+                <div class="alliance-table__subheaders">
+                  <div style="padding: 4px 12px">
+                    <div
+                      class="alliance-table__subheader alliance-table__subheader--nda"
+                    >
+                      <span>Parties</span><span>Seat sharing</span>
+                    </div>
+                  </div>
+                  <div class="alliance-table__vdivider"></div>
+                  <div style="padding: 4px 12px">
+                    <div
+                      class="alliance-table__subheader alliance-table__subheader--spa"
+                    >
+                      <span>Parties</span><span>Seat sharing</span>
+                    </div>
+                  </div>
+                  <div class="alliance-table__vdivider"></div>
+                  <div style="padding: 4px 12px">
+                    <div
+                      class="alliance-table__subheader alliance-table__subheader--others"
+                    >
+                      <span>Parties</span><span>Seat sharing</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alliance-table__body">
+                  <div class="alliance-table__col" id="alliance-col-nda"></div>
+                  <div class="alliance-table__vdivider"></div>
+                  <div class="alliance-table__col" id="alliance-col-spa"></div>
+                  <div class="alliance-table__vdivider"></div>
+                  <div
+                    class="alliance-table__col"
+                    id="alliance-col-others"
+                  ></div>
+                </div>
               </div>
             </div>
-
-            <div class="alliance-table__subheaders">
-              <div class="alliance-table__subheader alliance-table__subheader--nda">
-                <span>Parties</span><span>Seat sharing</span>
-              </div>
-              <div class="alliance-table__vdivider"></div>
-              <div class="alliance-table__subheader alliance-table__subheader--spa">
-                <span>Parties</span><span>Seat sharing</span>
-              </div>
-              <div class="alliance-table__vdivider"></div>
-              <div class="alliance-table__subheader alliance-table__subheader--others">
-                <span>Parties</span><span>Seat sharing</span>
-              </div>
-            </div>
-
-            <div class="alliance-table__body">
-              <div class="alliance-table__col" id="alliance-col-nda"></div>
-              <div class="alliance-table__vdivider"></div>
-              <div class="alliance-table__col" id="alliance-col-spa"></div>
-              <div class="alliance-table__vdivider"></div>
-              <div class="alliance-table__col" id="alliance-col-others"></div>
-            </div>
-
             <div class="alliance-table__footer">
-              <button class="alliance-table__viewall-btn" id="alliance-viewall-btn" onclick="toggleAllianceView()">
+              <button
+                class="alliance-table__viewall-btn"
+                id="alliance-viewall-btn"
+                onclick="toggleAllianceView()"
+              >
                 View all
               </button>
             </div>
@@ -157,313 +227,147 @@
               Total <strong>234</strong> seats
             </div>
           </div>
+          <!-- /map-content-right -->
         </div>
-        <!-- /map-content-right -->
-      </div>
-      <!-- /map-body -->
+        <!-- /map-body -->
 
-      <!-- ── Bottom Stats Bar ── -->
-      <div class="map-stats-bar">
-        <div class="map-stats-bar__item">
-          <div class="map-stats-bar__bar map-stats-bar__bar--red"></div>
-          <div class="map-stats-bar__text">
-            <span class="map-stats-bar__label">Total Voters</span>
-            <span class="map-stats-bar__value" id="map-total-voters">—</span>
-          </div>
-        </div>
-        <div class="map-stats-bar__item">
-          <div class="map-stats-bar__bar map-stats-bar__bar--blue"></div>
-          <div class="map-stats-bar__text">
-            <span class="map-stats-bar__label">Male</span>
-            <span class="map-stats-bar__value" id="map-voters-male">—</span>
-          </div>
-        </div>
-        <div class="map-stats-bar__item">
-          <div class="map-stats-bar__bar map-stats-bar__bar--pink"></div>
-          <div class="map-stats-bar__text">
-            <span class="map-stats-bar__label">Female</span>
-            <span class="map-stats-bar__value" id="map-voters-female">—</span>
-          </div>
-        </div>
-        <div class="map-stats-bar__item">
-          <div class="map-stats-bar__bar map-stats-bar__bar--green"></div>
-          <div class="map-stats-bar__text">
-            <span class="map-stats-bar__label">Others</span>
-            <span class="map-stats-bar__value" id="map-voters-others">—</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hidden — kept for JS compatibility (tn-map.js populates these) -->
-    <div id="map-legend" style="display: none"></div>
-
-    <!-- Tooltip -->
-    <div class="map-tooltip" id="map-tooltip"></div>
-
-    <!-- SECTION 2 : POPULAR CANDIDATES -->
-    <section class="popular-candidates-section" id="popular-candidates-section">
-      <div class="section-header">
-        <h2 class="section-title">Popular Candidates</h2>
-        <a href="candidates.html" class="hpc__viewall-btn">View all</a>
-      </div>
-      <div id="popular-candidates-container"></div>
-    </section>
-
-    <!-- SECTION 3 : BIG FIGHTS  -->
-    <section class="big-fights-preview-section" id="big-fights-preview-section">
-      <div class="section-header">
-        <h2 class="section-title">Big Fights</h2>
-        <a href="bigfights.html" class="section-viewall-btn">View all</a>
-      </div>
-      <!-- Your friend fills this container via js/home/big-fights-preview.js -->
-      <div id="big-fights-preview-container"></div>
-    </section>
-
-    <!-- SECTION 4 : MANIFESTOS -->
-    <section class="manifestos-section" id="manifestos-section">
-      <div class="section-header">
-        <h2 class="section-title">Manifestos</h2>
-      </div>
-      <!-- filled by js/home/manifestos.js -->
-      <div class="manifestos-grid" id="manifestos-container"></div>
-    </section>
-
-    <!-- SECTION 5 : RICHEST CANDIDATES -->
-    <section class="richest-candidates-section">
-      <div id="richest-candidates-container"></div>
-    </section>
-
-    <section class="constituency-table-section">
-      <div id="constituency-container"></div>
-    </section>
-
-    <!-- ── Footer ── -->
-    <div id="footer-container">
-
-      <div class="page-footer">
-        <div class="page-footer__inner">
-          <div class="page-footer__content">
-            <p class="page-footer__copy">
-              Crafted with <span class="page-footer__heart">❤️</span> by <strong>Gradious</strong>
-            </p>
-            <p class="page-footer__description">
-              TN Election 2026.in is a crowdsourced initiative for visualizing the 2026 Election details of Tamil Nadu
-              state.
-              It is not a source of data.
-            </p>
-            <div class="page-footer__builtby">
-              <span>Built by</span>
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M28 0H0V12.5926C0.296296 23.6296 10.2222 26.963 14 28C26.7407 24.4444 27.5556 16.8889 28 12.5926V0Z"
-                  fill="#F55533" />
-                <path
-                  d="M8.14844 9.62958C8.14844 6.43861 10.7352 3.85181 13.9262 3.85181H19.704V9.62958C19.704 12.8206 17.1172 15.4074 13.9262 15.4074C10.7352 15.4074 8.14844 12.8206 8.14844 9.62958Z"
-                  fill="white" />
-                <path
-                  d="M16.4433 9.6296C16.4433 11.0205 15.3157 12.1481 13.9248 12.1481C12.5338 12.1481 11.4062 11.0205 11.4062 9.6296C11.4062 8.23866 12.5338 7.11108 13.9248 7.11108C15.3157 7.11108 16.4433 8.23866 16.4433 9.6296Z"
-                  fill="#F55533" />
-                <path
-                  d="M8.14844 20.4445C8.14844 18.5627 9.67399 17.0371 11.5558 17.0371H19.8521C19.8521 18.919 18.3266 20.4445 16.4447 20.4445H8.14844Z"
-                  fill="white" />
-              </svg>
-              <span>Gradious</span>
+        <!-- ── Bottom Stats Bar ── -->
+        <div class="map-stats-bar-container">
+          <div class="map-stats-bar">
+            <div class="map-stats-bar__item">
+              <!-- <div class="map-stats-bar__bar map-stats-bar__bar--red"></div> -->
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Total Voters</span>
+                <span class="map-stats-bar__value" id="map-total-voters"
+                  >—</span
+                >
+              </div>
+            </div>
+            <div class="map-stats-bar__item">
+              <!-- <div class="map-stats-bar__bar map-stats-bar__bar--blue"></div> -->
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Male</span>
+                <span class="map-stats-bar__value" id="map-voters-male">—</span>
+              </div>
+            </div>
+            <div class="map-stats-bar__item">
+              <!-- <div class="map-stats-bar__bar map-stats-bar__bar--pink"></div> -->
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Female</span>
+                <span class="map-stats-bar__value" id="map-voters-female"
+                  >—</span
+                >
+              </div>
+            </div>
+            <div class="map-stats-bar__item">
+              <!-- <div class="map-stats-bar__bar map-stats-bar__bar--green"></div> -->
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Others</span>
+                <span class="map-stats-bar__value" id="map-voters-others"
+                  >—</span
+                >
+              </div>
             </div>
           </div>
-          <div class="page-footer__brand">
-            <a href="./index.html">
-              <span style="display: block;">Home</span>
-            </a>
-            <a href="./candidates.html">
-              <span style="display: block;margin-top: 8px;">Candidates</span>
-            </a>
-            <a href="./bigfights.html">
-              <span style="display: block;margin-top: 8px">Big Fights</span>
-            </a>
-            <a href="./results.html">
-              <span style="display: block;margin-top: 8px">2021 Results</span>
-            </a>
-          </div>
-          <div class="page-footer__brand">
-            <span style="display: block;">About us</span>
-            <span style="display: block;margin-top: 8px;">Our Team</span>
-            <a href="./disclaimer.html">
-              <span style="display: block;margin-top: 8px;margin-bottom: 8px;">Disclaimer</span>
-            </a>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="16" cy="16" r="14" fill="url(#paint0_linear_3760_18206)" />
-              <path
-                d="M21.2137 20.2816L21.8356 16.3301H17.9452V13.767C17.9452 12.6857 18.4877 11.6311 20.2302 11.6311H22V8.26699C22 8.26699 20.3945 8 18.8603 8C15.6548 8 13.5617 9.89294 13.5617 13.3184V16.3301H10V20.2816H13.5617V29.8345C14.2767 29.944 15.0082 30 15.7534 30C16.4986 30 17.2302 29.944 17.9452 29.8345V20.2816H21.2137Z"
-                fill="white" />
-              <defs>
-                <linearGradient id="paint0_linear_3760_18206" x1="16" y1="2" x2="16" y2="29.917"
-                  gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#18ACFE" />
-                  <stop offset="1" stop-color="#0163E0" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint0_radial_3760_18207)" />
-              <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint1_radial_3760_18207)" />
-              <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint2_radial_3760_18207)" />
-              <path
-                d="M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z"
-                fill="white" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21ZM16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.3431 13 13 14.3431 13 16C13 17.6569 14.3431 19 16 19Z"
-                fill="white" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M6 15.6C6 12.2397 6 10.5595 6.65396 9.27606C7.2292 8.14708 8.14708 7.2292 9.27606 6.65396C10.5595 6 12.2397 6 15.6 6H16.4C19.7603 6 21.4405 6 22.7239 6.65396C23.8529 7.2292 24.7708 8.14708 25.346 9.27606C26 10.5595 26 12.2397 26 15.6V16.4C26 19.7603 26 21.4405 25.346 22.7239C24.7708 23.8529 23.8529 24.7708 22.7239 25.346C21.4405 26 19.7603 26 16.4 26H15.6C12.2397 26 10.5595 26 9.27606 25.346C8.14708 24.7708 7.2292 23.8529 6.65396 22.7239C6 21.4405 6 19.7603 6 16.4V15.6ZM15.6 8H16.4C18.1132 8 19.2777 8.00156 20.1779 8.0751C21.0548 8.14674 21.5032 8.27659 21.816 8.43597C22.5686 8.81947 23.1805 9.43139 23.564 10.184C23.7234 10.4968 23.8533 10.9452 23.9249 11.8221C23.9984 12.7223 24 13.8868 24 15.6V16.4C24 18.1132 23.9984 19.2777 23.9249 20.1779C23.8533 21.0548 23.7234 21.5032 23.564 21.816C23.1805 22.5686 22.5686 23.1805 21.816 23.564C21.5032 23.7234 21.0548 23.8533 20.1779 23.9249C19.2777 23.9984 18.1132 24 16.4 24H15.6C13.8868 24 12.7223 23.9984 11.8221 23.9249C10.9452 23.8533 10.4968 23.7234 10.184 23.564C9.43139 23.1805 8.81947 22.5686 8.43597 21.816C8.27659 21.5032 8.14674 21.0548 8.0751 20.1779C8.00156 19.2777 8 18.1132 8 16.4V15.6C8 13.8868 8.00156 12.7223 8.0751 11.8221C8.14674 10.9452 8.27659 10.4968 8.43597 10.184C8.81947 9.43139 9.43139 8.81947 10.184 8.43597C10.4968 8.27659 10.9452 8.14674 11.8221 8.0751C12.7223 8.00156 13.8868 8 15.6 8Z"
-                fill="white" />
-              <defs>
-                <radialGradient id="paint0_radial_3760_18207" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                  gradientTransform="translate(12 23) rotate(-55.3758) scale(25.5196)">
-                  <stop stop-color="#B13589" />
-                  <stop offset="0.79309" stop-color="#C62F94" />
-                  <stop offset="1" stop-color="#8A3AC8" />
-                </radialGradient>
-                <radialGradient id="paint1_radial_3760_18207" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                  gradientTransform="translate(11 31) rotate(-65.1363) scale(22.5942)">
-                  <stop stop-color="#E0E8B7" />
-                  <stop offset="0.444662" stop-color="#FB8A2E" />
-                  <stop offset="0.71474" stop-color="#E2425C" />
-                  <stop offset="1" stop-color="#E2425C" stop-opacity="0" />
-                </radialGradient>
-                <radialGradient id="paint2_radial_3760_18207" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                  gradientTransform="translate(0.500002 3) rotate(-8.1301) scale(38.8909 8.31836)">
-                  <stop offset="0.156701" stop-color="#406ADC" />
-                  <stop offset="0.467799" stop-color="#6A45BE" />
-                  <stop offset="1" stop-color="#6A45BE" stop-opacity="0" />
-                </radialGradient>
-              </defs>
-            </svg>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint0_radial_3760_18207)" />
-              <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint1_radial_3760_18207)" />
-              <rect x="2" y="2" width="28" height="28" rx="6" fill="url(#paint2_radial_3760_18207)" />
-              <path
-                d="M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z"
-                fill="white" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21ZM16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.3431 13 13 14.3431 13 16C13 17.6569 14.3431 19 16 19Z"
-                fill="white" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M6 15.6C6 12.2397 6 10.5595 6.65396 9.27606C7.2292 8.14708 8.14708 7.2292 9.27606 6.65396C10.5595 6 12.2397 6 15.6 6H16.4C19.7603 6 21.4405 6 22.7239 6.65396C23.8529 7.2292 24.7708 8.14708 25.346 9.27606C26 10.5595 26 12.2397 26 15.6V16.4C26 19.7603 26 21.4405 25.346 22.7239C24.7708 23.8529 23.8529 24.7708 22.7239 25.346C21.4405 26 19.7603 26 16.4 26H15.6C12.2397 26 10.5595 26 9.27606 25.346C8.14708 24.7708 7.2292 23.8529 6.65396 22.7239C6 21.4405 6 19.7603 6 16.4V15.6ZM15.6 8H16.4C18.1132 8 19.2777 8.00156 20.1779 8.0751C21.0548 8.14674 21.5032 8.27659 21.816 8.43597C22.5686 8.81947 23.1805 9.43139 23.564 10.184C23.7234 10.4968 23.8533 10.9452 23.9249 11.8221C23.9984 12.7223 24 13.8868 24 15.6V16.4C24 18.1132 23.9984 19.2777 23.9249 20.1779C23.8533 21.0548 23.7234 21.5032 23.564 21.816C23.1805 22.5686 22.5686 23.1805 21.816 23.564C21.5032 23.7234 21.0548 23.8533 20.1779 23.9249C19.2777 23.9984 18.1132 24 16.4 24H15.6C13.8868 24 12.7223 23.9984 11.8221 23.9249C10.9452 23.8533 10.4968 23.7234 10.184 23.564C9.43139 23.1805 8.81947 22.5686 8.43597 21.816C8.27659 21.5032 8.14674 21.0548 8.0751 20.1779C8.00156 19.2777 8 18.1132 8 16.4V15.6C8 13.8868 8.00156 12.7223 8.0751 11.8221C8.14674 10.9452 8.27659 10.4968 8.43597 10.184C8.81947 9.43139 9.43139 8.81947 10.184 8.43597C10.4968 8.27659 10.9452 8.14674 11.8221 8.0751C12.7223 8.00156 13.8868 8 15.6 8Z"
-                fill="white" />
-              <defs>
-                <radialGradient id="paint0_radial_3760_18207" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                  gradientTransform="translate(12 23) rotate(-55.3758) scale(25.5196)">
-                  <stop stop-color="#B13589" />
-                  <stop offset="0.79309" stop-color="#C62F94" />
-                  <stop offset="1" stop-color="#8A3AC8" />
-                </radialGradient>
-                <radialGradient id="paint1_radial_3760_18207" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                  gradientTransform="translate(11 31) rotate(-65.1363) scale(22.5942)">
-                  <stop stop-color="#E0E8B7" />
-                  <stop offset="0.444662" stop-color="#FB8A2E" />
-                  <stop offset="0.71474" stop-color="#E2425C" />
-                  <stop offset="1" stop-color="#E2425C" stop-opacity="0" />
-                </radialGradient>
-                <radialGradient id="paint2_radial_3760_18207" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                  gradientTransform="translate(0.500002 3) rotate(-8.1301) scale(38.8909 8.31836)">
-                  <stop offset="0.156701" stop-color="#406ADC" />
-                  <stop offset="0.467799" stop-color="#6A45BE" />
-                  <stop offset="1" stop-color="#6A45BE" stop-opacity="0" />
-                </radialGradient>
-              </defs>
-            </svg>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M16 31C23.732 31 30 24.732 30 17C30 9.26801 23.732 3 16 3C8.26801 3 2 9.26801 2 17C2 19.5109 2.661 21.8674 3.81847 23.905L2 31L9.31486 29.3038C11.3014 30.3854 13.5789 31 16 31ZM16 28.8462C22.5425 28.8462 27.8462 23.5425 27.8462 17C27.8462 10.4576 22.5425 5.15385 16 5.15385C9.45755 5.15385 4.15385 10.4576 4.15385 17C4.15385 19.5261 4.9445 21.8675 6.29184 23.7902L5.23077 27.7692L9.27993 26.7569C11.1894 28.0746 13.5046 28.8462 16 28.8462Z"
-                fill="#BFC8D0" />
-              <path
-                d="M28 16C28 22.6274 22.6274 28 16 28C13.4722 28 11.1269 27.2184 9.19266 25.8837L5.09091 26.9091L6.16576 22.8784C4.80092 20.9307 4 18.5589 4 16C4 9.37258 9.37258 4 16 4C22.6274 4 28 9.37258 28 16Z"
-                fill="url(#paint0_linear_3760_18209)" />
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 18.5109 2.661 20.8674 3.81847 22.905L2 30L9.31486 28.3038C11.3014 29.3854 13.5789 30 16 30ZM16 27.8462C22.5425 27.8462 27.8462 22.5425 27.8462 16C27.8462 9.45755 22.5425 4.15385 16 4.15385C9.45755 4.15385 4.15385 9.45755 4.15385 16C4.15385 18.5261 4.9445 20.8675 6.29184 22.7902L5.23077 26.7692L9.27993 25.7569C11.1894 27.0746 13.5046 27.8462 16 27.8462Z"
-                fill="white" />
-              <path
-                d="M12.5 9.49989C12.1672 8.83131 11.6565 8.8905 11.1407 8.8905C10.2188 8.8905 8.78125 9.99478 8.78125 12.05C8.78125 13.7343 9.52345 15.578 12.0244 18.3361C14.438 20.9979 17.6094 22.3748 20.2422 22.3279C22.875 22.2811 23.4167 20.0154 23.4167 19.2503C23.4167 18.9112 23.2062 18.742 23.0613 18.696C22.1641 18.2654 20.5093 17.4631 20.1328 17.3124C19.7563 17.1617 19.5597 17.3656 19.4375 17.4765C19.0961 17.8018 18.4193 18.7608 18.1875 18.9765C17.9558 19.1922 17.6103 19.083 17.4665 19.0015C16.9374 18.7892 15.5029 18.1511 14.3595 17.0426C12.9453 15.6718 12.8623 15.2001 12.5959 14.7803C12.3828 14.4444 12.5392 14.2384 12.6172 14.1483C12.9219 13.7968 13.3426 13.254 13.5313 12.9843C13.7199 12.7145 13.5702 12.305 13.4803 12.05C13.0938 10.953 12.7663 10.0347 12.5 9.49989Z"
-                fill="white" />
-              <defs>
-                <linearGradient id="paint0_linear_3760_18209" x1="26.5" y1="7" x2="4" y2="28"
-                  gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#5BD066" />
-                  <stop offset="1" stop-color="#27B43E" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_3760_18210)">
-                <mask id="mask0_3760_18210" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0"
-                  width="24" height="24">
-                  <path d="M0 0H24V24H0V0Z" fill="white" />
-                </mask>
-                <g mask="url(#mask0_3760_18210)">
-                  <path
-                    d="M18.9 1.12451H22.5806L14.5406 10.3371L24 22.8754H16.5943L10.7897 15.2725L4.15543 22.8754H0.471429L9.07029 13.0182L0 1.12623H7.59429L12.8331 8.07423L18.9 1.12451ZM17.6057 20.6674H19.6457L6.48 3.21765H4.29257L17.6057 20.6674Z"
-                    fill="black" />
-                </g>
-              </g>
-              <defs>
-                <clipPath id="clip0_3760_18210">
-                  <rect width="24" height="24" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
+        </div>
+      </section>
 
+      <!-- Hidden — kept for JS compatibility (tn-map.js populates these) -->
+      <div id="map-legend" style="display: none"></div>
+
+      <!-- Tooltip -->
+      <div class="map-tooltip" id="map-tooltip"></div>
+
+      <!-- SECTION 2 : POPULAR CANDIDATES -->
+      <section
+        class="popular-candidates-section"
+        id="popular-candidates-section"
+      >
+        <div class="section-header">
+          <h2 class="section-title">Popular Candidates</h2>
+          <!-- <a href="candidates.html" class="hpc__viewall-btn">View all</a> -->
+        </div>
+        <div id="popular-candidates-container"></div>
+      </section>
+
+      <!-- SECTION 3 : BIG FIGHTS  -->
+      <section
+        class="big-fights-preview-section"
+        id="big-fights-preview-section"
+      >
+        <div class="section-header">
+          <div class="section-title-container">
+            <div>Big</div>
+            <div>Fights</div>
           </div>
+          <div id="big-fights-preview-container"></div>
+        </div>
+        <div style="width: 100%;display: flex;justify-content: end;">
+        <a href="bigfights.html" class="hpc__viewall-btn">View all</a>
 
         </div>
+        <!-- Your friend fills this container via js/home/big-fights-preview.js -->
+      </section>
 
-      </div>
+      <!-- SECTION 4 : MANIFESTOS -->
+      <section class="manifestos-section" id="manifestos-section">
+        <div class="section-header">
+          <h2 class="section-title">Manifestos</h2>
+        </div>
+        <!-- filled by js/home/manifestos.js -->
+        <div class="manifestos-grid" id="manifestos-container"></div>
+      </section>
 
-      
+      <!-- SECTION 5 : RICHEST CANDIDATES -->
+      <section class="richest-candidates-section">
+        <div id="richest-candidates-container"></div>
+      </section>
 
-    </div>
-  </main>
+      <section class="constituency-table-section">
+      </section>
 
-  <!-- Data -->
-  <script src="../data/navbar.js"></script>
-  <script src="../data/cm-candidates.js"></script>
-  <script src="../data/alliances.js"></script>
-  <script src="../data/constituencies.js"></script>
-  <script src="../data/results2021.js"></script>
-  <script src="../data/candidates.js"></script>
-  <script src="../data/candidates2026.js"></script>
-  <script src="../data/star-candidates-rich.js"></script>
-  <script src="../data/constituencies-with-candidates (1).js"></script>
-  <script src="../data/all-candidates.js"></script>
-  <script src="../data/tn-map-topo.js"></script>
+      <!-- ── Footer ── -->
+      <div id="footer-container"></div>
+    </main>
 
-  <!-- Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+    <!-- Data -->
+    <script src="../data/navbar.js"></script>
+    <script src="../data/cm-candidates.js"></script>
+    <script src="../data/alliances.js"></script>
+    <script src="../data/constituencies.js"></script>
+    <script src="../data/results2021.js"></script>
+    <script src="../data/candidates.js"></script>
+    <script src="../data/candidates2026.js"></script>
+    <script src="../data/star-candidates-rich.js"></script>
+    <script src="../data/constituencies-with-candidates (1).js"></script>
+    <script src="../data/all-candidates.js"></script>
+    <script src="../data/tn-map-topo.js"></script>
 
-  <!-- Components -->
-  <script src="../js/components/navbar.js"></script>
-  <script src="../js/components/footer.js"></script>
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 
-  <!-- Page modules -->
-  <script src="../js/home/cm-candidates.js"></script>
-  <script src="../js/home/alliance-table.js"></script>
-  <script src="../js/home/tn-map.js"></script>
+    <!-- Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/footer.js"></script>
 
-  <script src="../js/candidates/candidate-cards.js"></script>
-  <script src="../js/home/popular-candidates.js"></script>
-  <script src="../js/candidates/candidate-popup.js"></script>
-  <script src="../data/bigfights.js"></script>
-  <script src="../js/bigfights/bigfight-cards.js"></script>
-  <script src="../js/home/big-fights-preview.js"></script>
-  <script src="../data/manifestos.js"></script>
+    <!-- Page modules -->
+    <script src="../js/home/cm-candidates.js"></script>
+    <script src="../js/home/alliance-table.js"></script>
+    <script src="../js/home/tn-map.js"></script>
 
-  <!-- <script type="module" src="../js/home/richest-highmargin.js"></script> -->
-  <!-- <script type="module" src="../data/richest-candidate.js"></script> -->
-  <!-- <script type="module" src="../data/top-winners-data.js"></script> -->
-  <script type="module" src="../js/home/richest-highmargin.js"></script>
-  <script type="module" src="../js/home/constituency-table.js"></script>
-</body>
+    <script src="../js/candidates/candidate-cards.js"></script>
+    <script src="../js/home/popular-candidates.js"></script>
+    <script src="../js/candidates/candidate-popup.js"></script>
+    <script src="../data/bigfights.js"></script>
+    <script src="../js/bigfights/bigfight-cards.js"></script>
+    <script src="../js/home/big-fights-preview.js"></script>
+    <script src="../data/manifestos.js"></script>
 
+    <!-- <script type="module" src="../js/home/richest-highmargin.js"></script> -->
+    <!-- <script type="module" src="../data/richest-candidate.js"></script> -->
+    <!-- <script type="module" src="../data/top-winners-data.js"></script> -->
+    <script type="module" src="../js/home/richest-highmargin.js"></script>
+    <script type="module" src="../js/home/constituency-table.js"></script>
+  </body>
 </html>
