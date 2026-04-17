@@ -1,0 +1,1205 @@
+body {
+  margin-top: 0.6249rem;
+  /* background-color: #F5F5F5; */
+  background: rgba(255, 255, 255, 1);
+
+  /* padding: 10px; */
+  padding-top: 0;
+  /* padding: 0 20px ; */
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+
+html {
+  width: 100%;
+}
+
+/* Add your custom styles here */
+.header img {
+  max-height: 3.1251rem;
+}
+
+.btn-group button:not(:last-child) {
+  border-left: none;
+}
+
+#tbody tr:last-child {
+  border-bottom-left-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
+}
+
+/* Optional: Add padding to the table body for better aesthetics */
+.table-bordered {
+  /* padding: 10px; */
+  border-radius: 8px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.total-seats {
+  font-weight: bold;
+}
+
+/* .footer {
+  margin-top: 3.1251rem;
+} */
+
+/* Add your custom styles here */
+#india-svg {
+  /* position: relative; */
+  /* top: -15.6248rem; */
+
+  /* border:0.1251rem solid red; */
+  max-width: 630px;
+  /* Ensure SVG fills the container */
+  height: 630px;
+  /* Maintain aspect ratio */
+  /* border: 2px solid black; */
+}
+
+#map {
+  pointer-events: none;
+  /* max-width: 630px; Ensure SVG fills the container
+  height: 630px;
+  display: flex;
+  justify-content: center; */
+}
+
+#map #containertool {
+  pointer-events: auto;
+}
+
+#india-map {
+  display: flex;
+  justify-content: center;
+}
+
+#india-svg path {
+  fill: #faf9f9;
+  /* Default color for states */
+  stroke: #000;
+  /* Border color */
+  stroke-width: 1;
+  /* Border width */
+  cursor: pointer;
+  /* Change cursor on hover */
+}
+
+.navbar-brand {
+  color: #ff4500;
+  /* Adjusted color for 'results' */
+}
+
+.navbar-brand span {
+  color: #228b22;
+  /* Adjusted color for '2024.in' */
+}
+
+.nav-link {
+  font-size: 1.5rem;
+}
+
+.navbar {
+  border-bottom: 0.0624rem solid #667085;
+  margin-bottom: 2.4999rem;
+}
+
+a {
+  color: #344054;
+  font-weight: 400;
+}
+
+.navbar-toggler-icon {
+  background-color: #344054;
+}
+
+/* -----------------------Progress----------------*/
+
+.ndaLegend {
+  background-color: #ff9933;
+  height: 15px;
+  border-radius: 50%;
+  width: 15px;
+  display: inline-block;
+}
+
+.indiaLegend {
+  background-color: #87ceeb;
+  height: 15px;
+  border-radius: 50%;
+  width: 15px;
+  display: inline-block;
+}
+
+.others {
+  background-color: #eaecf0;
+  height: 15px;
+  border-radius: 50%;
+  width: 15px;
+  display: inline-block;
+}
+
+.label {
+  margin-left: 2px;
+  color: #666666;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.legend .legendLabel {
+  width: max-content;
+  margin-right: 5px;
+}
+
+#chartsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#bar-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* width: 100%; */
+  /* background-color: #f3f3f3; */
+  height: 28px;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  margin: 0 0;
+  max-width: 452px;
+  /* border: 0.0624rem solid red; */
+  display: flex;
+  justify-self: center;
+  box-shadow: 0px 2px 4px -2px rgba(16, 24, 40, 0.06),
+    0px 4px 8px -2px rgba(16, 24, 40, 0.1);
+
+  /* border-radius: 0.1875rem ; */
+}
+
+.bar {
+  /* height: 2.4999rem; */
+  text-align: right;
+  display: flex;
+  align-content: center;
+  padding-right: 10px;
+  color: white;
+  /* float: left; */
+  font-size: 12px;
+  /* padding:10px 8px; */
+  font-weight: 500;
+  margin: 0;
+}
+
+.allianceName {
+  height: 1.4377rem;
+  position: relative;
+  padding: 0 0.2499rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 0.2499rem;
+}
+
+#word1 {
+  position: absolute;
+  left: 0;
+  /* font-size: 1.25rem; */
+  font-weight: 500;
+  color: black;
+  /* background-color: red; */
+  /* width: 100px; */
+}
+
+#word2 {
+  position: absolute;
+  left: 50%;
+  /* font-size: 1.25rem; */
+  font-weight: 500;
+}
+
+#word3 {
+  position: absolute;
+  right: 0;
+  /* font-size: 1.25rem; */
+  font-weight: 500;
+}
+
+/* -------------------------------------------------------------- */
+
+/* -------------------------Accordian----------------------- */
+/* Custom CSS for the progress bar */
+#carouselContainer {
+  min-height: 220px;
+  /* border-radius: 8px; */
+}
+
+#carouselProgress {
+  background-color: #ff9933;
+}
+
+.carousel-inner {
+  box-shadow: 0px 2px 4px -2px #1018280f, 0px 4px 8px -2px #1018281a;
+}
+
+.toggleButton {
+  font-size: 14px;
+  font-weight: 600;
+  color: #344054;
+  border: none;
+  background-color: transparent;
+  z-index: 99;
+}
+
+#carouselContainer table {
+  border: none;
+}
+
+.carousel-indicators [data-bs-target] {
+  /* margin-top: 28px; */
+  margin-top: 10px;
+  background-color: gray;
+}
+
+.carousel-indicators .active {
+  background-color: gray;
+  /* Change this to your desired color */
+}
+
+.carousel-item {
+  border-radius: 8px;
+  padding: 11px 24px;
+  /* width: 50%; */
+}
+
+.carousel-item > div:first-of-type {
+  /* Your styles here */
+  font-size: 14px;
+  color: #101828;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#carouselExampleIndicators {
+  z-index: 0;
+}
+
+#ndaCarousel {
+  border-top: 8px solid #ff9933;
+}
+
+#indiaCarousel {
+  border-top: 8px solid #87ceeb;
+}
+
+#othersCarousel {
+  border-top: 8px solid #eaecf0;
+}
+
+#carouselContainer th,
+#carouselContainer td {
+  /* width: 50%; */
+  background: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(208, 213, 221, 1);
+  /* width: 50%; */
+  width: 60%;
+  font-size: 14px;
+  /* text-align: center; */
+}
+
+@media (max-width: 576px) {
+  .hide-on-small {
+    visibility: hidden;
+    position: absolute;
+    border-bottom: none;
+  }
+
+  .hide-on-small th {
+    border-bottom: none;
+  }
+}
+
+.accordionTable th:first-child {
+  text-align: left;
+}
+
+.accordionTable th:nth-child(2) {
+  text-align: center;
+}
+
+.accordionTable tbody tr td:nth-child(2) {
+  text-align: center;
+}
+
+.accordionTable {
+  width: 100%;
+  /* width: 245px; */
+}
+
+/* .accordionTable td:first-child 
+  text-align: left;
+} */
+.hiding {
+  display: none;
+}
+
+.progress {
+  top: 0;
+  left: 0;
+  right: 0;
+  /* margin-top: 6rem; */
+  height: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* .carousel-control-next,.carousel-control-prev{
+  top: 25%;
+  height: 50%;
+}
+.carousel-control-next
+{
+  justify-content: flex-end;
+   padding-right: 8px;
+   
+
+}
+.carousel-control-prev
+{
+  justify-content: flex-start;
+  padding-left: 8px;
+}
+  
+.carousel-control-prev-icon, .carousel-control-next-icon
+{
+  background-color:red;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+
+} */
+
+/* .accordion-button div {
+  background-color: red;
+  height: 100%;
+  width:50%;
+  display: flex;
+  align-items: center;
+  padding: 0.625rem;
+  color:white;
+  
+}
+.color-animation {
+  animation: colorFill 5s linear infinite; Customize duration and timing
+  background: linear-gradient(to right, #F47216 0%, #F47216 50%, transparent 50%, transparent 100%);
+  background-size: 200% 100%; Double the size of the background
+} */
+
+/* @keyframes colorFill {
+  0% {
+      background-position: 0 0;
+  }
+  100% {
+      background-position: -100% 0;
+  }
+} */
+/* .accordion-button{
+  height: 2.5rem;
+  font-size: 1.25rem;
+  text-align: left;
+  padding: 0;
+  padding-right: 0.625rem;
+  border: none;
+
+}
+.accordion-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.accordion-body{
+  height: 13.75rem;
+  padding: 0.3125rem 0;
+}
+/* .accordionTable{
+  max-width: 245px;
+} */
+.accordionTable td {
+  max-height: 1.25rem;
+  /* background-color: red; */
+}
+
+*/
+
+/* ---------------------------------------------------------------- */
+.card {
+  height: 13.75rem;
+}
+
+.stateUnion {
+  height: 2.1875rem;
+  /* border: 2px solid black; */
+  /* border-radius: 8px; */
+  font-size: 0.625rem;
+  /* overflow: hidden; */
+}
+
+#referenceRow {
+  display: none;
+}
+
+#allianceBody td {
+  max-height: 2.5rem;
+  color: #101828;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 10px 14px;
+  align-items: center;
+  vertical-align: middle;
+}
+#allianceBody #stateName {
+  cursor: pointer;
+}
+#allianceBody #stateName:hover {
+  background-color: #f2f4f7;
+}
+
+/* #stateButton:not(:focus),
+#unionButton:not(:focus),#state-bt:not(:focus),#consti-bt:not(:focus) {
+  opacity: 0.5; 
+}
+#stateButton:focus,
+#unionButton:focus,#state-bt:focus,#consti-bt:focus {
+  outline: none;
+  box-shadow: none;
+}
+#stateButton:active,
+#unionButton:active,#state-bt:active,#consti-bt:active {
+  outline: none;
+  box-shadow: none;
+} */
+
+#stateButton {
+  width: 3.4375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  /* background-color: rgba(255, 255, 255, 1); */
+}
+
+#unionButton {
+  width: 6.875rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  /* background-color: rgba(255, 255, 255, 1); */
+}
+
+#stateRow {
+  background-color: #f9fafb;
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 16px;
+  /* padding:12px 50px ; */
+  text-align: center;
+  /* min-width: 227px; */
+}
+
+#NDA {
+  background-color: #ff9933;
+  text-align: center;
+  color: white;
+  border-right: none;
+  font-size: 14px;
+  font-weight: 500;
+  /* padding:12px 50px ; */
+  /* width: 8.125rem; */
+}
+
+#INDIA {
+  background-color: #87ceeb;
+  text-align: center;
+  color: white;
+  border-left: none;
+  font-size: 14px;
+  font-weight: 500;
+  /* padding:12px 38px ; */
+  /* width: 8.125rem; */
+}
+
+#Others {
+  background-color: #eaecf0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  /* padding:12px 50px ; */
+  /* width: 8.125rem; */
+}
+
+#stateName {
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.positive {
+  color: #027a48;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.negative {
+  color: #f04438;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#NDASeats {
+  background-color: #fff9f5;
+  text-align: center;
+  border-right: none;
+  font-weight: bold !important;
+}
+
+#INDIASeats {
+  background-color: #f5f5ff;
+  text-align: center;
+  border-left: none;
+  font-weight: bold !important;
+}
+
+#OthersSeats {
+  background-color: #f9fafb;
+  text-align: center;
+  font-weight: bold !important;
+}
+
+#stateLogo {
+  /* width: 0.75rem;
+  height: 0.75rem; */
+  /* margin-left: 0.5rem; */
+  width: 21px;
+  height: 21px;
+  margin-right: 0.5rem;
+}
+
+/* -------------------------------state search---------- */
+/* body{
+  padding-top: 4.6875rem;
+} */
+
+.search-container {
+  width: 12.5rem;
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 2.1875rem;
+  /* border-bottom: 1px solid red; */
+}
+
+#stateSearch {
+  margin: 0 auto;
+  width: 100%;
+  height: 2.1875rem;
+  background-color: transparent;
+  /* padding: 0 20px; */
+  /* font-size: 1rem; */
+  /* outline: none; */
+  border-radius: 0;
+  border: none;
+  border-bottom: 0.0625rem solid black;
+
+  /* border:none; */
+  &:focus {
+    /* border: 1px solid #008ABF; */
+    transition: 0.35s ease;
+    outline: none !important;
+    border: none !important;
+
+    /* color: #008ABF; */
+    &::-webkit-input-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+
+    &::-moz-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+
+    &:-ms-placeholder {
+      transition: opacity 0.45s ease;
+      opacity: 0;
+    }
+  }
+}
+.stateTableChevrons {
+  background-color: transparent;
+  height: 35px;
+  width: 56px;
+  padding: 0;
+  margin-left: 24px;
+}
+.stateTableChevrons button {
+  background-color: transparent;
+  color: black;
+
+  border: none;
+}
+.stateTableChevrons button:hover {
+  background-color: transparent;
+  color: black;
+}
+.stateTableChevrons button:active {
+  background-color: transparent;
+  color: black;
+  border: 0;
+  outline: none;
+}
+#stateSearch:active {
+  outline: none;
+  border: none;
+}
+
+.search-icon {
+  position: relative;
+  float: right;
+  width: 3.125rem;
+  height: 3.125rem;
+  top: -2.5rem;
+  right: -0.625rem;
+}
+
+/* HARI CSS*/
+.cardsHeader {
+  margin: 1.5rem 0;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 1rem;
+
+  h2 {
+    margin: 0;
+
+    font-size: 20px;
+  }
+}
+#see-more-btn {
+  width: 77px;
+  height: 34px;
+  border-radius: 4px;
+  padding: 10px;
+  gap: 10px;
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  float: right;
+  /* padding: 10px; */
+  background-color: #e3e3e3;
+  margin-bottom: 1rem;
+}
+
+/* rajendar */
+#containertool2 {
+  position: absolute;
+  z-index: 1;
+  padding: 0.75rem;
+  gap: 0.75rem;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0rem 0.25rem 0.375rem -0.125rem #10182808;
+  box-shadow: 0rem 0.75rem 1rem -0.25rem #10182814;
+  display: none;
+}
+
+.rclose {
+  width: 7px;
+  height: 7px;
+  top: 2.5px;
+  left: 216.5px;
+  gap: 0px;
+  border: 1.2px 0px 0px 0px;
+  opacity: 0px;
+  position: absolute;
+  color: #344054;
+  cursor: pointer;
+  font-size: 23px;
+}
+
+.sthead {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 14.06px;
+  text-align: left;
+  color: #344054;
+}
+
+#viewdetails {
+  color: #007bff;
+  margin-top: 10px;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: right;
+  cursor: pointer;
+}
+
+#gt {
+  width: 5px;
+  height: 10px;
+  top: 5px;
+  left: 7.5px;
+  gap: 0px;
+  border: 1.67px 0px 0px 0px;
+  opacity: 0px;
+  display: inline;
+  margin-left: 5px;
+  font-size: large;
+  /* border: 1.67px solid #007BFF */
+}
+
+.detailstable {
+  margin-top: 0.375rem;
+  width: 13rem;
+  gap: 0.5rem;
+  opacity: 1;
+  border-collapse: collapse;
+  margin-left: 0.375rem;
+  border: none;
+}
+
+.tdData {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.06px;
+  padding: 6px;
+  border-bottom: 0.2px solid #d0d5dd;
+}
+
+.tbhead {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 27.06px;
+  text-align: left;
+  border-bottom: 0.2px solid #344054;
+}
+
+#wlright {
+  text-align: center;
+  /* border-bottom: 0.0625rem black solid; */
+}
+
+.party-icon {
+  width: 21px;
+  /* height: 1rem; */
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.results12 {
+  width: 5.3125rem;
+  /* height: 0.75rem; */
+  gap: 0rem;
+  opacity: 0rem;
+  font-family: "Roboto";
+  line-height: 0.7325rem;
+  margin-left: 0rem;
+  margin-top: 0.125rem;
+  /* border: 0.0625rem black solid; */
+}
+
+.hdiv3 {
+  margin-top: 0.125rem;
+  padding: 8px 6px 5px;
+  margin-bottom: 0.5rem;
+  /* font-size: 0.875rem; */
+  /* font-weight: bold; */
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 11.72px;
+  text-align: left;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-start;
+  /* Align items to the top */
+  /* padding: 0.625rem; */
+  /* margin-top: 0rem; */
+}
+
+.barbox {
+  /* border: #000 0.0625rem solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#barlabel0 {
+  font-family: "Roboto";
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 9.38px;
+  margin-left: -3.4rem;
+}
+
+#barlabel1 {
+  font-family: "Roboto";
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 9.38px;
+  margin-left: -3.9rem;
+}
+
+#barlabel2 {
+  font-family: "Roboto";
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 9.38px;
+  margin-left: -16px;
+}
+
+.inbar {
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: right;
+  height: 1.25rem;
+  color: #fff;
+  padding-right: 6px;
+}
+
+.br1 {
+  /* background: linear-gradient(90deg, #FF9933 0%, #F57A30 100%); */
+  width: 5.3125rem;
+  margin-left: 6px;
+}
+
+.br2 {
+  /* background-color: #87CEEB; */
+  width: 5.3rem;
+}
+
+.br3 {
+  /* background-color: #808080; */
+  width: 2.1875rem;
+}
+
+.above-half {
+  left: 22rem;
+  top: 6.6rem;
+}
+
+.below-half {
+  left: 23rem;
+  top: 22rem;
+}
+
+@media (max-width: 600px) {
+  #containertool2 {
+    top: 17rem;
+    left: 2rem;
+  }
+}
+
+@media (min-width: 750px) and (max-width: 1000px) {
+  .above-half {
+    top: 7rem;
+    left: 8rem;
+  }
+
+  .below-half {
+    top: 23rem;
+    left: 8rem;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1250px) {
+  .above-half {
+    top: 6.6rem;
+    left: 14rem;
+  }
+
+  .below-half {
+    top: 23rem;
+    left: 14rem;
+  }
+}
+
+@media (min-width: 2300px) {
+  .above-half {
+    top: 5.6rem;
+    left: 38rem;
+  }
+
+  .below-half {
+    top: 26rem;
+    left: 39rem;
+  }
+}
+
+/* ------------------Graph landing page---------------------------- */
+
+/* #myChart {
+  
+  height: 300px;
+} */
+
+#allianceChart {
+  width: 100%;
+  /* height: 100% !important; */
+  /* min-height: 300px !important; */
+  overflow-y: hidden;
+  border: 2px solid black;
+}
+/* 
+#chartContainer {
+  max-height: 330px; 
+  overflow-y: hidden;
+} */
+
+#numberOfSeats {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#allainceChart2 {
+  width: 100%;
+  max-width: 469px;
+  overflow: hidden;
+}
+
+.apexcharts-tooltip {
+  color: black;
+}
+
+#SvgjsSvg1006 {
+  /* transform: translateY(25%); */
+  max-height: 227px !important;
+  overflow-y: hidden;
+}
+
+#allianceChart .seat {
+  cursor: pointer;
+  transition: all 800ms;
+}
+
+/* European parliament colors */
+#allianceChart .seat.nda {
+  fill: #ff9933;
+}
+
+#allianceChart .seat.india {
+  fill: #87ceeb;
+}
+
+#allianceChart .seat.others {
+  fill: #eaecf0;
+}
+
+#square-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 6px);
+  gap: 4px;
+  width: 100%;
+}
+
+.square {
+  width: 6px;
+  height: 6px;
+}
+
+#disclaimer2019 {
+  display: none;
+  background-color: black;
+  font-size: 14px;
+  position: fixed;
+  vertical-align: middle;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  width: 385px;
+  height: 42px;
+  background-color: #003333;
+}
+/* #disclaimer2024{ */
+/* display: none;
+  background-color: black;
+  font-size: 14px;
+  /* vertical-align: middle; */
+/*  display: flex;
+  justify-content: center;
+  position: sticky;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  top: 0;
+  text-align: center;
+  color: white;
+  right: 0;
+  z-index: 9999;
+  width: 100%; */
+/* height: 42px; */
+/* background-color: #003333; */
+/* } */
+
+#disclaimer2019 a {
+  background-color: transparent;
+  border: none;
+  color: #1570ef;
+  /* border-bottom: 1px solid white; */
+}
+button:focus {
+  outline: none;
+  /* border: none; */
+}
+button:active {
+  outline: none;
+  /* border: none; */
+}
+
+/* Media query for hide table */
+/* @media (max-width: 767px) {
+  #carouselExampleIndicators {
+      display: block !important;
+  }
+  .non-carousel-content {
+      display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #carouselExampleIndicators {
+      display: none !important;
+  }
+  .non-carousel-content {
+      display: block !important;
+      display: flex !important;
+  }
+} */
+
+#ndaContent {
+  /* max-width: 180px; */
+  padding: 14px 16px 12px 16px;
+  border-top: 8px solid #ff9933;
+  border-radius: 8px 0 0 0;
+}
+
+#indiaContent {
+  /* max-width: 180px; */
+  padding: 14px 16px 12px 16px;
+  border-top: 8px solid #b9e6fe;
+}
+
+#othersContent {
+  /* max-width: 180px; */
+  padding: 14px 0 12px 16px;
+  border-top: 8px solid #b7b7b7;
+  border-radius: 0 8px 0 0;
+}
+
+.non-carousel-content {
+  /* display: flex !important; */
+  align-items: flex-start;
+  /* justify-content: space-around; */
+  box-shadow: 0px 2px 4px -2px #1018280f, 0px 4px 8px -2px #1018281a;
+  border-radius: 8px;
+}
+
+.seperateline {
+  width: 1px;
+  height: 180px;
+  background-color: #d0d5dd;
+  margin: 25px 0 0 0;
+}
+
+.totaldetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 5px 0;
+}
+
+.resultdesc {
+  display: flex;
+}
+
+.resultdesc > div {
+  font-size: 10px;
+  color: #667085;
+  z-index: 99;
+}
+
+.leaddescdiv {
+  margin: 0 0 0 10px;
+}
+
+/* Media query for hide table */
+/* Show carousel below 576px */
+@media (max-width: 575px) {
+  #carouselExampleIndicators {
+    display: block !important;
+  }
+  .non-carousel-content {
+    display: none !important;
+  }
+  #see-more-btn {
+    margin-right: 2rem;
+  }
+}
+
+/* Show carousel between 768px and 1200px */
+@media (min-width: 768px) and (max-width: 1200px) {
+  #carouselExampleIndicators {
+    display: block !important;
+  }
+  .non-carousel-content {
+    display: none !important;
+  }
+}
+
+/* Show non-carousel content below 768px and above 1200px */
+@media (min-width: 576px) and (max-width: 767px), (min-width: 1201px) {
+  #carouselExampleIndicators {
+    display: none !important;
+  }
+
+  .non-carousel-content {
+    display: flex !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #selection {
+    width: 50%;
+  }
+}
+
+#ndatitle1,
+#indiatitle1,
+#othtitle1 {
+  font-size: 14px;
+  color: #101828;
+  font-weight: 600;
+}

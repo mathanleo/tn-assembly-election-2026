@@ -110,3 +110,158 @@ a {
     display: block;
   }
 }
+
+/* ---------- Shared footer ---------- */
+.page-footer {
+  background-color: #003333;
+  width: 100%;
+  min-height: 159px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  padding: 24px 120px;
+  color: #EAECF0;
+}
+
+.page-footer__inner {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.page-footer__content {
+  max-width: 740px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.page-footer__copy {
+  margin: 0;
+  font-size: 0.98rem;
+  color: #F8F8F8;
+}
+
+.page-footer__heart {
+  color: #ff5a5a;
+  margin: 0 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.page-footer__description {
+  margin: 0;
+  color: #d9e2ec;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  max-width: 720px;
+}
+
+.page-footer__builtby {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #f8f8f8;
+  font-weight: 600;
+}
+
+.page-footer__builtby svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.page-footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-end;
+}
+
+.page-footer__links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.page-footer__links a {
+  color: #f8f8f8;
+  text-decoration: none;
+  opacity: 0.88;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.page-footer__links a:hover {
+  opacity: 1;
+}
+
+.page-footer__social {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.page-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+.page-footer__social svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 900px) {
+  .page-footer {
+    padding: 24px 24px 24px 24px;
+  }
+
+  .page-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page-footer__nav {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .page-footer__links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-footer {
+    padding: 24px 16px;
+    background-color: #ffffff;
+    color: #102a43;
+  }
+
+  .page-footer__copy,
+  .page-footer__description,
+  .page-footer__builtby,
+  .page-footer__links a {
+    color: #102a43;
+  }
+
+  .page-footer__links {
+    gap: 12px;
+  }
+
+  .page-footer__social a {
+    background: rgba(16, 42, 67, 0.08);
+  }
+}
