@@ -166,6 +166,37 @@
   }
 }
 
+@media (max-width: 576px) {
+  .candidate-card {
+    position: relative;
+    margin-top: 90px;
+    border-radius: var(--radius-lg);
+    overflow: visible;
+    width: unset !important;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    animation: cardFadeIn 0.25s ease both;
+  }
+
+  .candidate-card__body {
+    width: 150px !important;
+    height: 163px !important;
+    border-radius: 8px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 64px;
+    overflow: hidden;
+    transition: box-shadow 0.15s ease;
+  }
+
+}
+
 /* LAPTOP: 4 cards per row */
 @media (min-width: 993px) {
   .candidates-grid {
@@ -190,7 +221,7 @@
   margin-top: 90px;
   border-radius: var(--radius-lg);
   overflow: visible;
-  width: 220px;
+  /* width: 220px; */
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -206,7 +237,7 @@
 /* ---------- Floating oval photo — overflows above card ---------- */
 .candidate-card__photo-wrap {
   position: absolute;
-  top:-60px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
@@ -591,9 +622,10 @@
   cursor: pointer;
   padding: 4px;
   margin-left: auto;
-  color: var(--color-dark); 
-  display: flex; align-items: center;
-  border-radius: var(--radius-sm); 
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
   transition: background 0.15s;
 }
 
