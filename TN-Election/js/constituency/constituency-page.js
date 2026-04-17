@@ -317,7 +317,8 @@ function drawPie(canvasId, segments){
   canvas.height=size*dpr;
   canvas.style.width=size+'px';
   canvas.style.height=size+'px';
-  ctx.scale(dpr,dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,size,size);
   var cx=size/2,cy=size/2,r=Math.min(cx,cy)-5;
   var total=segments.reduce(function(s,seg){return s+(seg.value||0);},0);
   if(!total){
@@ -325,10 +326,29 @@ function drawPie(canvasId, segments){
     ctx.fillStyle='#E2E8F0';ctx.fill();
     return;
   }
+  var rawAngles=segments.map(function(seg){return ((seg.value||0)/total)*2*Math.PI;});
+  var minAngle=0.08; // ensure tiny categories are visible
+  var positiveCount=rawAngles.filter(function(angle){return angle>0;}).length;
+  if(positiveCount * minAngle <= 2*Math.PI){
+    var reserved=0;
+    rawAngles.forEach(function(angle){ if(angle>0 && angle<minAngle) reserved += minAngle; });
+    var remaining=2*Math.PI - reserved;
+    var largeTotal=rawAngles.reduce(function(sum,angle){ return sum + (angle>=minAngle ? angle : 0); },0);
+    if(largeTotal>0){
+      var scale=remaining/largeTotal;
+      rawAngles=rawAngles.map(function(angle){
+        return (angle>0 && angle<minAngle) ? minAngle : angle*scale;
+      });
+    }
+  }
+  ctx.shadowColor='rgba(15,23,42,0.15)';
+  ctx.shadowBlur=8;
+  ctx.shadowOffsetX=0;
+  ctx.shadowOffsetY=3;
   var start=-Math.PI/2;
-  segments.forEach(function(seg){
-    var angle=((seg.value||0)/total)*2*Math.PI;
-    if(angle<0.001)return;
+  rawAngles.forEach(function(angle,i){
+    if(angle<=0)return;
+    var seg=segments[i];
     ctx.beginPath();
     ctx.moveTo(cx,cy);
     ctx.arc(cx,cy,r,start,start+angle);
@@ -340,10 +360,23 @@ function drawPie(canvasId, segments){
     ctx.stroke();
     start+=angle;
   });
+  ctx.shadowBlur=0;
+  ctx.beginPath();
+  ctx.arc(cx,cy,r*0.55,0,2*Math.PI);
+  ctx.fillStyle='#ffffff';
+  ctx.fill();
+  ctx.strokeStyle='#E5E7EB';
+  ctx.lineWidth=1;
+  ctx.stroke();
+  ctx.fillStyle='#111827';
+  ctx.textAlign='center';
+  ctx.font='600 10px Nunito, sans-serif';
+  ctx.fillText('Voters',cx,cy-6);
+  ctx.font='700 12px Nunito, sans-serif';
+  ctx.fillText(total.toLocaleString('en-IN'),cx,cy+10);
 }
 
 function renderCensus(c){
-  // Voters pie — blue for male, pink for female, gray for others
   var cTotal=c.total_voters||0;
   var cMale=c.male_voters||0;
   var cFemale=c.female_voters||0;
@@ -354,9 +387,9 @@ function renderCensus(c){
   document.getElementById('census-female').textContent=fmt(cFemale);
   document.getElementById('census-others').textContent=fmt(cOthers);
   drawPie('voter-pie',[
-    {value:cMale,color:'#3B82F6'},
-    {value:cFemale,color:'#EC4899'},
-    {value:cOthers,color:'#94A3B8'}
+    {value:cMale,color:'#3B82F6',label:'Male'},
+    {value:cFemale,color:'#EC4899',label:'Female'},
+    {value:cOthers,color:'#94A3B8',label:'Others'}
   ]);
 }
 
