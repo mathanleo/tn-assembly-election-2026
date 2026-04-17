@@ -55,20 +55,46 @@
 
 /* ── Table ── */
 .stats-table {
-  
+
   border-collapse: collapse;
   table-layout: fixed;
+  border: 1px solid #EAECF0;
+
+  .header {
+    color: #000;
+    background-color: #F9FAFB;
+  }
+
+  .badge-cell {
+    background-color: #ECFDF3;
+  }
 }
 
 /* ── Column widths: Richest (175 + 127 + 100 = 402px inside 426px box) ── */
-.stats-box--richest .col-name { width: 175px; }
-.stats-box--richest .col-cons { width: 127px; }
-.stats-box--richest .col-val  { width: 100px; }
+.stats-box--richest .col-name {
+  width: 175px;
+}
+
+.stats-box--richest .col-cons {
+  width: 127px;
+}
+
+.stats-box--richest .col-val {
+  width: 100px;
+}
 
 /* ── Column widths: High Margin (199 + 164 + 97 = 460px inside 460px box) ── */
-.stats-box--margin .col-name { width: 199px; }
-.stats-box--margin .col-cons { width: 164px; }
-.stats-box--margin .col-val  { width: 97px;  }
+.stats-box--margin .col-name {
+  width: 199px;
+}
+
+.stats-box--margin .col-cons {
+  width: 164px;
+}
+
+.stats-box--margin .col-val {
+  width: 97px;
+}
 
 /* ── Table Head ── */
 .stats-table th {
@@ -84,10 +110,10 @@
 }
 
 .stats-table th.th-highlight {
-  background: #e8f5e9;
+  background: #D1FADF;
   color: #2e7d32;
   text-align: center;
-  border-radius: 6px 6px 0 0;
+  /* border-radius: 6px 6px 0 0; */
   border-bottom: none;
   line-height: 1.2;
 }
@@ -148,9 +174,18 @@
 }
 
 /* ── Fallback CSS flags (if image fails to load) ── */
-.flag-img.dmk-fallback  { background: linear-gradient(to bottom, #000 50%, #cc0000 50%); }
-.flag-img.admk-fallback { background: linear-gradient(to bottom, #cc0000 33.3%, #000 33.3%, #000 66.6%, #fff 66.6%); border: 0.5px solid #ccc; }
-.flag-img.tvk-fallback  { background: linear-gradient(to bottom, #cc0000 33.3%, #000 33.3%, #000 66.6%, #cc0000 66.6%); }
+.flag-img.dmk-fallback {
+  background: linear-gradient(to bottom, #000 50%, #cc0000 50%);
+}
+
+.flag-img.admk-fallback {
+  background: linear-gradient(to bottom, #cc0000 33.3%, #000 33.3%, #000 66.6%, #fff 66.6%);
+  border: 0.5px solid #ccc;
+}
+
+.flag-img.tvk-fallback {
+  background: linear-gradient(to bottom, #cc0000 33.3%, #000 33.3%, #000 66.6%, #cc0000 66.6%);
+}
 
 /* ── Constituency cell ── */
 .cons-cell {
@@ -167,7 +202,7 @@
 }
 
 .highlight-badge {
-  background: #e8f5e9;
+  /* background: #e8f5e9; */
   color: #2e7d32;
   font-weight: 700;
   font-size: 11px;
@@ -176,4 +211,38 @@
   white-space: nowrap;
   display: inline-block;
   font-family: 'Nunito', sans-serif;
+}
+
+@media (max-width: 576px) {
+  .stats-wrapper {
+    width: 100%;
+  }
+
+  .stats-box--margin {
+    width: 100%;
+  }
+
+  .stats-box.stats-box--richest {
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .stats-wrapper {
+    width: 100%;
+  }
+
+  .stats-box--margin {
+    width: 100%;
+  }
+
+  .stats-box.stats-box--richest {
+    width: 100%;
+  }
+}
+
+@media (min-width: 993px) {
+  .stats-wrapper {
+    width: 100%;
+  }
 }

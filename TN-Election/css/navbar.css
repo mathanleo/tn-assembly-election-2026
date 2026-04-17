@@ -20,6 +20,7 @@
   padding: 0 var(--gap-md);
   z-index: 1000; /* always above everything */
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.07);
+  border: 1px solid #c3c5c8;
 }
 
 /* ========================================

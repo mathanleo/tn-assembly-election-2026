@@ -198,6 +198,8 @@
 .cand-card.party-admk { border-color: #22C55E; }
 .cand-card.party-ntk  { border-color: #16A34A; }
 .cand-card.party-tvk  { border-color: #F59E0B; }
+.cand-card.party-bjp  { border-color: #F97316; }
+.cand-card.party-inc  { border-color: #16A34A; }
 
 /* .cand-photo-wrap {
     width: 100%;
@@ -523,6 +525,8 @@
 .cand-card.party-dmk { border: 2px solid #EF4444; }
 .cand-card.party-admk { border: 2px solid #22C55E; }
 .cand-card.party-tvk { border: 2px solid #F59E0B; }
+.cand-card.party-bjp { border: 2px solid #F97316; }
+.cand-card.party-inc { border: 2px solid #16A34A; }
 
 .cand-photo-wrap {
     height: 130px;

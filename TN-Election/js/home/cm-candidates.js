@@ -31,6 +31,7 @@ function buildCMCandidates() {
             '</div>' +
 
             // Party icon — overlaps photo bottom
+            '<div class="cm-card-details-container">'+
             '<div class="cm-card__icon-wrap">' +
             '<img ' +
             'src="' + candidate.partyIcon + '" ' +
@@ -40,8 +41,11 @@ function buildCMCandidates() {
             '</div>' +
 
             // Name & party label
+            '<div class="cm-card_details_container">'+
             '<div class="cm-card__name">' + candidate.name + '</div>' +
             '<div class="cm-card__party">' + candidate.party + '</div>' +
+            '</div>'+
+            '</div>'+
 
             '</div>'
         );

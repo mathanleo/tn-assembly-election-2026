@@ -27,7 +27,9 @@ var PARTY_ICONS = {
   DMK:  '../assets/icons/dmk.svg',
   ADMK: '../assets/icons/admk.svg',
   NTK:  '../assets/icons/ntk.svg',
-  TVK:  '../assets/icons/tvk.svg'
+  TVK:  '../assets/icons/tvk.svg',
+  BJP:  '../assets/icons/bjp.svg',
+  INC:  '../assets/icons/INC.svg'
 };
 
 // ── State ────────────────────────────────────────────────────
@@ -148,7 +150,7 @@ function buildMap() {
     .attr('class', 'constituency-path')
     .attr('id', function(d) { return 'path-' + d.properties.AC_NO; })
     .attr('d', path)
-    .attr('fill', '#9CA3AF')
+    .attr('fill', '#e8eaee')
     .attr('stroke', '#9CA3AF')
     .attr('stroke-width', 0.5)
     .on('mousemove', function(event, d) {
@@ -363,8 +365,25 @@ function initSearch() {
     if (q.length < 2) { results.classList.remove('is-open'); return; }
 
     var matches = Object.values(constituenciesData).filter(function(c) {
-      return c.name.toLowerCase().includes(q) ||
-             c.district.toLowerCase().includes(q);
+      var textMatch = c.name.toLowerCase().includes(q) ||
+                      c.district.toLowerCase().includes(q);
+      if (textMatch) return true;
+
+      var candidateNames = [];
+      if (typeof candidates2026Data !== 'undefined' && candidates2026Data[c.id]) {
+        candidateNames = candidates2026Data[c.id].map(function(item) {
+          return (item.name || '').toLowerCase();
+        });
+      } else if (typeof allCandidatesByConstituency !== 'undefined') {
+        var key = (c.name || '').toUpperCase();
+        candidateNames = (allCandidatesByConstituency[key] || []).map(function(item) {
+          return (item.name || item.candidate || '').toLowerCase();
+        });
+      }
+
+      return candidateNames.some(function(name) {
+        return name.indexOf(q) !== -1;
+      });
     }).slice(0, 8);
 
     if (matches.length === 0) { results.classList.remove('is-open'); return; }
@@ -473,32 +492,30 @@ function buildStats() {
 }
 
 // ── Init ──────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', function() {
-  buildLegend();
-  buildStats();
-  // Use requestAnimationFrame so the flex layout is fully rendered
-  // before we read the container dimensions for the map
-  requestAnimationFrame(function() {
-    buildMap();
-  });
-  initSearch();
+buildLegend();
+buildStats();
+// Use requestAnimationFrame so the flex layout is fully rendered
+// before we read the container dimensions for the map
+requestAnimationFrame(function() {
+  buildMap();
+});
+initSearch();
 
-  // Popup close button
-  var closeBtn = document.getElementById('popup-close-btn');
-  if (closeBtn) closeBtn.addEventListener('click', closePopup);
+// Popup close button
+var closeBtn = document.getElementById('popup-close-btn');
+if (closeBtn) closeBtn.addEventListener('click', closePopup);
 
-  // Close popup when clicking outside it on the SVG background
-  document.addEventListener('click', function(e) {
-    var popup = document.getElementById('map-popup');
-    if (popup && popup.classList.contains('is-open') && !popup.contains(e.target)) {
-      closePopup();
-    }
-  });
+// Close popup when clicking outside it on the SVG background
+document.addEventListener('click', function(e) {
+  var popup = document.getElementById('map-popup');
+  if (popup && popup.classList.contains('is-open') && !popup.contains(e.target)) {
+    closePopup();
+  }
+});
 
-  // Resize — rebuild map
-  var resizeTimer;
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(buildMap, 300);
-  });
+// Resize — rebuild map
+var resizeTimer;
+window.addEventListener('resize', function() {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(buildMap, 300);
 });

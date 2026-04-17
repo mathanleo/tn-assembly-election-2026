@@ -152,7 +152,8 @@
   background-color: white;
   border-radius: 10px;
   height: 500px;
-  overflow-y: auto; 
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
 /* TABLET: 3 cards per row */
@@ -160,7 +161,40 @@
   .candidates-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-md);
+    scrollbar-width: none;
+
   }
+}
+
+@media (max-width: 576px) {
+  .candidate-card {
+    position: relative;
+    margin-top: 90px;
+    border-radius: var(--radius-lg);
+    overflow: visible;
+    width: unset !important;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    animation: cardFadeIn 0.25s ease both;
+  }
+
+  .candidate-card__body {
+    width: 150px !important;
+    height: 163px !important;
+    border-radius: 8px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 64px;
+    overflow: hidden;
+    transition: box-shadow 0.15s ease;
+  }
+
 }
 
 /* LAPTOP: 4 cards per row */
@@ -168,6 +202,8 @@
   .candidates-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--gap-md);
+    scrollbar-width: none;
+
   }
 }
 
@@ -175,6 +211,7 @@
 @media (min-width: 1200px) {
   .candidates-grid {
     grid-template-columns: repeat(5, 1fr);
+    scrollbar-width: none;
   }
 }
 
@@ -184,7 +221,7 @@
   margin-top: 90px;
   border-radius: var(--radius-lg);
   overflow: visible;
-  width: 220px;
+  /* width: 220px; */
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -200,14 +237,14 @@
 /* ---------- Floating oval photo — overflows above card ---------- */
 .candidate-card__photo-wrap {
   position: absolute;
-  top:-60px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
   height: 148px;
   border-radius: 80px;
   overflow: hidden;
-  background:transparent;
+  background: transparent;
   z-index: 1;
 }
 
@@ -217,14 +254,16 @@
   object-fit: cover;
   object-position: top center;
 }
+
 .candidate-card:hover .candidate-card__photo-wrap {
-  box-shadow: 4px 4px 4px 0px #00000040; 
+  box-shadow: 4px 4px 4px 0px #00000040;
 }
+
 /* ---------- Card body — alliance/party colour background ---------- */
 .candidate-card__body {
   width: 182px;
   height: 176px;
-  border-radius:8px;
+  border-radius: 8px;
   color: black;
   display: flex;
   flex-direction: column;
@@ -232,10 +271,11 @@
   justify-content: flex-end;
   padding-top: 64px;
   overflow: hidden;
-  transition: box-shadow 0.15s ease;  
+  transition: box-shadow 0.15s ease;
 }
+
 .candidate-card:hover .candidate-card__body {
-  box-shadow: 4px 4px 4px 0px #00000040; 
+  box-shadow: 4px 4px 4px 0px #00000040;
 }
 
 /* ---------- Footer — name, constituency, bar ---------- */
@@ -277,7 +317,7 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background:white;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -330,6 +370,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -348,7 +389,7 @@
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -356,9 +397,30 @@
   padding: var(--gap-md);
   animation: popupFadeIn 0.2s ease both;
 }
-.popup-overlay--closing { animation: popupFadeOut 0.22s ease both; }
-@keyframes popupFadeIn  { from { opacity:0 } to { opacity:1 } }
-@keyframes popupFadeOut { from { opacity:1 } to { opacity:0 } }
+
+.popup-overlay--closing {
+  animation: popupFadeOut 0.22s ease both;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes popupFadeOut {
+  from {
+    opacity: 1
+  }
+
+  to {
+    opacity: 0
+  }
+}
 
 /* Modal box */
 .popup-modal {
@@ -371,12 +433,20 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
   animation: popupSlideUp 0.22s ease both;
 }
+
 @keyframes popupSlideUp {
-  from { transform: translateY(24px); opacity:0 }
-  to   { transform: translateY(0);    opacity:1 }
+  from {
+    transform: translateY(24px);
+    opacity: 0
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1
+  }
 }
 
 /* Header */
@@ -388,30 +458,48 @@
   border-bottom: 1px solid var(--color-border);
   flex-shrink: 0;
 }
-.popup-header__title { font-size: var(--font-lg); font-weight: 800; color: var(--color-dark); }
-.popup-header__back{
+
+.popup-header__title {
+  font-size: var(--font-lg);
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.popup-header__back {
   background: none;
-  border: none; 
-  cursor: pointer; 
+  border: none;
+  cursor: pointer;
   padding: 4px;
-  color: var(--color-dark); 
-  display: flex; align-items: center;
-  border-radius: var(--radius-sm); 
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
   transition: background 0.15s;
 }
+
 .popup-header__close {
   background: none;
-  border: none; 
-  cursor: pointer; 
+  border: none;
+  cursor: pointer;
   padding: 4px;
   margin-left: auto;
-  color: var(--color-dark); 
-  display: flex; align-items: center;
-  border-radius: var(--radius-sm); 
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-sm);
   transition: background 0.15s;
 }
-.popup-header__back:hover, .popup-header__close:hover { background: var(--color-bg); }
-.popup-header__back svg, .popup-header__close svg { width: 22px; height: 22px; }
+
+.popup-header__back:hover,
+.popup-header__close:hover {
+  background: var(--color-bg);
+}
+
+.popup-header__back svg,
+.popup-header__close svg {
+  width: 22px;
+  height: 22px;
+}
 
 /* Scrollable body */
 .popup-body {
@@ -436,7 +524,7 @@
 .popup-left {
   display: flex;
   gap: var(--gap-md);
-  background:transparent;
+  background: transparent;
   border-radius: var(--radius-md);
   padding: var(--gap-md);
   flex: 1;
@@ -452,6 +540,7 @@
   flex-shrink: 0;
   background: #e2e8f0;
 }
+
 .popup-main__photo-img {
   width: 100%;
   height: 100%;
@@ -459,7 +548,11 @@
   object-position: top;
   display: block;
 }
-.popup-main__photo-placeholder { width: 100%; height: 100%; }
+
+.popup-main__photo-placeholder {
+  width: 100%;
+  height: 100%;
+}
 
 .popup-main__info {
   display: flex;
@@ -468,14 +561,16 @@
   min-width: 0;
   color: #1F2937 !important;
 }
+
 .popup-main__name {
   font-size: 28px;
-  font-family: 'Inter',sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
   line-height: 1.15;
   margin: 0;
   color: #1F2937 !important;
 }
+
 .popup-main__constituency-pill {
   display: inline-block;
   padding: 4px 14px;
@@ -486,11 +581,13 @@
   width: fit-content;
   color: var(--color-white);
 }
+
 .popup-main__party {
   font-size: var(--font-sm);
   font-weight: 600;
   color: #6B7280 !important;
 }
+
 .popup-main__contesting {
   font-size: var(--font-sm);
   font-weight: 700;
@@ -498,28 +595,35 @@
 }
 
 /* Wins / Losses bar */
-.popup-wins-wrap { margin-top: 4px; }
+.popup-wins-wrap {
+  margin-top: 4px;
+}
+
 .popup-wins-label {
   font-size: var(--font-xs);
   color: var(--color-muted);
   font-weight: 600;
   margin-bottom: 3px;
 }
+
 .popup-wins-counts {
   display: flex;
   gap: var(--gap-md);
   margin-bottom: 6px;
 }
+
 .popup-wins-w {
   font-size: var(--font-lg);
   font-weight: 900;
   color: #16a34a;
 }
+
 .popup-wins-l {
   font-size: var(--font-md);
   font-weight: 700;
   color: #ef4444;
 }
+
 .popup-wins-bar {
   height: 6px;
   border-radius: 3px;
@@ -528,6 +632,7 @@
   max-width: 100%;
   overflow: hidden;
 }
+
 .popup-wins-bar__fill {
   height: 100%;
   background: #16a34a;
@@ -547,12 +652,14 @@
   gap: var(--gap-sm);
   color: #1F2937 !important;
 }
+
 .popup-competitors__title {
   font-size: var(--font-md);
   font-weight: 800;
   color: var(--color-dark);
   flex-shrink: 0;
 }
+
 .popup-competitors__scroll {
   display: flex;
   gap: 12px;
@@ -561,10 +668,26 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
-.popup-competitors__scroll::-webkit-scrollbar { height: 4px; }
-.popup-competitors__scroll::-webkit-scrollbar-track { background: var(--color-bg); border-radius: 2px; }
-.popup-competitors__scroll::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
-.popup-competitors__empty { font-size: var(--font-sm); color: var(--color-muted); padding: var(--gap-sm); }
+
+.popup-competitors__scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.popup-competitors__scroll::-webkit-scrollbar-track {
+  background: var(--color-bg);
+  border-radius: 2px;
+}
+
+.popup-competitors__scroll::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+
+.popup-competitors__empty {
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+  padding: var(--gap-sm);
+}
 
 /* ── Competitor mini-card (matches candidate card style) ── */
 .pcomp-card {
@@ -582,7 +705,8 @@
 
 .pcomp-card__photo-wrap {
   position: absolute;
-  bottom: 82px; /* sits above body */
+  bottom: 82px;
+  /* sits above body */
   left: 50%;
   transform: translateX(-50%);
   width: 72px;
@@ -591,7 +715,7 @@
   overflow: hidden;
   background: #e2e8f0;
   z-index: 1;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .pcomp-card__body {
@@ -621,6 +745,7 @@
   width: 100%;
   color: #1F2937 !important;
 }
+
 .pcomp-card__const {
   font-size: 9px;
   font-weight: 600;
@@ -648,7 +773,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   z-index: 1;
 }
 
@@ -667,10 +792,19 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--gap-md);
 }
+
 @media (max-width: 576px) {
-  .popup-details-grid { grid-template-columns: 1fr; }
-  .popup-top-row { flex-direction: column; }
-  .popup-wins-bar { width: 100%; }
+  .popup-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .popup-top-row {
+    flex-direction: column;
+  }
+
+  .popup-wins-bar {
+    width: 100%;
+  }
 }
 
 .popup-details-col {
@@ -681,6 +815,7 @@
   flex-direction: column;
   gap: 10px;
 }
+
 .popup-details__heading {
   font-size: var(--font-md);
   font-weight: 800;
@@ -688,6 +823,7 @@
   padding-bottom: 8px;
   border-bottom: 1px solid var(--color-border);
 }
+
 .popup-details__row {
   display: flex;
   gap: 8px;
@@ -695,12 +831,14 @@
   line-height: 1.5;
   align-items: flex-start;
 }
+
 .popup-details__label {
   font-weight: 700;
   color: var(--color-dark);
   min-width: 110px;
   flex-shrink: 0;
 }
+
 .popup-details__value {
   color: var(--color-muted);
   font-weight: 600;
@@ -713,7 +851,13 @@
 
 /* Fix: global img height:auto override */
 .popup-main__photo-wrap img,
-.pcomp-card__photo-wrap img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+.pcomp-card__photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
 
 /* Section title (About, Additional Details, Election History) */
 .popup-section-title {
@@ -730,6 +874,7 @@
   padding: var(--gap-md);
   margin-top: 10px;
 }
+
 .popup-about-text {
   font-size: var(--font-sm);
   color: var(--color-muted);
@@ -743,11 +888,13 @@
   border-radius: var(--radius-md);
   padding: var(--gap-md);
 }
+
 .popup-additional-box {
   display: flex;
   flex-direction: column;
   gap: var(--gap-sm);
 }
+
 .popup-add-row {
   display: flex;
   align-items: center;
@@ -765,6 +912,7 @@
   flex-wrap: wrap;
   flex: 1;
 }
+
 .popup-add__const-pill {
   padding: 4px 14px;
   border-radius: var(--radius-full);
@@ -784,11 +932,13 @@
   gap: 2px;
   flex-shrink: 0;
 }
+
 .popup-add__stat-label {
   font-size: var(--font-xs);
   color: var(--color-muted);
   font-weight: 600;
 }
+
 .popup-add__stat-val {
   font-size: var(--font-xl);
   font-weight: 900;
@@ -802,6 +952,7 @@
   align-items: center;
   flex-shrink: 0;
 }
+
 .popup-add__social {
   width: 32px;
   height: 32px;
@@ -812,11 +963,30 @@
   transition: opacity 0.15s;
   text-decoration: none;
 }
-.popup-add__social:hover { opacity: 0.8; }
-.popup-add__social--tw { background: #000; color: #fff; }
-.popup-add__social--ig { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: #fff; }
-.popup-add__social--fb { background: #1877F2; color: #fff; }
-.popup-add__social svg { width: 16px; height: 16px; }
+
+.popup-add__social:hover {
+  opacity: 0.8;
+}
+
+.popup-add__social--tw {
+  background: #000;
+  color: #fff;
+}
+
+.popup-add__social--ig {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #fff;
+}
+
+.popup-add__social--fb {
+  background: #1877F2;
+  color: #fff;
+}
+
+.popup-add__social svg {
+  width: 16px;
+  height: 16px;
+}
 
 /* ── ELECTION HISTORY TABLE ── */
 .popup-hist-wrap {
@@ -824,17 +994,23 @@
   border-radius: var(--radius-md);
   padding: var(--gap-md);
 }
+
 .popup-hist-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
-.popup-hist-scroll::-webkit-scrollbar { display: none; }
+
+.popup-hist-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 .popup-hist-table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--font-sm);
 }
+
 .popup-hist__th {
   text-align: left;
   font-weight: 800;
@@ -844,6 +1020,7 @@
   white-space: nowrap;
   background: var(--color-bg);
 }
+
 .popup-hist__td {
   padding: 8px 12px;
   border-bottom: 1px solid var(--color-border);
@@ -851,6 +1028,7 @@
   font-weight: 600;
   white-space: nowrap;
 }
+
 .popup-hist__result {
   display: inline-block;
   padding: 2px 10px;
@@ -858,6 +1036,18 @@
   font-size: var(--font-xs);
   font-weight: 700;
 }
-.popup-hist__won  { background: #dcfce7; color: #166534; }
-.popup-hist__lost { background: #fee2e2; color: #991b1b; }
-.popup-hist__other { background: #f1f5f9; color: var(--color-muted); }
+
+.popup-hist__won {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.popup-hist__lost {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.popup-hist__other {
+  background: #f1f5f9;
+  color: var(--color-muted);
+}

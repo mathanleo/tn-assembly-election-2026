@@ -7,29 +7,35 @@
 
 // 1. Function to create the HTML framework (The Shell)
 function initializeTableStructure() {
-    const container = document.getElementById('constituency-container');
+    const container = document.querySelector('.constituency-table-section');
     if (!container) {
-        console.error("Error: Element #constituency-container not found in HTML.");
+        console.error("Error: Element #constituency-table-section not found in HTML.");
         return;
     }
 
-    // Inject the header and the empty table into the page
     container.innerHTML = `
-        <div class="table-container">
+       
             <div class="table-header">
                 <h2>Constituency Details</h2>
                 <div class="search-wrapper">
                     <input type="text" id="districtSearch" placeholder="Search District...">
                 </div>
             </div>
-            <table class="constituency-table">
-                <thead>
-                    <tr>
-                        <th style="width: 386px;">Name of the District</th> <th style="width: 201px;">Name of the Constituency</th> <th style="width: 202px;">Sitting MLA/Party</th> </tr>
-                </thead>
-                <tbody id="tableBody"></tbody>
-            </table>
-        </div>
+
+            <div class="table-scroll-wrapper">
+                <table class="constituency-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 386px;">Name of the District</th>
+                            <th style="width: 201px;">Name of the Constituency</th>
+                            <th style="width: 202px;">Sitting MLA/Party</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+
+        
     `;
 }
 

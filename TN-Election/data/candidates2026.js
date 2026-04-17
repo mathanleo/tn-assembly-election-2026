@@ -23,7 +23,20 @@ const candidates2026Data = {
       "photo": ""
     }
   ],
-  "7": [],
+  "7": [
+    {
+      "name": "Sample BJP Candidate",
+      "party": "BJP",
+      "alliance": "NDA",
+      "photo": ""
+    },
+    {
+      "name": "Sample INC Candidate",
+      "party": "INC",
+      "alliance": "SPA",
+      "photo": ""
+    }
+  ],
   "8": [],
   "9": [],
   "10": [],
@@ -31,22 +44,16 @@ const candidates2026Data = {
   "12": [],
   "13": [
     {
-      "name": "M K Stalin",
+      "name": "M. K. Stalin",
       "party": "DMK",
       "alliance": "SPA",
       "photo": "../assets/images/candidates/stalin.svg"
     },
     {
-      "name": "Santhana Krishnan",
+      "name": "P. Santhana Krishnan",
       "party": "ADMK",
       "alliance": "NDA",
-      "photo": ""
-    },
-    {
-      "name": "Seeman",
-      "party": "NTK",
-      "alliance": "OTHERS",
-      "photo": "../assets/images/candidates/seeman.svg"
+      "photo": "../assets/images/candidates/mla/2026/1294.jpg"
     }
   ],
   "14": [],

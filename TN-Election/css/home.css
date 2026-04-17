@@ -29,12 +29,12 @@
 
 /* Grid — 2 columns on mobile */
 .cm-candidates__title {
-  font-size: var(--font-md);
-  font-weight: 800;
-  color: var(--color-dark);
-  margin-bottom: var(--gap-sm);
-  text-align: center;
-  letter-spacing: 0.01em;
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 20px;
+  /* leading-trim: NONE; */
+  line-height: 30px;
+  letter-spacing: 0%;
 }
 
 .cm-candidates__grid {
@@ -52,14 +52,16 @@
 
 /* Individual card */
 .cm-card {
-  background: var(--color-white);
+  /* background: var(--color-white); */
+  background-color: white;
   border-radius: var(--radius-lg);
-  border: 2.5px solid transparent; /* color set by JS from data */
+  border: 2.5px solid transparent;
+  /* color set by JS from data */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: var(--gap-md);
+  padding: 12px;
   cursor: pointer;
   transition:
     transform 0.2s ease,
@@ -76,7 +78,7 @@
   width: 100%;
   aspect-ratio: 1 / 1.1;
   overflow: hidden;
-  background: #f1f5f9;
+  /* background: #f1f5f9; */
 }
 
 .cm-card__photo {
@@ -87,17 +89,25 @@
 }
 
 /* Party icon — overlaps photo at bottom */
+.cm-card-details-container {
+  display: flex;
+  justify-content: space-between;
+  height: 48px;
+  align-items: center;
+  width: 100%;
+}
+
 .cm-card__icon-wrap {
   width: 42px;
   height: 42px;
-  margin-top: -21px; /* pull up to overlap photo */
-  position: relative;
-  z-index: 1;
+  /* margin-top: -21px; pull up to overlap photo */
+  /* position: relative; */
+  /* z-index: 1; */
   border-radius: 50%;
   overflow: hidden;
   border: 2.5px solid var(--color-white);
   background: var(--color-white);
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
 }
 
 .cm-card__icon {
@@ -106,15 +116,21 @@
   object-fit: contain;
 }
 
+.cm-card_details_container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
 /* Name & party */
 .cm-card__name {
-  font-size: var(--font-md);
-  font-weight: 700;
-  color: var(--color-dark);
-  margin-top: var(--gap-sm);
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 14px;
+  /* leading-trim: NONE; */
+  line-height: 20px;
+  letter-spacing: 0%;
   text-align: center;
-  padding: 0 var(--gap-sm);
-  line-height: 1.3;
 }
 
 .cm-card__party {
@@ -152,12 +168,15 @@
 .alliance-table__header--nda {
   background: #e05a46;
 }
+
 .alliance-table__header--spa {
   background: #5b68b8;
 }
+
 .alliance-table__header--others {
   background: #8a93a8;
 }
+
 .alliance-table__vdivider-head {
   background: rgba(255, 255, 255, 0.3);
 }
@@ -166,7 +185,7 @@
 .alliance-table__subheaders {
   display: grid;
   grid-template-columns: 1fr 1px 1fr 1px 1fr;
-  border-bottom: 1px solid var(--color-border);
+  /* border-bottom: 1px solid var(--color-border); */
 }
 
 .alliance-table__subheader {
@@ -180,13 +199,25 @@
 
 .alliance-table__subheader--nda {
   color: #e05a46;
+  background-color: #FCEBE8;
+  padding: 4px 12px 4px 12px;
+  border-radius: 12px;
 }
+
 .alliance-table__subheader--spa {
   color: #5b68b8;
+  background-color: #EEF4FF;
+  padding: 4px 12px 4px 12px;
+  border-radius: 12px;
 }
+
 .alliance-table__subheader--others {
   color: #8a93a8;
+  background-color: #F9FAFB;
+  padding: 4px 12px 4px 12px;
+  border-radius: 12px;
 }
+
 .alliance-table__vdivider {
   background: var(--color-border);
 }
@@ -217,6 +248,7 @@
 .alliance-table__row:last-child {
   border-bottom: none;
 }
+
 .alliance-table__row:hover {
   background: #fafafa;
 }
@@ -226,7 +258,8 @@
   align-items: center;
   gap: var(--gap-sm);
   flex: 1;
-  min-width: 0; /* allows text-overflow to work */
+  min-width: 0;
+  /* allows text-overflow to work */
 }
 
 /* SVG icon */
@@ -278,9 +311,11 @@
 /* ---- View all button ---- */
 .alliance-table__footer {
   display: flex;
+  /* background-color: #F5FBFF; */
   justify-content: flex-end;
   padding: 8px var(--gap-md);
-  border-top: 1px solid #f5f5f5;
+  border: 0 !important;
+  /* border-top: 1px solid #f5f5f5; */
 }
 
 .alliance-table__viewall-btn {
@@ -301,18 +336,19 @@
 
 /* ---- Total seats footer ---- */
 .alliance-table__total {
-  background: #eef3ff;
+  background: #E0EAFF;
   border-top: 1px solid var(--color-border);
   padding: 12px var(--gap-md);
   text-align: center;
   font-size: var(--font-md);
   color: #555;
+  border-radius: 8px;
 }
 
 .alliance-table__total strong {
   font-size: var(--font-lg);
   font-weight: 900;
-  color: var(--color-dark);
+  color: #3538CD;
 }
 
 /* ==========================================
@@ -346,6 +382,7 @@
   .alliance-table__col {
     border-bottom: 6px solid var(--color-bg);
   }
+
   .alliance-table__col:last-child {
     border-bottom: none;
   }
@@ -391,8 +428,23 @@
     padding: 10px var(--gap-md);
     letter-spacing: 0.05em;
   }
+
+  .stats-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 35px;
+  }
 }
 
+.constituency-table-section{
+  width: 100%;
+  #constituency-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
 /* ==========================================
    RESPONSIVE — Mobile (up to 576px)
    ========================================== */
@@ -412,6 +464,13 @@
   .alliance-table__seats {
     font-size: 11px;
   }
+
+  .stats-wrapper{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 35px;
+    min-width: 343px;
+  }
 }
 
 /* parties table  */
@@ -419,10 +478,14 @@
 /* Container Card */
 /* Container Card */
 .richest-candidates-section {
-  display: block;
+  display: flex;
   width: 100%;
-  padding: 2rem 1.5rem;
+  justify-content: center;
   background: #f0f4f8;
+}
+
+#richest-candidates-container{
+  width: 100%;
 }
 /* ==========================================
    POPULAR CANDIDATES — Home page preview
@@ -433,6 +496,10 @@
   padding: var(--gap-lg) var(--gap-xl);
   background: var(--color-bg);
 }
+
+/* #popular-candidates-container{
+  min-height: 689px;
+} */
 
 .popular-candidates-section .section-header {
   display: flex;
@@ -455,8 +522,8 @@
 }
 
 .hpc__viewall-btn {
-  background: var(--color-primary);
-  color: var(--color-white);
+  background: #F55533;
+  color: #FFFFFF;
   font-size: var(--font-sm);
   font-weight: 700;
   font-family: inherit;
