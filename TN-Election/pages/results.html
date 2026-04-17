@@ -27,80 +27,87 @@
   <body data-page="results">
     <div id="navbar-container"></div>
 
-    <main>
-      <!-- <section style="padding: 40px 24px; text-align: center; color: #6b7280">
-        <h1 style="font-size: 24px; font-weight: 800; color: #1a1a2e">
-          2021 Results Page
-        </h1>
-        <p style="margin-top: 8px">
-          <!-- Modules will be added here by each fresher. -->
-          Coming soon....
+    <main class="coming-soon-page">
+      <div class="coming-soon-card">
+        <div class="coming-soon-badge">Coming Soon</div>
+        <h1>2021 Results are on the way</h1>
+        <p>
+          We're building the results dashboard with interactive maps,
+          constituency insights, and vote trends. Please check back soon for the
+          full experience.
         </p>
-      </section> -->
-
-      <section class="map-section">
-        <div class="map-body">
-          <div class="map-right">
-            <!-- Search bar — top left of map column -->
-            <div class="map-search">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-              <input
-                id="map-search-input"
-                type="text"
-                placeholder="Search Constituency…"
-              />
-              <div class="map-search-results" id="map-search-results"></div>
-            </div>
-
-            <!-- Map SVG fills remaining space -->
-            <div class="map-svg-wrap">
-              <svg id="tn-map-svg"></svg>
-            </div>
-
-            <!-- Popup anchored inside map-right -->
-            <div class="map-popup" id="map-popup">
-              <div class="popup-header">
-                <div class="popup-name" id="popup-name">—</div>
-                <button
-                  class="popup-close"
-                  id="popup-close-btn"
-                  aria-label="Close"
-                >
-                  ×
-                </button>
-              </div>
-              <div class="popup-body">
-                <div class="popup-section-label">Candidate</div>
-                <div id="popup-candidates"></div>
-                <div class="popup-section-label">Current MLA</div>
-                <div id="popup-mla"></div>
-              </div>
-              <div class="popup-footer">
-                <button
-                  class="popup-view-btn"
-                  onclick="viewConstituencyDetails()"
-                >
-                  View full details ›
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      </div>
     </main>
+
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .coming-soon-page {
+        width: 100%;
+        max-width: 720px;
+        padding: 32px 24px;
+      }
+
+      .coming-soon-card {
+        background: #ffffff;
+        border-radius: 28px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+        padding: 48px 40px;
+        text-align: center;
+      }
+
+      .coming-soon-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: #1d4ed8;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .coming-soon-card h1 {
+        margin: 0 0 18px;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+      }
+
+      .coming-soon-card p {
+        margin: 0;
+        color: #475569;
+        font-size: 1rem;
+        line-height: 1.75;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media (max-width: 576px) {
+        .coming-soon-page {
+          padding: 24px 16px;
+        }
+
+        .coming-soon-card {
+          padding: 32px 24px;
+        }
+      }
+    </style>
 
     <script src="../data/navbar.js"></script>
     <script src="../js/components/navbar.js"></script>
@@ -116,6 +123,6 @@
     <!-- <script src="../js/results/alliance-summary.js"></script> -->
     <!-- <script src="../js/results/results-table.js"></script> -->
 
-  <div id="footer-container"></div>
+    <!-- <div id="footer-container"></div> -->
   </body>
 </html>
