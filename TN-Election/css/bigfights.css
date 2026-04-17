@@ -153,6 +153,7 @@ body[data-page="bigfights"] main {
   overflow: visible;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   min-width: 0;
+  width: 376px;
 }
 .fight-card:hover {
   transform: translateY(-2px);

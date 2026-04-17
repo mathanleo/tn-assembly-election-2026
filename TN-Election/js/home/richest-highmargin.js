@@ -47,8 +47,8 @@ function renderStats() {
           </colgroup>
           <thead>
             <tr>
-              <th>Candidate Name</th>
-              <th>Constituency</th>
+              <th class="header">Candidate Name</th>
+              <th class="header">Constituency</th>
               <th class="th-highlight">
                 Asset
                 <span class="th-sub">(in Rs)</span>
@@ -60,7 +60,7 @@ function renderStats() {
               const cons = Array.isArray(c.cn) ? c.cn.join(" & ") : c.cn;
               return `
                 <tr>
-                  <td>
+                  <td class="candidate-key">
                     <div class="cand-name">${c.name}</div>
                     <div class="party-row">
                       ${getPartyFlag(c.pn)}

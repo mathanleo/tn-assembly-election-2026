@@ -8,7 +8,7 @@
 // "View all" navigates to bigfights.html
 // ============================================
 
-var HOME_BIGFIGHTS_LIMIT = 4;
+var HOME_BIGFIGHTS_LIMIT = 8;
 
 function buildBigFightsPreview() {
     var container = document.getElementById('big-fights-preview-container');

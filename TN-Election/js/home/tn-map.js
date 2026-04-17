@@ -150,7 +150,7 @@ function buildMap() {
     .attr('class', 'constituency-path')
     .attr('id', function(d) { return 'path-' + d.properties.AC_NO; })
     .attr('d', path)
-    .attr('fill', '#9CA3AF')
+    .attr('fill', '#e8eaee')
     .attr('stroke', '#9CA3AF')
     .attr('stroke-width', 0.5)
     .on('mousemove', function(event, d) {

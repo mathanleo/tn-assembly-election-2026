@@ -147,70 +147,84 @@
           <!-- Right column: CM Candidates + Alliance Table -->
           <div class="map-content-right">
             <!-- CM Candidates -->
-            <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
-            <div class="cm-candidates__grid" id="cm-candidates-container">
-              <!-- filled by cm-candidates.js -->
+            <div style="display: flex; flex-direction: column; gap: 24px">
+              <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
+              <div class="cm-candidates__grid" id="cm-candidates-container">
+                <!-- filled by cm-candidates.js -->
+              </div>
+
+              <!-- Alliance Table -->
+              <div class="alliance-table">
+                <div class="alliance-table__headers">
+                  <div
+                    class="alliance-table__header alliance-table__header--nda"
+                  >
+                    NDA
+                  </div>
+                  <div class="alliance-table__vdivider-head"></div>
+                  <div
+                    class="alliance-table__header alliance-table__header--spa"
+                  >
+                    SPA
+                  </div>
+                  <div class="alliance-table__vdivider-head"></div>
+                  <div
+                    class="alliance-table__header alliance-table__header--others"
+                  >
+                    Others
+                  </div>
+                </div>
+
+                <div class="alliance-table__subheaders">
+                  <div style="padding: 4px 12px">
+                    <div
+                      class="alliance-table__subheader alliance-table__subheader--nda"
+                    >
+                      <span>Parties</span><span>Seat sharing</span>
+                    </div>
+                  </div>
+                  <div class="alliance-table__vdivider"></div>
+                  <div style="padding: 4px 12px">
+                    <div
+                      class="alliance-table__subheader alliance-table__subheader--spa"
+                    >
+                      <span>Parties</span><span>Seat sharing</span>
+                    </div>
+                  </div>
+                  <div class="alliance-table__vdivider"></div>
+                  <div style="padding: 4px 12px">
+                    <div
+                      class="alliance-table__subheader alliance-table__subheader--others"
+                    >
+                      <span>Parties</span><span>Seat sharing</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alliance-table__body">
+                  <div class="alliance-table__col" id="alliance-col-nda"></div>
+                  <div class="alliance-table__vdivider"></div>
+                  <div class="alliance-table__col" id="alliance-col-spa"></div>
+                  <div class="alliance-table__vdivider"></div>
+                  <div
+                    class="alliance-table__col"
+                    id="alliance-col-others"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="alliance-table__footer">
+              <button
+                class="alliance-table__viewall-btn"
+                id="alliance-viewall-btn"
+                onclick="toggleAllianceView()"
+              >
+                View all
+              </button>
             </div>
 
-            <!-- Alliance Table -->
-            <div class="alliance-table">
-              <div class="alliance-table__headers">
-                <div class="alliance-table__header alliance-table__header--nda">
-                  NDA
-                </div>
-                <div class="alliance-table__vdivider-head"></div>
-                <div class="alliance-table__header alliance-table__header--spa">
-                  SPA
-                </div>
-                <div class="alliance-table__vdivider-head"></div>
-                <div
-                  class="alliance-table__header alliance-table__header--others"
-                >
-                  Others
-                </div>
-              </div>
-
-              <div class="alliance-table__subheaders">
-                <div
-                  class="alliance-table__subheader alliance-table__subheader--nda"
-                >
-                  <span>Parties</span><span>Seat sharing</span>
-                </div>
-                <div class="alliance-table__vdivider"></div>
-                <div
-                  class="alliance-table__subheader alliance-table__subheader--spa"
-                >
-                  <span>Parties</span><span>Seat sharing</span>
-                </div>
-                <div class="alliance-table__vdivider"></div>
-                <div
-                  class="alliance-table__subheader alliance-table__subheader--others"
-                >
-                  <span>Parties</span><span>Seat sharing</span>
-                </div>
-              </div>
-
-              <div class="alliance-table__body">
-                <div class="alliance-table__col" id="alliance-col-nda"></div>
-                <div class="alliance-table__vdivider"></div>
-                <div class="alliance-table__col" id="alliance-col-spa"></div>
-                <div class="alliance-table__vdivider"></div>
-                <div class="alliance-table__col" id="alliance-col-others"></div>
-              </div>
-
-              <div class="alliance-table__footer">
-                <button
-                  class="alliance-table__viewall-btn"
-                  id="alliance-viewall-btn"
-                  onclick="toggleAllianceView()"
-                >
-                  View all
-                </button>
-              </div>
-
-              <div class="alliance-table__total">
-                Total <strong>234</strong> seats
-              </div>
+            <div class="alliance-table__total">
+              Total <strong>234</strong> seats
             </div>
           </div>
           <!-- /map-content-right -->
@@ -218,33 +232,41 @@
         <!-- /map-body -->
 
         <!-- ── Bottom Stats Bar ── -->
-        <div class="map-stats-bar">
-          <div class="map-stats-bar__item">
-            <div class="map-stats-bar__bar map-stats-bar__bar--red"></div>
-            <div class="map-stats-bar__text">
-              <span class="map-stats-bar__label">Total Voters</span>
-              <span class="map-stats-bar__value" id="map-total-voters">—</span>
+        <div class="map-stats-bar-container">
+          <div class="map-stats-bar">
+            <div class="map-stats-bar__item">
+              <!-- <div class="map-stats-bar__bar map-stats-bar__bar--red"></div> -->
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Total Voters</span>
+                <span class="map-stats-bar__value" id="map-total-voters"
+                  >—</span
+                >
+              </div>
             </div>
-          </div>
-          <div class="map-stats-bar__item">
-            <div class="map-stats-bar__bar map-stats-bar__bar--blue"></div>
-            <div class="map-stats-bar__text">
-              <span class="map-stats-bar__label">Male</span>
-              <span class="map-stats-bar__value" id="map-voters-male">—</span>
+            <div class="map-stats-bar__item">
+              <!-- <div class="map-stats-bar__bar map-stats-bar__bar--blue"></div> -->
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Male</span>
+                <span class="map-stats-bar__value" id="map-voters-male">—</span>
+              </div>
             </div>
-          </div>
-          <div class="map-stats-bar__item">
-            <div class="map-stats-bar__bar map-stats-bar__bar--pink"></div>
-            <div class="map-stats-bar__text">
-              <span class="map-stats-bar__label">Female</span>
-              <span class="map-stats-bar__value" id="map-voters-female">—</span>
+            <div class="map-stats-bar__item">
+              <!-- <div class="map-stats-bar__bar map-stats-bar__bar--pink"></div> -->
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Female</span>
+                <span class="map-stats-bar__value" id="map-voters-female"
+                  >—</span
+                >
+              </div>
             </div>
-          </div>
-          <div class="map-stats-bar__item">
-            <div class="map-stats-bar__bar map-stats-bar__bar--green"></div>
-            <div class="map-stats-bar__text">
-              <span class="map-stats-bar__label">Others</span>
-              <span class="map-stats-bar__value" id="map-voters-others">—</span>
+            <div class="map-stats-bar__item">
+              <!-- <div class="map-stats-bar__bar map-stats-bar__bar--green"></div> -->
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Others</span>
+                <span class="map-stats-bar__value" id="map-voters-others"
+                  >—</span
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -263,7 +285,7 @@
       >
         <div class="section-header">
           <h2 class="section-title">Popular Candidates</h2>
-          <a href="candidates.html" class="hpc__viewall-btn">View all</a>
+          <!-- <a href="candidates.html" class="hpc__viewall-btn">View all</a> -->
         </div>
         <div id="popular-candidates-container"></div>
       </section>
@@ -274,11 +296,17 @@
         id="big-fights-preview-section"
       >
         <div class="section-header">
-          <h2 class="section-title">Big Fights</h2>
-          <a href="bigfights.html" class="section-viewall-btn">View all</a>
+          <div class="section-title-container">
+            <div>Big</div>
+            <div>Fights</div>
+          </div>
+          <div id="big-fights-preview-container"></div>
+        </div>
+        <div style="width: 100%;display: flex;justify-content: end;">
+        <a href="bigfights.html" class="hpc__viewall-btn">View all</a>
+
         </div>
         <!-- Your friend fills this container via js/home/big-fights-preview.js -->
-        <div id="big-fights-preview-container"></div>
       </section>
 
       <!-- SECTION 4 : MANIFESTOS -->
@@ -296,7 +324,6 @@
       </section>
 
       <section class="constituency-table-section">
-        <div id="constituency-container"></div>
       </section>
 
       <!-- ── Footer ── -->
