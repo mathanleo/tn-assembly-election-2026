@@ -1,126 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Constituency | TN Election 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="../css/global.css"/>
-  <link rel="stylesheet" href="../css/navbar.css"/>
-  <link rel="stylesheet" href="../css/constituency.css"/>
-</head>
-<body data-page="constituency">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constituency | TN Election 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/constituency.css" />
+  </head>
+  <body data-page="constituency">
+    <div id="navbar-container"></div>
 
-  <div id="navbar-container"></div>
+    <main class="const-page">
+      <!-- Back button -->
+      <div class="const-page-container">
+        <button class="const-back" onclick="goHome()">
+          ‹ <span id="const-breadcrumb">Back</span>
+        </button>
 
-  <main class="const-page">
+        <!-- Hero: two-column — left: map+description | right: candidates + history -->
+        <div class="const-hero-outer">
+          <!-- LEFT COLUMN -->
+          <div class="const-left-col">
+            <div class="const-mini-map">
+              <svg id="const-mini-svg"></svg>
+            </div>
+            <div class="const-description">
+              <p id="const-description-text"></p>
+              <div class="ministry-label">Ministery Details</div>
+              <div class="minister-cards" id="minister-cards"></div>
+            </div>
+          </div>
 
-    <!-- Back button -->
-    <button class="const-back" onclick="goHome()">
-      ‹ <span id="const-breadcrumb">Back</span>
-    </button>
+          <!-- RIGHT COLUMN: candidates + historical trajectory stacked -->
+          <div class="const-right-col">
+            <!-- Contesting Candidates -->
+            <div class="section-heading">Contesting Candidates</div>
+            <div class="candidates-scroll-wrap">
+              <div class="candidates-scroll" id="candidates-scroll"></div>
+            </div>
+            <div
+              style="text-align: right; margin-top: 12px; margin-bottom: 24px"
+            >
+              <button class="view-all-btn" id="view-all-btn">View all</button>
+            </div>
 
-    <!-- Hero: two-column — left: map+description | right: candidates + history -->
-    <div class="const-hero-outer">
-
-      <!-- LEFT COLUMN -->
-      <div class="const-left-col">
-        <div class="const-mini-map">
-          <svg id="const-mini-svg"></svg>
+            <!-- Historical Trajectory — inside right col, below candidates -->
+            <div class="section-heading">Historical Trajectory</div>
+            <div class="history-grid" id="history-cards"></div>
+          </div>
         </div>
-        <div class="const-description">
-          <p id="const-description-text"></p>
-          <div class="ministry-label">Ministery Details</div>
-          <div class="minister-cards" id="minister-cards"></div>
-        </div>
-      </div>
 
-      <!-- RIGHT COLUMN: candidates + historical trajectory stacked -->
-      <div class="const-right-col">
-
-        <!-- Contesting Candidates -->
-        <div class="section-heading">Contesting Candidates</div>
-        <div class="candidates-scroll-wrap">
-          <div class="candidates-scroll" id="candidates-scroll"></div>
-        </div>
-        <div style="text-align:right;margin-top:12px;margin-bottom:24px">
-          <button class="view-all-btn" id="view-all-btn">View all</button>
-        </div>
-
-        <!-- Historical Trajectory — inside right col, below candidates -->
-        <div class="section-heading">Historical Trajectory</div>
-        <div class="history-grid" id="history-cards"></div>
-
-      </div>
-
-    </div>
-
-    <!-- Census Details + Assembly Details -->
-    <div class="census-assembly-grid">
-
-      <!-- Census -->
-      <div class="chart-card">
-        <div class="chart-title">Census Details</div>
-        <div class="single-pie-wrap">
-
-          <!-- Voters pie -->
-          <div class="pie-block">
-            <div class="pie-sub-label">Total Voters : <span id="census-total">—</span></div>
-            <div class="pie-row">
-              <canvas id="voter-pie" width="120" height="120"></canvas>
-              <div class="pie-legend">
-                <div class="pie-legend-item">
-                  <div class="pie-dot" style="background:#3B82F6"></div>
-                  <div>
-                    <div class="pie-label">Male</div>
-                    <div class="pie-value" id="census-male">—</div>
-                  </div>
+        <!-- Census Details + Assembly Details -->
+        <div class="census-assembly-grid">
+          <!-- Census -->
+          <div class="chart-card">
+            <div class="chart-title">Census Details</div>
+            <div class="single-pie-wrap">
+              <!-- Voters pie -->
+              <div class="pie-block">
+                <div class="pie-sub-label">
+                  Total Voters : <span id="census-total">—</span>
                 </div>
-                <div class="pie-legend-item">
-                  <div class="pie-dot" style="background:#EC4899"></div>
-                  <div>
-                    <div class="pie-label">Female</div>
-                    <div class="pie-value" id="census-female">—</div>
-                  </div>
-                </div>
-                <div class="pie-legend-item">
-                  <div class="pie-dot" style="background:#94A3B8"></div>
-                  <div>
-                    <div class="pie-label">Others</div>
-                    <div class="pie-value" id="census-others">—</div>
+                <div class="pie-row">
+                  <canvas id="voter-pie" width="120" height="120"></canvas>
+                  <div class="pie-legend">
+                    <div class="pie-legend-item">
+                      <div class="pie-dot" style="background: #3b82f6"></div>
+                      <div>
+                        <div class="pie-label">Male</div>
+                        <div class="pie-value" id="census-male">—</div>
+                      </div>
+                    </div>
+                    <div class="pie-legend-item">
+                      <div class="pie-dot" style="background: #ec4899"></div>
+                      <div>
+                        <div class="pie-label">Female</div>
+                        <div class="pie-value" id="census-female">—</div>
+                      </div>
+                    </div>
+                    <div class="pie-legend-item">
+                      <div class="pie-dot" style="background: #94a3b8"></div>
+                      <div>
+                        <div class="pie-label">Others</div>
+                        <div class="pie-value" id="census-others">—</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Assembly details -->
+          <div class="chart-card">
+            <div class="chart-title">Assembly Details</div>
+            <div class="assembly-table" id="assembly-cards"></div>
+          </div>
         </div>
       </div>
+    </main>
 
-      <!-- Assembly details -->
-      <div class="chart-card">
-        <div class="chart-title">Assembly Details</div>
-        <div class="assembly-table" id="assembly-cards"></div>
-      </div>
-
-    </div>
-
-  </main>
-
-  <!-- DATA -->
-  <script src="../data/navbar.js"></script>
-  <script src="../data/constituencies.js"></script>
-  <script src="../data/results2021.js"></script>
-  <script src="../data/candidates2026.js"></script>
-  <script src="../data/all-candidates.js"></script>
-  <script src="../data/tn-map-topo.js"></script>
-  <script src="../data/constituencies-with-candidates (1).js"></script>
-  <script src="../data/history.js"></script>
-  <!-- LIBRARIES -->
-  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+    <!-- DATA -->
+    <script src="../data/navbar.js"></script>
+    <script src="../data/constituencies.js"></script>
+    <script src="../data/results2021.js"></script>
+    <script src="../data/candidates2026.js"></script>
+    <script src="../data/all-candidates.js"></script>
+    <script src="../data/tn-map-topo.js"></script>
+    <script src="../data/constituencies-with-candidates (1).js"></script>
+    <script src="../data/history.js"></script>
+    <!-- LIBRARIES -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 
   <!-- COMPONENTS + PAGE -->
   <script src="../js/components/navbar.js"></script>

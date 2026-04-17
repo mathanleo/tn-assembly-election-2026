@@ -151,7 +151,7 @@ function buildMap() {
     .attr('id', function(d) { return 'path-' + d.properties.AC_NO; })
     .attr('d', path)
     .attr('fill', '#e8eaee')
-    .attr('stroke', '#9CA3AF')
+    .attr('stroke', '#e8eaee')
     .attr('stroke-width', 0.5)
     .on('mousemove', function(event, d) {
       var name = d.properties.AC_NAME || d.properties.ac_name || '';
@@ -171,8 +171,8 @@ function buildMap() {
       d3.selectAll('.constituency-path')
         .classed('highlighted', false)
         .attr('filter', null)
-        .attr('fill', '#9CA3AF')
-        .attr('stroke', '#9CA3AF');
+        .attr('fill', '#e8eaee')
+        .attr('stroke', '#e8eaee');
       d3.select(this)
         .classed('highlighted', true)
         .attr('fill', '#FF8C00')
@@ -189,8 +189,8 @@ function buildMap() {
     d3.selectAll('.constituency-path')
       .classed('highlighted', false)
       .attr('filter', null)
-      .attr('fill', '#9CA3AF')
-      .attr('stroke', '#9CA3AF');
+      .attr('fill', '#e8eaee')
+      .attr('stroke', '#e8eaee');
     closePopup();
   });
 }
@@ -339,8 +339,8 @@ function closePopup() {
   d3.selectAll('.constituency-path')
     .classed('highlighted', false)
     .attr('filter', null)
-    .attr('fill', '#9CA3AF')
-    .attr('stroke', '#9CA3AF');
+    .attr('fill', '#e8eaee')
+    .attr('stroke', '#e8eaee');
   selectedConstId = null;
 }
 
@@ -403,8 +403,8 @@ function initSearch() {
         d3.selectAll('.constituency-path')
           .classed('highlighted', false)
           .attr('filter', null)
-          .attr('fill', '#9CA3AF')
-          .attr('stroke', '#9CA3AF');
+          .attr('fill', '#e8eaee')
+          .attr('stroke', '#e8eaee');
 
         // Apply orange hologram highlight — identical to clicking on map
         var pathEl = document.getElementById('path-' + c.id);

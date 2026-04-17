@@ -10,6 +10,12 @@
     padding: var(--gap-md);
 }
 
+@media (max-width: 576px) {
+    .const-page {
+        padding: var(--gap-sm);
+        width: 100%;
+    }
+}
 /* ── Back header ─── */
 .const-back {
     display: inline-flex;
@@ -63,6 +69,11 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    svg{
+        path{
+            stroke: #656161;
+        }
+    }
 }
 
 #const-mini-svg {
@@ -150,7 +161,7 @@
     padding: var(--gap-md);
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 /* ── Section heading ─── */
@@ -181,7 +192,7 @@
     background: #fff;
     border-radius: 14px;
     border: 2px solid #E5E7EB;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     overflow: hidden;
     flex-shrink: 0;
     cursor: pointer;
@@ -190,16 +201,33 @@
 
 .cand-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 /* Party border colors */
-.cand-card.party-dmk  { border-color: #EF4444; }
-.cand-card.party-admk { border-color: #22C55E; }
-.cand-card.party-ntk  { border-color: #16A34A; }
-.cand-card.party-tvk  { border-color: #F59E0B; }
-.cand-card.party-bjp  { border-color: #F97316; }
-.cand-card.party-inc  { border-color: #16A34A; }
+.cand-card.party-dmk {
+    border-color: #EF4444;
+}
+
+.cand-card.party-admk {
+    border-color: #22C55E;
+}
+
+.cand-card.party-ntk {
+    border-color: #16A34A;
+}
+
+.cand-card.party-tvk {
+    border-color: #F59E0B;
+}
+
+.cand-card.party-bjp {
+    border-color: #F97316;
+}
+
+.cand-card.party-inc {
+    border-color: #16A34A;
+}
 
 /* .cand-photo-wrap {
     width: 100%;
@@ -222,7 +250,8 @@
 .cand-photo-wrap {
     width: 100%;
     height: 130px;
-    background: #fff; /* Changed from gray to white */
+    background: #fff;
+    /* Changed from gray to white */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -230,14 +259,16 @@
 }
 
 .cand-photo-wrap img {
-    width: 90%; /* Slight padding so the face isn't touching borders */
+    width: 90%;
+    /* Slight padding so the face isn't touching borders */
     height: auto;
     object-fit: contain;
 }
 
 /* Round the badges like the image */
 .cand-party-badge {
-    border-radius: 4px; /* More rectangular than pill-shaped in the screenshot */
+    border-radius: 4px;
+    /* More rectangular than pill-shaped in the screenshot */
     padding: 2px 8px;
     font-size: 9px;
 }
@@ -309,12 +340,16 @@
     gap: var(--gap-md);
 }
 
-@media (min-width: 577px) {
-    .history-grid { grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 768px) {
+    .history-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (min-width: 900px) {
-    .history-grid { grid-template-columns: repeat(3, 1fr); }
+    .history-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .history-card {
@@ -522,11 +557,25 @@
 }
 
 /* Card party borders */
-.cand-card.party-dmk { border: 2px solid #EF4444; }
-.cand-card.party-admk { border: 2px solid #22C55E; }
-.cand-card.party-tvk { border: 2px solid #F59E0B; }
-.cand-card.party-bjp { border: 2px solid #F97316; }
-.cand-card.party-inc { border: 2px solid #16A34A; }
+.cand-card.party-dmk {
+    border: 2px solid #EF4444;
+}
+
+.cand-card.party-admk {
+    border: 2px solid #22C55E;
+}
+
+.cand-card.party-tvk {
+    border: 2px solid #F59E0B;
+}
+
+.cand-card.party-bjp {
+    border: 2px solid #F97316;
+}
+
+.cand-card.party-inc {
+    border: 2px solid #16A34A;
+}
 
 .cand-photo-wrap {
     height: 130px;

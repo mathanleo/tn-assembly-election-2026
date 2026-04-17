@@ -398,8 +398,8 @@ function renderMiniMap(constId){
   // all constituencies — light gray
   svg.selectAll('.bp').data(features).enter().append('path')
     .attr('d',path)
-    .attr('fill','#9CA3AF')
-    .attr('stroke','#9CA3AF')
+    .attr('fill','#e8eaee')
+    .attr('stroke','#e8eaee')
     .attr('stroke-width',0.4);
   // highlighted constituency — accent red
   var target=features.find(function(f){return String(f.properties.AC_NO)===String(constId);});
