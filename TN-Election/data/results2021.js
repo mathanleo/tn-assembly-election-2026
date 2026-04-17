@@ -3292,24 +3292,24 @@ const historyData = {
     ]
   },
   "138": {
-    "constituency_id": 66,
-    "name": "Polur",
+    "constituency_id": 138,
+    "name": "Manapaarai",
     "2021": [
       {
         "position": 1,
-        "candidate": "Agri KRISHNAMURTHY. S S",
-        "party": "AIADMK",
-        "votes": 97732,
-        "margin": 9725,
+        "candidate": "ABDUL SAMAD P",
+        "party": "DMK",
+        "votes": 98077,
+        "margin": 12243,
         "vote_share": 48.38,
         "winner": true
       },
       {
         "position": 2,
-        "candidate": "Sekaran. K.V",
-        "party": "DMK",
-        "votes": 88007,
-        "margin": -9725,
+        "candidate": "Chandrasekar R",
+        "party": "ADMK",
+        "votes": 85834,
+        "margin": -12243,
         "vote_share": 43.57,
         "winner": false
       }

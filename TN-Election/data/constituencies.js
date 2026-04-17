@@ -3306,11 +3306,11 @@ const constituenciesData = {
     "pc_name": "KARUR",
     "pc_no": 23,
     "mla_2021": "ABDUL SAMAD P",
-    "mla_party_2021": "MMK",
+    "mla_party_2021": "DMK",
     "mla_votes_2021": 0,
     "mla_margin_2021": 0,
     "current_mla": "ABDUL SAMAD P",
-    "current_mla_party": "MMK",
+    "current_mla_party": "DMK",
     "mp_name": "Jothimani S.",
     "mp_party": "INC",
     "mp_constituency": "Karur"
