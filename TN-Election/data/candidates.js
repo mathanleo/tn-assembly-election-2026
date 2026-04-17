@@ -107,15 +107,27 @@ var popularCandidates = [
   {
     "id": 3728,
     "name": "Ananthan Ayyasamy",
-    "age": "50",
-    "gender": "male",
-    "address": "8/63, AMBEDKAR NORTH STREET, VISWANATHAPERI, SIVAGIRI TALUK, TENKASI DISTRICT - 627 757",
-    "party_full": "Bharatiya Janata Party",
-    "party_short": "BJP",
-    "constituency": "Vasudevanallur",
-    "bg": "#fff3e0",
-    "accent": "#E65100",
-    "photo": "../assets/images/candidates/mla/2026/3728.jpg"
+    "full_name": "Ananthan Ayyasamy",
+    "party": "Bharatiya Janata Party (BJP)",
+    "constituency": "Vasudevanallur (SC)",
+    "ac_no": "220",
+    "date_of_birth": "27 March 1976",
+    "birth_place": "Viswanathaperi, Tamil Nadu, India",
+    "father": "Ayyasamy",
+    "children": "One Children",
+    "Case": 0,
+    "current_position": "BJP District President (Tenkasi) / Assembly Candidate (2026)",
+    "first_elected_as_mla": "N/A (Yet to win an Assembly seat)",
+    "contested_constituency": [
+      {
+        "Vasudevanallur (SC)": {
+          "year": 2026,
+          "result": "Contesting"
+        }
+      }
+    ],
+    "political_experience": "District President of BJP Tenkasi; Founder of 'Voice of Tenkasi' (Tenkasi Kural) foundation. Former Intel technologist who returned from the US to enter grassroots politics. Notable for using AI-driven sentiment analysis for his 2026 campaign.",
+    "notes": "Hails from a traditional political family; his brother A. Manoharan was the Vasudevanallur MLA in 2016. Known for advocating high-tech industrial growth (semiconductors) in rural Tamil Nadu. Nominated as the official BJP candidate for the 2026 Assembly Elections."
   },
   { "id": 2598, "name": "Ma. Subramanian", "age": "66", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Saidapet", "photo": "../assets/images/candidates/mla/2026/2598.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Ma. Subramanian", "date_of_birth": "18 June 1960", "birth_place": "Chennai, Tamil Nadu", "father": "R.MANIKKAM", "children": "Sivasri, Tejaswi", "current_position": "Minister for Health and Family Welfare, Government of Tamil Nadu", "first_elected_as_mla": "2006 (Saidapet constituency)", "political_experience": "Senior DMK leader from Chennai; MLA from Saidapet (2006, 2011, 2021); Minister for Health and Family Welfare (2021–present); re-nominated for 2026", "notes": "Minister for Health; re-nominated sitting MLA" },
   { "id": 3265, "name": "P. Geetha Jeevan", "age": "55", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Thoothukkudi", "photo": "../assets/images/candidates/mla/2026/3265.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Geetha Jeevan", "date_of_birth": "01 June 1966", "birth_place": "Thoothukudi, Tamil Nadu", "father": "N. Periasamy Nadar", "children": "Jeena Ebi Sundari, Dr. Maghil John Santhosh", "current_position": "DMK candidate, former Union Minister of State", "first_elected_as_mla": "2021 (Thoothukudi constituency)", "political_experience": "Senior DMK women leader; former Union Minister of State (UPA government); active in DMK women's wing; re-nominated sitting MLA for 2026", "notes": "Senior DMK woman leader; former union minister; re-nominated" },
