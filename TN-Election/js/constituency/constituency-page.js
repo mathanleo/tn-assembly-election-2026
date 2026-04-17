@@ -10,7 +10,8 @@ var PARTY_COLORS = {
 };
 var PARTY_ICONS = {
   DMK:'../assets/icons/dmk.svg',ADMK:'../assets/icons/admk.svg',
-  NTK:'../assets/icons/ntk.svg',TVK:'../assets/icons/tvk.svg'
+  NTK:'../assets/icons/ntk.svg',TVK:'../assets/icons/tvk.svg',
+  BJP:'../assets/icons/bjp.svg',INC:'../assets/icons/INC.svg'
 };
 function getPartyColor(p){return PARTY_COLORS[p]||PARTY_COLORS.OTHERS;}
 function goHome(){window.location.href='index.html';}
@@ -36,8 +37,10 @@ function getPartyOrder(p){
   if(key==='ADMK') return 2;
   if(key==='NTK') return 3;
   if(key==='TVK') return 4;
-  if(key==='IND' || key==='INDEPENDENT') return 5;
-  return 6;
+  if(key==='BJP') return 5;
+  if(key==='INC') return 6;
+  if(key==='IND' || key==='INDEPENDENT') return 7;
+  return 8;
 }
 
 function sortCandidatesByParty(list){
