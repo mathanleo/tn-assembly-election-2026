@@ -59162,7 +59162,7 @@ var allCandidatesByConstituency = {
       "constituency": "Chepauk-Thiruvallikeni",
       "bg": "#dceeff",
       "accent": "#1565C0",
-      "photo": "../assets/images/candidates/mla/2026/490.jpg"
+      "photo": "../assets/images/candidates/mla/2026/490.png"
     },
     {
       "id": 491,

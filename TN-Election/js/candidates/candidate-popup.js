@@ -1476,7 +1476,7 @@ function buildCompetitorCard(comp) {
   var colours = getPopupColours(partyKey);
 
   var iconPath = PARTY_ICONS[partyKey];
-  if(!iconPath) {
+  if (!iconPath) {
     // console.warn('No icon found for party:', partyKey);
     iconPath = PARTY_ICONS['IND']; // fallback to generic IND icon
   }
@@ -1530,9 +1530,7 @@ function buildLeftPanel(candidate, colours, rich) {
   var losses = (rich && rich.losses != null) ? rich.losses : (candidate.losses || 0);
 
   var hasPhoto = candidate.photo && candidate.photo.length > 0;
-  var mainPhotoHTML = hasPhoto
-    ? '<img src="' + candidate.photo + '" alt="' + candidate.name + '" class="popup-main__photo-img"/>'
-    : '<div class="popup-main__photo-placeholder">' + buildPopupSilhouette() + '</div>';
+  var mainPhotoHTML = '<img src="' + candidate.photo + '" alt="' + candidate.name + '" class="popup-main__photo-img" onerror="this.onerror=null; this.src=\'../assets/images/candidates/default/default.png\';"" />'
 
   return (
     '<div class="popup-main__photo-wrap">' + mainPhotoHTML + '</div>' +
@@ -1641,7 +1639,7 @@ function buildPopupHTML(candidate) {
   var colours = getPopupColours(partyKey);
   var rich = getRichData(candidate.id);
 
-  var constKey   = normalizeConstituencyKey(candidate.constituency);
+  var constKey = normalizeConstituencyKey(candidate.constituency);
   var allInConst = (typeof allCandidatesByConstituency !== 'undefined' && allCandidatesByConstituency[constKey]) || [];
 
   var competitorsHTML = buildCompetitorsPanel(candidate.id, allInConst);

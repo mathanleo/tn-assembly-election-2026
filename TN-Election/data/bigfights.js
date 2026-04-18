@@ -13,7 +13,7 @@ const bigFightsData = [
   {
     constituencyId: 19,
     constituency: "Chepauk-Thiruvallikeni",
-    candidate1: { id: 490,  name: "Udhayanidhi Stalin",   partyShort: "DMK",    alliance: "SPA",    allianceColor: "#E05A46", votes2021: 490,  photo: "../assets/images/candidates/mla/2026/490.jpg" },
+    candidate1: { id: 490,  name: "Udhayanidhi Stalin",   partyShort: "DMK",    alliance: "SPA",    allianceColor: "#E05A46", votes2021: 490,  photo: "../assets/images/candidates/mla/2026/490.png" },
     candidate2: { id: 466,  name: "Aadirajaram",           partyShort: "ADMK",   alliance: "NDA",    allianceColor: "#16A34A", votes2021: 466,  photo: "../assets/images/candidates/mla/2026/466.jpg" }
   },
   {

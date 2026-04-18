@@ -21,7 +21,7 @@ var RIVALRY_CONFIG = {
 var CANDIDATE_PHOTOS = {
   "M.K. Stalin":          "../assets/images/candidates/stalin.svg",
   "Edappadi Palaniswami": "../assets/images/candidates/eps.svg",
-  "Udhayanidhi Stalin":   "../assets/images/candidates/mla/2026/490.jpg"
+  "Udhayanidhi Stalin":   "../assets/images/candidates/mla/2026/490.png"
 };
 
 // -----------------------------------------------
