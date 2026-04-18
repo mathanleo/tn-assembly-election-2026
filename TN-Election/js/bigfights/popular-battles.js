@@ -85,7 +85,7 @@ function buildPopCard(match) {
 
         // Constituency title
         '<div class="pop-card__title">' +
-          match.constituency.toUpperCase() + ' · ELECTION BATTLE 2026' +
+          match.constituency.toUpperCase() +
         '</div>' +
 
         // Candidates versus row

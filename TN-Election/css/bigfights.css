@@ -10,6 +10,7 @@ body[data-page="bigfights"] main {
   flex-direction: column;
   overflow: hidden;
 }
+
 .bigfights-page {
   padding: var(--gap-md);
   width: 100%;
@@ -19,8 +20,11 @@ body[data-page="bigfights"] main {
   flex: 1;
   min-height: 0;
 }
+
 @media (min-width: 993px) {
-  .bigfights-page { padding: var(--gap-lg) var(--gap-xl); }
+  .bigfights-page {
+    padding: var(--gap-lg) var(--gap-xl);
+  }
 }
 
 /* ---------- Header Row (search + tabs) ---------- */
@@ -48,7 +52,10 @@ body[data-page="bigfights"] main {
   scrollbar-width: none;
   z-index: 100;
 }
-.bigfight-tabs::-webkit-scrollbar { display: none; }
+
+.bigfight-tabs::-webkit-scrollbar {
+  display: none;
+}
 
 .btn-group {
   display: flex;
@@ -69,11 +76,13 @@ body[data-page="bigfights"] main {
   transition: all 0.18s ease;
   white-space: nowrap;
 }
+
 .bigfight-tab--active {
   background: white;
   border-color: #E54B2A;
   color: #E54B2A;
 }
+
 .bigfight-tab:hover:not(.bigfight-tab--active) {
   border-color: var(--color-primary);
   color: var(--color-primary);
@@ -105,12 +114,15 @@ body[data-page="bigfights"] main {
   transition: border-color 0.2s ease;
   box-sizing: border-box;
 }
+
 .candidates-search__input:focus {
   border-color: var(--color-primary);
 }
+
 .candidates-search__input::placeholder {
   color: var(--color-muted);
 }
+
 .candidates-search__icon {
   position: absolute;
   left: 14px;
@@ -144,7 +156,7 @@ body[data-page="bigfights"] main {
   background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--gap-md);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
   display: flex;
   flex: 1 1 300px;
   flex-direction: column;
@@ -156,9 +168,10 @@ body[data-page="bigfights"] main {
   width: 376px;
   max-width: 400px;
 }
+
 .fight-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.11);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.11);
 }
 
 .fight-card__constituency {
@@ -193,6 +206,7 @@ body[data-page="bigfights"] main {
   height: 56px;
   flex-shrink: 0;
 }
+
 .fight-card__photo-circle {
   width: 56px;
   height: 56px;
@@ -204,6 +218,7 @@ body[data-page="bigfights"] main {
   align-items: center;
   justify-content: center;
 }
+
 .fight-card__photo-circle img {
   width: 100%;
   height: 100%;
@@ -211,6 +226,7 @@ body[data-page="bigfights"] main {
   object-position: top center;
   display: block;
 }
+
 .fight-card__photo--svg {
   width: 65%;
   height: 65%;
@@ -229,13 +245,15 @@ body[data-page="bigfights"] main {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
+
 .fight-card__party-logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
+
 .fight-card__party-logo--fallback {
   font-size: 7px;
   font-weight: 900;
@@ -244,7 +262,11 @@ body[data-page="bigfights"] main {
   text-align: center;
 }
 
-.fight-card__info { flex: 1; min-width: 0; }
+.fight-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
 .fight-card__name-line {
   font-size: var(--font-md);
   font-weight: 700;
@@ -254,11 +276,13 @@ body[data-page="bigfights"] main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .fight-card__party-inline {
   font-size: var(--font-md);
   font-weight: 700;
   color: var(--color-muted);
 }
+
 .fight-card__status {
   display: block;
   margin-top: 5px;
@@ -271,7 +295,10 @@ body[data-page="bigfights"] main {
   box-sizing: border-box;
 }
 
-.fight-card__progress-wrap { padding: 2px 0; }
+.fight-card__progress-wrap {
+  padding: 2px 0;
+}
+
 .fight-card__progress-bar {
   display: flex;
   width: 100%;
@@ -280,7 +307,10 @@ body[data-page="bigfights"] main {
   overflow: hidden;
   background: var(--color-border);
 }
-.fight-card__bar { height: 100%; }
+
+.fight-card__bar {
+  height: 100%;
+}
 
 .bigfight-empty {
   grid-column: 1 / -1;
@@ -300,15 +330,23 @@ body[data-page="bigfights"] main {
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   z-index: 300;
   min-width: 240px;
   overflow: hidden;
   animation: dropIn 0.15s ease both;
 }
+
 @keyframes dropIn {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .pop-dd__item {
@@ -320,9 +358,18 @@ body[data-page="bigfights"] main {
   transition: background 0.12s;
   border-bottom: 1px solid var(--color-border);
 }
-.pop-dd__item:last-child { border-bottom: none; }
-.pop-dd__item:hover { background: var(--color-bg); }
-.pop-dd__item--active { background: #fff8f6; }
+
+.pop-dd__item:last-child {
+  border-bottom: none;
+}
+
+.pop-dd__item:hover {
+  background: var(--color-bg);
+}
+
+.pop-dd__item--active {
+  background: #fff8f6;
+}
 
 .pop-dd__pill {
   display: inline-flex;
@@ -336,18 +383,21 @@ body[data-page="bigfights"] main {
   white-space: nowrap;
   background: linear-gradient(red, black);
 }
+
 .pop-dd__icon {
   width: 16px;
   height: 16px;
   object-fit: contain;
   border-radius: 50%;
 }
+
 .pop-dd__sep {
   font-size: var(--font-xs);
   font-weight: 700;
   color: var(--color-muted);
   flex-shrink: 0;
 }
+
 .pop-dd__check {
   margin-left: auto;
   font-size: var(--font-sm);
@@ -364,6 +414,7 @@ body[data-page="bigfights"] main {
   color: var(--color-muted);
   margin-bottom: var(--gap-md);
 }
+
 .pop-results-count__num {
   font-size: var(--font-xl);
   font-weight: 900;
@@ -379,11 +430,17 @@ body[data-page="bigfights"] main {
   gap: var(--gap-md);
   width: 100%;
 }
+
 @media (min-width: 577px) {
-  .pop-grid { grid-template-columns: repeat(2, 1fr); }
+  .pop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
 @media (min-width: 993px) {
-  .pop-grid { grid-template-columns: repeat(3, 1fr); }
+  .pop-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ---------- Popular Battle Card ---------- */
@@ -393,12 +450,13 @@ body[data-page="bigfights"] main {
   position: relative;
   background: #FFFFFF;
   opacity: 80%;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
   min-height: 180px;
 }
+
 .pop-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
 }
 
 .pop-card__bg {
@@ -406,6 +464,7 @@ body[data-page="bigfights"] main {
   inset: 0;
   z-index: 0;
 }
+
 .pop-card__glow {
   position: absolute;
   inset: 0;
@@ -415,6 +474,7 @@ body[data-page="bigfights"] main {
   pointer-events: none;
   opacity: 0;
 }
+
 .pop-card__content {
   position: relative;
   z-index: 2;
@@ -423,11 +483,12 @@ body[data-page="bigfights"] main {
   flex-direction: column;
   padding: 10px 14px 14px;
 }
+
 .pop-card__title {
   text-align: center;
   font-size: 12px;
   font-weight: 900;
-  color: black;
+  color: white;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   background: transparent;
@@ -439,6 +500,7 @@ body[data-page="bigfights"] main {
   text-overflow: ellipsis;
   z-index: 4;
 }
+
 .pop-card__versus {
   display: flex;
   align-items: flex-end;
@@ -446,6 +508,7 @@ body[data-page="bigfights"] main {
   flex: 1;
   gap: 4px;
 }
+
 .pop-card__candidate {
   display: flex;
   flex-direction: column;
@@ -453,6 +516,7 @@ body[data-page="bigfights"] main {
   gap: 5px;
   flex: 1;
 }
+
 .pop-card__photo-wrap {
   position: relative;
   display: flex;
@@ -463,15 +527,19 @@ body[data-page="bigfights"] main {
   border-radius: 64px;
   overflow: hidden;
 }
+
 .pop-card__photo {
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: bottom;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.45));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
 }
-.pop-card__photo--flip { transform: scaleX(-1); }
+
+.pop-card__photo--flip {
+  transform: scaleX(-1);
+}
 
 .pop-card__badge {
   position: absolute;
@@ -486,41 +554,52 @@ body[data-page="bigfights"] main {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
+
 .pop-card__badge img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
+
 .pop-card__badge-text {
   font-size: 6px;
   font-weight: 900;
   color: #fff;
   line-height: 1;
 }
+
 .pop-card__name {
-  font-size: 9px;
-  font-weight: 800;
-  color: rgba(255,255,255,0.92);
+  font-family: Inter;
+  font-weight: 600;
+  font-style: Semi Bold;
+  color: white;
+  font-size: 16px;
+  leading-trim: NONE;
+  line-height: 16px;
+  letter-spacing: 0%;
   text-align: center;
-  line-height: 1.3;
-  max-width: 90px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
 }
+
 .pop-card__party-label {
-  font-size: 8px;
-  font-weight: 900;
-  letter-spacing: 0.05em;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 10px;
+  leading-trim: NONE;
+  line-height: 12px;
+  letter-spacing: 0%;
   text-align: center;
+  color: white !important;
 }
+
 .pop-card__vs {
   font-size: 18px;
   font-weight: 900;
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 0 12px rgba(255,220,80,0.5);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 12px rgba(255, 220, 80, 0.5);
   flex-shrink: 0;
   align-self: center;
   padding-bottom: 20px;
