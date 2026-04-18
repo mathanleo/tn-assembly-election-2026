@@ -261,7 +261,7 @@ function renderCandidates(constId){
       :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">'+cand.party.slice(0,2)+'</div>';
 
     var ph=cand.photo
-      ?'<img src="'+cand.photo+'" alt="'+cand.name+'" onerror="this.parentElement.style.background=\'#F1F5F9\'">'
+      ?'<img src="'+cand.photo+'" alt="'+cand.name+'" onerror="this.onerror=null; this.src=\'../assets/images/candidates/default/default.png\';"" />'
       :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#CBD5E1">'+cand.name[0]+'</div>';
 
     return `
@@ -502,7 +502,7 @@ function viewAllCandidates(constId){
       :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">'+cand.party.slice(0,2)+'</div>';
 
     var ph=cand.photo
-      ?'<img src="'+cand.photo+'" alt="'+cand.name+'" onerror="this.parentElement.style.background=\'#F1F5F9\'">'
+      ?'<img src="'+cand.photo+'" alt="'+cand.name+'" onerror="this.onerror=null; this.src=\'../assets/images/candidates/default/default.png\';"" />'
       :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#CBD5E1">'+cand.name[0]+'</div>';
 
     return `

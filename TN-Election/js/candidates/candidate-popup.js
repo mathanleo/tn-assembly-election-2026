@@ -460,7 +460,7 @@
 //   var competitors = allInConst.filter(function(comp) {
 //     return String(comp.id) !== String(candidate.id);
 //   });
- 
+
 //   var sorted = sortCompetitors(competitors);
 
 //   var competitorsHTML = sorted.length > 0
@@ -633,21 +633,21 @@
 // function attachCardClickHandlers() {
 //   var grid = document.getElementById('candidates-grid');
 //   if (!grid) return;
- 
+
 //   grid.addEventListener('click', function(e) {
 //     var card = e.target.closest('.candidate-card');
 //     if (!card) return;
- 
+
 //     var candidateId = card.dataset.candidateId;
 //     if (!candidateId) return;
- 
+
 //     var allArrays = [
 //       typeof popularCandidates      !== 'undefined' ? popularCandidates      : [],
 //       typeof celebrityCandidates    !== 'undefined' ? celebrityCandidates    : [],
 //       typeof experiencedCandidates  !== 'undefined' ? experiencedCandidates  : [],
 //       typeof professionalCandidates !== 'undefined' ? professionalCandidates : []
 //     ];
- 
+
 //     var found = null;
 //     for (var i = 0; i < allArrays.length && !found; i++) {
 //       for (var j = 0; j < allArrays[i].length; j++) {
@@ -657,16 +657,16 @@
 //         }
 //       }
 //     }
- 
+
 //     if (found) openPopup(found);
 //   });
 // }
- 
+
 // document.addEventListener('DOMContentLoaded', function() {
 //   ensurePopupDOM();
 //   attachCardClickHandlers();
 // });
- // ============================================
+// ============================================
 // js/candidates/candidate-popup.js
 // Candidate detail popup — matches Figma design (Image 1)
 //
@@ -1146,7 +1146,7 @@
 //   var competitors = allInConst.filter(function(comp) {
 //     return String(comp.id) !== String(candidate.id);
 //   });
- 
+
 //   var sorted = sortCompetitors(competitors);
 
 //   var competitorsHTML = sorted.length > 0
@@ -1319,21 +1319,21 @@
 // function attachCardClickHandlers() {
 //   var grid = document.getElementById('candidates-grid');
 //   if (!grid) return;
- 
+
 //   grid.addEventListener('click', function(e) {
 //     var card = e.target.closest('.candidate-card');
 //     if (!card) return;
- 
+
 //     var candidateId = card.dataset.candidateId;
 //     if (!candidateId) return;
- 
+
 //     var allArrays = [
 //       typeof popularCandidates      !== 'undefined' ? popularCandidates      : [],
 //       typeof celebrityCandidates    !== 'undefined' ? celebrityCandidates    : [],
 //       typeof experiencedCandidates  !== 'undefined' ? experiencedCandidates  : [],
 //       typeof professionalCandidates !== 'undefined' ? professionalCandidates : []
 //     ];
- 
+
 //     var found = null;
 //     for (var i = 0; i < allArrays.length && !found; i++) {
 //       for (var j = 0; j < allArrays[i].length; j++) {
@@ -1343,16 +1343,16 @@
 //         }
 //       }
 //     }
- 
+
 //     if (found) openPopup(found);
 //   });
 // }
- 
+
 // document.addEventListener('DOMContentLoaded', function() {
 //   ensurePopupDOM();
 //   attachCardClickHandlers();
 // });
- // ============================================
+// ============================================
 // js/candidates/candidate-popup.js
 // Candidate detail popup — matches Figma design (Image 1)
 //
@@ -1381,9 +1381,9 @@
 function buildPopupSilhouette() {
   return (
     '<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">' +
-      '<rect width="80" height="80" fill="#e2e8f0"/>' +
-      '<circle cx="40" cy="28" r="16" fill="#b0bec5"/>' +
-      '<ellipse cx="40" cy="75" rx="26" ry="20" fill="#b0bec5"/>' +
+    '<rect width="80" height="80" fill="#e2e8f0"/>' +
+    '<circle cx="40" cy="28" r="16" fill="#b0bec5"/>' +
+    '<ellipse cx="40" cy="75" rx="26" ry="20" fill="#b0bec5"/>' +
     '</svg>'
   );
 }
@@ -1392,16 +1392,16 @@ function buildPopupSilhouette() {
 // Alliance colour lookup
 // -----------------------------------------------
 var POPUP_ALLIANCE_PARTIES = {
-  NDA:  ['ADMK','AIADMK','BJP','PMK','AMMK','TMC','IJK','PBK','PNK','STMK','TM-BSP','SIFB','TMMK'],
-  SPA:  ['DMK','INC','CPI','CPI(M)','CPM','VCK','MDMK','DMDK','IUML','KMDK','MMK','MJK','MPP','SDPI','TDK'],
-  TVK:  ['TVK'],
-  NTK:  ['NTK']
+  NDA: ['ADMK', 'AIADMK', 'BJP', 'PMK', 'AMMK', 'TMC', 'IJK', 'PBK', 'PNK', 'STMK', 'TM-BSP', 'SIFB', 'TMMK'],
+  SPA: ['DMK', 'INC', 'CPI', 'CPI(M)', 'CPM', 'VCK', 'MDMK', 'DMDK', 'IUML', 'KMDK', 'MMK', 'MJK', 'MPP', 'SDPI', 'TDK'],
+  TVK: ['TVK'],
+  NTK: ['NTK']
 };
 var POPUP_ALLIANCE_COLOURS = {
-  NDA:  { bg: '#F97256', bar: '#FDA29B', text: '#000' },
-  SPA:  { bg: '#6172F3', bar: '#A4BCFD', text: '#000' },
-  TVK:  { bg: '#FEDF89', bar: '#FDB022', text: '#000' },
-  NTK:  { bg: '#D1FADF', bar: '#039855', text: '#000' }
+  NDA: { bg: '#F97256', bar: '#FDA29B', text: '#000' },
+  SPA: { bg: '#6172F3', bar: '#A4BCFD', text: '#000' },
+  TVK: { bg: '#FEDF89', bar: '#FDB022', text: '#000' },
+  NTK: { bg: '#D1FADF', bar: '#039855', text: '#000' }
 };
 
 function getPopupColours(partyShort) {
@@ -1436,29 +1436,63 @@ var _currentConstituencyList = [];
 // data-comp-id attr enables click-to-swap
 // -----------------------------------------------
 function buildCompetitorCard(comp) {
-  var partyKey  = (comp.party_short || '').trim();
-  var colours   = getPopupColours(partyKey);
-  var iconPath  = (typeof PARTY_ICONS !== 'undefined') ? PARTY_ICONS[partyKey] : null;
+  var PARTY_ICONS = {
+    "DMK": "../assets/icons/dmk.svg",
+    "ADMK": "../assets/icons/admk.svg",
+    "AIADMK": "../assets/icons/admk.svg",
 
+    "NTK": "../assets/icons/ntk.svg",
+    "TVK": "../assets/icons/tvk.svg",
+
+    "BJP": "../assets/icons/bjp.svg",
+    "INC": "../assets/icons/INC.svg",
+
+    "PMK": "../assets/icons/pmk.png",
+    "BSP": "../assets/icons/bsp.png",
+
+    "CPI": "../assets/icons/cpi.webp",
+    "CPI(M)": "../assets/icons/CPI(M).png",
+
+    "DMDK": "../assets/icons/dmdk.png",
+    "AMMK": "../assets/icons/ammk.webp",
+
+    "IUML": "../assets/icons/iuml.png",
+    "TMC": "../assets/icons/TMC.png",
+
+    "VCK": "../assets/icons/vck.jpg",
+
+    "TVMK": "../assets/icons/tvmk.avif",
+
+    // fallback (important)
+    "IND": "../assets/icons/IND.jpg"
+  };
+  var partyKey = (comp.party_short || '').trim();
+  var colours = getPopupColours(partyKey);
+
+  var iconPath = PARTY_ICONS[partyKey];
+  if(!iconPath) {
+    // console.warn('No icon found for party:', partyKey);
+    iconPath = PARTY_ICONS['IND']; // fallback to generic IND icon
+  }
   var badgeInner = iconPath
     ? '<img src="' + iconPath + '" alt="' + partyKey + '" style="width:100%;height:100%;object-fit:contain"/>'
-    : '<span style="font-size:5px;font-weight:900;color:#fff;line-height:1;text-align:center;display:block;padding:1px">' + partyKey.slice(0,4) + '</span>';
+    : '<span style="font-size:5px;font-weight:900;color:#fff;line-height:1;text-align:center;display:block;padding:1px">' + partyKey.slice(0, 4) + '</span>';
 
   var hasPhoto = comp.photo && comp.photo.length > 0;
   var photoHTML = hasPhoto
     ? '<img src="' + comp.photo + '" alt="' + comp.name + '" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block" onerror="this.onerror=null; this.src=\'../assets/images/candidates/default/default.png\';"" />'
     : buildPopupSilhouette();
   return (
-    '<div class="pcomp-card" data-comp-id="' + comp.id + '" style="cursor:pointer" title="View ' + (comp.name||'').trim() + '">' +
-      '<div class="pcomp-card__photo-wrap">' + photoHTML + '</div>' +
-      '<div class="pcomp-card__body" style="background:' + colours.bg + '">' +
-        '<p class="pcomp-card__name" style="color:' + colours.text + '">' + (comp.name || '').trim() + '</p>' +
-        '<p class="pcomp-card__const" style="color:' + colours.text + '">' + (comp.constituency || '').trim() + '</p>' +
-        '<div class="pcomp-card__logo" style="background:' + (iconPath ? '#fff' : colours.bar) + '">' + badgeInner + '</div>' +
-        '<div class="pcomp-card__bar" style="background:' + colours.bar + '">' +
-          '<span style="color:#fff;font-size:9px;font-weight:800;letter-spacing:.02em">' + partyKey.slice(0,6) + '</span>' +
-        '</div>' +
-      '</div>' +
+    '<div class="pcomp-card" data-comp-id="' + comp.id + '" style="cursor:pointer" title="View ' + (comp.name || '').trim() + '">' +
+    '<div class="pcomp-card__photo-wrap">' + photoHTML + '</div>' +
+    '<div class="pcomp-card__body" style="background:' + colours.bg + '">' +
+    '<p class="pcomp-card__name" style="color:' + colours.text + '">' + (comp.name || '').trim() + '</p>' +
+    '<p class="pcomp-card__const" style="color:' + colours.text + '">' + (comp.constituency || '').trim() + '</p>' +
+    '<div class="pcomp-card__logo" style="background:' + (iconPath ? '#fff' : colours.bar) + '">' + badgeInner + '</div>' +
+    '<div class="pcomp-card__bar" style="background:' + colours.bar + '">' +
+    '<span style="color:#fff;font-size:9px;font-weight:800;letter-spacing:.02em">' + partyKey.slice(0, 6) + '</span>' +
+    '</div>' +
+    '</div>' +
     '</div>'
   );
 }
@@ -1471,12 +1505,12 @@ function buildWinsBar(wins, losses) {
   var pct = total > 0 ? Math.round((w / total) * 100) : 0;
   return (
     '<div class="popup-wins-wrap">' +
-      '<div class="popup-wins-label">History of Elections</div>' +
-      '<div class="popup-wins-counts">' +
-        '<span class="popup-wins-w">' + w + ' Wins</span>' +
-        '<span class="popup-wins-l">' + l + ' Losses</span>' +
-      '</div>' +
-      '<div class="popup-wins-bar"><div class="popup-wins-bar__fill" style="width:' + pct + '%"></div></div>' +
+    '<div class="popup-wins-label">History of Elections</div>' +
+    '<div class="popup-wins-counts">' +
+    '<span class="popup-wins-w">' + w + ' Wins</span>' +
+    '<span class="popup-wins-l">' + l + ' Losses</span>' +
+    '</div>' +
+    '<div class="popup-wins-bar"><div class="popup-wins-bar__fill" style="width:' + pct + '%"></div></div>' +
     '</div>'
   );
 }
@@ -1486,7 +1520,7 @@ function buildWinsBar(wins, losses) {
 // Extracted so competitor-click can re-render just this part
 // -----------------------------------------------
 function buildLeftPanel(candidate, colours, rich) {
-  var wins   = (rich && rich.wins   != null) ? rich.wins   : (candidate.wins   || 0);
+  var wins = (rich && rich.wins != null) ? rich.wins : (candidate.wins || 0);
   var losses = (rich && rich.losses != null) ? rich.losses : (candidate.losses || 0);
 
   var hasPhoto = candidate.photo && candidate.photo.length > 0;
@@ -1497,10 +1531,10 @@ function buildLeftPanel(candidate, colours, rich) {
   return (
     '<div class="popup-main__photo-wrap">' + mainPhotoHTML + '</div>' +
     '<div class="popup-main__info">' +
-      '<h2 class="popup-main__name" style="color:' + colours.bg + '">' + (candidate.name || '').trim() + '</h2>' +
-      '<div class="popup-main__constituency-pill" style="background:' + colours.bg + ';color:#fff">' + (candidate.constituency || '').toUpperCase() + '</div>' +
-      '<div class="popup-main__party">' + (candidate.party_full || (candidate.party_short||'').trim()) + '</div>' +
-      buildWinsBar(wins, losses) +
+    '<h2 class="popup-main__name" style="color:' + colours.bg + '">' + (candidate.name || '').trim() + '</h2>' +
+    '<div class="popup-main__constituency-pill" style="background:' + colours.bg + ';color:#fff">' + (candidate.constituency || '').toUpperCase() + '</div>' +
+    '<div class="popup-main__party">' + (candidate.party_full || (candidate.party_short || '').trim()) + '</div>' +
+    buildWinsBar(wins, losses) +
     '</div>'
   );
 }
@@ -1510,11 +1544,11 @@ function buildLeftPanel(candidate, colours, rich) {
 // -----------------------------------------------
 function buildCompetitorsPanel(mainCandidateId, allInConst) {
   var rivals = allInConst
-    .filter(function(c) { return String(c.id) !== String(mainCandidateId); })
-    .sort(function(a, b) {
-      var order = ['DMK','ADMK','NTK','TVK'];
-      var ai = order.indexOf((a.party_short||'').trim()); if (ai === -1) ai = 999;
-      var bi = order.indexOf((b.party_short||'').trim()); if (bi === -1) bi = 999;
+    .filter(function (c) { return String(c.id) !== String(mainCandidateId); })
+    .sort(function (a, b) {
+      var order = ['DMK', 'ADMK', 'NTK', 'TVK'];
+      var ai = order.indexOf((a.party_short || '').trim()); if (ai === -1) ai = 999;
+      var bi = order.indexOf((b.party_short || '').trim()); if (bi === -1) bi = 999;
       return ai - bi;
     });
 
@@ -1527,36 +1561,36 @@ function buildCompetitorsPanel(mainCandidateId, allInConst) {
 // Build bottom details + sections HTML
 // -----------------------------------------------
 function buildBottomHTML(candidate, rich) {
-  var partyKey     = (candidate.party_short || '').trim();
-  var displayName  = (rich && rich.full_name)          || candidate.name     || '';
-  var dob          = (rich && rich.date_of_birth)      || '—';
-  var birthPlace   = (rich && rich.birth_place)        || '—';
-  var father       = (rich && rich.father)             || '—';
-  var children     = (rich && rich.children)           || '—';
-  var currentPos   = (rich && rich.current_position)   || '—';
+  var partyKey = (candidate.party_short || '').trim();
+  var displayName = (rich && rich.full_name) || candidate.name || '';
+  var dob = (rich && rich.date_of_birth) || '—';
+  var birthPlace = (rich && rich.birth_place) || '—';
+  var father = (rich && rich.father) || '—';
+  var children = (rich && rich.children) || '—';
+  var currentPos = (rich && rich.current_position) || '—';
   var firstElected = (rich && rich.first_elected_as_mla) || '—';
-  var polExp       = (rich && rich.political_experience)  || '—';
-  var aboutText    = (rich && rich.about)              || '';
+  var polExp = (rich && rich.political_experience) || '—';
+  var aboutText = (rich && rich.about) || '';
 
   function detailRows(arr) {
-    return arr.map(function(r) {
+    return arr.map(function (r) {
       return '<div class="popup-details__row"><span class="popup-details__label">' + r.label + '</span><span class="popup-details__value">: ' + r.value + '</span></div>';
     }).join('');
   }
 
   var personalRows = [
-    { label: 'Full Name',     value: displayName },
+    { label: 'Full Name', value: displayName },
     { label: 'Date of Birth', value: dob },
-    { label: 'Birth Place',   value: birthPlace },
-    { label: 'Father',        value: father },
-    { label: 'Children',      value: children },
+    { label: 'Birth Place', value: birthPlace },
+    { label: 'Father', value: father },
+    { label: 'Children', value: children },
   ];
   var politicalRows = [
-    { label: 'Party',               value: candidate.party_full || partyKey || '—' },
-    { label: 'Constituency',        value: (candidate.constituency || '—').trim() },
-    { label: 'Current Position',    value: currentPos },
-    { label: 'First Elected as MLA',value: firstElected },
-    { label: 'Political Experience',value: polExp },
+    { label: 'Party', value: candidate.party_full || partyKey || '—' },
+    { label: 'Constituency', value: (candidate.constituency || '—').trim() },
+    { label: 'Current Position', value: currentPos },
+    { label: 'First Elected as MLA', value: firstElected },
+    { label: 'Political Experience', value: polExp },
   ];
 
   var aboutHTML = aboutText
@@ -1567,8 +1601,8 @@ function buildBottomHTML(candidate, rich) {
 
   return (
     '<div class="popup-details-grid">' +
-      '<div class="popup-details-col"><div class="popup-details__heading">Personal Details</div>' + detailRows(personalRows) + '</div>' +
-      '<div class="popup-details-col"><div class="popup-details__heading">Political Details</div>' + detailRows(politicalRows) + '</div>' +
+    '<div class="popup-details-col"><div class="popup-details__heading">Personal Details</div>' + detailRows(personalRows) + '</div>' +
+    '<div class="popup-details-col"><div class="popup-details__heading">Political Details</div>' + detailRows(politicalRows) + '</div>' +
     '</div>' +
     aboutHTML +
     histHTML
@@ -1580,10 +1614,10 @@ function buildBottomHTML(candidate, rich) {
 // -----------------------------------------------
 function buildHistoryTable(history) {
   if (!history || history.length === 0) return '';
-  var rows = history.map(function(h) {
-    var isWon = (h.result||'').toLowerCase().indexOf('won') !== -1;
+  var rows = history.map(function (h) {
+    var isWon = (h.result || '').toLowerCase().indexOf('won') !== -1;
     var cls = isWon ? 'popup-hist__won' : 'popup-hist__lost';
-    return '<tr><td class="popup-hist__td">' + (h.constituency||'') + '</td><td class="popup-hist__td">' + (h.year||'') + '</td><td class="popup-hist__td">' + (h.party||'') + '</td><td class="popup-hist__td"><span class="popup-hist__result ' + cls + '">' + (h.result||'') + '</span></td></tr>';
+    return '<tr><td class="popup-hist__td">' + (h.constituency || '') + '</td><td class="popup-hist__td">' + (h.year || '') + '</td><td class="popup-hist__td">' + (h.party || '') + '</td><td class="popup-hist__td"><span class="popup-hist__result ' + cls + '">' + (h.result || '') + '</span></td></tr>';
   }).join('');
   return (
     '<div class="popup-hist-wrap"><div class="popup-section-title">Election History</div>' +
@@ -1598,51 +1632,51 @@ function buildHistoryTable(history) {
 // -----------------------------------------------
 function buildPopupHTML(candidate) {
   var partyKey = (candidate.party_short || '').trim();
-  var colours  = getPopupColours(partyKey);
-  var rich     = getRichData(candidate.id);
+  var colours = getPopupColours(partyKey);
+  var rich = getRichData(candidate.id);
 
-  var constKey   = (candidate.constituency || '').toUpperCase();
+  var constKey = (candidate.constituency || '').toUpperCase();
   var allInConst = (typeof allCandidatesByConstituency !== 'undefined' && allCandidatesByConstituency[constKey]) || [];
 
   var competitorsHTML = buildCompetitorsPanel(candidate.id, allInConst);
 
   return (
     '<div class="popup-overlay" id="candidate-popup-overlay">' +
-      '<div class="popup-modal" role="dialog" aria-modal="true">' +
+    '<div class="popup-modal" role="dialog" aria-modal="true">' +
 
-        '<div class="popup-header">' +
-          '<button class="popup-header__back" id="popup-close-btn" aria-label="Close">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>' +
-          '</button>' +
-          '<span class="popup-header__title">Candidate Details</span>' +
-          '<button class="popup-header__close" id="popup-close-x" aria-label="Close">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
-          '</button>' +
-        '</div>' +
+    '<div class="popup-header">' +
+    '<button class="popup-header__back" id="popup-close-btn" aria-label="Close">' +
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>' +
+    '</button>' +
+    '<span class="popup-header__title">Candidate Details</span>' +
+    '<button class="popup-header__close" id="popup-close-x" aria-label="Close">' +
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+    '</button>' +
+    '</div>' +
 
-        '<div class="popup-body">' +
-          '<div class="popup-top-row">' +
+    '<div class="popup-body">' +
+    '<div class="popup-top-row">' +
 
-            // LEFT — re-renderable via id
-            '<div class="popup-left" id="popup-left-panel">' +
-              buildLeftPanel(candidate, colours, rich) +
-            '</div>' +
+    // LEFT — re-renderable via id
+    '<div class="popup-left" id="popup-left-panel">' +
+    buildLeftPanel(candidate, colours, rich) +
+    '</div>' +
 
-            // RIGHT — re-renderable via id
-            '<div class="popup-right">' +
-              '<div class="popup-competitors__title">2026 Competitors</div>' +
-              '<div class="popup-competitors__scroll" id="popup-competitors-scroll">' + competitorsHTML + '</div>' +
-            '</div>' +
+    // RIGHT — re-renderable via id
+    '<div class="popup-right">' +
+    '<div class="popup-competitors__title">2026 Competitors</div>' +
+    '<div class="popup-competitors__scroll" id="popup-competitors-scroll">' + competitorsHTML + '</div>' +
+    '</div>' +
 
-          '</div>' +
+    '</div>' +
 
-          // BOTTOM — re-renderable via id
-          '<div id="popup-bottom-section">' +
-            buildBottomHTML(candidate, rich) +
-          '</div>' +
+    // BOTTOM — re-renderable via id
+    '<div id="popup-bottom-section">' +
+    buildBottomHTML(candidate, rich) +
+    '</div>' +
 
-        '</div>' +
-      '</div>' +
+    '</div>' +
+    '</div>' +
     '</div>'
   );
 }
@@ -1665,8 +1699,8 @@ function handleCompetitorClick(compId) {
   _currentPopupCandidate = clicked;
 
   var partyKey = (clicked.party_short || '').trim();
-  var colours  = getPopupColours(partyKey);
-  var rich     = getRichData(clicked.id);
+  var colours = getPopupColours(partyKey);
+  var rich = getRichData(clicked.id);
 
   // Re-render left panel
   var leftPanel = document.getElementById('popup-left-panel');
@@ -1689,8 +1723,8 @@ function handleCompetitorClick(compId) {
 // -----------------------------------------------
 function attachCompetitorClickHandlers() {
   var cards = document.querySelectorAll('#popup-competitors-scroll .pcomp-card[data-comp-id]');
-  cards.forEach(function(card) {
-    card.addEventListener('click', function() {
+  cards.forEach(function (card) {
+    card.addEventListener('click', function () {
       handleCompetitorClick(card.dataset.compId);
     });
   });
@@ -1720,7 +1754,7 @@ function openCandidatePopup(candidate) {
     var overlay = document.getElementById('candidate-popup-overlay');
     if (overlay) {
       overlay.classList.add('popup-overlay--closing');
-      setTimeout(function() { overlay.remove(); }, 220);
+      setTimeout(function () { overlay.remove(); }, 220);
     }
     document.body.style.overflow = '';
     _currentPopupCandidate = null;
@@ -1729,7 +1763,7 @@ function openCandidatePopup(candidate) {
 
   document.getElementById('popup-close-btn').addEventListener('click', closePopup);
   document.getElementById('popup-close-x').addEventListener('click', closePopup);
-  document.getElementById('candidate-popup-overlay').addEventListener('click', function(e) {
+  document.getElementById('candidate-popup-overlay').addEventListener('click', function (e) {
     if (e.target === this) closePopup();
   });
   function onKey(e) {
@@ -1744,19 +1778,19 @@ function openCandidatePopup(candidate) {
 function initCandidatePopupClicks() {
   var grid = document.getElementById('candidates-grid');
   if (!grid) return;
-  grid.addEventListener('click', function(e) {
+  grid.addEventListener('click', function (e) {
     var card = e.target.closest('.candidate-card');
     if (!card || !card.dataset.candidateId) return;
     var id = card.dataset.candidateId;
     var allArrays = [
-      typeof popularCandidates      !== 'undefined' ? popularCandidates      : [],
-      typeof celebrityCandidates    !== 'undefined' ? celebrityCandidates    : [],
-      typeof experiencedCandidates  !== 'undefined' ? experiencedCandidates  : [],
+      typeof popularCandidates !== 'undefined' ? popularCandidates : [],
+      typeof celebrityCandidates !== 'undefined' ? celebrityCandidates : [],
+      typeof experiencedCandidates !== 'undefined' ? experiencedCandidates : [],
       typeof professionalCandidates !== 'undefined' ? professionalCandidates : [],
     ];
     var found = null;
     for (var i = 0; i < allArrays.length; i++) {
-      found = allArrays[i].find(function(c) { return String(c.id) === String(id); });
+      found = allArrays[i].find(function (c) { return String(c.id) === String(id); });
       if (found) break;
     }
     if (found) openCandidatePopup(found);

@@ -942,7 +942,7 @@ var ALLIANCE_COLOURS = {
   NDA: { bg: '#F97256', bar: '#FDA29B', text: '#000000' },
   SPA: { bg: '#6172F3', bar: '#A4BCFD', text: '#000000' },
   TVK: { bg: '#FEDF89', bar: '#FDB022', text: '#000000' },
-  NTK: { bg: '#D1FADF', bar: '#039855', text:'#000000'    }
+  NTK: { bg: '#D1FADF', bar: '#039855', text: '#000000' }
 };
 
 function getAllianceColours(partyShort) {
@@ -960,9 +960,9 @@ function getAllianceColours(partyShort) {
 function buildCandidateSilhouette() {
   return (
     '<svg viewBox="0 0 157 184" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">' +
-      '<rect width="157" height="184" fill="#d1d9e0"/>' +
-      '<circle cx="78" cy="70" r="38" fill="#b0bec5"/>' +
-      '<ellipse cx="78" cy="180" rx="60" ry="50" fill="#b0bec5"/>' +
+    '<rect width="157" height="184" fill="#d1d9e0"/>' +
+    '<circle cx="78" cy="70" r="38" fill="#b0bec5"/>' +
+    '<ellipse cx="78" cy="180" rx="60" ry="50" fill="#b0bec5"/>' +
     '</svg>'
   );
 }
@@ -976,39 +976,74 @@ function buildCandidateCard(candidate, index) {
     ? '<img src="' + candidate.photo + '" alt="' + candidate.name + '" />'
     : buildCandidateSilhouette();
 
-  var partyKey  = (candidate.party_short || '').trim();
+  var partyKey = (candidate.party_short || '').trim();
+
+  var PARTY_ICONS = {
+    "DMK": "../assets/icons/dmk.svg",
+    "ADMK": "../assets/icons/admk.svg",
+    "AIADMK": "../assets/icons/admk.svg",
+
+    "NTK": "../assets/icons/ntk.svg",
+    "TVK": "../assets/icons/tvk.svg",
+
+    "BJP": "../assets/icons/bjp.svg",
+    "INC": "../assets/icons/INC.svg",
+
+    "PMK": "../assets/icons/pmk.png",
+    "BSP": "../assets/icons/bsp.png",
+
+    "CPI": "../assets/icons/cpi.webp",
+    "CPI(M)": "../assets/icons/CPI(M).png",
+
+    "DMDK": "../assets/icons/dmdk.png",
+    "AMMK": "../assets/icons/ammk.webp",
+
+    "IUML": "../assets/icons/iuml.png",
+    "TMC": "../assets/icons/TMC.png",
+
+    "VCK": "../assets/icons/vck.jpg",
+
+    "TVMK": "../assets/icons/tvmk.avif",
+
+    // fallback (important)
+    "IND": "../assets/icons/IND.jpg"
+  };
+
   var iconPath = PARTY_ICONS[partyKey];
+  if(!iconPath){
+    iconPath = PARTY_ICONS['IND']; // fallback to generic "Independent" icon
+  }
   var badgeHTML = iconPath
     ? '<img src="' + iconPath + '" alt="' + candidate.party_short + '" />'
     : '<span style="font-size:7px;font-weight:900;color:white;line-height:1">' + (candidate.party_short || '').slice(0, 3) + '</span>';
 
   var animDelay = (index % 20) * 0.04;
 
-  
-  var colours   = getAllianceColours(partyKey);
-  var cardBg    = colours ? colours.bg   : candidate.bg;
-  var cardBar   = colours ? colours.bar  : candidate.accent;
+
+  var colours = getAllianceColours(partyKey);
+  var cardBg = colours ? colours.bg : candidate.bg;
+  var cardBar = colours ? colours.bar : candidate.accent;
   var nameColor = colours ? colours.text : candidate.accent;
 
   return (
     '<div class="candidate-card" data-candidate-id="' + candidate.id + '" style="animation-delay:' + animDelay + 's">' +
 
-      '<div class="candidate-card__photo-wrap">' +
-        photoHTML +
-      '</div>' +
+    '<div class="candidate-card__photo-wrap">' +
+    photoHTML +
+    '</div>' +
 
-      '<div class="candidate-card__body" style="background:' + cardBg + '">' +
-        '<div class="candidate-card__footer">' +
-          '<p class="candidate-card__name">' + (candidate.name || '').trim() + '</p>' +
-          '<p class="candidate-card__constituency">' + (candidate.constituency || '').trim() + '</p>' +
-          '<div class="candidate-card__logo-wrap">' +
-            badgeHTML +
-          '</div>' +
-          '<div class="candidate-card__party-bar" style="width:100%;background:' + cardBar + ';color:white;padding-right:8px">' +
-            partyKey +
-          '</div>' +
-        '</div>' +
-      '</div>' +
+    '<div class="candidate-card__body" style="background:' + cardBg + '">' +
+    '<div class="candidate-card__footer">' +
+    '<p class="candidate-card__name">' + (candidate.name || '').trim() + '</p>' +
+    '<p class="candidate-card__constituency">' + (candidate.constituency || '').trim() + '</p>' +
+    '<div class="candidate-card__logo-wrap">' +
+    badgeHTML +
+    '</div>' +
+    '<div class="candidate-card__party-bar" style="width:100%;background:' + cardBar + ';color:white;padding-right:8px">' +
+    partyKey +
+    '</div>' +
+    '</div>' +
+    '</div>' +
 
     '</div>'
   );
@@ -1024,9 +1059,9 @@ function renderCandidates(candidates) {
   if (!candidates || candidates.length === 0) {
     container.innerHTML =
       '<div class="candidates-coming-soon">' +
-        '<div class="candidates-coming-soon__icon">🗳️</div>' +
-        '<div class="candidates-coming-soon__text">Coming Soon</div>' +
-        '<div class="candidates-coming-soon__sub">Data for this category will be added soon.</div>' +
+      '<div class="candidates-coming-soon__icon">🗳️</div>' +
+      '<div class="candidates-coming-soon__text">Coming Soon</div>' +
+      '<div class="candidates-coming-soon__sub">Data for this category will be added soon.</div>' +
       '</div>';
     return;
   }
@@ -1043,7 +1078,7 @@ function renderCandidates(candidates) {
 function filterCandidates(candidates, query) {
   if (!query || query.trim() === '') return candidates;
   var q = query.toLowerCase().trim();
-  return candidates.filter(function(c) {
+  return candidates.filter(function (c) {
     var name = ((c && c.name) || '').toLowerCase();
     var constituency = ((c && c.constituency) || '').toLowerCase();
     var partyShort = ((c && c.party_short) || '').toLowerCase();
