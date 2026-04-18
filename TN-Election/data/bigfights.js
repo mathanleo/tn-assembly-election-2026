@@ -18,7 +18,7 @@ const bigFightsData = [
   },
   {
     constituencyId: 217,
-    constituency: "Ottapidaram",
+    constituency: "Kovilpatti",
     candidate1: { id: 1322, name: "Karunanithi K",         partyShort: "DMK",    alliance: "SPA",    allianceColor: "#E05A46", votes2021: 1322, photo: "../assets/images/candidates/mla/2026/1322.jpg" },
     candidate2: { id: 1324, name: "Pandi P",               partyShort: "NTK",    alliance: "NTK",    allianceColor: "#1a1a2e", votes2021: 1324, photo: "../assets/images/candidates/mla/2026/1324.jpg" }
   },
