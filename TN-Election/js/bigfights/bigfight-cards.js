@@ -11,10 +11,35 @@
 
 // Party icon paths — only these 4 have SVGs in assets/icons/
 var PARTY_ICONS = {
-  "DMK":  "../assets/icons/dmk.svg",
+  "DMK": "../assets/icons/dmk.svg",
   "ADMK": "../assets/icons/admk.svg",
-  "NTK":  "../assets/icons/ntk.svg",
-  "TVK":  "../assets/icons/tvk.svg"
+  "AIADMK": "../assets/icons/admk.svg",
+
+  "NTK": "../assets/icons/ntk.svg",
+  "TVK": "../assets/icons/tvk.svg",
+
+  "BJP": "../assets/icons/bjp.svg",
+  "INC": "../assets/icons/INC.svg",
+
+  "PMK": "../assets/icons/pmk.png",
+  "BSP": "../assets/icons/bsp.png",
+
+  "CPI": "../assets/icons/cpi.webp",
+  "CPI(M)": "../assets/icons/CPI(M).png",
+
+  "DMDK": "../assets/icons/dmdk.png",
+  "AMMK": "../assets/icons/ammk.webp",
+
+  "IUML": "../assets/icons/iuml.png",
+  "TMC": "../assets/icons/TMC.png",
+
+  "VCK": "../assets/icons/vck.jpg",
+
+  "TVMK": "../assets/icons/tvmk.avif",
+
+  // fallback (important)
+  "IND": "../assets/icons/IND.jpg"
+
 };
 
 // -----------------------------------------------

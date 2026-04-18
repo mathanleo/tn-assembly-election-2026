@@ -29,7 +29,18 @@ var PARTY_ICONS = {
   NTK:  '../assets/icons/ntk.svg',
   TVK:  '../assets/icons/tvk.svg',
   BJP:  '../assets/icons/bjp.svg',
-  INC:  '../assets/icons/INC.svg'
+  INC:  '../assets/icons/INC.svg',
+  CPM:  '../assets/icons/cpm.png',
+  CPI:  '../assets/icons/cpi.webp',
+  VCK:  '../assets/icons/vck.jpg',
+  PMK:  '../assets/icons/pmk.png',
+  MDMK: '../assets/icons/mdmk.svg',
+  AMMK: '../assets/icons/ammk.webp',
+  TMC:  '../assets/icons/tmc.png',
+  IJK:  '../assets/icons/ijk.svg',
+  PBK:  '../assets/icons/pbk.svg',
+  PNK:  '../assets/icons/pnk.svg',
+  IND:  '../assets/icons/independent.svg'
 };
 
 // ── State ────────────────────────────────────────────────────
@@ -229,6 +240,8 @@ function openPopup(constId, x, y, mapRect) {
   // Current MLA
   var mlaName  = c.current_mla  || c.mla_2021  || '—';
   var mlaParty = (c.current_mla_party || c.mla_party_2021 || '').replace('AIADMK', 'ADMK');
+  console.log("part:",PARTY_ICONS);
+  
   var mlaIcon  = PARTY_ICONS[mlaParty]
     ? '<img class="popup-party-icon" src="' + PARTY_ICONS[mlaParty] + '" alt="' + mlaParty + '" onerror="this.style.display=\'none\'">'
     : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (mlaParty||'?').slice(0,2) + '</div>';
@@ -241,16 +254,16 @@ function openPopup(constId, x, y, mapRect) {
       '</div>' +
     '</div>';
 
-  // Contesting Candidates - DMK and ADMK
+  // Contesting Candidates - DMK, ADMK, TVK, NTK
   var candidatesHtml = '';
   var allCandidates = [];
-  if (typeof candidates2026Data !== 'undefined' && candidates2026Data[selectedConstId]) {
-    allCandidates = candidates2026Data[selectedConstId];
-  }
-  if (allCandidates.length === 0 && typeof constituenciesWithCandidates !== 'undefined' && constituenciesWithCandidates[selectedConstId]) {
+  
+  // Prefer the full list from constituenciesWithCandidates if available
+  if (typeof constituenciesWithCandidates !== 'undefined' && constituenciesWithCandidates[selectedConstId]) {
     allCandidates = constituenciesWithCandidates[selectedConstId].candidates || [];
-  }
-  if (allCandidates.length === 0 && typeof allCandidatesByConstituency !== 'undefined') {
+  } else if (typeof candidates2026Data !== 'undefined' && candidates2026Data[selectedConstId]) {
+    allCandidates = candidates2026Data[selectedConstId];
+  } else if (typeof allCandidatesByConstituency !== 'undefined') {
     var constMeta = constituenciesData[selectedConstId] || {};
     var constName = (constMeta.name || '').toUpperCase();
     allCandidates = allCandidatesByConstituency[constName] || [];

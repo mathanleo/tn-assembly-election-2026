@@ -1425,6 +1425,12 @@ function getRichData(candidateId) {
   return null;
 }
 
+function normalizeConstituencyKey(name) {
+  var key = (name || '').toString().trim().toUpperCase();
+  if (key === 'MANAPAARAI') return 'MANAPPARAI';
+  return key;
+}
+
 // -----------------------------------------------
 // Currently shown main candidate (used for competitor click swap)
 // -----------------------------------------------
@@ -1635,7 +1641,7 @@ function buildPopupHTML(candidate) {
   var colours = getPopupColours(partyKey);
   var rich = getRichData(candidate.id);
 
-  var constKey = (candidate.constituency || '').toUpperCase();
+  var constKey   = normalizeConstituencyKey(candidate.constituency);
   var allInConst = (typeof allCandidatesByConstituency !== 'undefined' && allCandidatesByConstituency[constKey]) || [];
 
   var competitorsHTML = buildCompetitorsPanel(candidate.id, allInConst);
@@ -1739,7 +1745,7 @@ function openCandidatePopup(candidate) {
 
   // Store current state
   _currentPopupCandidate = candidate;
-  var constKey = (candidate.constituency || '').toUpperCase();
+  var constKey = normalizeConstituencyKey(candidate.constituency);
   _currentConstituencyList = (typeof allCandidatesByConstituency !== 'undefined' && allCandidatesByConstituency[constKey]) || [];
 
   var div = document.createElement('div');

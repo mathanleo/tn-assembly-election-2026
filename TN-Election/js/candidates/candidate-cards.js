@@ -1085,10 +1085,10 @@ function filterCandidates(candidates, query) {
     var partyFull = ((c && (c.party_full || c.party)) || '').toLowerCase();
 
     return (
-      name.indexOf(q) !== -1 ||
-      constituency.indexOf(q) !== -1 ||
-      partyShort.indexOf(q) !== -1 ||
-      partyFull.indexOf(q) !== -1
+      (c.name || '').toLowerCase().indexOf(q) !== -1 ||
+      (c.constituency || '').toLowerCase().indexOf(q) !== -1 ||
+      (c.party_short || '').toLowerCase().indexOf(q) !== -1 ||
+      (c.party_full || c.party || '').toLowerCase().indexOf(q) !== -1
     );
   });
 }

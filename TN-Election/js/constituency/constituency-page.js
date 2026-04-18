@@ -6,16 +6,60 @@
 var PARTY_COLORS = {
   DMK:'#1D4ED8',ADMK:'#C8282A',BJP:'#F97316',INC:'#16A34A',
   CPM:'#DC2626',CPI:'#EF4444',VCK:'#7C3AED',PMK:'#0891B2',
-  NTK:'#C2410C',TVK:'#0F766E',OTHERS:'#94A3B8'
+  NTK:'#C2410C',TVK:'#0F766E',DMDK:'#FF5722',OTHERS:'#94A3B8'
 };
+
 var PARTY_ICONS = {
-  DMK:'../assets/icons/dmk.svg',ADMK:'../assets/icons/admk.svg',
-  NTK:'../assets/icons/ntk.svg',TVK:'../assets/icons/tvk.svg',
-  BJP:'../assets/icons/bjp.svg',INC:'../assets/icons/INC.svg'
+  DMK:   '../assets/icons/dmk.svg',
+  ADMK:  '../assets/icons/admk.svg',
+  NTK:   '../assets/icons/ntk.svg',
+  TVK:   '../assets/icons/tvk.svg',
+  BJP:   '../assets/icons/bjp.svg',
+  INC:   '../assets/icons/INC.svg',
+  CPM:   '../assets/icons/cpm.png',
+  CPI:   '../assets/icons/cpi.webp',
+  VCK:   '../assets/icons/vck.jpg',
+  PMK:   '../assets/icons/pmk.png',
+  MDMK:  '../assets/icons/mdmk.svg',
+  AMMK:  '../assets/icons/ammk.webp',
+  TMC:   '../assets/icons/tmc.png',
+  IJK:   '../assets/icons/ijk.svg',
+  PBK:   '../assets/icons/pbk.svg',
+  PNK:   '../assets/icons/pnk.svg',
+  STMK:  '../assets/icons/stmk.svg',
+  TMMK:  '../assets/icons/tmmk.svg',
+  SIFB:  '../assets/icons/sifb.svg',
+  YSRC:  '../assets/icons/ysrc.svg',
+  IND:   '../assets/icons/IND.jpg',
+  DMDK:  '../assets/icons/dmdk.png',
+  MDMK:  '../assets/icons/mdmk.svg',
 };
-function getPartyColor(p){return PARTY_COLORS[p]||PARTY_COLORS.OTHERS;}
+
+var PARTY_TO_ALLIANCE = {
+  'DMK':'SPA','INC':'SPA','CPI':'SPA','CPM':'SPA','VCK':'SPA','MDMK':'SPA','YSRC':'SPA',
+  'ADMK':'NDA','BJP':'NDA','PMK':'NDA','AMMK':'NDA','TMC':'NDA','IJK':'NDA','PBK':'NDA','PNK':'NDA','STMK':'NDA','TM-BSP':'NDA','SIFB':'NDA','TMMK':'NDA',
+  'NTK':'NTK','TVK':'TVK','DMDK':'DMDK'
+};
+
+function getPartyColor(p){return PARTY_COLORS[normalizePartyKey(p)]||PARTY_COLORS.OTHERS;}
 function goHome(){window.location.href='index.html';}
 function fmt(n){return Number(n).toLocaleString('en-IN');}
+
+// Returns an <img> for known parties, or a 2-letter tile fallback.
+// Normalizes the party key before lookup so casing/whitespace never causes misses.
+function getPartyIcon(party){
+  var key=normalizePartyKey(party);
+  // console.log("ey:",key);
+  
+  var src=PARTY_ICONS[key];
+  if(!src){
+    src=PARTY_ICONS["IND"];
+  }
+  // console.log("scr:",src);
+  
+  return '<img src="'+src+'" alt="'+key+'" onerror="this.style.display=\'none\'">';
+  // return '<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">'+key.slice(0,2)+'</div>';
+}
 
 function renderHeader(c){
   document.title=c.name+' | TN Election 2026';
@@ -31,25 +75,63 @@ function getMLAImagePath(constituencyId){
   return '../assets/images/candidates/mla/2021/'+constituencyId+'.jpg';
 }
 
+function getAllianceOrder(p){
+  var alliance=(PARTY_TO_ALLIANCE[normalizePartyKey(p)]||'OTHERS').toUpperCase();
+  if(alliance==='DMDK') return 0;
+  if(alliance==='SPA') return 1;
+  if(alliance==='NDA') return 2;
+  if(alliance==='NTK') return 3;
+  if(alliance==='TVK') return 4;
+  return 5;
+}
+
+function getPartyOrderWithinAlliance(p){
+  var key=normalizePartyKey(p);
+  var alliance=PARTY_TO_ALLIANCE[key]||'OTHERS';
+
+  if(alliance==='SPA'){
+    if(key==='DMK') return 1;
+    if(key==='INC') return 2;
+    if(key==='VCK') return 3;
+    if(key==='CPI') return 4;
+    if(key==='CPM') return 5;
+    if(key==='MDMK') return 6;
+    return 7;
+  }
+  if(alliance==='NDA'){
+    if(key==='ADMK') return 1;
+    if(key==='BJP') return 2;
+    if(key==='PMK') return 3;
+    if(key==='AMMK') return 4;
+    return 5;
+  }
+  if(alliance==='NTK') return 1;
+  if(alliance==='TVK') return 1;
+  return 1;
+}
+
+function sortCandidatesByParty(list){
+  return list.slice().sort(function(a,b){
+    var orderA=getAllianceOrder(a.party);
+    var orderB=getAllianceOrder(b.party);
+    if(orderA!==orderB) return orderA-orderB;
+    var partyOrderA=getPartyOrderWithinAlliance(a.party);
+    var partyOrderB=getPartyOrderWithinAlliance(b.party);
+    if(partyOrderA!==partyOrderB) return partyOrderA-partyOrderB;
+    return String(a.name||'').localeCompare(String(b.name||''), 'en', {sensitivity:'base'});
+  });
+}
+
 function getPartyOrder(p){
-  var key=(p||'').toUpperCase();
+  var key=normalizePartyKey(p);
   if(key==='DMK') return 1;
   if(key==='ADMK') return 2;
   if(key==='NTK') return 3;
   if(key==='TVK') return 4;
   if(key==='BJP') return 5;
   if(key==='INC') return 6;
-  if(key==='IND' || key==='INDEPENDENT') return 7;
+  if(key==='IND'||key==='INDEPENDENT') return 7;
   return 8;
-}
-
-function sortCandidatesByParty(list){
-  return list.slice().sort(function(a,b){
-    var orderA=getPartyOrder(a.party);
-    var orderB=getPartyOrder(b.party);
-    if(orderA!==orderB) return orderA-orderB;
-    return String(a.name||'').localeCompare(String(b.name||''), 'en', {sensitivity:'base'});
-  });
 }
 
 function normalizePartyKey(p){
@@ -57,9 +139,8 @@ function normalizePartyKey(p){
 }
 
 function normalizeConstituencyKey(name){
-  var key = (name||'').toString().trim().toUpperCase();
-  // Normalize alternate spellings / mismatches in constituency lookup keys
-  if(key === 'MANAPAARAI') return 'MANAPPARAI';
+  var key=(name||'').toString().trim().toUpperCase();
+  if(key==='MANAPAARAI') return 'MANAPPARAI';
   return key;
 }
 
@@ -91,7 +172,7 @@ function candidateTailKey(name){
 }
 
 function findMatchingCandidate(cand, candidateList){
-  if(!cand || !candidateList || !candidateList.length) return null;
+  if(!cand||!candidateList||!candidateList.length) return null;
   var candName=normalizeCandidateName(cand.name||cand.candidate||'');
   var candParty=normalizePartyKey(cand.party||cand.party_short||cand.party_full||'');
   if(!candName) return null;
@@ -100,7 +181,7 @@ function findMatchingCandidate(cand, candidateList){
     if(!item.name) return false;
     var itemName=normalizeCandidateName(item.name);
     var itemParty=normalizePartyKey(item.party_short||item.party||item.party_full||'');
-    return itemName===candName && (!candParty || !itemParty || itemParty===candParty);
+    return itemName===candName&&(!candParty||!itemParty||itemParty===candParty);
   });
   if(exactMatch) return exactMatch;
 
@@ -114,43 +195,50 @@ function findMatchingCandidate(cand, candidateList){
     var itemTail=candidateTailKey(itemName);
     var itemParty=normalizePartyKey(item.party_short||item.party||item.party_full||'');
 
-    if(itemKey && candidateKey && itemKey===candidateKey) {
-      return !candParty || !itemParty || itemParty===candParty;
+    if(itemKey&&candidateKey&&itemKey===candidateKey){
+      return !candParty||!itemParty||itemParty===candParty;
     }
-    if(itemTail && candidateTail && itemTail===candidateTail) {
-      return !candParty || !itemParty || itemParty===candParty;
+    if(itemTail&&candidateTail&&itemTail===candidateTail){
+      return !candParty||!itemParty||itemParty===candParty;
     }
     return false;
   });
-  return fuzzyMatch || null;
+  return fuzzyMatch||null;
 }
 
-function buildCandidateEntry(cand, allInConst){
+function buildCandidateEntry(cand, allInConst, constName){
   var name=cand.name||cand.candidate||'';
-  var party=cand.party||cand.party_short||cand.party_full||'IND';
+  var party=normalizePartyKey(cand.party||cand.party_short||cand.party_full||'IND');
   var photo=cand.photo||'';
   var id=cand.id||'';
 
-  var matchedCandidate = (!photo || !id) ? findMatchingCandidate(cand, allInConst) : null;
+  var matchedCandidate=(!photo||!id)?findMatchingCandidate(cand, allInConst):null;
   if(matchedCandidate){
-    if(!photo && matchedCandidate.photo){
-      photo=matchedCandidate.photo;
-    }
-    if(!id && matchedCandidate.id){
-      id=matchedCandidate.id;
-    }
+    if(!photo&&matchedCandidate.photo) photo=matchedCandidate.photo;
+    if(!id&&matchedCandidate.id) id=matchedCandidate.id;
   }
 
-  if(!photo && id){
+  if(!photo&&id){
     photo='../assets/images/candidates/mla/2026/'+id+'.jpg';
   }
 
-  return { name:name, party:party, photo:photo, id:id || '' };
+  return {
+    name:name,
+    party:party,
+    party_short: cand.party_short || party,
+    photo:photo,
+    id:id||'',
+    constituency: constName || '',
+    age: cand.age || '',
+    gender: cand.gender || '',
+    address: cand.address || '',
+    party_full: cand.party_full || party
+  };
 }
 
 function renderMinister(c){
   var container=document.getElementById('minister-cards');
-  if(!container)return;
+  if(!container) return;
 
   var mlaInit=(c.current_mla||c.mla_2021||'MLA').split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
   var mpInit=(c.mp_name||'MP').split(' ').map(function(w){return w[0]||'';}).join('').slice(0,2).toUpperCase();
@@ -198,51 +286,62 @@ function renderMinister(c){
 
 function getConstituencyCandidates(constId){
   var constMeta=constituenciesData[constId]||{};
-  var constKey = normalizeConstituencyKey(constMeta.name);
+  var constKey=normalizeConstituencyKey(constMeta.name);
   var allInConst=(typeof allCandidatesByConstituency!=='undefined'&&allCandidatesByConstituency[constKey])||[];
+  var constName=constMeta.name||'';
 
-  var candidates=(typeof candidates2026Data!=='undefined'&&candidates2026Data[constId])||[];
-  if(candidates.length){
-    return candidates.map(function(c){
-      return buildCandidateEntry(c, allInConst);
-    });
-  }
-
+  // Prefer the full list from constituenciesWithCandidates if available
   if(typeof constituenciesWithCandidates!=='undefined'&&constituenciesWithCandidates[constId]){
     var histData=constituenciesWithCandidates[constId].candidates||[];
     if(histData.length){
-      return histData.map(function(c){
-        return buildCandidateEntry(c, allInConst);
-      });
+      return histData.map(function(c){return buildCandidateEntry(c, allInConst, constName);});
     }
   }
 
+  // Fallback to candidates2026Data if full list not available
+  var candidates=(typeof candidates2026Data!=='undefined'&&candidates2026Data[constId])||[];
+  if(candidates.length){
+    return candidates.map(function(c){return buildCandidateEntry(c, allInConst, constName);});
+  }
+
+  // Last fallback to allCandidatesByConstituency
   if(allInConst.length){
-    return allInConst.map(function(c){
-      return buildCandidateEntry(c, allInConst);
-    });
+    return allInConst.map(function(c){return buildCandidateEntry(c, allInConst, constName);});
   }
 
   return [];
 }
 
+function buildCandidateCard(cand){
+  var pc=getPartyColor(cand.party);
+  var ico=getPartyIcon(cand.party);
+  var ph=cand.photo
+    ?'<img src="'+cand.photo+'" alt="'+cand.name+'" onerror="this.parentElement.style.background=\'#F1F5F9\'">'
+    :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#CBD5E1">'+cand.name[0]+'</div>';
+
+  return '<div class="cand-card party-'+cand.party.toLowerCase()+'" data-candidate-id="'+(cand.id||'')+'">'+
+    '<div class="cand-photo-wrap">'+ph+'</div>'+
+    '<div class="cand-icon-wrap">'+ico+'</div>'+
+    '<div class="cand-name">'+cand.name+'</div>'+
+    '<span class="cand-party-badge" style="background:'+pc+'">'+cand.party+'</span>'+
+  '</div>';
+}
+
 function renderCandidates(constId){
   var container=document.getElementById('candidates-scroll');
-  if(!container)return;
+  if(!container) return;
 
   var candidates=getConstituencyCandidates(constId);
-
   candidates=sortCandidatesByParty(candidates);
+
   if(candidates.length>5){
     var topFive=candidates.slice(0,5);
     var fifth=topFive[4];
-    if(fifth && getPartyOrder(fifth.party)===5){
+    if(fifth&&getPartyOrder(fifth.party)===5){
       var replacement=candidates.slice(5).find(function(c){
         return getPartyOrder(c.party)===6;
       });
-      if(replacement){
-        topFive[4]=replacement;
-      }
+      if(replacement) topFive[4]=replacement;
     }
     candidates=topFive;
   }
@@ -252,32 +351,23 @@ function renderCandidates(constId){
     return;
   }
 
-  container.innerHTML=candidates.map(function(cand){
+  container.innerHTML=candidates.map(buildCandidateCard).join('');
 
-    var pc=getPartyColor(cand.party);
-
-    var ico=PARTY_ICONS[cand.party]
-      ?'<img src="'+PARTY_ICONS[cand.party]+'" alt="'+cand.party+'" onerror="this.style.display=\'none\'">'
-      :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">'+cand.party.slice(0,2)+'</div>';
-
-    var ph=cand.photo
-      ?'<img src="'+cand.photo+'" alt="'+cand.name+'" onerror="this.onerror=null; this.src=\'../assets/images/candidates/default/default.png\';"" />'
-      :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#CBD5E1">'+cand.name[0]+'</div>';
-
-    return `
-      <div class="cand-card party-${cand.party.toLowerCase()}">
-        <div class="cand-photo-wrap">${ph}</div>
-        <div class="cand-icon-wrap">${ico}</div>
-        <div class="cand-name">${cand.name}</div>
-        <span class="cand-party-badge" style="background:${pc}">${cand.party}</span>
-      </div>
-    `;
-  }).join('');
+  // Add click handlers for candidate cards
+  container.addEventListener('click', function(e) {
+    var card = e.target.closest('.cand-card');
+    if (!card || !card.dataset.candidateId) return;
+    var id = card.dataset.candidateId;
+    var candidate = candidates.find(function(c) { return String(c.id) === String(id); });
+    if (candidate && typeof openCandidatePopup !== 'undefined') {
+      openCandidatePopup(candidate);
+    }
+  });
 }
 
 function renderHistory(constId){
   var container=document.getElementById('history-cards');
-  if(!container)return;
+  if(!container) return;
   var hist=typeof historyData!=='undefined'&&historyData[constId];
   if(!hist){
     container.innerHTML='<div class="history-card" style="color:#6B7280;font-size:13px">Historical data not available.</div>';
@@ -285,10 +375,10 @@ function renderHistory(constId){
   }
   var html='';
   ['2021','2016','2011'].forEach(function(yr){
-    if(!hist[yr]||!hist[yr].length)return;
+    if(!hist[yr]||!hist[yr].length) return;
     var w=hist[yr].find(function(c){return c.winner;});
     var ru=hist[yr].find(function(c){return c.position===2;});
-    if(!w)return;
+    if(!w) return;
     html+=
       '<div class="history-card">'+
         '<div class="history-year-tag">'+yr+' Assembly Election</div>'+
@@ -309,7 +399,7 @@ function renderHistory(constId){
 
 function drawPie(canvasId, segments){
   var canvas=document.getElementById(canvasId);
-  if(!canvas||!canvas.getContext)return;
+  if(!canvas||!canvas.getContext) return;
   var ctx=canvas.getContext('2d');
   var dpr=window.devicePixelRatio||1;
   var size=120;
@@ -326,18 +416,18 @@ function drawPie(canvasId, segments){
     ctx.fillStyle='#E2E8F0';ctx.fill();
     return;
   }
-  var rawAngles=segments.map(function(seg){return ((seg.value||0)/total)*2*Math.PI;});
-  var minAngle=0.08; // ensure tiny categories are visible
+  var rawAngles=segments.map(function(seg){return((seg.value||0)/total)*2*Math.PI;});
+  var minAngle=0.08;
   var positiveCount=rawAngles.filter(function(angle){return angle>0;}).length;
-  if(positiveCount * minAngle <= 2*Math.PI){
+  if(positiveCount*minAngle<=2*Math.PI){
     var reserved=0;
-    rawAngles.forEach(function(angle){ if(angle>0 && angle<minAngle) reserved += minAngle; });
-    var remaining=2*Math.PI - reserved;
-    var largeTotal=rawAngles.reduce(function(sum,angle){ return sum + (angle>=minAngle ? angle : 0); },0);
+    rawAngles.forEach(function(angle){if(angle>0&&angle<minAngle) reserved+=minAngle;});
+    var remaining=2*Math.PI-reserved;
+    var largeTotal=rawAngles.reduce(function(sum,angle){return sum+(angle>=minAngle?angle:0);},0);
     if(largeTotal>0){
       var scale=remaining/largeTotal;
       rawAngles=rawAngles.map(function(angle){
-        return (angle>0 && angle<minAngle) ? minAngle : angle*scale;
+        return (angle>0&&angle<minAngle)?minAngle:angle*scale;
       });
     }
   }
@@ -347,7 +437,7 @@ function drawPie(canvasId, segments){
   ctx.shadowOffsetY=3;
   var start=-Math.PI/2;
   rawAngles.forEach(function(angle,i){
-    if(angle<=0)return;
+    if(angle<=0) return;
     var seg=segments[i];
     ctx.beginPath();
     ctx.moveTo(cx,cy);
@@ -395,7 +485,7 @@ function renderCensus(c){
 
 function renderAssemblyDetails(c){
   var container=document.getElementById('assembly-cards');
-  if(!container)return;
+  if(!container) return;
   var rows=[
     {label:'Assembly No.',value:c.id||'—'},
     {label:'Assembly Name',value:c.name||'—'},
@@ -413,14 +503,14 @@ function renderAssemblyDetails(c){
 }
 
 function getSelectedConstituencyId(){
-  var params = new URLSearchParams(window.location.search);
-  var id = params.get('id') || localStorage.getItem('selectedConstId');
-  return id ? String(id) : null;
+  var params=new URLSearchParams(window.location.search);
+  var id=params.get('id')||localStorage.getItem('selectedConstId');
+  return id?String(id):null;
 }
 
 function renderMiniMap(constId){
-  if(typeof d3==='undefined'||typeof topojson==='undefined'||typeof tnMapTopo==='undefined')return;
-  var svgEl=document.getElementById('const-mini-svg');if(!svgEl)return;
+  if(typeof d3==='undefined'||typeof topojson==='undefined'||typeof tnMapTopo==='undefined') return;
+  var svgEl=document.getElementById('const-mini-svg');if(!svgEl) return;
   var topoKey=Object.keys(tnMapTopo.objects)[0];
   var features=topojson.feature(tnMapTopo,tnMapTopo.objects[topoKey]).features;
   var w=svgEl.clientWidth||260,h=220;
@@ -428,13 +518,11 @@ function renderMiniMap(constId){
   svg.selectAll('*').remove();
   var proj=d3.geoMercator().fitSize([w,h],{type:'FeatureCollection',features:features});
   var path=d3.geoPath().projection(proj);
-  // all constituencies — light gray
   svg.selectAll('.bp').data(features).enter().append('path')
     .attr('d',path)
     .attr('fill','#e8eaee')
     .attr('stroke','#e8eaee')
     .attr('stroke-width',0.4);
-  // highlighted constituency — accent red
   var target=features.find(function(f){return String(f.properties.AC_NO)===String(constId);});
   if(target){
     svg.append('path').datum(target)
@@ -447,43 +535,30 @@ function renderMiniMap(constId){
 
 function viewAllCandidates(constId){
   var constMeta=constituenciesData[constId]||{};
-  var constKey = normalizeConstituencyKey(constMeta.name);
+  var constKey=normalizeConstituencyKey(constMeta.name);
   var allInConst=(typeof allCandidatesByConstituency!=='undefined'&&allCandidatesByConstituency[constKey])||[];
-  var allCandidates=(typeof candidates2026Data!=='undefined'&&candidates2026Data[constId])||[];
-  
-  if(allCandidates.length){
-    allCandidates=allCandidates.map(function(c){
-      return buildCandidateEntry(c, allInConst);
-    });
-  }
+  var constName=constMeta.name||'';
+  var allCandidates=[];
 
-  if(allCandidates.length===0&&typeof constituenciesWithCandidates!=='undefined'&&constituenciesWithCandidates[constId]){
+  // Prefer the full list from constituenciesWithCandidates if available
+  if(typeof constituenciesWithCandidates!=='undefined'&&constituenciesWithCandidates[constId]){
     var histData=constituenciesWithCandidates[constId].candidates||[];
     if(histData.length){
-      allCandidates=histData.map(function(c){
-        var entry=buildCandidateEntry(c, allInConst);
-        return {
-          name: entry.name,
-          party: entry.party,
-          photo: entry.photo,
-          age: c.age||'',
-          address: c.address||''
-        };
-      });
+      allCandidates=histData.map(function(c){return buildCandidateEntry(c, allInConst, constName);});
     }
   }
 
-  if(allCandidates.length===0 && allInConst.length){
-    allCandidates=allInConst.map(function(c){
-      var entry=buildCandidateEntry(c, allInConst);
-      return {
-        name: entry.name,
-        party: entry.party,
-        photo: entry.photo,
-        age: c.age||'',
-        address: c.address||''
-      };
-    });
+  // Fallback to candidates2026Data if full list not available
+  if(allCandidates.length===0){
+    var candidates=(typeof candidates2026Data!=='undefined'&&candidates2026Data[constId])||[];
+    if(candidates.length){
+      allCandidates=candidates.map(function(c){return buildCandidateEntry(c, allInConst, constName);});
+    }
+  }
+
+  // Last fallback to allCandidatesByConstituency
+  if(allCandidates.length===0&&allInConst.length){
+    allCandidates=allInConst.map(function(c){return buildCandidateEntry(c, allInConst, constName);});
   }
 
   allCandidates=sortCandidatesByParty(allCandidates);
@@ -493,45 +568,39 @@ function viewAllCandidates(constId){
     return;
   }
 
-  // Generate card HTML for all candidates
-  var cardsHTML = allCandidates.map(function(cand){
-    var pc=getPartyColor(cand.party);
-
-    var ico=PARTY_ICONS[cand.party]
-      ?'<img src="'+PARTY_ICONS[cand.party]+'" alt="'+cand.party+'" onerror="this.style.display=\'none\'">'
-      :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">'+cand.party.slice(0,2)+'</div>';
-
-    var ph=cand.photo
-      ?'<img src="'+cand.photo+'" alt="'+cand.name+'" onerror="this.onerror=null; this.src=\'../assets/images/candidates/default/default.png\';"" />'
-      :'<div style="width:100%;height:100%;background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#CBD5E1">'+cand.name[0]+'</div>';
-
-    return `
-      <div class="cand-card party-${cand.party.toLowerCase()}">
-        <div class="cand-photo-wrap">${ph}</div>
-        <div class="cand-icon-wrap">${ico}</div>
-        <div class="cand-name">${cand.name}</div>
-        <span class="cand-party-badge" style="background:${pc}">${cand.party}</span>
-      </div>
-    `;
-  }).join('');
+  var cardsHTML=allCandidates.map(buildCandidateCard).join('');
 
   var modal=document.createElement('div');
   modal.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(2px)';
   modal.innerHTML=
     '<div style="background:#fff;border-radius:12px;max-width:800px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 25px rgba(0,0,0,0.15)">'+
-      '<div style="padding:20px;border-bottom:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff">'+
+      '<div style="padding:20px;border-bottom:1px solid #E5E7EB;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff;z-index: 10;">'+
         '<h3 style="margin:0;color:#1F2937;font-size:16px;font-weight:700">All Contesting Candidates</h3>'+
         '<button onclick="this.closest(\'[data-modal]\').remove()" style="background:none;border:none;font-size:24px;color:#6B7280;cursor:pointer;padding:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center">×</button>'+
       '</div>'+
       '<div style="padding:20px">'+
-        '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:18px;justify-items:center">'+
-          cardsHTML +
+        '<div id="view-all-candidates-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:18px;justify-items:center">'+
+          cardsHTML+
         '</div>'+
       '</div>'+
     '</div>';
   modal.setAttribute('data-modal','true');
-  modal.addEventListener('click',function(e){if(e.target===modal)modal.remove();});
+  modal.addEventListener('click',function(e){if(e.target===modal) modal.remove();});
   document.body.appendChild(modal);
+
+  // Add click handlers for candidate cards in modal
+  var grid = document.getElementById('view-all-candidates-grid');
+  if (grid) {
+    grid.addEventListener('click', function(e) {
+      var card = e.target.closest('.cand-card');
+      if (!card || !card.dataset.candidateId) return;
+      var id = card.dataset.candidateId;
+      var candidate = allCandidates.find(function(c) { return String(c.id) === String(id); });
+      if (candidate && typeof openCandidatePopup !== 'undefined') {
+        openCandidatePopup(candidate);
+      }
+    });
+  }
 }
 
 document.addEventListener('DOMContentLoaded',function(){
@@ -552,8 +621,7 @@ document.addEventListener('DOMContentLoaded',function(){
   renderCensus(c);
   renderAssemblyDetails(c);
   renderMiniMap(constId);
-  
-  // Attach view-all button handler
+
   var viewAllBtn=document.getElementById('view-all-btn');
   if(viewAllBtn){
     viewAllBtn.addEventListener('click',function(){
