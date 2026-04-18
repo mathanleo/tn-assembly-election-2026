@@ -1526,8 +1526,23 @@ function buildWinsBar(wins, losses) {
 // Extracted so competitor-click can re-render just this part
 // -----------------------------------------------
 function buildLeftPanel(candidate, colours, rich) {
-  var wins = (rich && rich.wins != null) ? rich.wins : (candidate.wins || 0);
-  var losses = (rich && rich.losses != null) ? rich.losses : (candidate.losses || 0);
+  console.log("history:", rich.history);
+
+  // var wins = (rich && rich.wins != null) ? rich.wins : (candidate.wins || 0);
+  // var losses = (rich && rich.losses != null) ? rich.losses : (candidate.losses || 0);
+
+  var winHistory = rich && rich.history && rich.history.map(function (h) {
+    return h.result.startsWith("Won");
+  })
+  var lossHistory = rich && rich.history && rich.history.map(function (h) {
+    return h.result.startsWith("Lost");
+  })
+
+  const wins = winHistory.reduce((acc, val) => acc + (val === true ? 1 : 0), 0);
+  const losses = lossHistory.reduce((acc, val) => acc + (val === true ? 1 : 0), 0);
+
+  // console.log("winHistory:", wins);
+  // console.log("lossHistory:", losses);
 
   var hasPhoto = candidate.photo && candidate.photo.length > 0;
   var mainPhotoHTML = '<img src="' + candidate.photo + '" alt="' + candidate.name + '" class="popup-main__photo-img" onerror="this.onerror=null; this.src=\'../assets/images/candidates/default/default.png\';"" />'
@@ -1618,7 +1633,7 @@ function buildBottomHTML(candidate, rich) {
 // -----------------------------------------------
 function buildHistoryTable(history) {
   if (!history || history.length === 0) return '';
-  var rows = history.map(function (h) {
+  var rows = history.sort((a,b)=>b.year-a.year).map(function (h) {
     var isWon = (h.result || '').toLowerCase().indexOf('won') !== -1;
     var cls = isWon ? 'popup-hist__won' : 'popup-hist__lost';
     return '<tr><td class="popup-hist__td">' + (h.constituency || '') + '</td><td class="popup-hist__td">' + (h.year || '') + '</td><td class="popup-hist__td">' + (h.party || '') + '</td><td class="popup-hist__td"><span class="popup-hist__result ' + cls + '">' + (h.result || '') + '</span></td></tr>';

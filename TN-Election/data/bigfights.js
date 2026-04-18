@@ -17,12 +17,6 @@ const bigFightsData = [
     candidate2: { id: 466,  name: "Aadirajaram",           partyShort: "ADMK",   alliance: "NDA",    allianceColor: "#16A34A", votes2021: 466,  photo: "../assets/images/candidates/mla/2026/466.jpg" }
   },
   {
-    constituencyId: 13,
-    constituency: "Kolathur",
-    candidate1: { id: 1289, name: "M. Poornima",           partyShort: "IND",    alliance: "OTHERS", allianceColor: "#6b7280", votes2021: 1289, photo: "../assets/images/candidates/mla/2026/1289.jpg" },
-    candidate2: { id: 1295, name: "R. Balaji",             partyShort: "IND",    alliance: "OTHERS", allianceColor: "#6b7280", votes2021: 1295, photo: "../assets/images/candidates/mla/2026/1295.jpg" }
-  },
-  {
     constituencyId: 217,
     constituency: "Ottapidaram",
     candidate1: { id: 1322, name: "Karunanithi K",         partyShort: "DMK",    alliance: "SPA",    allianceColor: "#E05A46", votes2021: 1322, photo: "../assets/images/candidates/mla/2026/1322.jpg" },
