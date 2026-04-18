@@ -135,7 +135,7 @@ body[data-page="bigfights"] main {
   min-height: 0;
   align-content: flex-start;
   padding-bottom: var(--gap-lg);
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: var(--color-border) transparent;
 }
 
@@ -154,6 +154,7 @@ body[data-page="bigfights"] main {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   min-width: 0;
   width: 376px;
+  max-width: 400px;
 }
 .fight-card:hover {
   transform: translateY(-2px);
@@ -412,6 +413,7 @@ body[data-page="bigfights"] main {
   background-image: url('../assets/images/clash.png');
   background-position: center;
   pointer-events: none;
+  opacity: 0;
 }
 .pop-card__content {
   position: relative;

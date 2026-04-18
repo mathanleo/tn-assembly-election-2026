@@ -1044,11 +1044,16 @@ function filterCandidates(candidates, query) {
   if (!query || query.trim() === '') return candidates;
   var q = query.toLowerCase().trim();
   return candidates.filter(function(c) {
+    var name = ((c && c.name) || '').toLowerCase();
+    var constituency = ((c && c.constituency) || '').toLowerCase();
+    var partyShort = ((c && c.party_short) || '').toLowerCase();
+    var partyFull = ((c && (c.party_full || c.party)) || '').toLowerCase();
+
     return (
-      c.name.toLowerCase().indexOf(q) !== -1 ||
-      c.constituency.toLowerCase().indexOf(q) !== -1 ||
-      c.party_short.toLowerCase().indexOf(q) !== -1 ||
-      c.party_full.toLowerCase().indexOf(q) !== -1
+      name.indexOf(q) !== -1 ||
+      constituency.indexOf(q) !== -1 ||
+      partyShort.indexOf(q) !== -1 ||
+      partyFull.indexOf(q) !== -1
     );
   });
 }

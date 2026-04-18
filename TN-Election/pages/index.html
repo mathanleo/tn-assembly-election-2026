@@ -1,85 +1,61 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="IndianElectionResult" content="HTML, CSS, JavaScript" />
-    <meta
-      name="Indian Election Result Visualisation Live"
-      content="Detailed visualisation of Indian election with interactive graphs and tables"
-    />
-    <title>India Election Results</title>
 
-    <meta property="og:title" content="India Election Results" />
-    <meta property="og:url" content="https://www.bharathelection.com" />
-    <meta
-      property="og:description"
-      content="Crowdsourced insightful data visualizations for Election Results"
-    />
-    <meta
-      property="og:image"
-      itemprop="image"
-      content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg"
-    />
-    <meta property="og:type" content="article" />
-    <meta property="og:locale" content="en_GB" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="IndianElectionResult" content="HTML, CSS, JavaScript" />
+  <meta name="Indian Election Result Visualisation Live"
+    content="Detailed visualisation of Indian election with interactive graphs and tables" />
+  <title>India Election Results</title>
 
-    <!-- Twitter open-graph tags -->
-    <meta name="twitter:site" value="@gradiouslabs" />
-    <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:title" content="India Election Results" />
+  <meta property="og:url" content="https://www.bharathelection.com" />
+  <meta property="og:description" content="Crowdsourced insightful data visualizations for Election Results" />
+  <meta property="og:image" itemprop="image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_GB" />
 
-    <meta property="twitter:url" content="https://www.bharathelection.com" />
-    <meta property="twitter:image:alt" content="Election Results" />
-    <meta property="twitter:title" content="India Election Results" />
-    <meta
-      property="twitter:description"
-      content="Crowdsourced insightful data visualizations for Election Results"
-    />
-    <meta
-      property="twitter:image"
-      content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg"
-    />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="./images/imgs/Favion results2024.svg"
-    />
+  <!-- Twitter open-graph tags -->
+  <meta name="twitter:site" value="@gradiouslabs" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S62DCSRH0X"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-S62DCSRH0X");
-    </script>
+  <meta property="twitter:url" content="https://www.bharathelection.com" />
+  <meta property="twitter:image:alt" content="Election Results" />
+  <meta property="twitter:title" content="India Election Results" />
+  <meta property="twitter:description" content="Crowdsourced insightful data visualizations for Election Results" />
+  <meta property="twitter:image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg" />
+  <link rel="icon" type="image/x-icon" href="./images/imgs/Favion results2024.svg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S62DCSRH0X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-S62DCSRH0X");
+  </script>
 
-    <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/home.css" />
-    <link rel="stylesheet" href="../css/tn-map.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="../css/manifestos.css" />
-    <link rel="stylesheet" href="../css/candidates.css" />
-    <link rel="stylesheet" href="../css/bigfights.css" />
-    <link rel="stylesheet" href="../css/richest-highmargin.css" />
-    <link rel="stylesheet" href="../css/constituency-table.css" />
-  </head>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/tn-map.css" />
 
-  <body data-page="index">
-    <div id="navbar-container"></div>
+  <link rel="stylesheet" href="../css/manifestos.css" />
+  <link rel="stylesheet" href="../css/candidates.css" />
+  <link rel="stylesheet" href="../css/bigfights.css" />
+  <link rel="stylesheet" href="../css/richest-highmargin.css" />
+  <link rel="stylesheet" href="../css/constituency-table.css" />
+</head>
+
+<body data-page="index">
+  <div id="navbar-container"></div>
 
     <main>
       <section class="map-section">
@@ -326,48 +302,109 @@
       <section class="constituency-table-section">
       </section>
 
-      <!-- ── Footer ── -->
-      <div id="footer-container"></div>
-    </main>
+    <!-- ── Footer ── -->
+    <div id="footer-container">
 
-    <!-- Data -->
-    <script src="../data/navbar.js"></script>
-    <script src="../data/cm-candidates.js"></script>
-    <script src="../data/alliances.js"></script>
-    <script src="../data/constituencies.js"></script>
-    <script src="../data/results2021.js"></script>
-    <script src="../data/candidates.js"></script>
-    <script src="../data/candidates2026.js"></script>
-    <script src="../data/star-candidates-rich.js"></script>
-    <script src="../data/constituencies-with-candidates (1).js"></script>
-    <script src="../data/all-candidates.js"></script>
-    <script src="../data/tn-map-topo.js"></script>
+      <div class="page-footer">
+        <div class="page-footer__inner">
+          <div class="page-footer__content">
+            <p class="page-footer__copy">
+              Crafted with <span class="page-footer__heart">❤️</span> by <strong>Gradious</strong>
+            </p>
+            <p class="page-footer__description">
+              TN Election 2026.in is a crowdsourced initiative for visualizing the 2026 Election details of Tamil Nadu
+              state.
+              It is not a source of data.
+            </p>
+            <div class="page-footer__builtby">
+              <span>Built by</span>
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M28 0H0V12.5926C0.296296 23.6296 10.2222 26.963 14 28C26.7407 24.4444 27.5556 16.8889 28 12.5926V0Z"
+                  fill="#F55533" />
+                <path
+                  d="M8.14844 9.62958C8.14844 6.43861 10.7352 3.85181 13.9262 3.85181H19.704V9.62958C19.704 12.8206 17.1172 15.4074 13.9262 15.4074C10.7352 15.4074 8.14844 12.8206 8.14844 9.62958Z"
+                  fill="white" />
+                <path
+                  d="M16.4433 9.6296C16.4433 11.0205 15.3157 12.1481 13.9248 12.1481C12.5338 12.1481 11.4062 11.0205 11.4062 9.6296C11.4062 8.23866 12.5338 7.11108 13.9248 7.11108C15.3157 7.11108 16.4433 8.23866 16.4433 9.6296Z"
+                  fill="#F55533" />
+                <path
+                  d="M8.14844 20.4445C8.14844 18.5627 9.67399 17.0371 11.5558 17.0371H19.8521C19.8521 18.919 18.3266 20.4445 16.4447 20.4445H8.14844Z"
+                  fill="white" />
+              </svg>
+              <span>Gradious</span>
+            </div>
+          </div>
+          <div class="page-footer__brand">
+            <a href="./index.html">
+              <span style="display: block;">Home</span>
+            </a>
+            <a href="./candidates.html">
+              <span style="display: block;margin-top: 8px;">Candidates</span>
+            </a>
+            <a href="./bigfights.html">
+              <span style="display: block;margin-top: 8px">Big Fights</span>
+            </a>
+            <a href="./results.html">
+              <span style="display: block;margin-top: 8px">2021 Results</span>
+            </a>
+          </div>
+          <div class="page-footer__brand">
+            <span style="display: block;">About us</span>
+            <span style="display: block;margin-top: 8px;">Our Team</span>
+            <a href="./disclaimer.html">
+              <span style="display: block;margin-top: 8px;margin-bottom: 8px;">Disclaimer</span>
+            </a>
+            
+          </div>
 
-    <!-- Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+        </div>
 
-    <!-- Components -->
-    <script src="../js/components/navbar.js"></script>
-    <script src="../js/components/footer.js"></script>
+      </div>
+      
 
-    <!-- Page modules -->
-    <script src="../js/home/cm-candidates.js"></script>
-    <script src="../js/home/alliance-table.js"></script>
-    <script src="../js/home/tn-map.js"></script>
+    </div>
+  </main>
 
-    <script src="../js/candidates/candidate-cards.js"></script>
-    <script src="../js/home/popular-candidates.js"></script>
-    <script src="../js/candidates/candidate-popup.js"></script>
-    <script src="../data/bigfights.js"></script>
-    <script src="../js/bigfights/bigfight-cards.js"></script>
-    <script src="../js/home/big-fights-preview.js"></script>
-    <script src="../data/manifestos.js"></script>
+  <!-- Data -->
+  <script src="../data/navbar.js"></script>
+  <script src="../data/cm-candidates.js"></script>
+  <script src="../data/alliances.js"></script>
+  <script src="../data/constituencies.js"></script>
+  <script src="../data/results2021.js"></script>
+  <script src="../data/candidates.js"></script>
+  <script src="../data/candidates2026.js"></script>
+  <script src="../data/star-candidates-rich.js"></script>
+  <script src="../data/constituencies-with-candidates (1).js"></script>
+  <script src="../data/all-candidates.js"></script>
+  <script src="../data/tn-map-topo.js"></script>
 
-    <!-- <script type="module" src="../js/home/richest-highmargin.js"></script> -->
-    <!-- <script type="module" src="../data/richest-candidate.js"></script> -->
-    <!-- <script type="module" src="../data/top-winners-data.js"></script> -->
-    <script type="module" src="../js/home/richest-highmargin.js"></script>
-    <script type="module" src="../js/home/constituency-table.js"></script>
-  </body>
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+
+  <!-- Components -->
+  <script src="../js/components/navbar.js"></script>
+  <script src="../js/components/footer.js"></script>
+
+  <!-- Page modules -->
+  <script src="../js/home/cm-candidates.js"></script>
+  <script src="../js/home/alliance-table.js"></script>
+  <script src="../js/home/tn-map.js"></script>
+
+  <script src="../js/candidates/candidate-cards.js"></script>
+  <script src="../js/home/popular-candidates.js"></script>
+  <script src="../js/candidates/candidate-popup.js"></script>
+  <script src="../data/bigfights.js"></script>
+  <script src="../js/bigfights/bigfight-cards.js"></script>
+  <script src="../js/home/big-fights-preview.js"></script>
+  <script src="../data/manifestos.js"></script>
+
+  <!-- <script type="module" src="../js/home/richest-highmargin.js"></script> -->
+  <!-- <script type="module" src="../data/richest-candidate.js"></script> -->
+  <!-- <script type="module" src="../data/top-winners-data.js"></script> -->
+  <script type="module" src="../js/home/richest-highmargin.js"></script>
+  <script type="module" src="../js/home/constituency-table.js"></script>
+</body>
+
 </html>

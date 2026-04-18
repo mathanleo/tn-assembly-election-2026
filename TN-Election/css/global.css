@@ -205,22 +205,66 @@ a {
 .page-footer__social {
   display: flex;
   gap: 12px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
-.page-footer__social a {
+.page-footer__social--disclaimer {
+  margin-top: 12px;
+}
+
+.page-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.page-footer__social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .page-footer__social svg {
   width: 16px;
   height: 16px;
+}
+
+.page-footer__social-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0.95;
+}
+
+.page-footer__social-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.page-footer__social-link--facebook {
+  background: #1877f2;
+}
+
+.page-footer__social-link--instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+
+.page-footer__social-link--linkedin {
+  background: #0a66c2;
+}
+
+.page-footer__social-link--whatsapp {
+  background: #25d366;
+}
+
+.page-footer__social-link--x {
+  background: #000000;
 }
 
 @media (max-width: 900px) {
@@ -261,7 +305,7 @@ a {
     gap: 12px;
   }
 
-  .page-footer__social a {
-    background: rgba(16, 42, 67, 0.08);
+  .page-footer__social-link:focus-visible {
+    outline-color: #102a43;
   }
 }

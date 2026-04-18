@@ -208,7 +208,7 @@ function openDropdown(tabBtn) {
   var btnRect  = tabBtn.getBoundingClientRect();
   var tabsRect = tabBtn.closest('.bigfight-tabs').getBoundingClientRect();
   dropdown.style.top  = (btnRect.bottom - tabsRect.top + 6) + 'px';
-  dropdown.style.left = (btnRect.left   - tabsRect.left)   + 'px';
+  dropdown.style.left = '325px';
 
   // Item click
   dropdown.querySelectorAll('.pop-dd__item').forEach(function(item) {
