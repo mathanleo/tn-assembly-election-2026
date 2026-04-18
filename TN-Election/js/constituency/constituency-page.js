@@ -42,7 +42,7 @@ var PARTY_TO_ALLIANCE = {
 };
 
 function getPartyColor(p){return PARTY_COLORS[normalizePartyKey(p)]||PARTY_COLORS.OTHERS;}
-function goHome(){window.location.href='index.html';}
+function goHome(){window.location.href='/index.html';}
 function fmt(n){return Number(n).toLocaleString('en-IN');}
 
 // Returns an <img> for known parties, or a 2-letter tile fallback.

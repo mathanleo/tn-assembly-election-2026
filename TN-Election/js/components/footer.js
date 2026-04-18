@@ -131,25 +131,25 @@ function buildFooter() {
           </div>
         </div>
         <div class="page-footer__brand">
-          <a href="./index.html">
+          <a href="/index.html">
             <span style="display: block;">Home</span>
           </a>
-          <a href="./candidates.html">
+          <a href="/pages/candidates.html">
             <span style="display: block; margin-top: 8px;">Candidates</span>
           </a>
-          <a href="./bigfights.html">
+          <a href="/pages/bigfights.html">
             <span style="display: block; margin-top: 8px">Big Fights</span>
           </a>
-          <a href="./results.html">
+          <a href="/pages/results.html">
             <span style="display: block; margin-top: 8px">2021 Results</span>
           </a>
         </div>
         <div class="page-footer__brand">
-          <a href="./about.html">
+          <a href="/pages/about.html">
             <span style="display: block;">About us</span>
           </a>
           <span style="display: block; margin-top: 8px;">Our Team</span>
-          <a href="./disclaimer.html">
+          <a href="/pages/disclaimer.html">
             <span style="display: block; margin-top: 8px; margin-bottom: 8px;">Disclaimer</span>
           </a>
           <div class="page-footer__social page-footer__social--disclaimer" aria-label="Share this page on social media">

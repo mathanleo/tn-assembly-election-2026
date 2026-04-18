@@ -362,7 +362,7 @@ function viewConstituencyDetails() {
   if (!selectedConstId) return;
   // Save selected ID so constituency.html can read it
   localStorage.setItem('selectedConstId', selectedConstId);
-  window.location.href = 'constituency.html';
+  window.location.href = '/pages/constituency.html';
 }
 
 // ── Search ────────────────────────────────────────────────────

@@ -130,7 +130,7 @@ var popularCandidates = [
     "children": "One Children",
     "Case": 0,
     "current_position": "BJP District President (Tenkasi) / Assembly Candidate (2026)",
-    "first_elected_as_mla": "N/A (Yet to win an Assembly seat)",
+    "first_elected_as_mla": "-",
     "contested_constituency": [
       {
         "Vasudevanallur (SC)": {
