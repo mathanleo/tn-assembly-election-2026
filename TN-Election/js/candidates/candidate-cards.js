@@ -1004,7 +1004,7 @@ function buildCandidateCard(candidate, index) {
           '<div class="candidate-card__logo-wrap">' +
             badgeHTML +
           '</div>' +
-          '<div class="candidate-card__party-bar" style="width:100%;background:' + cardBar + ';color:white">' +
+          '<div class="candidate-card__party-bar" style="width:100%;background:' + cardBar + ';color:white;padding-right:8px">' +
             partyKey +
           '</div>' +
         '</div>' +

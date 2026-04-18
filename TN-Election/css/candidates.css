@@ -148,10 +148,11 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--gap-sm);
-  padding-top: 30px;
+  /* padding-top: 30px; */
+  padding: 10px;
   background-color: white;
   border-radius: 10px;
-  height: 500px;
+  /* height: 500px; */
   overflow-y: auto;
   scrollbar-width: none;
 }
@@ -162,6 +163,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-md);
     scrollbar-width: none;
+    height: 100%;
 
   }
 }
@@ -183,7 +185,7 @@
 
   .candidate-card__body {
     width: 150px !important;
-    height: 163px !important;
+    min-height: 176px !important;
     border-radius: 8px;
     color: black;
     display: flex;
@@ -203,6 +205,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: var(--gap-md);
     scrollbar-width: none;
+    height: 100%;
 
   }
 }
@@ -212,6 +215,7 @@
   .candidates-grid {
     grid-template-columns: repeat(5, 1fr);
     scrollbar-width: none;
+    height: 100%;
   }
 }
 
@@ -283,8 +287,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: end;
+  text-align: end;
   position: relative;
 }
 
@@ -304,16 +308,25 @@
 .candidate-card__constituency {
   font-size: var(--font-xs);
   font-weight: 600;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   opacity: 0.8;
-  color: var(--color-muted) !important;
+  max-width: 105px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.3;
+  word-break: break-word;
+  padding-right: 8px;
+  /* color: var(--color-muted) !important; */
 }
 
 /* ---------- Party logo circle — bottom-left of bar ---------- */
 .candidate-card__logo-wrap {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 3px;
+  left: 5px;
   width: 52px;
   height: 52px;
   border-radius: 50%;

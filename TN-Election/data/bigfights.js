@@ -38,7 +38,7 @@ const bigFightsData = [
     constituencyId: 118,
     constituency: "Coimbatore (North)",
     candidate1: { id: 557,  name: "Vanathi Srinivasan",    partyShort: "BJP",    alliance: "NDA",    allianceColor: "#16A34A", votes2021: 557,  photo: "../assets/images/candidates/mla/2026/557.jpg" },
-    candidate2: { id: 551,  name: "DURAI. SENTHAMIL SELVAN B.E",               partyShort: "DMK",      alliance: "SPA", allianceColor: "#E05A46", votes2021: 534,  photo: "../assets/images/candidates/mla/2026/534.jpg" }
+    candidate2: { id: 551,  name: "DURAI. SENTHAMIL SELVAN B.E",               partyShort: "DMK",      alliance: "SPA", allianceColor: "#E05A46", votes2021: 534,  photo: "../assets/images/candidates/mla/2026/551.jpg" }
   },
   {
     constituencyId: 48,

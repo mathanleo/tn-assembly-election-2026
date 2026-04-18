@@ -58,7 +58,7 @@
 }
 
 /* Small arrow icon inside search box */
-.search-wrapper::after {
+/* .search-wrapper::after {
     content: "";
     position: absolute;
     right: 12px;
@@ -68,9 +68,8 @@
     height: 6px;
     background-color: #344054;
     clip-path: polygon(100% 0%, 0% 0%, 50% 100%);
-    /* Draws the down arrow */
     pointer-events: none;
-}
+}*/
 
 /* Table Design */
 .constituency-table {
