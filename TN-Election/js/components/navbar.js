@@ -40,7 +40,7 @@ function buildNavbar() {
     <nav class="navbar" role="navigation" aria-label="Main navigation">
 
       <!-- LOGO (Left) -->
-      <a class="navbar__logo" href="index.html" aria-label="TN Election 2026 Home">
+      <a class="navbar__logo" href="/index.html" aria-label="TN Election 2026 Home">
         <img
           class="navbar__logo-img"
           src="${navbarData.logo.image}"
