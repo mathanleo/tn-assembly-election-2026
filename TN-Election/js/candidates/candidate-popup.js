@@ -1780,7 +1780,11 @@ function openCandidatePopup(candidate) {
     _currentConstituencyList = [];
   }
 
-  document.getElementById('popup-close-btn').addEventListener('click', closePopup);
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#popup-close-btn')) {
+      closePopup();
+    }
+  });
   document.getElementById('popup-close-x').addEventListener('click', closePopup);
   document.getElementById('candidate-popup-overlay').addEventListener('click', function (e) {
     if (e.target === this) closePopup();
