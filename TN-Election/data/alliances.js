@@ -96,7 +96,7 @@ const alliancesData = {
     {
       pn: "SIFB",
       fullName: "SIFB",
-      icon: "../assets/icons/BJP.svg",
+      icon: "../assets/icons/bjp.svg",
       cid: [114],
       canid: [],
       figmaSeats: "–"
@@ -104,7 +104,7 @@ const alliancesData = {
     {
       pn: "TMMK",
       fullName: "TMMK",
-      icon: "../assets/icons/BJP.svg",
+      icon: "../assets/icons/bjp.svg",
       cid: [202],
       canid: [],
       figmaSeats: "–"
