@@ -1,0 +1,495 @@
+/* ============================================
+   css/results.css
+   2021 Results Page — Mobile First
+   ============================================ */
+
+/* ── Shared section wrapper ─────────────────── */
+.results-section {
+  padding: var(--gap-lg) var(--gap-xl);
+  background: var(--color-bg);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gap-lg);
+}
+
+.section-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.section-viewall-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.section-viewall-btn:hover { background: #c94832; }
+
+/* ── SECTION 1: Hero (Map + Chart) ──────────── */
+.results-hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #EAF1FB;
+  min-height: 480px;
+}
+
+@media (min-width: 993px) {
+  .results-hero {
+    grid-template-columns: 42% 58%;
+  }
+}
+
+/* Map column */
+.results-map-col {
+  display: flex;
+  flex-direction: column;
+  padding: var(--gap-md);
+}
+
+.results-page-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: var(--gap-md);
+}
+
+.results-map-wrap {
+  flex: 1;
+  min-height: 360px;
+  max-height: 460px;
+}
+
+/* Chart column */
+.results-chart-col {
+  display: flex;
+  flex-direction: column;
+  padding: var(--gap-md) var(--gap-md) var(--gap-md) 0;
+  gap: var(--gap-md);
+  background: var(--color-white);
+}
+
+/* ── Parliament Semicircle ───────────────────── */
+.parliament-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap-sm) 0 0;
+}
+
+#parliament-chart {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+}
+
+.parliament-center {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.parliament-total {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+.parliament-label {
+  font-size: var(--font-xs);
+  color: var(--color-muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ── Alliance Results Table ─────────────────── */
+.alliance-results-table {
+  width: 100%;
+  border-top: 1px solid var(--color-border);
+}
+
+.alliance-results-table__header-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.alliance-results-table__header {
+  padding: 9px var(--gap-md);
+  font-size: var(--font-md);
+  font-weight: 800;
+  color: var(--color-white);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+.alliance-results-table__header--nda  { background: #e05a46; }
+.alliance-results-table__header--spa  { background: #5b68b8; }
+.alliance-results-table__header--others { background: #8a93a8; }
+
+.alliance-results-table__subheader-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.alliance-results-table__subheader {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px var(--gap-md);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  border-right: 1px solid var(--color-border);
+}
+.alliance-results-table__subheader:last-child { border-right: none; }
+.alliance-results-table__subheader--nda    { color: #e05a46; }
+.alliance-results-table__subheader--spa    { color: #5b68b8; }
+.alliance-results-table__subheader--others { color: #8a93a8; }
+
+.alliance-results-table__body-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.alliance-results-table__col {
+  border-right: 1px solid var(--color-border);
+}
+.alliance-results-table__col:last-child { border-right: none; }
+
+.alliance-results-table__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-sm);
+  padding: 7px var(--gap-md);
+  border-bottom: 1px solid #f5f5f5;
+}
+.alliance-results-table__row:last-child { border-bottom: none; }
+
+.alliance-results-table__party-info {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+}
+
+.alliance-results-table__party-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.alliance-results-table__party-initials {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  color: #475569;
+  font-size: 8px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.alliance-results-table__party-name {
+  font-size: 12px;
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+.alliance-results-table__won {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.alliance-results-table__won--dash {
+  color: #cbd5e1;
+}
+
+/* ── Popular Candidates — winner/runner badges ─ */
+.results-candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
+  padding-top: 100px;
+}
+
+@media (min-width: 577px) {
+  .results-candidates-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 993px) {
+  .results-candidates-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* Badge on top of card */
+.result-card {
+  position: relative;
+  margin-top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+}
+
+.result-card__badge {
+  position: absolute;
+  top: -96px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  padding: 3px 14px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  z-index: 2;
+  letter-spacing: 0.04em;
+}
+.result-card__badge--winner { background: #16a34a; }
+.result-card__badge--runner { background: #e05a46; }
+
+.result-card__photo-wrap {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 148px;
+  border-radius: 80px;
+  overflow: hidden;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.result-card__photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.result-card__body {
+  width: 100%;
+  min-height: 176px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 64px;
+  overflow: hidden;
+}
+
+.result-card__footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.result-card__name {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  padding: 0 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
+}
+
+.result-card__constituency {
+  font-size: 10px;
+  color: var(--color-muted);
+  padding: 2px 8px;
+}
+
+.result-card__votes {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+}
+
+.result-card__margin {
+  font-size: 10px;
+  padding: 0 8px 4px;
+}
+
+.result-card__party-strip {
+  width: 100%;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.result-card__party-tag {
+  font-size: var(--font-sm);
+  font-weight: 800;
+}
+
+/* ── Big Fights 2021 ────────────────────────── */
+/* Reuses fight-card from bigfights.css          */
+/* Override progress bar for actual 2021 results */
+
+.fight-bar-wrap {
+  margin-top: 6px;
+}
+
+.fight-bar {
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.fight-bar--winner { background: #16a34a; color: #fff; }
+.fight-bar--loser  { background: #e05a46; color: #fff; }
+
+.fight-bar__votes { flex: 1; }
+.fight-bar__label { font-size: 11px; font-weight: 800; }
+
+/* ── Tables section ─────────────────────────── */
+.results-tables-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-lg);
+  padding: var(--gap-lg) var(--gap-xl);
+  background: var(--color-bg);
+}
+
+@media (min-width: 993px) {
+  .results-tables-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.results-table-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  padding: var(--gap-md);
+}
+
+.results-table-card__title {
+  font-size: var(--font-md);
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 4px;
+}
+
+.results-table-card__sub {
+  font-size: var(--font-xs);
+  color: var(--color-muted);
+  margin-bottom: var(--gap-md);
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-sm);
+}
+
+.results-table th {
+  text-align: left;
+  padding: 8px 10px;
+  font-weight: 700;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.results-table td {
+  padding: 10px 10px;
+  border-bottom: 1px solid #f5f5f5;
+  vertical-align: middle;
+}
+
+.results-table tr:last-child td { border-bottom: none; }
+.results-table tr:hover td { background: #fafafa; }
+
+.results-table .cand-name {
+  font-weight: 700;
+  color: var(--color-dark);
+  display: block;
+}
+
+.results-table .cand-party {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.results-table .cand-party img {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.results-table .cand-party span {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.results-table .votes-cell {
+  font-weight: 600;
+  color: var(--color-dark);
+  white-space: nowrap;
+}
+
+.results-table .margin-cell {
+  font-weight: 700;
+  color: #16a34a;
+  white-space: nowrap;
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 992px) {
+  .results-section,
+  .results-tables-row {
+    padding: var(--gap-md);
+  }
+
+  .results-chart-col {
+    padding: var(--gap-md);
+  }
+
+  .results-map-wrap {
+    min-height: 320px;
+    max-height: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .results-candidates-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
