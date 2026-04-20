@@ -1,0 +1,111 @@
+.ourteam-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 15px;
+
+    .ourteam-image-container {
+        width: 100%;
+    }
+
+    .aboutContainer {
+        text-align: center;
+        margin: 2rem auto;
+        width: 100%;
+
+        p {
+            font-size: 3.4rem;
+            font-weight: 500;
+        }
+
+        .aboutP {
+            text-align: center;
+            font-size: 28px;
+            margin: 0.625rem 4.5rem;
+        }
+
+    }
+
+    .ourteam-members-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 88%;
+        margin: 1rem auto;
+        align-items: center;
+
+        .member {
+            width: 22.5rem;
+            height: 7.5rem;
+            display: flex;
+            background: #F6F6F7;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease-in-out;
+
+            .member-image {
+                width: 120px;
+                padding-top: 30%;
+                margin: 0 1rem;
+                position: relative;
+                overflow: hidden;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .member-image>img {
+                border-radius: 0.25rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                max-height: 100%;
+                width: 100%;
+                transform: translate(-50%, -50%);
+                object-fit: cover;
+            }
+
+            .member-detail {
+                width: 100%;
+                margin-left: 0.8rem;
+
+                .social {
+                    display: flex;
+                    gap: 0.8rem;
+                    margin-top: 0.2rem;
+                }
+
+                .social a {
+                    cursor: pointer;
+                    width: 11%;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 660px) {
+    .ourteam-section {
+        .ourteam-members-container {
+            .member {
+                width: 22rem;
+            }
+        }
+    }
+
+    .aboutContainer {
+        text-align: center;
+        margin: 2rem auto;
+        width: 100%;
+        p{
+            font-size: 2rem !important;
+        }
+        .election-word{
+            display: block;
+        }
+    }
+
+}

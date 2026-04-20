@@ -148,7 +148,9 @@ function buildFooter() {
           <a href="/pages/about.html">
             <span style="display: block;">About us</span>
           </a>
-          <span style="display: block; margin-top: 8px;">Our Team</span>
+          <a href="/pages/ourteam.html">
+            <span style="display: block; margin-top: 8px;">Our Team</span>
+          </a>
           <a href="/pages/disclaimer.html">
             <span style="display: block; margin-top: 8px; margin-bottom: 8px;">Disclaimer</span>
           </a>
