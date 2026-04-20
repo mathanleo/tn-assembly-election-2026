@@ -141,10 +141,12 @@ body {
 
 .main-content.blur {
   filter: blur(8px);
+  pointer-events: none;
 }
 
 .navbar.blur {
   filter: blur(8px);
+  pointer-events: none;
 }
 
 .card {

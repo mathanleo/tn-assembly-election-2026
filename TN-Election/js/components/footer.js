@@ -116,7 +116,7 @@ function buildFooter() {
             Crafted with <span class="page-footer__heart">&#10084;&#65039;</span> by <strong>Gradious</strong>
           </p>
           <p class="page-footer__description">
-            Bharath Election 2026.com is a crowdsourced initiative for visualizing the 2026 Election details of Tamil Nadu state.
+            BharathElection.com is a crowdsourced initiative for visualizing the 2026 Election details of Tamil Nadu state.
             It is not a source of data.
           </p>
           <div class="page-footer__builtby">

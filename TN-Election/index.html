@@ -1,29 +1,20 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="IndianElectionResult" content="HTML, CSS, JavaScript" />
-    <meta
-      name="Indian Election Result Visualisation Live"
-      content="Detailed visualisation of Indian election with interactive graphs and tables"
-    />
-    <title>India Election Results</title>
 
-    <meta property="og:title" content="India Election Results" />
-    <meta property="og:url" content="https://www.bharathelection.com" />
-    <meta
-      property="og:description"
-      content="Crowdsourced insightful data visualizations for Election Results"
-    />
-    <meta
-      property="og:image"
-      itemprop="image"
-      content="https://www.bharathelection.com/assets/OG.jpeg"
-    />
-    <!-- <meta property="og:image" itemprop="image" content="https://results2024.s3.ap-south-1.amazonaws.com/india_map.jpg" /> -->
-    <meta property="og:type" content="article" />
-    <meta property="og:locale" content="en_GB" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="Tamil Nadu Election 2026" content="HTML, CSS, JavaScript" />
+  <meta name="Tamilnadu Election Result Visualisation Live"
+    content="Detailed visualisation of Tamilnadu election details with interactive graphs and tables" />
+  <title>Tamil Nadu Election 2026</title>
+
+  <meta property="og:title" content="Tamil Nadu Election 2026" />
+  <meta property="og:url" content="https://www.bharathelection.com" />
+  <meta property="og:description" content="Insightful data visualizations for Tamil Nadu Election 2026" />
+  <meta property="og:image" itemprop="image" content="https://bharathelection.com/assets/images/meta/metaInfo.jpeg" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_GB" />
 
     <!-- Twitter open-graph tags -->
     <meta name="twitter:site" value="@gradiouslabs" />
@@ -72,17 +63,18 @@
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/tn-map.css" />
 
-    <link rel="stylesheet" href="./css/manifestos.css" />
-    <link rel="stylesheet" href="./css/candidates.css" />
-    <link rel="stylesheet" href="./css/bigfights.css" />
-    <link rel="stylesheet" href="./css/richest-highmargin.css" />
-    <link rel="stylesheet" href="./css/constituency-table.css" />
-  </head>
+  <link rel="stylesheet" href="./css/manifestos.css" />
+  <link rel="stylesheet" href="./css/candidates.css" />
+  <link rel="stylesheet" href="./css/bigfights.css" />
+  <link rel="stylesheet" href="./css/richest-highmargin.css" />
+  <link rel="stylesheet" href="./css/constituency-table.css" />
+  <link rel="stylesheet" href="./css/disclaimer.css" />
+</head>
 
-  <body data-page="index">
-    <div id="navbar-container"></div>
-
-    <main>
+<body data-page="index">
+  <div id="navbar-container"></div>
+  <div id="disclaimer-container"></div>
+    <main class="main-content blur">
       <section class="map-section">
         <!-- ── Body: Map LEFT | CM cards + Alliance RIGHT ── -->
         <div class="map-body">
@@ -416,9 +408,10 @@
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 
-    <!-- Components -->
-    <script src="./js/components/navbar.js"></script>
-    <script src="./js/components/footer.js"></script>
+  <!-- Components -->
+  <script src="./js/components/navbar.js"></script>
+  <script src="./js/components/disclaimer.js"></script>
+  <script src="./js/components/footer.js"></script>
 
     <!-- Page modules -->
     <script src="./js/home/cm-candidates.js"></script>
