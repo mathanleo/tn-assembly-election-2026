@@ -22,11 +22,11 @@ var ourteam = [
     },
     {
         name: "Madhu Sudhan Gilada",
-        profileImage: "../assets/images/our-team/madhu.jpg",
+        profileImage: "../assets/images/our-team/madhu.JPG",
         socialprofile: [
             {
                 instagram: "https://www.instagram.com/madhugilada/",
-                facebook:"https://www.facebook.com/madhugilada/",
+                facebook: "https://www.facebook.com/madhugilada/",
                 linkedin: "https://www.linkedin.com/in/madhugilada/",
                 gmail: "mailto:madhu@gradious.com",
             }
@@ -34,7 +34,7 @@ var ourteam = [
     },
     {
         name: "Mathan",
-        profileImage: "../assets/images/our-team/Mathan U.jpg",
+        profileImage: "../assets/images/our-team/Mathan U.JPG",
         socialprofile: [
             {
                 instagram: "https://www.instagram.com/mathan_leo7?igsh=MXM0cWZocm4xenJ1aQ==",
