@@ -1409,3 +1409,4 @@ var results2021Winners = {
 var highMarginWinners2021 = Object.values(results2021Winners).sort(function (a, b) { return b.margin - a.margin; }).slice(0, 5);
 var lowMarginWinners2021 = Object.values(results2021Winners).sort(function (a, b) { return a.margin - b.margin; }).slice(0, 5);
 var popularCandidates2021 = Object.values(results2021Winners).sort(function (a, b) { return b.winner.votes - a.winner.votes; }).slice(0, 10);
+var allCandidates2021 = Object.values(results2021Winners).sort(function (a, b) { return b.winner.votes - a.winner.votes; });

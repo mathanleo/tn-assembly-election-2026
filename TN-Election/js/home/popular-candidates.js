@@ -27,7 +27,7 @@ function buildHomePopularCandidates() {
         preview.map(buildCandidateCard).join('') +
         '</div>' +
         '<div class="hpc__viewall-wrap">' +
-        '<a href="candidates.html" class="hpc__viewall-btn">View all</a>' +
+        '<a href="./pages/candidates.html" class="hpc__viewall-btn">View all</a>' +
         '</div>';
 }
 

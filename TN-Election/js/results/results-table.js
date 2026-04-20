@@ -55,31 +55,39 @@ function buildPopularCandidates2021() {
         var cols = getResultColours(w.alliance);
         var margin = fmtNum(r.margin);
         var icon = getPartyIcon(w.party);
+        let partyIcon = RESULT_PARTY_ICONS[w.party];
+        if (!partyIcon) {
+            partyIcon = RESULT_PARTY_ICONS["IND"];
+        }
+
         var badgeHTML = icon
             ? '<img src="' + icon + '" alt="' + w.party + '" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display=\'none\'" />'
             : '<span style="font-size:8px;font-weight:900;color:#fff">' + w.party.slice(0, 3) + '</span>';
 
         html +=
-            '<div class="result-card">' +
-            '<div class="result-card__badge result-card__badge--winner">Winner</div>' +
-            '<div class="result-card__photo-wrap">' +
-            '<img src="' + w.photo + '" alt="' + w.name + '" onerror="this.src=\'../assets/images/candidates/placeholder.svg\'" />' +
+            '<div class="custom-container" style="background: linear-gradient(56deg, rgb(255, 248, 220), rgb(255, 228, 191));">' +
+            '<div class="ribbon" style="background-color: rgba(34, 177, 76, 255);">Won</div>' +
+            '  <div class="temp custom-temp">' +
+            '<div class="card-body">' +
+            '<h3 class="card-title custom-card-title" style="color:#FF9933">' + w.name + '</h3>' +
+            '<div class="subheaders custom-subheaders" style="display:flex">' +
+            '<div class="logo"><img class="custom-img" src="' + partyIcon + '" alt="' + w.name + '" style="margin-top:-5px;"></div>' +
+            '<h6 style="font-weight: bold;">' + w.party + '</h6>' +
             '</div>' +
-            '<div class="result-card__body" style="background:' + cols.bg + '">' +
-            '<div style="width:36px;height:36px;border-radius:50%;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:6px;">' +
-            badgeHTML +
+            '<p class="card-text custom-card-text">' + r.constituency + '</p>' +
+            '<p class="card-text custom-card-text-votes" style="color:#FF9933;font-size:12px;font-weight:700">' +
+            '<span style="color:gray;font-weight:500;font-size:12px">Votes : </span>' + w.votes + '' +
+            '</p>' +
             '</div>' +
-            '<div class="result-card__footer">' +
-            '<div class="result-card__name" style="color:' + cols.text + '">' + w.name + '</div>' +
-            '<div class="result-card__constituency">' + r.constituency + '</div>' +
-            '<div class="result-card__votes">' + fmtNum(w.votes) + ' votes</div>' +
-            '<div class="result-card__party-strip" style="background:' + cols.bg + '">' +
-            '<span class="result-card__party-tag" style="color:' + cols.bar + '">' + w.party + '</span>' +
-            '<span class="result-card__margin" style="color:' + cols.text + '">&nbsp;' + margin + ' Margin</span>' +
+            '<div class="iribbon custom-iribbon" style="background:linear-gradient(90deg, #EC8E30,#A65E17);">' +
+            '<p class="card-text custom-iribbon-text">Margin</p>' +
+            '<p class="card-text custom-iribbon-text-votes">' + margin + '</p>' +
             '</div>' +
             '</div>' +
+            '<div class="person-image custom-person-image">' +
+            '<img class="person-img wid" src=" ' + w.photo + '" alt="Person Image">' +
             '</div>' +
-            '</div>';
+            '</div>'
     });
 
     html += '</div>';
@@ -187,9 +195,83 @@ function buildMarginTables() {
     buildRows(lowMarginWinners2021, 'low-margin-tbody', '#e05a46');
 }
 
+
+//open pop up
+function openPopup() {
+    document.getElementById("popular-candidates-modal").classList.add("show");
+    document.body.style.overflow = "hidden";
+    var modal = document.getElementById('popular-candidates-modal');
+    var grid = document.getElementById('modal-popular-candidates-grid');
+    var html = '';
+
+    allCandidates2021.forEach(function (r) {
+        var w = r.winner;
+        var cols = getResultColours(w.alliance);
+        var margin = fmtNum(r.margin);
+        var icon = getPartyIcon(w.party);
+        let partyIcon = RESULT_PARTY_ICONS[w.party];
+        if (!partyIcon) {
+            partyIcon = RESULT_PARTY_ICONS["IND"];
+        }
+
+        var badgeHTML = icon
+            ? '<img src="' + icon + '" alt="' + w.party + '" style="width:100%;height:100%;object-fit:contain;" onerror="this.style.display=\'none\'" />'
+            : '<span style="font-size:8px;font-weight:900;color:#fff">' + w.party.slice(0, 3) + '</span>';
+
+        html +=
+            '<div class="custom-container" style="background: linear-gradient(56deg, rgb(255, 248, 220), rgb(255, 228, 191));">' +
+            '<div class="ribbon" style="background-color: rgba(34, 177, 76, 255);">Won</div>' +
+            '  <div class="temp custom-temp">' +
+            '<div class="card-body">' +
+            '<h3 class="card-title custom-card-title" style="color:#FF9933">' + w.name + '</h3>' +
+            '<div class="subheaders custom-subheaders" style="display:flex">' +
+            '<div class="logo"><img class="custom-img" src="' + partyIcon + '" alt="' + w.name + '" style="margin-top:-5px;"></div>' +
+            '<h6 style="font-weight: bold;">' + w.party + '</h6>' +
+            '</div>' +
+            '<p class="card-text custom-card-text">' + r.constituency + '</p>' +
+            '<p class="card-text custom-card-text-votes" style="color:#FF9933;font-size:12px;font-weight:700">' +
+            '<span style="color:gray;font-weight:500;font-size:12px">Votes : </span>' + w.votes + '' +
+            '</p>' +
+            '</div>' +
+            '<div class="iribbon custom-iribbon" style="background:linear-gradient(90deg, #EC8E30,#A65E17);">' +
+            '<p class="card-text custom-iribbon-text">Margin</p>' +
+            '<p class="card-text custom-iribbon-text-votes">' + margin + '</p>' +
+            '</div>' +
+            '</div>' +
+            '<div class="person-image custom-person-image">' +
+            '<img class="person-img wid" src=" ' + w.photo + '" alt="Person Image">' +
+            '</div>' +
+            '</div>'
+    });
+
+    grid.innerHTML = html;
+    modal.style.display = 'block';
+}
+
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
     buildPopularCandidates2021();
     buildBigFights2021();
     buildMarginTables();
+
+    // Modal functionality
+    var modal = document.getElementById('popular-candidates-modal');
+    var closeBtn = modal.querySelector('.close-modal');
+    closeBtn.onclick = function () {
+        modal.style.display = 'none';
+        document.getElementById("popular-candidates-modal").classList.remove("show");
+        document.body.style.overflow = "";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
 });
+
+
+document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("section-viewall-btn")) {
+        openPopup();
+    }
+})

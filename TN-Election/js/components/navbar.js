@@ -67,7 +67,7 @@ function buildNavbar() {
             alt="Gradious Logo"
             onclick="window.open('https://gradious.com/', '_blank')"
           />
-          <div class="navbar__brand-text">
+          <div class="navbar__brand-text" onclick="window.open('https://gradious.com/', '_blank')">
             <span class="navbar__brand-title">${navbarData.brand.title}</span>
             <span class="navbar__brand-subtitle">${navbarData.brand.subtitle}</span>
           </div>

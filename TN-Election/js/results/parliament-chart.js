@@ -6,8 +6,8 @@
 // ============================================
 
 var ALLIANCE_DOT_COLORS = {
-  'DMK Alliance':    '#E05A46',
-  'AIADMK Alliance': '#5b68b8',
+  'DMK Alliance':    '#5b68b8',
+  'AIADMK Alliance': '#E05A46',
   'No Alliance':     '#8a93a8'
 };
 
@@ -22,7 +22,7 @@ function buildParliamentChart() {
 
   // Sort: DMK first, then AIADMK, then others
   seats.sort(function(a, b) {
-    var order = { 'DMK Alliance': 0, 'AIADMK Alliance': 1, 'No Alliance': 2 };
+    var order = { 'DMK Alliance': 1, 'AIADMK Alliance': 0, 'No Alliance': 2 };
     return (order[a] || 2) - (order[b] || 2);
   });
 
