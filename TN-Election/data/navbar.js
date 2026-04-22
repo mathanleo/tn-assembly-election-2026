@@ -18,7 +18,7 @@ const navbarData = {
     // "active" means which page is currently highlighted.
     // Each page sets its own active link (see navbar.js)
     links: [
-        { label: "Home", href: "index.html" },
+        { label: "Home", href: "/index.html" },
         { label: "Candidates", href: `${prefixPath}candidates.html` },
         { label: "Big Fights", href: `${prefixPath}bigfights.html` },
         { label: "2021 Results", href: `${prefixPath}results.html` }

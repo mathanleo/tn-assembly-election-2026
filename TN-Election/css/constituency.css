@@ -14,6 +14,12 @@
     .const-page {
         padding: var(--gap-sm);
         width: 100%;
+
+        .const-page-container{
+            .const-hero-outer{
+                display: unset !important;
+            }
+        }
     }
 }
 /* ── Back header ─── */

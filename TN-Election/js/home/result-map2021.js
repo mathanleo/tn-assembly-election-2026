@@ -20,11 +20,11 @@ var PARTY_COLORS = {
     CPI: '#1D4ED8',
     'CPI(M)': '#1D4ED8',
     VCK: '#1D4ED8',
-    MDMK:"#1D4ED8",
+    MDMK: "#1D4ED8",
     PMK: '#C8282A',
-    AMMK:"#C8282A",
-    TMC:"#C8282A",
-    IJK:"#C8282A",
+    AMMK: "#C8282A",
+    TMC: "#C8282A",
+    IJK: "#C8282A",
     OTHERS: '#94A3B8',
     NONE: '#CBD5E1'
 };
@@ -92,6 +92,10 @@ function buildMap() {
     var container = document.getElementById('tn-map-svg');
     if (!container) { console.warn('No #tn-map-svg found'); return; }
 
+    var tableContainer = document.getElementsByClassName('results-chart-col')[0];
+    var rightElement = document.getElementsByClassName('result2021-info-container')[0];
+
+
     // Read dimensions from the SVG wrapper (not the SVG itself)
     // The wrapper is a flex child that fills remaining space after the header
     var svgWrap = document.querySelector('.map-svg-wrap');
@@ -102,9 +106,6 @@ function buildMap() {
     // Fallback minimum
     if (width < 100) width = 420;
     if (height < 200) height = 480;
-
-    console.log("allCandidates2021:", allCandidates2021);
-
 
     // D3 SVG setup
     var svg = d3.select('#tn-map-svg')
@@ -175,8 +176,6 @@ function buildMap() {
             var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
             if (result && result.winner) {
                 var party = result.winner.party || 'NONE';
-                console.log("party:",party,PARTY_COLORS[party]);
-                
                 return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
             }
             return PARTY_COLORS.NONE;
@@ -194,25 +193,42 @@ function buildMap() {
         .on('mouseleave', function () {
             tooltip.classList.remove('is-visible');
         })
-    // .on('click', function(event, d) {
-    //   event.stopPropagation();
-    //   tooltip.classList.remove('is-visible');
-    //   // Remove highlight from all, apply orange hologram to clicked
-    //   d3.selectAll('.constituency-path')
-    //     .classed('highlighted', false)
-    //     .attr('filter', null)
-    //     .attr('fill', '#e8eaee')
-    //     .attr('stroke', '#e8eaee');
-    //   d3.select(this)
-    //     .classed('highlighted', true)
-    //     .attr('fill', '#FF8C00')
-    //     .attr('stroke', '#FF8C00')
-    //     .attr('filter', 'url(#hologram-glow)');
-    //   // Pass click coords relative to .map-right so popup anchors on map
-    //   var mapRight = document.querySelector('.map-right');
-    //   var rect = mapRight.getBoundingClientRect();
-    // //   openPopup(d.properties.AC_NO, event.clientX - rect.left, event.clientY - rect.top, rect);
-    // });
+        .on('click', function (event, d) {
+            event.stopPropagation();
+            tooltip.classList.remove('is-visible');
+            buildResultTableCharts(String(d.properties.AC_NO));
+            // Remove highlight from all, apply orange hologram to clicked
+            d3.selectAll('.constituency-path')
+                .classed('highlighted', false)
+                .attr('filter', null)
+                .attr('fill', '#e8eaee')
+                .attr('stroke', '#e8eaee');
+            d3.select(this)
+                .classed('highlighted', true)
+                .attr('fill', function (d) {
+                    var constId = String(d.properties.AC_NO);
+                    var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
+                    if (result && result.winner) {
+                        var party = result.winner.party || 'NONE';
+                        return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
+                    }
+                    return PARTY_COLORS.NONE;
+                })
+                .attr('stroke', function (d) {
+                    var constId = String(d.properties.AC_NO);
+                    var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
+                    if (result && result.winner) {
+                        var party = result.winner.party || 'NONE';
+                        return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
+                    }
+                    return PARTY_COLORS.NONE;
+                })
+                .attr('filter', 'url(#hologram-glow)');
+            // Pass click coords relative to .map-right so popup anchors on map
+            var mapRight = document.querySelector('.map-right');
+            var rect = mapRight.getBoundingClientRect();
+            openPopUp(d.properties.AC_NO, event.clientX - rect.left, event.clientY - rect.top, rect);
+        });
 
     // Close popup when clicking map background — reset highlight
     //   svg.on('click', function() {
@@ -225,144 +241,366 @@ function buildMap() {
     //   });
 }
 
+
+// Party colors map
+const partyColors = {
+    DMK: '#e05c3a', AIADMK: '#222', PMK: '#1a7a4a',
+    NTK: '#b5432a', TVK: '#2a7a2a', IND: '#888',
+    BJP: '#ff7722', INC: '#19AAED'
+};
+
+
+function renderMiniMapFor2021Result(constId) {
+    if (typeof d3 === 'undefined' || typeof topojson === 'undefined' || typeof tnMapTopo === 'undefined') return;
+    var svgEl = document.getElementById('const-mini-svg'); if (!svgEl) return;
+    var topoKey = Object.keys(tnMapTopo.objects)[0];
+    var features = topojson.feature(tnMapTopo, tnMapTopo.objects[topoKey]).features;
+    var w = svgEl.clientWidth || 260, h = 220;
+    var svg = d3.select('#const-mini-svg').attr('viewBox', '0 0 ' + w + ' ' + h);
+    svg.selectAll('*').remove();
+    var proj = d3.geoMercator().fitSize([w, h], { type: 'FeatureCollection', features: features });
+    var path = d3.geoPath().projection(proj);
+    svg.selectAll('.bp').data(features).enter().append('path')
+        .attr('d', path)
+        .attr('fill', '#e8eaee')
+        .attr('stroke', '#565758')
+        .attr('stroke-width', 0.4);
+    var target = features.find(function (f) { return String(f.properties.AC_NO) === String(constId); });
+    if (target) {
+        svg.append('path').datum(target)
+            .attr('d', path)
+            .attr('fill', function (d) {
+                var constId = String(d.properties.AC_NO);
+                var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
+                if (result && result.winner) {
+                    var party = result.winner.party || 'NONE';
+                    return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
+                }
+                return PARTY_COLORS.NONE;
+            })
+            .attr('stroke', function (d) {
+                var constId = String(d.properties.AC_NO);
+                var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
+                if (result && result.winner) {
+                    var party = result.winner.party || 'NONE';
+                    return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
+                }
+                return PARTY_COLORS.NONE;
+            })
+            .attr('stroke-width', 1.5);
+    }
+}
+
+function openPopUp(constId, x, y, mapRect) {
+    const modal = document.getElementById('constituency-2021-modal');
+    const leftPanel = document.getElementById('modal-left-panel');
+    const rightPanel = document.getElementById('modal-right-panel');
+
+    const selectedConstituency = corrected2021Winners[constId];
+    const c = constituenciesData[constId];
+    console.log("selected:", selectedConstituency);
+    if (!selectedConstituency) return;
+
+    var electionYear = selectedConstituency["2021"];
+    console.log("elec:", electionYear);
+
+
+    const winner = electionYear[0];
+    const runner = electionYear[1];
+
+    console.log("winner:", winner, "runner:", runner);
+
+
+    var winnerPartyLogo = getPartyIcon(winner.party);
+    var runnerPartyLogo = getPartyIcon(runner.party);
+
+    var winnerUrl = `/assets/images/candidates/mla/2021`;
+
+    // ---- LEFT PANEL ----
+    leftPanel.innerHTML = `
+      <div style="width:100%;aspect-ratio:1/1.3;background:#eee;border-radius:8px;
+           display:flex;align-items:center;justify-content:center;margin-bottom:1rem;
+           color:#aaa;font-size:12px;">
+        <svg id="const-mini-svg" style="width:100%; height:100%;"></svg>
+      </div>
+
+      <p style="font-size:12px;line-height:1.5;color:#555;margin-bottom:1rem;">
+        <strong>${c.name}</strong> State Assembly constituency is one of the 234 state legislative assemblies in Tamil Nadu, India. Its State Assembly Constituency number is ${c.id}. It is located in <strong>${c.district}</strong> district. Parliament constituency: <strong>${(c.pc_name ?? '—')}</strong>.
+      </p>
+
+      `;
+
+    //   <p style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+    //      color:#999;margin-bottom:.5rem;">Ministry details</p>
+    // ---- BAR CHART CALCULATION ----
+    const total = winner.vote_share + runner.vote_share;
+    const w = (winner.vote_share / total) * 100;
+    const r = (runner.vote_share / total) * 100;
+
+    // Optional party colors
+    var partyColors = {
+        DMK: '#A4BCFD', ADMK: '#FDA29B',AIADMK: '#FDA29B', BJP: '#F97316', INC: '#16A34A',
+        CPM: '#DC2626', CPI: '#EF4444', VCK: '#7C3AED', PMK: '#0891B2',
+        NTK: '#C2410C', TVK: '#0F766E', DMDK: '#FF5722', OTHERS: '#94A3B8'
+    };;
+
+    const winnerColor = partyColors[winner.party] || '#888';
+    const runnerColor = partyColors[runner.party] || '#bbb';
+
+    requestAnimationFrame(function () {
+        renderMiniMapFor2021Result(constId);
+    });
+
+    // ---- RIGHT PANEL ----
+    rightPanel.innerHTML = `
+      <div style="font-size:14px;font-weight:500;margin-bottom:.75rem;">
+        2021 Election Result
+      </div>
+
+      <!-- 🔥 BAR CHART -->
+      <div style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;">
+          <span>${winner.party} (${winner.vote_share}%)</span>
+          <span>${runner.party} (${runner.vote_share}%)</span>
+        </div>
+
+        <div style="
+          display:flex;
+          height:20px;
+          border-radius:6px;
+          overflow:hidden;
+        ">
+          <div style="
+            width:${w}%;
+            background:${winnerColor};
+            transition:width 0.6s ease;
+          "></div>
+
+          <div style="
+            width:${r}%;
+            background:${runnerColor};
+            transition:width 0.6s ease;
+          "></div>
+        </div>
+      </div>
+
+      <!-- 🔥 WINNER CARD -->
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;">
+        <div class="custom-container" style="background:${winnerColor}">
+        <div class="ribbon" style="background-color: #22b14c"> Won</div> 
+         <div class="temp custom-temp">
+         <div class="card-body">
+         <h3 class="card-title custom-card-title" style="color:white">${winner.candidate}</h3>
+         <div class="subheaders custom-subheaders" style="display:flex">
+         <div class="logo"><img class="custom-img" src=${winnerPartyLogo} alt="${electionYear.candidate}" style="margin-top:-5px;">
+         </div>
+         <h6 style="font-weight: bold;">${winner.party}</h6>
+         </div>
+         <p class="card-text custom-card-text">${selectedConstituency.name}</p>
+         <p class="card-text custom-card-text-votes" style="color:white;font-size:12px;font-weight:700">
+         <span style="color:white;font-weight:500;font-size:12px">Votes : </span>${winner.votes}</p>
+         </div>
+         <div class="iribbon custom-iribbon" style="background:linear-gradient(90deg, #EC8E30,#A65E17);">
+         <p class="card-text custom-iribbon-text">Margin</p>
+         <p class="card-text custom-iribbon-text-votes">${winner.margin}</p>
+         </div>
+         </div>
+         <div class="person-image custom-person-image">
+         <img class="person-img wid" src="${winnerUrl}/${selectedConstituency.constituency_id}.jpg" alt="Person Image" onerror="this.onerror=null; this.src='${winnerUrl}/${selectedConstituency.constituency_id}.png';">
+         </div>
+         </div>
+
+
+      <!-- 🔥 RUNNER CARD -->
+       <div class="custom-container" style="background:${runnerColor}">
+        <div class="ribbon" style="background-color: rgba(240, 68, 56, 255);"> Lost</div> 
+         <div class="temp custom-temp">
+         <div class="card-body">
+         <h3 class="card-title custom-card-title" style="color:white">${runner.candidate}</h3>
+         <div class="subheaders custom-subheaders" style="display:flex">
+         <div class="logo"><img class="custom-img" src=${runnerPartyLogo} alt="${electionYear.candidate}" style="margin-top:-5px;">
+         </div>
+         <h6 style="font-weight: bold;">${runner.party}</h6>
+         </div>
+         <p class="card-text custom-card-text">${selectedConstituency.name}</p>
+         <p class="card-text custom-card-text-votes" style="color:white;font-size:12px;font-weight:700">
+         <span style="color:white;font-weight:500;font-size:12px">Votes : </span>${runner.votes}</p>
+         </div>
+         <div class="iribbon custom-iribbon" style="background:linear-gradient(90deg, #EC8E30,#A65E17);">
+         <p class="card-text custom-iribbon-text">Margin</p>
+         <p class="card-text custom-iribbon-text-votes">${winner.margin}</p>
+         </div>
+         </div>
+         <div class="person-image custom-person-image">
+         <img class="person-img wid" src="/assets/images/candidates/default/default.png" alt="Person Image"">
+
+         </div>
+         </div>
+         </div>
+         </div>
+
+      <!-- 🔥 MARGIN -->
+    `;
+
+    // ---- SHOW MODAL ----
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+// Close modal
+document.getElementById('close-const-modal').addEventListener('click', () => {
+    document.getElementById('constituency-2021-modal').style.display = 'none';
+    document.getElementById("map-search-input").value = "";
+    buildMap();
+    document.body.style.overflow = '';
+});
+document.getElementById('constituency-2021-modal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+        e.currentTarget.style.display = 'none';
+        document.getElementById("map-search-input").value = "";
+        buildMap();
+        document.body.style.overflow = '';
+    }
+});
+
 // ── Popup ─────────────────────────────────────────────────────
 // function openPopup(constId, x, y, mapRect) {
-//   selectedConstId = String(constId);
-//   var c = constituenciesData[selectedConstId];
-//   if (!c) return;
+//     selectedConstId = String(constId);
+//     var c = constituenciesData[selectedConstId];
+//     if (!c) return;
 
-//   function resolvePartyKey(candidate) {
-//     return (candidate.party || candidate.party_short || candidate.party_full || '').toString().trim().toUpperCase();
-//   }
-
-//   function renderCandidateLine(candidate) {
-//     var party = resolvePartyKey(candidate) || 'IND';
-//     var imageHtml = '';
-//     if (PARTY_ICONS[party]) {
-//       imageHtml = '<img class="popup-party-icon" src="' + PARTY_ICONS[party] + '" alt="' + party + '" onerror="this.style.display=\'none\'">';
-//     } else {
-//       imageHtml = '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + party.slice(0,2) + '</div>';
+//     function resolvePartyKey(candidate) {
+//         return (candidate.party || candidate.party_short || candidate.party_full || '').toString().trim().toUpperCase();
 //     }
 
-//     return '<div class="popup-candidate-row">' +
-//       '<span class="popup-cand-name">' + (candidate.name || candidate.candidate || (party + ' candidate')) + '</span>' +
-//       '<div class="popup-party-wrap">' + imageHtml +
-//         '<span class="popup-party-name">' + party + '</span>' +
-//       '</div>' +
-//     '</div>';
-//   }
+//     function renderCandidateLine(candidate) {
+//         var party = resolvePartyKey(candidate) || 'IND';
+//         var imageHtml = '';
+//         if (PARTY_ICONS[party]) {
+//             imageHtml = '<img class="popup-party-icon" src="' + PARTY_ICONS[party] + '" alt="' + party + '" onerror="this.style.display=\'none\'">';
+//         } else {
+//             imageHtml = '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + party.slice(0, 2) + '</div>';
+//         }
 
-//   // Header
-//   document.getElementById('popup-name').textContent =
-//     c.name.toUpperCase() + ' (' + c.reserved_status + ')';
+//         return '<div class="popup-candidate-row">' +
+//             '<span class="popup-cand-name">' + (candidate.name || candidate.candidate || (party + ' candidate')) + '</span>' +
+//             '<div class="popup-party-wrap">' + imageHtml +
+//             '<span class="popup-party-name">' + party + '</span>' +
+//             '</div>' +
+//             '</div>';
+//     }
 
-//   // Current MLA
-//   var mlaName  = c.current_mla  || c.mla_2021  || '—';
-//   var mlaParty = (c.current_mla_party || c.mla_party_2021 || '').replace('AIADMK', 'ADMK');
-//   console.log("part:",PARTY_ICONS);
+//     // Header
+//     document.getElementById('popup-name').textContent =
+//         c.name.toUpperCase() + ' (' + c.reserved_status + ')';
 
-//   var mlaIcon  = PARTY_ICONS[mlaParty]
-//     ? '<img class="popup-party-icon" src="' + PARTY_ICONS[mlaParty] + '" alt="' + mlaParty + '" onerror="this.style.display=\'none\'">'
-//     : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (mlaParty||'?').slice(0,2) + '</div>';
+//     // Current MLA
+//     var mlaName = c.current_mla || c.mla_2021 || '—';
+//     var mlaParty = (c.current_mla_party || c.mla_party_2021 || '').replace('AIADMK', 'ADMK');
+//     console.log("part:", PARTY_ICONS);
 
-//   document.getElementById('popup-mla').innerHTML =
-//     '<div class="popup-mla-row">' +
-//       '<span class="popup-mla-name">' + mlaName + '</span>' +
-//       '<div class="popup-party-wrap">' + mlaIcon +
+//     var mlaIcon = PARTY_ICONS[mlaParty]
+//         ? '<img class="popup-party-icon" src="' + PARTY_ICONS[mlaParty] + '" alt="' + mlaParty + '" onerror="this.style.display=\'none\'">'
+//         : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (mlaParty || '?').slice(0, 2) + '</div>';
+
+//     document.getElementById('popup-mla').innerHTML =
+//         '<div class="popup-mla-row">' +
+//         '<span class="popup-mla-name">' + mlaName + '</span>' +
+//         '<div class="popup-party-wrap">' + mlaIcon +
 //         '<span class="popup-party-name">' + mlaParty + '</span>' +
-//       '</div>' +
-//     '</div>';
+//         '</div>' +
+//         '</div>';
 
-//   // Contesting Candidates - DMK, ADMK, TVK, NTK
-//   var candidatesHtml = '';
-//   var allCandidates = [];
+//     // Contesting Candidates - DMK, ADMK, TVK, NTK
+//     var candidatesHtml = '';
+//     var allCandidates = [];
 
-//   // Prefer the full list from constituenciesWithCandidates if available
-//   if (typeof constituenciesWithCandidates !== 'undefined' && constituenciesWithCandidates[selectedConstId]) {
-//     allCandidates = constituenciesWithCandidates[selectedConstId].candidates || [];
-//   } else if (typeof candidates2026Data !== 'undefined' && candidates2026Data[selectedConstId]) {
-//     allCandidates = candidates2026Data[selectedConstId];
-//   } else if (typeof allCandidatesByConstituency !== 'undefined') {
-//     var constMeta = constituenciesData[selectedConstId] || {};
-//     var constName = (constMeta.name || '').toUpperCase();
-//     allCandidates = allCandidatesByConstituency[constName] || [];
-//   }
-//   var dmkCandidate = allCandidates.find(function(cand) {
-//     return resolvePartyKey(cand) === 'DMK';
-//   });
-//   if (!dmkCandidate && typeof alliancesData !== 'undefined' && alliancesData.SPA) {
-//     for (var i = 0; i < alliancesData.SPA.length; i++) {
-//       var party = alliancesData.SPA[i];
-//       if (party.pn !== 'DMK' && party.cid && party.cid.includes(parseInt(selectedConstId))) {
-//         dmkCandidate = allCandidates.find(function(cand) {
-//           return resolvePartyKey(cand) === party.pn;
-//         });
-//         if (dmkCandidate) break;
-//       }
+//     // Prefer the full list from constituenciesWithCandidates if available
+//     if (typeof constituenciesWithCandidates !== 'undefined' && constituenciesWithCandidates[selectedConstId]) {
+//         allCandidates = constituenciesWithCandidates[selectedConstId].candidates || [];
+//     } else if (typeof candidates2026Data !== 'undefined' && candidates2026Data[selectedConstId]) {
+//         allCandidates = candidates2026Data[selectedConstId];
+//     } else if (typeof allCandidatesByConstituency !== 'undefined') {
+//         var constMeta = constituenciesData[selectedConstId] || {};
+//         var constName = (constMeta.name || '').toUpperCase();
+//         allCandidates = allCandidatesByConstituency[constName] || [];
 //     }
-//   }
-
-//   var admkCandidate = allCandidates.find(function(cand) {
-//     return resolvePartyKey(cand) === 'ADMK';
-//   });
-//   if (!admkCandidate && typeof alliancesData !== 'undefined' && alliancesData.NDA) {
-//     for (var i = 0; i < alliancesData.NDA.length; i++) {
-//       var party = alliancesData.NDA[i];
-//       if (party.pn !== 'ADMK' && party.cid && party.cid.includes(parseInt(selectedConstId))) {
-//         admkCandidate = allCandidates.find(function(cand) {
-//           return resolvePartyKey(cand) === party.pn;
-//         });
-//         if (admkCandidate) break;
-//       }
-//     }
-//   }
-//   var tvkCandidate = allCandidates.find(function(cand) {
-//     return resolvePartyKey(cand) === 'TVK';
-//   });
-//   var ntkCandidate = allCandidates.find(function(cand) {
-//     return resolvePartyKey(cand) === 'NTK';
-//   });
-//   if (dmkCandidate) {
-//     candidatesHtml += renderCandidateLine(dmkCandidate);
-//   }
-//   if (admkCandidate) {
-//     candidatesHtml += renderCandidateLine(admkCandidate);
-//   }
-//   if (tvkCandidate) {
-//     candidatesHtml += renderCandidateLine(tvkCandidate);
-//   }
-//   if (ntkCandidate) {
-//     candidatesHtml += renderCandidateLine(ntkCandidate);
-//   }
-//   document.getElementById('popup-candidates').innerHTML = candidatesHtml || '<div class="popup-no-candidates">No DMK/ADMK/TVK/NTK candidates found</div>';
-
-//   // ── Position popup inside .map-right ──────────────────────
-//   var popup = document.getElementById('map-popup');
-//   if (popup && mapRect) {
-//     var popupW = 230;
-//     var popupH = popup.offsetHeight || 220;
-
-//     // Default: show above the click point, centred horizontally
-//     var left = x;
-//     var top  = y - 12; // gap between arrow tip and click point
-//     var flipBelow = false;
-
-//     // If popup would go above the top edge, flip it below
-//     if (top - popupH < 0) {
-//       flipBelow = true;
-//       top = y + 12;
+//     var dmkCandidate = allCandidates.find(function (cand) {
+//         return resolvePartyKey(cand) === 'DMK';
+//     });
+//     if (!dmkCandidate && typeof alliancesData !== 'undefined' && alliancesData.SPA) {
+//         for (var i = 0; i < alliancesData.SPA.length; i++) {
+//             var party = alliancesData.SPA[i];
+//             if (party.pn !== 'DMK' && party.cid && party.cid.includes(parseInt(selectedConstId))) {
+//                 dmkCandidate = allCandidates.find(function (cand) {
+//                     return resolvePartyKey(cand) === party.pn;
+//                 });
+//                 if (dmkCandidate) break;
+//             }
+//         }
 //     }
 
-//     // Clamp horizontally so popup stays inside the map
-//     var minLeft = popupW / 2 + 4;
-//     var maxLeft = mapRect.width - popupW / 2 - 4;
-//     left = Math.max(minLeft, Math.min(maxLeft, left));
+//     var admkCandidate = allCandidates.find(function (cand) {
+//         return resolvePartyKey(cand) === 'ADMK';
+//     });
+//     if (!admkCandidate && typeof alliancesData !== 'undefined' && alliancesData.NDA) {
+//         for (var i = 0; i < alliancesData.NDA.length; i++) {
+//             var party = alliancesData.NDA[i];
+//             if (party.pn !== 'ADMK' && party.cid && party.cid.includes(parseInt(selectedConstId))) {
+//                 admkCandidate = allCandidates.find(function (cand) {
+//                     return resolvePartyKey(cand) === party.pn;
+//                 });
+//                 if (admkCandidate) break;
+//             }
+//         }
+//     }
+//     var tvkCandidate = allCandidates.find(function (cand) {
+//         return resolvePartyKey(cand) === 'TVK';
+//     });
+//     var ntkCandidate = allCandidates.find(function (cand) {
+//         return resolvePartyKey(cand) === 'NTK';
+//     });
+//     if (dmkCandidate) {
+//         candidatesHtml += renderCandidateLine(dmkCandidate);
+//     }
+//     if (admkCandidate) {
+//         candidatesHtml += renderCandidateLine(admkCandidate);
+//     }
+//     if (tvkCandidate) {
+//         candidatesHtml += renderCandidateLine(tvkCandidate);
+//     }
+//     if (ntkCandidate) {
+//         candidatesHtml += renderCandidateLine(ntkCandidate);
+//     }
+//     document.getElementById('popup-candidates').innerHTML = candidatesHtml || '<div class="popup-no-candidates">No DMK/ADMK/TVK/NTK candidates found</div>';
 
-//     popup.style.left = left + 'px';
-//     popup.style.top  = top  + 'px';
-//     popup.dataset.flip = flipBelow ? 'below' : 'above';
-//     popup.classList.add('is-open');
-//   }
+//     // ── Position popup inside .map-right ──────────────────────
+//     var popup = document.getElementById('map-popup');
+//     if (popup && mapRect) {
+//         var popupW = 230;
+//         var popupH = popup.offsetHeight || 220;
+
+//         // Default: show above the click point, centred horizontally
+//         var left = x;
+//         var top = y - 12; // gap between arrow tip and click point
+//         var flipBelow = false;
+
+//         // If popup would go above the top edge, flip it below
+//         if (top - popupH < 0) {
+//             flipBelow = true;
+//             top = y + 12;
+//         }
+
+//         // Clamp horizontally so popup stays inside the map
+//         var minLeft = popupW / 2 + 4;
+//         var maxLeft = mapRect.width - popupW / 2 - 4;
+//         left = Math.max(minLeft, Math.min(maxLeft, left));
+
+//         popup.style.left = left + 'px';
+//         popup.style.top = top + 'px';
+//         popup.dataset.flip = flipBelow ? 'below' : 'above';
+//         popup.classList.add('is-open');
+//     }
 // }
 
 // function closePopup() {
@@ -426,11 +664,10 @@ function initSearch() {
             item.innerHTML =
                 '<div class="result-name">' + c.name + '</div>' +
                 '<div class="result-dist">' + c.district + ' · ' + c.reserved_status + '</div>';
-            item.addEventListener('click', function (event) {
+            item.addEventListener('click', function (event, d) {
                 event.stopPropagation();
                 input.value = c.name;
                 results.classList.remove('is-open');
-
                 // Reset all paths first — same as map click handler
                 d3.selectAll('.constituency-path')
                     .classed('highlighted', false)
@@ -443,8 +680,27 @@ function initSearch() {
                 if (pathEl) {
                     d3.select(pathEl)
                         .classed('highlighted', true)
-                        .attr('fill', '#FF8C00')
-                        .attr('stroke', '#FF8C00')
+                        .attr('fill', function (d) {
+                            var constId = String(d.properties.AC_NO);
+                            var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
+                            if (result && result.winner) {
+                                var party = result.winner.party || 'NONE';
+                                var mapRight = document.querySelector('.map-right');
+                                var rect = mapRight.getBoundingClientRect();
+                                openPopUp(d.properties.AC_NO, event.clientX - rect.left, event.clientY - rect.top, rect);
+                                return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
+                            }
+                            return PARTY_COLORS.NONE;
+                        })
+                        .attr('stroke', function (d) {
+                            var constId = String(d.properties.AC_NO);
+                            var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
+                            if (result && result.winner) {
+                                var party = result.winner.party || 'NONE';
+                                return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
+                            }
+                            return PARTY_COLORS.NONE;
+                        })
                         .attr('filter', 'url(#hologram-glow)');
                 }
 
@@ -457,8 +713,7 @@ function initSearch() {
                     x = bb.left + bb.width / 2 - rect.left;
                     y = bb.top + bb.height / 2 - rect.top;
                 }
-
-                openPopup(c.id, x, y, rect);
+                // openPopup(c.id, x, y, rect);
             });
             results.appendChild(item);
         });

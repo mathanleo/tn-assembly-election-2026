@@ -101,30 +101,79 @@ var ourteam = [
             }
         ]
     },
-    // {
-    //     name: "Jude Blesslin Davis E",
-    //     profileImage: "../assets/images/our-team/assets/images/our-team/Jude Blesslin Davis E .jpg",
-    //     socialprofile: [
-    //         {
-    //             instagram: "https://www.instagram.com/jude_blesslin_davis?igsh=MWx5bXVsODR4MmJ4",
-    //             github: "https://github.com/jude-blesslin-davis-e",
-    //             linkedin: "https://www.linkedin.com/in/jude-blesslin-davis-e?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    //             x: "https://x.com/blesslin_Jude",
-    //             gmail: "ejudeblesslindavis@gmail.com",
-    //         }
-    //     ]
-    // },
-    // {
-    //     name: "Jude Blesslin Davis E",
-    //     profileImage: "../assets/images/our-team/assets/images/our-team/Jude Blesslin Davis E .jpg",
-    //     socialprofile: [
-    //         {
-    //             instagram: "https://www.instagram.com/jude_blesslin_davis?igsh=MWx5bXVsODR4MmJ4",
-    //             github: "https://github.com/jude-blesslin-davis-e",
-    //             linkedin: "https://www.linkedin.com/in/jude-blesslin-davis-e?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    //             x: "https://x.com/blesslin_Jude",
-    //             gmail: "ejudeblesslindavis@gmail.com",
-    //         }
-    //     ]
-    // },
+    {
+        name: "Suganthi V",
+        profileImage: "../assets/images/our-team/suganthi.jpg",
+        socialprofile: [
+            {
+                instagram: "https://www.instagram.com/swetha_dev94?igsh=bTE4bGJ4dXEyanhl",
+                github: "https://github.com/SuganthiVasudevan",
+                linkedin: "https://www.linkedin.com/in/suganthi-vasudevan",
+                x: "https://x.com/suganthi_vasu",
+                gmail: "suganthivasudevan5@gmail.com",
+            }
+        ]
+    },
+
+        {
+        name: "Ganesh Ram M",
+        profileImage: "../assets/images/our-team/ganesh.jpg",
+        socialprofile: [
+            {
+                linkedin: "http://www.linkedin.com/in/ganesh-ram-130b86277",
+            }
+        ]
+    },    {
+        name: "Jeni Pearl R",
+        profileImage: "../assets/images/our-team/jeni.png",
+        socialprofile: [
+            {
+                linkedin: "https://www.linkedin.com/in/josephin-mary-a-4252a0289/",
+            }
+        ]
+    },    {
+        name: "Harini M",
+        profileImage: "../assets/images/our-team/harini.jpg",
+        socialprofile: [
+            {
+                linkedin: "http://www.linkedin.com/in/harinim06",
+                gmail: "harinim.0067@gmail.com",
+            }
+        ]
+    },    {
+        name: "Valli M",
+        profileImage: "../assets/images/our-team/valli.jpg",
+        socialprofile: [
+            {
+                gmail: "vallimuthuramn07@gmail.com",
+            }
+        ]
+    },
+    {
+        name: "Guru Lakshmi",
+        profileImage: "../assets/images/our-team/gutu.jpg",
+        socialprofile: [
+            {
+                gmail: "gurulakshmi.g@gradious.com",
+            }
+        ]
+    },
+     {
+        name: "Josephin Mary A",
+        profileImage: "../assets/images/our-team/josephin.jpg",
+        socialprofile: [
+            {
+                linkedin:"https://www.linkedin.com/in/josephin-mary-a-4252a0289/"
+            }
+        ]
+    },
+    {
+        name: "Navina",
+        profileImage: "../assets/images/our-team/navina.jpg",
+        socialprofile: [
+            {
+                gmail:"navinamarimuthu@gmail.com"
+            }
+        ]
+    },
 ]

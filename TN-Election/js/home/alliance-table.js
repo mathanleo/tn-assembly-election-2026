@@ -8,6 +8,11 @@
 //   3. Builds the NDA / SPA / Others table HTML
 // ============================================
 
+var expandState = {
+    NDA: false,
+    SPA: false,
+    OTHERS: false
+};
 var PREVIEW_COUNT = 6;   // How many rows to show before "View all"
 var isExpanded = false;
 
@@ -30,7 +35,7 @@ function getSeatDisplay(party) {
 function buildPartyRows(parties, limit) {
     var list = limit ? parties.slice(0, limit) : parties;
 
-    return list.map(function (party) {
+    var rowsHTML = list.map(function (party) {
         var seats = getSeatDisplay(party);
         var isDash = (seats === "–");
         var seatsClass = isDash ? "alliance-table__seats--empty" : "";
@@ -63,38 +68,49 @@ function buildPartyRows(parties, limit) {
             '</div>'
         );
     }).join("");
+    return rowsHTML;
 }
 
 // -----------------------------------------------
 // STEP 3 — Render the full alliance table
 // -----------------------------------------------
 function renderAllianceTable() {
-    var limit = isExpanded ? null : PREVIEW_COUNT;
 
-    // NDA column
-    var ndaCol = document.getElementById("alliance-col-nda");
-    if (ndaCol) ndaCol.innerHTML = buildPartyRows(alliancesData.NDA, limit);
+    function renderColumn(colId, data, key) {
+        var col = document.getElementById(colId);
+        if (!col) return;
 
-    // SPA column
-    var spaCol = document.getElementById("alliance-col-spa");
-    if (spaCol) spaCol.innerHTML = buildPartyRows(alliancesData.SPA, limit);
+        var isExpanded = expandState[key];
+        var limit = isExpanded ? null : PREVIEW_COUNT;
 
-    // OTHERS column
-    var othersCol = document.getElementById("alliance-col-others");
-    if (othersCol) othersCol.innerHTML = buildPartyRows(alliancesData.OTHERS, limit);
+        var rowsHTML = buildPartyRows(data, limit);
 
-    // Update View all / View less button text
-    var btn = document.getElementById("alliance-viewall-btn");
-    if (btn) btn.textContent = isExpanded ? "View less" : "View all";
+        var buttonHTML = data.length > PREVIEW_COUNT
+            ? `
+        <div class="alliance-table__footer">
+          <button 
+            class="alliance-table__viewall-btn"
+            onclick="toggleAllianceView('${key}')">
+            ${isExpanded ? 'View less' : 'View all'}
+          </button>
+        </div>
+      `
+            : '';
+
+        col.innerHTML = rowsHTML + buttonHTML;
+    }
+    renderColumn("alliance-col-nda", alliancesData.NDA, "NDA");
+    renderColumn("alliance-col-spa", alliancesData.SPA, "SPA");
+    renderColumn("alliance-col-others", alliancesData.OTHERS, "OTHERS");
 }
 
 // -----------------------------------------------
 // STEP 4 — Toggle View all / View less
 // Called by the button's onclick in HTML
 // -----------------------------------------------
-function toggleAllianceView() {
-    isExpanded = !isExpanded;
-    renderAllianceTable();
+function toggleAllianceView(type) {
+  expandState[type] = !expandState[type];
+  renderAllianceTable();
 }
 
 // -----------------------------------------------

@@ -24,7 +24,7 @@ var NDA_PARTIES  = ['AIADMK', 'ADMK', 'BJP', 'PMK', 'TMC', 'MNK', 'AMMK'];
 var SPA_PARTIES  = ['DMK', 'INC', 'VCK', 'CPI(M)', 'CPI', 'DMDK', 'MDMK', 'MNM', 'IUML'];
 
 function buildAllianceResultsTable() {
-  var container = document.getElementById('alliance-results-container');
+  var container = document.getElementById('alliance-table');
   if (!container || typeof results2021Winners === 'undefined') return;
 
   // Count wins per party
@@ -83,23 +83,31 @@ function buildAllianceResultsTable() {
   }
 
   container.innerHTML =
-    '<div class="alliance-results-table">' +
       '<div class="alliance-results-table__header-row">' +
         '<div class="alliance-results-table__header alliance-results-table__header--nda">NDA</div>' +
+        '<div class="alliance-table__vdivider-head"></div>'+
         '<div class="alliance-results-table__header alliance-results-table__header--spa">SPA</div>' +
+        '<div class="alliance-table__vdivider-head"></div>'+
         '<div class="alliance-results-table__header alliance-results-table__header--others">Others</div>' +
       '</div>' +
       '<div class="alliance-results-table__subheader-row">' +
+        '<div style="padding: 4px 12px">'+
         '<div class="alliance-results-table__subheader alliance-results-table__subheader--nda"><span>Party</span><span>Won</span></div>' +
+        '</div>'+
+        '<div class="alliance-table__vdivider"></div>'+
+        '<div style="padding: 4px 12px">'+
         '<div class="alliance-results-table__subheader alliance-results-table__subheader--spa"><span>Party</span><span>Won</span></div>' +
+        '</div>'+
+        '<div class="alliance-table__vdivider"></div>'+
+        '<div style="padding: 4px 12px">'+
         '<div class="alliance-results-table__subheader alliance-results-table__subheader--others"><span>Party</span><span>Won</span></div>' +
+        '</div>'+
       '</div>' +
       '<div class="alliance-results-table__body-row">' +
-        '<div class="alliance-results-table__col">' + buildRows(ndaParties)    + '</div>' +
-        '<div class="alliance-results-table__col">' + buildRows(spaParties)    + '</div>' +
-        '<div class="alliance-results-table__col">' + buildRows(othersParties) + '</div>' +
-      '</div>' +
-    '</div>';
+        '<div class="alliance-results-table__col" id="alliance-col-nda">' + buildRows(ndaParties)    + '</div>' +
+        '<div class="alliance-results-table__col" id="alliance-col-spa">' + buildRows(spaParties)    + '</div>' +
+        '<div class="alliance-results-table__col" id="alliance-col-others" style="text-align:center">' + buildRows(othersParties) + '</div>' +
+      '</div>';
 }
 
 document.addEventListener('DOMContentLoaded', buildAllianceResultsTable);

@@ -20,87 +20,213 @@
   <body data-page="results">
     <div id="navbar-container"></div>
 
-    <main class="coming-soon-page">
-      <div class="coming-soon-card">
-        <div class="coming-soon-badge">Coming Soon</div>
-        <h1>2021 Results are on the way</h1>
-        <p>
-          We're building the results dashboard with interactive maps,
-          constituency insights, and vote trends. Please check back soon for the
-          full experience.
-        </p>
-      </div>
+    <main>
+      <!-- SECTION 1: Map + Parliament Chart -->
+      <section class="results-hero">
+        <div class="results-map-col">
+          <h1 class="results-page-title">2021 Results</h1>
+          <div class="map-right results-map-wrap">
+            <div style="display: flex; align-items: center; gap: 10px">
+              <div class="map-search">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input
+                  id="map-search-input"
+                  type="text"
+                  placeholder="Search Constituency…"
+                />
+                <div class="map-search-results" id="map-search-results"></div>
+              </div>
+              <!-- <button> -->
+            </div>
+            <!-- </button> -->
+            <div class="map-svg-wrap">
+              <svg
+                id="tn-map-svg"
+                style="filter: drop-shadow(7px 9px 0px #bcb7b7)"
+              ></svg>
+            </div>
+            <!-- <div class="map-popup" id="map-popup">
+              <div class="popup-header">
+                <div class="popup-name" id="popup-name">—</div>
+                <button class="popup-close" id="popup-close-btn">×</button>
+              </div>
+              <div class="popup-body">
+                <div class="popup-section-label">2021 Winner</div>
+                <div id="popup-candidates"></div>
+                <div class="popup-section-label">Runner Up</div>
+                <div id="popup-mla"></div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="results-chart-col">
+          <div class="parliament-wrap">
+            <canvas id="parliament-chart"></canvas>
+            <div class="parliament-center">
+              <span class="parliament-total">234</span>
+              <span class="parliament-label">Total Seats</span>
+            </div>
+          </div>
+          <div id="alliance-table"></div>
+        </div>
+        <div class="result2021-info-container"></div>
+      </section>
+
+      <!-- SECTION 2: Popular Candidates -->
+      <section class="results-section">
+        <div class="section-header">
+          <h2 class="section-title">Popular Candidates</h2>
+        </div>
+        <div id="popular-candidates-2021"></div>
+        <div style="display: flex; justify-content: end; margin-top: 10px">
+          <a class="section-viewall-btn">View all</a>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Big Fights -->
+      <!-- <section class="results-section">
+        <div class="section-header">
+          <h2 class="section-title">Big Fights</h2>
+        </div>
+        <div id="bigfights-2021"></div>
+      </section> -->
+
+      <!-- SECTION 4: Tables -->
+      <section class="results-tables-row">
+        <div class="results-table-card">
+          <h3 class="results-table-card__title">
+            2021 Elections High Margin Winner
+          </h3>
+          <p class="results-table-card__sub">
+            Candidates with the highest winning/Leading votes
+          </p>
+          <div class="table-container">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Candidate Name</th>
+                  <th>Constituency</th>
+                  <th>Votes</th>
+                  <th>Margin</th>
+                </tr>
+              </thead>
+              <tbody id="high-margin-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="results-table-card">
+          <h3 class="results-table-card__title">Low Margin Candidates</h3>
+          <p class="results-table-card__sub">
+            Candidates with the lowest winning/Leading votes
+          </p>
+          <div class="table-container">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Candidate Name</th>
+                  <th>Constituency</th>
+                  <th>Votes</th>
+                  <th>Margin</th>
+                </tr>
+              </thead>
+              <tbody id="low-margin-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <style>
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: "Nunito", sans-serif;
-        background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
-        color: #0f172a;
-        display: flex;
+    <div id="popular-candidates-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-modal">&times;</span>
+          <h2>All Popular Candidates</h2>
+        </div>
+        <div
+          id="modal-popular-candidates-grid"
+          class="results-candidates-grid"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Add this modal div to your HTML -->
+    <div
+      id="constituency-2021-modal"
+      class="modal"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.45);
         align-items: center;
         justify-content: center;
-      }
+      "
+    >
+      <div
+        class="c-modal"
+        style="
+          position: relative;
+          background: #fff;
+          border-radius: 12px;
+          width: 930px;
+          max-width: 95vw;
+          overflow: hidden;
+          display: flex;
+        "
+      >
+        <button
+          id="close-const-modal"
+          style="
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+          "
+        >
+          &times;
+        </button>
 
-      .coming-soon-page {
-        width: 100%;
-        max-width: 720px;
-        padding: 32px 24px;
-      }
+        <!-- Left panel -->
+        <div
+          id="modal-left-panel"
+          style="
+            width: 220px;
+            flex-shrink: 0;
+            background: #f5f5f3;
+            padding: 1.25rem;
+            border-right: 1px solid #e5e5e5;
+          "
+        ></div>
 
-      .coming-soon-card {
-        background: #ffffff;
-        border-radius: 28px;
-        border: 1px solid rgba(15, 23, 42, 0.08);
-        box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
-        padding: 48px 40px;
-        text-align: center;
-      }
+        <!-- Right panel -->
+        <div
+          id="modal-right-panel"
+          style="flex: 1; padding: 1.25rem; overflow: hidden"
+        ></div>
+      </div>
+    </div>
 
-      .coming-soon-badge {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 24px;
-        padding: 10px 18px;
-        border-radius: 999px;
-        background: #dbeafe;
-        color: #1d4ed8;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      }
-
-      .coming-soon-card h1 {
-        margin: 0 0 18px;
-        font-size: clamp(2rem, 4vw, 3rem);
-        line-height: 1.05;
-        letter-spacing: -0.04em;
-      }
-
-      .coming-soon-card p {
-        margin: 0;
-        color: #475569;
-        font-size: 1rem;
-        line-height: 1.75;
-        max-width: 620px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      @media (max-width: 576px) {
-        .coming-soon-page {
-          padding: 24px 16px;
-        }
-
-        .coming-soon-card {
-          padding: 32px 24px;
-        }
-      }
-    </style>
+    <div class="map-tooltip" id="map-tooltip"></div>
+    <div id="map-legend" style="display: none"></div>
+    <div id="footer-container"></div>
 
     <script src="../data/navbar.js"></script>
     <script src="../data/constituencies.js"></script>
@@ -109,6 +235,8 @@
     <script src="../data/results2021.js"></script>
     <script src="../data/candidates.js"></script>
     <script src="../data/bigfights.js"></script>
+    <script src="../data/constituencies.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
     <script src="../js/components/navbar.js"></script>

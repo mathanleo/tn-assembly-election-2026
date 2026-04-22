@@ -41,7 +41,7 @@
   position: relative;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   flex-shrink: 0;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 
 .map-search:focus-within {
@@ -125,6 +125,7 @@
 #tn-map-svg {
   width: 100%;
   height: 100%;
+  margin-top: 8px;
   display: block;
   filter: drop-shadow(7px 9px 0px #808080);
 }
