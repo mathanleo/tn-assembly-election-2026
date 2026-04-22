@@ -10913,24 +10913,24 @@ var corrected2021Winners = {
   },
   "140": {
     "constituency_id": 140,
-    "name": "SRIRANGAM",
+    "name": "TIRUCHIRAPPALLI WEST",
     "2021": [
       {
         "position": 1,
-        "candidate": "SENTHIL KUMAR.P",
+        "candidate": "NEHRU K N",
         "party": "DMK",
-        "votes": 85912,
-        "margin": 26041,
-        "vote_share": 48.93,
+        "votes": 74561,
+        "margin": 21248,
+        "vote_share": 48.41,
         "winner": true
       },
       {
         "position": 2,
-        "candidate": "THANGA TAMILSELVAN.P",
-        "party": "ADMK",
-        "votes": 59871,
-        "margin": 37940,
-        "vote_share": 34.1,
+        "candidate": "PADMANATHAN V",
+        "party": "AIADMK",
+        "votes": 53313,
+        "margin": 36427,
+        "vote_share": 34.62,
         "winner": false
       }
     ]
@@ -10961,24 +10961,24 @@ var corrected2021Winners = {
   },
   "142": {
     "constituency_id": 142,
-    "name": "TIRUCHIRAPPALLI (WEST)",
+    "name": "THIRUVERUMBUR",
     "2021": [
       {
         "position": 1,
-        "candidate": "PALANIAPPAN.G.P",
+        "candidate": "ANBIL MAHESH POYYAMOZHI",
         "party": "DMK",
-        "votes": 74561,
-        "margin": 21248,
-        "vote_share": 48.41,
+        "votes": 85912,
+        "margin": 26041,
+        "vote_share": 48.93,
         "winner": true
       },
       {
         "position": 2,
-        "candidate": "RAMASUBRAMANIAN.K",
-        "party": "ADMK",
-        "votes": 53313,
-        "margin": 36427,
-        "vote_share": 34.62,
+        "candidate": "P KUMAR",
+        "party": "AIADMK",
+        "votes": 59871,
+        "margin": 37940,
+        "vote_share": 34.1,
         "winner": false
       }
     ]

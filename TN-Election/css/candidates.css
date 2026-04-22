@@ -266,7 +266,7 @@
 /* ---------- Card body — alliance/party colour background ---------- */
 .candidate-card__body {
   width: 182px;
-  height: 176px;
+  height: 186px;
   border-radius: 8px;
   color: black;
   display: flex;
@@ -297,6 +297,7 @@
   font-weight: 700;
   margin: 0 0 3px;
   padding: 0 8px;
+  /* max-width: 130px; */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
