@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Entry UI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form class="login-container">
+      <input
+        type="text"
+        id="login-input"
+        name="username"
+        autocomplete="off"
+        placeholder="User ID"
+      />
+      <input
+        type="password"
+        id="password-input"
+        name="password"
+        placeholder="Password"
+      />
+      <button id="login-btn">Login</button>
+    </form>
+    <div class="container">
+      <div class="search-bar" id="searchBar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search..."
+          autocomplete="off"
+        />
+        <ul id="suggestionsList"></ul>
+      </div>
+      <div class="candidates"></div>
+      <div class="candi-bar" id="candiBar">
+        <div class="cand-input-button">
+          <input
+            type="text"
+            id="candInput"
+            placeholder="Search for Candidates..."
+            autocomplete="off"
+          />
+          <button class="show-all-btn">Show All</button>
+          <button class="hide-all-btn">Hide All</button>
+        </div>
+        <ul id="candiList"></ul>
+      </div>
+      <div class="candidatesSecond"></div>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div id="buttonsSave">
+          <button id="sendToDb" onclick="sendToDb">Yes</button>
+          <button id="closeModal" onclick="closeTheModal">No</button>
+        </div>
+      </div>
+    </div>
+    <script src="dynamic.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>
