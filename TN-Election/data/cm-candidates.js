@@ -26,9 +26,9 @@ const cmCandidatesData = [
         id: 1092,
         name: "Seeman",
         party: "NTK",
-        photo: "../assets/images/candidates/seeman.svg",
+        photo: "../assets/images/candidates/mla/2026/1092.jpg",
         partyIcon: "../assets/icons/ntk.svg",
-        borderColor: "#16A34A"
+        borderColor: "#32d583"
     },
     {
         id: 2271,

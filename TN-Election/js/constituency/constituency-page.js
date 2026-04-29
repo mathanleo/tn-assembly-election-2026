@@ -24,6 +24,7 @@ var PARTY_ICONS = {
   AMMK:  '../assets/icons/ammk.webp',
   TMC:   '../assets/icons/tmc.png',
   IJK:   '../assets/icons/ijk.svg',
+  IUML:  '../assets/icons/iuml.png',
   PBK:   '../assets/icons/pbk.svg',
   PNK:   '../assets/icons/pnk.svg',
   STMK:  '../assets/icons/stmk.svg',
@@ -369,32 +370,64 @@ function renderCandidates(constId){
 function renderHistory(constId){
   var container=document.getElementById('history-cards');
   if(!container) return;
-  var hist=typeof historyData!=='undefined'&&historyData[constId];
-  if(!hist){
-    container.innerHTML='<div class="history-card" style="color:#6B7280;font-size:13px">Historical data not available.</div>';
-    return;
-  }
+
+  // corrected2021Winners is keyed by constituency id; position 1 = winner, position 2 = runner
+  var corrected=(typeof corrected2021Winners!=='undefined')&&corrected2021Winners[String(constId)];
   var html='';
-  ['2021','2016','2011'].forEach(function(yr){
-    if(!hist[yr]||!hist[yr].length) return;
-    var w=hist[yr].find(function(c){return c.winner;});
-    var ru=hist[yr].find(function(c){return c.position===2;});
-    if(!w) return;
-    html+=
-      '<div class="history-card">'+
-        '<div class="history-year-tag">'+yr+' Assembly Election</div>'+
-        '<div class="history-winner-name" style="color:'+getPartyColor(w.party)+'">'+w.candidate+'</div>'+
-        '<div class="history-winner-party">'+w.party+'</div>'+
-        '<div class="history-stat">Votes gained : <span>'+fmt(w.votes)+'</span></div>'+
-        '<div class="history-margin">Margin: '+fmt(w.margin)+'</div>'+
-        (ru?
-          '<div class="history-runnerup">'+
-            '<div class="history-ru-name">'+ru.candidate+'</div>'+
-            '<div class="history-ru-detail">'+ru.party+'</div>'+
-            '<div class="history-stat" style="margin-top:4px">Votes gained : <span>'+fmt(ru.votes)+'</span></div>'+
-          '</div>':'')+''+
-      '</div>';
-  });
+
+  if(corrected){
+    ['2021','2016','2011'].forEach(function(yr){
+      var yearData=corrected[yr];
+      if(!yearData||!yearData.length) return;
+      var w=yearData.find(function(c){return c.position===1;});
+      var ru=yearData.find(function(c){return c.position===2;});
+      if(!w) return;
+      html+=
+        '<div class="history-card">'+
+          '<div class="history-year-tag">'+yr+' Assembly Election</div>'+
+          '<div class="history-winner-name" style="color:'+getPartyColor(w.party)+'">'+w.candidate+'</div>'+
+          '<div class="history-winner-party">'+w.party+'</div>'+
+          '<div class="history-stat">Votes gained : <span>'+fmt(w.votes)+'</span></div>'+
+          (w.vote_share?'<div class="history-stat">Vote % : <span>'+w.vote_share+'%</span></div>':'')+
+          '<div class="history-margin">Margin: '+fmt(w.margin)+'</div>'+
+          (ru?
+            '<div class="history-runnerup">'+
+              '<div class="history-ru-name">'+ru.candidate+'</div>'+
+              '<div class="history-ru-detail">'+ru.party+'</div>'+
+              '<div class="history-stat" style="margin-top:4px">Votes gained : <span>'+fmt(ru.votes)+'</span></div>'+
+              (ru.vote_share?'<div class="history-stat">Vote % : <span>'+ru.vote_share+'%</span></div>':'')+
+            '</div>':'')+''+
+        '</div>';
+    });
+  }
+
+  // Fallback to historyData if corrected2021Winners has nothing for this id
+  if(!html){
+    var hist=(typeof historyData!=='undefined')&&historyData[constId];
+    if(hist){
+      ['2021','2016','2011'].forEach(function(yr){
+        if(!hist[yr]||!hist[yr].length) return;
+        var w=hist[yr].find(function(c){return c.winner;});
+        var ru=hist[yr].find(function(c){return c.position===2;});
+        if(!w) return;
+        html+=
+          '<div class="history-card">'+
+            '<div class="history-year-tag">'+yr+' Assembly Election</div>'+
+            '<div class="history-winner-name" style="color:'+getPartyColor(w.party)+'">'+w.candidate+'</div>'+
+            '<div class="history-winner-party">'+w.party+'</div>'+
+            '<div class="history-stat">Votes gained : <span>'+fmt(w.votes)+'</span></div>'+
+            '<div class="history-margin">Margin: '+fmt(w.margin)+'</div>'+
+            (ru?
+              '<div class="history-runnerup">'+
+                '<div class="history-ru-name">'+ru.candidate+'</div>'+
+                '<div class="history-ru-detail">'+ru.party+'</div>'+
+                '<div class="history-stat" style="margin-top:4px">Votes gained : <span>'+fmt(ru.votes)+'</span></div>'+
+              '</div>':'')+''+
+          '</div>';
+      });
+    }
+  }
+
   container.innerHTML=html||'<div class="history-card" style="color:#6B7280;font-size:13px">No historical data available.</div>';
 }
 
@@ -528,8 +561,8 @@ function renderMiniMap(constId){
   if(target){
     svg.append('path').datum(target)
       .attr('d',path)
-      .attr('fill','#FF8C00')
-      .attr('stroke','#FF8C00')
+      .attr('fill','#1f1e1d')
+      .attr('stroke','#0e0e0e')
       .attr('stroke-width',1.5);
   }
 }

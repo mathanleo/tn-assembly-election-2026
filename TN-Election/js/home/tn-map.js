@@ -38,10 +38,39 @@ var PARTY_ICONS = {
   AMMK: '../assets/icons/ammk.webp',
   TMC:  '../assets/icons/tmc.png',
   IJK:  '../assets/icons/ijk.svg',
+  IUML: '../assets/icons/iuml.png',
   PBK:  '../assets/icons/pbk.svg',
   PNK:  '../assets/icons/pnk.svg',
   IND:  '../assets/icons/independent.svg'
 };
+
+var PARTY_HIGHLIGHT_COLORS = {
+  NDA:  '#F97316',
+  SPA:  '#1D4ED8',
+  NTK:  '#16A34A',
+  TVK:  '#FBBF24',
+  OTHERS: '#94A3B8'
+};
+
+function getHighlightColor(party) {
+  if (!party) return PARTY_HIGHLIGHT_COLORS.OTHERS;
+  if (party === 'NTK') return PARTY_HIGHLIGHT_COLORS.NTK;
+  if (party === 'TVK') return PARTY_HIGHLIGHT_COLORS.TVK;
+  if (alliancesData && alliancesData.NDA.some(function(item) { return item.pn === party; })) {
+    return PARTY_HIGHLIGHT_COLORS.NDA;
+  }
+  if (alliancesData && alliancesData.SPA.some(function(item) { return item.pn === party; })) {
+    return PARTY_HIGHLIGHT_COLORS.SPA;
+  }
+  return PARTY_HIGHLIGHT_COLORS.OTHERS;
+}
+
+function getPartySeatIds(party) {
+  if (!party || !alliancesData) return [];
+  var partyEntry = [].concat(alliancesData.NDA || [], alliancesData.SPA || [], alliancesData.OTHERS || [])
+    .find(function(item) { return item.pn === party; });
+  return partyEntry && Array.isArray(partyEntry.cid) ? partyEntry.cid.map(Number) : [];
+}
 
 // ── State ────────────────────────────────────────────────────
 var selectedConstId = null;
@@ -203,8 +232,41 @@ function buildMap() {
       .attr('fill', '#e8eaee')
       .attr('stroke', '#e8eaee');
     closePopup();
+    if (typeof window.highlightPartyConstituencies === 'function') {
+      window.highlightPartyConstituencies(null);
+    }
   });
 }
+
+window.updateMapHighlights = function(party) {
+  var defaultFill = '#e8eaee';
+  var defaultStroke = '#e8eaee';
+
+  d3.selectAll('.constituency-path')
+    .classed('highlighted', false)
+    .attr('filter', null)
+    .attr('fill', defaultFill)
+    .attr('stroke', defaultStroke);
+
+  if (!party) {
+    return;
+  }
+
+  var highlightColor = getHighlightColor(party);
+  var seatIds = getPartySeatIds(party);
+  if (!seatIds.length) {
+    return;
+  }
+
+  d3.selectAll('.constituency-path')
+    .filter(function(d) {
+      return seatIds.indexOf(Number(d.properties.AC_NO)) !== -1;
+    })
+    .classed('highlighted', true)
+    .attr('filter', 'url(#hologram-glow)')
+    .attr('fill', highlightColor)
+    .attr('stroke', highlightColor);
+};
 
 // ── Popup ─────────────────────────────────────────────────────
 function openPopup(constId, x, y, mapRect) {

@@ -82374,7 +82374,7 @@ var allCandidatesByConstituency = {
       "constituency": "Perambur",
       "bg": "#e3f2fd",
       "accent": "#0D47A1",
-      "photo": "../assets/images/candidates/mla/2026/2271.jpg"
+      "photo": "../assets/images/candidates/vijay.svg"
     },
     {
       "id": 2272,

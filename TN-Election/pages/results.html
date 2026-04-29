@@ -92,7 +92,7 @@
         </div>
         <div id="popular-candidates-2021"></div>
         <div style="display: flex; justify-content: end; margin-top: 10px">
-          <a class="section-viewall-btn">View all</a>
+          <button type="button" class="section-viewall-btn">View more</button>
         </div>
       </section>
 
@@ -219,6 +219,68 @@
         <!-- Right panel -->
         <div
           id="modal-right-panel"
+          style="flex: 1; padding: 1.25rem; overflow: hidden"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Candidate 2021 Modal -->
+    <div
+      id="candidate-2021-modal"
+      class="modal"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.45);
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        class="c-modal"
+        style="
+          position: relative;
+          background: #fff;
+          border-radius: 12px;
+          width: 930px;
+          max-width: 95vw;
+          overflow: hidden;
+          display: flex;
+        "
+      >
+        <button
+          id="close-candidate-modal"
+          style="
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+          "
+        >
+          &times;
+        </button>
+
+        <!-- Left panel -->
+        <div
+          id="modal-candidate-left-panel"
+          style="
+            width: 220px;
+            flex-shrink: 0;
+            background: #f5f5f3;
+            padding: 1.25rem;
+            border-right: 1px solid #e5e5e5;
+          "
+        ></div>
+
+        <!-- Right panel -->
+        <div
+          id="modal-candidate-right-panel"
           style="flex: 1; padding: 1.25rem; overflow: hidden"
         ></div>
       </div>

@@ -12,7 +12,6 @@
 // ── Party colour map ────────────────────────────────────────
 var PARTY_COLORS = {
     DMK: '#1D4ED8',
-    ADMK: '#C8282A',
     AIADMK: '#C8282A',
     BJP: '#C8282A',
     INC: '#1D4ED8',
@@ -25,6 +24,7 @@ var PARTY_COLORS = {
     AMMK: "#C8282A",
     TMC: "#C8282A",
     IJK: "#C8282A",
+    IUML: '#1D4ED8',
     OTHERS: '#94A3B8',
     NONE: '#CBD5E1'
 };
@@ -44,6 +44,7 @@ var PARTY_ICONS = {
     AMMK: '../assets/icons/ammk.webp',
     TMC: '../assets/icons/tmc.png',
     IJK: '../assets/icons/ijk.svg',
+    IUML: '../assets/icons/iuml.png',
     PBK: '../assets/icons/pbk.svg',
     PNK: '../assets/icons/pnk.svg',
     IND: '../assets/icons/independent.svg'
@@ -173,9 +174,10 @@ function buildMap() {
         .attr('d', path)
         .attr('fill', function (d) {
             var constId = String(d.properties.AC_NO);
-            var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
-            if (result && result.winner) {
-                var party = result.winner.party || 'NONE';
+            var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+            if (result && result["2021"][0]) {
+                var party = result["2021"][0].party || 'NONE';
+                if (party === 'ADMK') party = 'AIADMK'; // Normalize ADMK to AIADMK
                 return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
             }
             return PARTY_COLORS.NONE;
@@ -207,18 +209,23 @@ function buildMap() {
                 .classed('highlighted', true)
                 .attr('fill', function (d) {
                     var constId = String(d.properties.AC_NO);
-                    var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
-                    if (result && result.winner) {
-                        var party = result.winner.party || 'NONE';
+                    var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+                    console.log("rexult:",result);
+                    
+                    if (result && result["2021"][0]) {
+                        console.log("2021 Result:", result["2021"][0]);
+                        var party = result["2021"][0].party || 'NONE';
+                        if (party === 'ADMK') party = 'AIADMK'; // Normalize ADMK to AIADMK
                         return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
                     }
                     return PARTY_COLORS.NONE;
                 })
                 .attr('stroke', function (d) {
                     var constId = String(d.properties.AC_NO);
-                    var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
-                    if (result && result.winner) {
-                        var party = result.winner.party || 'NONE';
+                    var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+                    if (result && result["2021"][0]) {
+                        var party = result["2021"][0].party || 'NONE';
+                        if (party === 'ADMK') party = 'AIADMK'; // Normalize ADMK to AIADMK
                         return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
                     }
                     return PARTY_COLORS.NONE;
@@ -271,18 +278,20 @@ function renderMiniMapFor2021Result(constId) {
             .attr('d', path)
             .attr('fill', function (d) {
                 var constId = String(d.properties.AC_NO);
-                var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
-                if (result && result.winner) {
-                    var party = result.winner.party || 'NONE';
+                var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+                if (result && result["2021"][0]) {
+                    var party = result["2021"][0].party || 'NONE';
+                    if (party === 'ADMK') party = 'AIADMK'; // Normalize ADMK to AIADMK
                     return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
                 }
                 return PARTY_COLORS.NONE;
             })
             .attr('stroke', function (d) {
                 var constId = String(d.properties.AC_NO);
-                var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
-                if (result && result.winner) {
-                    var party = result.winner.party || 'NONE';
+                var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+                if (result && result["2021"][0]) {
+                    var party = result["2021"][0].party || 'NONE';
+                    if (party === 'ADMK') party = 'AIADMK'; // Normalize ADMK to AIADMK
                     return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
                 }
                 return PARTY_COLORS.NONE;
@@ -290,6 +299,40 @@ function renderMiniMapFor2021Result(constId) {
             .attr('stroke-width', 1.5);
     }
 }
+
+window.updateMapHighlights = function(party) {
+    if (party) {
+        d3.selectAll('.constituency-path')
+            .attr('fill', 'white')
+            .classed('party-highlighted', false);
+        d3.selectAll('.constituency-path')
+            .filter(function(d) {
+                var constId = String(d.properties.AC_NO);
+                var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+                if (result && result["2021"][0]) {
+                    var p = result["2021"][0].party;
+                    if (p === 'ADMK') p = 'AIADMK'; // Normalize ADMK to AIADMK
+                    return p === party;
+                }
+                return false;
+            })
+            .attr('fill', PARTY_COLORS[party] || PARTY_COLORS.OTHERS)
+            .classed('party-highlighted', true);
+    } else {
+        d3.selectAll('.constituency-path')
+            .attr('fill', function(d) {
+                var constId = String(d.properties.AC_NO);
+                var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+                if (result && result["2021"][0]) {
+                    var p = result["2021"][0].party || 'NONE';
+                    if (p === 'ADMK') p = 'AIADMK'; // Normalize ADMK to AIADMK
+                    return PARTY_COLORS[p] || PARTY_COLORS.OTHERS;
+                }
+                return PARTY_COLORS.NONE;
+            })
+            .classed('party-highlighted', false);
+    }
+};
 
 function openPopUp(constId, x, y, mapRect) {
     const modal = document.getElementById('constituency-2021-modal');
@@ -315,6 +358,7 @@ function openPopUp(constId, x, y, mapRect) {
     var runnerPartyLogo = getPartyIcon(runner.party);
 
     var winnerUrl = `/assets/images/candidates/mla/2021`;
+    var runnerUrl = `/assets/images/candidates/mla/2021/Runner Data Constituency wise`;
 
     // ---- LEFT PANEL ----
     leftPanel.innerHTML = `
@@ -392,7 +436,7 @@ function openPopUp(constId, x, y, mapRect) {
          <div class="card-body">
          <h3 class="card-title custom-card-title" style="color:white">${winner.candidate}</h3>
          <div class="subheaders custom-subheaders" style="display:flex">
-         <div class="logo"><img class="custom-img" src=${winnerPartyLogo} alt="${electionYear.candidate}" style="margin-top:-5px;">
+         <div class="logo"><img class="custom-img" src=${winnerPartyLogo} alt="${electionYear.candidate}" style="margin-top:-5px;${winner.party === 'BJP' ? 'width:20px;height:20px;' : ''}">
          </div>
          <h6 style="font-weight: bold;">${winner.party}</h6>
          </div>
@@ -418,7 +462,7 @@ function openPopUp(constId, x, y, mapRect) {
          <div class="card-body">
          <h3 class="card-title custom-card-title" style="color:white">${runner.candidate}</h3>
          <div class="subheaders custom-subheaders" style="display:flex">
-         <div class="logo"><img class="custom-img" src=${runnerPartyLogo} alt="${electionYear.candidate}" style="margin-top:-5px;">
+         <div class="logo"><img class="custom-img" src=${runnerPartyLogo} alt="${electionYear.candidate}" style="margin-top:-5px;${runner.party === 'BJP' ? 'width:20px;height:20px;' : ''}">
          </div>
          <h6 style="font-weight: bold;">${runner.party}</h6>
          </div>
@@ -432,7 +476,7 @@ function openPopUp(constId, x, y, mapRect) {
          </div>
          </div>
          <div class="person-image custom-person-image">
-         <img class="person-img wid" src="/assets/images/candidates/default/default.png" alt="Person Image"">
+         <img class="person-img wid" src="${runnerUrl}/${selectedConstituency.constituency_id}.jpg" alt="Person Image" onerror="this.onerror=null; this.src='${runnerUrl}/${selectedConstituency.constituency_id}.png';">
 
          </div>
          </div>
@@ -454,14 +498,15 @@ document.getElementById('close-const-modal').addEventListener('click', () => {
     buildMap();
     document.body.style.overflow = '';
 });
-document.getElementById('constituency-2021-modal').addEventListener('click', (e) => {
-    if (e.target === e.currentTarget) {
-        e.currentTarget.style.display = 'none';
-        document.getElementById("map-search-input").value = "";
-        buildMap();
-        document.body.style.overflow = '';
-    }
-});
+// Disabled: click outside modal to close
+// document.getElementById('constituency-2021-modal').addEventListener('click', (e) => {
+//     if (e.target === e.currentTarget) {
+//         e.currentTarget.style.display = 'none';
+//         document.getElementById("map-search-input").value = "";
+//         buildMap();
+//         document.body.style.overflow = '';
+//     }
+// });
 
 // ── Popup ─────────────────────────────────────────────────────
 // function openPopup(constId, x, y, mapRect) {
@@ -682,9 +727,9 @@ function initSearch() {
                         .classed('highlighted', true)
                         .attr('fill', function (d) {
                             var constId = String(d.properties.AC_NO);
-                            var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
-                            if (result && result.winner) {
-                                var party = result.winner.party || 'NONE';
+                            var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+                            if (result && result["2021"][0]) {
+                                var party = result["2021"][0].party || 'NONE';
                                 var mapRight = document.querySelector('.map-right');
                                 var rect = mapRight.getBoundingClientRect();
                                 openPopUp(d.properties.AC_NO, event.clientX - rect.left, event.clientY - rect.top, rect);
@@ -694,9 +739,9 @@ function initSearch() {
                         })
                         .attr('stroke', function (d) {
                             var constId = String(d.properties.AC_NO);
-                            var result = results2021Winners[constId] || results2021Winners[parseInt(constId, 10)];
-                            if (result && result.winner) {
-                                var party = result.winner.party || 'NONE';
+                            var result = corrected2021Winners[constId] || corrected2021Winners[parseInt(constId, 10)];
+                            if (result && result["2021"][0]) {
+                                var party = result["2021"][0].party || 'NONE';
                                 return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
                             }
                             return PARTY_COLORS.NONE;

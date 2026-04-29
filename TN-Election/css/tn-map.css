@@ -169,8 +169,8 @@
 }
 
 .constituency-path.highlighted {
-  stroke: #FF6000;
-  stroke-width: 2;
+  stroke: #020202;
+  stroke-width: 0.5;
 }
 
 /* ── Right column ─────────────────────────────── */

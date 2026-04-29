@@ -216,11 +216,11 @@
 }
 
 .cand-card.party-admk {
-    border-color: #22C55E;
+    border-color: #16A34A;
 }
 
 .cand-card.party-ntk {
-    border-color: #16A34A;
+    border-color: #32d583;
 }
 
 .cand-card.party-tvk {
@@ -568,7 +568,7 @@
 }
 
 .cand-card.party-admk {
-    border: 2px solid #22C55E;
+    border: 2px solid #16A34A;
 }
 
 .cand-card.party-tvk {

@@ -253,6 +253,11 @@
   background: #fafafa;
 }
 
+.alliance-table__row--selected {
+  background: #e3f2fd;
+  border-left: 3px solid #1976d2;
+}
+
 .alliance-table__party-info {
   display: flex;
   align-items: center;

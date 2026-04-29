@@ -29,6 +29,7 @@ var RESULT_PARTY_ICONS = {
     'VCK': '../assets/icons/vck.jpg',
     'CPI': '../assets/icons/cpi.webp',
     'CPI(M)': '../assets/icons/CPI(M).png',
+    'IUML': '../assets/icons/iuml.png',
     'NTK': '../assets/icons/ntk.svg',
     'TVK': '../assets/icons/tvk.svg',
     'Makkal Needhi Maiam': '../assets/icons/dmk.svg'
@@ -77,13 +78,13 @@ function buildPopularCandidates2021() {
             : '<span style="font-size:8px;font-weight:900;color:#fff">' + w.party.slice(0, 3) + '</span>';
 
         html +=
-            '<div class="custom-container" style="background: linear-gradient(56deg, rgb(255, 248, 220), rgb(255, 228, 191));">' +
+            '<div class="custom-container popular-candidate-card" style="background: linear-gradient(56deg, rgb(255, 248, 220), rgb(255, 228, 191)); cursor: pointer;" data-constituency-id="' + r.id + '">' +
             '<div class="ribbon" style="background-color: ' + (status === "Won" ? "#22b14c" : "#e05a46") + '"> ' + status + '</div>' +
             '  <div class="temp custom-temp">' +
             '<div class="card-body">' +
             '<h3 class="card-title custom-card-title" style="color:#FF9933">' + w.name + '</h3>' +
             '<div class="subheaders custom-subheaders" style="display:flex">' +
-            '<div class="logo"><img class="custom-img" src="' + partyIcon + '" alt="' + w.name + '" style="margin-top:-5px;"></div>' +
+            '<div class="logo"><img class="custom-img" src="' + partyIcon + '" alt="' + w.name + '" style="margin-top:-5px;' + (w.party === 'BJP' ? 'width:20px;height:20px;' : '') + '"></div>' +
             '<h6 style="font-weight: bold;">' + w.party + '</h6>' +
             '</div>' +
             '<p class="card-text custom-card-text">' + r.constituency + '</p>' +
@@ -104,6 +105,23 @@ function buildPopularCandidates2021() {
 
     html += '</div>';
     container.innerHTML = html;
+}
+
+// ── Initialize click handlers for popular candidate cards ────
+function initPopularCandidateClicks(root) {
+    root = root || document;
+    var cards = root.querySelectorAll('.popular-candidate-card');
+    cards.forEach(function(card) {
+        card.addEventListener('click', function() {
+            var constId = this.dataset.constituencyId;
+            if (constId && typeof popularCandidate2021 !== 'undefined') {
+                var candidate = popularCandidate2021[constId];
+                if (candidate) {
+                    openCandidatePopup(candidate);
+                }
+            }
+        });
+    });
 }
 
 // ── 2. Big Fights (2021 actual results) ───────
@@ -208,6 +226,120 @@ function buildMarginTables() {
 }
 
 
+//open pop up for individual candidate from results2021 page
+function openCandidatePopup(candidateData) {
+    const modal = document.getElementById('candidate-2021-modal');
+    const leftPanel = document.getElementById('modal-candidate-left-panel');
+    const rightPanel = document.getElementById('modal-candidate-right-panel');
+
+    if (!modal || !leftPanel || !rightPanel) return;
+
+    const c = candidateData;
+    const w = c.winner || c.runner;
+    
+    if (!w) return;
+
+    var partyIcon = getPartyIcon(w.party);
+    var status = c.winner ? "Won" : "Lost";
+
+    var partyColors = {
+        DMK: '#A4BCFD', ADMK: '#FDA29B', AIADMK: '#FDA29B', BJP: '#F97316', INC: '#16A34A',
+        CPM: '#DC2626', CPI: '#EF4444', VCK: '#7C3AED', PMK: '#0891B2',
+        NTK: '#C2410C', TVK: '#0F766E', DMDK: '#FF5722', OTHERS: '#94A3B8'
+    };
+
+    const candidateColor = partyColors[w.party] || '#888';
+
+    // ---- LEFT PANEL ----
+    leftPanel.innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:42px;height:42px;border-radius:14px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(0,0,0,0.08);">
+            <img src="${partyIcon || ''}" alt="${w.party}" style="width:22px;height:22px;object-fit:contain;" onerror="this.style.display='none'" />
+          </div>
+          <div style="min-width:0;overflow:hidden;">
+            <div style="font-size:14px;font-weight:700;color:#111;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">${w.party}</div>
+            <div style="font-size:12px;color:${status === 'Won' ? '#16a34a' : '#dc2626'};font-weight:700;letter-spacing:0.02em;">${status}</div>
+          </div>
+        </div>
+
+        <div style="width:100%;aspect-ratio:0.92/1.15;background:${candidateColor};border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(0,0,0,0.1);">
+          <img src="${w.photo}" alt="${w.name}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'" />
+        </div>
+
+        <div style="font-size:13px;line-height:1.75;color:#475569;">
+          <strong style="font-weight:700;color:#111;">${w.name}</strong> is a ${status.toLowerCase()} candidate from <strong>${c.constituency}</strong> constituency in Tamil Nadu.
+        </div>
+      </div>
+    `;
+
+    // ---- RIGHT PANEL ----
+    var votePercentage = w.vote_pct || '—';
+    rightPanel.innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="candidate-summary-card">
+          <div class="candidate-summary-card__header" style="background:${candidateColor};">
+            <div style="display:flex;align-items:center;gap:14px;min-width:0;">
+              <div class="candidate-summary-card__badge">
+                <img src="${partyIcon || ''}" alt="${w.party}" style="width:22px;height:22px;object-fit:contain;" onerror="this.style.display='none'">
+              </div>
+              <div style="min-width:0;overflow:hidden;">
+                <div class="candidate-summary-card__title">${w.name}</div>
+                <div class="candidate-summary-card__meta">${w.party}</div>
+              </div>
+            </div>
+            <div class="candidate-summary-card__pill">${status}</div>
+          </div>
+
+          <div class="candidate-summary-card__content">
+            <div class="candidate-summary-card__stat-row">
+              <div>
+                <span class="candidate-summary-card__stat-label">Constituency</span>
+                <div class="candidate-summary-card__stat-value">${c.constituency}</div>
+              </div>
+              <div>
+                <span class="candidate-summary-card__stat-label">Votes</span>
+                <div class="candidate-summary-card__stat-value">${fmtNum(w.votes)}</div>
+              </div>
+            </div>
+            <div class="candidate-summary-card__stat-row">
+              <div>
+                <span class="candidate-summary-card__stat-label">Vote %</span>
+                <div class="candidate-summary-card__stat-value">${votePercentage}%</div>
+              </div>
+              <div>
+                <span class="candidate-summary-card__stat-label">Margin</span>
+                <div class="candidate-summary-card__stat-value">${c.margin != null ? '+' + fmtNum(c.margin) : '—'}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="candidate-details-section">
+          <div class="candidate-details-row">
+            <span>Constituency</span>
+            <strong>${c.constituency}</strong>
+          </div>
+          <div class="candidate-details-row">
+            <span>Party</span>
+            <strong>${w.party}</strong>
+          </div>
+          <div class="candidate-details-row">
+            <span>Total Votes</span>
+            <strong>${fmtNum(w.votes)}</strong>
+          </div>
+          <div class="candidate-details-row">
+            <span>Vote %</span>
+            <strong>${votePercentage}%</strong>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Show the modal
+    modal.style.display = 'flex';
+}
+
 //open pop up
 function openPopup() {
     document.getElementById("popular-candidates-modal").classList.add("show");
@@ -236,13 +368,13 @@ function openPopup() {
             : '<span style="font-size:8px;font-weight:900;color:#fff">' + w.party.slice(0, 3) + '</span>';
 
         html +=
-            '<div class="custom-container" style="background: linear-gradient(56deg, rgb(255, 248, 220), rgb(255, 228, 191));">' +
+            '<div class="custom-container popular-candidate-card" style="background: linear-gradient(56deg, rgb(255, 248, 220), rgb(255, 228, 191)); cursor:pointer;" data-constituency-id="' + r.id + '">' +
             '<div class="ribbon" style="background-color: ' + (status === "Won" ? "#22b14c" : "#e05a46") + '"> ' + status + '</div>' +
             '  <div class="temp custom-temp">' +
             '<div class="card-body">' +
             '<h3 class="card-title custom-card-title" style="color:#FF9933">' + w.name + '</h3>' +
             '<div class="subheaders custom-subheaders" style="display:flex">' +
-            '<div class="logo"><img class="custom-img" src="' + partyIcon + '" alt="' + w.name + '" style="margin-top:-5px;"></div>' +
+            '<div class="logo"><img class="custom-img" src="' + partyIcon + '" alt="' + w.name + '" style="margin-top:-5px;' + (w.party === 'BJP' ? 'width:20px;height:20px;' : '') + '"></div>' +
             '<h6 style="font-weight: bold;">' + w.party + '</h6>' +
             '</div>' +
             '<p class="card-text custom-card-text">' + r.constituency + '</p>' +
@@ -262,6 +394,7 @@ function openPopup() {
     });
 
     grid.innerHTML = html;
+    initPopularCandidateClicks();
     modal.style.display = 'block';
 }
 
@@ -336,7 +469,7 @@ function buildResultTableCharts(id) {
          <div class="card-body">
          <h3 class="card-title custom-card-title" style="color:#FF9933">${selectedConstituency.winner.name}</h3>
          <div class="subheaders custom-subheaders" style="display:flex">
-         <div class="logo"><img class="custom-img" src=${winnerPartyLogo} alt="${selectedConstituency.winner.name}" style="margin-top:-5px;">
+         <div class="logo"><img class="custom-img" src=${winnerPartyLogo} alt="${selectedConstituency.winner.name}" style="margin-top:-5px;${selectedConstituency.winner.party === 'BJP' ? 'width:20px;height:20px;' : ''}">
          </div>
          <h6 style="font-weight: bold;">${selectedConstituency.winner.party}</h6>
          </div>
@@ -362,7 +495,7 @@ function buildResultTableCharts(id) {
          <div class="card-body">
          <h3 class="card-title custom-card-title" style="color:#FF9933">${selectedConstituency.runner.name}</h3>
          <div class="subheaders custom-subheaders" style="display:flex">
-         <div class="logo"><img class="custom-img" src=${runnerPartyLogo} alt="${selectedConstituency.runner.name}" style="margin-top:-5px;">
+         <div class="logo"><img class="custom-img" src=${runnerPartyLogo} alt="${selectedConstituency.runner.name}" style="margin-top:-5px;${selectedConstituency.runner.party === 'BJP' ? 'width:20px;height:20px;' : ''}">
          </div>
          <h6 style="font-weight: bold;">${selectedConstituency.runner.party}</h6>
          </div>
@@ -389,10 +522,11 @@ function buildResultTableCharts(id) {
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
     buildPopularCandidates2021();
+    initPopularCandidateClicks();
     buildBigFights2021();
     buildMarginTables();
 
-    // Modal functionality
+    // Modal functionality for popular candidates "View all" modal
     var modal = document.getElementById('popular-candidates-modal');
     var closeBtn = modal.querySelector('.close-modal');
     closeBtn.onclick = function () {
@@ -400,10 +534,24 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("popular-candidates-modal").classList.remove("show");
         document.body.style.overflow = "";
     }
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
+
+    // Modal functionality for candidate details popup
+    var candidateModal = document.getElementById('candidate-2021-modal');
+    var closeConstBtn = document.getElementById('close-candidate-modal');
+    
+    if (closeConstBtn) {
+        closeConstBtn.onclick = function() {
+            candidateModal.style.display = 'none';
+        };
+    }
+
+    // Close constituency modal
+    var constModalCloseBtn = document.getElementById('close-const-modal');
+    var constModal = document.getElementById('constituency-2021-modal');
+    if (constModalCloseBtn) {
+        constModalCloseBtn.onclick = function() {
+            constModal.style.display = 'none';
+        };
     }
 });
 

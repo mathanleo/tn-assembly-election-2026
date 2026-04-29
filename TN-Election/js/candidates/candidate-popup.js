@@ -1481,7 +1481,7 @@ function buildCompetitorCard(comp) {
     iconPath = PARTY_ICONS['IND']; // fallback to generic IND icon
   }
   var badgeInner = iconPath
-    ? '<img src="' + iconPath + '" alt="' + partyKey + '" style="width:100%;height:100%;object-fit:contain"/>'
+    ? '<img src="' + iconPath + '" alt="' + partyKey + '" width="32" height="32" style="width:100%;height:100%;object-fit:contain"/>'
     : '<span style="font-size:5px;font-weight:900;color:#fff;line-height:1;text-align:center;display:block;padding:1px">' + partyKey.slice(0, 4) + '</span>';
 
   var hasPhoto = comp.photo && comp.photo.length > 0;
@@ -1786,9 +1786,10 @@ function openCandidatePopup(candidate) {
     }
   });
   document.getElementById('popup-close-x').addEventListener('click', closePopup);
-  document.getElementById('candidate-popup-overlay').addEventListener('click', function (e) {
-    if (e.target === this) closePopup();
-  });
+  // Disabled: overlay click-to-close for results.html
+  // document.getElementById('candidate-popup-overlay').addEventListener('click', function (e) {
+  //   if (e.target === this) closePopup();
+  // });
   function onKey(e) {
     if (e.key === 'Escape') { closePopup(); document.removeEventListener('keydown', onKey); }
   }

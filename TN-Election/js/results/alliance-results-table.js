@@ -16,11 +16,12 @@ var RESULTS_PARTY_ICONS = {
   'CPI(M)':'../assets/icons/CPI(M).png',
   'NTK':   '../assets/icons/ntk.svg',
   'TVK':   '../assets/icons/tvk.svg',
-  'Makkal Needhi Maiam': '../assets/icons/dmk.svg'
+  'Makkal Needhi Maiam': '../assets/icons/dmk.svg',
+  'IUML':  '../assets/icons/iuml.png',
 };
 
 // NDA = AIADMK Alliance parties, SPA = DMK Alliance parties, Others = No Alliance
-var NDA_PARTIES  = ['AIADMK', 'ADMK', 'BJP', 'PMK', 'TMC', 'MNK', 'AMMK'];
+var NDA_PARTIES  = ['AIADMK', 'BJP', 'PMK', 'TMC', 'MNK', 'AMMK'];
 var SPA_PARTIES  = ['DMK', 'INC', 'VCK', 'CPI(M)', 'CPI', 'DMDK', 'MDMK', 'MNM', 'IUML'];
 
 function buildAllianceResultsTable() {
@@ -31,6 +32,7 @@ function buildAllianceResultsTable() {
   var partyCounts = {};
   Object.values(results2021Winners).forEach(function(r) {
     var p = r.winner.party;
+    if (p === 'ADMK') p = 'AIADMK'; // Normalize ADMK to AIADMK
     partyCounts[p] = (partyCounts[p] || 0) + 1;
   });
 
@@ -71,13 +73,13 @@ function buildAllianceResultsTable() {
       var wonDisplay = p.won > 0 ? p.won : '-';
       var wonClass   = p.won > 0 ? 'alliance-results-table__won' : 'alliance-results-table__won alliance-results-table__won--dash';
       return (
-        '<div class="alliance-results-table__row">' +
+        '<button type="button" class="alliance-results-table__row alliance-results-table__party-button" data-party="' + p.party + '" aria-pressed="false" onclick="highlightPartyConstituencies(\'' + p.party + '\')">' +
           '<div class="alliance-results-table__party-info">' +
             buildIcon(p.party) +
             '<span class="alliance-results-table__party-name">' + p.party + '</span>' +
           '</div>' +
           '<span class="' + wonClass + '">' + wonDisplay + '</span>' +
-        '</div>'
+        '</button>'
       );
     }).join('');
   }
@@ -111,3 +113,32 @@ function buildAllianceResultsTable() {
 }
 
 document.addEventListener('DOMContentLoaded', buildAllianceResultsTable);
+
+window.highlightPartyConstituencies = function(party) {
+  var rows = document.querySelectorAll('.alliance-results-table__row');
+  var activeClass = 'alliance-results-table__row--active';
+  var selectedRow = document.querySelector('.alliance-results-table__row[data-party="' + party + '"]');
+  var isAlreadyActive = selectedRow && selectedRow.classList.contains(activeClass);
+
+  rows.forEach(function(row) {
+    row.classList.remove(activeClass);
+  });
+
+  if (!isAlreadyActive && selectedRow) {
+    selectedRow.classList.add(activeClass);
+  }
+
+  rows.forEach(function(row) {
+    row.classList.remove(activeClass);
+    row.setAttribute('aria-pressed', 'false');
+  });
+
+  if (!isAlreadyActive && selectedRow) {
+    selectedRow.classList.add(activeClass);
+    selectedRow.setAttribute('aria-pressed', 'true');
+  }
+
+  if (typeof window.updateMapHighlights === 'function') {
+    window.updateMapHighlights(isAlreadyActive ? null : party);
+  }
+};

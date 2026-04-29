@@ -1292,8 +1292,8 @@ var results2021Winners = {
   },
   "216": {
     "id": 216, "constituency": "Vaniyambadi",
-    "winner": { "name": "G.Sendhil Kumar", "party": "AIADMK", "alliance": "AIADMK Alliance", "votes": 88018, "vote_pct": 46.33, "photo": "../assets/images/candidates/mla/2021/216.jpg" },
-    "runner": { "name": "N.Mohammed Nayeem", "party": "IUML", "alliance": "DMK Alliance", "votes": 83114, "vote_pct": 43.74, "photo": "../assets/images/candidates/placeholder.svg" },
+    "winner": { "name": "N.Mohammed Nayeem", "party": "IUML", "alliance": "DMK Alliance", "votes": 88018, "vote_pct": 46.33, "photo": "../assets/images/candidates/placeholder.svg" },
+    "runner": { "name": "G.Sendhil Kumar", "party": "AIADMK", "alliance": "AIADMK Alliance", "votes": 83114, "vote_pct": 43.74, "photo": "../assets/images/candidates/mla/2021/216.jpg" },
     "margin": 4904
   },
   "217": {
@@ -1435,12 +1435,12 @@ var popularCandidate2021 = {
   },
   "101": {
     "id": 101, "constituency": "Dharapuram",
-    "runner": { "name": "Murugan L", "party": "BJP", "alliance": "AIADMK Alliance", "votes": 88593, "vote_pct": 45.67, "photo": "../assets/images/candidates/placeholder.svg" },
+    "runner": { "name": "Murugan L", "party": "BJP", "alliance": "AIADMK Alliance", "votes": 88593, "vote_pct": 45.67, "photo": "../assets/images/candidates/mla/2021/Popular candidates2021/l murugan bjp.jpg" },
     "margin": 1393
   },
   "135": {
     "id": 135, "constituency": "Karur",
-    "runner": { "name": "Vijayabhaskar. M.R", "party": "AIADMK", "alliance": "AIADMK Alliance", "votes": 89309, "vote_pct": 43.08, "photo": "../assets/images/candidates/placeholder.svg" },
+    "runner": { "name": "Vijayabhaskar. M.R", "party": "AIADMK", "alliance": "AIADMK Alliance", "votes": 89309, "vote_pct": 43.08, "photo": "../assets/images/candidates/mla/2026/1130.jpg" },
     "margin": 12448
   },
   "193": {
@@ -1480,7 +1480,7 @@ var popularCandidate2021 = {
   },
   "74": {
     "id": 74, "constituency": "Villupuram",
-    "runner": { "name": "Shanmugam C Ve", "party": "AIADMK", "alliance": "AIADMK Alliance", "votes": 87403, "vote_pct": 42.66, "photo": "../assets/images/candidates/placeholder.svg" },
+    "runner": { "name": "Shanmugam C Ve", "party": "AIADMK", "alliance": "AIADMK Alliance", "votes": 87403, "vote_pct": 42.66, "photo": "../assets/images/candidates/mla/2021/Popular candidates2021/c v shanmugam.jpg" },
     "margin": 14868
   },
   "97": {
@@ -1495,12 +1495,12 @@ var popularCandidate2021 = {
   },
   "28": {
     "id": 28, "constituency": "Alandur",
-    "runner": { "name": "B.Valarmathi", "party": "AIADMK", "alliance": "AIADMK Alliance", "votes": 76214, "vote_pct": 32.06, "photo": "../assets/images/candidates/placeholder.svg" },
+    "runner": { "name": "B.Valarmathi", "party": "AIADMK", "alliance": "AIADMK Alliance", "votes": 76214, "vote_pct": 32.06, "photo": "../assets/images/candidates/mla/2021/Popular candidates2021/valarmathi admk.jpg" },
     "margin": 40571
   },
   "120": {
     "id": 120, "constituency": "Coimbatore (South)",
-    "runner": { "name": "Kamalhaasan", "party": "Makkal Needhi Maiam", "alliance": "No Alliance", "votes": 51481, "vote_pct": 33.26, "photo": "../assets/images/candidates/placeholder.svg" },
+    "runner": { "name": "Kamalhaasan", "party": "Makkal Needhi Maiam", "alliance": "No Alliance", "votes": 51481, "vote_pct": 33.26, "photo": "../assets/images/candidates/mla/2021/Popular candidates2021/kamalhasan.jpg" },
     "margin": 1728
   },
   "5": {
@@ -1524,7 +1524,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "BALARAMAN P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 95979,
         "margin": 19336,
         "vote_share": 48.56,
@@ -1535,7 +1535,7 @@ var corrected2021Winners = {
         "candidate": "PARIMALAM K DOCTOR",
         "party": "DMK",
         "votes": 76643,
-        "margin": 67057,
+        "margin": 19336,
         "vote_share": 38.78,
         "winner": false
       }
@@ -1553,9 +1553,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "BALARAMAN. P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 84839,
-        "margin": 65812,
+        "margin": 9689,
         "vote_share": 40.33,
         "winner": false
       }
@@ -1568,7 +1568,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "NARASIMHAN P M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 93045,
         "margin": 23141,
         "vote_share": 41.84,
@@ -1579,7 +1579,7 @@ var corrected2021Winners = {
         "candidate": "CHIDAMBARAM A G",
         "party": "INC",
         "votes": 69904,
-        "margin": 40308,
+        "margin": 23141,
         "vote_share": 31.43,
         "winner": false
       }
@@ -1587,7 +1587,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "S.Chandran",
+        "candidate": "S. CHANDRAN",
         "party": "DMK",
         "votes": 120314,
         "margin": 29253,
@@ -1596,10 +1596,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "G.Hari",
-        "party": "ADMK",
+        "candidate": "G. HARI",
+        "party": "AIADMK",
         "votes": 91061,
-        "margin": 79054,
+        "margin": 29253,
         "vote_share": 39.15,
         "winner": false
       }
@@ -1621,9 +1621,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "BASKARAN A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 75335,
-        "margin": 43400,
+        "margin": 5138,
         "vote_share": 36.53,
         "winner": false
       }
@@ -1640,10 +1640,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAMANAH, BE VEE",
-        "party": "ADMK",
+        "candidate": "RAMANAH, B.V.",
+        "party": "AIADMK",
         "votes": 85008,
-        "margin": 69980,
+        "margin": 22701,
         "vote_share": 39.68,
         "winner": false
       }
@@ -1656,7 +1656,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "ELUMALAI T A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 103952,
         "margin": 11763,
         "vote_share": 43.32,
@@ -1667,7 +1667,7 @@ var corrected2021Winners = {
         "candidate": "PARANTHAMEN I",
         "party": "DMK",
         "votes": 92189,
-        "margin": 76362,
+        "margin": 11763,
         "vote_share": 38.41,
         "winner": false
       }
@@ -1675,7 +1675,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Krishnaswamy A",
+        "candidate": "KRISHNASWAMY A",
         "party": "DMK",
         "votes": 149578,
         "margin": 94110,
@@ -1684,10 +1684,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Rajamannar S X",
+        "candidate": "RAJAMANNAR S X",
         "party": "PMK",
         "votes": 55468,
-        "margin": 25597,
+        "margin": 94110,
         "vote_share": 21.03,
         "winner": false
       }
@@ -1700,7 +1700,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PANDIA RAJAN K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 108064,
         "margin": 1395,
         "vote_share": 39.92,
@@ -1711,7 +1711,7 @@ var corrected2021Winners = {
         "candidate": "NASAR S M",
         "party": "DMK",
         "votes": 106669,
-        "margin": 83821,
+        "margin": 1395,
         "vote_share": 39.4,
         "winner": false
       }
@@ -1719,7 +1719,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Nasar S M",
+        "candidate": "NASAR S M",
         "party": "DMK",
         "votes": 150287,
         "margin": 55275,
@@ -1728,10 +1728,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Pandiarajan K",
-        "party": "ADMK",
+        "candidate": "PANDIARAJAN K",
+        "party": "AIADMK",
         "votes": 95012,
-        "margin": 64925,
+        "margin": 55275,
         "vote_share": 31.57,
         "winner": false
       }
@@ -1744,7 +1744,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "BENJAMIN P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 99739,
         "margin": 8402,
         "vote_share": 40.12,
@@ -1755,7 +1755,7 @@ var corrected2021Winners = {
         "candidate": "RAJESH R",
         "party": "INC",
         "votes": 91337,
-        "margin": 71725,
+        "margin": 8402,
         "vote_share": 36.74,
         "winner": false
       }
@@ -1763,7 +1763,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "GANAPATHY.K",
+        "candidate": "GANAPATHY K",
         "party": "DMK",
         "votes": 121298,
         "margin": 31721,
@@ -1772,10 +1772,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "BENJAMIN.P",
-        "party": "ADMK",
+        "candidate": "BENJAMIN P",
+        "party": "AIADMK",
         "votes": 89577,
-        "margin": 56176,
+        "margin": 31721,
         "vote_share": 32.71,
         "winner": false
       }
@@ -1788,7 +1788,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "ALEXANDER V",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 94375,
         "margin": 17498,
         "vote_share": 41.1,
@@ -1799,7 +1799,7 @@ var corrected2021Winners = {
         "candidate": "AASSAN MAULAANA",
         "party": "INC",
         "votes": 76877,
-        "margin": 60242,
+        "margin": 17498,
         "vote_share": 33.48,
         "winner": false
       }
@@ -1816,10 +1816,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "V ALEXANDER",
-        "party": "ADMK",
+        "candidate": "ALEXANDER V",
+        "party": "AIADMK",
         "votes": 72408,
-        "margin": 49707,
+        "margin": 42146,
         "vote_share": 30.13,
         "winner": false
       }
@@ -1841,9 +1841,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "DHAKSHNAMOORTHY D",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 106829,
-        "margin": 92584,
+        "margin": 15253,
         "vote_share": 39.76,
         "winner": false
       }
@@ -1851,7 +1851,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SUDHARSANAM. S",
+        "candidate": "SUDHARSANAM S",
         "party": "DMK",
         "votes": 151485,
         "margin": 57071,
@@ -1860,10 +1860,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Moorthy. V",
-        "party": "ADMK",
+        "candidate": "MOORTHY V",
+        "party": "AIADMK",
         "votes": 94414,
-        "margin": 66961,
+        "margin": 57071,
         "vote_share": 31.19,
         "winner": false
       }
@@ -1875,7 +1875,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SAMY.K.P.P",
+        "candidate": "SAMY K P P",
         "party": "DMK",
         "votes": 82205,
         "margin": 4863,
@@ -1884,10 +1884,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "BALRAJ.B",
-        "party": "ADMK",
+        "candidate": "BALRAJ B",
+        "party": "AIADMK",
         "votes": 77342,
-        "margin": 63879,
+        "margin": 4863,
         "vote_share": 40.69,
         "winner": false
       }
@@ -1895,7 +1895,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "K.P.SHANKAR",
+        "candidate": "K P SHANKAR",
         "party": "DMK",
         "votes": 88185,
         "margin": 37661,
@@ -1904,10 +1904,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "K.KUPPAN",
-        "party": "ADMK",
+        "candidate": "K KUPPAN",
+        "party": "AIADMK",
         "votes": 50524,
-        "margin": 1927,
+        "margin": 37661,
         "vote_share": 25.26,
         "winner": false
       }
@@ -1920,7 +1920,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "JAYALALITHAA J",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 97218,
         "margin": 39545,
         "vote_share": 55.87,
@@ -1931,7 +1931,7 @@ var corrected2021Winners = {
         "candidate": "SHIMLA MUTHUCHOZHAN",
         "party": "DMK",
         "votes": 57673,
-        "margin": 53478,
+        "margin": 39545,
         "vote_share": 33.14,
         "winner": false
       }
@@ -1939,7 +1939,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "EBENEZER. J.J. (@)  JOHN EBENEZER.J",
+        "candidate": "JOHN EBENEZER J",
         "party": "DMK",
         "votes": 95763,
         "margin": 42479,
@@ -1948,10 +1948,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAAJESH.R.S.",
-        "party": "ADMK",
+        "candidate": "RAAJESH R S",
+        "party": "AIADMK",
         "votes": 53284,
-        "margin": 32847,
+        "margin": 42479,
         "vote_share": 28.49,
         "winner": false
       }
@@ -1964,7 +1964,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "P VETRIVEL",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 79974,
         "margin": 519,
         "vote_share": 42.39,
@@ -1975,7 +1975,7 @@ var corrected2021Winners = {
         "candidate": "N R DHANAPALAN",
         "party": "DMK",
         "votes": 79455,
-        "margin": 69174,
+        "margin": 519,
         "vote_share": 42.11,
         "winner": false
       }
@@ -1983,7 +1983,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SHEKAR. R.D",
+        "candidate": "R D SHEKAR",
         "party": "DMK",
         "votes": 105267,
         "margin": 54976,
@@ -1992,10 +1992,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "DHANAPALAN N.R",
-        "party": "ADMK",
+        "candidate": "N R DHANAPALAN",
+        "party": "AIADMK",
         "votes": 50291,
-        "margin": 30470,
+        "margin": 54976,
         "vote_share": 25.1,
         "winner": false
       }
@@ -2007,7 +2007,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "STALIN.M.K",
+        "candidate": "STALIN M K",
         "party": "DMK",
         "votes": 91303,
         "margin": 37730,
@@ -2016,10 +2016,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "PRABHAKAR.J.C.D",
-        "party": "ADMK",
+        "candidate": "PRABHAKAR J C D",
+        "party": "AIADMK",
         "votes": 53573,
-        "margin": 47297,
+        "margin": 37730,
         "vote_share": 31.83,
         "winner": false
       }
@@ -2027,7 +2027,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "M.K. STALIN",
+        "candidate": "M K STALIN",
         "party": "DMK",
         "votes": 105522,
         "margin": 70384,
@@ -2037,9 +2037,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "AADIRAJARAM",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 35138,
-        "margin": 21062,
+        "margin": 70384,
         "vote_share": 20.27,
         "winner": false
       }
@@ -2051,7 +2051,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "B. RANGANATHAN",
+        "candidate": "RANGANATHAN B",
         "party": "DMK",
         "votes": 65972,
         "margin": 9321,
@@ -2060,10 +2060,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "THADI M.RAJU",
-        "party": "ADMK",
+        "candidate": "THADI M RAJU",
+        "party": "AIADMK",
         "votes": 56651,
-        "margin": 48417,
+        "margin": 9321,
         "vote_share": 37.75,
         "winner": false
       }
@@ -2071,7 +2071,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "A . Vetriazhagan",
+        "candidate": "VETRIAZHAGAN A",
         "party": "DMK",
         "votes": 76127,
         "margin": 37237,
@@ -2080,10 +2080,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "J.C.D.Prabhakar",
-        "party": "ADMK",
+        "candidate": "PRABHAKAR J C D",
+        "party": "AIADMK",
         "votes": 38890,
-        "margin": 25526,
+        "margin": 37237,
         "vote_share": 26.99,
         "winner": false
       }
@@ -2105,9 +2105,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "NEELAKANDAN V",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 58422,
-        "margin": 52720,
+        "margin": 3322,
         "vote_share": 42.82,
         "winner": false
       }
@@ -2115,7 +2115,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SIVAKUMAR.P",
+        "candidate": "SIVAKUMAR P",
         "party": "DMK",
         "votes": 81727,
         "margin": 55013,
@@ -2124,10 +2124,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KALYANI.P.L",
-        "party": "ADMK",
+        "candidate": "KALYANI P L",
+        "party": "AIADMK",
         "votes": 26714,
-        "margin": 15793,
+        "margin": 55013,
         "vote_share": 19.98,
         "winner": false
       }
@@ -2139,7 +2139,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "RAVICHANDRAN K.S",
+        "candidate": "RAVICHANDRAN K S",
         "party": "DMK",
         "votes": 55060,
         "margin": 10679,
@@ -2149,9 +2149,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "PARITHI ELLAMVAZHUTHI E",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 44381,
-        "margin": 37222,
+        "margin": 10679,
         "vote_share": 36.79,
         "winner": false
       }
@@ -2159,7 +2159,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "I.PARANTHAMEN",
+        "candidate": "PARANTHAMEN I",
         "party": "DMK",
         "votes": 68832,
         "margin": 38768,
@@ -2168,10 +2168,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "B.JOHN PANDIAN",
-        "party": "ADMK",
+        "candidate": "JOHN PANDIAN B",
+        "party": "AIADMK",
         "votes": 30064,
-        "margin": 20074,
+        "margin": 38768,
         "vote_share": 25.21,
         "winner": false
       }
@@ -2184,7 +2184,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "JAYAKUMAR D",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 55205,
         "margin": 8031,
         "vote_share": 45.21,
@@ -2195,7 +2195,7 @@ var corrected2021Winners = {
         "candidate": "MANOHAR R",
         "party": "INC",
         "votes": 47174,
-        "margin": 42829,
+        "margin": 8031,
         "vote_share": 38.63,
         "winner": false
       }
@@ -2203,7 +2203,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "MURTHY.R.IDREAM",
+        "candidate": "MURTHY R IDREAM",
         "party": "DMK",
         "votes": 64424,
         "margin": 27779,
@@ -2212,10 +2212,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "JAYAKUMAR.D",
-        "party": "ADMK",
+        "candidate": "JAYAKUMAR D",
+        "party": "AIADMK",
         "votes": 36645,
-        "margin": 28479,
+        "margin": 27779,
         "vote_share": 30.24,
         "winner": false
       }
@@ -2237,9 +2237,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SREENIVASAN K S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 37235,
-        "margin": 23878,
+        "margin": 4836,
         "vote_share": 35.72,
         "winner": false
       }
@@ -2247,7 +2247,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SEKARBABU. P.K",
+        "candidate": "SEKAR BABU P K",
         "party": "DMK",
         "votes": 59317,
         "margin": 27274,
@@ -2256,10 +2256,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "VINOJ. P. SELVAM",
+        "candidate": "VINOJ P SELVAM",
         "party": "BJP",
         "votes": 32043,
-        "margin": 28280,
+        "margin": 27274,
         "vote_share": 31.52,
         "winner": false
       }
@@ -2271,7 +2271,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "J.ANBAZHAGAN",
+        "candidate": "ANBAZHAGAN J",
         "party": "DMK",
         "votes": 67982,
         "margin": 14164,
@@ -2280,10 +2280,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "A.NOORJAHAN",
-        "party": "ADMK",
+        "candidate": "NOORJAHAN A",
+        "party": "AIADMK",
         "votes": 53818,
-        "margin": 47537,
+        "margin": 14164,
         "vote_share": 37.46,
         "winner": false
       }
@@ -2300,10 +2300,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KASSALI A.V.A",
+        "candidate": "KASSALI A V A",
         "party": "PMK",
         "votes": 23930,
-        "margin": 14737,
+        "margin": 69355,
         "vote_share": 17.42,
         "winner": false
       }
@@ -2315,7 +2315,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SELVAM KU. KA",
+        "candidate": "SELVAM KU KA",
         "party": "DMK",
         "votes": 61726,
         "margin": 8829,
@@ -2325,9 +2325,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VALARMATHI B",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 52897,
-        "margin": 44381,
+        "margin": 8829,
         "vote_share": 37.15,
         "winner": false
       }
@@ -2347,7 +2347,7 @@ var corrected2021Winners = {
         "candidate": "KUSHBOO SUNDAR",
         "party": "BJP",
         "votes": 39405,
-        "margin": 27614,
+        "margin": 32462,
         "vote_share": 28.99,
         "winner": false
       }
@@ -2362,24 +2362,24 @@ var corrected2021Winners = {
         "candidate": "MOHAN M.K.",
         "party": "DMK",
         "votes": 70812,
-        "margin": 1086,
+        "margin": 1686,
         "vote_share": 41.59,
         "winner": true
       },
       {
         "position": 2,
         "candidate": "GOKULAINDIRA S",
-        "party": "ADMK",
-        "votes": 69726,
-        "margin": 60894,
-        "vote_share": 40.95,
+        "party": "AIADMK",
+        "votes": 69126,
+        "margin": 1686,
+        "vote_share": 40.6,
         "winner": false
       }
     ],
     "2021": [
       {
         "position": 1,
-        "candidate": "M.K. Mohan",
+        "candidate": "M.K. MOHAN",
         "party": "DMK",
         "votes": 80054,
         "margin": 27445,
@@ -2388,10 +2388,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S. Gokula Indira",
-        "party": "ADMK",
+        "candidate": "S. GOKULA INDIRA",
+        "party": "AIADMK",
         "votes": 52609,
-        "margin": 35087,
+        "margin": 27445,
         "vote_share": 31.87,
         "winner": false
       }
@@ -2404,7 +2404,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "V.N.VIRUGAI RAVI",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 65979,
         "margin": 2333,
         "vote_share": 38.51,
@@ -2415,7 +2415,7 @@ var corrected2021Winners = {
         "candidate": "K THANASEKARAN",
         "party": "DMK",
         "votes": 63646,
-        "margin": 44479,
+        "margin": 2333,
         "vote_share": 37.15,
         "winner": false
       }
@@ -2433,9 +2433,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VIRUGAI V.N.RAVI",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 55984,
-        "margin": 39045,
+        "margin": 18367,
         "vote_share": 33.11,
         "winner": false
       }
@@ -2457,9 +2457,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "PONNAYAN.C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 63024,
-        "margin": 57024,
+        "margin": 16255,
         "vote_share": 37.51,
         "winner": false
       }
@@ -2477,9 +2477,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SAIDAI DURAISAMY",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 50786,
-        "margin": 37332,
+        "margin": 29408,
         "vote_share": 31.68,
         "winner": false
       }
@@ -2492,7 +2492,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "NATARAJ.R IPS (RTD)",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 68176,
         "margin": 14728,
         "vote_share": 43.67,
@@ -2503,7 +2503,7 @@ var corrected2021Winners = {
         "candidate": "KARATE THIAGARAJAN.R",
         "party": "INC",
         "votes": 53448,
-        "margin": 41728,
+        "margin": 14728,
         "vote_share": 34.23,
         "winner": false
       }
@@ -2521,9 +2521,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "NATARAJ.R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 55759,
-        "margin": 40855,
+        "margin": 12633,
         "vote_share": 36.34,
         "winner": false
       }
@@ -2535,7 +2535,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "VAGAI CHANDERASEKAR",
+        "candidate": "VAGAI CHANDRASEKAR",
         "party": "DMK",
         "votes": 70139,
         "margin": 8872,
@@ -2544,10 +2544,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "C MUNUSAMY",
-        "party": "ADMK",
+        "candidate": "C. MUNUSAMY",
+        "party": "AIADMK",
         "votes": 61267,
-        "margin": 46795,
+        "margin": 8872,
         "vote_share": 34.91,
         "winner": false
       }
@@ -2555,7 +2555,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "JMH.AASSAN MAULAANA",
+        "candidate": "JMH AASSAN MAULAANA",
         "party": "INC",
         "votes": 68493,
         "margin": 4352,
@@ -2564,10 +2564,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "M.K.ASHOK",
-        "party": "ADMK",
+        "candidate": "M.K. ASHOK",
+        "party": "AIADMK",
         "votes": 64141,
-        "margin": 41069,
+        "margin": 4352,
         "vote_share": 36.3,
         "winner": false
       }
@@ -2589,9 +2589,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAMACHANDRAN S.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 77708,
-        "margin": 64902,
+        "margin": 19169,
         "vote_share": 35.81,
         "winner": false
       }
@@ -2599,7 +2599,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "T.M.Anbarasan",
+        "candidate": "T.M. ANBARASAN",
         "party": "DMK",
         "votes": 116785,
         "margin": 40571,
@@ -2608,10 +2608,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "B.Valarmathi",
-        "party": "ADMK",
+        "candidate": "B. VALARMATHI",
+        "party": "AIADMK",
         "votes": 76214,
-        "margin": 55097,
+        "margin": 40571,
         "vote_share": 32.06,
         "winner": false
       }
@@ -2624,10 +2624,10 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PALANI.K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 101001,
         "margin": 10716,
-        "vote_share": 42.77,
+        "vote_share": 43.3,
         "winner": true
       },
       {
@@ -2635,15 +2635,15 @@ var corrected2021Winners = {
         "candidate": "SELVAPERUNTHAGAI.K",
         "party": "INC",
         "votes": 90285,
-        "margin": 72100,
-        "vote_share": 38.23,
+        "margin": 10716,
+        "vote_share": 38.7,
         "winner": false
       }
     ],
     "2021": [
       {
         "position": 1,
-        "candidate": "SELVAPERUNTHAGAI",
+        "candidate": "K. SELVAPERUNTHAGAI",
         "party": "INC",
         "votes": 115353,
         "margin": 10879,
@@ -2652,10 +2652,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "PALANI",
-        "party": "ADMK",
+        "candidate": "K. PALANI",
+        "party": "AIADMK",
         "votes": 104474,
-        "margin": 82440,
+        "margin": 10879,
         "vote_share": 39.53,
         "winner": false
       }
@@ -2671,23 +2671,23 @@ var corrected2021Winners = {
         "party": "DMK",
         "votes": 112891,
         "margin": 22165,
-        "vote_share": 44.94,
+        "vote_share": 46.0,
         "winner": true
       },
       {
         "position": 2,
         "candidate": "SARASWATHI C.R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 90726,
-        "margin": 76643,
-        "vote_share": 36.12,
+        "margin": 22165,
+        "vote_share": 37.0,
         "winner": false
       }
     ],
     "2021": [
       {
         "position": 1,
-        "candidate": "KARUNANITHI",
+        "candidate": "I. KARUNANITHI",
         "party": "DMK",
         "votes": 126427,
         "margin": 37781,
@@ -2696,10 +2696,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAJENDRAN",
-        "party": "ADMK",
+        "candidate": "RAJENDRAN S",
+        "party": "AIADMK",
         "votes": 88646,
-        "margin": 67284,
+        "margin": 37781,
         "vote_share": 33.3,
         "winner": false
       }
@@ -2721,9 +2721,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJENDRAN C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 87390,
-        "margin": 72831,
+        "margin": 14445,
         "vote_share": 37.13,
         "winner": false
       }
@@ -2731,7 +2731,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Raja.S.R",
+        "candidate": "S.R. RAJA",
         "party": "DMK",
         "votes": 116840,
         "margin": 36824,
@@ -2740,10 +2740,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Chinnaiyah.T.K.M",
-        "party": "ADMK",
+        "candidate": "T.K.M. CHINNAIYAH",
+        "party": "AIADMK",
         "votes": 80016,
-        "margin": 57486,
+        "margin": 36824,
         "vote_share": 32.14,
         "winner": false
       }
@@ -2755,7 +2755,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "VARALAKSHMI.M",
+        "candidate": "VARALAKSHMI M",
         "party": "DMK",
         "votes": 112675,
         "margin": 26292,
@@ -2764,10 +2764,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KAMALAKKANNAN.R",
-        "party": "ADMK",
+        "candidate": "KAMALAKKANNAN R",
+        "party": "AIADMK",
         "votes": 86383,
-        "margin": 65484,
+        "margin": 26292,
         "vote_share": 34.58,
         "winner": false
       }
@@ -2775,7 +2775,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "VARALAKSHMI.M",
+        "candidate": "M. VARALAKSHMI",
         "party": "DMK",
         "votes": 130573,
         "margin": 26665,
@@ -2784,10 +2784,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "GAJENDRAN.M",
-        "party": "ADMK",
+        "candidate": "M. GAJENDRAN",
+        "party": "AIADMK",
         "votes": 103908,
-        "margin": 77040,
+        "margin": 26665,
         "vote_share": 37.91,
         "winner": false
       }
@@ -2799,8 +2799,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "KOTHANDAPANI. M",
-        "party": "ADMK",
+        "candidate": "M. KOTHANDAPANI",
+        "party": "AIADMK",
         "votes": 70215,
         "margin": 950,
         "vote_share": 34.91,
@@ -2808,10 +2808,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "VISWANATHAN. V",
+        "candidate": "V. VISWANATHAN",
         "party": "DMK",
         "votes": 69265,
-        "margin": 41140,
+        "margin": 950,
         "vote_share": 34.44,
         "winner": false
       }
@@ -2819,7 +2819,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "S.S.Balaji",
+        "candidate": "S.S. BALAJI",
         "party": "VCK",
         "votes": 93954,
         "margin": 1947,
@@ -2828,10 +2828,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Arumugam.K",
+        "candidate": "K. ARUMUGAM",
         "party": "PMK",
         "votes": 92007,
-        "margin": 71579,
+        "margin": 1947,
         "vote_share": 40.58,
         "winner": false
       }
@@ -2843,40 +2843,40 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "ARASU R T",
+        "candidate": "R.T. ARASU",
         "party": "DMK",
         "votes": 63446,
         "margin": 304,
-        "vote_share": 37.51,
+        "vote_share": 37.9,
         "winner": true
       },
       {
         "position": 2,
-        "candidate": "MUNUSAMY A",
-        "party": "ADMK",
+        "candidate": "A. MUNUSAMY",
+        "party": "AIADMK",
         "votes": 63142,
-        "margin": 45215,
-        "vote_share": 37.33,
+        "margin": 304,
+        "vote_share": 37.7,
         "winner": false
       }
     ],
     "2021": [
       {
         "position": 1,
-        "candidate": "Babu M",
+        "candidate": "M. BABU",
         "party": "VCK",
         "votes": 82750,
         "margin": 4042,
-        "vote_share": 46.2,
+        "vote_share": 46.5,
         "winner": true
       },
       {
         "position": 2,
-        "candidate": "Kanitha S",
-        "party": "ADMK",
+        "candidate": "S. KANITHA",
+        "party": "AIADMK",
         "votes": 78708,
-        "margin": 69055,
-        "vote_share": 43.94,
+        "margin": 4042,
+        "vote_share": 44.2,
         "winner": false
       }
     ]
@@ -2897,9 +2897,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "GANESAN.P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73357,
-        "margin": 49136,
+        "margin": 12156,
         "vote_share": 36.9,
         "winner": false
       }
@@ -2917,9 +2917,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SOMASUNDARAM V",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 91805,
-        "margin": 80400,
+        "margin": 1622,
         "vote_share": 43.61,
         "winner": false
       }
@@ -2940,10 +2940,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "T.MYTHILI",
-        "party": "ADMK",
+        "candidate": "T. MYTHILI",
+        "party": "AIADMK",
         "votes": 82985,
-        "margin": 52883,
+        "margin": 7548,
         "vote_share": 37.03,
         "winner": false
       }
@@ -2951,7 +2951,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "C.V.M.P. Ezhailzrasan",
+        "candidate": "C.V.M.P. EZHILARASAN",
         "party": "DMK",
         "votes": 102712,
         "margin": 11595,
@@ -2960,10 +2960,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "P. Magesh Kumar",
+        "candidate": "P. MAHESH KUMAR",
         "party": "PMK",
         "votes": 91117,
-        "margin": 77171,
+        "margin": 11595,
         "vote_share": 39.71,
         "winner": false
       }
@@ -2985,9 +2985,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "APPU S.R.K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 66588,
-        "margin": 53860,
+        "margin": 23946,
         "vote_share": 37.44,
         "winner": false
       }
@@ -3004,10 +3004,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "V RAMU",
-        "party": "ADMK",
+        "candidate": "V. RAMU",
+        "party": "AIADMK",
         "votes": 84394,
-        "margin": 73945,
+        "margin": 746,
         "vote_share": 45.31,
         "winner": false
       }
@@ -3029,9 +3029,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "ELUMALAI. C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73828,
-        "margin": 49978,
+        "margin": 7896,
         "vote_share": 38.71,
         "winner": false
       }
@@ -3039,7 +3039,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "R.GANDHI",
+        "candidate": "R. GANDHI",
         "party": "DMK",
         "votes": 103291,
         "margin": 16498,
@@ -3048,10 +3048,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S.M.SUGUMAR",
-        "party": "ADMK",
+        "candidate": "S.M. SUGUMAR",
+        "party": "AIADMK",
         "votes": 86793,
-        "margin": 76559,
+        "margin": 16498,
         "vote_share": 41.84,
         "winner": false
       }
@@ -3073,9 +3073,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAMADOSS.K.V",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73091,
-        "margin": 38048,
+        "margin": 11091,
         "vote_share": 35.94,
         "winner": false
       }
@@ -3083,7 +3083,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "J.L.Eswarappan",
+        "candidate": "J.L. ESWARAPPAN",
         "party": "DMK",
         "votes": 103885,
         "margin": 19958,
@@ -3092,10 +3092,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Elavazagan.K.L",
+        "candidate": "ELAVAZAGAN.K.L",
         "party": "PMK",
         "votes": 83927,
-        "margin": 71839,
+        "margin": 19958,
         "vote_share": 40.01,
         "winner": false
       }
@@ -3107,7 +3107,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "KARTHIKEYAN",
+        "candidate": "P. KARTHIKEYAN",
         "party": "DMK",
         "votes": 88264,
         "margin": 26210,
@@ -3117,9 +3117,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "HARUN RASHEED",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62054,
-        "margin": 56842,
+        "margin": 26210,
         "vote_share": 36.23,
         "winner": false
       }
@@ -3127,7 +3127,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Karthikeyan .P",
+        "candidate": "P. KARTHIKEYAN",
         "party": "DMK",
         "votes": 84299,
         "margin": 9181,
@@ -3136,10 +3136,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Appu S.R.K",
-        "party": "ADMK",
+        "candidate": "S.R.K. APPU",
+        "party": "AIADMK",
         "votes": 75118,
-        "margin": 66588,
+        "margin": 9181,
         "vote_share": 41.76,
         "winner": false
       }
@@ -3161,9 +3161,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KALAIARASU. M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 68290,
-        "margin": 43579,
+        "margin": 8768,
         "vote_share": 37.6,
         "winner": false
       }
@@ -3171,7 +3171,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "A.P.Nandakumar",
+        "candidate": "A.P. NANDAKUMAR",
         "party": "DMK",
         "votes": 95159,
         "margin": 6360,
@@ -3180,10 +3180,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "D.Velazhagan",
-        "party": "ADMK",
+        "candidate": "D. VELAZHAGAN",
+        "party": "AIADMK",
         "votes": 88799,
-        "margin": 80674,
+        "margin": 6360,
         "vote_share": 44.89,
         "winner": false
       }
@@ -3196,7 +3196,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "LOGANATHAN.G",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 75612,
         "margin": 9746,
         "vote_share": 45.76,
@@ -3207,7 +3207,7 @@ var corrected2021Winners = {
         "candidate": "AMALU V",
         "party": "DMK",
         "votes": 65866,
-        "margin": 52820,
+        "margin": 9746,
         "vote_share": 39.86,
         "winner": false
       }
@@ -3215,8 +3215,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "M.JAGAN MOORTHY",
-        "party": "ADMK",
+        "candidate": "M. JAGAN MOORTHY",
+        "party": "AIADMK",
         "votes": 84579,
         "margin": 10582,
         "vote_share": 48.57,
@@ -3224,10 +3224,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "K Seetharaman",
+        "candidate": "K. SEETHARAMAN",
         "party": "DMK",
         "votes": 73997,
-        "margin": 63970,
+        "margin": 10582,
         "vote_share": 42.5,
         "winner": false
       }
@@ -3240,7 +3240,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "JAYANTHI PADMANABHAN .C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 94689,
         "margin": 11470,
         "vote_share": 48.56,
@@ -3251,7 +3251,7 @@ var corrected2021Winners = {
         "candidate": "RAJAMARTHANDAN K.",
         "party": "DMK",
         "votes": 83219,
-        "margin": 75714,
+        "margin": 11470,
         "vote_share": 42.68,
         "winner": false
       }
@@ -3259,7 +3259,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Amulu.V",
+        "candidate": "AMULU.V",
         "party": "DMK",
         "votes": 100412,
         "margin": 6901,
@@ -3268,99 +3268,11 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Paritha.G",
-        "party": "ADMK",
+        "candidate": "PARITHA.G",
+        "party": "AIADMK",
         "votes": 93511,
-        "margin": 81677,
+        "margin": 6901,
         "vote_share": 44.19,
-        "winner": false
-      }
-    ]
-  },
-  "48": {
-    "constituency_id": 48,
-    "name": "THIRUVERAMBUR",
-    "2016": [
-      {
-        "position": 1,
-        "candidate": "ANBIL MAHESH POYYAMOZHI",
-        "party": "DMK",
-        "votes": 85950,
-        "margin": 16695,
-        "vote_share": 46.98,
-        "winner": true
-      },
-      {
-        "position": 2,
-        "candidate": "KALAICHELVAN.D",
-        "party": "ADMK",
-        "votes": 69255,
-        "margin": 56100,
-        "vote_share": 37.85,
-        "winner": false
-      }
-    ],
-    "2021": [
-      {
-        "position": 1,
-        "candidate": "ANBIL MAHESH POYYAMOZHI",
-        "party": "DMK",
-        "votes": 105424,
-        "margin": 49697,
-        "vote_share": 53.51,
-        "winner": true
-      },
-      {
-        "position": 2,
-        "candidate": "P KUMAR",
-        "party": "ADMK",
-        "votes": 55727,
-        "margin": 40008,
-        "vote_share": 28.29,
-        "winner": false
-      }
-    ]
-  },
-  "49": {
-    "constituency_id": 49,
-    "name": "JOLARPET",
-    "2016": [
-      {
-        "position": 1,
-        "candidate": "VEERAMANI.K.C.",
-        "party": "ADMK",
-        "votes": 82525,
-        "margin": 10991,
-        "vote_share": 45.57,
-        "winner": true
-      },
-      {
-        "position": 2,
-        "candidate": "KAVITHA.C",
-        "party": "DMK",
-        "votes": 71534,
-        "margin": 54018,
-        "vote_share": 39.5,
-        "winner": false
-      }
-    ],
-    "2021": [
-      {
-        "position": 1,
-        "candidate": "DEVARAJI.K.",
-        "party": "DMK",
-        "votes": 89490,
-        "margin": 1091,
-        "vote_share": 45.57,
-        "winner": true
-      },
-      {
-        "position": 2,
-        "candidate": "VEERAMANI.K.C.",
-        "party": "ADMK",
-        "votes": 88399,
-        "margin": 75071,
-        "vote_share": 45.02,
         "winner": false
       }
     ]
@@ -3371,7 +3283,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "NALLATHAMBI. A",
+        "candidate": "A. NALLATHAMBI",
         "party": "DMK",
         "votes": 80791,
         "margin": 7647,
@@ -3379,30 +3291,12 @@ var corrected2021Winners = {
         "winner": true
       },
       {
-        "position": 1,
-        "candidate": "PERIAKARUPPAN KR",
-        "party": "DMK",
-        "votes": 110719,
-        "margin": 42004,
-        "vote_share": 55.72,
-        "winner": true
-      },
-      {
         "position": 2,
-        "candidate": "KUMAR.T.T",
-        "party": "ADMK",
+        "candidate": "T.T. KUMAR",
+        "party": "AIADMK",
         "votes": 73144,
-        "margin": 60917,
+        "margin": 7647,
         "vote_share": 41.13,
-        "winner": false
-      },
-      {
-        "position": 2,
-        "candidate": "ASOKAN KR",
-        "party": "ADMK",
-        "votes": 68715,
-        "margin": 61335,
-        "vote_share": 34.58,
         "winner": false
       }
     ],
@@ -3417,30 +3311,12 @@ var corrected2021Winners = {
         "winner": true
       },
       {
-        "position": 1,
-        "candidate": "KR.PERIYAKARUPPAN",
-        "party": "DMK",
-        "votes": 103682,
-        "margin": 37374,
-        "vote_share": 49.19,
-        "winner": true
-      },
-      {
         "position": 2,
         "candidate": "T.K. RAJA",
         "party": "PMK",
         "votes": 68282,
-        "margin": 56155,
+        "margin": 28240,
         "vote_share": 36.72,
-        "winner": false
-      },
-      {
-        "position": 2,
-        "candidate": "MARUDHU ALAGURAJ",
-        "party": "ADMK",
-        "votes": 66308,
-        "margin": 51737,
-        "vote_share": 31.46,
         "winner": false
       }
     ]
@@ -3451,8 +3327,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "N.MANORANJITHAM",
-        "party": "ADMK",
+        "candidate": "N. MANORANJITHAM",
+        "party": "AIADMK",
         "votes": 69980,
         "margin": 2613,
         "vote_share": 38.75,
@@ -3460,10 +3336,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S.MALATHY",
+        "candidate": "S. MALATHY",
         "party": "DMK",
         "votes": 67367,
-        "margin": 43867,
+        "margin": 2613,
         "vote_share": 37.3,
         "winner": false
       }
@@ -3471,8 +3347,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "T.M.TAMILSELVAM",
-        "party": "ADMK",
+        "candidate": "S. ARUMUGAM",
+        "party": "INC",
         "votes": 99675,
         "margin": 28387,
         "vote_share": 52.96,
@@ -3480,10 +3356,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S.Arumugam",
-        "party": "INC",
+        "candidate": "T.M. TAMILSELVAM",
+        "party": "AIADMK",
         "votes": 71288,
-        "margin": 60864,
+        "margin": 28387,
         "vote_share": 37.87,
         "winner": false
       }
@@ -3495,8 +3371,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "V.RAJENDRAN",
-        "party": "ADMK",
+        "candidate": "V. RAJENDRAN",
+        "party": "AIADMK",
         "votes": 80650,
         "margin": 982,
         "vote_share": 42.89,
@@ -3504,10 +3380,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "GOVINDDARASAN.E.C",
+        "candidate": "E.C. GOVINDARAJAN",
         "party": "DMK",
         "votes": 79668,
-        "margin": 61261,
+        "margin": 982,
         "vote_share": 42.36,
         "winner": false
       }
@@ -3515,7 +3391,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "MATHIAZHAGAN D",
+        "candidate": "D. MATHIAZHAGAN",
         "party": "DMK",
         "votes": 97256,
         "margin": 12614,
@@ -3524,10 +3400,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KRISHNAN A",
-        "party": "ADMK",
+        "candidate": "A. KRISHNAN",
+        "party": "AIADMK",
         "votes": 84642,
-        "margin": 74529,
+        "margin": 12614,
         "vote_share": 42.8,
         "winner": false
       }
@@ -3539,7 +3415,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "T.SENGUTTUVAN",
+        "candidate": "T. SENGUTTUVAN",
         "party": "DMK",
         "votes": 87637,
         "margin": 4891,
@@ -3548,10 +3424,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "V.GOVINDARAJ",
-        "party": "ADMK",
+        "candidate": "V. GOVINDARAJ",
+        "party": "AIADMK",
         "votes": 82746,
-        "margin": 67010,
+        "margin": 4891,
         "vote_share": 41.35,
         "winner": false
       }
@@ -3559,8 +3435,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Ashokkumar.K",
-        "party": "ADMK",
+        "candidate": "K. ASHOKKUMAR",
+        "party": "AIADMK",
         "votes": 96050,
         "margin": 794,
         "vote_share": 45.38,
@@ -3568,10 +3444,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SENGUTTUVAN.T",
+        "candidate": "T. SENGUTTUVAN",
         "party": "DMK",
         "votes": 95256,
-        "margin": 84119,
+        "margin": 794,
         "vote_share": 45.01,
         "winner": false
       }
@@ -3583,7 +3459,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "MURUGAN P",
+        "candidate": "P. MURUGAN",
         "party": "DMK",
         "votes": 88952,
         "margin": 5228,
@@ -3592,10 +3468,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MADHU A.V.M @ HEMNATH M",
-        "party": "ADMK",
+        "candidate": "HEMNATH M",
+        "party": "AIADMK",
         "votes": 83724,
-        "margin": 78248,
+        "margin": 5228,
         "vote_share": 43.31,
         "winner": false
       }
@@ -3603,8 +3479,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "K.P.Munusamy",
-        "party": "ADMK",
+        "candidate": "K.P. MUNUSAMY",
+        "party": "AIADMK",
         "votes": 94104,
         "margin": 3054,
         "vote_share": 45.87,
@@ -3612,10 +3488,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "P.Murugan",
+        "candidate": "P. MURUGAN",
         "party": "DMK",
         "votes": 91050,
-        "margin": 82740,
+        "margin": 3054,
         "vote_share": 44.38,
         "winner": false
       }
@@ -3627,8 +3503,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "BALAKRISHNA REDDY P",
-        "party": "ADMK",
+        "candidate": "P. BALAKRISHNA REDDY",
+        "party": "AIADMK",
         "votes": 89510,
         "margin": 22964,
         "vote_share": 41.59,
@@ -3636,10 +3512,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "GOPINATH K",
+        "candidate": "K. GOPINATH",
         "party": "INC",
         "votes": 66546,
-        "margin": 37696,
+        "margin": 22964,
         "vote_share": 30.92,
         "winner": false
       }
@@ -3647,7 +3523,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "PRAKAASH Y",
+        "candidate": "Y. PRAKAASH",
         "party": "DMK",
         "votes": 118231,
         "margin": 12367,
@@ -3656,10 +3532,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "JYOTHI S",
-        "party": "ADMK",
+        "candidate": "S. JYOTHI",
+        "party": "AIADMK",
         "votes": 105864,
-        "margin": 94442,
+        "margin": 12367,
         "vote_share": 42.67,
         "winner": false
       }
@@ -3671,7 +3547,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "PRAKAASHY.",
+        "candidate": "Y. PRAKAASH",
         "party": "DMK",
         "votes": 74429,
         "margin": 6245,
@@ -3680,10 +3556,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAMACHANDRANT.",
+        "candidate": "T. RAMACHANDRAN",
         "party": "CPI",
         "votes": 68184,
-        "margin": 36769,
+        "margin": 6245,
         "vote_share": 36.01,
         "winner": false
       }
@@ -3691,7 +3567,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "RAMACHANDRAN.T",
+        "candidate": "T. RAMACHANDRAN",
         "party": "CPI",
         "votes": 120641,
         "margin": 56226,
@@ -3700,10 +3576,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Dr.NAGESH KUMAR.C",
+        "candidate": "DR. NAGESH KUMAR.C",
         "party": "BJP",
         "votes": 64415,
-        "margin": 60639,
+        "margin": 56226,
         "vote_share": 33.2,
         "winner": false
       }
@@ -3715,8 +3591,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "ANBALAGAN. K.P.",
-        "party": "ADMK",
+        "candidate": "K.P. ANBALAGAN",
+        "party": "AIADMK",
         "votes": 76143,
         "margin": 5983,
         "vote_share": 40.34,
@@ -3724,10 +3600,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MURUGAN. P.K.",
+        "candidate": "P.K. MURUGAN",
         "party": "DMK",
         "votes": 70160,
-        "margin": 38548,
+        "margin": 5983,
         "vote_share": 37.17,
         "winner": false
       }
@@ -3735,8 +3611,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "ANBALAGAN.K.P.",
-        "party": "ADMK",
+        "candidate": "K.P. ANBALAGAN",
+        "party": "AIADMK",
         "votes": 110070,
         "margin": 28100,
         "vote_share": 53.28,
@@ -3744,10 +3620,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MURUGAN.P.K.",
+        "candidate": "P.K. MURUGAN",
         "party": "DMK",
         "votes": 81970,
-        "margin": 74266,
+        "margin": 28100,
         "vote_share": 39.68,
         "winner": false
       }
@@ -3759,7 +3635,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "INBASEKARAN. P.N.P.",
+        "candidate": "P.N.P. INBASEKARAN",
         "party": "DMK",
         "votes": 76848,
         "margin": 18446,
@@ -3771,7 +3647,7 @@ var corrected2021Winners = {
         "candidate": "ANBUMANI RAMADOSS",
         "party": "PMK",
         "votes": 58402,
-        "margin": 6715,
+        "margin": 18446,
         "vote_share": 29.25,
         "winner": false
       }
@@ -3779,7 +3655,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "MANI. G.K",
+        "candidate": "G.K. MANI",
         "party": "PMK",
         "votes": 106123,
         "margin": 21186,
@@ -3788,10 +3664,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "INBASEKARAN. P.N.P",
+        "candidate": "P.N.P. INBASEKARAN",
         "party": "DMK",
         "votes": 84937,
-        "margin": 75992,
+        "margin": 21186,
         "vote_share": 40.39,
         "winner": false
       }
@@ -3803,7 +3679,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SUBRAMANI. P.",
+        "candidate": "P. SUBRAMANI",
         "party": "DMK",
         "votes": 71056,
         "margin": 9676,
@@ -3812,10 +3688,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "ELANGOVAN. P.D.",
-        "party": "ADMK",
+        "candidate": "P.D. ELANGOVAN",
+        "party": "AIADMK",
         "votes": 61380,
-        "margin": 4653,
+        "margin": 9676,
         "vote_share": 29.58,
         "winner": false
       }
@@ -3823,7 +3699,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "VENKATESHWARAN.S.P.",
+        "candidate": "S.P. VENKATESHWARAN",
         "party": "PMK",
         "votes": 105630,
         "margin": 26860,
@@ -3832,10 +3708,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SUBRAMANI.P",
+        "candidate": "P. SUBRAMANI",
         "party": "DMK",
         "votes": 78770,
-        "margin": 67544,
+        "margin": 26860,
         "vote_share": 36.24,
         "winner": false
       }
@@ -3847,8 +3723,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "PALANIYAPPAN. P",
-        "party": "ADMK",
+        "candidate": "P. PALANIYAPPAN",
+        "party": "AIADMK",
         "votes": 74234,
         "margin": 12713,
         "vote_share": 35.56,
@@ -3856,10 +3732,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SATHIYAMOORTHY. A",
+        "candidate": "A. SATHIYAMOORTHY",
         "party": "PMK",
         "votes": 61521,
-        "margin": 5412,
+        "margin": 12713,
         "vote_share": 29.47,
         "winner": false
       }
@@ -3867,8 +3743,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "GOVINDASAMY.A",
-        "party": "ADMK",
+        "candidate": "A. GOVINDASAMY",
+        "party": "AIADMK",
         "votes": 114507,
         "margin": 36943,
         "vote_share": 51.81,
@@ -3876,10 +3752,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "PRABHURAJASEKAR.M",
+        "candidate": "M. PRABHURAJASEKAR",
         "party": "DMK",
         "votes": 77564,
-        "margin": 61701,
+        "margin": 36943,
         "vote_share": 35.1,
         "winner": false
       }
@@ -3891,8 +3767,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "R.MURUGAN",
-        "party": "ADMK",
+        "candidate": "R. MURUGAN",
+        "party": "AIADMK",
         "votes": 64568,
         "margin": 11421,
         "vote_share": 33.96,
@@ -3900,10 +3776,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S.RAJENDRAN",
+        "candidate": "S. RAJENDRAN",
         "party": "DMK",
         "votes": 53147,
-        "margin": 19515,
+        "margin": 11421,
         "vote_share": 27.95,
         "winner": false
       }
@@ -3911,8 +3787,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SAMPATHKUMAR.V",
-        "party": "ADMK",
+        "candidate": "V. SAMPATHKUMAR",
+        "party": "AIADMK",
         "votes": 99061,
         "margin": 30362,
         "vote_share": 49.89,
@@ -3920,10 +3796,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KUMAR.A",
+        "candidate": "A. KUMAR",
         "party": "CPM",
         "votes": 68699,
-        "margin": 54372,
+        "margin": 30362,
         "vote_share": 34.6,
         "winner": false
       }
@@ -3935,7 +3811,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "GIRI .M.P",
+        "candidate": "M.P. GIRI",
         "party": "DMK",
         "votes": 95939,
         "margin": 12691,
@@ -3944,10 +3820,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "DINAGARAN. M",
-        "party": "ADMK",
+        "candidate": "M. DINAGARAN",
+        "party": "AIADMK",
         "votes": 83248,
-        "margin": 68134,
+        "margin": 12691,
         "vote_share": 39.57,
         "winner": false
       }
@@ -3955,7 +3831,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "GIRI.M.P",
+        "candidate": "M.P. GIRI",
         "party": "DMK",
         "votes": 108081,
         "margin": 11570,
@@ -3964,10 +3840,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "NAINAKANNU.M.S",
-        "party": "ADMK",
+        "candidate": "M.S. NAINAKANNU",
+        "party": "AIADMK",
         "votes": 96511,
-        "margin": 84431,
+        "margin": 11570,
         "vote_share": 43.09,
         "winner": false
       }
@@ -3979,7 +3855,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "VELUE.V.",
+        "candidate": "E.V. VELU",
         "party": "DMK",
         "votes": 116484,
         "margin": 50348,
@@ -3988,10 +3864,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAJANK",
-        "party": "ADMK",
+        "candidate": "K. RAJAN",
+        "party": "AIADMK",
         "votes": 66136,
-        "margin": 58220,
+        "margin": 50348,
         "vote_share": 32.45,
         "winner": false
       }
@@ -3999,7 +3875,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "E V VELU",
+        "candidate": "E.V. VELU",
         "party": "DMK",
         "votes": 137876,
         "margin": 94673,
@@ -4008,10 +3884,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S THANIGAIVEL",
+        "candidate": "S. THANIGAIVEL",
         "party": "BJP",
         "votes": 43203,
-        "margin": 29208,
+        "margin": 94673,
         "vote_share": 20.69,
         "winner": false
       }
@@ -4023,7 +3899,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "PITCHANDI K",
+        "candidate": "K. PITCHANDI",
         "party": "DMK",
         "votes": 99070,
         "margin": 34666,
@@ -4032,10 +3908,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SELVAMANI K",
-        "party": "ADMK",
+        "candidate": "K. SELVAMANI",
+        "party": "AIADMK",
         "votes": 64404,
-        "margin": 43667,
+        "margin": 34666,
         "vote_share": 32.64,
         "winner": false
       }
@@ -4043,7 +3919,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "K.Pitchandi",
+        "candidate": "K. PITCHANDI",
         "party": "DMK",
         "votes": 104675,
         "margin": 26787,
@@ -4052,10 +3928,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "K.Selvakumar",
+        "candidate": "K. SELVAKUMAR",
         "party": "PMK",
         "votes": 77888,
-        "margin": 66347,
+        "margin": 26787,
         "vote_share": 38.2,
         "winner": false
       }
@@ -4067,8 +3943,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "PANNEERSELVAM V",
-        "party": "ADMK",
+        "candidate": "V. PANNEERSELVAM",
+        "party": "AIADMK",
         "votes": 84394,
         "margin": 26414,
         "vote_share": 45.41,
@@ -4076,10 +3952,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KUMAR G",
+        "candidate": "G. KUMAR",
         "party": "INC",
         "votes": 57980,
-        "margin": 34155,
+        "margin": 26414,
         "vote_share": 31.2,
         "winner": false
       }
@@ -4087,7 +3963,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Saravanan.P.S.T",
+        "candidate": "P.S.T. SARAVANAN",
         "party": "DMK",
         "votes": 94134,
         "margin": 9222,
@@ -4096,10 +3972,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Panneerselvam.V",
-        "party": "ADMK",
+        "candidate": "V. PANNEERSELVAM",
+        "party": "AIADMK",
         "votes": 84912,
-        "margin": 76090,
+        "margin": 9222,
         "vote_share": 43.23,
         "winner": false
       }
@@ -4111,7 +3987,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SEKARAN.K.V",
+        "candidate": "K.V. SEKARAN",
         "party": "DMK",
         "votes": 66588,
         "margin": 8273,
@@ -4120,10 +3996,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MURUGAN.M",
-        "party": "ADMK",
+        "candidate": "M. MURUGAN",
+        "party": "AIADMK",
         "votes": 58315,
-        "margin": 19454,
+        "margin": 8273,
         "vote_share": 29.8,
         "winner": false
       }
@@ -4131,8 +4007,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Agri KRISHNAMURTHY. S S",
-        "party": "ADMK",
+        "candidate": "S.S. AGRI KRISHNAMURTHY",
+        "party": "AIADMK",
         "votes": 97732,
         "margin": 9725,
         "vote_share": 48.38,
@@ -4140,10 +4016,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SEKARAN. K.V",
+        "candidate": "K.V. SEKARAN",
         "party": "DMK",
         "votes": 88007,
-        "margin": 77810,
+        "margin": 9725,
         "vote_share": 43.57,
         "winner": false
       }
@@ -4155,8 +4031,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "RAMACHANDRAN S",
-        "party": "ADMK",
+        "candidate": "S. RAMACHANDRAN",
+        "party": "AIADMK",
         "votes": 94074,
         "margin": 7327,
         "vote_share": 44.89,
@@ -4164,10 +4040,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "BABU S",
+        "candidate": "S. BABU",
         "party": "DMK",
         "votes": 86747,
-        "margin": 73870,
+        "margin": 7327,
         "vote_share": 41.4,
         "winner": false
       }
@@ -4175,8 +4051,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "S.RAMACHANDRAN",
-        "party": "ADMK",
+        "candidate": "S. RAMACHANDRAN",
+        "party": "AIADMK",
         "votes": 102961,
         "margin": 3128,
         "vote_share": 46.5,
@@ -4184,10 +4060,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S.S.ANBALAGAN",
+        "candidate": "S.S. ANBALAGAN",
         "party": "DMK",
         "votes": 99833,
-        "margin": 89342,
+        "margin": 3128,
         "vote_share": 45.09,
         "winner": false
       }
@@ -4199,8 +4075,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "MOHAN K",
-        "party": "ADMK",
+        "candidate": "K. MOHAN",
+        "party": "AIADMK",
         "votes": 77766,
         "margin": 8527,
         "vote_share": 37.78,
@@ -4208,10 +4084,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "DR. VISHNUPRASAD M K",
+        "candidate": "M.K. VISHNUPRASAD",
         "party": "INC",
         "votes": 69239,
-        "margin": 31748,
+        "margin": 8527,
         "vote_share": 33.64,
         "winner": false
       }
@@ -4219,7 +4095,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "JOTHI. O",
+        "candidate": "O. JOTHI",
         "party": "DMK",
         "votes": 102460,
         "margin": 12271,
@@ -4228,10 +4104,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "DUSI. K. MOHAN",
-        "party": "ADMK",
+        "candidate": "K. MOHAN",
+        "party": "AIADMK",
         "votes": 90189,
-        "margin": 77997,
+        "margin": 12271,
         "vote_share": 42.05,
         "winner": false
       }
@@ -4243,7 +4119,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "AMBETHKUMAR S",
+        "candidate": "S. AMBETHKUMAR",
         "party": "DMK",
         "votes": 80206,
         "margin": 18068,
@@ -4252,10 +4128,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MEGANATHAN V",
-        "party": "ADMK",
+        "candidate": "V. MEGANATHAN",
+        "party": "AIADMK",
         "votes": 62138,
-        "margin": 37861,
+        "margin": 18068,
         "vote_share": 34.24,
         "winner": false
       }
@@ -4263,7 +4139,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Ambethkumar S",
+        "candidate": "S. AMBETHKUMAR",
         "party": "DMK",
         "votes": 102064,
         "margin": 35953,
@@ -4272,10 +4148,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Murali S",
+        "candidate": "S. MURALI",
         "party": "PMK",
         "votes": 66111,
-        "margin": 56827,
+        "margin": 35953,
         "vote_share": 35.55,
         "winner": false
       }
@@ -4287,7 +4163,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "MASTHAN K S",
+        "candidate": "K.S. MASTHAN",
         "party": "DMK",
         "votes": 88440,
         "margin": 22057,
@@ -4296,10 +4172,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "GOVINDASAMY A",
-        "party": "ADMK",
+        "candidate": "A. GOVINDASAMY",
+        "party": "AIADMK",
         "votes": 66383,
-        "margin": 37868,
+        "margin": 22057,
         "vote_share": 33.02,
         "winner": false
       }
@@ -4307,7 +4183,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "MASTHAN K S",
+        "candidate": "K.S. MASTHAN",
         "party": "DMK",
         "votes": 109625,
         "margin": 35803,
@@ -4316,10 +4192,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAJENDIRAN P",
+        "candidate": "P. RAJENDIRAN",
         "party": "PMK",
         "votes": 73822,
-        "margin": 63902,
+        "margin": 35803,
         "vote_share": 35.68,
         "winner": false
       }
@@ -4331,7 +4207,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "MASILAMANI R",
+        "candidate": "R. MASILAMANI",
         "party": "DMK",
         "votes": 70880,
         "margin": 12306,
@@ -4340,10 +4216,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "ANNADURAI K",
-        "party": "ADMK",
+        "candidate": "K. ANNADURAI",
+        "party": "AIADMK",
         "votes": 58574,
-        "margin": 32863,
+        "margin": 12306,
         "vote_share": 34.21,
         "winner": false
       }
@@ -4351,7 +4227,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SIVAKUMAR C",
+        "candidate": "C. SIVAKUMAR",
         "party": "PMK",
         "votes": 81044,
         "margin": 2230,
@@ -4360,10 +4236,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Dr. MASILAMANI R",
+        "candidate": "R. MASILAMANI",
         "party": "DMK",
         "votes": 78814,
-        "margin": 70474,
+        "margin": 2230,
         "vote_share": 44.53,
         "winner": false
       }
@@ -4375,7 +4251,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SEETHAPATHY P",
+        "candidate": "P. SEETHAPATHY",
         "party": "DMK",
         "votes": 61879,
         "margin": 101,
@@ -4384,10 +4260,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAJENDRAN S P",
-        "party": "ADMK",
+        "candidate": "S.P. RAJENDRAN",
+        "party": "AIADMK",
         "votes": 61778,
-        "margin": 31930,
+        "margin": 101,
         "vote_share": 35.27,
         "winner": false
       }
@@ -4395,8 +4271,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "ARJUNAN P",
-        "party": "ADMK",
+        "candidate": "P. ARJUNAN",
+        "party": "AIADMK",
         "votes": 87152,
         "margin": 9753,
         "vote_share": 47.74,
@@ -4404,10 +4280,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SEETHAPATHY P",
+        "candidate": "P. SEETHAPATHY",
         "party": "DMK",
         "votes": 77399,
-        "margin": 68196,
+        "margin": 9753,
         "vote_share": 42.4,
         "winner": false
       }
@@ -4419,8 +4295,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "CHAKRAPANI M",
-        "party": "ADMK",
+        "candidate": "M. CHAKRAPANI",
+        "party": "AIADMK",
         "votes": 64167,
         "margin": 10223,
         "vote_share": 36.79,
@@ -4428,10 +4304,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MYDILI R",
+        "candidate": "R. MYDILI",
         "party": "DMK",
         "votes": 53944,
-        "margin": 26704,
+        "margin": 10223,
         "vote_share": 30.93,
         "winner": false
       }
@@ -4439,8 +4315,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "CHAKRAPANI M",
-        "party": "ADMK",
+        "candidate": "M. CHAKRAPANI",
+        "party": "AIADMK",
         "votes": 92219,
         "margin": 21727,
         "vote_share": 50.61,
@@ -4451,7 +4327,7 @@ var corrected2021Winners = {
         "candidate": "VANNI ARASU",
         "party": "VCK",
         "votes": 70492,
-        "margin": 61905,
+        "margin": 21727,
         "vote_share": 38.69,
         "winner": false
       }
@@ -4463,8 +4339,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SHANMUGAM C VE",
-        "party": "ADMK",
+        "candidate": "C. VE. SHANMUGAM",
+        "party": "AIADMK",
         "votes": 69421,
         "margin": 22291,
         "vote_share": 36.74,
@@ -4472,10 +4348,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "AMEER ABBAS S M",
+        "candidate": "S.M. AMEER ABBAS",
         "party": "IUML",
         "votes": 47130,
-        "margin": 10674,
+        "margin": 22291,
         "vote_share": 24.94,
         "winner": false
       }
@@ -4483,7 +4359,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "LAKSHMANAN R",
+        "candidate": "R. LAKSHMANAN",
         "party": "DMK",
         "votes": 102271,
         "margin": 14868,
@@ -4492,10 +4368,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SHANMUGAM C Ve",
-        "party": "ADMK",
+        "candidate": "C. VE. SHANMUGAM",
+        "party": "AIADMK",
         "votes": 87403,
-        "margin": 81028,
+        "margin": 14868,
         "vote_share": 42.66,
         "winner": false
       }
@@ -4507,7 +4383,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "RATHAMANI.K",
+        "candidate": "K. RATHAMANI",
         "party": "DMK",
         "votes": 63757,
         "margin": 6912,
@@ -4516,10 +4392,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "VELU R",
-        "party": "ADMK",
+        "candidate": "R. VELU",
+        "party": "AIADMK",
         "votes": 56845,
-        "margin": 15417,
+        "margin": 6912,
         "vote_share": 31.82,
         "winner": false
       }
@@ -4527,7 +4403,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "PUGAZHENTHI N",
+        "candidate": "N. PUGAZHENTHI",
         "party": "DMK",
         "votes": 93730,
         "margin": 9573,
@@ -4536,10 +4412,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MUTHAMILSELVAN R",
-        "party": "ADMK",
+        "candidate": "R. MUTHAMILSELVAN",
+        "party": "AIADMK",
         "votes": 84157,
-        "margin": 75941,
+        "margin": 9573,
         "vote_share": 43.47,
         "winner": false
       }
@@ -4561,9 +4437,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "GOTHANDARAMAN G",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 52780,
-        "margin": 33958,
+        "margin": 0,
         "vote_share": 28.01,
         "winner": false
       }
@@ -4571,7 +4447,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "K.PONMUDY",
+        "candidate": "PONMUDY K",
         "party": "DMK",
         "votes": 110980,
         "margin": 59680,
@@ -4580,10 +4456,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "VAT.KALIVARADHAN",
+        "candidate": "KALIVARADHAN V A T",
         "party": "BJP",
         "votes": 51300,
-        "margin": 37303,
+        "margin": 0,
         "vote_share": 26.14,
         "winner": false
       }
@@ -4591,12 +4467,12 @@ var corrected2021Winners = {
   },
   "77": {
     "constituency_id": 77,
-    "name": "ULUNDURPET",
+    "name": "ULUNDURPETTAI",
     "2016": [
       {
         "position": 1,
-        "candidate": "KUMARAGURU R.",
-        "party": "ADMK",
+        "candidate": "KUMARAGURU R",
+        "party": "AIADMK",
         "votes": 81973,
         "margin": 4164,
         "vote_share": 36.04,
@@ -4604,10 +4480,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "VASANTHAVEL G.R.",
+        "candidate": "VASANTHAVEL G R",
         "party": "DMK",
         "votes": 77809,
-        "margin": 43362,
+        "margin": 0,
         "vote_share": 34.21,
         "winner": false
       }
@@ -4625,9 +4501,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KUMARAGURU R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 110195,
-        "margin": 101195,
+        "margin": 0,
         "vote_share": 45.0,
         "winner": false
       }
@@ -4639,7 +4515,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "UDHAYASURIYAN.T",
+        "candidate": "UDHAYASURIYAN T",
         "party": "DMK",
         "votes": 90920,
         "margin": 14528,
@@ -4649,9 +4525,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MOHAN P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 76392,
-        "margin": 62780,
+        "margin": 0,
         "vote_share": 37.58,
         "winner": false
       }
@@ -4668,10 +4544,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Dr.RAJA G",
+        "candidate": "RAJA G",
         "party": "PMK",
         "votes": 75223,
-        "margin": 65350,
+        "margin": 0,
         "vote_share": 34.86,
         "winner": false
       }
@@ -4684,7 +4560,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PRABHU A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 90108,
         "margin": 4104,
         "vote_share": 42.16,
@@ -4695,7 +4571,7 @@ var corrected2021Winners = {
         "candidate": "KAMARAJ P",
         "party": "DMK",
         "votes": 86004,
-        "margin": 68512,
+        "margin": 0,
         "vote_share": 40.24,
         "winner": false
       }
@@ -4703,8 +4579,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Senthilkumar.M",
-        "party": "ADMK",
+        "candidate": "SENTHILKUMAR M",
+        "party": "AIADMK",
         "votes": 110643,
         "margin": 25891,
         "vote_share": 48.99,
@@ -4712,10 +4588,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Manirathinem.K.I",
+        "candidate": "MANIRATHINEM K I",
         "party": "INC",
         "votes": 84752,
-        "margin": 68278,
+        "margin": 0,
         "vote_share": 37.52,
         "winner": false
       }
@@ -4727,8 +4603,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "MARUTHAMUTHU.A",
-        "party": "ADMK",
+        "candidate": "MARUTHAMUTHU A",
+        "party": "AIADMK",
         "votes": 74301,
         "margin": 2262,
         "vote_share": 42.22,
@@ -4736,10 +4612,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "REKHA PRIYADHARSHINI.J",
+        "candidate": "REKHA PRIYADHARSHINI J",
         "party": "DMK",
         "votes": 72039,
-        "margin": 61324,
+        "margin": 0,
         "vote_share": 40.94,
         "winner": false
       }
@@ -4747,8 +4623,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "NALLATHAMBI,A.",
-        "party": "ADMK",
+        "candidate": "NALLATHAMBI A",
+        "party": "AIADMK",
         "votes": 89568,
         "margin": 7361,
         "vote_share": 48.02,
@@ -4756,10 +4632,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "REKHA PRIYADHARSHINI,J.",
+        "candidate": "REKHA PRIYADHARSHINI J",
         "party": "DMK",
         "votes": 82207,
-        "margin": 72884,
+        "margin": 0,
         "vote_share": 44.08,
         "winner": false
       }
@@ -4772,7 +4648,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "CHINNATHAMBI R M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 82827,
         "margin": 17334,
         "vote_share": 44.34,
@@ -4783,7 +4659,7 @@ var corrected2021Winners = {
         "candidate": "ARTHANARI S K",
         "party": "INC",
         "votes": 65493,
-        "margin": 47130,
+        "margin": 0,
         "vote_share": 35.06,
         "winner": false
       }
@@ -4791,8 +4667,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "JAYASANKARAN, A.P.",
-        "party": "ADMK",
+        "candidate": "JAYASANKARAN A P",
+        "party": "AIADMK",
         "votes": 95308,
         "margin": 8257,
         "vote_share": 47.72,
@@ -4800,10 +4676,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "CHINNADURAI, K.",
+        "candidate": "CHINNADURAI K",
         "party": "DMK",
         "votes": 87051,
-        "margin": 76818,
+        "margin": 0,
         "vote_share": 43.58,
         "winner": false
       }
@@ -4815,8 +4691,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "CHITRA.G",
-        "party": "ADMK",
+        "candidate": "CHITRA G",
+        "party": "AIADMK",
         "votes": 100562,
         "margin": 17394,
         "vote_share": 45.18,
@@ -4824,10 +4700,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "TAMILSELVAN.C",
+        "candidate": "TAMILSELVAN C",
         "party": "DMK",
         "votes": 83168,
-        "margin": 65170,
+        "margin": 0,
         "vote_share": 37.37,
         "winner": false
       }
@@ -4835,8 +4711,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "G. Chitra",
-        "party": "ADMK",
+        "candidate": "CHITRA G",
+        "party": "AIADMK",
         "votes": 121561,
         "margin": 25955,
         "vote_share": 50.88,
@@ -4844,10 +4720,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "C. TAMILSELVAN",
+        "candidate": "TAMILSELVAN C",
         "party": "DMK",
         "votes": 95606,
-        "margin": 82298,
+        "margin": 0,
         "vote_share": 40.02,
         "winner": false
       }
@@ -4859,8 +4735,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "VETRIVEL.S",
-        "party": "ADMK",
+        "candidate": "VETRIVEL S",
+        "party": "AIADMK",
         "votes": 89169,
         "margin": 19956,
         "vote_share": 39.23,
@@ -4868,10 +4744,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "AMMASI.S",
+        "candidate": "AMMASI S",
         "party": "DMK",
         "votes": 69213,
-        "margin": 20492,
+        "margin": 0,
         "vote_share": 30.45,
         "winner": false
       }
@@ -4879,8 +4755,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "R.MANI",
-        "party": "ADMK",
+        "candidate": "MANI R",
+        "party": "AIADMK",
         "votes": 142488,
         "margin": 55294,
         "vote_share": 57.22,
@@ -4888,10 +4764,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RANGARAJAN MOHAN KUMARAMANGALAM",
+        "candidate": "MOHAN KUMARAMANGALAM R",
         "party": "INC",
         "votes": 87194,
-        "margin": 77778,
+        "margin": 0,
         "vote_share": 35.01,
         "winner": false
       }
@@ -4903,8 +4779,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SEMMALAI.S",
-        "party": "ADMK",
+        "candidate": "SEMMALAI S",
+        "party": "AIADMK",
         "votes": 72751,
         "margin": 6282,
         "vote_share": 35.05,
@@ -4912,10 +4788,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "PARTHIBAN.S.R",
+        "candidate": "PARTHIBAN S R",
         "party": "DMK",
         "votes": 66469,
-        "margin": 16530,
+        "margin": 0,
         "vote_share": 32.02,
         "winner": false
       }
@@ -4923,7 +4799,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SADHASIVAM.S",
+        "candidate": "SADHASIVAM S",
         "party": "PMK",
         "votes": 97055,
         "margin": 656,
@@ -4932,10 +4808,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SRINIVASAPERUMAL.S",
+        "candidate": "SRINIVASAPERUMAL S",
         "party": "DMK",
         "votes": 96399,
-        "margin": 87290,
+        "margin": 0,
         "vote_share": 44.13,
         "winner": false
       }
@@ -4947,8 +4823,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "RAJA.S",
-        "party": "ADMK",
+        "candidate": "RAJA S",
+        "party": "AIADMK",
         "votes": 96202,
         "margin": 37374,
         "vote_share": 44.57,
@@ -4956,10 +4832,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAJESWARAN.T.K",
+        "candidate": "RAJESWARAN T K",
         "party": "INC",
         "votes": 58828,
-        "margin": 20901,
+        "margin": 0,
         "vote_share": 27.25,
         "winner": false
       }
@@ -4967,8 +4843,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SUNDARARAJAN, S.",
-        "party": "ADMK",
+        "candidate": "SUNDARARAJAN S",
+        "party": "AIADMK",
         "votes": 115472,
         "margin": 20045,
         "vote_share": 49.72,
@@ -4976,10 +4852,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAJESH, K.M.",
+        "candidate": "RAJESH K M",
         "party": "DMK",
         "votes": 95427,
-        "margin": 84565,
+        "margin": 0,
         "vote_share": 41.09,
         "winner": false
       }
@@ -4991,8 +4867,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "VENKATACHALAM.G",
-        "party": "ADMK",
+        "candidate": "VENKATACHALAM G",
+        "party": "AIADMK",
         "votes": 80755,
         "margin": 7247,
         "vote_share": 39.88,
@@ -5000,10 +4876,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "PANNEER SELVAM.C.",
+        "candidate": "PANNEER SELVAM C",
         "party": "DMK",
         "votes": 73508,
-        "margin": 43526,
+        "margin": 0,
         "vote_share": 36.3,
         "winner": false
       }
@@ -5011,7 +4887,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "ARUL. R",
+        "candidate": "ARUL R",
         "party": "PMK",
         "votes": 105483,
         "margin": 21499,
@@ -5020,10 +4896,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAJENDRAN. A",
+        "candidate": "RAJENDRAN A",
         "party": "DMK",
         "votes": 83984,
-        "margin": 73316,
+        "margin": 0,
         "vote_share": 38.77,
         "winner": false
       }
@@ -5035,7 +4911,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "RAJENDRAN.R",
+        "candidate": "RAJENDRAN R",
         "party": "DMK",
         "votes": 86583,
         "margin": 9873,
@@ -5044,10 +4920,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SARAVANAN.K.R.S",
-        "party": "ADMK",
+        "candidate": "SARAVANAN K R S",
+        "party": "AIADMK",
         "votes": 76710,
-        "margin": 68735,
+        "margin": 0,
         "vote_share": 39.99,
         "winner": false
       }
@@ -5055,7 +4931,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "R. RAJENDRAN",
+        "candidate": "RAJENDRAN R",
         "party": "DMK",
         "votes": 93432,
         "margin": 7588,
@@ -5064,10 +4940,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "G.VENKATACHALAM",
-        "party": "ADMK",
+        "candidate": "VENKATACHALAM G",
+        "party": "AIADMK",
         "votes": 85844,
-        "margin": 75126,
+        "margin": 0,
         "vote_share": 42.42,
         "winner": false
       }
@@ -5080,7 +4956,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SAKTHIVEL A B",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 101696,
         "margin": 30453,
         "vote_share": 51.39,
@@ -5091,7 +4967,7 @@ var corrected2021Winners = {
         "candidate": "GUNASEKARAN M",
         "party": "DMK",
         "votes": 71243,
-        "margin": 64918,
+        "margin": 0,
         "vote_share": 36.0,
         "winner": false
       }
@@ -5099,8 +4975,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "E.BALASUBRAMANIAN",
-        "party": "ADMK",
+        "candidate": "BALASUBRAMANIAN E",
+        "party": "AIADMK",
         "votes": 97506,
         "margin": 22609,
         "vote_share": 48.76,
@@ -5108,10 +4984,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "A.S.SARAVANAN",
+        "candidate": "SARAVANAN A S",
         "party": "DMK",
         "votes": 74897,
-        "margin": 64529,
+        "margin": 0,
         "vote_share": 37.45,
         "winner": false
       }
@@ -5123,8 +4999,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "MANONMANI.P",
-        "party": "ADMK",
+        "candidate": "MANONMANI P",
+        "party": "AIADMK",
         "votes": 94792,
         "margin": 14481,
         "vote_share": 45.86,
@@ -5132,10 +5008,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAJENDRAN. A",
+        "candidate": "RAJENDRAN A",
         "party": "DMK",
         "votes": 80311,
-        "margin": 63093,
+        "margin": 0,
         "vote_share": 38.85,
         "winner": false
       }
@@ -5143,8 +5019,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "RAJAMUTHU, M.",
-        "party": "ADMK",
+        "candidate": "RAJAMUTHU M",
+        "party": "AIADMK",
         "votes": 111682,
         "margin": 19895,
         "vote_share": 49.92,
@@ -5152,10 +5028,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "THARUN, A.K.",
+        "candidate": "THARUN A K",
         "party": "DMK",
         "votes": 91787,
-        "margin": 81981,
+        "margin": 0,
         "vote_share": 41.03,
         "winner": false
       }
@@ -5167,8 +5043,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SAROJA V. DR",
-        "party": "ADMK",
+        "candidate": "SAROJA V",
+        "party": "AIADMK",
         "votes": 86901,
         "margin": 9631,
         "vote_share": 46.5,
@@ -5176,10 +5052,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "DURAISAMY V.P",
+        "candidate": "DURAISAMY V P",
         "party": "DMK",
         "votes": 77270,
-        "margin": 70318,
+        "margin": 0,
         "vote_share": 41.35,
         "winner": false
       }
@@ -5196,10 +5072,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SAROJA V. Dr",
-        "party": "ADMK",
+        "candidate": "SAROJA V",
+        "party": "AIADMK",
         "votes": 88775,
-        "margin": 77480,
+        "margin": 0,
         "vote_share": 45.09,
         "winner": false
       }
@@ -5211,8 +5087,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "BASKAR. K.P.P",
-        "party": "ADMK",
+        "candidate": "BASKAR K P P",
+        "party": "AIADMK",
         "votes": 89076,
         "margin": 13534,
         "vote_share": 45.81,
@@ -5220,10 +5096,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "CHEZHIAN. R",
+        "candidate": "CHEZHIAN R",
         "party": "INC",
         "votes": 75542,
-        "margin": 65036,
+        "margin": 0,
         "vote_share": 38.85,
         "winner": false
       }
@@ -5240,10 +5116,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "BASKAR K.P.P.",
-        "party": "ADMK",
+        "candidate": "BASKAR K P P",
+        "party": "AIADMK",
         "votes": 78633,
-        "margin": 68511,
+        "margin": 0,
         "vote_share": 38.03,
         "winner": false
       }
@@ -5255,7 +5131,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "MOORTHIY K S",
+        "candidate": "MOORTHY K S",
         "party": "DMK",
         "votes": 74418,
         "margin": 818,
@@ -5265,9 +5141,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJENDHIRAN R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73600,
-        "margin": 67586,
+        "margin": 0,
         "vote_share": 41.98,
         "winner": false
       }
@@ -5276,7 +5152,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SEKAR S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 86034,
         "margin": 7662,
         "vote_share": 46.83,
@@ -5284,10 +5160,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MOORTHIY K S",
+        "candidate": "MOORTHY K S",
         "party": "DMK",
         "votes": 78372,
-        "margin": 66688,
+        "margin": 0,
         "vote_share": 42.66,
         "winner": false
       }
@@ -5300,7 +5176,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "THANGAMANI P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 103032,
         "margin": 47329,
         "vote_share": 55.2,
@@ -5311,7 +5187,7 @@ var corrected2021Winners = {
         "candidate": "YUVARAJ P",
         "party": "DMK",
         "votes": 55703,
-        "margin": 45919,
+        "margin": 0,
         "vote_share": 29.84,
         "winner": false
       }
@@ -5319,8 +5195,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "THANGAMANI.P",
-        "party": "ADMK",
+        "candidate": "THANGAMANI P",
+        "party": "AIADMK",
         "votes": 100800,
         "margin": 31646,
         "vote_share": 49.92,
@@ -5328,10 +5204,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "M.VENKATACHALAM",
+        "candidate": "VENKATACHALAM M",
         "party": "DMK",
         "votes": 69154,
-        "margin": 55914,
+        "margin": 0,
         "vote_share": 34.25,
         "winner": false
       }
@@ -5344,7 +5220,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "THENNARASU K S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 64879,
         "margin": 7794,
         "vote_share": 43.83,
@@ -5355,7 +5231,7 @@ var corrected2021Winners = {
         "candidate": "CHANDHIRAKUMAR V C",
         "party": "DMK",
         "votes": 57085,
-        "margin": 50309,
+        "margin": 0,
         "vote_share": 38.57,
         "winner": false
       }
@@ -5363,7 +5239,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "THIRUMAHAN EVERAA,E.",
+        "candidate": "THIRUMAHAN EVERAA E",
         "party": "INC",
         "votes": 67300,
         "margin": 8904,
@@ -5372,10 +5248,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "YUVARAJA,M.",
-        "party": "ADMK",
+        "candidate": "YUVARAJA M",
+        "party": "AIADMK",
         "votes": 58396,
-        "margin": 46767,
+        "margin": 0,
         "vote_share": 38.41,
         "winner": false
       }
@@ -5387,8 +5263,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "RAMALINGAM K.V.",
-        "party": "ADMK",
+        "candidate": "RAMALINGAM K V",
+        "party": "AIADMK",
         "votes": 82297,
         "margin": 4906,
         "vote_share": 43.46,
@@ -5399,7 +5275,7 @@ var corrected2021Winners = {
         "candidate": "MUTHUSAMY S",
         "party": "DMK",
         "votes": 77391,
-        "margin": 69914,
+        "margin": 0,
         "vote_share": 40.87,
         "winner": false
       }
@@ -5407,7 +5283,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Muthusamy S",
+        "candidate": "MUTHUSAMY S",
         "party": "DMK",
         "votes": 100757,
         "margin": 22089,
@@ -5416,10 +5292,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Ramalingam K V",
-        "party": "ADMK",
+        "candidate": "RAMALINGAM K V",
+        "party": "AIADMK",
         "votes": 78668,
-        "margin": 65315,
+        "margin": 0,
         "vote_share": 38.27,
         "winner": false
       }
@@ -5431,7 +5307,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "KALIMUTHU. V.S",
+        "candidate": "KALIMUTHU V S",
         "party": "INC",
         "votes": 83538,
         "margin": 10017,
@@ -5440,10 +5316,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "PONNUSAMY. K",
-        "party": "ADMK",
+        "candidate": "PONNUSAMY K",
+        "party": "AIADMK",
         "votes": 73521,
-        "margin": 65768,
+        "margin": 0,
         "vote_share": 40.19,
         "winner": false
       }
@@ -5463,7 +5339,7 @@ var corrected2021Winners = {
         "candidate": "MURUGAN L",
         "party": "BJP",
         "votes": 88593,
-        "margin": 81840,
+        "margin": 0,
         "vote_share": 45.67,
         "winner": false
       }
@@ -5476,7 +5352,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "THANIYARASU U",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 83325,
         "margin": 13135,
         "vote_share": 45.18,
@@ -5487,7 +5363,7 @@ var corrected2021Winners = {
         "candidate": "GOPI P",
         "party": "INC",
         "votes": 70190,
-        "margin": 58082,
+        "margin": 0,
         "vote_share": 38.06,
         "winner": false
       }
@@ -5495,7 +5371,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SAMINATHAN.M.P",
+        "candidate": "SAMINATHAN M P",
         "party": "DMK",
         "votes": 94197,
         "margin": 7331,
@@ -5504,10 +5380,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAMALINGAM.A.S",
-        "party": "ADMK",
+        "candidate": "RAMALINGAM A S",
+        "party": "AIADMK",
         "votes": 86866,
-        "margin": 75559,
+        "margin": 0,
         "vote_share": 43.47,
         "winner": false
       }
@@ -5519,8 +5395,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "VENKATACHALAM.N.D",
-        "party": "ADMK",
+        "candidate": "VENKATACHALAM N D",
+        "party": "AIADMK",
         "votes": 80292,
         "margin": 12771,
         "vote_share": 44.05,
@@ -5528,10 +5404,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SAMY.K.P (A) MOHANASUNDARAM.P",
+        "candidate": "SAMY K P",
         "party": "DMK",
         "votes": 67521,
-        "margin": 52976,
+        "margin": 0,
         "vote_share": 37.05,
         "winner": false
       }
@@ -5539,8 +5415,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "JAYAKUMAR, S.",
-        "party": "ADMK",
+        "candidate": "JAYAKUMAR S",
+        "party": "AIADMK",
         "votes": 85125,
         "margin": 14507,
         "vote_share": 44.84,
@@ -5548,10 +5424,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KKC BALU",
+        "candidate": "BALU K K C",
         "party": "DMK",
         "votes": 70618,
-        "margin": 60324,
+        "margin": 0,
         "vote_share": 37.2,
         "winner": false
       }
@@ -5564,7 +5440,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "KARUPPANAN K C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 85748,
         "margin": 24887,
         "vote_share": 45.38,
@@ -5575,7 +5451,7 @@ var corrected2021Winners = {
         "candidate": "SIVAKUMAR N",
         "party": "DMK",
         "votes": 60861,
-        "margin": 40134,
+        "margin": 0,
         "vote_share": 32.21,
         "winner": false
       }
@@ -5583,8 +5459,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "KARUPPANAN.K.C",
-        "party": "ADMK",
+        "candidate": "KARUPPANAN K C",
+        "party": "AIADMK",
         "votes": 100915,
         "margin": 22523,
         "vote_share": 50.11,
@@ -5592,10 +5468,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "DURAIRAJ.K.P",
+        "candidate": "DURAIRAJ K P",
         "party": "DMK",
         "votes": 78392,
-        "margin": 67921,
+        "margin": 0,
         "vote_share": 38.93,
         "winner": false
       }
@@ -5607,8 +5483,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "E.M.R.RAJA ALIAS RAJAKRISHNAN.K.R",
-        "party": "ADMK",
+        "candidate": "RAJAKRISHNAN K R",
+        "party": "AIADMK",
         "votes": 71575,
         "margin": 5312,
         "vote_share": 42.21,
@@ -5619,7 +5495,7 @@ var corrected2021Winners = {
         "candidate": "VENKATACHALAM A G",
         "party": "DMK",
         "votes": 66263,
-        "margin": 54693,
+        "margin": 0,
         "vote_share": 39.07,
         "winner": false
       }
@@ -5627,7 +5503,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "VENKATACHALAM.A.G",
+        "candidate": "VENKATACHALAM A G",
         "party": "DMK",
         "votes": 79096,
         "margin": 1275,
@@ -5636,10 +5512,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SHANMUGAVEL.K.S",
-        "party": "ADMK",
+        "candidate": "SHANMUGAVEL K S",
+        "party": "AIADMK",
         "votes": 77821,
-        "margin": 69591,
+        "margin": 0,
         "vote_share": 44.12,
         "winner": false
       }
@@ -5651,8 +5527,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "SENGOTTAIYAN K.A",
-        "party": "ADMK",
+        "candidate": "SENGOTTAIYAN K A",
+        "party": "AIADMK",
         "votes": 96177,
         "margin": 11223,
         "vote_share": 47.0,
@@ -5660,10 +5536,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SARAVANAN S.V",
+        "candidate": "SARAVANAN S V",
         "party": "INC",
         "votes": 84954,
-        "margin": 77423,
+        "margin": 0,
         "vote_share": 41.52,
         "winner": false
       }
@@ -5671,8 +5547,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SENGOTTAIYAN K.A",
-        "party": "ADMK",
+        "candidate": "SENGOTTAIYAN K A",
+        "party": "AIADMK",
         "votes": 108608,
         "margin": 28563,
         "vote_share": 50.68,
@@ -5680,10 +5556,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MANIMARAN G.V",
+        "candidate": "MANIMARAN G V",
         "party": "DMK",
         "votes": 80045,
-        "margin": 68326,
+        "margin": 0,
         "vote_share": 37.36,
         "winner": false
       }
@@ -5695,8 +5571,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "ESWARAN.S",
-        "party": "ADMK",
+        "candidate": "ESWARAN S",
+        "party": "AIADMK",
         "votes": 83006,
         "margin": 13104,
         "vote_share": 42.23,
@@ -5704,10 +5580,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SATHYA.R",
+        "candidate": "SATHYA R",
         "party": "DMK",
         "votes": 69902,
-        "margin": 41937,
+        "margin": 0,
         "vote_share": 35.56,
         "winner": false
       }
@@ -5715,8 +5591,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "A.Bannari",
-        "party": "ADMK",
+        "candidate": "BANNARI A",
+        "party": "AIADMK",
         "votes": 99181,
         "margin": 16008,
         "vote_share": 49.45,
@@ -5724,10 +5600,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "P.L SUNDARAM",
+        "candidate": "SUNDARAM P L",
         "party": "CPI",
         "votes": 83173,
-        "margin": 74656,
+        "margin": 0,
         "vote_share": 41.47,
         "winner": false
       }
@@ -5739,7 +5615,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "GANESH R.",
+        "candidate": "GANESH R",
         "party": "INC",
         "votes": 67747,
         "margin": 10418,
@@ -5749,9 +5625,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VINOTH",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 57329,
-        "margin": 51511,
+        "margin": 0,
         "vote_share": 40.9,
         "winner": false
       }
@@ -5759,7 +5635,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "GANESH, R.",
+        "candidate": "GANESH R",
         "party": "INC",
         "votes": 65530,
         "margin": 5348,
@@ -5768,10 +5644,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "BHOJARAJAN, M.",
+        "candidate": "BHOJARAJAN M",
         "party": "BJP",
         "votes": 60182,
-        "margin": 53801,
+        "margin": 0,
         "vote_share": 42.65,
         "winner": false
       }
@@ -5783,7 +5659,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "THIRAVIDAMANIM.",
+        "candidate": "THIRAVIDAMANIM M",
         "party": "DMK",
         "votes": 62128,
         "margin": 13379,
@@ -5792,10 +5668,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KALAISELVAN S.",
-        "party": "ADMK",
+        "candidate": "KALAISELVAN S",
+        "party": "AIADMK",
         "votes": 48749,
-        "margin": 39705,
+        "margin": 0,
         "vote_share": 37.19,
         "winner": false
       }
@@ -5803,8 +5679,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "PON.JAYASEELAN",
-        "party": "ADMK",
+        "candidate": "PON JAYASEELAN",
+        "party": "AIADMK",
         "votes": 64496,
         "margin": 1945,
         "vote_share": 46.65,
@@ -5812,10 +5688,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KASILINGAM, S.",
+        "candidate": "KASILINGAM S",
         "party": "DMK",
         "votes": 62551,
-        "margin": 55234,
+        "margin": 0,
         "vote_share": 45.24,
         "winner": false
       }
@@ -5827,8 +5703,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "RAMU A.",
-        "party": "ADMK",
+        "candidate": "RAMU A",
+        "party": "AIADMK",
         "votes": 61650,
         "margin": 3710,
         "vote_share": 45.71,
@@ -5836,10 +5712,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MUBARAK B. M.",
+        "candidate": "MUBARAK B M",
         "party": "DMK",
         "votes": 57940,
-        "margin": 53951,
+        "margin": 0,
         "vote_share": 42.96,
         "winner": false
       }
@@ -5847,7 +5723,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Ramachandran, K.",
+        "candidate": "RAMACHANDRAN K",
         "party": "DMK",
         "votes": 61820,
         "margin": 4105,
@@ -5856,10 +5732,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Vinoth, D.",
-        "party": "ADMK",
+        "candidate": "VINOTH D",
+        "party": "AIADMK",
         "votes": 57715,
-        "margin": 50463,
+        "margin": 0,
         "vote_share": 42.47,
         "winner": false
       }
@@ -5871,8 +5747,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "CHINNARAJ.O.K",
-        "party": "ADMK",
+        "candidate": "CHINNARAJ O K",
+        "party": "AIADMK",
         "votes": 93595,
         "margin": 16114,
         "vote_share": 44.41,
@@ -5880,10 +5756,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SURENDRAN. S.",
+        "candidate": "SURENDRAN S",
         "party": "DMK",
         "votes": 77481,
-        "margin": 64157,
+        "margin": 0,
         "vote_share": 36.76,
         "winner": false
       }
@@ -5892,7 +5768,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SELVARAJ A K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 105231,
         "margin": 2456,
         "vote_share": 46.75,
@@ -5903,7 +5779,7 @@ var corrected2021Winners = {
         "candidate": "SHANMUGASUNDARAM T R",
         "party": "DMK",
         "votes": 102775,
-        "margin": 91821,
+        "margin": 0,
         "vote_share": 45.66,
         "winner": false
       }
@@ -5916,7 +5792,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "DHANAPAL P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 93366,
         "margin": 30674,
         "vote_share": 48.11,
@@ -5927,7 +5803,7 @@ var corrected2021Winners = {
         "candidate": "ANANDHAN E",
         "party": "DMK",
         "votes": 62692,
-        "margin": 47676,
+        "margin": 0,
         "vote_share": 32.31,
         "winner": false
       }
@@ -5935,8 +5811,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "DHANAPAL, P",
-        "party": "ADMK",
+        "candidate": "DHANAPAL P",
+        "party": "AIADMK",
         "votes": 117284,
         "margin": 50902,
         "vote_share": 55.16,
@@ -5947,7 +5823,7 @@ var corrected2021Winners = {
         "candidate": "ATHIYAMAAN RAJU",
         "party": "DMK",
         "votes": 66382,
-        "margin": 53126,
+        "margin": 0,
         "vote_share": 31.22,
         "winner": false
       }
@@ -5959,8 +5835,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "VIJAYAKUMAR KN",
-        "party": "ADMK",
+        "candidate": "VIJAYAKUMAR K N",
+        "party": "AIADMK",
         "votes": 106717,
         "margin": 37774,
         "vote_share": 48.56,
@@ -5971,7 +5847,7 @@ var corrected2021Winners = {
         "candidate": "SAMINATHAN M P",
         "party": "DMK",
         "votes": 68943,
-        "margin": 48882,
+        "margin": 0,
         "vote_share": 31.37,
         "winner": false
       }
@@ -5979,8 +5855,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "VIJEYAKUMAR.K.N",
-        "party": "ADMK",
+        "candidate": "VIJAYAKUMAR K N",
+        "party": "AIADMK",
         "votes": 113384,
         "margin": 40102,
         "vote_share": 47.62,
@@ -5988,10 +5864,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "RAVI (Alias) SUBRAMANIAN . M",
+        "candidate": "RAVI SUBRAMANIAN M",
         "party": "CPI",
         "votes": 73282,
-        "margin": 50172,
+        "margin": 0,
         "vote_share": 30.78,
         "winner": false
       }
@@ -6004,7 +5880,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "GUNASEKARAN S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73351,
         "margin": 15933,
         "vote_share": 44.68,
@@ -6015,7 +5891,7 @@ var corrected2021Winners = {
         "candidate": "SELVARAJ K",
         "party": "DMK",
         "votes": 57418,
-        "margin": 43821,
+        "margin": 0,
         "vote_share": 34.98,
         "winner": false
       }
@@ -6023,7 +5899,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SELVARAJ. K.",
+        "candidate": "SELVARAJ K",
         "party": "DMK",
         "votes": 75535,
         "margin": 4709,
@@ -6032,10 +5908,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "GUNASEKARAN. S.",
-        "party": "ADMK",
+        "candidate": "GUNASEKARAN S",
+        "party": "AIADMK",
         "votes": 70826,
-        "margin": 57928,
+        "margin": 0,
         "vote_share": 40.61,
         "winner": false
       }
@@ -6047,8 +5923,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "NATARAJAN. A",
-        "party": "ADMK",
+        "candidate": "NATARAJAN A",
+        "party": "AIADMK",
         "votes": 111866,
         "margin": 32174,
         "vote_share": 47.01,
@@ -6056,10 +5932,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KRISHNAMOORTHY. S",
+        "candidate": "KRISHNAMOORTHY S",
         "party": "DMK",
         "votes": 79692,
-        "margin": 64851,
+        "margin": 0,
         "vote_share": 33.49,
         "winner": false
       }
@@ -6068,7 +5944,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "ANANDAN M S M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 126903,
         "margin": 32691,
         "vote_share": 48.53,
@@ -6079,7 +5955,7 @@ var corrected2021Winners = {
         "candidate": "MUTHURATHINAM K",
         "party": "DMK",
         "votes": 94212,
-        "margin": 73688,
+        "margin": 0,
         "vote_share": 36.03,
         "winner": false
       }
@@ -6091,8 +5967,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "KANAGARAJ R.",
-        "party": "ADMK",
+        "candidate": "KANAGARAJ R",
+        "party": "AIADMK",
         "votes": 100977,
         "margin": 36631,
         "vote_share": 47.38,
@@ -6100,10 +5976,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MANOHARAN V.M.C.",
+        "candidate": "MANOHARAN V M C",
         "party": "INC",
         "votes": 64346,
-        "margin": 50829,
+        "margin": 0,
         "vote_share": 30.19,
         "winner": false
       }
@@ -6111,8 +5987,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "KANDASAMY V.P.",
-        "party": "ADMK",
+        "candidate": "KANDASAMY V P",
+        "party": "AIADMK",
         "votes": 118968,
         "margin": 31932,
         "vote_share": 49.23,
@@ -6120,10 +5996,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "PREMIER SELVAM (a)KALICHAMY M",
+        "candidate": "PREMIER SELVAM M",
         "party": "DMK",
         "votes": 87036,
-        "margin": 72610,
+        "margin": 0,
         "vote_share": 36.02,
         "winner": false
       }
@@ -6135,8 +6011,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "ARUKUTTY V.C.",
-        "party": "ADMK",
+        "candidate": "ARUKUTTY V C",
+        "party": "AIADMK",
         "votes": 110870,
         "margin": 8025,
         "vote_share": 40.7,
@@ -6144,10 +6020,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "PAYYA GOUNDER @ KRISHNAN R.",
+        "candidate": "PAYYA GOUNDER @ KRISHNAN R",
         "party": "DMK",
         "votes": 102845,
-        "margin": 80401,
+        "margin": 0,
         "vote_share": 37.76,
         "winner": false
       }
@@ -6155,8 +6031,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "G.Arunkumar",
-        "party": "ADMK",
+        "candidate": "ARUNKUMAR G",
+        "party": "AIADMK",
         "votes": 135669,
         "margin": 9776,
         "vote_share": 43.78,
@@ -6164,10 +6040,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "R.Krishnan",
+        "candidate": "KRISHNAN R",
         "party": "DMK",
         "votes": 125893,
-        "margin": 102366,
+        "margin": 0,
         "vote_share": 40.62,
         "winner": false
       }
@@ -6179,8 +6055,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "ARUN KUMAR P.R.G.",
-        "party": "ADMK",
+        "candidate": "ARUN KUMAR P R G",
+        "party": "AIADMK",
         "votes": 77540,
         "margin": 7724,
         "vote_share": 41.05,
@@ -6188,10 +6064,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S.MEENALOGU",
+        "candidate": "MEENALOGU S",
         "party": "DMK",
         "votes": 69816,
-        "margin": 53075,
+        "margin": 0,
         "vote_share": 36.96,
         "winner": false
       }
@@ -6199,8 +6075,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "AMMAN K.ARJUNAN",
-        "party": "ADMK",
+        "candidate": "AMMAN K ARJUNAN",
+        "party": "AIADMK",
         "votes": 81454,
         "margin": 4001,
         "vote_share": 40.16,
@@ -6208,10 +6084,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SHANMUGASUNDARAM V.M",
+        "candidate": "SHANMUGASUNDARAM V M",
         "party": "DMK",
         "votes": 77453,
-        "margin": 50950,
+        "margin": 0,
         "vote_share": 38.19,
         "winner": false
       }
@@ -6223,8 +6099,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "VELUMANIS.P.",
-        "party": "ADMK",
+        "candidate": "VELUMANI S P",
+        "party": "AIADMK",
         "votes": 109519,
         "margin": 64041,
         "vote_share": 55.01,
@@ -6232,10 +6108,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KOVAI SYED @ SYED MOHAMMEDM.A.",
+        "candidate": "SYED MOHAMMED M A",
         "party": "MAMAK",
         "votes": 45478,
-        "margin": 26435,
+        "margin": 0,
         "vote_share": 22.84,
         "winner": false
       }
@@ -6243,8 +6119,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "S.P. VELUMANI",
-        "party": "ADMK",
+        "candidate": "VELUMANI S P",
+        "party": "AIADMK",
         "votes": 124225,
         "margin": 41630,
         "vote_share": 53.89,
@@ -6252,10 +6128,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KARTHIKEYA",
+        "candidate": "KARTHIKEYA SENAPATHY",
         "party": "DMK",
         "votes": 82595,
-        "margin": 70989,
+        "margin": 0,
         "vote_share": 35.83,
         "winner": false
       }
@@ -6267,8 +6143,8 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "ARJUNAN @ AMMAN ARJUNANK.",
-        "party": "ADMK",
+        "candidate": "AMMAN ARJUNAN K",
+        "party": "AIADMK",
         "votes": 59788,
         "margin": 17419,
         "vote_share": 38.94,
@@ -6276,10 +6152,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "MAYURA JAYAKUMARS.",
+        "candidate": "MAYURA JAYAKUMAR S",
         "party": "INC",
         "votes": 42369,
-        "margin": 9256,
+        "margin": 0,
         "vote_share": 27.6,
         "winner": false
       }
@@ -6296,10 +6172,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "KAMALHAASAN",
+        "candidate": "KAMAL HAASAN",
         "party": "MNM",
         "votes": 51481,
-        "margin": 9098,
+        "margin": 0,
         "vote_share": 33.26,
         "winner": false
       }
@@ -6311,7 +6187,7 @@ var corrected2021Winners = {
     "2016": [
       {
         "position": 1,
-        "candidate": "KARTHIK N.",
+        "candidate": "KARTHIK N",
         "party": "DMK",
         "votes": 75459,
         "margin": 5180,
@@ -6320,10 +6196,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SINGAI MUTHU N.",
-        "party": "ADMK",
+        "candidate": "SINGAI MUTHU N",
+        "party": "AIADMK",
         "votes": 70279,
-        "margin": 53674,
+        "margin": 0,
         "vote_share": 37.28,
         "winner": false
       }
@@ -6331,8 +6207,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "Jayaram, K.R",
-        "party": "ADMK",
+        "candidate": "JAYARAM K R",
+        "party": "AIADMK",
         "votes": 81244,
         "margin": 10854,
         "vote_share": 40.22,
@@ -6340,10 +6216,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "Karthik, N",
+        "candidate": "KARTHIK N",
         "party": "DMK",
         "votes": 70390,
-        "margin": 33535,
+        "margin": 0,
         "vote_share": 34.84,
         "winner": false
       }
@@ -6356,7 +6232,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SHANMUGAM A.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 89042,
         "margin": 1332,
         "vote_share": 42.81,
@@ -6367,7 +6243,7 @@ var corrected2021Winners = {
         "candidate": "KURICHI PRABHAKARAN",
         "party": "DMK",
         "votes": 87710,
-        "margin": 76356,
+        "margin": 1332,
         "vote_share": 42.17,
         "winner": false
       }
@@ -6376,7 +6252,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "Damodaran.S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 101537,
         "margin": 1095,
         "vote_share": 43.68,
@@ -6387,7 +6263,7 @@ var corrected2021Winners = {
         "candidate": "Kuruchi Prabhakaran",
         "party": "DMK",
         "votes": 100442,
-        "margin": 86503,
+        "margin": 1095,
         "vote_share": 43.21,
         "winner": false
       }
@@ -6400,7 +6276,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "POLLACHI V JAYARAMAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 78553,
         "margin": 13368,
         "vote_share": 46.59,
@@ -6411,7 +6287,7 @@ var corrected2021Winners = {
         "candidate": "TAMILMANI R.",
         "party": "DMK",
         "votes": 65185,
-        "margin": 57463,
+        "margin": 13368,
         "vote_share": 38.66,
         "winner": false
       }
@@ -6420,7 +6296,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "Pollachi V. Jayaraman",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 80567,
         "margin": 1725,
         "vote_share": 45.44,
@@ -6431,7 +6307,7 @@ var corrected2021Winners = {
         "candidate": "Dr. Varadharajan, K.",
         "party": "DMK",
         "votes": 78842,
-        "margin": 71253,
+        "margin": 1725,
         "vote_share": 44.47,
         "winner": false
       }
@@ -6444,7 +6320,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "KASTHURI VASU V.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 69980,
         "margin": 8244,
         "vote_share": 48.68,
@@ -6455,7 +6331,7 @@ var corrected2021Winners = {
         "candidate": "PAULPANDI T.",
         "party": "DMK",
         "votes": 61736,
-        "margin": 58242,
+        "margin": 8244,
         "vote_share": 42.95,
         "winner": false
       }
@@ -6464,7 +6340,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "AMULKANDASAMI T K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 71672,
         "margin": 12223,
         "vote_share": 49.37,
@@ -6475,7 +6351,7 @@ var corrected2021Winners = {
         "candidate": "ARUMUGAM M",
         "party": "CPI",
         "votes": 59449,
-        "margin": 51817,
+        "margin": 12223,
         "vote_share": 40.95,
         "winner": false
       }
@@ -6497,9 +6373,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MANOHARAN K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 74952,
-        "margin": 68744,
+        "margin": 1667,
         "vote_share": 43.69,
         "winner": false
       }
@@ -6508,7 +6384,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "C MAHENDRAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 84313,
         "margin": 6438,
         "vote_share": 46.35,
@@ -6519,7 +6395,7 @@ var corrected2021Winners = {
         "candidate": "R.JAYARAMAKRISHNAN",
         "party": "DMK",
         "votes": 77875,
-        "margin": 71360,
+        "margin": 6438,
         "vote_share": 42.81,
         "winner": false
       }
@@ -6541,9 +6417,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KUMARASAMY P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 74459,
-        "margin": 64772,
+        "margin": 25586,
         "vote_share": 37.71,
         "winner": false
       }
@@ -6561,9 +6437,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAVI MANOHARAN K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 78510,
-        "margin": 70854,
+        "margin": 30056,
         "vote_share": 38.23,
         "winner": false
       }
@@ -6585,9 +6461,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KITTUSAMY K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 55988,
-        "margin": 52304,
+        "margin": 65727,
         "vote_share": 29.56,
         "winner": false
       }
@@ -6605,9 +6481,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "NATARAJ N.P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 81228,
-        "margin": 76284,
+        "margin": 28742,
         "vote_share": 40.26,
         "winner": false
       }
@@ -6629,9 +6505,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VISWANATHAN R NATHAM",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 94591,
-        "margin": 90850,
+        "margin": 27147,
         "vote_share": 41.26,
         "winner": false
       }
@@ -6651,7 +6527,7 @@ var corrected2021Winners = {
         "candidate": "THILAGABAMA M",
         "party": "PMK",
         "votes": 30238,
-        "margin": 13070,
+        "margin": 135571,
         "vote_share": 13.15,
         "winner": false
       }
@@ -6664,7 +6540,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "THANGATHURAI R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 85507,
         "margin": 14776,
         "vote_share": 48.99,
@@ -6675,7 +6551,7 @@ var corrected2021Winners = {
         "candidate": "ANBAZHAGAN M",
         "party": "DMK",
         "votes": 70731,
-        "margin": 63065,
+        "margin": 14776,
         "vote_share": 40.52,
         "winner": false
       }
@@ -6684,7 +6560,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "S.Thenmozhi",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 91461,
         "margin": 27618,
         "vote_share": 49.49,
@@ -6695,7 +6571,7 @@ var corrected2021Winners = {
         "candidate": "K.Murugavelrajan",
         "party": "DMK",
         "votes": 63843,
-        "margin": 46338,
+        "margin": 27618,
         "vote_share": 34.55,
         "winner": false
       }
@@ -6717,9 +6593,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SHAJAHAN S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 91712,
-        "margin": 82339,
+        "margin": 2110,
         "vote_share": 44.3,
         "winner": false
       }
@@ -6728,7 +6604,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "NATHAM.R.VISWANATHAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 107762,
         "margin": 11932,
         "vote_share": 47.84,
@@ -6739,7 +6615,7 @@ var corrected2021Winners = {
         "candidate": "M.A.ANDI AMBALAM",
         "party": "DMK",
         "votes": 95830,
-        "margin": 81068,
+        "margin": 11932,
         "vote_share": 42.54,
         "winner": false
       }
@@ -6752,7 +6628,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SREENIVASAN C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 91413,
         "margin": 20719,
         "vote_share": 49.3,
@@ -6763,7 +6639,7 @@ var corrected2021Winners = {
         "candidate": "BASHEER AHAMED M",
         "party": "DMK",
         "votes": 70694,
-        "margin": 62037,
+        "margin": 20719,
         "vote_share": 38.13,
         "winner": false
       }
@@ -6772,7 +6648,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SREENIVASAN.C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 90595,
         "margin": 17747,
         "vote_share": 46.43,
@@ -6781,9 +6657,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "PANDI.N",
-        "party": "CPM",
+        "party": "CPI(M)",
         "votes": 72848,
-        "margin": 57988,
+        "margin": 17747,
         "vote_share": 37.34,
         "winner": false
       }
@@ -6796,7 +6672,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PARAMASIVAM V.P.B",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 97555,
         "margin": 19938,
         "vote_share": 49.13,
@@ -6807,7 +6683,7 @@ var corrected2021Winners = {
         "candidate": "SIVASAKTHIVEL GOUNDER R",
         "party": "INC",
         "votes": 77617,
-        "margin": 65172,
+        "margin": 19938,
         "vote_share": 39.09,
         "winner": false
       }
@@ -6825,9 +6701,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "PARAMASIVAM V P B",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 88928,
-        "margin": 80433,
+        "margin": 17553,
         "vote_share": 41.73,
         "winner": false
       }
@@ -6840,7 +6716,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "VIJAYABHASKAR .M.R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 81936,
         "margin": 441,
         "vote_share": 43.86,
@@ -6851,7 +6727,7 @@ var corrected2021Winners = {
         "candidate": "SUBRAMANIAN .BANK .K",
         "party": "INC",
         "votes": 81495,
-        "margin": 75004,
+        "margin": 441,
         "vote_share": 43.62,
         "winner": false
       }
@@ -6869,9 +6745,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VIJAYABHASKAR. M.R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 89309,
-        "margin": 81993,
+        "margin": 12448,
         "vote_share": 43.08,
         "winner": false
       }
@@ -6884,7 +6760,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "GEETHA M.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 83977,
         "margin": 35301,
         "vote_share": 49.82,
@@ -6895,7 +6771,7 @@ var corrected2021Winners = {
         "candidate": "AIYYAR V. K.",
         "party": "PT",
         "votes": 48676,
-        "margin": 38633,
+        "margin": 35301,
         "vote_share": 28.88,
         "winner": false
       }
@@ -6913,9 +6789,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MUTHUKUMAR",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 64915,
-        "margin": 55209,
+        "margin": 31625,
         "vote_share": 35.88,
         "winner": false
       }
@@ -6937,9 +6813,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "CHANDRASEKARAN .R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 78027,
-        "margin": 71301,
+        "margin": 11896,
         "vote_share": 42.39,
         "winner": false
       }
@@ -6957,9 +6833,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "N.R.Chandrasekar",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 77289,
-        "margin": 65778,
+        "margin": 23540,
         "vote_share": 39.14,
         "winner": false
       }
@@ -6972,7 +6848,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "VALARMATHI.S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 108400,
         "margin": 14409,
         "vote_share": 48.09,
@@ -6983,7 +6859,7 @@ var corrected2021Winners = {
         "candidate": "PALANIYANDI.M",
         "party": "DMK",
         "votes": 93991,
-        "margin": 88003,
+        "margin": 14409,
         "vote_share": 41.7,
         "winner": false
       }
@@ -7001,9 +6877,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KuPa Krishnan",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 93989,
-        "margin": 76078,
+        "margin": 19915,
         "vote_share": 39.12,
         "winner": false
       }
@@ -7025,9 +6901,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VIJAYAMURTHY M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 74109,
-        "margin": 67325,
+        "margin": 3837,
         "vote_share": 44.5,
         "winner": false
       }
@@ -7045,9 +6921,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "D.R.DHARMARAJ",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 67965,
-        "margin": 51717,
+        "margin": 16949,
         "vote_share": 38.89,
         "winner": false
       }
@@ -7060,7 +6936,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PARAMESWARI. M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 83083,
         "margin": 7522,
         "vote_share": 46.17,
@@ -7071,7 +6947,7 @@ var corrected2021Winners = {
         "candidate": "GANESAN. S",
         "party": "DMK",
         "votes": 75561,
-        "margin": 67368,
+        "margin": 7522,
         "vote_share": 41.99,
         "winner": false
       }
@@ -7089,9 +6965,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "M. PARANJOTHI",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 56716,
-        "margin": 42273,
+        "margin": 59618,
         "vote_share": 28.83,
         "winner": false
       }
@@ -7104,7 +6980,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SELVARASU M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 89398,
         "margin": 32087,
         "vote_share": 52.31,
@@ -7115,7 +6991,7 @@ var corrected2021Winners = {
         "candidate": "VIJAYA BABU S",
         "party": "INC",
         "votes": 57311,
-        "margin": 48730,
+        "margin": 32087,
         "vote_share": 33.53,
         "winner": false
       }
@@ -7133,9 +7009,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "M. Selvarasu",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 63788,
-        "margin": 49477,
+        "margin": 26836,
         "vote_share": 35.5,
         "winner": false
       }
@@ -7157,9 +7033,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MAIVIZHI .A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73376,
-        "margin": 67095,
+        "margin": 8068,
         "vote_share": 43.33,
         "winner": false
       }
@@ -7177,9 +7053,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "T.INDRAGANDHI",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 65715,
-        "margin": 52557,
+        "margin": 22071,
         "vote_share": 37.36,
         "winner": false
       }
@@ -7192,7 +7068,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "R.THAMIZHSELVAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 101073,
         "margin": 6853,
         "vote_share": 45.27,
@@ -7203,7 +7079,7 @@ var corrected2021Winners = {
         "candidate": "P.SIVAKAMI",
         "party": "DMK",
         "votes": 94220,
-        "margin": 82738,
+        "margin": 6853,
         "vote_share": 42.2,
         "winner": false
       }
@@ -7221,9 +7097,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "THAMIZHSELVAN, R.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 91056,
-        "margin": 72383,
+        "margin": 31034,
         "vote_share": 37.94,
         "winner": false
       }
@@ -7236,7 +7112,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAMACHANDRAN.R.T",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 78218,
         "margin": 18796,
         "vote_share": 38.15,
@@ -7247,7 +7123,7 @@ var corrected2021Winners = {
         "candidate": "DURAIRAJ.T",
         "party": "DMK",
         "votes": 59422,
-        "margin": 22151,
+        "margin": 18796,
         "vote_share": 28.98,
         "winner": false
       }
@@ -7265,9 +7141,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAMACHANDRAN, R.T.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 97593,
-        "margin": 88239,
+        "margin": 6329,
         "vote_share": 44.38,
         "winner": false
       }
@@ -7280,7 +7156,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAJENDRAN. S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 88523,
         "margin": 2043,
         "vote_share": 41.94,
@@ -7291,7 +7167,7 @@ var corrected2021Winners = {
         "candidate": "SIVASANKAR. S.S",
         "party": "DMK",
         "votes": 86480,
-        "margin": 72881,
+        "margin": 2043,
         "vote_share": 40.97,
         "winner": false
       }
@@ -7309,9 +7185,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJENDRAN S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 100741,
-        "margin": 88395,
+        "margin": 3234,
         "vote_share": 44.73,
         "winner": false
       }
@@ -7324,7 +7200,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAMAJEYALINGAM.J.K.N",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 75672,
         "margin": 22934,
         "vote_share": 37.09,
@@ -7335,7 +7211,7 @@ var corrected2021Winners = {
         "candidate": "GURU @ GURUNATHAN.J",
         "party": "PMK",
         "votes": 52738,
-        "margin": 5870,
+        "margin": 22934,
         "vote_share": 25.85,
         "winner": false
       }
@@ -7355,7 +7231,7 @@ var corrected2021Winners = {
         "candidate": "BALU K",
         "party": "PMK",
         "votes": 94077,
-        "margin": 84121,
+        "margin": 5452,
         "vote_share": 43.48,
         "winner": false
       }
@@ -7377,9 +7253,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "AYYASAMY P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62927,
-        "margin": 48270,
+        "margin": 2212,
         "vote_share": 39.29,
         "winner": false
       }
@@ -7399,7 +7275,7 @@ var corrected2021Winners = {
         "candidate": "PERIYASAMY,  D.",
         "party": "BJP",
         "votes": 62163,
-        "margin": 51572,
+        "margin": 21563,
         "vote_share": 36.96,
         "winner": false
       }
@@ -7421,9 +7297,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJSEKAR R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 36508,
-        "margin": 5980,
+        "margin": 17791,
         "vote_share": 22.93,
         "winner": false
       }
@@ -7443,7 +7319,7 @@ var corrected2021Winners = {
         "candidate": "JAGAN.K",
         "party": "PMK",
         "votes": 74200,
-        "margin": 66415,
+        "margin": 977,
         "vote_share": 45.21,
         "winner": false
       }
@@ -7456,7 +7332,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SATHYA.P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 72353,
         "margin": 3128,
         "vote_share": 39.01,
@@ -7467,7 +7343,7 @@ var corrected2021Winners = {
         "candidate": "PONKUMAR",
         "party": "DMK",
         "votes": 69225,
-        "margin": 50559,
+        "margin": 3128,
         "vote_share": 37.33,
         "winner": false
       }
@@ -7485,9 +7361,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJENDRAN.R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 89104,
-        "margin": 82557,
+        "margin": 4697,
         "vote_share": 45.22,
         "winner": false
       }
@@ -7500,7 +7376,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SAMPATH M C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 70922,
         "margin": 24413,
         "vote_share": 41.07,
@@ -7511,7 +7387,7 @@ var corrected2021Winners = {
         "candidate": "PUGAZHENDI ELA",
         "party": "DMK",
         "votes": 46509,
-        "margin": 25901,
+        "margin": 24413,
         "vote_share": 26.93,
         "winner": false
       }
@@ -7529,9 +7405,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "M.C.SAMPATH",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 79412,
-        "margin": 69849,
+        "margin": 5151,
         "vote_share": 43.63,
         "winner": false
       }
@@ -7553,9 +7429,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJENDRAN R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 54756,
-        "margin": 32051,
+        "margin": 28108,
         "vote_share": 29.09,
         "winner": false
       }
@@ -7573,9 +7449,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SELVI RAMAJAYAM",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 83929,
-        "margin": 75417,
+        "margin": 17527,
         "vote_share": 42.22,
         "winner": false
       }
@@ -7597,9 +7473,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SELVI RAMAJAYAM",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 55066,
-        "margin": 21385,
+        "margin": 5488,
         "vote_share": 28.85,
         "winner": false
       }
@@ -7608,7 +7484,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "Arunmozhithevan. A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 96453,
         "margin": 8259,
         "vote_share": 48.92,
@@ -7619,7 +7495,7 @@ var corrected2021Winners = {
         "candidate": "Saravanan. Durai.K",
         "party": "DMK",
         "votes": 88194,
-        "margin": 81236,
+        "margin": 8259,
         "vote_share": 44.73,
         "winner": false
       }
@@ -7632,7 +7508,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PANDIAN K A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 58543,
         "margin": 1506,
         "vote_share": 34.31,
@@ -7643,7 +7519,7 @@ var corrected2021Winners = {
         "candidate": "SENTHILKUMAR K R",
         "party": "DMK",
         "votes": 57037,
-        "margin": 32811,
+        "margin": 1506,
         "vote_share": 33.43,
         "winner": false
       }
@@ -7652,7 +7528,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "K.A. PANDIAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 91961,
         "margin": 16937,
         "vote_share": 50.16,
@@ -7663,7 +7539,7 @@ var corrected2021Winners = {
         "candidate": "S. ABDUL RAHMAN",
         "party": "IUML",
         "votes": 75024,
-        "margin": 65953,
+        "margin": 16937,
         "vote_share": 40.92,
         "winner": false
       }
@@ -7676,7 +7552,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MURUGUMARAN.N",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 48450,
         "margin": 87,
         "vote_share": 29.33,
@@ -7687,7 +7563,7 @@ var corrected2021Winners = {
         "candidate": "THIRUMAAVALAVAN.THOL",
         "party": "VCK",
         "votes": 48363,
-        "margin": 11017,
+        "margin": 87,
         "vote_share": 29.28,
         "winner": false
       }
@@ -7705,9 +7581,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "N. MURUGUMARAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 75491,
-        "margin": 68685,
+        "margin": 10565,
         "vote_share": 43.0,
         "winner": false
       }
@@ -7720,7 +7596,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PAVUNRAJ.S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 87666,
         "margin": 19935,
         "vote_share": 45.48,
@@ -7731,7 +7607,7 @@ var corrected2021Winners = {
         "candidate": "SHAJAHAN.A.M",
         "party": "IUML",
         "votes": 67731,
-        "margin": 51490,
+        "margin": 19935,
         "vote_share": 35.14,
         "winner": false
       }
@@ -7749,9 +7625,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "S.Pavunraj",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 92803,
-        "margin": 77980,
+        "margin": 3299,
         "vote_share": 44.65,
         "winner": false
       }
@@ -7764,7 +7640,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "THAMIMUN ANSARI.M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 64903,
         "margin": 20550,
         "vote_share": 48.28,
@@ -7775,7 +7651,7 @@ var corrected2021Winners = {
         "candidate": "MOHAMED JAFARULLAH.A",
         "party": "MAMAK",
         "votes": 44353,
-        "margin": 33265,
+        "margin": 20550,
         "vote_share": 32.99,
         "winner": false
       }
@@ -7793,9 +7669,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "Thanka.kathiravan",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 59043,
-        "margin": 49067,
+        "margin": 7238,
         "vote_share": 41.13,
         "winner": false
       }
@@ -7817,9 +7693,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MEENA.N",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 51829,
-        "margin": 35330,
+        "margin": 10170,
         "vote_share": 37.58,
         "winner": false
       }
@@ -7828,7 +7704,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "NAGAIMAALI V P",
-        "party": "CPM",
+        "party": "CPI(M)",
         "votes": 67988,
         "margin": 16985,
         "vote_share": 47.55,
@@ -7839,7 +7715,7 @@ var corrected2021Winners = {
         "candidate": "VADIVEL RAVANAN  S",
         "party": "PMK",
         "votes": 51003,
-        "margin": 35830,
+        "margin": 16985,
         "vote_share": 35.67,
         "winner": false
       }
@@ -7852,7 +7728,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MANIAN.O.S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 60836,
         "margin": 22998,
         "vote_share": 41.44,
@@ -7863,7 +7739,7 @@ var corrected2021Winners = {
         "candidate": "RAJENDIRAN.P.V",
         "party": "INC",
         "votes": 37838,
-        "margin": 752,
+        "margin": 22998,
         "vote_share": 25.77,
         "winner": false
       }
@@ -7872,7 +7748,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "O.S.MANIAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 78719,
         "margin": 12329,
         "vote_share": 49.8,
@@ -7883,7 +7759,7 @@ var corrected2021Winners = {
         "candidate": "S.K.VETHARATHINAM",
         "party": "DMK",
         "votes": 66390,
-        "margin": 57284,
+        "margin": 12329,
         "vote_share": 42.0,
         "winner": false
       }
@@ -7905,9 +7781,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KAMARAJ. S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 81200,
-        "margin": 75234,
+        "margin": 9937,
         "vote_share": 43.4,
         "winner": false
       }
@@ -7925,9 +7801,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJAMANICKAM  SIVA",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 49779,
-        "margin": 9298,
+        "margin": 37393,
         "vote_share": 25.76,
         "winner": false
       }
@@ -7949,9 +7825,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "PANNERSELVAM .R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 53107,
-        "margin": 39949,
+        "margin": 68366,
         "vote_share": 26.99,
         "winner": false
       }
@@ -7959,7 +7835,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "KALAIVANAN  POONDI  K.",
+        "candidate": "KALAIVANAN POONDI K.",
         "party": "DMK",
         "votes": 108906,
         "margin": 51174,
@@ -7969,9 +7845,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "PANNERSELVAM A.N.R.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 57732,
-        "margin": 31432,
+        "margin": 51174,
         "vote_share": 27.72,
         "winner": false
       }
@@ -7984,7 +7860,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "KAMARAJ. R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 100918,
         "margin": 21276,
         "vote_share": 49.43,
@@ -7995,7 +7871,7 @@ var corrected2021Winners = {
         "candidate": "DURAIVELAN. S.M.B",
         "party": "INC",
         "votes": 79642,
-        "margin": 68315,
+        "margin": 21276,
         "vote_share": 39.01,
         "winner": false
       }
@@ -8004,7 +7880,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "KAMARAJ R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 103637,
         "margin": 4424,
         "vote_share": 46.7,
@@ -8015,7 +7891,7 @@ var corrected2021Winners = {
         "candidate": "JOTHIRAMAN  S",
         "party": "DMK",
         "votes": 99213,
-        "margin": 85794,
+        "margin": 4424,
         "vote_share": 44.7,
         "winner": false
       }
@@ -8037,9 +7913,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RATHNA.S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 76591,
-        "margin": 68493,
+        "margin": 8457,
         "vote_share": 40.56,
         "winner": false
       }
@@ -8057,9 +7933,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SRITHAR VANDAYAR, G.M.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 74674,
-        "margin": 62194,
+        "margin": 21383,
         "vote_share": 37.8,
         "winner": false
       }
@@ -8072,7 +7948,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "DORAIKKANNU R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 82614,
         "margin": 24365,
         "vote_share": 45.26,
@@ -8083,7 +7959,7 @@ var corrected2021Winners = {
         "candidate": "LOGANATHAN T R",
         "party": "INC",
         "votes": 58249,
-        "margin": 39650,
+        "margin": 24365,
         "vote_share": 31.91,
         "winner": false
       }
@@ -8101,9 +7977,9 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "GOPINATHAN, K.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 70294,
-        "margin": 50516,
+        "margin": 16273,
         "vote_share": 35.69,
         "winner": false
       }
@@ -8125,7 +8001,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "M.G.M.SUBRAMANIAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 85700,
         "margin": 77096,
         "vote_share": 42.21,
@@ -8169,7 +8045,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VAITHILINGAM. R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 80733,
         "margin": 74382,
         "vote_share": 44.85,
@@ -8180,7 +8056,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "VAITHILINGAM, R.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 90063,
         "margin": 28835,
         "vote_share": 46.95,
@@ -8204,7 +8080,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SEKAR. V",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 70631,
         "margin": 12358,
         "vote_share": 42.58,
@@ -8233,7 +8109,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RENGARAJAN, N.R.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 53796,
         "margin": 30025,
         "vote_share": 30.36,
@@ -8248,7 +8124,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "GOVINDARASU M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73908,
         "margin": 995,
         "vote_share": 45.65,
@@ -8277,7 +8153,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "THIRUGNANASAMBANDAM, S.V.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 65627,
         "margin": 53473,
         "vote_share": 38.41,
@@ -8292,7 +8168,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "VIJAYA BASKAR C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 84701,
         "margin": 8447,
         "vote_share": 49.69,
@@ -8312,7 +8188,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "VIJAYA BASKER C",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 102179,
         "margin": 23598,
         "vote_share": 52.83,
@@ -8345,7 +8221,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KARTHIK THONDAIMAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 64655,
         "margin": 41682,
         "vote_share": 37.97,
@@ -8365,7 +8241,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KARTHIK THONDAIMAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 72801,
         "margin": 61298,
         "vote_share": 40.47,
@@ -8389,7 +8265,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VAIRAMUTHU PK",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 71607,
         "margin": 66511,
         "vote_share": 45.1,
@@ -8409,7 +8285,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "P.K.VAIRAMUTHU",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 69967,
         "margin": 54823,
         "vote_share": 40.2,
@@ -8433,7 +8309,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "GNANA KALAISELVAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 63051,
         "margin": 51664,
         "vote_share": 39.88,
@@ -8453,7 +8329,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "DHARMA THANGAVEL",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62088,
         "margin": 46611,
         "vote_share": 36.13,
@@ -8477,7 +8353,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KARPAGAM ILANGO",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 75136,
         "margin": 60857,
         "vote_share": 37.32,
@@ -8512,7 +8388,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "BASKARAN.G",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 81697,
         "margin": 6636,
         "vote_share": 43.15,
@@ -8532,7 +8408,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PR. Senthilnathan",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 82153,
         "margin": 11253,
         "vote_share": 40.66,
@@ -8556,7 +8432,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MARIAPPANKENNADY S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 89893,
         "margin": 14889,
         "vote_share": 48.45,
@@ -8585,7 +8461,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "Nagarajan S.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 75273,
         "margin": 52045,
         "vote_share": 37.07,
@@ -8600,7 +8476,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PERIYAPULLAN @ SELVAM P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 88909,
         "margin": 19723,
         "vote_share": 51.54,
@@ -8620,7 +8496,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PERIYAPULLAN @ SELVAM  P.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 83344,
         "margin": 35162,
         "vote_share": 45.6,
@@ -8653,7 +8529,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "P PANDI",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 75797,
         "margin": 64198,
         "vote_share": 35.34,
@@ -8673,7 +8549,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "GOPALAKRISHNAN R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73125,
         "margin": 55457,
         "vote_share": 30.74,
@@ -8688,7 +8564,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MANICKAM K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 87044,
         "margin": 24857,
         "vote_share": 52.33,
@@ -8717,7 +8593,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MANICKAM K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 67195,
         "margin": 53259,
         "vote_share": 38.32,
@@ -8732,7 +8608,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAJAN CHELLAPPA V.V.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 70460,
         "margin": 18839,
         "vote_share": 45.64,
@@ -8776,7 +8652,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SARAVANAN .S.S.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62683,
         "margin": 23763,
         "vote_share": 42.75,
@@ -8805,7 +8681,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SARAVANAN. S.S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 56297,
         "margin": 43476,
         "vote_share": 38.08,
@@ -8829,7 +8705,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "JEYABAL M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 58900,
         "margin": 47665,
         "vote_share": 38.75,
@@ -8849,7 +8725,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "JOTHI MUTHURAMALINGAM N",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 39029,
         "margin": 24534,
         "vote_share": 26.12,
@@ -8864,7 +8740,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAJU K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 82529,
         "margin": 16398,
         "vote_share": 44.81,
@@ -8884,7 +8760,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAJU. K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 83883,
         "margin": 9121,
         "vote_share": 41.59,
@@ -8908,7 +8784,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SEENIVEL S M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 93453,
         "margin": 22992,
         "vote_share": 47.32,
@@ -8917,7 +8793,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "Bose,A.K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 113032,
         "margin": 42670,
         "vote_share": 56.27,
@@ -8946,7 +8822,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAJANCHELLAPPA, V.V.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 103683,
         "margin": 29489,
         "vote_share": 43.96,
@@ -8970,7 +8846,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "UDHAYAKUMAR.R.B",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 95864,
         "margin": 23590,
         "vote_share": 46.99,
@@ -8990,7 +8866,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "UDHAYAKUMAR R B",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 100338,
         "margin": 14087,
         "vote_share": 45.51,
@@ -9014,7 +8890,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "NEETHIPATHI P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 106349,
         "margin": 32906,
         "vote_share": 52.88,
@@ -9034,7 +8910,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "AYYAPPAN P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 71255,
         "margin": 7477,
         "vote_share": 33.53,
@@ -9058,7 +8934,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "THANGATAMILSELVAM",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 103129,
         "margin": 30196,
         "vote_share": 51.93,
@@ -9087,7 +8963,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "A.LOGIRAJAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 85003,
         "margin": 73107,
         "vote_share": 40.57,
@@ -9102,7 +8978,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "KATHIRKAMU.K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 90599,
         "margin": 14350,
         "vote_share": 46.94,
@@ -9131,7 +9007,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "M Murugan",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 70930,
         "margin": 54506,
         "vote_share": 35.15,
@@ -9146,7 +9022,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "O. PANNEERSELVAM",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 99531,
         "margin": 15608,
         "vote_share": 49.38,
@@ -9166,7 +9042,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "O.PANNEERSELVAM",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 100050,
         "margin": 11021,
         "vote_share": 46.58,
@@ -9190,7 +9066,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "S.T.K.JAKKAIYAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 91099,
         "margin": 11221,
         "vote_share": 46.94,
@@ -9219,7 +9095,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "Syedukhan.S.P.M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62387,
         "margin": 47851,
         "vote_share": 30.84,
@@ -9243,7 +9119,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SHYAM A.A.S.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 69985,
         "margin": 57480,
         "vote_share": 41.0,
@@ -9263,7 +9139,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJENTHRABHALAJI K.T",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 70260,
         "margin": 54667,
         "vote_share": 39.32,
@@ -9278,7 +9154,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "CHANDRA PRABHA. M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 88103,
         "margin": 36673,
         "vote_share": 49.32,
@@ -9298,7 +9174,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MANRAJ, E.M.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 70475,
         "margin": 12738,
         "vote_share": 38.09,
@@ -9322,7 +9198,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SUBRAMANIANS.G.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 71513,
         "margin": 4427,
         "vote_share": 40.65,
@@ -9351,7 +9227,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAVICHANDHRAN, R.K.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62995,
         "margin": 30079,
         "vote_share": 32.85,
@@ -9366,7 +9242,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAJENTHRABHALAJI K.T",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 76734,
         "margin": 14748,
         "vote_share": 43.67,
@@ -9395,7 +9271,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "Lakshmi Ganesan",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 61628,
         "margin": 40763,
         "vote_share": 33.3,
@@ -9419,7 +9295,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KALANITHI.K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62629,
         "margin": 52502,
         "vote_share": 40.84,
@@ -9463,7 +9339,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "DINESH BABU K.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 63350,
         "margin": 57551,
         "vote_share": 37.77,
@@ -9483,7 +9359,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJASEKAR S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 41233,
         "margin": 27446,
         "vote_share": 23.86,
@@ -9498,7 +9374,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MUTHIAH.S.DR",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 79254,
         "margin": 11389,
         "vote_share": 46.89,
@@ -9527,7 +9403,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SADHAN PRABHAKAR N",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 71579,
         "margin": 55149,
         "vote_share": 39.3,
@@ -9542,7 +9418,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "KARUNAAS",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 76786,
         "margin": 8696,
         "vote_share": 41.14,
@@ -9571,7 +9447,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "K C ANIMUTHU",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 65512,
         "margin": 32086,
         "vote_share": 32.46,
@@ -9586,7 +9462,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MANIKANDAN.M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 89365,
         "margin": 33222,
         "vote_share": 46.3,
@@ -9630,7 +9506,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "UMA MAHESWARI K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 71496,
         "margin": 18718,
         "vote_share": 46.79,
@@ -9659,7 +9535,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "CHINNAPPAN P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 51799,
         "margin": 39971,
         "vote_share": 30.99,
@@ -9683,7 +9559,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "CHELLAPANDIAN.S.T.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 67137,
         "margin": 49339,
         "vote_share": 35.43,
@@ -9703,7 +9579,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SDR Vijayaseelan",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 42004,
         "margin": 11067,
         "vote_share": 22.29,
@@ -9727,7 +9603,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SARATHKUMAR.R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62356,
         "margin": 56026,
         "vote_share": 37.38,
@@ -9747,7 +9623,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "Radhakrishnan M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 63011,
         "margin": 47948,
         "vote_share": 36.1,
@@ -9762,7 +9638,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SHANMUGANATHAN S.P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 65198,
         "margin": 3531,
         "vote_share": 41.96,
@@ -9791,7 +9667,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "S.P.SHUNMUGANATHAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 59471,
         "margin": 46765,
         "vote_share": 36.18,
@@ -9806,7 +9682,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SUNDARARAJ.R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 65071,
         "margin": 493,
         "vote_share": 40.57,
@@ -9835,7 +9711,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MOHAN P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 64600,
         "margin": 42187,
         "vote_share": 36.32,
@@ -9850,7 +9726,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "C. KADAMBUR RAJU",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 64514,
         "margin": 428,
         "vote_share": 38.96,
@@ -9870,7 +9746,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "KADAMBUR RAJU",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 68556,
         "margin": 12403,
         "vote_share": 37.89,
@@ -9894,7 +9770,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "RAJALAKSHMI M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 78751,
         "margin": 14489,
         "vote_share": 44.36,
@@ -9923,7 +9799,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJALAKSHMI V M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 66050,
         "margin": 43368,
         "vote_share": 36.03,
@@ -9938,7 +9814,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MANOHARAN A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 73904,
         "margin": 18758,
         "vote_share": 45.06,
@@ -9967,7 +9843,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MANOHARAN A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 66363,
         "margin": 49632,
         "vote_share": 37.73,
@@ -9991,7 +9867,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SHEIK DAWOOD. S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 69569,
         "margin": 53711,
         "vote_share": 36.86,
@@ -10002,7 +9878,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "C.KRISHNAMURALI",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 88474,
         "margin": 24349,
         "vote_share": 43.08,
@@ -10026,7 +9902,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "SELVAMOHANDAS PANDIAN S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 86339,
         "margin": 462,
         "vote_share": 42.58,
@@ -10055,7 +9931,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SELVA MOHANDAS PANDIAN.S",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 88945,
         "margin": 73609,
         "vote_share": 41.54,
@@ -10079,7 +9955,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "HEPZI KARTHIKEYAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 84137,
         "margin": 76353,
         "vote_share": 43.52,
@@ -10090,7 +9966,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PAUL MANOJ PANDIAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 74153,
         "margin": 3539,
         "vote_share": 36.44,
@@ -10123,7 +9999,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "NAINAR NAGENTHRAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 81160,
         "margin": 72520,
         "vote_share": 42.81,
@@ -10158,7 +10034,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "R. MURUGAIAH PANDIAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 78555,
         "margin": 13166,
         "vote_share": 45.8,
@@ -10178,7 +10054,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "E.SUBAYA",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 85211,
         "margin": 16915,
         "vote_share": 47.96,
@@ -10211,7 +10087,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VIJAYAKUMAR. M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 57617,
         "margin": 43414,
         "vote_share": 33.41,
@@ -10231,7 +10107,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "GANESARAJA",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 59416,
         "margin": 27546,
         "vote_share": 30.86,
@@ -10246,7 +10122,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "I. S. INBADURAI",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 69590,
         "margin": 49,
         "vote_share": 40.62,
@@ -10275,7 +10151,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "I.S.Inbadurai",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 76406,
         "margin": 57035,
         "vote_share": 40.79,
@@ -10299,7 +10175,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "THALAVAI SUNDARAM. N",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 83111,
         "margin": 58473,
         "vote_share": 39.59,
@@ -10310,7 +10186,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "THALAVAI SUNDARAM N.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 109745,
         "margin": 16213,
         "vote_share": 48.8,
@@ -10387,7 +10263,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJENDRA PRASAD K P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 35344,
         "margin": 3350,
         "vote_share": 21.88,
@@ -10407,7 +10283,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "John Thankam, D.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 60859,
         "margin": 46960,
         "vote_share": 35.77,
@@ -10495,7 +10371,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "JUDE DEV   K.V",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 46141,
         "margin": 31624,
         "vote_share": 27.15,
@@ -10543,7 +10419,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "ARIVUDAINAMBI, V.",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 56623,
         "margin": 39257,
         "vote_share": 29.06,
@@ -10581,7 +10457,7 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "SURESH.K.P",
+        "candidate": "J. KARUNANITHI",
         "party": "DMK",
         "votes": 63219,
         "margin": 25743,
@@ -10591,7 +10467,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "PANNEERSELVAM.V",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 37476,
         "margin": 22785,
         "vote_share": 30.0,
@@ -10601,7 +10477,7 @@ var corrected2021Winners = {
   },
   "27": {
     "constituency_id": 27,
-    "name": "SHOZHINGANALLUR",
+    "name": "SHOLINGANALLUR",
     "2021": [
       {
         "position": 1,
@@ -10615,7 +10491,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "TAMILACHI.T",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 92753,
         "margin": 55001,
         "vote_share": 28.59,
@@ -10630,7 +10506,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "MARAGATHAM. K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 86002,
         "margin": 3570,
         "vote_share": 47.31,
@@ -10653,8 +10529,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "S.RAVI",
-        "party": "ADMK",
+        "candidate": "J. GOWTHAMA SANNAH",
+        "party": "VCK",
         "votes": 96952,
         "margin": 27169,
         "vote_share": 44.46,
@@ -10662,10 +10538,10 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "GOWTHAMA SANNAH.J",
-        "party": "VCK",
+        "candidate": "S. RAVI",
+        "party": "AIADMK",
         "votes": 69783,
-        "margin": 51576,
+        "margin": 27169,
         "vote_share": 32.0,
         "winner": false
       }
@@ -10677,8 +10553,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "THILAGAM.S",
-        "party": "DMK",
+        "candidate": "A.M. MUNIRATHINAM",
+        "party": "INC",
         "votes": 91327,
         "margin": 14963,
         "vote_share": 48.52,
@@ -10687,7 +10563,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SRINIVASAN.P",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 76364,
         "margin": 59847,
         "vote_share": 40.57,
@@ -10701,27 +10577,27 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "AMJAD.A",
-        "party": "DMK",
-        "votes": 90484,
-        "margin": 26698,
-        "vote_share": 47.51,
+        "candidate": "N.Mohammed Nayeem",
+        "party": "IUML",
+        "votes": 88018,
+        "margin": 4904,
+        "vote_share": 46.33,
         "winner": true
       },
       {
         "position": 2,
-        "candidate": "ASKAR ALI.V",
-        "party": "ADMK",
-        "votes": 63786,
-        "margin": 46988,
-        "vote_share": 33.5,
+        "candidate": "G.Sendhil Kumar",
+        "party": "AIADMK",
+        "votes": 83114,
+        "margin": 4904,
+        "vote_share": 43.74,
         "winner": false
       }
     ]
   },
   "50": {
     "constituency_id": 50,
-    "name": "VELLORE",
+    "name": "TIRUPPATTUR",
     "2021": [
       {
         "position": 1,
@@ -10735,7 +10611,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KATHIRAVAN.K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 69657,
         "margin": 48292,
         "vote_share": 33.08,
@@ -10759,7 +10635,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "SANTHOSH S A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 44259,
         "margin": 24703,
         "vote_share": 27.92,
@@ -10774,7 +10650,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "EDAPPADI PALANISWAMI. K",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 144284,
         "margin": 93802,
         "vote_share": 66.03,
@@ -10793,7 +10669,7 @@ var corrected2021Winners = {
   },
   "93": {
     "constituency_id": 93,
-    "name": "TIRUCHENGODE",
+    "name": "SENTHAMANGALAM",
     "2021": [
       {
         "position": 1,
@@ -10807,7 +10683,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "GOVINDASAMY.A",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 83274,
         "margin": 64697,
         "vote_share": 40.88,
@@ -10822,7 +10698,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "ESWARAN.G",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 77869,
         "margin": 5124,
         "vote_share": 42.41,
@@ -10879,7 +10755,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "MUTHUSAMI.SP",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 72455,
         "margin": 55764,
         "vote_share": 38.32,
@@ -10903,7 +10779,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "CHANDRASEKAR.R",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 74073,
         "margin": 60268,
         "vote_share": 40.33,
@@ -10937,11 +10813,11 @@ var corrected2021Winners = {
   },
   "141": {
     "constituency_id": 141,
-    "name": "THIRUVERAMBUR",
+    "name": "TIRUCHIRAPPALLI EAST",
     "2021": [
       {
         "position": 1,
-        "candidate": "ANBALAGAN.M",
+        "candidate": "INIGO IRUDAYARAJ S",
         "party": "DMK",
         "votes": 105547,
         "margin": 40673,
@@ -10950,8 +10826,8 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SENTHIL BALAJI.V",
-        "party": "ADMK",
+        "candidate": "VELLAMANDI NATARAJAN N",
+        "party": "AIADMK",
         "votes": 64874,
         "margin": 42041,
         "vote_share": 31.58,
@@ -10989,8 +10865,8 @@ var corrected2021Winners = {
     "2021": [
       {
         "position": 1,
-        "candidate": "GEETHA JEEVAN. T",
-        "party": "DMK",
+        "candidate": "RADHAKRISHNAN",
+        "party": "INC",
         "votes": 90454,
         "margin": 20394,
         "vote_share": 46.39,
@@ -10998,8 +10874,8 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "SARKAR MOHAN.A",
-        "party": "ADMK",
+        "candidate": "KARTHIKEYAN J",
+        "party": "PMK",
         "votes": 70060,
         "margin": 50516,
         "vote_share": 35.93,
@@ -11009,12 +10885,12 @@ var corrected2021Winners = {
   },
   "160": {
     "constituency_id": 160,
-    "name": "CHIDAMBARAM",
+    "name": "SIRKAZHI",
     "2021": [
       {
         "position": 1,
-        "candidate": "K.A. PANDIAN",
-        "party": "ADMK",
+        "candidate": "PANNEERSELVAM",
+        "party": "DMK",
         "votes": 79327,
         "margin": 16937,
         "vote_share": 43.38,
@@ -11022,8 +10898,8 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "S. ABDUL RAHMAN",
-        "party": "IUML",
+        "candidate": "P V BHARATHI",
+        "party": "AIADMK",
         "votes": 62390,
         "margin": 45392,
         "vote_share": 34.13,
@@ -11057,12 +10933,12 @@ var corrected2021Winners = {
   },
   "166": {
     "constituency_id": 166,
-    "name": "SIRKAZHI",
+    "name": "THIRUTHURAIPOONDI",
     "2021": [
       {
         "position": 1,
-        "candidate": "SIVAKUMAR.C",
-        "party": "DMK",
+        "candidate": "MARIMUTHU K",
+        "party": "CPI",
         "votes": 80214,
         "margin": 18940,
         "vote_share": 47.13,
@@ -11070,8 +10946,8 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "THIRUPATHI.R",
-        "party": "ADMK",
+        "candidate": "SURESH KUMAR C",
+        "party": "AIADMK",
         "votes": 61274,
         "margin": 42946,
         "vote_share": 36.02,
@@ -11081,11 +10957,11 @@ var corrected2021Winners = {
   },
   "170": {
     "constituency_id": 170,
-    "name": "PAPANASAM",
+    "name": "THIRUVIDAIMARUDUR",
     "2021": [
       {
         "position": 1,
-        "candidate": "DR.JAWAHIRULLAH, M.H.",
+        "candidate": "CHEZHIAAN GOVI",
         "party": "DMK",
         "votes": 85724,
         "margin": 16273,
@@ -11094,8 +10970,8 @@ var corrected2021Winners = {
       },
       {
         "position": 2,
-        "candidate": "GOPINATHAN, K.",
-        "party": "ADMK",
+        "candidate": "UNION VEERAMANI S",
+        "party": "AIADMK",
         "votes": 69451,
         "margin": 52226,
         "vote_share": 38.62,
@@ -11119,7 +10995,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "S.JAYABHARATHI",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 58532,
         "margin": 39516,
         "vote_share": 37.18,
@@ -11143,7 +11019,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "RAJANAYAGAM M",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 62983,
         "margin": 43900,
         "vote_share": 34.84,
@@ -11167,7 +11043,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "VAIGAICHELVAN",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 55857,
         "margin": 34839,
         "vote_share": 30.78,
@@ -11191,7 +11067,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "KEERTHIKA",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 63906,
         "margin": 43418,
         "vote_share": 37.47,
@@ -11215,7 +11091,7 @@ var corrected2021Winners = {
       {
         "position": 2,
         "candidate": "GERALD .G",
-        "party": "ADMK",
+        "party": "AIADMK",
         "votes": 61291,
         "margin": 28538,
         "vote_share": 31.27,
@@ -11230,7 +11106,7 @@ var corrected2021Winners = {
       {
         "position": 1,
         "candidate": "PRINCE J.G.",
-        "party": "INC",
+         "party": "INC",
         "votes": 88423,
         "margin": 24832,
         "vote_share": 55.3,
@@ -11246,7 +11122,56 @@ var corrected2021Winners = {
         "winner": false
       }
     ]
+  },
+  "48" : {
+    "constituency_id" : 48,
+    "name" : "ambur",
+    "2021" : [
+       {
+        "position": 1,
+        "candidate": "VILWANATHAN A C",
+        "party": "DMK",
+        "votes": 90476,
+        "margin": 20232,
+        "vote_share": 51.27,
+        "winner": true
+      },
+      {
+        "position": 2,
+        "candidate": "NAZAR MOHAMED K",
+        "party": "AIADMK",
+        "votes": 70244,
+        "margin": 20232,
+        "vote_share": 39.81,
+        "winner": false
+      }
+    ]
+  },
+  "49":{
+  "constituency_id" : 49,
+  "name" : "jolarpet",
+  "2021" : [
+    {
+        "position": 1,
+        "candidate": "K DEVARAJI",
+        "party": "DMK",
+        "votes": 89490,
+        "margin": 1091,
+        "vote_share": 45.89,
+        "winner": true
+      },
+      {
+        "position": 2,
+        "candidate": "K C VEERAMANI",
+        "party": "AIADMK",
+        "votes": 88399,
+        "margin": 1091,
+        "vote_share": 45.33,
+        "winner": false
+      }
+  ]
   }
+
 }
 
 

@@ -15,6 +15,7 @@ var expandState = {
 };
 var PREVIEW_COUNT = 6;   // How many rows to show before "View all"
 var isExpanded = false;
+var selectedParty = null; // Track selected party
 
 // -----------------------------------------------
 // STEP 1 — Work out seat display value for a party
@@ -58,8 +59,10 @@ function buildPartyRows(parties, limit) {
                 '</div>';
         }
 
+        var selectedClass = (selectedParty === party.pn) ? 'alliance-table__row--selected' : '';
+
         return (
-            '<div class="alliance-table__row">' +
+            '<div class="alliance-table__row ' + selectedClass + '" onclick="selectParty(\'' + party.pn + '\')" style="cursor: pointer;">' +
             '<div class="alliance-table__party-info">' +
             iconHTML +
             '<span class="alliance-table__party-name">' + (party.fullName || party.pn) + '</span>' +
@@ -114,7 +117,28 @@ function toggleAllianceView(type) {
 }
 
 // -----------------------------------------------
-// STEP 5 — Run on page load
+// STEP 5 — Select party and highlight constituencies
+// Called when clicking on a party row
+// -----------------------------------------------
+function selectParty(partyName) {
+  selectedParty = (selectedParty === partyName) ? null : partyName; // Toggle selection
+  renderAllianceTable(); // Re-render to update selected class
+  if (window.updateMapHighlights) {
+    window.updateMapHighlights(selectedParty);
+  }
+}
+
+// -----------------------------------------------
+// STEP 6 — Clear party selection
+// Called when map is clicked to clear highlights
+// -----------------------------------------------
+function clearPartySelection() {
+  selectedParty = null;
+  renderAllianceTable();
+}
+
+// -----------------------------------------------
+// STEP 7 — Run on page load
 // -----------------------------------------------
 document.addEventListener("DOMContentLoaded", function () {
     renderAllianceTable();
