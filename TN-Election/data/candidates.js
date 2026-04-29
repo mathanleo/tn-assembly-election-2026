@@ -108,40 +108,6 @@ var popularCandidates = [
   { "id": 3382, "name": "K.N. Nehru", "age": "73", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Tiruchirappalli (West)", "photo": "../assets/images/candidates/mla/2026/3382.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Krishnamoorthi Nehru", "date_of_birth": "04 April 1960", "birth_place": "Tiruchirappalli, Tamil Nadu", "father": "K.N. Narayanasamy", "children": "Arun Nehru", "current_position": "Minister for Municipal Administration, Urban Development & Water Supply, Government of Tamil Nadu", "first_elected_as_mla": "2006 (Trichy West constituency)", "political_experience": "Senior DMK leader from Trichy; MLA from Trichy West (2006, 2011, 2016, 2021); Minister for Municipal Administration (2021–present); re-nominated for 2026", "notes": "Senior DMK minister; re-nominated sitting MLA" },
   { "id": 430, "name": "Panneerselvam O", "age": "75", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Bodinayakanur", "photo": "../assets/images/candidates/mla/2026/430.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Ottakarathevar Panneerselvam", "date_of_birth": "21 November 1951", "birth_place": "Periyakulam, Theni District, Tamil Nadu", "father": "Ottakarathevar", "children": "P. Raveendranath Kumar (son), P. Jayapriya (daughter)", "current_position": "DMK candidate for Bodinayakkanur", "first_elected_as_mla": "1996 (Periyakulam constituency)", "political_experience": "MLA and Minister under Jayalalithaa; Chief Minister of Tamil Nadu (3 terms – 2001, 2014–15, 2017); AIADMK Treasurer; expelled from AIADMK in July 2022; joined DMK in February 2026", "notes": "Former Chief Minister of TN; expelled from AIADMK in 2022; joined DMK in 2026" },
   { "id": 3156, "name": "Anbil Mahesh Poyyamozhi", "age": "48", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Thiruverumbur", "photo": "../assets/images/candidates/mla/2026/3156.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Anbil Mahesh Poyyamozhi", "date_of_birth": "05 November 1974", "birth_place": "Tiruchirappalli, Tamil Nadu", "father": "Anbil Dharmalingam (former DMK minister)", "children": "Two Sons", "current_position": "Minister for School Education, Government of Tamil Nadu", "first_elected_as_mla": "2021 (Thiruvembur constituency)", "political_experience": "Son of veteran DMK leader Anbil Dharmalingam; MLA from Thiruvembur (2021); Minister for School Education (2021–present); re-nominated for 2026", "notes": "Minister for School Education; re-nominated sitting MLA" },
-  {
-    "id": 3728,
-    "name": "Ananthan Ayyasamy",
-    "age": "50",
-    "gender": "male",
-    "address": "8/63, AMBEDKAR NORTH STREET, VISWANATHAPERI, SIVAGIRI TALUK, TENKASI DISTRICT - 627 757",
-    "party_full": "Bharatiya Janata Party",
-    "party_short": "BJP",
-    "constituency": "Vasudevanallur",
-    "bg": "#fff3e0",
-    "accent": "#E65100",
-    "photo": "../assets/images/candidates/mla/2026/3728.jpg",
-    "full_name": "Ananthan Ayyasamy",
-    "party": "Bharatiya Janata Party (BJP)",
-    // "constituency": "Vasudevanallur (SC)",
-    "ac_no": "220",
-    "date_of_birth": "27 March 1976",
-    "birth_place": "Viswanathaperi, Tamil Nadu, India",
-    "father": "Ayyasamy",
-    "children": "One Children",
-    "Case": 0,
-    "current_position": "BJP District President (Tenkasi) / Assembly Candidate (2026)",
-    "first_elected_as_mla": "-",
-    "contested_constituency": [
-      {
-        "Vasudevanallur (SC)": {
-          "year": 2026,
-          "result": "Contesting"
-        }
-      }
-    ],
-    "political_experience": "District President of BJP Tenkasi; Founder of 'Voice of Tenkasi' (Tenkasi Kural) foundation. Former Intel technologist who returned from the US to enter grassroots politics. Notable for using AI-driven sentiment analysis for his 2026 campaign.",
-    "notes": "Hails from a traditional political family; his brother A. Manoharan was the Vasudevanallur MLA in 2016. Known for advocating high-tech industrial growth (semiconductors) in rural Tamil Nadu. Nominated as the official BJP candidate for the 2026 Assembly Elections."
-  },
   { "id": 2598, "name": "Ma. Subramanian", "age": "66", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Saidapet", "photo": "../assets/images/candidates/mla/2026/2598.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Ma. Subramanian", "date_of_birth": "18 June 1960", "birth_place": "Chennai, Tamil Nadu", "father": "R.MANIKKAM", "children": "Sivasri, Tejaswi", "current_position": "Minister for Health and Family Welfare, Government of Tamil Nadu", "first_elected_as_mla": "2006 (Saidapet constituency)", "political_experience": "Senior DMK leader from Chennai; MLA from Saidapet (2006, 2011, 2021); Minister for Health and Family Welfare (2021–present); re-nominated for 2026", "notes": "Minister for Health; re-nominated sitting MLA" },
   { "id": 3265, "name": "P. Geetha Jeevan", "age": "55", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Thoothukkudi", "photo": "../assets/images/candidates/mla/2026/3265.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Geetha Jeevan", "date_of_birth": "01 June 1966", "birth_place": "Thoothukudi, Tamil Nadu", "father": "N. Periasamy Nadar", "children": "Jeena Ebi Sundari, Dr. Maghil John Santhosh", "current_position": "DMK candidate, former Union Minister of State", "first_elected_as_mla": "2021 (Thoothukudi constituency)", "political_experience": "Senior DMK women leader; former Union Minister of State (UPA government); active in DMK women's wing; re-nominated sitting MLA for 2026", "notes": "Senior DMK woman leader; former union minister; re-nominated" },
   { "id": 3252, "name": "S.P. Velumani", "age": "56", "party_short": "ADMK", "party_full": "All India Anna Dravida Munnetra Kazhagam", "constituency": "Thondamuthur", "photo": "../assets/images/candidates/mla/2026/3252.jpg", "bg": "#fff0d6", "accent": "#E65100", "full_name": "S.P. Velumani", "date_of_birth": "16 November 1958", "birth_place": "Coimbatore, Tamil Nadu", "father": "PAZHANICHAMY", "children": "Vikash, Sarangi", "current_position": "Senior AIADMK leader", "first_elected_as_mla": "2011 (Thondamuthur constituency)", "political_experience": "MLA from Thondamuthur (2011, 2016, 2021); Minister for Municipal Administration under EPS government (2017–2021); senior AIADMK leader in Coimbatore region", "notes": "Former minister; senior AIADMK leader; re-nominated" },
@@ -232,7 +198,7 @@ var celebrityCandidates = [
     "children": "No details available",
     "party_short": "TVK",
     "party_full": "Tamilaga Vettri Kazhagam",
-    "constituency": "Thoothukudi",
+    "constituency": "ThoothukKudi",
     "current_position": "TVK Candidate - Thoothukudi",
     "first_elected": "Yet to be elected",
     "political_experience": "Film director turned politician; first-time contestant in 2026 TN Assembly Elections",
@@ -328,7 +294,27 @@ var celebrityCandidates = [
     "political_experience": "NTK party candidate; first-time contestant in 2026 TN Assembly Elections",
     "address": "217, KANDIYAN STREET, AMBALAPATTU NORTH, ORATHANADU TALUK, THANJAVUR DISTRICT, PINCODE-614626",
     "photo": "../assets/images/candidates/mla/2026/2025.jpg"
-  }
+  },
+  {
+    "id": 1485,
+    "name": "Mansoor Alikhan",
+    "full_name": "Mansoor Alikhan",
+    "age": "63",
+    "date_of_birth":"30 November 1961",
+    "birth_place":"Dindigul, Tamil Nadu, India",
+    "father":"Meesaikaara Abdul Salam Rowther ",
+    "children":"4 children",
+    "party_short": "IND",
+    "party_full": "Independent",
+    "constituency": "Lalgudi",
+    "current_position":"IND - Candidate",
+    "first_elected": "Yet to be elected",
+    "political_experience":"Mansoor Ali Khan contested multiple elections (1999, 2009, 2019) under different parties and as an independent candidate.",
+    "address":"Door No. 113 Arumpakkam 4th Street Thirukumarapuram (Plot No. 1).",
+    "photo": "../assets/images/candidates/mla/2026/1485.jpg",
+    "bg": "#f5f5f5",
+    "accent": "#616161"
+  },
 ];
 
 
@@ -422,7 +408,8 @@ var experiencedCandidates = [
     "photo": null,
     "bg": "#fde8e8",
     "accent": "#B71C1C"
-  }
+  },
+  
 ];
 
 // Placeholder for future tabs

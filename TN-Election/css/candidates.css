@@ -1065,3 +1065,216 @@
   background: #f1f5f9;
   color: var(--color-muted);
 }
+.popup-additional {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  margin-top:12px;
+  margin-bottom: 12px;
+  margin-left: 5px;
+}
+
+/* 3-col grid matching Figma */
+.popup-additional__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-sm);
+}
+@media (min-width: 480px) {
+  .popup-additional__grid {
+    grid-template-columns: 1.4fr 0.6fr 1fr;
+    gap: var(--gap-md);
+  }
+}
+
+/* Each card in the grid */
+.popup-add__card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 72px;
+}
+
+.popup-add__label {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Constituency pills */
+.popup-add__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.popup-add__pill {
+  background: var(--color-white);
+  border-radius: var(--radius-full);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--color-dark);
+  white-space: nowrap;
+}
+
+/* Cases number */
+.popup-add__value {
+  display: flex;
+  align-items: center;
+}
+.popup-add__cases {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1;
+}
+.popup-add__cases--warn {
+  color: var(--color-dark);
+}
+
+/* Social media icons row */
+.popup-social__row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.popup-social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: opacity 0.15s, transform 0.15s;
+  text-decoration: none;
+  width: 25px;
+}
+.popup-social__link:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+.popup-social__link svg,
+.popup-social__link img {
+  display: block;
+  border-radius: 4px;
+}
+
+/* ============================================
+   Info Tables — Assets | Cases + Social
+   (replaces old Additional Details section)
+   ============================================ */
+
+/* Two tables side by side */
+.popup-info-tables {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--gap-md);
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 576px) {
+  .popup-info-tables {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Each info card */
+.popup-info-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--gap-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+}
+
+.popup-info-card__title {
+  font-size: var(--font-md);
+  font-weight: 800;
+  color: var(--color-dark);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Table inside info card */
+.popup-tbl {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.popup-tbl__row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.popup-tbl__row:last-child {
+  border-bottom: none;
+}
+
+
+.popup-tbl__label {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--color-dark);
+  padding: 8px 12px 8px 0;
+  white-space: nowrap;
+  width: 55%;
+}
+
+.popup-tbl__value {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-muted);
+  padding: 8px 0;
+  text-align: right;
+}
+
+.popup-tbl__row--total .popup-tbl__label,
+.popup-tbl__row--total .popup-tbl__value {
+  font-weight: 900;
+  color: var(--color-dark);
+  font-size: var(--font-md);
+}
+
+/* Cases number */
+.popup-cases__num {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+/* Social row inside table cell */
+/* .popup-social__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+} */
+
+.popup-social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: opacity 0.15s, transform 0.15s;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.popup-social__link:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.popup-social__link img {
+  display: block;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
