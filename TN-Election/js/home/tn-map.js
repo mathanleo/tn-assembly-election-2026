@@ -311,9 +311,9 @@ function buildMap() {
         .attr('fill', '#FF8C00')
         .attr('stroke', '#FF8C00')
         .attr('filter', 'url(#hologram-glow)');
-      // Pass click coords relative to .map-right so popup anchors on map
-      var mapRight = document.querySelector('.map-right');
-      var rect = mapRight.getBoundingClientRect();
+      // Pass click coords relative to .map-left-col so popup anchors on map
+      var mapLeft = document.querySelector('.map-left-col');
+      var rect = mapLeft.getBoundingClientRect();
       openPopup(d.properties.AC_NO, event.clientX - rect.left, event.clientY - rect.top, rect);
     });
 
@@ -478,7 +478,7 @@ function openPopup(constId, x, y, mapRect) {
   }
   document.getElementById('popup-candidates').innerHTML = candidatesHtml || '<div class="popup-no-candidates">No DMK/ADMK/TVK/NTK candidates found</div>';
 
-  // ── Position popup inside .map-right ──────────────────────
+  // ── Position popup inside .map-left-col ──────────────────────
   var popup = document.getElementById('map-popup');
   if (popup && mapRect) {
     var popupW = 230;
@@ -591,8 +591,8 @@ function initSearch() {
         }
 
         // Calculate popup position from the path's bounding box
-        var mapRight = document.querySelector('.map-right');
-        var rect = mapRight.getBoundingClientRect();
+        var mapLeft = document.querySelector('.map-left-col');
+        var rect = mapLeft.getBoundingClientRect();
         var x = rect.width / 2, y = rect.height / 2;
         if (pathEl) {
           var bb = pathEl.getBoundingClientRect();
