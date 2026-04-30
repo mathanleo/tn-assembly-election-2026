@@ -131,14 +131,14 @@ function getLiveVotes(constituencyId, candidateId) {
 // -----------------------------------------------
 function getLeaderTags(fight) {
   if (typeof constituenciesWithCandidates === 'undefined') {
-    return { tag1: "Result Awaited", tag2: "Result Awaited", margin: null, winnerParty: null };
+    return { tag1: "Waiting", tag2: "Waiting", margin: null, winnerParty: null };
   }
 
   var v1 = getLiveVotes(fight.constituencyId, fight.candidate1.id);
   var v2 = getLiveVotes(fight.constituencyId, fight.candidate2.id);
 
   if (v1 === null || v2 === null) {
-    return { tag1: "Result Awaited", tag2: "Result Awaited", margin: null, winnerParty: null };
+    return { tag1: "Waiting", tag2: "Waiting", margin: null, winnerParty: null };
   }
 
   var diff = Math.abs(v1 - v2);
