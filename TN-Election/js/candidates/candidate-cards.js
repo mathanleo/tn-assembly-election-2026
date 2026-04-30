@@ -1018,8 +1018,8 @@ function buildCandidateCard(candidate, index) {
     : '<span style="font-size:7px;font-weight:900;color:white;line-height:1">' + (candidate.party_short || '').slice(0, 3) + '</span>';
 
   var animDelay = (index % 20) * 0.04;
-  var myVotes = (candidate.votes !== undefined && candidate.votes !== null) 
-  ? candidate.votes 
+  var myVotes = (candidate.votes !== undefined && candidate.votes !== null)
+  ? Number(candidate.votes)
   : null;
 
 var voteDisplay = "Awaited";
@@ -1028,25 +1028,30 @@ var leaderTag   = "Result Awaited";
 if (myVotes !== null) {
   voteDisplay = myVotes.toLocaleString('en-IN');
 
-  // Find all candidates in the same constituency to get max votes
-  var maxVotes = myVotes;
-  var constituencyName = (candidate.constituency || '').trim();
+  if (myVotes > 0) {
+    // Find all candidates in the same constituency to get max votes
+    var maxVotes = myVotes;
+    var constituencyName = (candidate.constituency || '').trim();
 
-  for (var constKey in constituenciesWithCandidates) {
-    var constObj = constituenciesWithCandidates[constKey];
-    if (constObj.constituency.name === constituencyName) {
-      var allCandidates = constObj.candidates;
-      for (var i = 0; i < allCandidates.length; i++) {
-        var v = allCandidates[i].votes;
-        if (v !== undefined && v !== null && v > maxVotes) {
-          maxVotes = v;
+    for (var constKey in constituenciesWithCandidates) {
+      var constObj = constituenciesWithCandidates[constKey];
+      if (constObj.constituency.name === constituencyName) {
+        var allCandidates = constObj.candidates;
+        for (var i = 0; i < allCandidates.length; i++) {
+          var v = allCandidates[i].votes;
+          if (v !== undefined && v !== null && v > maxVotes) {
+            maxVotes = v;
+          }
         }
+        break;
       }
-      break;
     }
+    
+    leaderTag = (myVotes === maxVotes) ? "Leading" : "Trailing";
+  } else {
+    // myVotes === 0
+    leaderTag = "No Votes";
   }
-
-  leaderTag = (myVotes === maxVotes && myVotes > 0) ? "Leading" : "Trailing";
 }
 // -----------------------------------------------
 
@@ -1131,10 +1136,43 @@ function filterCandidates(candidates, query) {
 }
 
 // -----------------------------------------------
+// Merge vote data from constituenciesWithCandidates
+// -----------------------------------------------
+function mergeVoteData(candidates) {
+  return candidates.map(function(candidate) {
+    var constituencyName = (candidate.constituency || '').trim();
+    
+    // Search through constituenciesWithCandidates for matching candidate
+    for (var constKey in constituenciesWithCandidates) {
+      var constObj = constituenciesWithCandidates[constKey];
+      if (constObj.constituency.name === constituencyName) {
+        var allCandidates = constObj.candidates;
+        for (var i = 0; i < allCandidates.length; i++) {
+          // Match by candidate ID and name
+          if (allCandidates[i].id === candidate.id || 
+              (allCandidates[i].name && candidate.name && 
+               allCandidates[i].name.toLowerCase() === candidate.name.toLowerCase())) {
+            candidate.votes = allCandidates[i].votes || 0;
+            return candidate;
+          }
+        }
+      }
+    }
+    
+    // If no match found, default to 0
+    if (candidate.votes === undefined) {
+      candidate.votes = 0;
+    }
+    return candidate;
+  });
+}
+
+// -----------------------------------------------
 // Init candidate cards
 // -----------------------------------------------
 function initCandidateCards() {
-  renderCandidates(popularCandidates);
+  var candidatesWithVotes = mergeVoteData(popularCandidates);
+  renderCandidates(candidatesWithVotes);
 }
 
 document.addEventListener('DOMContentLoaded', initCandidateCards);

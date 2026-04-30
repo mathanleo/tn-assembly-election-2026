@@ -167,6 +167,7 @@ body[data-page="bigfights"] main {
   min-width: 0;
   width: 376px;
   max-width: 400px;
+  border: 3px solid #F5E2D5;
 }
 
 .fight-card:hover {
@@ -655,7 +656,7 @@ position: absolute;
   50% {
     width: 70%;
   }
-  70% {
+  100% {
     width: 0%;
   }
   }
