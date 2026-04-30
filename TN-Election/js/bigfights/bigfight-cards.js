@@ -80,54 +80,101 @@ function buildSilhouette() {
 // -----------------------------------------------
 // Build one candidate row
 // -----------------------------------------------
-function buildCandidateRow(candidate) {
+function buildCandidateRow(candidate, leaderTag) {
   var hasRealPhoto = candidate.photo && candidate.photo.indexOf('placeholder') === -1;
   var photoHTML = hasRealPhoto
     ? '<img src="' + candidate.photo + '" alt="' + candidate.name + '" class="fight-card__photo" />'
     : buildSilhouette();
 
+  var colorBG = leaderTag === "Leading" ? "green" : leaderTag === "Trailing" ? "red" : "gray";
+
   return (
     '<div class="fight-card__candidate">' +
-
-      // Photo circle
       '<div class="fight-card__photo-wrap">' +
         '<div class="fight-card__photo-circle">' +
           photoHTML +
         '</div>' +
       '</div>' +
-
-      // Info: name (PARTY) + result awaiting
       '<div class="fight-card__info">' +
         '<div class="fight-card__name-line">' +
           candidate.name +
           ' <span class="fight-card__party-inline">(' + candidate.partyShort + ')</span>' +
         '</div>' +
-        '<div class="fight-card__status">Result awaiting</div>' +
+        '<div class="fight-card__status" style="color:white;background-color:' + colorBG + '">' + leaderTag + '</div>' +
       '</div>' +
-
     '</div>'
   );
 }
+// -----------------------------------------------
+// Get live votes for a candidate from constituenciesWithCandidates
+// Returns vote count or null if not found / not available
+// -----------------------------------------------
+function getLiveVotes(constituencyId, candidateId) {
+  var constKey = String(constituencyId);
+  var constObj = constituenciesWithCandidates[constKey];
+  if (!constObj) return null;
 
+  var candidates = constObj.candidates;
+  for (var i = 0; i < candidates.length; i++) {
+    if (candidates[i].id === candidateId) {
+      var v = candidates[i].votes;
+      return (v !== undefined && v !== null) ? v : null;
+    }
+  }
+  return null;
+}
+
+// -----------------------------------------------
+// Decide Leading / Trailing / Result Awaited for both candidates
+// -----------------------------------------------
+function getLeaderTags(fight) {
+  if (typeof constituenciesWithCandidates === 'undefined') {
+    return { tag1: "Result Awaited", tag2: "Result Awaited", margin: null, winnerParty: null };
+  }
+
+  var v1 = getLiveVotes(fight.constituencyId, fight.candidate1.id);
+  var v2 = getLiveVotes(fight.constituencyId, fight.candidate2.id);
+
+  if (v1 === null || v2 === null) {
+    return { tag1: "Result Awaited", tag2: "Result Awaited", margin: null, winnerParty: null };
+  }
+
+  var diff = Math.abs(v1 - v2);
+
+  if (v1 > v2) return { tag1: "Leading", tag2: "Trailing", margin: diff, winnerParty: fight.candidate1.partyShort };
+  if (v2 > v1) return { tag1: "Trailing", tag2: "Leading", margin: diff, winnerParty: fight.candidate2.partyShort };
+  return { tag1: "Waiting", tag2: "Waiting", margin: 0, winnerParty: null };
+}
 // -----------------------------------------------
 // Build one full fight card
 // -----------------------------------------------
 function buildFightCard(fight) {
   var c1 = fight.candidate1;
   var c2 = fight.candidate2;
+  var tags = getLeaderTags(fight);
+
+  // Winner party logo
+  var logoHTML = '';
+  if (tags.winnerParty) {
+    var logoPath = PARTY_ICONS[tags.winnerParty] 
+      ? PARTY_ICONS[tags.winnerParty]
+      : '../assets/icons/' + tags.winnerParty.toLowerCase() + '.png';
+    logoHTML = '<img src="' + logoPath + '" alt="' + tags.winnerParty + '" class="fight-card__winner-logo" />';
+  }
+
+  var marginHTML = tags.margin !== null
+    ? '<div class="fight-card__margin">Margin: ' + tags.margin.toLocaleString('en-IN') + '</div>'
+    : '<div class="fight-card__margin">Margin: Awaited</div>';
 
   return (
     '<div class="fight-card">' +
-
-      // Constituency name — top right corner tag
-      '<span class="fight-card__constituency">' + fight.constituency + '</span>' +
-
-      // Candidate 1 row
-      buildCandidateRow(c1) +
-
-      // Candidate 2 row
-      buildCandidateRow(c2) +
-
+      '<div class="fight-card__constituency_tag">' +
+        '<span class="fight-card__constituency">' + fight.constituency + '</span>' +
+        logoHTML +   // ← winner logo next to constituency name
+      '</div>' +
+      buildCandidateRow(c1, tags.tag1) +
+      marginHTML +
+      buildCandidateRow(c2, tags.tag2) +
     '</div>'
   );
 }

@@ -1572,7 +1572,10 @@ var starCandidatesRich = {
     "first_elected": "Yet to be elected",
     "political_experience": "Film director turned politician; first-time contestant in 2026 TN Assembly Elections",
     "address": "473/1, WESTWOOD APARTMENTS, R7A, NORTH MAIN ROAD, ANNANAGAR WEST, EXTN, CHENNAI - 600 101.",
-    "photo": "../assets/images/candidates/mla/2026/3271.jpg"
+    "photo": "../assets/images/candidates/mla/2026/3271.jpg",
+    "social_twitter": "https://x.com/Actor_Srinath", 
+    "social_instagram": "https://x.com/Actor_Srinath", 
+    "social_facebook": "",
   },
   1485:{
     "id": 1485,
@@ -1591,6 +1594,9 @@ var starCandidatesRich = {
     "political_experience":"Mansoor Ali Khan contested multiple elections (1999, 2009, 2019) under different parties and as an independent candidate.",
     "address":"Door No. 113 Arumpakkam 4th Street Thirukumarapuram (Plot No. 1).",
     "photo": "../assets/images/candidates/mla/2026/1485.jpg",
+    "social_twitter": "", 
+    "social_instagram": "https://www.instagram.com/mansoor_alikhan_offl/", 
+    "social_facebook": "",
     "bg": "#f5f5f5",
     "accent": "#616161"
   },
@@ -1610,7 +1616,10 @@ var starCandidatesRich = {
     "first_elected": "Yet to be elected",
     "political_experience": "NTK party candidate; first-time contestant in 2026 TN Assembly Elections",
     "address": "217, KANDIYAN STREET, AMBALAPATTU NORTH, ORATHANADU TALUK, THANJAVUR DISTRICT, PINCODE-614626",
-    "photo": "../assets/images/candidates/mla/2026/2025.jpg"
+    "photo": "../assets/images/candidates/mla/2026/2025.jpg",
+    "social_twitter": "", 
+    "social_instagram": "https://www.instagram.com/actorthirumurugan/", 
+    "social_facebook": "",
   },
   754:{
     "id": 754,
@@ -1628,7 +1637,10 @@ var starCandidatesRich = {
     "first_elected": "Yet to be elected",
     "political_experience": "TVK candidate contesting from Egmore in 2026",
     "address": "Door No. 1, K Block, 5th Floor, TAISHA, West Natesan Nagar, Virugambakkam, Chennai-600092",
-    "photo": "../assets/images/candidates/mla/2026/754.jpg"
+    "photo": "../assets/images/candidates/mla/2026/754.jpg",
+    "social_twitter": "https://x.com/imrajmohan", 
+    "social_instagram": "https://www.instagram.com/rajmohanofficial/", 
+    "social_facebook": "",
   },
 //   3728: {
 //   "id": 3728,"name": "Ananthan Ayyasamy",

@@ -173,11 +173,19 @@ body[data-page="bigfights"] main {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.11);
 }
-
+.fight-card__constituency_tag{
+  display: flex;
+  flex-direction: row;
+}
+.fight-card__image{
+right: 35px;
+top: 6px;
+position: absolute;
+}
 .fight-card__constituency {
   position: absolute;
   top: -1px;
-  right: -1px;
+  right: 0px;
   font-size: var(--font-xs);
   font-weight: 700;
   color: var(--color-muted);
@@ -187,6 +195,7 @@ body[data-page="bigfights"] main {
   white-space: nowrap;
   max-width: 60%;
   height: 26px;
+  width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   border-bottom: 1px solid var(--color-border);
@@ -198,6 +207,7 @@ body[data-page="bigfights"] main {
   align-items: center;
   gap: 12px;
   padding-top: 4px;
+  margin-top: 10px;
 }
 
 .fight-card__photo-wrap {
@@ -282,7 +292,31 @@ body[data-page="bigfights"] main {
   font-weight: 700;
   color: var(--color-muted);
 }
+.fight-card__margin {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: var(--color-muted);
+  text-align: right;
+  padding: 4px 0;
+}
+.fight-card__constituency_tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
 
+.fight-card__winner-logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 1.5px solid var(--color-border);
+  background: white;
+  position:absolute;
+  top: 2px;
+  right: 24px;
+}
 .fight-card__status {
   display: block;
   margin-top: 5px;

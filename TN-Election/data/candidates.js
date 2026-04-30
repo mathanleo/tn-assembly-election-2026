@@ -174,6 +174,7 @@ var celebrityCandidates = [
     "name": "Udhayanidhi Stalin",
     "full_name": "Udhayanidhi Stalin",
     "age": "49",
+    
     "date_of_birth": "27 November 1977",
     "birth_place": "Chennai, Tamil Nadu",
     "father": "M.K. Stalin",
@@ -185,7 +186,7 @@ var celebrityCandidates = [
     "first_elected": "2021 (Chepauk-Thiruvallikeni)",
     "political_experience": "DMK Youth Wing Secretary (2019–2021); MLA from Chepauk-Thiruvallikeni (2021–present); Deputy CM (September 2024–present)",
     "address": "NO.25/9, CHITHARANJAN SALAI, CENOTOPH 2ND ST, TEYNAMPET, CHENNAI-600018",
-    "photo": "../assets/images/candidates/mla/2026/490.jpg"
+    "photo": "../assets/images/candidates/mla/2026/490.png"
   },
   {
     "id": 3271,

@@ -17,7 +17,7 @@ const bigFightsData = [
     candidate2: { id: 466,  name: "Aadirajaram",           partyShort: "ADMK",   alliance: "NDA",    allianceColor: "#16A34A", votes2021: 466,  photo: "../assets/images/candidates/mla/2026/466.jpg" }
   },
   {
-    constituencyId: 217,
+    constituencyId: 218,
     constituency: "Kovilpatti",
     candidate1: { id: 1322, name: "Karunanithi K",         partyShort: "DMK",    alliance: "SPA",    allianceColor: "#E05A46", votes2021: 1322, photo: "../assets/images/candidates/mla/2026/1322.jpg" },
     candidate2: { id: 1324, name: "Pandi P",               partyShort: "NTK",    alliance: "NTK",    allianceColor: "#1a1a2e", votes2021: 1324, photo: "../assets/images/candidates/mla/2026/1324.jpg" }
@@ -157,7 +157,7 @@ const bigFightsData = [
   {
     constituencyId: 141,
     constituency: "Tiruchirappalli (East)",
-    candidate1: { id: 2271, name: "C. Joseph Vijay",         partyShort: "TVK",    alliance: "OTHERS", allianceColor: "#F59E0B", votes2021: 3845, photo: "../assets/images/candidates/mla/2026/2271.jpg" },
+    candidate1: { id: 3357, name: "C. Joseph Vijay",         partyShort: "TVK",    alliance: "OTHERS", allianceColor: "#F59E0B", votes2021: 3845, photo: "../assets/images/candidates/mla/2026/2271.jpg" },
     candidate2: { id: 3370, name: "S. Inigo Irudayaraj",          partyShort: "DMK",    alliance: "SPA",    allianceColor: "#E05A46", votes2021: 3849, photo: "../assets/images/candidates/mla/2026/3370.jpg" }
   }
 ];

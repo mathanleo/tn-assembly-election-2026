@@ -1018,7 +1018,37 @@ function buildCandidateCard(candidate, index) {
     : '<span style="font-size:7px;font-weight:900;color:white;line-height:1">' + (candidate.party_short || '').slice(0, 3) + '</span>';
 
   var animDelay = (index % 20) * 0.04;
+  var myVotes = (candidate.votes !== undefined && candidate.votes !== null) 
+  ? candidate.votes 
+  : null;
 
+var voteDisplay = "Awaited";
+var leaderTag   = "Result Awaited";
+
+if (myVotes !== null) {
+  voteDisplay = myVotes.toLocaleString('en-IN');
+
+  // Find all candidates in the same constituency to get max votes
+  var maxVotes = myVotes;
+  var constituencyName = (candidate.constituency || '').trim();
+
+  for (var constKey in constituenciesWithCandidates) {
+    var constObj = constituenciesWithCandidates[constKey];
+    if (constObj.constituency.name === constituencyName) {
+      var allCandidates = constObj.candidates;
+      for (var i = 0; i < allCandidates.length; i++) {
+        var v = allCandidates[i].votes;
+        if (v !== undefined && v !== null && v > maxVotes) {
+          maxVotes = v;
+        }
+      }
+      break;
+    }
+  }
+
+  leaderTag = (myVotes === maxVotes && myVotes > 0) ? "Leading" : "Trailing";
+}
+// -----------------------------------------------
 
   var colours = getAllianceColours(partyKey);
   var cardBg = colours ? colours.bg : candidate.bg;
@@ -1035,13 +1065,20 @@ function buildCandidateCard(candidate, index) {
     '<div class="candidate-card__body" style="background:' + cardBg + '">' +
     '<div class="candidate-card__footer">' +
     '<p class="candidate-card__name">' + (candidate.name || '').trim() + '</p>' +
+    '<div class="candidate-card__vote">'+
+    '<p class="candidate-card__vote_text">' + voteDisplay + '</p>'+
     '<p class="candidate-card__constituency">' + (candidate.constituency || '').trim() + '</p>' +
+    '</div>'+
     '<div class="candidate-card__logo-wrap">' +
     badgeHTML +
     '</div>' +
-    '<div class="candidate-card__party-bar" style="width:100%;background:' + cardBar + ';color:white;padding-right:8px">' +
+    '<div class="candidate-card__party-bar">'+
+    '<div class="candidate-card__party-bar-text">' + leaderTag + '</div>'+
+    '<div class="candidate-card__party-bar1">'+'</div>'+
+    '<div class="candidate-card__party-bar2">' + 
     partyKey +
     '</div>' +
+    '</div>'+
     '</div>' +
     '</div>' +
 

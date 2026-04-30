@@ -104,7 +104,6 @@ function buildPopCard(match) {
             '<div class="pop-card__name">' + match.candidate1 + '</div>' +
             '<div class="pop-card__party-label" style="color:' + cfg1.color + '">' + match.party1 + '</div>' +
           '</div>' +
-
           // VS
           '<div class="pop-card__vs">VS</div>' +
 
