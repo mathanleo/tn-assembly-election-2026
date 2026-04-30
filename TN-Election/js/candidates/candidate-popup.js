@@ -2153,7 +2153,6 @@ function buildInfoTables(rich) {
   return (
     '<div class="popup-info-tables">' +
       assetsTableHTML +
-      casesTableHTML +
     '</div>'
   );
 }
