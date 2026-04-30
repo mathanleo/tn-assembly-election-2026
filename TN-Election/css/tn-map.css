@@ -11,21 +11,78 @@
 }
 
 /* ── Body: 40% map | 60% content ────────────── */
-.map-body {
+/* .map-body {
   display: grid;
   grid-template-columns: 40% 60%;
   align-items: stretch;
   min-height: 700px;
+} */
+
+/* New 3-column layout: map | arc | cm+alliance */
+.map-body {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+/* Center column: parliament arc */
+.map-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.parliament-arc-wrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.parliament-arc-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.parliament-arc-number {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+.parliament-arc-label {
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+@media (max-width: 992px) {
+  /* .map-body {
+    grid-template-columns: 1fr;
+  } */
+  .map-center {
+    order: 2;
+  }
+  /* .map-content-right {
+    order: 3;
+  } */
 }
 
 /* ── Left column: map container ──────────────── */
-.map-right {
+/* .map-right {
   position: relative;
   background: #EAF1FB;
   display: flex;
   flex-direction: column;
   padding: 12px;
-}
+} */
 
 /* ── Search bar — top left ───────────────────── */
 .map-search {

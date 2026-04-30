@@ -23,91 +23,243 @@
   letter-spacing: -0.01em;
 }
 
-/* ==========================================
-   1. CM CANDIDATES
-   ========================================== */
-
-/* Grid — 2 columns on mobile */
-.cm-candidates__title {
-  font-family: Inter;
-  font-weight: 600;
-  font-size: 20px;
-  /* leading-trim: NONE; */
-  line-height: 30px;
-  letter-spacing: 0%;
+/* ================================================
+   MAP BODY — outer 2-column flex
+   Left: 380px hug | Right: fill (816px)
+   ================================================ */
+.map-body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 714px;
 }
 
-.cm-candidates__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--gap-md);
+/* ── LEFT COLUMN: map (450px, pad left/right for spacing) ── */
+.map-left-col {
+  position: relative;
+  flex: 0 0 450px;
+  width: 100%;
+  min-height: 714px;
+  padding: 16px 16px 69px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  box-sizing: border-box;
 }
 
-/* 4 columns on laptop */
-@media (min-width: 993px) {
-  .cm-candidates__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+/* ── RIGHT COLUMN: vertical stack (fill, pad 12px TB, gap 24px) ── */
+.map-right-col {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
 }
 
-/* Individual card */
-.cm-card {
-  /* background: var(--color-white); */
-  background-color: white;
-  border-radius: var(--radius-lg);
-  border: 2.5px solid transparent;
-  /* color set by JS from data */
-  overflow: hidden;
+/* ================================================
+   TOP ROW inside right col
+   Horizontal, space-between, 356px hug height
+   Arc fills left | CM panel 255px right
+   ================================================ */
+.map-top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 356px;
+  box-sizing: border-box;
+}
+
+/* ================================================
+   PARLIAMENT ARC — left side of top row
+   ================================================ */
+.parliament-wrap {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
+  justify-content: center;
+  padding-bottom: 0;
+  position: relative;
+  min-width: 529px;
+  width: 529px;
+  min-height: 415px;
+}
+
+#parliament-chart {
+  width: 529px !important;
+  max-width: 529px;
+  height: 274px !important;
+  display: block;
+}
+
+.parliament-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -66px;
+}
+
+.parliament-number {
+  font-size: 44px;
+  font-weight: 900;
+  color: #111;
+  line-height: 1;
+}
+
+.parliament-label {
+  font-size: 13px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* ==========================================
+   CM CANDIDATES PANEL
+   255 × 356 with title and 2×2 cards
+   ========================================== */
+.cm-panel {
+  flex: 0 0 255px;
+  width: 255px;
+  height: 356px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  box-sizing: border-box;
+  
+  
+}
+
+.cm-candidates__title {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #111;
+  margin: 0;
+}
+
+/* 2×2 grid of fixed-size cards */
+.cm-candidates__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 112px);
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ==========================================
+   CM CARD
+   Card: 112 × 149px
+   Image: 56 × 64px
+   Details: 64 × 36px (Hug)
+   ========================================== */
+.cm-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
   cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 112px;              /* Card width: 112px */
+  height: 149px;             /* Card height: 149px */
+  position: relative;
+  box-sizing: border-box;
 }
 
 .cm-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Photo area */
+/* ── Leading badge
+   Positioned at top with exact 82×33 size matching the design
+   ────────────────────────────────────── */
+.cm-card__leading-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  left: unset;
+  transform: unset;
+  width: 78px;
+  height: 26px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px 0 16px;
+  z-index: 3;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.cm-card__leading-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: green;
+  clip-path: polygon(
+    12px 0%,             /* top-left */
+    100% 0%,             /* top-right */
+    100% 100%,           /* bottom-right */
+    12px 100%,           /* bottom-left */
+    0% 50%               /* arrow point LEFT */             /* curl fold notch */
+  );
+  border-radius: 0 0 6px 0;
+  z-index: -1;
+}
+
+/* ── Photo: 56 × 64px, centered ── */
 .cm-card__photo-wrap {
   width: 100%;
-  aspect-ratio: 1 / 1.1;
+  height: 110px;              /* Image height: 64px */
   overflow: hidden;
-  /* background: #f1f5f9; */
+  position: relative;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 36px;
 }
 
 .cm-card__photo {
-  width: 100%;
-  height: 100%;
+  width: 56px;               /* Image width: 56px */
+  height: 64px;              /* Image height: 64px */
   object-fit: cover;
-  object-position: top center;
+  object-position: center;
 }
 
-/* Party icon — overlaps photo at bottom */
+/* ── Bottom bar: icon left | name+party right ── */
 .cm-card-details-container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  height: 48px;
   align-items: center;
+  padding: 4px 8px;
+  flex-shrink: 0;
   width: 100%;
+  height: 36px;              /* Height: 36px */
+  background: #fff;
+  border-radius: 0 0 8px 8px;
 }
 
 .cm-card__icon-wrap {
-  width: 42px;
-  height: 42px;
-  /* margin-top: -21px; pull up to overlap photo */
-  /* position: relative; */
-  /* z-index: 1; */
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2.5px solid var(--color-white);
-  background: var(--color-white);
-  /* flex-shrink: 0; */
+  border: 1.5px solid #eee;
+  background: #fff;
+  flex-shrink: 0;
 }
 
 .cm-card__icon {
@@ -119,35 +271,44 @@
 .cm-card_details_container {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-start;
+  gap: 1px;
+  width: 64px;
+  min-width: 0;
+  padding-left: 4px;
 }
 
-/* Name & party */
 .cm-card__name {
-  font-family: Inter;
-  font-weight: 600;
-  font-size: 14px;
-  /* leading-trim: NONE; */
-  line-height: 20px;
-  letter-spacing: 0%;
-  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  text-align: left;
 }
 
 .cm-card__party {
-  font-size: var(--font-sm);
+  font-size: 10px;
   font-weight: 600;
-  color: var(--color-muted);
-  margin-top: 3px;
+  color: #888;
+  text-align: left;
 }
 
 /* ==========================================
-   2. ALLIANCE TABLE
+   ALLIANCE TABLE
+   ROW 2 of .map-right-col — full width
+   sits directly below .map-top-row
    ========================================== */
 .alliance-table {
   background: var(--color-white);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   overflow: hidden;
+  width: calc(100% + 200px);
+  margin: 0 -16px;
 }
 
 /* ---- Alliance header row (NDA / SPA / Others) ---- */
@@ -165,62 +326,46 @@
   letter-spacing: 0.05em;
 }
 
-.alliance-table__header--nda {
-  background: #e05a46;
-}
-
-.alliance-table__header--spa {
-  background: #5b68b8;
-}
-
-.alliance-table__header--others {
-  background: #8a93a8;
-}
+.alliance-table__header--nda { background: #e05a46; }
+.alliance-table__header--spa { background: #5b68b8; }
+.alliance-table__header--others { background: #8a93a8; }
 
 .alliance-table__vdivider-head {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* ---- Sub-header row (Parties | Seat sharing) ---- */
+/* ---- Sub-header row: Parties | Leading | Seats ---- */
 .alliance-table__subheaders {
   display: grid;
   grid-template-columns: 1fr 1px 1fr 1px 1fr;
-  /* border-bottom: 1px solid var(--color-border); */
 }
 
 .alliance-table__subheader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px var(--gap-md);
-  font-size: var(--font-sm);
+  padding: 4px 12px;
+  font-size: 11px;
   font-weight: 700;
+  border-radius: 8px;
 }
 
 .alliance-table__subheader--nda {
   color: #e05a46;
   background-color: #FCEBE8;
-  padding: 4px 12px 4px 12px;
-  border-radius: 12px;
 }
 
 .alliance-table__subheader--spa {
   color: #5b68b8;
   background-color: #EEF4FF;
-  padding: 4px 12px 4px 12px;
-  border-radius: 12px;
 }
 
 .alliance-table__subheader--others {
   color: #8a93a8;
   background-color: #F9FAFB;
-  padding: 4px 12px 4px 12px;
-  border-radius: 12px;
 }
 
-.alliance-table__vdivider {
-  background: var(--color-border);
-}
+.alliance-table__vdivider { background: var(--color-border); }
 
 /* ---- Party columns body ---- */
 .alliance-table__body {
@@ -233,25 +378,20 @@
   flex-direction: column;
 }
 
-/* ---- Individual party row ---- */
+/* ---- Individual party row: icon+name | leading | seats ---- */
 .alliance-table__row {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
+  gap: 4px;
+  padding: 6px 12px;
   border-bottom: 1px solid #f5f5f5;
-  min-height: 48px;
+  min-height: 36px;
   transition: background 0.15s;
 }
 
-.alliance-table__row:last-child {
-  border-bottom: none;
-}
-
-.alliance-table__row:hover {
-  background: #f8fbff;
-}
+.alliance-table__row:last-child { border-bottom: none; }
+.alliance-table__row:hover { background: #fafafa; }
 
 .alliance-table__row--selected {
   background: #e3f2fd;
@@ -261,27 +401,26 @@
 .alliance-table__party-info {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
+  flex: 1;
   min-width: 0;
 }
 
-/* SVG icon */
 .alliance-table__party-icon {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   object-fit: contain;
   flex-shrink: 0;
 }
 
-/* Initials fallback circle */
 .alliance-table__party-initials {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: #e2e8f0;
   color: #475569;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -291,47 +430,43 @@
 }
 
 .alliance-table__party-name {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--color-dark);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.alliance-table__count-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  justify-content: flex-end;
-}
-
-.alliance-table__count {
-  min-width: 40px;
-  padding: 6px 10px;
-  border-radius: 9999px;
-  text-align: right;
-  font-size: 13px;
+/* Leading — green number */
+.alliance-table__leading {
+  font-size: 11px;
   font-weight: 700;
+  color: #22c55e;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 24px;
+  text-align: right;
 }
 
-.alliance-table__count--lead {
-  background: #dcfce7;
-  color: #166534;
+/* Seats — dark number */
+.alliance-table__seats {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-dark);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-width: 24px;
+  text-align: right;
 }
 
-.alliance-table__count--seats {
-  background: #f1f5f9;
-  color: #475569;
-}
+.alliance-table__seats--empty { color: #cbd5e1; }
 
 /* ---- View all button ---- */
 .alliance-table__footer {
   display: flex;
-  /* background-color: #F5FBFF; */
   justify-content: flex-end;
   padding: 8px var(--gap-md);
   border: 0 !important;
-  /* border-top: 1px solid #f5f5f5; */
 }
 
 .alliance-table__viewall-btn {
@@ -346,9 +481,7 @@
   transition: color 0.2s;
 }
 
-.alliance-table__viewall-btn:hover {
-  color: #5b68b8;
-}
+.alliance-table__viewall-btn:hover { color: #5b68b8; }
 
 /* ---- Total seats footer ---- */
 .alliance-table__total {
@@ -359,6 +492,8 @@
   font-size: var(--font-md);
   color: #555;
   border-radius: 8px;
+  width: calc(100% + 200px);
+  margin: 0 -16px;
 }
 
 .alliance-table__total strong {
@@ -371,39 +506,60 @@
    RESPONSIVE — Tablet (577px - 992px)
    ========================================== */
 @media (max-width: 992px) {
-  .home-section {
-    padding: var(--gap-md);
+  .home-section { padding: var(--gap-md); }
+
+  .map-body { flex-direction: column; }
+
+  .map-left-col {
+    flex: none;
+    width: 450px;
+    min-height: auto;
+    gap: 0px;
   }
 
-  /* Hide the grouped headers row and grouped sub-headers row
-     — we add per-column colored headers via ::before instead */
+  .map-right-col {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .map-top-row {
+    flex-direction: column;
+    min-height: auto;
+    gap: 24px;
+  }
+
+  .cm-panel {
+    flex: none;
+    width: 100%;
+  }
+
+  .cm-candidates__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .cm-card {
+    width: 112px;
+    height: 149px;
+  }
+
   .alliance-table__headers,
-  .alliance-table__subheaders {
-    display: none;
-  }
+  .alliance-table__subheaders { display: none; }
 
-  /* Hide vertical dividers */
   .alliance-table__vdivider,
-  .alliance-table__vdivider-head {
-    display: none;
-  }
+  .alliance-table__vdivider-head { display: none; }
 
-  /* Stack the 3 columns vertically */
   .alliance-table__body {
     display: flex;
     flex-direction: column;
   }
 
-  /* Each column gets its own colored header via ::before */
   .alliance-table__col {
     border-bottom: 6px solid var(--color-bg);
   }
 
-  .alliance-table__col:last-child {
-    border-bottom: none;
-  }
+  .alliance-table__col:last-child { border-bottom: none; }
 
-  /* NDA column header */
   #alliance-col-nda::before {
     content: "NDA";
     display: flex;
@@ -417,7 +573,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* SPA column header */
   #alliance-col-spa::before {
     content: "SPA";
     display: flex;
@@ -431,7 +586,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* Others column header */
   #alliance-col-others::before {
     content: "Others";
     display: flex;
@@ -452,36 +606,41 @@
   }
 }
 
-.constituency-table-section{
+.constituency-table-section {
   width: 100%;
-  #constituency-container{
+  #constituency-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
   }
 }
+
 /* ==========================================
    RESPONSIVE — Mobile (up to 576px)
    ========================================== */
 @media (max-width: 576px) {
-  .home-section__title {
-    font-size: var(--font-lg);
+  .home-section__title { font-size: var(--font-lg); }
+
+  .cm-card {
+    width: 112px;
+    height: 149px;
   }
 
-  .cm-card__name {
-    font-size: var(--font-sm);
+  .cm-candidates__title { font-size: 15px; }
+  .cm-card__name { font-size: var(--font-sm); }
+  .alliance-table__party-name { font-size: 11px; }
+  .alliance-table__seats { font-size: 11px; }
+  .alliance-table {
+    width: 100%;
+    margin: 0;
+  }
+  .alliance-table__total {
+    width: 100%;
+    margin: 0;
   }
 
-  .alliance-table__party-name {
-    font-size: 11px;
-  }
-
-  .alliance-table__seats {
-    font-size: 11px;
-  }
-
-  .stats-wrapper{
+  .stats-wrapper {
     display: flex !important;
     flex-direction: column !important;
     gap: 35px;
@@ -489,10 +648,9 @@
   }
 }
 
-/* parties table  */
-
-/* Container Card */
-/* Container Card */
+/* ==========================================
+   RICHEST CANDIDATES
+   ========================================== */
 .richest-candidates-section {
   display: flex;
   width: 100%;
@@ -500,22 +658,15 @@
   background: #f0f4f8;
 }
 
-#richest-candidates-container{
-  width: 100%;
-}
+#richest-candidates-container { width: 100%; }
+
 /* ==========================================
    POPULAR CANDIDATES — Home page preview
-   Card styles come from candidates.css (reused)
    ========================================== */
-
 .popular-candidates-section {
   padding: var(--gap-lg) var(--gap-xl);
   background: var(--color-bg);
 }
-
-/* #popular-candidates-container{
-  min-height: 689px;
-} */
 
 .popular-candidates-section .section-header {
   display: flex;
@@ -530,7 +681,6 @@
   color: var(--color-dark);
 }
 
-/* View all button — used in header and bottom */
 .hpc__viewall-wrap {
   display: flex;
   justify-content: flex-end;
@@ -550,12 +700,8 @@
   display: inline-block;
 }
 
-.hpc__viewall-btn:hover {
-  background: #c94832;
-}
+.hpc__viewall-btn:hover { background: #c94832; }
 
 @media (max-width: 992px) {
-  .popular-candidates-section {
-    padding: var(--gap-md);
-  }
+  .popular-candidates-section { padding: var(--gap-md); }
 }

@@ -9,6 +9,17 @@
 // All data must come from data/cm-candidates.js
 // ============================================
 
+function getLeaderCountForParty(partyShortName) {
+    if (typeof alliancesData === 'undefined') return 0;
+
+    var allParties = [].concat(alliancesData.NDA || [], alliancesData.SPA || [], alliancesData.OTHERS || []);
+    var partyEntry = allParties.find(function (party) {
+        return party.pn === partyShortName || party.fullName === partyShortName;
+    });
+
+    return partyEntry && typeof partyEntry.leading !== 'undefined' ? partyEntry.leading : 0;
+}
+
 function buildCMCandidates() {
     var container = document.getElementById("cm-candidates-container");
     if (!container) {
@@ -18,8 +29,12 @@ function buildCMCandidates() {
 
     // Build one card per candidate
     var cardsHTML = cmCandidatesData.map(function (candidate) {
+        var leadingCount = getLeaderCountForParty(candidate.party);
+        var leadingLabel = (leadingCount !== null && leadingCount !== undefined ? leadingCount : 0) + ' Leading';
+
         return (
             '<div class="cm-card" data-candidate-id="' + candidate.id + '" style="border-color:' + candidate.borderColor + '">' +
+            '<div class="cm-card__leading-badge">' + leadingLabel + '</div>' +
 
             // Candidate photo
             '<div class="cm-card__photo-wrap">' +

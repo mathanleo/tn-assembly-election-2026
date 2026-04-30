@@ -24,7 +24,9 @@ function buildParliamentChart() {
 
   var ctx = canvas.getContext('2d');
   ctx.scale(dpr, dpr);
-
+[
+  
+]
   var cx   = W / 2;
   var cy   = H - 10;
   var rows = 7;
