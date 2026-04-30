@@ -169,8 +169,8 @@ function buildPartyRows(parties, limit) {
             iconHTML +
             '<span class="alliance-table__party-name">' + (party.fullName || party.pn) + '</span>' +
             '</div>' +
-            '<div class="alliance-table__count-group">' +
             '<span class="alliance-table__count alliance-table__count--lead">' + leadingDisplay + '</span>' +
+            '<div class="alliance-table__count-group">' +
             '<span class="alliance-table__count alliance-table__count--seats">' + seatDisplay + '</span>' +
             '</div>' +
             '</div>'

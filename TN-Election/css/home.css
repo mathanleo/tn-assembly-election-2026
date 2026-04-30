@@ -377,11 +377,17 @@
   display: flex;
   flex-direction: column;
 }
-
+.alliance-table__count--lead{
+  text-align: center;
+  background-color: #D1FADF;
+}
+.alliance-table__count-group{
+text-align: center;
+}
 /* ---- Individual party row: icon+name | leading | seats ---- */
 .alliance-table__row {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   gap: 4px;
   padding: 6px 12px;

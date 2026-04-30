@@ -28936,7 +28936,7 @@ const constituenciesWithCandidates = {
         "id": 1051,
         "name": "Mani Gounder",
         "age": "72",
-        "votes": 0,
+        "votes": 20,
         "gender": "male",
         "address": "39.CHINNAMUTHU 3RD STREET, IDAIYANKATTUVALASU,ERODE - 6380111",
         "party_full": "Tamilaga Vettri Kazhagam",
