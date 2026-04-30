@@ -52,6 +52,91 @@ var PARTY_HIGHLIGHT_COLORS = {
   OTHERS: '#94A3B8'
 };
 
+// Build alliance party lookup for normalization
+var ALLIANCE_PARTY_LOOKUP = {};
+function buildAlliancePartyLookup() {
+  if (typeof alliancesData === 'undefined') return;
+
+  Object.values(alliancesData).forEach(function (list) {
+    list.forEach(function (party) {
+      var key = String(party.pn || party.fullName || '').trim().toUpperCase();
+      if (key) {
+        ALLIANCE_PARTY_LOOKUP[key] = party.pn;
+      }
+      if (party.fullName) {
+        var fullKey = String(party.fullName).trim().toUpperCase();
+        ALLIANCE_PARTY_LOOKUP[fullKey] = party.pn;
+      }
+    });
+  });
+
+  Object.assign(ALLIANCE_PARTY_LOOKUP, {
+    'AIADMK': 'ADMK',
+    'INDIAN NATIONAL CONGRESS': 'INC',
+    'BHARATIYA JANATA PARTY': 'BJP',
+    'TAMILAGA VETTRI KAZHAGAM': 'TVK',
+    'MADRAS MATHIYA KATCHI': 'MMK',
+    'CPI(M)': 'CPI(M)',
+    'CPI': 'CPI',
+    'INDEPENDENT': 'IND'
+  });
+}
+
+function normalizePartyCode(partyCode) {
+  if (!partyCode) return "";
+  var normalized = String(partyCode).trim().toUpperCase();
+  if (ALLIANCE_PARTY_LOOKUP[normalized]) {
+    return ALLIANCE_PARTY_LOOKUP[normalized];
+  }
+  normalized = normalized.replace(/\s+/g, ' ');
+  if (ALLIANCE_PARTY_LOOKUP[normalized]) {
+    return ALLIANCE_PARTY_LOOKUP[normalized];
+  }
+  if (normalized === 'AIADMK') return 'ADMK';
+  return normalized;
+}
+
+function getMapConstituencyLeaderParty(constituencyId) {
+  if (typeof constituenciesWithCandidates === 'undefined') {
+    return null;
+  }
+
+  var constObj = constituenciesWithCandidates[String(constituencyId)];
+  if (!constObj || !Array.isArray(constObj.candidates)) {
+    return null;
+  }
+
+  var candidates = constObj.candidates;
+  var leader = null;
+  var maxVotes = -Infinity;
+  var leaderCount = 0;
+
+  candidates.forEach(function (candidate) {
+    var votes = Number(candidate.votes);
+    if (!Number.isFinite(votes)) {
+      return;
+    }
+    if (votes > maxVotes) {
+      maxVotes = votes;
+      leader = candidate;
+      leaderCount = 1;
+    } else if (votes === maxVotes) {
+      leaderCount += 1;
+    }
+  });
+
+  if (!leader || leaderCount !== 1 || maxVotes === 0) {
+    return null;
+  }
+
+  return normalizePartyCode(leader.party_short || leader.party_full || leader.party);
+}
+
+buildAlliancePartyLookup();
+
+window.getMapConstituencyLeaderParty = getMapConstituencyLeaderParty;
+window.getConstituencyLeadingColor = getConstituencyLeadingColor;
+
 function getHighlightColor(party) {
   if (!party) return PARTY_HIGHLIGHT_COLORS.OTHERS;
   if (party === 'NTK') return PARTY_HIGHLIGHT_COLORS.NTK;
@@ -63,6 +148,14 @@ function getHighlightColor(party) {
     return PARTY_HIGHLIGHT_COLORS.SPA;
   }
   return PARTY_HIGHLIGHT_COLORS.OTHERS;
+}
+
+function getConstituencyLeadingColor(constId) {
+  var leaderParty = getMapConstituencyLeaderParty(constId);
+  if (!leaderParty) {
+    return '#e8eaee';
+  }
+  return getHighlightColor(leaderParty);
 }
 
 function getPartySeatIds(party) {
@@ -190,8 +283,8 @@ function buildMap() {
     .attr('class', 'constituency-path')
     .attr('id', function(d) { return 'path-' + d.properties.AC_NO; })
     .attr('d', path)
-    .attr('fill', '#e8eaee')
-    .attr('stroke', '#e8eaee')
+    .attr('fill', function(d) { return getConstituencyLeadingColor(d.properties.AC_NO); })
+    .attr('stroke', function(d) { return getConstituencyLeadingColor(d.properties.AC_NO); })
     .attr('stroke-width', 0.5)
     .on('mousemove', function(event, d) {
       var name = d.properties.AC_NAME || d.properties.ac_name || '';
@@ -229,13 +322,19 @@ function buildMap() {
     d3.selectAll('.constituency-path')
       .classed('highlighted', false)
       .attr('filter', null)
-      .attr('fill', '#e8eaee')
-      .attr('stroke', '#e8eaee');
+      .attr('fill', function(d) { return getConstituencyLeadingColor(d.properties.AC_NO); })
+      .attr('stroke', function(d) { return getConstituencyLeadingColor(d.properties.AC_NO); });
     closePopup();
     if (typeof window.highlightPartyConstituencies === 'function') {
       window.highlightPartyConstituencies(null);
     }
   });
+}
+
+window.refreshMapColors = function() {
+  d3.selectAll('.constituency-path')
+    .attr('fill', function(d) { return getConstituencyLeadingColor(d.properties.AC_NO); })
+    .attr('stroke', function(d) { return getConstituencyLeadingColor(d.properties.AC_NO); });
 }
 
 window.updateMapHighlights = function(party) {

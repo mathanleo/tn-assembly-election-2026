@@ -27,7 +27,107 @@ function getSeatDisplay(party) {
     if (party.cid && party.cid.length > 0) {
         return String(party.cid.length);
     }
-    return party.cid.length || party.figmaSeats || "–";
+    return party.cid && party.cid.length !== undefined ? String(party.cid.length) : party.figmaSeats || "–";
+}
+
+var ALLIANCE_PARTY_CODES = {};
+
+function buildAlliancePartyLookup() {
+    if (typeof alliancesData === 'undefined') return;
+
+    Object.values(alliancesData).forEach(function (list) {
+        list.forEach(function (party) {
+            var key = String(party.pn || party.fullName || '').trim().toUpperCase();
+            if (key) {
+                ALLIANCE_PARTY_CODES[key] = party.pn;
+            }
+            if (party.fullName) {
+                var fullKey = String(party.fullName).trim().toUpperCase();
+                ALLIANCE_PARTY_CODES[fullKey] = party.pn;
+            }
+        });
+    });
+
+    Object.assign(ALLIANCE_PARTY_CODES, {
+        'AIADMK': 'ADMK',
+        'INDIAN NATIONAL CONGRESS': 'INC',
+        'BHARATIYA JANATA PARTY': 'BJP',
+        'TAMILAGA VETTRI KAZHAGAM': 'TVK',
+        'MADRAS MATHIYA KATCHI': 'MMK',
+        'CPI(M)': 'CPI(M)',
+        'CPI': 'CPI',
+        'INDEPENDENT': 'IND'
+    });
+}
+
+function normalizePartyCode(partyCode) {
+    if (!partyCode) return "";
+    var normalized = String(partyCode).trim().toUpperCase();
+    if (ALLIANCE_PARTY_CODES[normalized]) {
+        return ALLIANCE_PARTY_CODES[normalized];
+    }
+    normalized = normalized.replace(/\s+/g, ' ');
+    if (ALLIANCE_PARTY_CODES[normalized]) {
+        return ALLIANCE_PARTY_CODES[normalized];
+    }
+    if (normalized === 'AIADMK') return 'ADMK';
+    return normalized;
+}
+
+buildAlliancePartyLookup();
+
+function getConstituencyLeaderParty(constituencyId) {
+    if (typeof constituenciesWithCandidates === 'undefined') {
+        return null;
+    }
+
+    var constObj = constituenciesWithCandidates[String(constituencyId)];
+    if (!constObj || !Array.isArray(constObj.candidates)) {
+        return null;
+    }
+
+    var candidates = constObj.candidates;
+    var leader = null;
+    var maxVotes = -Infinity;
+    var leaderCount = 0;
+
+    candidates.forEach(function (candidate) {
+        var votes = Number(candidate.votes);
+        if (!Number.isFinite(votes)) {
+            return;
+        }
+        if (votes > maxVotes) {
+            maxVotes = votes;
+            leader = candidate;
+            leaderCount = 1;
+        } else if (votes === maxVotes) {
+            leaderCount += 1;
+        }
+    });
+
+    if (!leader || leaderCount !== 1 || maxVotes === 0) {
+        return null;
+    }
+
+    return normalizePartyCode(leader.party_short || leader.party_short || leader.party_full || leader.party);
+}
+
+function getPartyLeadCount(party) {
+    if (!party.cid || !party.cid.length || typeof constituenciesWithCandidates === 'undefined') {
+        return 0;
+    }
+
+    var partyCode = normalizePartyCode(party.pn);
+    var count = 0;
+
+    party.cid.forEach(function (constituencyId) {
+        var leaderParty = getConstituencyLeaderParty(constituencyId);
+        if (leaderParty !== null && leaderParty === partyCode) {
+            count += 1;
+        }
+    });
+
+    return count;
 }
 
 // -----------------------------------------------
@@ -37,9 +137,9 @@ function buildPartyRows(parties, limit) {
     var list = limit ? parties.slice(0, limit) : parties;
 
     var rowsHTML = list.map(function (party) {
-        var seats = getSeatDisplay(party);
-        var isDash = (seats === "–");
-        var seatsClass = isDash ? "alliance-table__seats--empty" : "";
+        var seatShare = getSeatDisplay(party);
+        var leadCount = getPartyLeadCount(party);
+        var seatsClass = seatShare === '–' ? 'alliance-table__seats--empty' : '';
 
         // Party icon — use SVG if available, else show initials circle
         var iconHTML = "";
@@ -60,6 +160,8 @@ function buildPartyRows(parties, limit) {
         }
 
         var selectedClass = (selectedParty === party.pn) ? 'alliance-table__row--selected' : '';
+        var leadingDisplay = String(leadCount);
+        var seatDisplay = seatShare === '–' ? '–' : seatShare;
 
         return (
             '<div class="alliance-table__row ' + selectedClass + '" onclick="selectParty(\'' + party.pn + '\')" style="cursor: pointer;">' +
@@ -67,7 +169,10 @@ function buildPartyRows(parties, limit) {
             iconHTML +
             '<span class="alliance-table__party-name">' + (party.fullName || party.pn) + '</span>' +
             '</div>' +
-            '<span class="alliance-table__seats ' + seatsClass + '">' + seats + '</span>' +
+            '<div class="alliance-table__count-group">' +
+            '<span class="alliance-table__count alliance-table__count--lead">' + leadingDisplay + '</span>' +
+            '<span class="alliance-table__count alliance-table__count--seats">' + seatDisplay + '</span>' +
+            '</div>' +
             '</div>'
         );
     }).join("");
@@ -105,7 +210,14 @@ function renderAllianceTable() {
     renderColumn("alliance-col-nda", alliancesData.NDA, "NDA");
     renderColumn("alliance-col-spa", alliancesData.SPA, "SPA");
     renderColumn("alliance-col-others", alliancesData.OTHERS, "OTHERS");
+    
+    // Refresh map colors to reflect new lead counts
+    if (typeof window.refreshMapColors === 'function') {
+        window.refreshMapColors();
+    }
 }
+
+window.refreshAllianceTable = renderAllianceTable;
 
 // -----------------------------------------------
 // STEP 4 — Toggle View all / View less

@@ -235,13 +235,13 @@
 
 /* ---- Individual party row ---- */
 .alliance-table__row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--gap-sm);
-  padding: 8px var(--gap-md);
+  gap: 12px;
+  padding: 10px 16px;
   border-bottom: 1px solid #f5f5f5;
-  min-height: 40px;
+  min-height: 48px;
   transition: background 0.15s;
 }
 
@@ -250,7 +250,7 @@
 }
 
 .alliance-table__row:hover {
-  background: #fafafa;
+  background: #f8fbff;
 }
 
 .alliance-table__row--selected {
@@ -261,10 +261,8 @@
 .alliance-table__party-info {
   display: flex;
   align-items: center;
-  gap: var(--gap-sm);
-  flex: 1;
+  gap: 12px;
   min-width: 0;
-  /* allows text-overflow to work */
 }
 
 /* SVG icon */
@@ -300,17 +298,30 @@
   text-overflow: ellipsis;
 }
 
-/* Seat count */
-.alliance-table__seats {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-dark);
-  white-space: nowrap;
-  flex-shrink: 0;
+.alliance-table__count-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
 }
 
-.alliance-table__seats--empty {
-  color: #cbd5e1;
+.alliance-table__count {
+  min-width: 40px;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.alliance-table__count--lead {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.alliance-table__count--seats {
+  background: #f1f5f9;
+  color: #475569;
 }
 
 /* ---- View all button ---- */
