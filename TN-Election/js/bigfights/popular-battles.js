@@ -71,27 +71,56 @@ function buildPopCard(match) {
   var cfg1 = PARTY_CONFIG[match.party1] || { color: "#E05A46" };
   var cfg2 = PARTY_CONFIG[match.party2] || { color: "#16A34A" };
 
+  // -----------------------------------------------
+  // Get live votes from constituenciesWithCandidates
+  // -----------------------------------------------
+  var v1 = null, v2 = null;
+  if (typeof constituenciesWithCandidates !== 'undefined') {
+    for (var key in constituenciesWithCandidates) {
+      var constObj = constituenciesWithCandidates[key];
+      var cands = constObj.candidates;
+      for (var i = 0; i < cands.length; i++) {
+        if (cands[i].id === match.id1 && cands[i].votes !== undefined) v1 = cands[i].votes;
+        if (cands[i].id === match.id2 && cands[i].votes !== undefined) v2 = cands[i].votes;
+      }
+    }
+  }
+
+  var voteDisplay1 = (v1 !== null) ? v1.toLocaleString('en-IN') : "Awaited";
+  var voteDisplay2 = (v2 !== null) ? v2.toLocaleString('en-IN') : "Awaited";
+
+  var tag1 = "Waiting", tag2 = "Waiting";
+  var bg1 = "gray", bg2 = "gray";
+  if (v1 !== null && v2 !== null) {
+    if (v1 > v2)      { tag1 = "Leading"; bg1 = "green"; tag2 = "Trailing"; bg2 = "red"; }
+    else if (v2 > v1) { tag2 = "Leading"; bg2 = "green"; tag1 = "Trailing"; bg1 = "red"; }
+    else              { tag1 = "Waiting"; bg1 = "gray"; tag2 = "Waiting";  bg2 = "gray"; }
+  }
+
+  // Winner logo (shown near constituency title like real UI)
+  var winnerParty = (v1 !== null && v2 !== null && v1 > v2) ? match.party1 
+                  : (v2 !== null && v1 !== null && v2 > v1) ? match.party2 
+                  : null;
+  var winnerLogoHTML = '';
+  if (winnerParty) {
+    var logoSrc = PARTY_ICONS[winnerParty] || ('../assets/icons/' + winnerParty.toLowerCase() + '.png');
+    winnerLogoHTML = '<img src="' + logoSrc + '" alt="' + winnerParty + '" class="pop-card__winner-logo" />';
+  }
+  // -----------------------------------------------
+
   return (
     '<div class="pop-card">' +
-
-      // Gradient background
-      '<div class="pop-card__bg" style="background:linear-gradient(135deg,' +
-        cfg1.color + '33 0%,#1a1a2e 50%,' + cfg2.color + '33 100%)"></div>' +
-
-      // Glow layer
+      '<div class="pop-card__bg"></div>' +
       '<div class="pop-card__glow"></div>' +
-
       '<div class="pop-card__content">' +
 
-        // Constituency title
         '<div class="pop-card__title">' +
           match.constituency.toUpperCase() +
+          winnerLogoHTML +   // ← winner logo next to title
         '</div>' +
 
-        // Candidates versus row
         '<div class="pop-card__versus">' +
 
-          // Candidate 1
           '<div class="pop-card__candidate">' +
             '<div class="pop-card__photo-wrap">' +
               '<img src="' + getPopPhoto(match.id1, match.candidate1) + '" ' +
@@ -103,11 +132,14 @@ function buildPopCard(match) {
             '</div>' +
             '<div class="pop-card__name">' + match.candidate1 + '</div>' +
             '<div class="pop-card__party-label" style="color:' + cfg1.color + '">' + match.party1 + '</div>' +
-          '</div>' +
-          // VS
+            '<div class="pop-card__votes">Votes: ' + voteDisplay1 + '</div>' +  
+            '<div class="pop-card__tag_bar">'+         // ← CHANGED
+            '<div class="pop-card__tag" style="background:' + bg1 + ';border-radius:5px;padding-left:5px">' + tag1 + '</div>' +  // ← CHANGED
+            '</div>'+
+            '</div>' +
+
           '<div class="pop-card__vs">VS</div>' +
 
-          // Candidate 2
           '<div class="pop-card__candidate">' +
             '<div class="pop-card__photo-wrap">' +
               '<img src="' + getPopPhoto(match.id2, match.candidate2) + '" ' +
@@ -119,11 +151,14 @@ function buildPopCard(match) {
             '</div>' +
             '<div class="pop-card__name">' + match.candidate2 + '</div>' +
             '<div class="pop-card__party-label" style="color:' + cfg2.color + '">' + match.party2 + '</div>' +
-          '</div>' +
+            '<div class="pop-card__votes">Votes: ' + voteDisplay2 + '</div>' + 
+            '<div class="pop-card__tag_bar">'+           // ← CHANGED
+            '<div class="pop-card__tag" style="background:' + bg2 + ';border-radius:5px;padding-left:5px">' + tag2 + '</div>' +  // ← CHANGED
+            '</div>'+
+            '</div>' +
 
         '</div>' +
       '</div>' +
-
     '</div>'
   );
 }

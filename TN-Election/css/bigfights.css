@@ -317,17 +317,7 @@ position: absolute;
   top: 2px;
   right: 24px;
 }
-.fight-card__status {
-  display: block;
-  margin-top: 5px;
-  font-size: var(--font-xs);
-  color: var(--color-muted);
-  background: var(--color-bg);
-  border-radius: var(--radius-sm);
-  padding: 3px 8px;
-  width: 100%;
-  box-sizing: border-box;
-}
+
 
 .fight-card__progress-wrap {
   padding: 2px 0;
@@ -503,7 +493,6 @@ position: absolute;
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-image: url('../assets/images/clash.png');
   background-position: center;
   pointer-events: none;
   opacity: 0;
@@ -522,7 +511,6 @@ position: absolute;
   text-align: center;
   font-size: 12px;
   font-weight: 900;
-  color: white;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   background: transparent;
@@ -558,7 +546,6 @@ position: absolute;
   justify-content: center;
   width: 100px;
   height: 90px;
-  border-radius: 64px;
   overflow: hidden;
 }
 
@@ -568,7 +555,6 @@ position: absolute;
   object-fit: contain;
   object-position: bottom;
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
 }
 
 .pop-card__photo--flip {
@@ -578,7 +564,7 @@ position: absolute;
 .pop-card__badge {
   position: absolute;
   bottom: 0;
-  right: -4px;
+  right: 4px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -600,7 +586,6 @@ position: absolute;
 .pop-card__badge-text {
   font-size: 6px;
   font-weight: 900;
-  color: #fff;
   line-height: 1;
 }
 
@@ -608,7 +593,6 @@ position: absolute;
   font-family: Inter;
   font-weight: 600;
   font-style: Semi Bold;
-  color: white;
   font-size: 16px;
   leading-trim: NONE;
   line-height: 16px;
@@ -619,22 +603,81 @@ position: absolute;
 
 .pop-card__party-label {
   font-family: Inter;
-  font-weight: 400;
+  font-weight: 900;
   font-style: Regular;
   font-size: 10px;
   leading-trim: NONE;
   line-height: 12px;
   letter-spacing: 0%;
   text-align: center;
-  color: white !important;
 }
 
 .pop-card__vs {
   font-size: 18px;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 0 12px rgba(255, 220, 80, 0.5);
   flex-shrink: 0;
   align-self: center;
   padding-bottom: 20px;
+}
+.pop-card__title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.pop-card__winner-logo {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  background: white;
+  flex-shrink: 0;
+}
+.pop-card__tag_bar{
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.pop-card__tag{
+  height: 100%;
+  width: 0%;
+  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+  animation: resizeHorizontal 3s ease-in-out infinite;
+}
+@keyframes resizeHorizontal {
+    0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  70% {
+    width: 0%;
+  }
+  }
+.fight-card__status_bar{
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+}
+.pop-card__votes{
+  font-size: 12px;
+}
+.fight-card__status {
+  display: block;
+  font-size: var(--font-xs);
+  color: var(--color-muted);
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  padding: 3px 0px;
+  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+  width: 0%;
+  animation: resizeHorizontal 3s ease-in-out infinite;
+  box-sizing: border-box;
 }

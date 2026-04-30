@@ -100,8 +100,10 @@ function buildCandidateRow(candidate, leaderTag) {
           candidate.name +
           ' <span class="fight-card__party-inline">(' + candidate.partyShort + ')</span>' +
         '</div>' +
+        '<div class="fight-card__status_bar">'+
         '<div class="fight-card__status" style="color:white;background-color:' + colorBG + '">' + leaderTag + '</div>' +
-      '</div>' +
+        '</div>'+
+        '</div>' +
     '</div>'
   );
 }

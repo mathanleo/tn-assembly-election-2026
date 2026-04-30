@@ -9519,20 +9519,6 @@ const constituenciesWithCandidates = {
         "photo": null
       },
       {
-        "id": 21,
-        "name": "T.M.Anbarasan",
-        "age": "66",
-        "votes":0,
-        "gender": "male",
-        "address": "NO 26, THULUKKA STREET,KUNDRATHUR,CHENNAI 600066",
-        "party_full": "Dravida Munnetra Kazhagam",
-        "party_short": "DMK",
-        "constituency": "Alandur",
-        "bg": "#dceeff",
-        "accent": "#1565C0",
-        "photo": null
-      },
-      {
         "id": 22,
         "name": "V.Anbarasan",
         "age": "37",

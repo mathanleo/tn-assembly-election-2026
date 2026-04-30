@@ -169,34 +169,43 @@
 }
 
 @media (max-width: 576px) {
+  /* Let the grid handle the width */
   .candidate-card {
-    position: relative;
-    margin-top: 90px;
-    border-radius: var(--radius-lg);
-    overflow: visible;
-    width: unset !important;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    animation: cardFadeIn 0.25s ease both;
+    margin-top: 50px;
   }
 
+  /* Scale the photo down for mobile */
+  .candidate-card__photo-wrap {
+    width: 90px;  /* Smaller width */
+    height: 110px; /* Scaled height */
+    top: -45px;   /* Adjusted position */
+    border-radius: 50px;
+  }
+
+  /* Make body fluid and reduce height */
   .candidate-card__body {
-    width: 150px !important;
-    min-height: 176px !important;
-    border-radius: 8px;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 64px;
-    overflow: hidden;
-    transition: box-shadow 0.15s ease;
+    width: 100% !important; /* Take full grid cell width */
+    height: 100% !important; 
+    padding-top: 50px;
   }
 
+  /* Adjust font sizes so they don't break layout */
+  .candidate-card__name {
+    font-size: 12px;
+  }
+
+  .candidate-card__vote_text,
+  .candidate-card__constituency {
+    font-size: 10px;
+    max-width: 100%;
+  }
+
+  /* Scale down the party logo */
+  .candidate-card__logo-wrap {
+    width: 28px;
+    height: 28px;
+    bottom: 55px;
+  }
 }
 
 /* LAPTOP: 4 cards per row */
@@ -266,7 +275,7 @@
 /* ---------- Card body — alliance/party colour background ---------- */
 .candidate-card__body {
   width: 182px;
-  height: 186px;
+  min-height: 186px;
   border-radius: 8px;
   color: black;
   display: flex;
@@ -467,21 +476,31 @@
   overflow: hidden;
 }
 .candidate-card__party-bar1{
-  background:#12B76A;
   width:88px;
-  height: 90px;
+  height: 26px;
   color:white;
   text-align: center;
   position: absolute;
-  top: -31px;
-  left: -8px;
-  transform: rotate(45deg);
+  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+  animation: resizeHorizontal 3s ease-in-out infinite;
 }
+@keyframes resizeHorizontal {
+    0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 0%;
+  }
+  }
 .candidate-card__party-bar-text{
   z-index: 2;
   color: white;
   text-align: center;
   margin-left: 5px;
+  font-size: 13px;
 }
 .candidate-card__party-bar2{
   text-align: right;
