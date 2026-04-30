@@ -160,27 +160,21 @@ function buildPartyRows(parties, limit) {
         }
 
         var selectedClass = (selectedParty === party.pn) ? 'alliance-table__row--selected' : '';
-
-        // return (
-        //     '<div class="alliance-table__row ' + selectedClass + '" onclick="selectParty(\'' + party.pn + '\')" style="cursor: pointer;">' +
-        //     '<div class="alliance-table__party-info">' +
-        //     iconHTML +
-        //     '<span class="alliance-table__party-name">' + (party.fullName || party.pn) + '</span>' +
-        //     '</div>' +
-        //     '<span class="alliance-table__seats ' + seatsClass + '">' + seats + '</span>' +
-        //     '</div>'
-        // );
+        var leadingDisplay = String(leadCount);
+        var seatDisplay = seatShare === '–' ? '–' : seatShare;
 
         return (
-    '<div class="alliance-table__row ' + selectedClass + '" onclick="selectParty(\'' + party.pn + '\')" style="cursor: pointer;">' +
-    '<div class="alliance-table__party-info">' +
-    iconHTML +
-    '<span class="alliance-table__party-name">' + (party.fullName || party.pn) + '</span>' +
-    '</div>' +
-    '<span class="alliance-table__leading">' + (party.leading ?? '0') + '</span>' +
-    '<span class="alliance-table__seats ' + seatsClass + '">' + seats + '</span>' +
-    '</div>'
-);
+            '<div class="alliance-table__row ' + selectedClass + '" onclick="selectParty(\'' + party.pn + '\')" style="cursor: pointer;">' +
+            '<div class="alliance-table__party-info">' +
+            iconHTML +
+            '<span class="alliance-table__party-name">' + (party.fullName || party.pn) + '</span>' +
+            '</div>' +
+            '<div class="alliance-table__count-group">' +
+            '<span class="alliance-table__count alliance-table__count--lead">' + leadingDisplay + '</span>' +
+            '<span class="alliance-table__count alliance-table__count--seats">' + seatDisplay + '</span>' +
+            '</div>' +
+            '</div>'
+        );
     }).join("");
     return rowsHTML;
 }
@@ -216,14 +210,10 @@ function renderAllianceTable() {
     renderColumn("alliance-col-nda", alliancesData.NDA, "NDA");
     renderColumn("alliance-col-spa", alliancesData.SPA, "SPA");
     renderColumn("alliance-col-others", alliancesData.OTHERS, "OTHERS");
-
-    // ── ADD THIS: compute totals and update parliament chart ──
-    var ndaTotal    = alliancesData.NDA.reduce(function(sum, p) { return sum + (p.cid && p.cid.length > 0 ? p.cid.length : (p.figmaSeats || 0)); }, 0);
-    var spaTotal    = alliancesData.SPA.reduce(function(sum, p) { return sum + (p.cid && p.cid.length > 0 ? p.cid.length : (p.figmaSeats || 0)); }, 0);
-    var othersTotal = alliancesData.OTHERS.reduce(function(sum, p) { return sum + (p.cid && p.cid.length > 0 ? p.cid.length : (p.figmaSeats || 0)); }, 0);
-
-    if (window.updateParliamentChart) {
-        window.updateParliamentChart(ndaTotal, spaTotal, othersTotal);
+    
+    // Refresh map colors to reflect new lead counts
+    if (typeof window.refreshMapColors === 'function') {
+        window.refreshMapColors();
     }
 }
 
