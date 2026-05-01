@@ -205,7 +205,15 @@ function renderAllianceTable() {
       `
             : '';
 
-        col.innerHTML = rowsHTML + buttonHTML;
+        var headerHTML = `
+          <div class="alliance-table__mobile-header">
+            <span>Parties</span>
+            <span>Leading</span>
+            <span>Seats</span>
+          </div>
+        `;
+
+        col.innerHTML = headerHTML + rowsHTML + buttonHTML;
     }
     renderColumn("alliance-col-nda", alliancesData.NDA, "NDA");
     renderColumn("alliance-col-spa", alliancesData.SPA, "SPA");

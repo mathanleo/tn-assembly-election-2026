@@ -1682,4 +1682,89 @@
 .party-highlighted {
   stroke: #ff6b35 !important;
   stroke-width: 1px !important;
+}@media (max-width: 768px) {
+  .results-hero {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
+  .results-map-wrap {
+    min-height: auto;
+    max-height: none;
+  }
+
+  .results-chart-col {
+    padding: var(--gap-md);
+  }
+
+  .parliament-wrap {
+    padding-top: var(--gap-md);
+    margin-bottom: 1.5rem;
+  }
+
+  .parliament-center {
+    bottom: 0;
+  }
+
+  #alliance-table {
+    margin-top: 1.5rem;
+  }
 }
+@media (max-width: 768px) {
+  .results-hero {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
+  .results-map-wrap {
+    min-height: auto;
+    max-height: none;
+  }
+
+  .results-chart-col {
+    padding: var(--gap-md);
+  }
+
+  .parliament-wrap {
+    padding-top: var(--gap-md);
+    margin-bottom: 1.5rem;
+  }
+
+  .parliament-center {
+    bottom: 0;
+  }
+
+  #alliance-table {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .results-hero {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
+  .results-map-wrap {
+    min-height: auto;
+    max-height: none;
+  }
+
+  .results-chart-col {
+    padding: var(--gap-md);
+  }
+
+  .parliament-wrap {
+    padding-top: var(--gap-md);
+    margin-bottom: 1.5rem;
+  }
+
+  .parliament-center {
+    bottom: 0;
+  }
+
+  #alliance-table {
+    margin-top: 1.5rem;
+  }
+}
+

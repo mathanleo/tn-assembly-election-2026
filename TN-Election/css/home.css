@@ -350,6 +350,10 @@
   border-radius: 8px;
 }
 
+.alliance-table__mobile-header {
+  display: none;
+}
+
 .alliance-table__subheader--nda {
   color: #e05a46;
   background-color: #FCEBE8;
@@ -580,10 +584,24 @@ text-align: center;
   }
 
   .alliance-table__headers,
-  .alliance-table__subheaders,
   .alliance-table__vdivider,
-  .alliance-table__vdivider-head {
+  .alliance-table__vdivider-head,
+  .alliance-table__subheaders {
     display: none;
+  }
+
+  .alliance-table__mobile-header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 12px;
   }
 
   #alliance-col-nda::before,
@@ -609,6 +627,42 @@ text-align: center;
     display: flex;
     flex-direction: column;
     gap: 24px;
+  }
+
+  .alliance-table__mobile-header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 14px;
+    background: #f8fafc;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 12px;
+  }
+
+  .alliance-table__mobile-header span {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #alliance-col-nda .alliance-table__mobile-header {
+    background: #FCEBE8;
+    color: #e05a46;
+  }
+
+  #alliance-col-spa .alliance-table__mobile-header {
+    background: #EEF4FF;
+    color: #5b68b8;
+  }
+
+  #alliance-col-others .alliance-table__mobile-header {
+    background: #F9FAFB;
+    color: #8a93a8;
   }
 
   .alliance-table__col {
@@ -665,6 +719,19 @@ text-align: center;
     gap: 14px;
   }
 
+  .alliance-table__mobile-header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #475569;
+  }
+
   .map-stats-bar {
     gap: 12px;
   }
@@ -719,7 +786,7 @@ text-align: center;
   }
 
   .parliament-total {
-    margin-top: 0;
+    margin-top: -26px;
   }
 
   .cm-candidates__grid {
