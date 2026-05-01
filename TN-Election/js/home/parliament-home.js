@@ -157,8 +157,8 @@
 
 // ── Static colors (2021 results page) ──
 var ALLIANCE_DOT_COLORS = {
-  'DMK Alliance':    '#5b68b8',
-  'AIADMK Alliance': '#E05A46',
+  'DMK Alliance':    '#8a8f98',
+  'AIADMK Alliance': '#8a8f98',
   'No Alliance':     '#8a93a8'
 };
 

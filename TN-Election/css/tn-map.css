@@ -541,45 +541,97 @@
 @media (max-width: 992px) {
   .map-body {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .map-right {
-    min-height: 420px;
+  .map-left-col,
+  .map-right-col {
+    width: 100%;
+    min-width: 0;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 
-  /* .map-content-right {
-    padding: 0 16px 16px;
-  } */
-  /* .map-stats-bar-container {
-    height: 100px;
-  } */
+  .map-top-row {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .parliament-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #parliament-chart {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  .map-search {
+    width: 100%;
+    max-width: 100%;
+  }
 
   .map-stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-    width: 75%;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
-  .map-stats-bar__item:nth-child(2) {
+  .map-stats-bar__item {
     border-right: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-left-col,
+  .map-right-col {
+    padding: 0 14px;
+    min-height: 520px;
+  }
+
+  .map-body {
+    gap: 14px;
+  }
+
+  .map-stats-bar {
+    gap: 10px;
   }
 }
 
 /* ── Mobile ───────────────────────────────────── */
 @media (max-width: 576px) {
-  .map-right {
-    min-height: 360px;
+  .map-left-col,
+  .map-right-col {
+    padding: 0 12px;
+  }
+
+  .map-body {
+    gap: 12px;
+  }
+
+  .cm-candidates__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .cm-card {
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto;
+    min-height: auto;
   }
 
   .map-search {
     width: 100%;
   }
 
-  /* .map-stats-bar-container {
-    height: 140px;
-  } */
-
   .map-stats-bar {
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    grid-template-columns: 1fr;
   }
 
   .map-stats-bar__item {

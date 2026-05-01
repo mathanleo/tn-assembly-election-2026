@@ -514,24 +514,53 @@ text-align: center;
 @media (max-width: 992px) {
   .home-section { padding: var(--gap-md); }
 
-  .map-body { flex-direction: column; }
+  .map-body {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .map-body {
+    min-height: auto;
+  }
 
   .map-left-col {
     flex: none;
-    width: 450px;
+    width: 100%;
     min-height: auto;
-    gap: 0px;
+    padding: 16px;
+    box-sizing: border-box;
   }
 
   .map-right-col {
     width: 100%;
-    padding: 12px;
+    padding: 12px 16px;
   }
 
   .map-top-row {
     flex-direction: column;
     min-height: auto;
     gap: 24px;
+    align-items: stretch;
+  }
+
+  .parliament-wrap {
+    min-width: auto;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .cm-panel {
+    height: auto;
+  }
+
+  .parliament-total {
+    margin-top: 0;
+  }
+
+  #parliament-chart {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
   }
 
   .cm-panel {
@@ -540,75 +569,108 @@ text-align: center;
   }
 
   .cm-candidates__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
-  .cm-card {
-    width: 112px;
-    height: 149px;
+  .alliance-table,
+  .alliance-table__total {
+    width: 100%;
+    margin: 0;
   }
 
   .alliance-table__headers,
-  .alliance-table__subheaders { display: none; }
-
+  .alliance-table__subheaders,
   .alliance-table__vdivider,
-  .alliance-table__vdivider-head { display: none; }
+  .alliance-table__vdivider-head {
+    display: none;
+  }
+
+  #alliance-col-nda::before,
+  #alliance-col-spa::before,
+  #alliance-col-others::before {
+    display: block;
+    position: relative;
+    content: "";
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    font-size: var(--font-md);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #fff;
+  }
+
+  #alliance-col-nda::before { content: "NDA"; background: #e05a46; }
+  #alliance-col-spa::before { content: "SPA"; background: #5b68b8; }
+  #alliance-col-others::before { content: "Others"; background: #8a93a8; }
 
   .alliance-table__body {
     display: flex;
     flex-direction: column;
+    gap: 24px;
   }
 
   .alliance-table__col {
-    border-bottom: 6px solid var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
-  .alliance-table__col:last-child { border-bottom: none; }
-
-  #alliance-col-nda::before {
-    content: "NDA";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #e05a46;
-    color: #fff;
-    font-size: var(--font-md);
-    font-weight: 800;
-    padding: 10px var(--gap-md);
-    letter-spacing: 0.05em;
+  .alliance-table__col:last-child {
+    margin-bottom: 0;
   }
 
-  #alliance-col-spa::before {
-    content: "SPA";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #5b68b8;
-    color: #fff;
-    font-size: var(--font-md);
-    font-weight: 800;
-    padding: 10px var(--gap-md);
-    letter-spacing: 0.05em;
-  }
-
-  #alliance-col-others::before {
-    content: "Others";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #8a93a8;
-    color: #fff;
-    font-size: var(--font-md);
-    font-weight: 800;
-    padding: 10px var(--gap-md);
-    letter-spacing: 0.05em;
+  .map-search {
+    width: 100%;
+    max-width: 100%;
   }
 
   .stats-wrapper {
     display: flex !important;
     flex-direction: column !important;
     gap: 35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-body {
+    gap: 14px;
+    min-height: auto;
+  }
+
+  .map-left-col,
+  .map-right-col {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .map-top-row {
+    gap: 20px;
+  }
+
+  .cm-candidates__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .cm-card {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .alliance-table__body {
+    gap: 14px;
+  }
+
+  .map-stats-bar {
+    gap: 12px;
+  }
+
+  .map-search {
+    width: 100%;
   }
 }
 
@@ -628,29 +690,77 @@ text-align: center;
 @media (max-width: 576px) {
   .home-section__title { font-size: var(--font-lg); }
 
+  .map-body {
+    gap: 14px;
+    min-height: auto;
+  }
+
+  .map-left-col {
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .map-right-col {
+    padding: 12px 0;
+  }
+
+  .map-top-row {
+    min-height: auto;
+  }
+
+  .parliament-wrap {
+    min-height: auto;
+  }
+
+  .cm-panel {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .parliament-total {
+    margin-top: 0;
+  }
+
+  .cm-candidates__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
   .cm-card {
-    width: 112px;
-    height: 149px;
+    width: 100%;
+    max-width: 160px;
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .cm-card__photo-wrap {
+    padding-top: 24px;
   }
 
   .cm-candidates__title { font-size: 15px; }
   .cm-card__name { font-size: var(--font-sm); }
-  .alliance-table__party-name { font-size: 11px; }
-  .alliance-table__seats { font-size: 11px; }
-  .alliance-table {
-    width: 100%;
-    margin: 0;
+  .alliance-table__party-name,
+  .alliance-table__seats {
+    font-size: 11px;
   }
+
+  .alliance-table,
   .alliance-table__total {
     width: 100%;
     margin: 0;
   }
 
+  .alliance-table__col {
+    padding-bottom: 12px;
+  }
+
+  .map-search {
+    width: 100%;
+  }
+
   .stats-wrapper {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 35px;
-    min-width: 343px;
+    min-width: 0;
   }
 }
 
