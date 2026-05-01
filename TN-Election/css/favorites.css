@@ -386,10 +386,10 @@
 
 .constituency-fav-card__remove {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 26px;
-  height: 26px;
+  top: 1.5px;
+  right: 1px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border: none;
   border-radius: 50%;
