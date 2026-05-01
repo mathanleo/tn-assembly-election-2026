@@ -962,7 +962,7 @@ var headToHeadData = {
         "id1": 4073,
         "party1": "DMK",
         "candidate2": "D. Jayakumar",
-        "id2": 2564,
+        "id2": 2563,
         "party2": "ADMK"
     },
     {

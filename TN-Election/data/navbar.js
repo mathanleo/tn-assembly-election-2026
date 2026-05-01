@@ -21,7 +21,8 @@ const navbarData = {
         { label: "Home", href: "/index.html" },
         { label: "Candidates", href: `${prefixPath}candidates.html` },
         { label: "Big Fights", href: `${prefixPath}bigfights.html` },
-        { label: "2021 Results", href: `${prefixPath}results.html` }
+        { label: "2021 Results", href: `${prefixPath}results.html` },
+        { label: "My Favourites", href: `${prefixPath}myfavourites.html` }
     ],
 
     // --- Brand (Top Right) ---

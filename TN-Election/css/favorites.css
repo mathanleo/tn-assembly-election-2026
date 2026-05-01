@@ -1,0 +1,296 @@
+/* ============================================
+   css/favorites.css
+   Styles for My Favorites page
+   ============================================ */
+
+/* Favorites Header with Search */
+.favorites-header {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--gap-md) !important;
+  margin-bottom: var(--gap-lg) !important;
+}
+
+@media (min-width: 768px) {
+  .favorites-header {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+}
+
+/* Search Wrapper */
+.favorites-search-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.favorites-search {
+  position: relative;
+  width: 100%;
+}
+
+.favorites-search__input {
+  width: 100%;
+  padding: 10px 16px 10px 42px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-md);
+  font-family: inherit;
+  background: var(--color-white);
+  color: var(--color-dark);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.favorites-search__input:hover,
+.favorites-search__input:focus {
+  border-color: #999;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.favorites-search__input::placeholder {
+  color: var(--color-muted);
+}
+
+.favorites-search__icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-muted);
+  pointer-events: none;
+  width: 16px;
+  height: 16px;
+}
+.favourites-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gap-md);
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+}
+
+.favourites-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--color-dark);
+  white-space: nowrap;
+}
+
+.favourites-search-wrap {
+  position: relative;
+  width: 320px;
+}
+
+.favourites-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 300;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.favourites-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.12s;
+}
+.favourites-dropdown-item:last-child { border-bottom: none; }
+.favourites-dropdown-item:hover { background: var(--color-bg); }
+
+.favourites-dropdown-item__photo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #e2e8f0;
+  flex-shrink: 0;
+}
+.favourites-dropdown-item__photo img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.favourites-dropdown-item__info { flex: 1; min-width: 0; }
+.favourites-dropdown-item__name {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.favourites-dropdown-item__sub {
+  font-size: var(--font-xs);
+  color: var(--color-muted);
+}
+
+.favourites-result-card {
+  margin-top: 8px;
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.favourites-add-btn {
+  padding: 8px 18px;
+  background: #E54B2A;
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: var(--font-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.favourites-add-btn:hover { background: #c73e20; }
+/* Search Result Card */
+.favorites-search-result-card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: var(--gap-md) !important;
+  padding: var(--gap-md) !important;
+  margin-top: var(--gap-md) !important;
+  border: 1.5px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  background: var(--color-white) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.favorites-search-result-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-md);
+  flex: 1;
+}
+
+.favorites-search-result-photo {
+  flex: 0 0 80px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorites-search-result-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.favorites-search-result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.favorites-search-result-name {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.favorites-search-result-constituency {
+  font-size: var(--font-sm);
+  color: var(--color-muted);
+}
+
+.favorites-search-result-party {
+  display: flex;
+  gap: 4px;
+}
+
+/* Add Button */
+.favorites-add-btn {
+  flex: 0 0 auto;
+  padding: 10px 24px;
+  background: #1565C0;
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.favorites-add-btn:hover {
+  background: #0d47a1;
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+}
+
+.favorites-add-btn:active {
+  transform: scale(0.98);
+}
+
+/* Remove Button (X on card) */
+.favorites-remove-btn {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  margin-right: 150px;
+  border-radius: 50%;
+  background:transparent;
+  color:black;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.favorites-remove-btn:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.favorites-remove-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .favorites-search-result-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .favorites-search-result-content {
+    width: 100%;
+  }
+
+  .favorites-add-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
