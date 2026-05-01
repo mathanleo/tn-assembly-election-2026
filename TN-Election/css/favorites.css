@@ -294,3 +294,260 @@
     text-align: center;
   }
 }
+
+
+
+/* ── Constituency empty state box ── */
+.cs-empty-state {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  padding: 48px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--gap-md);
+}
+
+.cs-empty-state__text {
+  font-size: 14px;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+/* ── Saved Constituencies Grid ── */
+.cs-favorites-section {
+  margin-top: var(--gap-lg);
+}
+
+.cs-favorites-title {
+  margin-bottom: var(--gap-md);
+  font-size: var(--font-lg);
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.cs-favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap-sm);
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+@media (min-width: 577px) {
+  .cs-favorites-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-md);
+  }
+}
+
+@media (min-width: 993px) {
+  .cs-favorites-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap-md);
+  }
+}
+
+@media (min-width: 1200px) {
+  .cs-favorites-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.cs-favorites-empty {
+  grid-column: 1 / -1;
+  padding: 28px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.constituency-fav-card {
+  position: relative;
+  padding: 20px;
+  background: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  cursor: default;
+  transition: all 0.2s ease;
+  animation: cardFadeIn 0.25s ease both;
+}
+
+.constituency-fav-card:hover {
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  border-color: transparent;
+}
+
+.constituency-fav-card__remove {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #ef4444;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.constituency-fav-card__remove:hover {
+  background: #ef4444;
+  color: white;
+  transform: scale(1.05);
+}
+
+.constituency-fav-card__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.constituency-fav-card__name {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.constituency-fav-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff1f2;
+  color: #b91c1c;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.constituency-fav-card__section-label {
+  margin-top: 8px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: #64748b;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.constituency-fav-card__mla-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.constituency-fav-card__mla-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.constituency-fav-card__mla-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.constituency-fav-card__mla-party {
+  font-size: 12px;
+  color: #475569;
+}
+
+.constituency-fav-card__candidate-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.constituency-fav-card__candidate-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.constituency-fav-card__candidate-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.constituency-fav-card__candidate-party {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #475569;
+}
+
+.constituency-fav-card__candidate-party img,
+.constituency-fav-card__candidate-party div {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.constituency-fav-card__candidate-party span {
+  font-weight: 700;
+}
+
+.constituency-fav-card__candidate-placeholder {
+  font-size: 13px;
+  color: #64748b;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.constituency-fav-card__details-btn {
+  width: 100%;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 999px;
+  background: #ef4444;
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.constituency-fav-card__details-btn:hover {
+  background: #dc2626;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

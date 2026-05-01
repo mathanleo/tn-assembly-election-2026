@@ -265,8 +265,70 @@
         <div id="favorites-container" class="candidates-grid"></div>
       </section>
 
+      <!-- SECTION 3 : FAVOURITE CONSTITUENCY WITH SEARCH -->
+     <section class="popular-candidates-section" id="constituency-search-section">
+
+  <!-- Header: title left, search right -->
+  <div class="favourites-header">
+    <h2 class="favourites-title">Favourite Constituency</h2>
+
+    <div class="favourites-search-wrap" style="position:relative;">
+      <div class="candidates-search">
+        <svg class="candidates-search__icon" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="text"
+          id="cs-search-input"
+          class="candidates-search__input"
+          placeholder="Search constituency name…"
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Dropdown -->
+      <div id="cs-search-dropdown" class="favourites-dropdown" style="display:none;"></div>
+
+      <!-- Selected result card + Add button (same style as favourites) -->
+      <div id="cs-search-result-card" class="favourites-result-card" style="display:none;">
+        <div class="favorites-search-result-content"></div>
+        <button id="cs-search-add-btn" class="favourites-add-btn">+ Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup — shown after Add is clicked -->
+  <div id="cs-popup-anchor">
+    <div class="map-popup" id="cs-popup">
+      <div class="popup-header">
+        <div class="popup-name" id="cs-popup-name">—</div>
+        <button class="popup-close" id="cs-popup-close" aria-label="Close">×</button>
+      </div>
+      <div class="popup-body">
+        <div class="popup-section-label">Current MLA</div>
+        <div id="cs-popup-mla"></div>
+        <div class="popup-section-label">Contesting Candidates</div>
+        <div id="cs-popup-candidates"></div>
+      </div>
+      <div class="popup-footer">
+        <button class="popup-view-btn" id="cs-popup-view-btn">View full details ›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty state -->
+  <div id="cs-empty-state" class="cs-empty-state">
+    <p class="cs-empty-state__text">Search for a constituency above and add it to show your favourite constituencies here.</p>
+  </div>
+
+  <!-- Saved constituencies grid -->
+  <div id="cs-favorites-container" class="candidates-grid" style="margin-top: 16px;"></div>
+
+</section>
       <!-- SECTION 3 : BIG FIGHTS  -->
-      <section
+      <!-- <section
         class="big-fights-preview-section"
         id="big-fights-preview-section"
       >
@@ -280,17 +342,15 @@
         <div style="width: 100%; display: flex; justify-content: end">
           <a href="bigfights.html" class="hpc__viewall-btn">View all</a>
         </div>
-        <!-- Your friend fills this container via js/home/big-fights-preview.js -->
-      </section>
+      </section> -->
 
       <!-- SECTION 4 : MANIFESTOS -->
-      <section class="manifestos-section" id="manifestos-section">
+      <!-- <section class="manifestos-section" id="manifestos-section">
         <div class="section-header">
           <h2 class="section-title">Manifestos</h2>
         </div>
-        <!-- filled by js/home/manifestos.js -->
         <div class="manifestos-grid" id="manifestos-container"></div>
-      </section>
+      </section> -->
 
       <!-- SECTION 5 : RICHEST CANDIDATES -->
       <section class="richest-candidates-section">
@@ -402,6 +462,7 @@
 
     <script src="../js/candidates/candidate-cards.js"></script>
     <script src="../js/home/my-favorites.js"></script>
+    <script src="../js/home/constituency-search.js"></script>
     <script src="../js/candidates/candidate-popup.js"></script>
     <script src="../data/bigfights.js"></script>
     <script src="../js/bigfights/bigfight-cards.js"></script>
