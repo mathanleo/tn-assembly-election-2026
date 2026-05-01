@@ -310,8 +310,8 @@
 }
 
 .cs-empty-state__text {
-  font-size: 14px;
-  color: var(--color-muted);
+  font-size: 16px;
+  color: #3d4149;
   text-align: center;
 }
 
