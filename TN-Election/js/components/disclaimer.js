@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (consentValue === "accepted") {
     consent.style.display = "none";
     mainContent.classList.remove("blur");
-    navbar.classList.remove("blur");
+    navbar?.classList?.remove("blur");
   } else {
     // mainContent.classList.add("blur");
     // navbar.classList.add("blur");

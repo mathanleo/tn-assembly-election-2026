@@ -124,6 +124,32 @@
     background-color: #F9FAFB;
 }
 
+.constituency-table tbody tr.constituency-row {
+    cursor: pointer;
+}
+
+/* Party Logo */
+.party-logo {
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+/* Party Badge Fallback */
+.party-badge {
+    display: inline-block;
+    background-color: #667085;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
 @media (max-width: 576px) {
     .table-container {
         font-family: 'Inter', sans-serif;
@@ -186,7 +212,7 @@
 
 .constituency-table {
   width: 100%;
-  min-width: 560px; /* prevents columns from collapsing */
+  min-width: 860px; /* prevents columns from collapsing */
   border-top: 1px solid #D0D5DD;
   border-collapse: collapse;
 }

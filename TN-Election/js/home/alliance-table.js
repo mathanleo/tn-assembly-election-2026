@@ -223,6 +223,11 @@ function renderAllianceTable() {
     if (typeof window.refreshMapColors === 'function') {
         window.refreshMapColors();
     }
+    
+    // Refresh the parliament dot chart with live counts
+    if (typeof window.refreshLiveParliamentChart === 'function') {
+        window.refreshLiveParliamentChart();
+    }
 }
 
 window.refreshAllianceTable = renderAllianceTable;

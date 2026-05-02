@@ -166,8 +166,79 @@ var ALLIANCE_DOT_COLORS = {
 var PARLIAMENT_LIVE_COLORS = {
   nda:    '#E05A46',
   spa:    '#5b68b8',
+  ntk:    '#22c55e',
+  tvk:    '#facc15',
   others: '#8a93a8'
 };
+
+var PARTY_GROUP_LOOKUP = {};
+
+function buildPartyGroupLookup() {
+  if (typeof alliancesData === 'undefined' || typeof normalizePartyCode !== 'function') return;
+
+  Object.keys(alliancesData).forEach(function (alliance) {
+    var group = alliance.toUpperCase();
+    alliancesData[alliance].forEach(function (party) {
+      var code = normalizePartyCode(party.pn || party.fullName || party.party_short || party.party);
+      if (!code) return;
+      if (group === 'OTHERS') {
+        if (code === 'NTK' || code === 'TVK') {
+          PARTY_GROUP_LOOKUP[code] = code;
+          return;
+        }
+        PARTY_GROUP_LOOKUP[code] = 'OTHERS';
+        return;
+      }
+      PARTY_GROUP_LOOKUP[code] = group;
+    });
+  });
+
+  PARTY_GROUP_LOOKUP['NTK'] = 'NTK';
+  PARTY_GROUP_LOOKUP['TVK'] = 'TVK';
+}
+
+function getLiveLeadGroup(constituencyId) {
+  if (typeof getConstituencyLeaderParty !== 'function') return 'others';
+
+  var leaderParty = getConstituencyLeaderParty(constituencyId);
+  if (!leaderParty) return 'others';
+
+  var normalized = normalizePartyCode(leaderParty);
+  var group = PARTY_GROUP_LOOKUP[normalized] || 'OTHERS';
+  if (group === 'OTHERS' && (normalized === 'NTK' || normalized === 'TVK')) {
+    group = normalized;
+  }
+  return group.toLowerCase();
+}
+
+function computeLiveParliamentCounts() {
+  var counts = {
+    nda: 0,
+    spa: 0,
+    ntk: 0,
+    tvk: 0,
+    others: 0
+  };
+
+  if (typeof constituenciesWithCandidates === 'undefined') return counts;
+
+  Object.keys(constituenciesWithCandidates).forEach(function (constituencyId) {
+    var group = getLiveLeadGroup(constituencyId);
+    if (counts[group] !== undefined) {
+      counts[group]++;
+    } else {
+      counts.others++;
+    }
+  });
+
+  return counts;
+}
+
+function refreshLiveParliamentChart() {
+  if (typeof window.updateParliamentChart !== 'function') return;
+  var counts = computeLiveParliamentCounts();
+  window.updateParliamentChart(counts.nda, counts.spa, counts.ntk, counts.tvk, counts.others);
+}
 
 // =============================================
 // STATIC FUNCTION — used on 2021 results page
@@ -286,20 +357,22 @@ function buildParliamentChart() {
 
 // =============================================
 // DYNAMIC FUNCTION — used on home page
-// Data source: alliance-table.js live seat totals
-// Called via: window.updateParliamentChart(nda, spa, others)
+// Data source: live constituency leader data
+// Called via: window.updateParliamentChart(nda, spa, ntk, tvk, others)
 // =============================================
-var _liveNda = 0, _liveSpa = 0, _liveOthers = 0;
+var _liveNda = 0, _liveSpa = 0, _liveNtk = 0, _liveTvk = 0, _liveOthers = 0;
 
-function buildLiveParliamentChart(ndaSeats, spaSeats, othersSeats) {
+function buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats) {
   var canvas = document.getElementById('parliament-chart');
   if (!canvas) return;
 
   _liveNda    = ndaSeats;
   _liveSpa    = spaSeats;
+  _liveNtk    = ntkSeats;
+  _liveTvk    = tvkSeats;
   _liveOthers = othersSeats;
 
-  var total = ndaSeats + spaSeats + othersSeats;
+  var total = ndaSeats + spaSeats + ntkSeats + tvkSeats + othersSeats;
   if (total === 0) return;
 
   var dpr = window.devicePixelRatio || 1;
@@ -343,6 +416,8 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, othersSeats) {
 
   var ndaLeft    = ndaSeats;
   var spaLeft    = spaSeats;
+  var ntkLeft    = ntkSeats;
+  var tvkLeft    = tvkSeats;
   var othersLeft = othersSeats;
 
   for (var row = 0; row < rows; row++) {
@@ -351,14 +426,18 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, othersSeats) {
 
     var ndaCount    = (row === rows - 1) ? ndaLeft    : Math.round(ndaSeats    * rowTotal / total);
     var spaCount    = (row === rows - 1) ? spaLeft    : Math.round(spaSeats    * rowTotal / total);
-    var othersCount = rowTotal - ndaCount - spaCount;
+    var ntkCount    = (row === rows - 1) ? ntkLeft    : Math.round(ntkSeats    * rowTotal / total);
+    var tvkCount    = (row === rows - 1) ? tvkLeft    : Math.round(tvkSeats    * rowTotal / total);
+    var othersCount = rowTotal - ndaCount - spaCount - ntkCount - tvkCount;
     if (othersCount < 0) othersCount = 0;
 
     ndaLeft    -= ndaCount;
     spaLeft    -= spaCount;
+    ntkLeft    -= ntkCount;
+    tvkLeft    -= tvkCount;
     othersLeft -= othersCount;
 
-    // Arrange: others-left | NDA | SPA | others-right
+    // Arrange: others-left | NDA | SPA | NTK | TVK | others-right
     var noLeft  = Math.floor(othersCount / 2);
     var noRight = othersCount - noLeft;
 
@@ -366,11 +445,15 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, othersSeats) {
     for (var i = 0; i < noLeft; i++)      rowSeats.push('others');
     for (var i = 0; i < ndaCount; i++)    rowSeats.push('nda');
     for (var i = 0; i < spaCount; i++)    rowSeats.push('spa');
+    for (var i = 0; i < ntkCount; i++)    rowSeats.push('ntk');
+    for (var i = 0; i < tvkCount; i++)    rowSeats.push('tvk');
     for (var i = 0; i < noRight; i++)     rowSeats.push('others');
 
     while (rowSeats.length < rowTotal) {
       if (ndaLeft > 0)         { rowSeats.push('nda');    ndaLeft--; }
       else if (spaLeft > 0)    { rowSeats.push('spa');    spaLeft--; }
+      else if (ntkLeft > 0)    { rowSeats.push('ntk');    ntkLeft--; }
+      else if (tvkLeft > 0)    { rowSeats.push('tvk');    tvkLeft--; }
       else if (othersLeft > 0) { rowSeats.push('others'); othersLeft--; }
       else break;
     }
@@ -391,23 +474,24 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, othersSeats) {
 }
 
 // Public API — called from alliance-table.js
-window.updateParliamentChart = function(ndaSeats, spaSeats, othersSeats) {
-  buildLiveParliamentChart(ndaSeats, spaSeats, othersSeats);
+window.updateParliamentChart = function(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats) {
+  buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats);
 };
 
 // =============================================
 // INIT
 // =============================================
 document.addEventListener('DOMContentLoaded', function() {
-  // Static chart (2021 results page)
-  requestAnimationFrame(buildParliamentChart);
+  buildPartyGroupLookup();
+  refreshLiveParliamentChart();
 
   window.addEventListener('resize', function() {
     clearTimeout(window._parliamentTimer);
     window._parliamentTimer = setTimeout(function() {
       // Redraw whichever mode is active
-      if (_liveNda > 0 || _liveSpa > 0 || _liveOthers > 0) {
-        buildLiveParliamentChart(_liveNda, _liveSpa, _liveOthers);
+      var liveTotal = _liveNda + _liveSpa + _liveNtk + _liveTvk + _liveOthers;
+      if (liveTotal > 0) {
+        buildLiveParliamentChart(_liveNda, _liveSpa, _liveNtk, _liveTvk, _liveOthers);
       } else {
         buildParliamentChart();
       }
