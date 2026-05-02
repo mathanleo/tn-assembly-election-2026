@@ -40,8 +40,11 @@ function switchTab(tabKey) {
   var searchInput = document.getElementById('candidates-search-input');
   if (searchInput) searchInput.value = '';
 
-  // Load data for this tab
+  // Load data for this tab and merge votes
   activeCandidates = getTabData(tabKey);
+  if (typeof mergeVoteData === 'function') {
+    activeCandidates = mergeVoteData(activeCandidates);
+  }
   renderCandidates(activeCandidates);
 }
 

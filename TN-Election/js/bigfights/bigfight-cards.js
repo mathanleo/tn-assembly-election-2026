@@ -80,11 +80,15 @@ function buildSilhouette() {
 // -----------------------------------------------
 // Build one candidate row
 // -----------------------------------------------
-function buildCandidateRow(candidate, leaderTag) {
+function buildCandidateRow(candidate, leaderTag, voteCount) {
   var hasRealPhoto = candidate.photo && candidate.photo.indexOf('placeholder') === -1;
   var photoHTML = hasRealPhoto
     ? '<img src="' + candidate.photo + '" alt="' + candidate.name + '" class="fight-card__photo" />'
     : buildSilhouette();
+
+  var voteDisplay = (voteCount !== null && voteCount !== undefined)
+    ? voteCount.toLocaleString('en-IN')
+    : 'Awaited';
 
   var colorBG = leaderTag === "Leading" ? "green" : leaderTag === "Trailing" ? "red" : "gray";
 
@@ -94,6 +98,7 @@ function buildCandidateRow(candidate, leaderTag) {
         '<div class="fight-card__photo-circle">' +
           photoHTML +
         '</div>' +
+        '<div class="fight-card__votes">Votes: ' + voteDisplay + '</div>' +
       '</div>' +
       '<div class="fight-card__info">' +
         '<div class="fight-card__name-line">' +
@@ -129,6 +134,25 @@ function getLiveVotes(constituencyId, candidateId) {
 // -----------------------------------------------
 // Decide Leading / Trailing / Result Awaited for both candidates
 // -----------------------------------------------
+function getConstituencyMaxVotes(constituencyId) {
+  var constKey = String(constituencyId);
+  var constObj = constituenciesWithCandidates[constKey];
+  if (!constObj) return null;
+
+  var candidates = constObj.candidates;
+  var maxVotes = null;
+  for (var i = 0; i < candidates.length; i++) {
+    var v = candidates[i].votes;
+    if (v !== undefined && v !== null) {
+      v = Number(v);
+      if (maxVotes === null || v > maxVotes) {
+        maxVotes = v;
+      }
+    }
+  }
+  return maxVotes;
+}
+
 function getLeaderTags(fight) {
   if (typeof constituenciesWithCandidates === 'undefined') {
     return { tag1: "Waiting", tag2: "Waiting", margin: null, winnerParty: null };
@@ -136,16 +160,24 @@ function getLeaderTags(fight) {
 
   var v1 = getLiveVotes(fight.constituencyId, fight.candidate1.id);
   var v2 = getLiveVotes(fight.constituencyId, fight.candidate2.id);
+  var maxVotes = getConstituencyMaxVotes(fight.constituencyId);
 
-  if (v1 === null || v2 === null) {
+  if (maxVotes === null || maxVotes === 0) {
     return { tag1: "Waiting", tag2: "Waiting", margin: null, winnerParty: null };
   }
 
-  var diff = Math.abs(v1 - v2);
+  var tag1 = (v1 === null) ? "Waiting" : (v1 === maxVotes ? "Leading" : "Trailing");
+  var tag2 = (v2 === null) ? "Waiting" : (v2 === maxVotes ? "Leading" : "Trailing");
 
-  if (v1 > v2) return { tag1: "Leading", tag2: "Trailing", margin: diff, winnerParty: fight.candidate1.partyShort };
-  if (v2 > v1) return { tag1: "Trailing", tag2: "Leading", margin: diff, winnerParty: fight.candidate2.partyShort };
-  return { tag1: "Waiting", tag2: "Waiting", margin: 0, winnerParty: null };
+  var diff = (v1 === null || v2 === null) ? null : Math.abs(v1 - v2);
+  var winnerParty = null;
+  if (v1 !== null && v1 === maxVotes && v2 !== null && v1 > v2) {
+    winnerParty = fight.candidate1.partyShort;
+  } else if (v2 !== null && v2 === maxVotes && v1 !== null && v2 > v1) {
+    winnerParty = fight.candidate2.partyShort;
+  }
+
+  return { tag1: tag1, tag2: tag2, margin: diff, winnerParty: winnerParty };
 }
 // -----------------------------------------------
 // Build one full fight card
@@ -154,6 +186,8 @@ function buildFightCard(fight) {
   var c1 = fight.candidate1;
   var c2 = fight.candidate2;
   var tags = getLeaderTags(fight);
+  var v1 = getLiveVotes(fight.constituencyId, c1.id);
+  var v2 = getLiveVotes(fight.constituencyId, c2.id);
 
   // Winner party logo
   var logoHTML = '';
@@ -174,9 +208,9 @@ function buildFightCard(fight) {
         '<span class="fight-card__constituency">' + fight.constituency + '</span>' +
         logoHTML +   // ← winner logo next to constituency name
       '</div>' +
-      buildCandidateRow(c1, tags.tag1) +
+      buildCandidateRow(c1, tags.tag1, v1) +
       marginHTML +
-      buildCandidateRow(c2, tags.tag2) +
+      buildCandidateRow(c2, tags.tag2, v2) +
     '</div>'
   );
 }

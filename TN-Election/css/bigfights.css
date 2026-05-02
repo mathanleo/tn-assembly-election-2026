@@ -214,8 +214,21 @@ position: absolute;
 .fight-card__photo-wrap {
   position: relative;
   width: 56px;
-  height: 56px;
+  height: auto;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.fight-card__votes {
+  font-size: var(--font-xs);
+  color: var(--color-muted);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 80px;
+  word-break: break-word;
 }
 
 .fight-card__photo-circle {
@@ -447,7 +460,7 @@ position: absolute;
 }
 
 /* ============================================
-   POPULAR BATTLES — Card Grid (3 cols)
+   POPULAR BATTLES — Card Grid (4 cols desktop, 2 tablet, 1 mobile)
    ============================================ */
 .pop-grid {
   display: grid;
@@ -464,7 +477,7 @@ position: absolute;
 
 @media (min-width: 993px) {
   .pop-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

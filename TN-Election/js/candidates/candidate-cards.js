@@ -1050,7 +1050,7 @@ if (myVotes !== null) {
     leaderTag = (myVotes === maxVotes) ? "Leading" : "Trailing";
   } else {
     // myVotes === 0
-    leaderTag = "No Votes";
+    leaderTag = "Results Awaited";
   }
 }
 // -----------------------------------------------
@@ -1071,7 +1071,7 @@ if (myVotes !== null) {
     '<div class="candidate-card__footer">' +
     '<p class="candidate-card__name">' + (candidate.name || '').trim() + '</p>' +
     '<div class="candidate-card__vote">'+
-    '<p class="candidate-card__vote_text">' + voteDisplay + '</p>'+
+    '<p class="candidate-card__vote_text">' + "Votes: " + voteDisplay + '</p>'+
     '<p class="candidate-card__constituency">' + (candidate.constituency || '').trim() + '</p>' +
     '</div>'+
     '<div class="candidate-card__logo-wrap">' +
