@@ -136,6 +136,37 @@ var starCandidatesRich = {
   }
 ]
   },
+  3357: {
+    "id": 3357, 
+    "full_name": "Joseph Vijay Chandrasekhar", 
+    "date_of_birth": "22 June 1974", 
+    "birth_place": "Chennai, Tamil Nadu", 
+    "father": "S.A. Chandrasekhar (film director)", 
+    "children": "Jason Sanjay (son), Dhivya Sasha (daughter)", 
+    "current_position": "TVK Founder & President; first-time MLA candidate", 
+    "first_elected_as_mla": "Contesting for the first time in 2026 (Perambur constituency)", 
+    "political_experience": "Founded Vijay Makkal Iyakkam fan-based welfare movement (2009); founded Tamilaga Vettri Kazhagam (TVK) on 2 February 2024; TVK contested 2021 local body elections winning 115 of 169 seats; filed nomination for 2026 TN Assembly elections on 30 March 2026", 
+    "cases": 0, 
+    "about": "C. Joseph Vijay, known as Thalapathy Vijay, is one of Tamil cinema's biggest stars who retired from films to enter politics. He founded Tamilaga Vettri Kazhagam (TVK) on 2 February 2024 and is contesting his first election from Perambur constituency in 2026. As TVK president and the party's CM face, he represents a new political movement drawing from his massive pan-Tamil fan base.", 
+    "wins": 0, 
+    "losses": 0, 
+    "contested_constituencies": ["Perambur", "Tiruchirappalli East"], 
+    "history": [], 
+    "social_twitter": "https://x.com/actorvijay", 
+    "social_instagram": "https://www.instagram.com/actorvijay/", 
+    "social_facebook": "",
+    "asset":[
+      {
+    "movable":4105882196
+  },
+    {
+    "immovable":{
+      "own":1983193010,
+      "legacy":218369000
+    }
+  }
+]
+  },
   430: {
     "id": 430,
     "full_name": "Ottakarathevar Panneerselvam",
@@ -1540,7 +1571,7 @@ var starCandidatesRich = {
     "first_elected_as_mla": "N/A (Making assembly debut in 2026)", 
     "political_experience": "Entry into active electoral politics in 2026. Nominated by A.C. Shanmugam's Puthiya Needhi Katchi (PNK) to contest the Madurai Central seat; Part of the AIADMK-led National Democratic Alliance (NDA); Contesting on the AIADMK 'Two Leaves' symbol.", 
     "cases": 0, 
-    "about": "Sundar C is a veteran Tamil film director, actor, and producer known for blockbuster commercial entertainers and comedy films, including the popular Kanchana horror-comedy series. Active in Tamil cinema for over three decades, he is contesting from Madurai Central in 2026 under the Puthiya Neethi Katchi banner — his first electoral foray.", 
+    "about": "Sundar C is a veteran Tamil film director, actor, and producer and he is contesting from Madurai Central in 2026 under the Puthiya Neethi Katchi banner — his first electoral foray.", 
     "wins": 0, 
     "losses": 0, 
     "contested_constituencies": ["Madurai Central"], 

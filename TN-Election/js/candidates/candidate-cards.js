@@ -940,7 +940,7 @@ var ALLIANCE_PARTIES = {
 
 var ALLIANCE_COLOURS = {
   NDA: { bg: '#F97256', bar: '#FDA29B', text: '#000000' },
-  SPA: { bg: '#6172F3', bar: '#A4BCFD', text: '#000000' },
+  SPA: { bg: '#6172F3', bar: '#A4BCFD', text: '#FFFFFF' },
   TVK: { bg: '#FEDF89', bar: '#FDB022', text: '#000000' },
   NTK: { bg: '#D1FADF', bar: '#039855', text: '#000000' }
 };
@@ -1069,10 +1069,10 @@ if (myVotes !== null) {
 
     '<div class="candidate-card__body" style="background:' + cardBg + '">' +
     '<div class="candidate-card__footer">' +
-    '<p class="candidate-card__name">' + (candidate.name || '').trim() + '</p>' +
+    '<p class="candidate-card__name" style="color: ' + nameColor + ';">' + (candidate.name || '').trim() + '</p>' +
     '<div class="candidate-card__vote">'+
-    '<p class="candidate-card__vote_text">' + "Votes: " + voteDisplay + '</p>'+
-    '<p class="candidate-card__constituency">' + (candidate.constituency || '').trim() + '</p>' +
+    '<p class="candidate-card__vote_text" style="color: ' + nameColor + ';">' + "Votes: " + voteDisplay + '</p>'+
+    '<p class="candidate-card__constituency" style="color: ' + nameColor + ';">' + (candidate.constituency || '').trim() + '</p>' +
     '</div>'+
     '<div class="candidate-card__logo-wrap">' +
     badgeHTML +

@@ -1915,6 +1915,25 @@ function buildCompetitorCard(comp) {
   );
 }
 
+// -----------------------------------------------
+// Check if candidate is popular or celebrity
+// -----------------------------------------------
+function isPopularOrCelebrityCandidate(candidateId) {
+  // Check in popularCandidates array
+  if (typeof popularCandidates !== 'undefined' && Array.isArray(popularCandidates)) {
+    if (popularCandidates.find(function(c) { return String(c.id) === String(candidateId); })) {
+      return true;
+    }
+  }
+  // Check in celebrityCandidates array
+  if (typeof celebrityCandidates !== 'undefined' && Array.isArray(celebrityCandidates)) {
+    if (celebrityCandidates.find(function(c) { return String(c.id) === String(candidateId); })) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function buildWinsBar(wins, losses) {
   var w = parseInt(wins) || 0;
   var l = parseInt(losses) || 0;
@@ -1934,19 +1953,25 @@ function buildWinsBar(wins, losses) {
 
 function buildLeftPanel(candidate, colours, rich) {
   var wins = 0, losses = 0;
-  if (rich && rich.history && rich.history.length > 0) {
-    rich.history.forEach(function(h) {
-      if ((h.result || '').toLowerCase().indexOf('won') !== -1) wins++;
-      else if ((h.result || '').toLowerCase().indexOf('lost') !== -1) losses++;
-    });
-  } else {
-    wins   = parseInt(rich && rich.wins)   || 0;
-    losses = parseInt(rich && rich.losses) || 0;
+  var isPopularOrCelebrity = isPopularOrCelebrityCandidate(candidate.id);
+  
+  if (isPopularOrCelebrity) {
+    if (rich && rich.history && rich.history.length > 0) {
+      rich.history.forEach(function(h) {
+        if ((h.result || '').toLowerCase().indexOf('won') !== -1) wins++;
+        else if ((h.result || '').toLowerCase().indexOf('lost') !== -1) losses++;
+      });
+    } else {
+      wins   = parseInt(rich && rich.wins)   || 0;
+      losses = parseInt(rich && rich.losses) || 0;
+    }
   }
 
   var mainPhotoHTML =
     '<img src="' + (candidate.photo || '') + '" alt="' + candidate.name + '" class="popup-main__photo-img" ' +
     'onerror="this.src=\'../assets/images/candidates/default/default.png\'"/>';
+
+  var winsBarHTML = isPopularOrCelebrity ? buildWinsBar(wins, losses) : '';
 
   return (
     '<div class="popup-main__photo-wrap">' + mainPhotoHTML + '</div>' +
@@ -1956,7 +1981,7 @@ function buildLeftPanel(candidate, colours, rich) {
         (candidate.constituency || '').toUpperCase() +
       '</div>' +
       '<div class="popup-main__party">' + (candidate.party_full || (candidate.party_short || '').trim()) + '</div>' +
-      buildWinsBar(wins, losses) +
+      winsBarHTML +
       buildSocialIcons(rich) +
     '</div>'
   );

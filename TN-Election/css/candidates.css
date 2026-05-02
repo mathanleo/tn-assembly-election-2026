@@ -304,15 +304,14 @@
 .candidate-card__name {
   font-size: var(--font-sm);
   font-weight: 700;
-  margin: 0 0 3px;
-  padding: 0 8px;
+  margin: 0 5px 3px;
+  padding: 0 3px;
   max-width: 130px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.3;
-  color: var(--color-dark) !important;
 }
 .candidate-card__vote {
   display: flex;
@@ -324,18 +323,17 @@
 }
 .candidate-card__vote_text {
   font-size: var(--font-xs);
-  font-weight: 600;
+  font-weight:bold;
   margin: 0;
-  opacity: 0.8;
+  margin-left: 5px;
   flex-shrink: 0;
   padding-right: 0;
   color: black;
 }
 .candidate-card__constituency {
   font-size: var(--font-xs);
-  font-weight: 600;
+  font-weight:bold;
   margin: 0;
-  opacity: 0.8;
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -346,7 +344,6 @@
   line-height: 1.3;
   word-break: break-word;
   padding-right: 8px;
-  color: black;
 }
 
 /* ---------- Party logo circle — bottom-left of bar ---------- */
@@ -496,6 +493,7 @@
   color: white;
   text-align: center;
   margin-left: 5px;
+  margin-top: 2px;
   font-size: 13px;
 }
 .candidate-card__party-bar2{

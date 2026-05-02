@@ -51,6 +51,7 @@ body[data-page="bigfights"] main {
   overflow-x: auto;
   scrollbar-width: none;
   z-index: 100;
+  position: relative;
 }
 
 .bigfight-tabs::-webkit-scrollbar {
@@ -403,6 +404,7 @@ position: absolute;
 
 .pop-dd__item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
@@ -426,12 +428,11 @@ position: absolute;
 .pop-dd__pill {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
   padding: 4px 12px;
   border-radius: var(--radius-full);
-  border: 1.5px solid;
   font-size: var(--font-sm);
   font-weight: 800;
+  gap: 6px;
   white-space: nowrap;
   background: linear-gradient(red, black);
 }

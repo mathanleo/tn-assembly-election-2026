@@ -216,11 +216,11 @@ function buildDropdownHTML() {
 
         return (
           '<div class="pop-dd__item' + (isActive ? ' pop-dd__item--active' : '') + '" data-rivalry="' + key + '">' +
-            '<span class="pop-dd__pill" style="background:' + cfg1.color + '20;color:' + cfg1.color + ';border-color:' + cfg1.color + '">' +
+            '<span class="pop-dd__pill" style="background:white;color:' + cfg1.color + ';">' +
               icon1 + cfg.label1 +
             '</span>' +
             '<span class="pop-dd__sep">vs</span>' +
-            '<span class="pop-dd__pill" style="background:' + cfg2.color + '20;color:' + cfg2.color + ';border-color:' + cfg2.color + '">' +
+            '<span class="pop-dd__pill" style="background:white;color:' + cfg2.color + ';border-color:' + cfg2.color + '">' +
               icon2 + cfg.label2 +
             '</span>' +
             (isActive ? '<span class="pop-dd__check">✓</span>' : '') +
@@ -235,14 +235,14 @@ function openDropdown(tabBtn) {
   var existing = document.getElementById('pop-dropdown');
   if (existing) { existing.remove(); return; }
 
-  document.querySelector('.bigfight-tabs').insertAdjacentHTML('beforeend', buildDropdownHTML());
+  document.body.insertAdjacentHTML('beforeend', buildDropdownHTML());
   var dropdown = document.getElementById('pop-dropdown');
 
-  // Position under the tab button
-  var btnRect  = tabBtn.getBoundingClientRect();
-  var tabsRect = tabBtn.closest('.bigfight-tabs').getBoundingClientRect();
-  dropdown.style.top  = (btnRect.bottom - tabsRect.top + 6) + 'px';
-  dropdown.style.left = '325px';
+  // Position under the tab button using viewport coords
+  var btnRect = tabBtn.getBoundingClientRect();
+  dropdown.style.top = (window.scrollY + btnRect.bottom + 6) + 'px';
+  dropdown.style.left = (window.scrollX + btnRect.left) + 'px';
+  dropdown.style.minWidth = btnRect.width + 'px';
 
   // Item click
   dropdown.querySelectorAll('.pop-dd__item').forEach(function(item) {
