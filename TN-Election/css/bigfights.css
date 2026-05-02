@@ -139,16 +139,33 @@ body[data-page="bigfights"] main {
    ============================================ */
 #bigfight-cards-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: 12px;
   overflow-y: auto;
   flex: 1;
   min-height: 0;
-  align-content: flex-start;
   padding-bottom: var(--gap-lg);
   scrollbar-width: none;
   scrollbar-color: var(--color-border) transparent;
+}
+
+.bigfight-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+@media (min-width: 577px) {
+  .bigfight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 993px) {
+  .bigfight-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ---------- Fight Card ---------- */
@@ -158,15 +175,13 @@ body[data-page="bigfights"] main {
   padding: var(--gap-md);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
   display: flex;
-  flex: 1 1 280px;        /* ← was 300px, removed fixed width/max-width */
   flex-direction: column;
-  gap: 10px;
+  width: 100%;
   position: relative;
   overflow: visible;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   min-width: 0;
   border: 3px solid #F5E2D5;
-  /* REMOVED: width: 376px; max-width: 400px; */
 }
 
 .fight-card:hover {
@@ -603,24 +618,22 @@ position: absolute;
 }
 
 .pop-card__name {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-style: Semi Bold;
-  font-size: 16px;
+  font-size: 10px;
   leading-trim: NONE;
-  line-height: 16px;
   letter-spacing: 0%;
   text-align: center;
 
 }
 
 .pop-card__party-label {
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
-  font-style: Regular;
+  font-style: 'Regular';
   font-size: 10px;
   leading-trim: NONE;
-  line-height: 12px;
   letter-spacing: 0%;
   text-align: center;
 }
@@ -654,12 +667,17 @@ position: absolute;
   background-color: #e0e0e0;
   border-radius: 5px;
   overflow: hidden;
+  height: 20px;
 }
 .pop-card__tag{
   height: 100%;
   width: 0%;
   clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
   animation: resizeHorizontal 3s ease-in-out infinite;
+  border-radius: 5px;
+  padding-left: 5px;
+  color: white;
+  font-size: 12px;
 }
 @keyframes resizeHorizontal {
     0% {
@@ -685,7 +703,7 @@ position: absolute;
 .fight-card__status {
   display: block;
   font-size: var(--font-xs);
-  color: white;
+  color:white;
   font-weight: 700;
   padding: 3px 8px;
   clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);

@@ -1642,22 +1642,22 @@ var starCandidatesRich = {
     "social_instagram": "https://www.instagram.com/rajmohanofficial/", 
     "social_facebook": "",
   },
-//   3728: {
-//   "id": 3728,"name": "Ananthan Ayyasamy",
-//   "full_name": "Ananthan Ayyasamy",
-//   "party": "Bharatiya Janata Party (BJP)",
-//   "constituency": "Vasudevanallur (SC)",
-//   "ac_no": "220",
-//   "date_of_birth": "27 March 1976",
-//   "birth_place": "Viswanathaperi, Tamil Nadu, India",
-//   "father": "Ayyasamy",
-//   "children": "One Children",
-//   "Case": 0,
-//   "current_position": "BJP District President (Tenkasi) / Assembly Candidate (2026)",
-//   "first_elected_as_mla": "-",
-//   "contested_constituency": ["Vasudevanallur (SC)"],
-//   "history":[],
-//   "political_experience": "District President of BJP Tenkasi; Founder of 'Voice of Tenkasi' (Tenkasi Kural) foundation. Former Intel technologist who returned from the US to enter grassroots politics. Notable for using AI-driven sentiment analysis for his 2026 campaign.",
-//   "notes": "Hails from a traditional political family; his brother A. Manoharan was the Vasudevanallur MLA in 2016. Known for advocating high-tech industrial growth (semiconductors) in rural Tamil Nadu. Nominated as the official BJP candidate for the 2026 Assembly Elections."
-// }
+  3728: {
+  "id": 3728,"name": "Ananthan Ayyasamy",
+  "full_name": "Ananthan Ayyasamy",
+  "party": "Bharatiya Janata Party (BJP)",
+  "constituency": "Vasudevanallur (SC)",
+  "ac_no": "220",
+  "date_of_birth": "27 March 1976",
+  "birth_place": "Viswanathaperi, Tamil Nadu, India",
+  "father": "Ayyasamy",
+  "children": "One Children",
+  "Case": 0,
+  "current_position": "BJP District President (Tenkasi) / Assembly Candidate (2026)",
+  "first_elected_as_mla": "-",
+  "contested_constituency": ["Vasudevanallur (SC)"],
+  "history":[],
+  "political_experience": "District President of BJP Tenkasi; Founder of 'Voice of Tenkasi' (Tenkasi Kural) foundation. Former Intel technologist who returned from the US to enter grassroots politics. Notable for using AI-driven sentiment analysis for his 2026 campaign.",
+  "notes": "Hails from a traditional political family; his brother A. Manoharan was the Vasudevanallur MLA in 2016. Known for advocating high-tech industrial growth (semiconductors) in rural Tamil Nadu. Nominated as the official BJP candidate for the 2026 Assembly Elections."
+}
 };

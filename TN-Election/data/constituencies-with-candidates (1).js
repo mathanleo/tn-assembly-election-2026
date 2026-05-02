@@ -24761,6 +24761,19 @@ const constituenciesWithCandidates = {
         "photo": null
       },
       {
+        "id": 2640,
+        "name": "ARUL.T",
+        "Age" : 27,
+        "votes":0,
+        "gender" : "male",
+        "address" : "D NO 1-267, KATHIR PERUMAL KOVIL STREET, PUDHUPETTAI, METTUR, VANAVASI, SALEM- 636457",
+        "party_short":"IND",
+        "party_full" : "Independent",
+        "constituency" : "Salem (West)",
+        "bg": "#f5f5f5",
+        "accent": "#616161",
+      },
+      {
         "id": 2641,
         "name": "Bharanitharan. D.K",
         "age": "43",

@@ -147,7 +147,34 @@ var popularCandidates = [
   { "id": 2890, "name": "K.T. Rajenthra Bhalaji", "age": "62", "party_short": "ADMK", "party_full": "All India Anna Dravida Munnetra Kazhagam", "constituency": "Sivakasi", "photo": "../assets/images/candidates/mla/2026/2890.jpg", "bg": "#fff0d6", "accent": "#E65100", "full_name": "K.T. Rajenthra Bhalaji", "date_of_birth": "Not publicly disclosed", "birth_place": "Virudhunagar District, Tamil Nadu", "father": "THAVASILINGAM", "children": "Not publicly disclosed", "current_position": "Senior AIADMK leader", "first_elected_as_mla": "2011 (Rajapalayam constituency)", "political_experience": "Senior AIADMK leader; MLA from Rajapalayam (2011, 2016, 2021); former Minister for Milk and Dairy Development (2017–2021); shifted to contest Sivakasi in 2026", "notes": "Former AIADMK minister; shifted to Sivakasi in 2026" },
   { "id": 1130, "name": "M.R. Vijayabhaskar", "age": "62", "party_short": "ADMK", "party_full": "All India Anna Dravida Munnetra Kazhagam", "constituency": "Karur", "photo": "../assets/images/candidates/mla/2026/1130.jpg", "bg": "#fff0d6", "accent": "#E65100", "full_name": "M.R. Vijayabhaskar", "date_of_birth": "Not publicly disclosed", "birth_place": "Karur District, Tamil Nadu", "father": "Ramasamy", "children": "Not publicly disclosed", "current_position": "Senior AIADMK leader", "first_elected_as_mla": "2011 (Karur constituency)", "political_experience": "Senior AIADMK leader; MLA from Karur (2011, 2016); former Minister for Revenue (2017–2021); lost 2021 to DMK's Senthil Balaji by 12,448 votes; re-contesting Karur in 2026", "notes": "Former Revenue Minister; lost 2021 to Senthil Balaji by 12,448 margin" },
   { "id": 2354, "name": "Pollachi V. Jayaraman", "age": "73", "party_short": "ADMK", "party_full": "All India Anna Dravida Munnetra Kazhagam", "constituency": "Pollachi", "photo": "../assets/images/candidates/mla/2026/2354.jpg", "bg": "#fff0d6", "accent": "#E65100", "full_name": "Pollachi V. Jayaraman", "date_of_birth": "Not publicly disclosed", "birth_place": "Coimbatore District, Tamil Nadu", "father": "VARADHARAJ", "children": "Pravin Jayaraman", "current_position": "Senior AIADMK leader; sitting MLA from Pollachi", "first_elected_as_mla": "2006 (Pollachi constituency)", "political_experience": "Senior AIADMK leader from Coimbatore region; multiple-term MLA from Pollachi; won 2021 by razor-thin 1,725-vote margin; re-nominated for 2026", "notes": "Senior AIADMK leader; sitting MLA; won 2021 by razor-thin 1,725-vote margin" },
-  { "id": 4053, "name": "Karunaas S", "age": "56", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Sivaganga", "photo": "../assets/images/candidates/mla/2026/4053.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Karunaas", "date_of_birth": "22 October 1970", "birth_place": "Chennai, Tamil Nadu", "father": "SETHU DEVAR", "children": "Diana, Ken Karunas", "current_position": "DMK candidate for Sivaganga", "first_elected_as_mla": "Contesting in 2026 from Sivaganga", "political_experience": "Popular Tamil actor, comedian, musician and politician; strong DMK supporter and campaigner; making his electoral debut in 2026 from Sivaganga", "notes": "Actor, comedian, musician and politician in Tamil film industry" }
+  { "id": 4053, "name": "Karunaas S", "age": "56", "party_short": "DMK", "party_full": "Dravida Munnetra Kazhagam", "constituency": "Sivaganga", "photo": "../assets/images/candidates/mla/2026/4053.jpg", "bg": "#dceeff", "accent": "#1565C0", "full_name": "Karunaas", "date_of_birth": "22 October 1970", "birth_place": "Chennai, Tamil Nadu", "father": "SETHU DEVAR", "children": "Diana, Ken Karunas", "current_position": "DMK candidate for Sivaganga", "first_elected_as_mla": "Contesting in 2026 from Sivaganga", "political_experience": "Popular Tamil actor, comedian, musician and politician; strong DMK supporter and campaigner; making his electoral debut in 2026 from Sivaganga", "notes": "Actor, comedian, musician and politician in Tamil film industry" },
+  {
+  "id": 3728,
+  "name": "Ananthan Ayyasamy",
+  "full_name": "Ananthan Ayyasamy",
+  "party_short":"BJP",
+  "party_full":"Bharatiya Janata Party",
+  "photo": "../assets/images/candidates/mla/2026/3728.jpg",
+  "constituency": "Vasudevanallur",
+  "ac_no": "220",
+  "date_of_birth": "27 March 1976",
+  "birth_place": "Viswanathaperi, Tamil Nadu, India",
+  "father": "Ayyasamy",
+  "children": "One Children",
+  "Case": 0,
+  "current_position": "BJP District President (Tenkasi) / Assembly Candidate (2026)",
+  "first_elected_as_mla": "N/A (Yet to win an Assembly seat)",
+  "contested_constituency": [
+    {
+      "Vasudevanallur (SC)": {
+        "year": 2026,
+        "result": "Contesting"
+      }
+    }
+  ],
+  "political_experience": "District President of BJP Tenkasi; Founder of 'Voice of Tenkasi' (Tenkasi Kural) foundation. Former Intel technologist who returned from the US to enter grassroots politics. Notable for using AI-driven sentiment analysis for his 2026 campaign.",
+  "notes": "Hails from a traditional political family; his brother A. Manoharan was the Vasudevanallur MLA in 2016. Known for advocating high-tech industrial growth (semiconductors) in rural Tamil Nadu. Nominated as the official BJP candidate for the 2026 Assembly Elections."
+}
 ];
 
 var celebrityCandidates = [

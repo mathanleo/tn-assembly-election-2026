@@ -134,7 +134,7 @@ function buildPopCard(match) {
             '<div class="pop-card__party-label" style="color:' + cfg1.color + '">' + match.party1 + '</div>' +
             '<div class="pop-card__votes">Votes: ' + voteDisplay1 + '</div>' +  
             '<div class="pop-card__tag_bar">'+         // ← CHANGED
-            '<div class="pop-card__tag" style="background:' + bg1 + ';border-radius:5px;padding-left:5px">' + tag1 + '</div>' +  // ← CHANGED
+            '<div class="pop-card__tag" style="background:' + bg1 + ';">' + tag1 + '</div>' +  // ← CHANGED
             '</div>'+
             '</div>' +
 
@@ -153,7 +153,7 @@ function buildPopCard(match) {
             '<div class="pop-card__party-label" style="color:' + cfg2.color + '">' + match.party2 + '</div>' +
             '<div class="pop-card__votes">Votes: ' + voteDisplay2 + '</div>' + 
             '<div class="pop-card__tag_bar">'+           // ← CHANGED
-            '<div class="pop-card__tag" style="background:' + bg2 + ';border-radius:5px;padding-left:5px">' + tag2 + '</div>' +  // ← CHANGED
+            '<div class="pop-card__tag" style="background:' + bg2 + ';">' + tag2 + '</div>' +  // ← CHANGED
             '</div>'+
             '</div>' +
 

@@ -235,7 +235,7 @@ function buildBigFightCards(searchTerm) {
     });
   }
 
-  container.innerHTML = data.map(buildFightCard).join('');
+  container.innerHTML = '<div class="bigfight-grid">' + data.map(buildFightCard).join('') + '</div>';
 }
 
 // -----------------------------------------------
@@ -302,7 +302,7 @@ function initFilterTabs() {
         });
       }
 
-      container.innerHTML = data.map(buildFightCard).join('');
+      container.innerHTML = '<div class="bigfight-grid">' + data.map(buildFightCard).join('') + '</div>';
     });
   });
 }
