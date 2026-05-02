@@ -52,6 +52,14 @@ function saveFavorites(favorites) {
   }
 }
 
+// Find the current candidate record by ID from the live master list
+function findCandidateById(candidateId) {
+  var allCandidates = getAllCandidates();
+  return allCandidates.find(function(candidate) {
+    return candidate && String(candidate.id) === String(candidateId);
+  }) || null;
+}
+
 // Check if candidate is already in favorites
 function isFavorited(candidateId) {
   const favorites = getFavorites();
@@ -223,7 +231,7 @@ function initFavoritesSearch() {
 function buildFavoriteCard(candidate, index) {
   var photoSrc = (candidate.photo && candidate.photo.length > 0)
     ? candidate.photo
-    : '../assets/images/candidates/mla/2026/' + candidate.id + '.jpg';
+    : '../assets/images/candidates/mla/2026/' + candidate.id + '.jpg' ? '../assets/images/candidates/mla/2026/'+candidate.id+'.png' : '../assets/images/candidates/mla/2026/' + candidate.id + '.jpg';
 
   var photoHTML = '<img src="' + photoSrc + '" alt="' + (candidate.name || '') + '" ' +
     'style="width:100%;height:100%;object-fit:cover;object-position:top;" ' +
@@ -264,9 +272,10 @@ function buildFavoriteCard(candidate, index) {
   // Use getAllianceColours from candidate-cards.js (already global)
   var colours = (typeof getAllianceColours === 'function') ? getAllianceColours(partyKey) : null;
   var cardBg = colours ? colours.bg : (candidate.bg || '#f5f5f5');
+  var nameColor = colours ? colours.text : (candidate.accent || '#333');
 
   var myVotes = (candidate.votes !== undefined && candidate.votes !== null) ? Number(candidate.votes) : null;
-  var voteDisplay = 'Awaited';
+  var voteDisplay = '0';
   var leaderTag = 'Result Awaited';
   var barColor = '#4b5563';
 
@@ -286,7 +295,7 @@ function buildFavoriteCard(candidate, index) {
       }
     }
     leaderTag = (myVotes === maxVotes) ? 'Leading' : 'Trailing';
-    barColor = leaderTag === 'Leading' ? '#15803d' : '#b91c1c';
+    barColor = leaderTag === 'Leading' ? '#12B76A' : '#F04438';
   }
 
   var animDelay = (index % 20) * 0.04;
@@ -300,10 +309,10 @@ function buildFavoriteCard(candidate, index) {
       '</div>' +
       '<div class="candidate-card__body" style="background:' + cardBg + '">' +
         '<div class="candidate-card__footer">' +
-          '<p class="candidate-card__name">' + (candidate.name || '').trim() + '</p>' +
+          '<p class="candidate-card__name" style="color:' + nameColor + '">' + (candidate.name || '').trim() + '</p>' +
           '<div class="candidate-card__vote">' +
-            '<p class="candidate-card__vote_text">' + voteDisplay + '</p>' +
-            '<p class="candidate-card__constituency">' + (candidate.constituency || '').trim() + '</p>' +
+            '<p class="candidate-card__vote_text" style="color:' + nameColor + '">' +"Votes: " + voteDisplay + '</p>' +
+            '<p class="candidate-card__constituency" style="color:' + nameColor + '">' + (candidate.constituency || '').trim() + '</p>' +
           '</div>' +
           '<div class="candidate-card__logo-wrap">' + badgeHTML + '</div>' +
           '<div class="candidate-card__party-bar">' +
@@ -323,13 +332,19 @@ function renderFavorites() {
 
   var favorites = getFavorites();
 
+  // Refresh stored favorites with live candidate records from the master list.
+  var updatedFavorites = favorites.map(function(fav) {
+    var current = findCandidateById(fav.id);
+    return current ? current : fav;
+  });
+
   // Clean bad data — filter out any arrays accidentally stored
-  favorites = favorites.filter(function(f) {
+  updatedFavorites = updatedFavorites.filter(function(f) {
     return f && !Array.isArray(f) && f.id && f.name;
   });
-  saveFavorites(favorites); // save cleaned version back
+  saveFavorites(updatedFavorites); // save refreshed version back
 
-  if (favorites.length === 0) {
+  if (updatedFavorites.length === 0) {
     container.innerHTML =
       '<div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--color-muted);">' +
       '<p>No favorite candidates added yet. Use the search bar above to add candidates!</p>' +
@@ -338,7 +353,7 @@ function renderFavorites() {
   }
 
   var html = '';
-  favorites.forEach(function(candidate, index) {
+  updatedFavorites.forEach(function(candidate, index) {
     try {
       html += buildFavoriteCard(candidate, index);
     } catch(e) {

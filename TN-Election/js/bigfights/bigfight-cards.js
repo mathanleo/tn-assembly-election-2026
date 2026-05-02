@@ -90,7 +90,7 @@ function buildCandidateRow(candidate, leaderTag, voteCount) {
     ? voteCount.toLocaleString('en-IN')
     : 'Awaited';
 
-  var colorBG = leaderTag === "Leading" ? "green" : leaderTag === "Trailing" ? "red" : "gray";
+  var colorBG = leaderTag === "Leading" ? "#12B76A" : leaderTag === "Trailing" ? "#F04438" : "#4b5563";
 
   return (
     '<div class="fight-card__candidate">' +

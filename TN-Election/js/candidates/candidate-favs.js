@@ -940,7 +940,7 @@ var ALLIANCE_PARTIES = {
 
 var ALLIANCE_COLOURS = {
   NDA: { bg: '#F97256', bar: '#FDA29B', text: '#000000' },
-  SPA: { bg: '#6172F3', bar: '#A4BCFD', text: '#000000' },
+  SPA: { bg: '#6172F3', bar: '#A4BCFD', text: '#ffffff' },
   TVK: { bg: '#FEDF89', bar: '#FDB022', text: '#000000' },
   NTK: { bg: '#D1FADF', bar: '#039855', text: '#000000' }
 };
@@ -1069,17 +1069,17 @@ if (myVotes !== null) {
 
     '<div class="candidate-card__body" style="background:' + cardBg + '">' +
     '<div class="candidate-card__footer">' +
-    '<p class="candidate-card__name">' + (candidate.name || '').trim() + '</p>' +
+    '<p class="candidate-card__name" style="color:' + nameColor + '">' + (candidate.name || '').trim() + '</p>' +
     '<div class="candidate-card__vote">'+
-    '<p class="candidate-card__vote_text">' + voteDisplay + '</p>'+
-    '<p class="candidate-card__constituency">' + (candidate.constituency || '').trim() + '</p>' +
+    '<p class="candidate-card__vote_text" style="color:' + nameColor + '">' + voteDisplay + '</p>'+
+    '<p class="candidate-card__constituency" style="color:' + nameColor + '">' + (candidate.constituency || '').trim() + '</p>' +
     '</div>'+
     '<div class="candidate-card__logo-wrap">' +
     badgeHTML +
     '</div>' +
     '<div class="candidate-card__party-bar">'+
 '<div class="candidate-card__party-bar-text">' + leaderTag + '</div>'+
-'<div class="candidate-card__party-bar1" style="background:' + (leaderTag === "Leading" ? "#15803d" : leaderTag === "Trailing" ? "#b91c1c" : "#4b5563") + '">'+'</div>'+
+'<div class="candidate-card__party-bar1" style="background:' + (leaderTag === "Leading" ? "#12B76A" : leaderTag === "Trailing" ? "#F04438" : "#4b5563") + '">'+'</div>'+
     '<div class="candidate-card__party-bar2">' + 
     partyKey +
     '</div>' +

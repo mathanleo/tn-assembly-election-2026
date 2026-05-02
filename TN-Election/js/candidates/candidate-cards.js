@@ -1079,7 +1079,7 @@ if (myVotes !== null) {
     '</div>' +
     '<div class="candidate-card__party-bar">'+
 '<div class="candidate-card__party-bar-text">' + leaderTag + '</div>'+
-'<div class="candidate-card__party-bar1" style="background:' + (leaderTag === "Leading" ? "#15803d" : leaderTag === "Trailing" ? "#b91c1c" : "#4b5563") + '">'+'</div>'+
+'<div class="candidate-card__party-bar1" style="background:' + (leaderTag === "Leading" ? "#12B76A" : leaderTag === "Trailing" ? "#F04438" : "#4b5563") + '">'+'</div>'+
     '<div class="candidate-card__party-bar2">' + 
     partyKey +
     '</div>' +

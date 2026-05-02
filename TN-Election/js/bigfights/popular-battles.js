@@ -92,8 +92,8 @@ function buildPopCard(match) {
   var tag1 = "Waiting", tag2 = "Waiting";
   var bg1 = "gray", bg2 = "gray";
   if (v1 !== null && v2 !== null) {
-    if (v1 > v2)      { tag1 = "Leading"; bg1 = "green"; tag2 = "Trailing"; bg2 = "red"; }
-    else if (v2 > v1) { tag2 = "Leading"; bg2 = "green"; tag1 = "Trailing"; bg1 = "red"; }
+    if (v1 > v2)      { tag1 = "Leading"; bg1 = "#12B76A"; tag2 = "Trailing"; bg2 = "#F04438"; }
+    else if (v2 > v1) { tag2 = "Leading"; bg2 = "#12B76A"; tag1 = "Trailing"; bg1 = "#F04438"; }
     else              { tag1 = "Waiting"; bg1 = "gray"; tag2 = "Waiting";  bg2 = "gray"; }
   }
 

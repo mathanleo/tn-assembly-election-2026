@@ -1673,6 +1673,42 @@ var starCandidatesRich = {
     "social_instagram": "https://www.instagram.com/rajmohanofficial/", 
     "social_facebook": "",
   },
+  1482:{
+  "id": 1482,
+  "name": "LEEMAROSE MARTIN",
+  "full_name": "LEEMAROSE MARTIN",
+  "party": "All India Anna Dravida Munnetra Kazhagam (AIADMK)",
+  "constituency": "LALGUDI",
+  "ac_no": "143",
+  "date_of_birth": "Not publicly disclosed",
+  "birth_place": "Ramanathapuram District, Tamil Nadu",
+  "father": "Not publicly disclosed",
+  "children": "Not publicly disclosed",
+  "Case": 4,
+  "summary": "AIADMK candidate for Lalgudi (2026 Assembly Elections). She is a prominent businesswoman and philanthropist, known as the wife of lottery baron Santiago Martin. She has declared significant assets in her election affidavit and faces 4 pending criminal cases, including those related to money laundering.",
+  "current_position": "Joint Secretary, AIADMK Women's Wing",
+  "first_elected_as_mla": "Not applicable",
+  "contested_constituency": ["LALGUDI"],
+  "history": ["Previously associated with Indiya Jananayaga Katchi (IJK)"],
+  "political_experience": "Joined AIADMK after leaving IJK; appointed as Joint Secretary of the AIADMK women's wing.",
+  "notes": "Age: 58. Education: Studied up to Class VI at Government Higher Secondary School, Thiruvadanai. Known as one of the wealthiest candidates in the 2026 Tamil Nadu elections.",
+  "asserts": [
+    {
+      "movable": {
+        "total_value": "Rs. 139,62,00,000/- (approx)",
+        "cash_in_hand": "Rs. 5,52,160/-",
+        "categories": "Includes bank deposits, investments in partnership firms, LLP, and various financial instruments."
+      },
+      "immovable": {
+        "own": {
+          "description": "Various properties including agricultural land and commercial assets.",
+          "total_market_value": "Rs. 909,94,00,000/- (approx)"
+        },
+        "legacy": "Not publicly disclosed"
+      }
+    }
+  ]
+},
   3728: {
   "id": 3728,"name": "Ananthan Ayyasamy",
   "full_name": "Ananthan Ayyasamy",
