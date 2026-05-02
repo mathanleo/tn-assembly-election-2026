@@ -676,7 +676,7 @@ requestAnimationFrame(function() {
 initSearch();
 
 // Popup close button
-var closeBtn = document.getElementById('popup-close-btn');
+var closeBtn = document.getElementById('map-popup-close-btn');
 if (closeBtn) closeBtn.addEventListener('click', closePopup);
 
 // Close popup when clicking outside it on the SVG background

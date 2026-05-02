@@ -353,10 +353,8 @@ function renderFavorites() {
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
       var candidateId = parseInt(this.dataset.candidateId);
-      if (confirm('Remove this candidate from favourites?')) {
-        removeFromFavorites(candidateId);
-        renderFavorites();
-      }
+      removeFromFavorites(candidateId);
+      renderFavorites();
     });
   });
 
