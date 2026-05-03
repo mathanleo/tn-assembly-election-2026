@@ -143,6 +143,9 @@ function buildFooter() {
           <a href="/pages/results.html">
             <span style="display: block; margin-top: 8px">2021 Results</span>
           </a>
+          <a href="/pages/contact-us.html">
+            <span style="display: block; margin-top: 8px">Contact Us</span>
+          </a>
         </div>
         <div class="page-footer__brand">
           <a href="/pages/about.html">
