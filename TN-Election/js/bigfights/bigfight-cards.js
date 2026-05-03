@@ -10,6 +10,27 @@
 // ============================================
 
 // Party icon paths — only these 4 have SVGs in assets/icons/
+// Live vote data fetched from DB — same as candidate-cards.js
+var _bigFightLiveData = [];
+
+async function fetchLiveVotes() {
+  try {
+    const url = "http://localhost:4200/candidates";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    });
+    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+    
+    _bigFightLiveData = await response.json();
+    console.log("Live data count:", _bigFightLiveData.length);
+    console.log("Live data sample:", _bigFightLiveData[0]); // check actual keys here
+  } catch(e) {
+    console.error('fetchLiveVotes error:', e);
+    _bigFightLiveData = [];
+  }
+}
+
 var PARTY_ICONS = {
   "DMK": "../assets/icons/dmk.svg",
   "ADMK": "../assets/icons/admk.svg",
@@ -88,7 +109,7 @@ function buildCandidateRow(candidate, leaderTag, voteCount) {
 
   var voteDisplay = (voteCount !== null && voteCount !== undefined)
     ? voteCount.toLocaleString('en-IN')
-    : 'Awaited';
+    : '0';
 
   var colorBG = leaderTag === "Leading" ? "#12B76A" : leaderTag === "Trailing" ? "#F04438" : "#4b5563";
 
@@ -117,10 +138,16 @@ function buildCandidateRow(candidate, leaderTag, voteCount) {
 // Returns vote count or null if not found / not available
 // -----------------------------------------------
 function getLiveVotes(constituencyId, candidateId) {
+  if (_bigFightLiveData && _bigFightLiveData.length) {
+    var match = _bigFightLiveData.find(function(c) {
+  return +c.candidateId === +candidateId; 
+});
+    if (match !== undefined) return match.votes;
+  }
+  // Fallback to static
   var constKey = String(constituencyId);
-  var constObj = constituenciesWithCandidates[constKey];
+  var constObj = (typeof constituenciesWithCandidates !== 'undefined') && constituenciesWithCandidates[constKey];
   if (!constObj) return null;
-
   var candidates = constObj.candidates;
   for (var i = 0; i < candidates.length; i++) {
     if (candidates[i].id === candidateId) {
@@ -135,19 +162,30 @@ function getLiveVotes(constituencyId, candidateId) {
 // Decide Leading / Trailing / Result Awaited for both candidates
 // -----------------------------------------------
 function getConstituencyMaxVotes(constituencyId) {
+  if (_bigFightLiveData && _bigFightLiveData.length) {
+    var constCandidates = _bigFightLiveData.filter(function(c) {
+      return +c.const_id === +constituencyId;
+    });
+    if (constCandidates.length) {
+      var maxVotes = null;
+      constCandidates.forEach(function(c) {
+        var v = Number(c.votes);
+if (c.votes !== null && !isNaN(v) && (maxVotes === null || v > maxVotes)) maxVotes = v;
+      });
+      return maxVotes;
+    }
+  }
+  // Fallback to static
   var constKey = String(constituencyId);
-  var constObj = constituenciesWithCandidates[constKey];
+  var constObj = (typeof constituenciesWithCandidates !== 'undefined') && constituenciesWithCandidates[constKey];
   if (!constObj) return null;
-
   var candidates = constObj.candidates;
   var maxVotes = null;
   for (var i = 0; i < candidates.length; i++) {
     var v = candidates[i].votes;
     if (v !== undefined && v !== null) {
       v = Number(v);
-      if (maxVotes === null || v > maxVotes) {
-        maxVotes = v;
-      }
+      if (maxVotes === null || v > maxVotes) maxVotes = v;
     }
   }
   return maxVotes;
@@ -310,8 +348,9 @@ function initFilterTabs() {
 // -----------------------------------------------
 // Run when DOM is ready
 // -----------------------------------------------
-document.addEventListener('DOMContentLoaded', function() {
-  buildBigFightCards();
+document.addEventListener('DOMContentLoaded', async function() {
+  await fetchLiveVotes();   // fetch DB votes first
+  buildBigFightCards();     // then render with live data
   initFilterTabs();
   initSearch();
 });

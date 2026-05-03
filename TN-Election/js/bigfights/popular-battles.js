@@ -75,26 +75,35 @@ function buildPopCard(match) {
   // Get live votes from constituenciesWithCandidates
   // -----------------------------------------------
   var v1 = null, v2 = null;
-  if (typeof constituenciesWithCandidates !== 'undefined') {
-    for (var key in constituenciesWithCandidates) {
-      var constObj = constituenciesWithCandidates[key];
-      var cands = constObj.candidates;
-      for (var i = 0; i < cands.length; i++) {
-        if (cands[i].id === match.id1 && cands[i].votes !== undefined) v1 = cands[i].votes;
-        if (cands[i].id === match.id2 && cands[i].votes !== undefined) v2 = cands[i].votes;
-      }
-    }
+if (typeof _bigFightLiveData !== 'undefined' && _bigFightLiveData.length) {
+  var match1 = _bigFightLiveData.find(function(c) { return +c.candidateId === +match.id1; });
+  var match2 = _bigFightLiveData.find(function(c) { return +c.candidateId === +match.id2; });
+  if (match.constituency === 'Alandur') {
+    console.log('id1:', match.id1, 'id2:', match.id2);
+    console.log('match1:', match1, 'match2:', match2);
+    console.log('Sample API ids:', _bigFightLiveData.slice(0,3).map(c => c.candidateId));
   }
+  if (match1 && match1.votes !== null) v1 = Number(match1.votes);
+  if (match2 && match2.votes !== null) v2 = Number(match2.votes);
+}
 
-  var voteDisplay1 = (v1 !== null) ? v1.toLocaleString('en-IN') : "Awaited";
-  var voteDisplay2 = (v2 !== null) ? v2.toLocaleString('en-IN') : "Awaited";
+  var voteDisplay1 = (v1 !== null) ? v1.toLocaleString('en-IN') : "0";
+  var voteDisplay2 = (v2 !== null) ? v2.toLocaleString('en-IN') : "0";
 
   var tag1 = "Waiting", tag2 = "Waiting";
-  var bg1 = "gray", bg2 = "gray";
-  if (v1 !== null && v2 !== null) {
-    if (v1 > v2)      { tag1 = "Leading"; bg1 = "#12B76A"; tag2 = "Trailing"; bg2 = "#F04438"; }
-    else if (v2 > v1) { tag2 = "Leading"; bg2 = "#12B76A"; tag1 = "Trailing"; bg1 = "#F04438"; }
-    else              { tag1 = "Waiting"; bg1 = "gray"; tag2 = "Waiting";  bg2 = "gray"; }
+  var bg1 = "#4b5563", bg2 = "#4b5563";
+
+  if (v1 !== null || v2 !== null) {
+    var safe1 = v1 !== null ? v1 : 0;
+    var safe2 = v2 !== null ? v2 : 0;
+
+    if (safe1 > safe2) {
+      tag1 = "Leading";  bg1 = "#12B76A";
+      tag2 = "Trailing"; bg2 = "#F04438";
+    } else if (safe2 > safe1) {
+      tag2 = "Leading";  bg2 = "#12B76A";
+      tag1 = "Trailing"; bg1 = "#F04438";
+    }
   }
 
   // Winner logo (shown near constituency title like real UI)
@@ -166,33 +175,34 @@ function buildPopCard(match) {
 // -----------------------------------------------
 // Render grid of popular battle cards (with optional search)
 // -----------------------------------------------
-function renderPopularBattles(searchTerm) {
+async function renderPopularBattles(searchTerm) {
   var container = document.getElementById('bigfight-cards-container');
   if (!container) return;
 
-  var data = (headToHeadData && headToHeadData[activeRivalry]) || [];
-  var cfg  = RIVALRY_CONFIG[activeRivalry];
+  // Wait for live data if not yet loaded
+  if (typeof _bigFightLiveData === 'undefined' || !_bigFightLiveData.length) {
+    try {
+      const response = await fetch("http://localhost:4200/candidates");
+      _bigFightLiveData = await response.json();
+    } catch(e) {
+      console.error('popular-battles fetch error:', e);
+      _bigFightLiveData = [];
+    }
+  }
 
-  // Filter by search term if provided
+  var data = (headToHeadData && headToHeadData[activeRivalry]) || [];
+
   if (searchTerm && searchTerm.trim()) {
     var term = searchTerm.trim().toLowerCase();
     data = data.filter(function(match) {
-      var name1 = (match.candidate1 || '').toLowerCase();
-      var name2 = (match.candidate2 || '').toLowerCase();
-      var constituency = (match.constituency_name || '').toLowerCase();
-      return name1.includes(term) || name2.includes(term) || constituency.includes(term);
+      return (match.candidate1 || '').toLowerCase().includes(term) ||
+             (match.candidate2 || '').toLowerCase().includes(term) ||
+             (match.constituency || '').toLowerCase().includes(term);
     });
   }
 
-  var countHTML =
-    '<div class="pop-results-count">' +
-      // '<span class="pop-results-count__num">' + data.length + '</span> ' +
-      // cfg.displayLabel + ' battles across Tamil Nadu' +
-    '</div>';
-
   var gridHTML = data.map(buildPopCard).join('');
-
-  container.innerHTML = countHTML + '<div class="pop-grid">' + gridHTML + '</div>';
+  container.innerHTML = '<div class="pop-results-count"></div><div class="pop-grid">' + gridHTML + '</div>';
 }
 
 // -----------------------------------------------
@@ -280,6 +290,7 @@ function initPopularBattlesTab() {
         var searchInput = document.getElementById('candidates-search-input');
         var searchTerm = searchInput ? searchInput.value : '';
         renderPopularBattles(searchTerm);
+
       });
     } else {
       tab.addEventListener('click', function() {
