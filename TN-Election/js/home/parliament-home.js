@@ -474,8 +474,8 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, others
 }
 
 // Public API — called from alliance-table.js
-window.updateParliamentChart = function(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats) {
-  buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats);
+window.updateParliamentChart = function(ndaSeats, spaSeats, ntkSeats, tvkSeats, tvkSeats, ntkSeats, othersSeats) {
+  buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, tvkSeats || 0, ntkSeats || 0, othersSeats);
 };
 
 // =============================================

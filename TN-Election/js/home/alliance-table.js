@@ -219,6 +219,9 @@ function renderAllianceTable() {
     renderColumn("alliance-col-spa", alliancesData.SPA, "SPA");
     renderColumn("alliance-col-others", alliancesData.OTHERS, "OTHERS");
     
+    // Calculate alliance totals and update dependent components
+    updateAllianceTotals();
+    
     // Refresh map colors to reflect new lead counts
     if (typeof window.refreshMapColors === 'function') {
         window.refreshMapColors();
@@ -231,6 +234,56 @@ function renderAllianceTable() {
 }
 
 window.refreshAllianceTable = renderAllianceTable;
+
+// -----------------------------------------------
+// STEP 3.5 — Calculate alliance totals and update parliament/CM cards
+// -----------------------------------------------
+function calculateAllianceTotals() {
+    var ndaTotal = 0, spaTotal = 0, tvkTotal = 0, ntkTotal = 0, othersTotal = 0;
+    
+    // Sum leading counts for each alliance
+    alliancesData.NDA.forEach(function(party) {
+        ndaTotal += getPartyLeadCount(party);
+    });
+    alliancesData.SPA.forEach(function(party) {
+        spaTotal += getPartyLeadCount(party);
+    });
+    alliancesData.OTHERS.forEach(function(party) {
+        var leadCount = getPartyLeadCount(party);
+        if (party.pn === 'TVK') {
+            tvkTotal += leadCount;
+        } else if (party.pn === 'NTK') {
+            ntkTotal += leadCount;
+        } else {
+            othersTotal += leadCount;
+        }
+    });
+    
+    return {
+        nda: ndaTotal,
+        spa: spaTotal,
+        tvk: tvkTotal,
+        ntk: ntkTotal,
+        others: othersTotal
+    };
+}
+
+function updateAllianceTotals() {
+    var totals = calculateAllianceTotals();
+    
+    // Update parliament chart
+    if (typeof window.updateParliamentChart === 'function') {
+        window.updateParliamentChart(totals.nda, totals.spa, totals.tvk, totals.ntk, totals.others);
+    }
+    
+    // Update CM candidate cards
+    if (typeof window.updateCMCandidates === 'function') {
+        window.updateCMCandidates(totals.nda, totals.spa, totals.others);
+    }
+}
+
+// Global function to get current alliance totals
+window.getAllianceTotals = calculateAllianceTotals;
 
 // -----------------------------------------------
 // STEP 4 — Toggle View all / View less

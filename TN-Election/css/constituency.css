@@ -5,9 +5,11 @@
    ============================================ */
 
 .const-page {
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
     padding: var(--gap-md);
+    padding-left: 48px;
+    padding-right: 48px;
 }
 
 @media (max-width: 576px) {
@@ -16,6 +18,7 @@
         width: 100%;
 
         .const-page-container{
+            width: 93%;
             .const-hero-outer{
                 display: unset !important;
             }
@@ -92,6 +95,7 @@
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
     padding: var(--gap-md);
+    margin-top: 4px;
 }
 
 .const-description p {
@@ -168,6 +172,7 @@
     padding: 20px;
     border-radius: 16px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    width: 1113px;
 }
 
 /* ── Section heading ─── */
@@ -194,7 +199,7 @@
 }
 
 .cand-card {
-    width: 130px;
+    width: 50px;
     background: #fff;
     border-radius: 14px;
     border: 2px solid #E5E7EB;
@@ -235,6 +240,72 @@
     border-color: #16A34A;
 }
 
+/* Candidate status styles */
+.cand-card--leader {
+    background: #fff7ed;
+    border-color: #f97316 !important;
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.16);
+}
+
+.cand-card--trailer {
+    background: #f8fafc;
+}
+
+.cand-card--other {
+    background: #ffffff;
+}
+
+.cand-votes {
+    text-align: center;
+    font-size: 12px;
+    color: #0f172a;
+    margin: 6px 0 8px;
+    padding: 0 4px;
+}
+
+.cand-votes-label {
+    color: #64748b;
+    font-weight: 600;
+}
+
+.cand-votes-value {
+    color: #16a34a;
+    font-weight: 700;
+}
+
+.cand-status {
+    text-align: center;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 auto 8px;
+    display: inline-flex;
+    width: fit-content;
+}
+
+.cand-status--leader {
+    background: rgba(249, 115, 22, 0.15);
+    color: #b45309;
+}
+
+.cand-status--trailer {
+    background: rgba(59, 130, 246, 0.12);
+    color: #1d4ed8;
+}
+
+.cand-status--other {
+    background: rgba(148, 163, 184, 0.1);
+    color: #475569;
+}
+
+.cand-status-awaiting {
+    background: rgba(148, 163, 184, 0.12);
+    color: #475569;
+}
+
 /* .cand-photo-wrap {
     width: 100%;
     height: 130px;
@@ -273,10 +344,46 @@
 
 /* Round the badges like the image */
 .cand-party-badge {
-    border-radius: 4px;
-    /* More rectangular than pill-shaped in the screenshot */
-    padding: 2px 8px;
-    font-size: 9px;
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0;
+    align-self: center !important;
+    box-sizing: border-box;
+    margin: 8px auto 10px;
+    padding: 8px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.cand-status-badge {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0 0 14px 14px;
+    margin-top: auto;
+}
+
+.cand-status-leading {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.cand-status-trailing {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.cand-status-empty {
+    visibility: hidden;
+    height: 22px;
 }
 
 .cand-icon-wrap {
@@ -304,17 +411,6 @@
     color: var(--color-dark);
     text-align: center;
     padding: 6px 6px 2px;
-}
-
-.cand-party-badge {
-    margin: 6px auto 10px;
-    display: block;
-    width: fit-content;
-    font-size: 10px;
-    font-weight: 700;
-    color: #fff;
-    padding: 3px 10px;
-    border-radius: 20px;
 }
 
 /* View all button */
@@ -424,12 +520,12 @@
 /* ══════════════════════════════════════════
    CENSUS + ASSEMBLY BOTTOM GRID
    ══════════════════════════════════════════ */
-.census-assembly-grid {
+/* .census-assembly-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--gap-md);
     margin-bottom: var(--gap-lg);
-}
+} */
 
 @media (min-width: 900px) {
     .census-assembly-grid {
@@ -442,6 +538,60 @@
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
     padding: var(--gap-md);
+    width: 21%;
+    height: 366px;
+    margin-top: -389px;
+    margin-bottom: 281px;
+}
+
+.chart-card1 {
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    padding: var(--gap-md);
+    width: 100%;
+    margin-top: -262px;
+    /* margin-bottom: 281px; */
+}
+
+.assembly-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  /* 3 columns instead of 2 */
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.assembly-cell {
+  padding: 14px;
+  border-bottom: 1px solid #F1F5F9;
+  border-right: 1px solid #F1F5F9;
+}
+
+.assembly-cell:nth-child(3n) {
+  border-right: none;
+}
+
+.assembly-cell:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+/* Reset old 2-column border rules */
+.assembly-cell:nth-child(even) {
+  border-right: 1px solid #F1F5F9;
+}
+
+.assembly-cell:nth-last-child(-n+2) {
+  border-bottom: 1px solid #F1F5F9;
+}
+
+/* New 3-column border rules */
+.assembly-cell:nth-child(3n) {
+  border-right: none;
+}
+
+.assembly-cell:nth-last-child(-n+3) {
+  border-bottom: none;
 }
 
 .chart-title {
@@ -475,6 +625,7 @@
     color: var(--color-muted);
     font-weight: 600;
     margin-bottom: 10px;
+    margin-top: 16px;
 }
 
 .pie-sub-label span {
@@ -486,6 +637,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    /* margin-top: 53px; */
 }
 
 .pie-divider {
@@ -526,7 +678,7 @@
 }
 
 /* ── Assembly table grid ─── */
-.assembly-table {
+/* .assembly-table {
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 1px solid #E5E7EB;
@@ -546,7 +698,7 @@
 
 .assembly-cell:nth-last-child(-n+2) {
     border-bottom: none;
-}
+} */
 
 .assembly-cell-label {
     font-size: 10px;
@@ -605,4 +757,173 @@
     background: white;
     border: 1px solid #eee;
     z-index: 2;
+}
+
+/* ── Contesting Candidates: alignment fix ── */
+
+#candidates-scroll .cand-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 199px;
+}
+
+#candidates-scroll .cand-rank-badge {
+  display: block !important;
+  margin: 3px auto 2px !important;
+  width: fit-content;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  pointer-events: none;
+  white-space: nowrap;
+  text-align: center;
+  height: 20px;
+  line-height: 16px;
+  box-sizing: border-box;
+  flex-shrink: 0 !important;
+}
+
+#candidates-scroll .cand-rank-leading {
+  background: #dcfce7 !important;
+  color: #15803d !important;
+}
+
+#candidates-scroll .cand-rank-trailing {
+  background: #fef3c7 !important;
+  color: #b45309 !important;
+}
+
+#candidates-scroll .cand-rank-empty {
+  visibility: hidden !important;
+}
+
+#candidates-scroll .cand-name {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-height: 32px !important;
+}
+
+#candidates-scroll .cand-live-votes {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 3px !important;
+  justify-content: center !important;
+  height: 22px !important;
+  flex-shrink: 0 !important;
+  margin: 2px 0 !important;
+}
+
+.cand-votes-num {
+  font-size: 13px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.3px;
+  font-family: Nunito, sans-serif;
+}
+
+.cand-votes-label {
+  font-size: 9px;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cand-votes-nil {
+  color: #cbd5e1;
+}
+
+#candidates-scroll .cand-party-badge {
+  display: inline-flex !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  text-align: center;
+  min-width: 0 !important;
+  align-self: center !important;
+  margin: 8px auto !important;
+  border-radius: 12px !important;
+  padding: 8px 10px !important;
+}
+
+/* #view-all-candidates-grid .cand-party-badge {
+  display: inline-flex !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  align-self: center !important;
+  margin: 8px auto !important;
+  border-radius: 12px !important;
+  padding: 8px 14px !important;
+} */
+
+#candidates-scroll .cand-status-badge {
+  flex-shrink: 0 !important;
+}
+
+/* ── View All modal: same alignment fix ── */
+
+#view-all-candidates-grid .cand-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 190px !important;
+}
+
+#view-all-candidates-grid .cand-rank-badge {
+  display: block !important;
+  margin: 3px auto 2px !important;
+  height: 20px;
+  line-height: 16px;
+  box-sizing: border-box;
+  flex-shrink: 0 !important;
+}
+
+#view-all-candidates-grid .cand-rank-empty {
+  visibility: hidden !important;
+}
+
+#view-all-candidates-grid .cand-name {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-height: 32px !important;
+}
+
+#view-all-candidates-grid .cand-live-votes {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 3px !important;
+  justify-content: center !important;
+  height: 22px !important;
+  flex-shrink: 0 !important;
+  margin: 2px 0 !important;
+}
+
+#view-all-candidates-grid .cand-party-badge {
+  display: inline-flex !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  align-self: center !important;
+  margin: 8px auto !important;
+  border-radius: 12px !important;
+  padding: 8px 14px !important;
+}
+
+#view-all-candidates-grid .cand-status-badge {
+  flex-shrink: 0 !important;
 }

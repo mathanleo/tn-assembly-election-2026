@@ -123,6 +123,12 @@
 }
 
 .favourites-dropdown-item__info { flex: 1; min-width: 0; }
+.favourites-dropdown-item__title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
 .favourites-dropdown-item__name {
   font-size: var(--font-sm);
   font-weight: 700;
@@ -130,6 +136,20 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.favourites-dropdown-item__add-btn {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 999px;
+  background: #ef4444;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.favourites-dropdown-item__add-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
 }
 .favourites-dropdown-item__sub {
   font-size: var(--font-xs);
@@ -480,7 +500,7 @@
 
 .constituency-fav-card__candidate-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
   padding: 12px 14px;
@@ -488,10 +508,33 @@
   border-radius: 12px;
 }
 
+.constituency-fav-card__candidate-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
 .constituency-fav-card__candidate-name {
   font-size: 13px;
   font-weight: 600;
   color: #0f172a;
+}
+
+.constituency-fav-card__candidate-votes {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #0f172a;
+}
+
+.constituency-fav-card__metric-label {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.constituency-fav-card__metric-value {
+  color: #16a34a;
+  font-weight: 700;
 }
 
 .constituency-fav-card__candidate-party {
@@ -520,6 +563,13 @@
   padding: 12px 14px;
   background: #f8fafc;
   border-radius: 12px;
+}
+
+.constituency-fav-card__leader-margin {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #475569;
+  padding-left: 14px;
 }
 
 .constituency-fav-card__details-btn {

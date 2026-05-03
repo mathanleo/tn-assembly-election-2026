@@ -9,16 +9,24 @@
 // All data must come from data/cm-candidates.js
 // ============================================
 
-function getLeaderCountForParty(partyShortName) {
-    if (typeof alliancesData === 'undefined') return 0;
+function getPartyEntry(partyShortName) {
+    if (typeof alliancesData === 'undefined') return null;
 
     var allParties = [].concat(alliancesData.NDA || [], alliancesData.SPA || [], alliancesData.OTHERS || []);
-    var partyEntry = allParties.find(function (party) {
-        return party.pn === partyShortName || party.fullName === partyShortName;
-    });
-
-    return partyEntry && typeof partyEntry.leading !== 'undefined' ? partyEntry.leading : 0;
+    return allParties.find(function (party) {
+        return String(party.pn).trim().toUpperCase() === String(partyShortName).trim().toUpperCase() ||
+               String(party.fullName || '').trim().toUpperCase() === String(partyShortName).trim().toUpperCase();
+    }) || null;
 }
+
+function getLeaderCountForParty(partyShortName) {
+    var partyEntry = getPartyEntry(partyShortName);
+    if (!partyEntry || typeof getPartyLeadCount !== 'function') return 0;
+    return getPartyLeadCount(partyEntry);
+}
+
+// Alliance totals for CM candidates
+var allianceTotals = { nda: 0, spa: 0, others: 0 };
 
 function buildCMCandidates() {
     var container = document.getElementById("cm-candidates-container");
@@ -29,8 +37,16 @@ function buildCMCandidates() {
 
     // Build one card per candidate
     var cardsHTML = cmCandidatesData.map(function (candidate) {
-        var leadingCount = getLeaderCountForParty(candidate.party);
-        var leadingLabel = (leadingCount !== null && leadingCount !== undefined ? leadingCount : 0) + ' Leading';
+        var leadingCount = 0;
+        if (candidate.party === 'DMK') {
+            leadingCount = allianceTotals.spa;
+        } else if (candidate.party === 'ADMK') {
+            leadingCount = allianceTotals.nda;
+        } else if (candidate.party === 'TVK' || candidate.party === 'NTK') {
+            leadingCount = getLeaderCountForParty(candidate.party);
+        }
+        
+        var leadingLabel = leadingCount + ' Leading';
 
         return (
             '<div class="cm-card" data-candidate-id="' + candidate.id + '" style="border-color:' + candidate.borderColor + '">' +
@@ -92,6 +108,19 @@ function initCMCandidateClicks() {
 
 // Run when page is ready
 document.addEventListener("DOMContentLoaded", function () {
+    // Calculate initial alliance totals
+    if (typeof window.getAllianceTotals === 'function') {
+        allianceTotals = window.getAllianceTotals();
+    }
+    
     buildCMCandidates();
     initCMCandidateClicks();
 });
+
+// Global function to update CM candidates with alliance totals
+window.updateCMCandidates = function(ndaTotal, spaTotal, othersTotal) {
+    allianceTotals.nda = ndaTotal;
+    allianceTotals.spa = spaTotal;
+    allianceTotals.others = othersTotal;
+    buildCMCandidates();
+};

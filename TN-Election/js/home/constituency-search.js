@@ -130,7 +130,10 @@
     return '<div class="favourites-dropdown-item" data-id="' + c.id + '">' +
       '<div class="favourites-dropdown-item__photo">' + photoInner + '</div>' +
       '<div class="favourites-dropdown-item__info">' +
-        '<div class="favourites-dropdown-item__name">' + c.name + '</div>' +
+        '<div class="favourites-dropdown-item__title-row">' +
+          '<div class="favourites-dropdown-item__name">' + c.name + '</div>' +
+          '<button class="favourites-dropdown-item__add-btn" data-id="' + c.id + '" type="button">Add</button>' +
+        '</div>' +
         '<div class="favourites-dropdown-item__sub">' +
           c.district + ' · ' + (mlaParty || c.reserved_status) +
         '</div>' +
@@ -177,38 +180,53 @@
       allCandidates = constituenciesWithCandidates[c.id].candidates || [];
     }
 
-    // Show only top 4 candidates
-    var topCandidates = allCandidates.slice(0, 4);
+    var sortedCandidates = allCandidates.slice().sort(function (a, b) {
+      return (Number(b.votes) || 0) - (Number(a.votes) || 0);
+    });
 
-    var candidateRows = topCandidates.map(function (cand) {
+    var leader = sortedCandidates[0] || null;
+    var trailers = sortedCandidates.slice(1, 3);
+    var leaderVotes = leader ? Number(leader.votes) || 0 : 0;
+    var runnerVotes = trailers.length ? Number(trailers[0].votes) || 0 : 0;
+    var marginText = leader
+      ? 'Margin: ' + (leaderVotes - runnerVotes).toLocaleString('en-IN')
+      : 'Margin unavailable';
+
+    var leaderHtml = leader
+      ? '<div class="constituency-fav-card__candidate-row constituency-fav-card__leader-row">' +
+          '<div class="constituency-fav-card__candidate-info">' +
+            '<div class="constituency-fav-card__candidate-name">' + (leader.name || leader.candidate || '—') + '</div>' +
+            '<div class="constituency-fav-card__candidate-votes"><span class="constituency-fav-card__metric-label">Votes:</span> <span class="constituency-fav-card__metric-value">' + (leaderVotes.toLocaleString('en-IN')) + '</span></div>' +
+          '</div>' +
+          '<div class="constituency-fav-card__candidate-party">' + partyIconHtml(resolvePartyKey(leader) || 'IND') +
+            '<span>' + (resolvePartyKey(leader) || 'IND') + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="constituency-fav-card__leader-margin"><span class="constituency-fav-card__metric-label">Margin:</span> <span class="constituency-fav-card__metric-value">' + (leaderVotes - runnerVotes).toLocaleString('en-IN') + '</span></div>'
+      : '<div class="constituency-fav-card__candidate-placeholder">No leading candidate available</div>';
+
+    var trailingHtml = trailers.length ? trailers.map(function (cand) {
       var party = resolvePartyKey(cand) || 'IND';
-      var partyIcon = partyIconHtml(party);
-      return '<div class="constituency-fav-card__candidate-row">' +
-        '<div class="constituency-fav-card__candidate-name">' + (cand.name || cand.candidate || '—') + '</div>' +
-        '<div class="constituency-fav-card__candidate-party">' + partyIcon + '<span>' + party + '</span></div>' +
+      var voteCount = Number(cand.votes) || 0;
+      return '<div class="constituency-fav-card__candidate-row constituency-fav-card__trailer-row">' +
+        '<div class="constituency-fav-card__candidate-info">' +
+          '<div class="constituency-fav-card__candidate-name">' + (cand.name || cand.candidate || '—') + '</div>' +
+          '<div class="constituency-fav-card__candidate-votes"><span class="constituency-fav-card__metric-label">Votes:</span> <span class="constituency-fav-card__metric-value">' + voteCount.toLocaleString('en-IN') + '</span></div>' +
+        '</div>' +
+        '<div class="constituency-fav-card__candidate-party">' + partyIconHtml(party) + '<span>' + party + '</span></div>' +
       '</div>';
-    }).join('');
+    }).join('') : '<div class="constituency-fav-card__candidate-placeholder">No trailing candidates available</div>';
 
-    if (!candidateRows) {
-      candidateRows = '<div class="constituency-fav-card__candidate-placeholder">No candidates available</div>';
-    }
-
-    return '<div class="constituency-fav-card" data-const-id="' + c.id + '" data-expanded="false">' +
+    return '<div class="constituency-fav-card" data-const-id="' + c.id + '">' +
       '<button class="constituency-fav-card__remove" data-const-id="' + c.id + '" title="Remove">×</button>' +
       '<div class="constituency-fav-card__title-row">' +
         '<div class="constituency-fav-card__name">' + c.name + '</div>' +
         '<span class="constituency-fav-card__badge">' + (c.reserved_status || 'General') + '</span>' +
       '</div>' +
-      '<div class="constituency-fav-card__section-label">CURRENT MLA</div>' +
-      '<div class="constituency-fav-card__mla-row">' +
-        iconHtml +
-        '<div class="constituency-fav-card__mla-details">' +
-          '<div class="constituency-fav-card__mla-name">' + (c.current_mla || '—') + '</div>' +
-          '<div class="constituency-fav-card__mla-party">' + mlaParty + '</div>' +
-        '</div>' +
-      '</div>' +
-      '<div class="constituency-fav-card__section-label">CONTESTING CANDIDATES</div>' +
-      '<div class="constituency-fav-card__candidate-list">' + candidateRows + '</div>' +
+      '<div class="constituency-fav-card__section-label">LEADING CANDIDATE</div>' +
+      '<div class="constituency-fav-card__candidate-list">' + leaderHtml + '</div>' +
+      '<div class="constituency-fav-card__section-label">TRAILING CANDIDATES</div>' +
+      '<div class="constituency-fav-card__candidate-list">' + trailingHtml + '</div>' +
       '<button class="constituency-fav-card__details-btn" type="button">View full details ›</button>' +
     '</div>';
   }
@@ -244,21 +262,15 @@
       });
     });
 
-    // Full details toggle buttons
     container.querySelectorAll('.constituency-fav-card__details-btn').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
         var card = this.closest('.constituency-fav-card');
         if (!card) return;
         var id = card.dataset.constId;
-        var expanded = card.dataset.expanded === 'true';
-        renderCsCardCandidates(card, id, !expanded);
+        localStorage.setItem('selectedConstId', id);
+        window.location.href = './constituency.html';
       });
-    });
-
-    container.querySelectorAll('.constituency-fav-card').forEach(function (card) {
-      var id = card.dataset.constId;
-      renderCsCardCandidates(card, id, false);
     });
 
     // Cards are display-only; no popup opens when clicking saved constituencies.
@@ -348,7 +360,27 @@
         wrap.innerHTML = buildDropdownItem(c);
         var item = wrap.firstChild;
 
+        var addButton = item.querySelector('.favourites-dropdown-item__add-btn');
+        if (addButton) {
+          addButton.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var added = addCsFavorite(c);
+            if (!added) {
+              var currentList = getCsFavorites();
+              if (currentList.length >= 10 && !isCsFavorited(c.id)) {
+                addButton.disabled = true;
+                addButton.textContent = 'Limit reached';
+              }
+              return;
+            }
+            renderCsGrid();
+            addButton.disabled = true;
+            addButton.textContent = '✓ Added';
+          });
+        }
+
         item.addEventListener('click', function (e) {
+          if (e.target.closest('.favourites-dropdown-item__add-btn')) return;
           e.stopPropagation();
           input.value          = c.name;
           selectedConstituency = c;
@@ -421,8 +453,12 @@
           return;
         }
         renderCsGrid();
-        addBtn.disabled    = true;
-        addBtn.textContent = '✓ Added';
+        input.value = '';
+        selectedConstituency = null;
+        dropdown.style.display = 'none';
+        if (resultCard) resultCard.style.display = 'none';
+        addBtn.disabled = false;
+        addBtn.textContent = '+ Add';
       });
     }
 
