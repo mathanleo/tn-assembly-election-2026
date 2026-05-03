@@ -1051,29 +1051,21 @@ function buildCandidateCard(candidate, index) {
     voteDisplay = myVotes.toLocaleString('en-IN');
 
     if (myVotes > 0) {
-      // Find all candidates in the same constituency to get max votes
-      var maxVotes = myVotes;
-      var constituencyName = (candidate.constituency || '').trim();
-
-      for (var constKey in constituenciesWithCandidates) {
-        var constObj = constituenciesWithCandidates[constKey];
-        if (constObj.constituency.name === constituencyName) {
-          var allCandidates = constObj.candidates;
-          for (var i = 0; i < allCandidates.length; i++) {
-            var v = allCandidates[i].votes;
-            if (v !== undefined && v !== null && v > maxVotes) {
-              maxVotes = v;
-            }
-          }
-          break;
-        }
+  var maxVotes = 0;
+  var constituencyId = candidate.const_id; // use const_id from API data
+  
+  if (typeof _liveAllCandidates !== 'undefined') {
+    _liveAllCandidates.forEach(function(c) {
+      if (+c.const_id === +constituencyId && c.votes !== null) {
+        var v = Number(c.votes);
+        if (v > maxVotes) maxVotes = v;
       }
-
-      leaderTag = (myVotes === maxVotes) ? "Leading" : "Trailing";
-    } else {
-      // myVotes === 0
-      leaderTag = "Results Awaited";
-    }
+    });
+  }
+  leaderTag = (myVotes >= maxVotes && myVotes > 0) ? "Leading" : "Trailing";
+} else {
+  leaderTag = "Results Awaited";
+}
   }
   // -----------------------------------------------
 
@@ -1191,19 +1183,15 @@ function filterCandidates(candidates, query) {
 //   });
 // }
 
-function mergeVoteData(candidates,allCandidates) {
-  // Step 1: create lookup map
+function mergeVoteData(candidates, allCandidates) {
   const voteMap = new Map();
   allCandidates.forEach(c => {
-    voteMap.set(+c.candidateId, c.votes); // use correct key (id / cand_id etc.)
+    voteMap.set(+c.candidateId, c.votes); // number key
   });
-  const updated = candidates.map(c => ({
+  return candidates.map(c => ({
     ...c,
-    votes: voteMap.get(c.id) ?? c.votes
+    votes: voteMap.has(+c.id) ? voteMap.get(+c.id) : c.votes  // force +c.id to number
   }));
-  console.log("updates:",updated);
-  
-  return updated;
 }
 
 // -----------------------------------------------
@@ -1216,6 +1204,7 @@ function initCandidateCards(allCandidates) {
 
 document.addEventListener('DOMContentLoaded', async function () {
   let allCandidatesName = await getDataFromS3();
+  window._liveAllCandidates = allCandidatesName;
   initCandidateCards(allCandidatesName);
 }
 );

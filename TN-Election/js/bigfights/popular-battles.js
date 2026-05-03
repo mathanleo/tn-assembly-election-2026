@@ -182,7 +182,7 @@ async function renderPopularBattles(searchTerm) {
   // Wait for live data if not yet loaded
   if (typeof _bigFightLiveData === 'undefined' || !_bigFightLiveData.length) {
     try {
-      const response = await fetch("http://localhost:4200/candidates");
+      const response = await fetch("https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates");
       _bigFightLiveData = await response.json();
     } catch(e) {
       console.error('popular-battles fetch error:', e);

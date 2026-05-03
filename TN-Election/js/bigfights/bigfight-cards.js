@@ -15,7 +15,7 @@ var _bigFightLiveData = [];
 
 async function fetchLiveVotes() {
   try {
-    const url = "http://localhost:4200/candidates";
+    const url = "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates";
     const response = await fetch(url, {
       method: "GET",
       headers: { "Content-Type": "application/json" }
@@ -200,12 +200,16 @@ function getLeaderTags(fight) {
   var v2 = getLiveVotes(fight.constituencyId, fight.candidate2.id);
   var maxVotes = getConstituencyMaxVotes(fight.constituencyId);
 
-  if (maxVotes === null || maxVotes === 0) {
+  // REPLACE WITH:
+  if (maxVotes === null) {
     return { tag1: "Waiting", tag2: "Waiting", margin: null, winnerParty: null };
   }
 
-  var tag1 = (v1 === null) ? "Waiting" : (v1 === maxVotes ? "Leading" : "Trailing");
-  var tag2 = (v2 === null) ? "Waiting" : (v2 === maxVotes ? "Leading" : "Trailing");
+  var safe1 = (v1 !== null) ? Number(v1) : 0;
+  var safe2 = (v2 !== null) ? Number(v2) : 0;
+
+  var tag1 = (safe1 > safe2) ? "Leading" : (safe1 < safe2) ? "Trailing" : "Waiting";
+  var tag2 = (safe2 > safe1) ? "Leading" : (safe2 < safe1) ? "Trailing" : "Waiting";
 
   var diff = (v1 === null || v2 === null) ? null : Math.abs(v1 - v2);
   var winnerParty = null;
