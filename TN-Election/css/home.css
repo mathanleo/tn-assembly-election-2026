@@ -385,6 +385,22 @@
   text-align: center;
   background-color: #D1FADF;
 }
+.alliance-table__count--seats{
+  text-align: center;
+  background-color: #F3F4F6;
+}
+.alliance-table__count--lead:hover {
+  cursor: pointer;
+  background-color: #A7F3D0;
+}
+.alliance-table__count--seats:hover {
+  cursor: pointer;
+  background-color: #E5E7EB;
+}
+.alliance-table__count--selected {
+  font-weight: bold;
+  background-color: #FDE68A !important;
+}
 .alliance-table__count-group{
 text-align: center;
 }

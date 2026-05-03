@@ -15,7 +15,7 @@ var expandState = {
 };
 var PREVIEW_COUNT = 6;   // How many rows to show before "View all"
 var isExpanded = false;
-var selectedParty = null; // Track selected party
+var selectedHighlight = { party: null, type: null }; // type: 'leading' or 'seats'
 
 // -----------------------------------------------
 // STEP 1 — Work out seat display value for a party
@@ -73,6 +73,9 @@ function normalizePartyCode(partyCode) {
     if (normalized === 'AIADMK') return 'ADMK';
     return normalized;
 }
+
+window.getConstituencyLeaderParty = getConstituencyLeaderParty;
+window.normalizePartyCode = normalizePartyCode;
 
 buildAlliancePartyLookup();
 
@@ -159,19 +162,21 @@ function buildPartyRows(parties, limit) {
                 '</div>';
         }
 
-        var selectedClass = (selectedParty === party.pn) ? 'alliance-table__row--selected' : '';
+        var selectedClass = (selectedHighlight.party === party.pn) ? 'alliance-table__row--selected' : '';
+        var leadingSelectedClass = (selectedHighlight.party === party.pn && selectedHighlight.type === 'leading') ? 'alliance-table__count--selected' : '';
+        var seatsSelectedClass = (selectedHighlight.party === party.pn && selectedHighlight.type === 'seats') ? 'alliance-table__count--selected' : '';
         var leadingDisplay = String(leadCount);
         var seatDisplay = seatShare === '–' ? '–' : seatShare;
 
         return (
-            '<div class="alliance-table__row ' + selectedClass + '" onclick="selectParty(\'' + party.pn + '\')" style="cursor: pointer;">' +
+            '<div class="alliance-table__row ' + selectedClass + '">' +
             '<div class="alliance-table__party-info">' +
             iconHTML +
             '<span class="alliance-table__party-name">' + (party.fullName || party.pn) + '</span>' +
             '</div>' +
-            '<span class="alliance-table__count alliance-table__count--lead">' + leadingDisplay + '</span>' +
+            '<span class="alliance-table__count alliance-table__count--lead ' + leadingSelectedClass + '" onclick=\'selectPartyLeading(' + JSON.stringify(party.pn) + ')\'>' + leadingDisplay + '</span>' +
             '<div class="alliance-table__count-group">' +
-            '<span class="alliance-table__count alliance-table__count--seats">' + seatDisplay + '</span>' +
+            '<span class="alliance-table__count alliance-table__count--seats ' + seatsSelectedClass + '" onclick=\'selectPartySeats(' + JSON.stringify(party.pn) + ')\'>' + seatDisplay + '</span>' +
             '</div>' +
             '</div>'
         );
@@ -183,6 +188,7 @@ function buildPartyRows(parties, limit) {
 // STEP 3 — Render the full alliance table
 // -----------------------------------------------
 function renderAllianceTable() {
+    if (typeof alliancesData === 'undefined') return;
 
     function renderColumn(colId, data, key) {
         var col = document.getElementById(colId);
@@ -224,6 +230,15 @@ function renderAllianceTable() {
         window.refreshMapColors();
     }
     
+    // Apply highlights if a party is selected
+    if (selectedHighlight.party) {
+        if (selectedHighlight.type === 'leading' && typeof window.updateMapHighlightsLeading === 'function') {
+            window.updateMapHighlightsLeading(selectedHighlight.party);
+        } else if (selectedHighlight.type === 'seats' && typeof window.updateMapHighlights === 'function') {
+            window.updateMapHighlights(selectedHighlight.party);
+        }
+    }
+    
     // Refresh the parliament dot chart with live counts
     if (typeof window.refreshLiveParliamentChart === 'function') {
         window.refreshLiveParliamentChart();
@@ -245,12 +260,33 @@ function toggleAllianceView(type) {
 // STEP 5 — Select party and highlight constituencies
 // Called when clicking on a party row
 // -----------------------------------------------
-function selectParty(partyName) {
-  selectedParty = (selectedParty === partyName) ? null : partyName; // Toggle selection
-  renderAllianceTable(); // Re-render to update selected class
-  if (window.updateMapHighlights) {
-    window.updateMapHighlights(selectedParty);
+function selectPartyLeading(partyName) {
+  if (selectedHighlight.party === partyName && selectedHighlight.type === 'leading') {
+    selectedHighlight = { party: null, type: null };
+  } else {
+    selectedHighlight = { party: partyName, type: 'leading' };
   }
+  renderAllianceTable();
+  if (typeof window.updateMapHighlightsLeading === 'function') {
+    window.updateMapHighlightsLeading(selectedHighlight.party);
+  }
+}
+
+function selectPartySeats(partyName) {
+  if (selectedHighlight.party === partyName && selectedHighlight.type === 'seats') {
+    selectedHighlight = { party: null, type: null };
+  } else {
+    selectedHighlight = { party: partyName, type: 'seats' };
+  }
+  renderAllianceTable();
+  if (typeof window.updateMapHighlights === 'function') {
+    window.updateMapHighlights(selectedHighlight.party);
+  }
+}
+
+// Keep old selectParty for backward compatibility if needed
+function selectParty(partyName) {
+  selectPartySeats(partyName);
 }
 
 // -----------------------------------------------
@@ -258,7 +294,7 @@ function selectParty(partyName) {
 // Called when map is clicked to clear highlights
 // -----------------------------------------------
 function clearPartySelection() {
-  selectedParty = null;
+  selectedHighlight = { party: null, type: null };
   renderAllianceTable();
 }
 

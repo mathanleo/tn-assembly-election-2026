@@ -165,6 +165,21 @@ function getPartySeatIds(party) {
   return partyEntry && Array.isArray(partyEntry.cid) ? partyEntry.cid.map(Number) : [];
 }
 
+function getPartyLeadingSeatIds(party) {
+  if (!party || !alliancesData) return [];
+  var partyEntry = [].concat(alliancesData.NDA || [], alliancesData.SPA || [], alliancesData.OTHERS || [])
+    .find(function(item) { return item.pn === party; });
+  if (!partyEntry || !Array.isArray(partyEntry.cid)) return [];
+  var leadingIds = [];
+  partyEntry.cid.forEach(function(cid) {
+    var leader = window.getConstituencyLeaderParty(cid);
+    if (leader === window.normalizePartyCode(party)) {
+      leadingIds.push(Number(cid));
+    }
+  });
+  return leadingIds;
+}
+
 // ── State ────────────────────────────────────────────────────
 var selectedConstId = null;
 
@@ -353,6 +368,36 @@ window.updateMapHighlights = function(party) {
 
   var highlightColor = getHighlightColor(party);
   var seatIds = getPartySeatIds(party);
+  if (!seatIds.length) {
+    return;
+  }
+
+  d3.selectAll('.constituency-path')
+    .filter(function(d) {
+      return seatIds.indexOf(Number(d.properties.AC_NO)) !== -1;
+    })
+    .classed('highlighted', true)
+    .attr('filter', 'url(#hologram-glow)')
+    .attr('fill', highlightColor)
+    .attr('stroke', highlightColor);
+};
+
+window.updateMapHighlightsLeading = function(party) {
+  var defaultFill = '#e8eaee';
+  var defaultStroke = '#e8eaee';
+
+  d3.selectAll('.constituency-path')
+    .classed('highlighted', false)
+    .attr('filter', null)
+    .attr('fill', defaultFill)
+    .attr('stroke', defaultStroke);
+
+  if (!party) {
+    return;
+  }
+
+  var highlightColor = getHighlightColor(party);
+  var seatIds = getPartyLeadingSeatIds(party);
   if (!seatIds.length) {
     return;
   }
