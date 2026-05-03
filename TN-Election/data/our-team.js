@@ -83,7 +83,7 @@ var ourteam = [
     },
     {
         name: "Meghan Gowsick S",
-        profileImage: "../assets/images/our-team/meghan.jpg",
+        profileImage: "../assets/images/our-team/megan.png",
         socialprofile: [
             {
                 linkedin: "https://in.linkedin.com/in/meghan-gowsick-21b320253",
@@ -142,7 +142,7 @@ var ourteam = [
         ]
     },    {
         name: "Valli M",
-        profileImage: "../assets/images/our-team/valli.jpg",
+        profileImage: "../assets/images/our-team/valli.png",
         socialprofile: [
             {
                 gmail: "vallimuthuramn07@gmail.com",
