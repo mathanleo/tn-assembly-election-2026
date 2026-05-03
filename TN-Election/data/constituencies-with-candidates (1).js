@@ -62461,7 +62461,7 @@ const constituenciesWithCandidates = {
         "id": 1674,
         "name": "Dr. Pl. Vijayakumar",
         "age": "48",
-        "votes": 50,
+        "votes": 0,
         "gender": "male",
         "address": "50/9, VIRALIMALAI SALAI, ANNA NAGAR, MANAPPARAI, TIRUCHIRAPPALLI DISTRICT-621306.",
         "party_full": "All India Anna Dravida Munnetra Kazhagam",
