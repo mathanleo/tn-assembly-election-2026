@@ -146,3 +146,65 @@
     align-items: center;
     gap: 10px;
 }
+@media (max-width: 660px) {
+    .our-team-logo {
+        gap: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .our-team-logo-heading {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .our-team-logo-image {
+        width: 55px;
+        height: 55px;
+    }
+}
+@media (max-width: 660px) {
+    .our-team-logo {
+        gap: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .our-team-logo-heading {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .our-team-logo-image {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+@media (min-width: 661px) and (max-width: 1024px) {
+    .our-team-logo {
+        gap: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .our-team-logo-heading {
+        align-items: center;
+        gap: 8px;
+    }
+
+    .our-team-logo-image {
+        width: 65px;
+        height: 65px;
+    }
+}
