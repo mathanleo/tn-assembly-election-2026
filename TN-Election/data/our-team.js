@@ -32,6 +32,61 @@ var ourteam = [
             }
         ]
     },
+     ,
+     {
+        name: "Josephin Mary A",
+        profileImage: "../assets/images/our-team/josephin.jpg",
+        socialprofile: [
+            {
+                linkedin:"https://www.linkedin.com/in/josephin-mary-a-4252a0289/"
+            }
+        ]
+    },
+    {
+        name: "Navina",
+        profileImage: "../assets/images/our-team/navina.jpg",
+        socialprofile: [
+            {
+                gmail:"navinamarimuthu@gmail.com"
+            }
+        ]
+    },
+    
+
+        {
+        name: "Ganesh Ram M",
+        profileImage: "../assets/images/our-team/ganesh.jpg",
+        socialprofile: [
+            {
+                linkedin: "http://www.linkedin.com/in/ganesh-ram-130b86277",
+            }
+        ]
+    },    {
+        name: "Jeni Pearl R",
+        profileImage: "../assets/images/our-team/jeni.png",
+        socialprofile: [
+            {
+                linkedin: "https://www.linkedin.com/in/josephin-mary-a-4252a0289/",
+            }
+        ]
+    },    {
+        name: "Harini M",
+        profileImage: "../assets/images/our-team/harini.jpg",
+        socialprofile: [
+            {
+                linkedin: "http://www.linkedin.com/in/harinim06",
+                gmail: "harinim.0067@gmail.com",
+            }
+        ]
+    },    {
+        name: "Valli M",
+        profileImage: "../assets/images/our-team/valli.png",
+        socialprofile: [
+            {
+                gmail: "vallimuthuramn07@gmail.com",
+            }
+        ]
+    },   
     {
         name: "Mathan",
         profileImage: "../assets/images/our-team/Mathan U.JPG",
@@ -114,41 +169,6 @@ var ourteam = [
             }
         ]
     },
-
-        {
-        name: "Ganesh Ram M",
-        profileImage: "../assets/images/our-team/ganesh.jpg",
-        socialprofile: [
-            {
-                linkedin: "http://www.linkedin.com/in/ganesh-ram-130b86277",
-            }
-        ]
-    },    {
-        name: "Jeni Pearl R",
-        profileImage: "../assets/images/our-team/jeni.png",
-        socialprofile: [
-            {
-                linkedin: "https://www.linkedin.com/in/josephin-mary-a-4252a0289/",
-            }
-        ]
-    },    {
-        name: "Harini M",
-        profileImage: "../assets/images/our-team/harini.jpg",
-        socialprofile: [
-            {
-                linkedin: "http://www.linkedin.com/in/harinim06",
-                gmail: "harinim.0067@gmail.com",
-            }
-        ]
-    },    {
-        name: "Valli M",
-        profileImage: "../assets/images/our-team/valli.png",
-        socialprofile: [
-            {
-                gmail: "vallimuthuramn07@gmail.com",
-            }
-        ]
-    },
     {
         name: "Guru Lakshmi",
         profileImage: "../assets/images/our-team/guru.jpg",
@@ -157,23 +177,5 @@ var ourteam = [
                 gmail: "gurulakshmi.g@gradious.com",
             }
         ]
-    },
-     {
-        name: "Josephin Mary A",
-        profileImage: "../assets/images/our-team/josephin.jpg",
-        socialprofile: [
-            {
-                linkedin:"https://www.linkedin.com/in/josephin-mary-a-4252a0289/"
-            }
-        ]
-    },
-    {
-        name: "Navina",
-        profileImage: "../assets/images/our-team/navina.jpg",
-        socialprofile: [
-            {
-                gmail:"navinamarimuthu@gmail.com"
-            }
-        ]
-    },
+    }
 ]

@@ -13,8 +13,8 @@ var HOME_POPULAR_LIMIT = 10;
 const getDataFromS3ForHomePage = async (data) => {
     try {
         const url =
-            //"http://localhost:4200/candidates";
-            "https://results2024.s3.ap-south-1.amazonaws.com/api-call.json";
+            "http://localhost:4200/candidates";
+            //"https://results2024.s3.ap-south-1.amazonaws.com/api-call.json";
         const response = await fetch(url, {
             method: "GET",
             headers: {
