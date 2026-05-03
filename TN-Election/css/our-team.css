@@ -117,9 +117,10 @@
     display: flex;
     flex-direction: row;
     justify-content:center;
-    gap: 165px;
-    padding-left: 20px;
+    gap: 115px;
+    padding-left: 70px;
     padding-right: 20px;
+    font-weight: bold;
 }
 .welcome-chat-section {
     height: 100%;
@@ -139,4 +140,9 @@
     position: relative;
     top: 55px;
     right: 55px;
+}
+.our-team-logo-heading{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
