@@ -151,7 +151,7 @@ var ourteam = [
     },
     {
         name: "Guru Lakshmi",
-        profileImage: "../assets/images/our-team/gutu.jpg",
+        profileImage: "../assets/images/our-team/guru.jpg",
         socialprofile: [
             {
                 gmail: "gurulakshmi.g@gradious.com",

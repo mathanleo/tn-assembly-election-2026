@@ -231,11 +231,13 @@ function initFavoritesSearch() {
 function buildFavoriteCard(candidate, index) {
   var photoSrc = (candidate.photo && candidate.photo.length > 0)
     ? candidate.photo
-    : '../assets/images/candidates/mla/2026/' + candidate.id + '.jpg' ? '../assets/images/candidates/mla/2026/'+candidate.id+'.png' : '../assets/images/candidates/mla/2026/' + candidate.id + '.jpg';
+    : '../assets/images/candidates/mla/2026/' + candidate.id + '.jpg';
+
+  var pngSrc = '../assets/images/candidates/mla/2026/' + candidate.id + '.png';
 
   var photoHTML = '<img src="' + photoSrc + '" alt="' + (candidate.name || '') + '" ' +
     'style="width:100%;height:100%;object-fit:cover;object-position:top;" ' +
-    'onerror="this.style.display=\'none\'" />';
+    'onerror="this.src=\'' + pngSrc + '\'; this.onerror=function(){this.outerHTML=\'<div style=background:#e2e8f0;width:100%;height:100%;display:flex;align-items:center;justify-content:center><span style=color:#999;font-size:11px>No Photo</span></div>\';};" />';
 
   var silhouetteHTML = 
     '<svg viewBox="0 0 157 184" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">' +
