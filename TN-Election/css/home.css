@@ -390,11 +390,11 @@
 }
 .alliance-table__count--lead{
   text-align: center;
-  background-color: #D1FADF;
+  background-color: transparent;
 }
 .alliance-table__count--seats{
   text-align: center;
-  background-color: #F3F4F6;
+  background-color: transparent;
 }
 .alliance-table__count--lead:hover {
   cursor: pointer;
@@ -614,8 +614,10 @@ text-align: center;
   }
 
   .alliance-table__mobile-header {
+    width: 100%;
+    box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     align-items: center;
     padding: 10px 12px;
@@ -627,6 +629,14 @@ text-align: center;
     margin-bottom: 12px;
   }
 
+  .alliance-table__mobile-header span {
+    display: block;
+    text-align: center;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   #alliance-col-nda::before,
   #alliance-col-spa::before,
   #alliance-col-others::before {
@@ -634,12 +644,14 @@ text-align: center;
     position: relative;
     content: "";
     padding: 10px 14px;
-    margin-bottom: 14px;
+    margin: 0 0 14px;
     border-radius: 10px;
     font-size: var(--font-md);
     font-weight: 800;
     letter-spacing: 0.05em;
     color: #fff;
+    text-align: center;
+    width: 100%;
   }
 
   #alliance-col-nda::before { content: "NDA"; background: #e05a46; }
@@ -652,25 +664,9 @@ text-align: center;
     gap: 24px;
   }
 
-  .alliance-table__mobile-header {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 10px;
-    align-items: center;
-    padding: 10px 14px;
-    background: #f8fafc;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 700;
-    color: #475569;
-    margin-bottom: 12px;
-  }
-
-  .alliance-table__mobile-header span {
-    display: block;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  .alliance-table__leading,
+  .alliance-table__seats {
+    text-align: center;
   }
 
   #alliance-col-nda .alliance-table__mobile-header {
@@ -744,7 +740,7 @@ text-align: center;
 
   .alliance-table__mobile-header {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     align-items: center;
     padding: 10px 12px;
