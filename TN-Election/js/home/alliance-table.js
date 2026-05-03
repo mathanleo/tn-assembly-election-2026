@@ -1156,7 +1156,7 @@ function updateAllianceTotals() {
     var totals = calculateAllianceTotals();
 
     if (typeof window.updateParliamentChart === 'function') {
-        window.updateParliamentChart(totals.nda, totals.spa, totals.tvk, totals.ntk, totals.others);
+        window.updateParliamentChart(totals.nda, totals.spa, totals.ntk, totals.tvk, totals.others);
     }
     if (typeof window.updateCMCandidates === 'function') {
         window.updateCMCandidates(totals.nda, totals.spa, totals.others);

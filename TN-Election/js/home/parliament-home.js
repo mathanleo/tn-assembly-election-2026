@@ -238,7 +238,7 @@ function refreshLiveParliamentChart() {
   if (typeof window.updateParliamentChart !== 'function') return;
   var counts = computeLiveParliamentCounts();
   if (counts.nda + counts.spa + counts.tvk + counts.ntk + counts.others > 0) {
-    window.updateParliamentChart(counts.nda, counts.spa, counts.tvk, counts.ntk, counts.others);
+    window.updateParliamentChart(counts.nda, counts.spa, counts.ntk, counts.tvk, counts.others);
   } else {
     buildParliamentChart();
   }
