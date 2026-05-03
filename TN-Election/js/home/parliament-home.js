@@ -237,7 +237,11 @@ function computeLiveParliamentCounts() {
 function refreshLiveParliamentChart() {
   if (typeof window.updateParliamentChart !== 'function') return;
   var counts = computeLiveParliamentCounts();
-  window.updateParliamentChart(counts.nda, counts.spa, counts.ntk, counts.tvk, counts.others);
+  if (counts.nda + counts.spa + counts.tvk + counts.ntk + counts.others > 0) {
+    window.updateParliamentChart(counts.nda, counts.spa, counts.tvk, counts.ntk, counts.others);
+  } else {
+    buildParliamentChart();
+  }
 }
 
 // =============================================
@@ -474,8 +478,8 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, others
 }
 
 // Public API — called from alliance-table.js
-window.updateParliamentChart = function(ndaSeats, spaSeats, ntkSeats, tvkSeats, tvkSeats, ntkSeats, othersSeats) {
-  buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, tvkSeats || 0, ntkSeats || 0, othersSeats);
+window.updateParliamentChart = function(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats) {
+  buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats);
 };
 
 // =============================================
