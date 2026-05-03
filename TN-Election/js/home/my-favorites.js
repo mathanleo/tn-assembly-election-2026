@@ -9,26 +9,29 @@
 //   4. Display selected candidates in grid
 // ============================================
 
-const STORAGE_KEY = 'tn_election_favorites';
-const MAX_FAVORITES = 10;
+var STORAGE_KEY = 'tn_election_favorites';
+var MAX_FAVORITES = 10;
+var _liveVoteData = [];
+
+// ── SAME AS candidate-cards.js ──
 
 // Flatten all candidates from constituencies data
 function getAllCandidates() {
-  if (typeof constituenciesWithCandidates === 'undefined') {
-    return [];
+  if (typeof constituenciesWithCandidates === 'undefined') return [];
+  var allCandidates = [];
+  for (var id in constituenciesWithCandidates) {
+    var entry = constituenciesWithCandidates[id];
+    var constName = (entry.constituency && entry.constituency.name) ? entry.constituency.name : '';
+    var candidates = entry.candidates || [];
+    candidates.forEach(function(c) {
+      allCandidates.push(Object.assign({}, c, {
+        // Inject flat string so search filter can match it
+        constituency: constName,
+        // Also carry party_short if it comes under a different key
+        party_short: c.party_short || c.party || ''
+      }));
+    });
   }
-
-  let allCandidates = [];
-  
-  for (let constituencyId in constituenciesWithCandidates) {
-    let constituencyData = constituenciesWithCandidates[constituencyId];
-    if (constituencyData && Array.isArray(constituencyData.candidates)) {
-      constituencyData.candidates.forEach(candidate => {
-        allCandidates.push(candidate);
-      });
-    }
-  }
-
   return allCandidates;
 }
 
@@ -222,7 +225,8 @@ function initFavoritesSearch() {
         resultCard.style.display = 'none';
         dropdown.style.display = 'none';
         currentSelected = null;
-        renderFavorites(); // ← re-renders grid from localStorage
+        renderFavorites(); 
+        renderFavorites(_liveVoteData);// ← re-renders grid from localStorage
       }
     });
   }
@@ -328,23 +332,26 @@ function buildFavoriteCard(candidate, index) {
   );
 }
 // Render favorites to the grid
-function renderFavorites() {
+// Change the function signature
+function renderFavorites(liveData) {
   var container = document.getElementById('favorites-container');
   if (!container) return;
 
   var favorites = getFavorites();
-
-  // Refresh stored favorites with live candidate records from the master list.
   var updatedFavorites = favorites.map(function(fav) {
     var current = findCandidateById(fav.id);
     return current ? current : fav;
   });
-
-  // Clean bad data — filter out any arrays accidentally stored
   updatedFavorites = updatedFavorites.filter(function(f) {
     return f && !Array.isArray(f) && f.id && f.name;
   });
-  saveFavorites(updatedFavorites); // save refreshed version back
+
+  // ── Merge live DB votes if available ──
+  if (liveData && liveData.length && typeof mergeVoteData === 'function') {
+    updatedFavorites = mergeVoteData(updatedFavorites, liveData);
+  }
+
+  saveFavorites(updatedFavorites);
 
   if (updatedFavorites.length === 0) {
     container.innerHTML =
@@ -356,22 +363,18 @@ function renderFavorites() {
 
   var html = '';
   updatedFavorites.forEach(function(candidate, index) {
-    try {
-      html += buildFavoriteCard(candidate, index);
-    } catch(e) {
-      console.error('Error building card for', candidate.name, e);
-    }
+    try { html += buildFavoriteCard(candidate, index); }
+    catch(e) { console.error('Error building card for', candidate.name, e); }
   });
-
   container.innerHTML = html;
 
   // Remove button listeners
   container.querySelectorAll('.favorites-remove-btn').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
-      var candidateId = parseInt(this.dataset.candidateId);
-      removeFromFavorites(candidateId);
-      renderFavorites();
+      removeFromFavorites(parseInt(this.dataset.candidateId));
+      renderFavorites(liveData);
+        // pass liveData through
     });
   });
 
@@ -379,17 +382,16 @@ function renderFavorites() {
   container.addEventListener('click', function(e) {
     var card = e.target.closest('.candidate-card');
     if (!card || e.target.closest('.favorites-remove-btn')) return;
-    var candidateId = card.dataset.candidateId;
-    var favs = getFavorites();
-    var found = favs.find(function(c) { return String(c.id) === String(candidateId); });
-    if (found && typeof openCandidatePopup !== 'undefined') {
-      openCandidatePopup(found);
-    }
+    var found = updatedFavorites.find(function(c) {
+      return String(c.id) === String(card.dataset.candidateId);
+    });
+    if (found && typeof openCandidatePopup !== 'undefined') openCandidatePopup(found);
   });
 }
 
 // Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   initFavoritesSearch();
-  renderFavorites();
+  _liveVoteData = (typeof getDataFromS3 === 'function') ? await getDataFromS3() : [];
+  renderFavorites(_liveVoteData);
 });
