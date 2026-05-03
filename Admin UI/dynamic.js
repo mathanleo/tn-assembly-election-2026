@@ -4108,12 +4108,12 @@ document.addEventListener("DOMContentLoaded", async function () {
               .toLowerCase().includes(candidateName.toLowerCase()) &&
             parties.includes(candidateObj.party)
           ) {
-            console.log("candiaoBJ:",candidateObj);
-            
+            console.log("candiaoBJ:", candidateObj);
+
             data.push({
               candidate_id: candidateObj.candidateId,
               candidate_name: candidateObj.candidateName,
-              party:candidateObj.party
+              party: candidateObj.party
             });
           }
         });
@@ -4129,14 +4129,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             data.push({
               candidate_id: candidateObj.candidateId,
               candidate_name: candidateObj.candidateName,
-              party:candidateObj.party
+              party: candidateObj.party
 
             });
           }
         });
       }
-      console.log("data:",data);
-      
+      console.log("data:", data);
+
       renderCandiSuggestions(data);
     } catch (error) {
       console.log(error);
@@ -4231,7 +4231,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const getDataFromDb = async (id, data) => {
     try {
       const url =
-        "http://localhost:4200/constituency-data";
+        "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/constituency-data";
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -4241,9 +4241,16 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      const constName = data[0]?.toLowerCase();
+      console.log("daata:", data.length);
+      let constName;
+      if (data.length >= 3) {
+        constName = `${data[0].toLowerCase()}-${data[1].toLowerCase()}`;
+      }
+      else {
+        constName = data[0]?.toLowerCase();
+      }
       const candidatesData = await response.json();
-      console.log("candddd:", candidatesData);
+      console.log("candddd:", candidatesData, constName);
       return candidatesData[id][constName].candidates;
     } catch (error) {
       console.log(error);
@@ -4254,7 +4261,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const getAllCandidatesDetails = async () => {
     try {
       const url =
-        "http://localhost:4200/candidates";
+        "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates";
       const response = await fetch(url, {
         method: "GET",
         headers: {
@@ -4662,7 +4669,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       console.log("voteData:", voteData);
       const token = localStorage.getItem("token");
       const response = await fetch(
-        "http://localhost:4200/update-votes",
+        "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/update-votes",
         {
           method: "PUT",
           headers: {

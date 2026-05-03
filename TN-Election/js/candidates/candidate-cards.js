@@ -970,8 +970,8 @@ function buildCandidateSilhouette() {
 const getDataFromS3 = async (data) => {
   try {
     const url =
-    "http://localhost:4200/candidates";
-    //"https://results2024.s3.ap-south-1.amazonaws.com/api-call.json";
+      "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates";
+    // https://results2024.s3.ap-south-1.amazonaws.com/api-call.json call this
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -982,7 +982,7 @@ const getDataFromS3 = async (data) => {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const candidatesData = await response.json();
-    // console.log("candddd:", candidatesData);
+    console.log("candddd:", candidatesData);
     return candidatesData
   } catch (error) {
     console.log(error);

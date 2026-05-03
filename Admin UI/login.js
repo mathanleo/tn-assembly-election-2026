@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       console.log("Entered...");
       const response = await fetch(
-        `http://localhost:4200/login?userId=${username}&pwd=${password}`,
+        `https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/login?userId=${username}&pwd=${password}`,
         {
           method: "GET",
         }
