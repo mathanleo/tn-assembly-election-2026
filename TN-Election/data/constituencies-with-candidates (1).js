@@ -28907,7 +28907,7 @@ const constituenciesWithCandidates = {
         "id": 1048,
         "name": "Karmegan.M",
         "age": "68",
-        "votes": 50,
+        "votes": 0,
         "gender": "male",
         "address": "18/585,SIBI HOSPITAL CAMPUS,ERODE ROAD,KONGU NAGAR,SENAPATHIPALAYAM,VELLAKOVIL,TIRUPPUR - 638111",
         "party_full": "Naam Tamilar Katchi",
