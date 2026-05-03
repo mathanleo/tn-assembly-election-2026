@@ -967,6 +967,28 @@ function buildCandidateSilhouette() {
   );
 }
 
+const getDataFromS3 = async (data) => {
+  try {
+    const url =
+      "http://localhost:4200/candidates";
+    // https://results2024.s3.ap-south-1.amazonaws.com/api-call.json call this
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const candidatesData = await response.json();
+    // console.log("candddd:", candidatesData);
+    return candidatesData
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 // -----------------------------------------------
 // Build one candidate card
 // -----------------------------------------------
@@ -1010,7 +1032,7 @@ function buildCandidateCard(candidate, index) {
   };
 
   var iconPath = PARTY_ICONS[partyKey];
-  if(!iconPath){
+  if (!iconPath) {
     iconPath = PARTY_ICONS['IND']; // fallback to generic "Independent" icon
   }
   var badgeHTML = iconPath
@@ -1019,41 +1041,41 @@ function buildCandidateCard(candidate, index) {
 
   var animDelay = (index % 20) * 0.04;
   var myVotes = (candidate.votes !== undefined && candidate.votes !== null)
-  ? Number(candidate.votes)
-  : null;
+    ? Number(candidate.votes)
+    : 0;
 
-var voteDisplay = "Awaited";
-var leaderTag   = "Result Awaited";
+  var voteDisplay = "Awaited";
+  var leaderTag = "Result Awaited";
 
-if (myVotes !== null) {
-  voteDisplay = myVotes.toLocaleString('en-IN');
+  if (myVotes !== null) {
+    voteDisplay = myVotes.toLocaleString('en-IN');
 
-  if (myVotes > 0) {
-    // Find all candidates in the same constituency to get max votes
-    var maxVotes = myVotes;
-    var constituencyName = (candidate.constituency || '').trim();
+    if (myVotes > 0) {
+      // Find all candidates in the same constituency to get max votes
+      var maxVotes = myVotes;
+      var constituencyName = (candidate.constituency || '').trim();
 
-    for (var constKey in constituenciesWithCandidates) {
-      var constObj = constituenciesWithCandidates[constKey];
-      if (constObj.constituency.name === constituencyName) {
-        var allCandidates = constObj.candidates;
-        for (var i = 0; i < allCandidates.length; i++) {
-          var v = allCandidates[i].votes;
-          if (v !== undefined && v !== null && v > maxVotes) {
-            maxVotes = v;
+      for (var constKey in constituenciesWithCandidates) {
+        var constObj = constituenciesWithCandidates[constKey];
+        if (constObj.constituency.name === constituencyName) {
+          var allCandidates = constObj.candidates;
+          for (var i = 0; i < allCandidates.length; i++) {
+            var v = allCandidates[i].votes;
+            if (v !== undefined && v !== null && v > maxVotes) {
+              maxVotes = v;
+            }
           }
+          break;
         }
-        break;
       }
+
+      leaderTag = (myVotes === maxVotes) ? "Leading" : "Trailing";
+    } else {
+      // myVotes === 0
+      leaderTag = "Results Awaited";
     }
-    
-    leaderTag = (myVotes === maxVotes) ? "Leading" : "Trailing";
-  } else {
-    // myVotes === 0
-    leaderTag = "Results Awaited";
   }
-}
-// -----------------------------------------------
+  // -----------------------------------------------
 
   var colours = getAllianceColours(partyKey);
   var cardBg = colours ? colours.bg : candidate.bg;
@@ -1083,7 +1105,7 @@ if (myVotes !== null) {
     '<div class="candidate-card__party-bar2">' + 
     partyKey +
     '</div>' +
-    '</div>'+
+    '</div>' +
     '</div>' +
     '</div>' +
 
@@ -1138,41 +1160,62 @@ function filterCandidates(candidates, query) {
 // -----------------------------------------------
 // Merge vote data from constituenciesWithCandidates
 // -----------------------------------------------
-function mergeVoteData(candidates) {
-  return candidates.map(function(candidate) {
-    var constituencyName = (candidate.constituency || '').trim();
-    
-    // Search through constituenciesWithCandidates for matching candidate
-    for (var constKey in constituenciesWithCandidates) {
-      var constObj = constituenciesWithCandidates[constKey];
-      if (constObj.constituency.name === constituencyName) {
-        var allCandidates = constObj.candidates;
-        for (var i = 0; i < allCandidates.length; i++) {
-          // Match by candidate ID and name
-          if (allCandidates[i].id === candidate.id || 
-              (allCandidates[i].name && candidate.name && 
-               allCandidates[i].name.toLowerCase() === candidate.name.toLowerCase())) {
-            candidate.votes = allCandidates[i].votes || 0;
-            return candidate;
-          }
-        }
-      }
-    }
-    
-    // If no match found, default to 0
-    if (candidate.votes === undefined) {
-      candidate.votes = 0;
-    }
-    return candidate;
+// function mergeVoteData(candidates,allCandidates) {
+//   console.log("allCandidsate:",allCandidates,candidates);
+
+//   return candidates.map(function (candidate) {
+//     var constituencyName = (candidate.constituency || '').trim();
+
+//     // Search through constituenciesWithCandidates for matching candidate
+//     for (var constKey in constituenciesWithCandidates) {
+//       var constObj = constituenciesWithCandidates[constKey];
+//       if (constObj.constituency.name === constituencyName) {
+//         var allCandidates = constObj.candidates;
+//         for (var i = 0; i < allCandidates.length; i++) {
+//           // Match by candidate ID and name
+//           if (allCandidates[i].id === candidate.id ||
+//             (allCandidates[i].name && candidate.name &&
+//               allCandidates[i].name.toLowerCase() === candidate.name.toLowerCase())) {
+//             candidate.votes = allCandidates[i].votes || 0;
+//             return candidate;
+//           }
+//         }
+//       }
+//     }
+
+//     // If no match found, default to 0
+//     if (candidate.votes === undefined) {
+//       candidate.votes = 0;
+//     }
+//     return candidate;
+//   });
+// }
+
+function mergeVoteData(candidates,allCandidates) {
+  // Step 1: create lookup map
+  const voteMap = new Map();
+  allCandidates.forEach(c => {
+    voteMap.set(+c.candidateId, c.votes); // use correct key (id / cand_id etc.)
   });
+  const updated = candidates.map(c => ({
+    ...c,
+    votes: voteMap.get(c.id) ?? c.votes
+  }));
+  console.log("updates:",updated);
+  
+  return updated;
 }
 
 // -----------------------------------------------
 // Init candidate cards
 // -----------------------------------------------
-function initCandidateCards() {
-  var candidatesWithVotes = mergeVoteData(popularCandidates);
+function initCandidateCards(allCandidates) {
+  var candidatesWithVotes = mergeVoteData(popularCandidates, allCandidates);
   renderCandidates(candidatesWithVotes);
 }
 
-document.addEventListener('DOMContentLoaded', initCandidateCards);
+document.addEventListener('DOMContentLoaded', async function () {
+  let allCandidatesName = await getDataFromS3();
+  initCandidateCards(allCandidatesName);
+}
+);

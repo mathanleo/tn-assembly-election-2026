@@ -10,7 +10,28 @@
 
 var HOME_POPULAR_LIMIT = 10;
 
-function buildHomePopularCandidates() {
+const getDataFromS3ForHomePage = async (data) => {
+    try {
+        const url =
+            "http://localhost:4200/candidates";
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const candidatesData = await response.json();
+        // console.log("candddd:", candidatesData);
+        return candidatesData
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function buildHomePopularCandidates() {
     var container = document.getElementById('popular-candidates-container');
     if (!container) return;
 
@@ -19,8 +40,14 @@ function buildHomePopularCandidates() {
         return;
     }
 
-    var preview = popularCandidates.slice(0, HOME_POPULAR_LIMIT);
+    // var preview = popularCandidates.slice(0, HOME_POPULAR_LIMIT);
+    const allCandidatesName = await getDataFromS3ForHomePage();
 
+    const candidatesWithVotes = mergeVoteData(popularCandidates, allCandidatesName);
+
+    var preview = candidatesWithVotes.slice(0, HOME_POPULAR_LIMIT);
+    console.log("preview:",preview);
+    
     // Reuse buildCandidateCard() from candidate-cards.js — same card, no duplication
     container.innerHTML =
         '<div class="candidates-grid" id="home-popular-candidates-grid">' +
@@ -35,7 +62,7 @@ function initHomePopularCandidateClicks() {
     var grid = document.getElementById('home-popular-candidates-grid');
     if (!grid) return;
 
-    grid.addEventListener('click', function(e) {
+    grid.addEventListener('click', function (e) {
         var card = e.target.closest('.candidate-card');
         if (!card || !card.dataset.candidateId) return;
 
@@ -45,7 +72,7 @@ function initHomePopularCandidateClicks() {
         ];
         var found = null;
         for (var i = 0; i < allArrays.length; i++) {
-            found = allArrays[i].find(function(c) { return String(c.id) === String(id); });
+            found = allArrays[i].find(function (c) { return String(c.id) === String(id); });
             if (found) break;
         }
         if (found && typeof openCandidatePopup !== 'undefined') openCandidatePopup(found);

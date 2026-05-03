@@ -1138,41 +1138,44 @@ function filterCandidates(candidates, query) {
 // -----------------------------------------------
 // Merge vote data from constituenciesWithCandidates
 // -----------------------------------------------
-function mergeVoteData(candidates) {
-  return candidates.map(function(candidate) {
-    var constituencyName = (candidate.constituency || '').trim();
+// function mergeVoteData(candidates) {
+//   return candidates.map(function(candidate) {
+//     var constituencyName = (candidate.constituency || '').trim();
     
-    // Search through constituenciesWithCandidates for matching candidate
-    for (var constKey in constituenciesWithCandidates) {
-      var constObj = constituenciesWithCandidates[constKey];
-      if (constObj.constituency.name === constituencyName) {
-        var allCandidates = constObj.candidates;
-        for (var i = 0; i < allCandidates.length; i++) {
-          // Match by candidate ID and name
-          if (allCandidates[i].id === candidate.id || 
-              (allCandidates[i].name && candidate.name && 
-               allCandidates[i].name.toLowerCase() === candidate.name.toLowerCase())) {
-            candidate.votes = allCandidates[i].votes || 0;
-            return candidate;
-          }
-        }
-      }
-    }
+//     // Search through constituenciesWithCandidates for matching candidate
+//     for (var constKey in constituenciesWithCandidates) {
+//       var constObj = constituenciesWithCandidates[constKey];
+//       if (constObj.constituency.name === constituencyName) {
+//         var allCandidates = constObj.candidates;
+//         for (var i = 0; i < allCandidates.length; i++) {
+//           // Match by candidate ID and name
+//           if (allCandidates[i].id === candidate.id || 
+//               (allCandidates[i].name && candidate.name && 
+//                allCandidates[i].name.toLowerCase() === candidate.name.toLowerCase())) {
+//             candidate.votes = allCandidates[i].votes || 0;
+//             return candidate;
+//           }
+//         }
+//       }
+//     }
     
-    // If no match found, default to 0
-    if (candidate.votes === undefined) {
-      candidate.votes = 0;
-    }
-    return candidate;
-  });
-}
+//     // If no match found, default to 0
+//     if (candidate.votes === undefined) {
+//       candidate.votes = 0;
+//     }
+//     return candidate;
+//   });
+// }
 
 // -----------------------------------------------
 // Init candidate cards
 // -----------------------------------------------
-function initCandidateCards() {
-  var candidatesWithVotes = mergeVoteData(popularCandidates);
+function initCandidateCards(allCand) {
+  var candidatesWithVotes = mergeVoteData(popularCandidates,allCand);
   renderCandidates(candidatesWithVotes);
 }
 
-document.addEventListener('DOMContentLoaded', initCandidateCards);
+document.addEventListener('DOMContentLoaded', async function() {
+   let allCandidatesName = await getDataFromS3();
+   initCandidateCards(allCandidatesName);
+});

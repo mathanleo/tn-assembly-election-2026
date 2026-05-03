@@ -25,7 +25,7 @@ function getTabData(tabKey) {
 // -----------------------------------------------
 // Switch to a tab
 // -----------------------------------------------
-function switchTab(tabKey) {
+async function switchTab(tabKey) {
   // Update active tab styling
   var tabs = document.querySelectorAll('.candidates-tab');
   tabs.forEach(function(tab) {
@@ -43,7 +43,8 @@ function switchTab(tabKey) {
   // Load data for this tab and merge votes
   activeCandidates = getTabData(tabKey);
   if (typeof mergeVoteData === 'function') {
-    activeCandidates = mergeVoteData(activeCandidates);
+    let allCandidates = await getDataFromS3();
+    activeCandidates = mergeVoteData(activeCandidates,allCandidates);
   }
   renderCandidates(activeCandidates);
 }

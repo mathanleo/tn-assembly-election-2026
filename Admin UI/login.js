@@ -31,13 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       console.log("Entered...");
       const response = await fetch(
-        `https://p375fe996c.execute-api.ap-south-1.amazonaws.com/Prod/login?userId=${username}&pwd=${password}`,
+        `http://localhost:4200/login?userId=${username}&pwd=${password}`,
         {
           method: "GET",
         }
       );
+      console.log("respponmse:", response);
       if (response.ok) {
-        const token = await response.text();
+        const data = await response.json();
+        console.log("data:", data);
+
+        const token = data;
         localStorage.setItem("token", token);
         const container = document.querySelector(".container");
         const loginContainer = document.querySelector(".login-container");
