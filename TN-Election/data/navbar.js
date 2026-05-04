@@ -11,7 +11,8 @@ const navbarData = {
     logo: {
         image: "../assets/images/navbar/tn-election-logo.svg",
         title: "TN Election 2026",
-        subtitle: "Tamilnadu Legislative Assembly"
+        subtitle: "bharathelection.com by Gradious"
+        // subtitle: "Tamilnadu Legislative Assembly"
     },
 
     // --- Navigation Links ---

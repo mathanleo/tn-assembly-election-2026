@@ -284,6 +284,7 @@
   /* Show logo subtitle */
   .navbar__logo-subtitle {
     display: block;
+    color: #111;
   }
 
   /* Show nav links inline */
