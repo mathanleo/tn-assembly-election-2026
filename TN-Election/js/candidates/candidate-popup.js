@@ -1900,12 +1900,28 @@ function buildCompetitorCard(comp) {
     ? '<img src="' + comp.photo + '" alt="' + comp.name + '" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block" onerror="this.src=\'../assets/images/candidates/default/default.png\'"/>'
     : buildPopupSilhouette();
 
+  var voteInfo = getVoteInfo(comp.id);
+  var compVoteHTML = '';
+  if (voteInfo && voteInfo.status !== 'awaited') {
+    var isL = voteInfo.isLeading;
+    compVoteHTML =
+      '<div class="pcomp-card__vote-row">' +
+        '<span class="pcomp-card__votes">' + voteInfo.votes.toLocaleString('en-IN') + ' votes</span>' +
+        '<span class="pcomp-card__lead-badge ' + (isL ? 'pcomp-card__lead-badge--lead' : 'pcomp-card__lead-badge--trail') + '">' +
+          (isL ? '▲ Leading' : '▼ Trailing') +
+        '</span>' +
+      '</div>';
+  } else if (voteInfo && voteInfo.status === 'awaited') {
+    compVoteHTML = '<div class="pcomp-card__vote-row"><span class="pcomp-card__votes" style="color:#94a3b8">Awaited</span></div>';
+  }
+
   return (
     '<div class="pcomp-card" data-comp-id="' + comp.id + '" style="cursor:pointer">' +
       '<div class="pcomp-card__photo-wrap">' + photoHTML + '</div>' +
       '<div class="pcomp-card__body" style="background:' + colours.bg + '">' +
         '<p class="pcomp-card__name" style="color:' + colours.text + '">' + (comp.name || '').trim() + '</p>' +
         '<p class="pcomp-card__const" style="color:' + colours.text + '">' + (comp.constituency || '').trim() + '</p>' +
+        compVoteHTML +
         '<div class="pcomp-card__logo" style="background:' + (iconPath ? '#fff' : colours.bar) + '">' + badgeInner + '</div>' +
         '<div class="pcomp-card__bar" style="background:' + colours.bar + '">' +
           '<span style="color:#fff;font-size:9px;font-weight:800;letter-spacing:.02em">' + partyKey.slice(0,6) + '</span>' +
@@ -1951,6 +1967,41 @@ function buildWinsBar(wins, losses) {
   );
 }
 
+// -----------------------------------------------
+// Get live vote info for a candidate from _liveAllCandidates
+// Returns { votes, isLeading, leadBy, status }
+// -----------------------------------------------
+function getVoteInfo(candidateId) {
+  if (typeof _liveAllCandidates === 'undefined' || !_liveAllCandidates || !_liveAllCandidates.length) return null;
+  var myRecord = null;
+  for (var i = 0; i < _liveAllCandidates.length; i++) {
+    if (String(_liveAllCandidates[i].candidateId) === String(candidateId)) {
+      myRecord = _liveAllCandidates[i]; break;
+    }
+  }
+  if (!myRecord || myRecord.votes === null || myRecord.votes === undefined) return null;
+  var myVotes = Number(myRecord.votes);
+  if (myVotes === 0) return { votes: 0, isLeading: false, leadBy: 0, status: 'awaited' };
+
+  var constId = myRecord.const_id;
+  var maxVotes = 0, secondMax = 0;
+  _liveAllCandidates.forEach(function(c) {
+    if (String(c.const_id) === String(constId) && c.votes !== null) {
+      var v = Number(c.votes);
+      if (v > maxVotes)       { secondMax = maxVotes; maxVotes = v; }
+      else if (v > secondMax) { secondMax = v; }
+    }
+  });
+
+  var isLeading = myVotes >= maxVotes && myVotes > 0;
+  return {
+    votes: myVotes,
+    isLeading: isLeading,
+    leadBy: isLeading ? (myVotes - secondMax) : (maxVotes - myVotes),
+    status: isLeading ? 'leading' : 'trailing'
+  };
+}
+
 function buildLeftPanel(candidate, colours, rich) {
   var wins = 0, losses = 0;
   var isPopularOrCelebrity = isPopularOrCelebrityCandidate(candidate.id);
@@ -1973,6 +2024,34 @@ function buildLeftPanel(candidate, colours, rich) {
 
   var winsBarHTML = isPopularOrCelebrity ? buildWinsBar(wins, losses) : '';
 
+  // ── Live vote + leading info ──────────────────
+  var voteInfo = getVoteInfo(candidate.id);
+  var voteHTML = '';
+  if (voteInfo) {
+    if (voteInfo.status === 'awaited') {
+      voteHTML =
+        '<div class="popup-vote-row">' +
+          '<span class="popup-vote__badge popup-vote__badge--awaited">Results Awaited</span>' +
+        '</div>';
+    } else {
+      var fmt = voteInfo.votes.toLocaleString('en-IN');
+      var leadFmt = voteInfo.leadBy.toLocaleString('en-IN');
+      var isL = voteInfo.isLeading;
+      voteHTML =
+        '<div class="popup-vote-row">' +
+          '<div class="popup-vote__votes">' +
+            '<span class="popup-vote__label">Votes</span>' +
+            '<span class="popup-vote__value">' + fmt + '</span>' +
+          '</div>' +
+          '<div class="popup-vote__leading ' + (isL ? 'popup-vote__leading--lead' : 'popup-vote__leading--trail') + '">' +
+            '<span class="popup-vote__lead-icon">' + (isL ? '▲' : '▼') + '</span>' +
+            '<span class="popup-vote__lead-label">' + (isL ? 'Leading by' : 'Trailing by') + '</span>' +
+            '<span class="popup-vote__lead-val">' + leadFmt + '</span>' +
+          '</div>' +
+        '</div>';
+    }
+  }
+
   return (
     '<div class="popup-main__photo-wrap">' + mainPhotoHTML + '</div>' +
     '<div class="popup-main__info">' +
@@ -1981,6 +2060,7 @@ function buildLeftPanel(candidate, colours, rich) {
         (candidate.constituency || '').toUpperCase() +
       '</div>' +
       '<div class="popup-main__party">' + (candidate.party_full || (candidate.party_short || '').trim()) + '</div>' +
+      voteHTML +
       winsBarHTML +
       buildSocialIcons(rich) +
     '</div>'

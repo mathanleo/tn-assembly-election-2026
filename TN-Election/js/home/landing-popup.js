@@ -106,7 +106,8 @@
     var cmData = cmCandidatesData.find(function (c) { return c.party === leader.party; });
     if (!cmData) return;
 
-    var allTotals = totals.nda + totals.spa + totals.tvk + totals.ntk + totals.others;
+    var allTotals = 234;
+    // var allTotals = totals.nda + totals.spa + totals.tvk + totals.ntk + totals.others;
     var leadPercent = allTotals > 0 ? Math.round((leader.total / 234) * 100) : 0;
 
     // Overlay

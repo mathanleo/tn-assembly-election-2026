@@ -1368,3 +1368,109 @@
     top: 55px;
     right: 55px;
 }
+/* ── Popup vote + leading row ──────────────── */
+.popup-vote-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0 4px;
+  flex-wrap: wrap;
+}
+
+.popup-vote__votes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  padding: 4px 12px;
+}
+
+.popup-vote__label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.popup-vote__value {
+  font-size: 13px;
+  font-weight: 800;
+  color: #1a1a2e;
+}
+
+.popup-vote__leading {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.popup-vote__leading--lead {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.popup-vote__leading--trail {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.popup-vote__lead-icon {
+  font-size: 10px;
+}
+
+.popup-vote__lead-label {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.popup-vote__lead-val {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.popup-vote__badge--awaited {
+  background: #f1f5f9;
+  color: #64748b;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* ── Competitor card vote row ──────────────── */
+.pcomp-card__vote-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 3px 6px;
+  margin-bottom: 2px;
+}
+
+.pcomp-card__votes {
+  font-size: 9px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.pcomp-card__lead-badge {
+  font-size: 8px;
+  font-weight: 800;
+  border-radius: 10px;
+  padding: 2px 6px;
+}
+
+.pcomp-card__lead-badge--lead  { background: #dcfce7; color: #16a34a; }
+.pcomp-card__lead-badge--trail { background: #fee2e2; color: #dc2626; }
+
+/* ── Candidate card margin display ─────────── */
+.candidate-card__margin {
+  font-size: 9px;
+  font-weight: 700;
+  opacity: 0.9;
+  white-space: nowrap;
+}
