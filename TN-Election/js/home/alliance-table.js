@@ -1078,6 +1078,10 @@ function buildPartyRows(parties, limit) {
 function renderAllianceTable() {
     if (typeof alliancesData === 'undefined') return;
 
+    // Split TVK out of OTHERS for its own column
+    var tvkParties     = (alliancesData.OTHERS || []).filter(function(p) { return p.pn === 'TVK'; });
+    var othersParties  = (alliancesData.OTHERS || []).filter(function(p) { return p.pn !== 'TVK'; });
+
     function renderColumn(colId, data, key) {
         var col = document.getElementById(colId);
         if (!col) return;
@@ -1107,7 +1111,8 @@ function renderAllianceTable() {
 
     renderColumn("alliance-col-nda",    alliancesData.NDA,    "NDA");
     renderColumn("alliance-col-spa",    alliancesData.SPA,    "SPA");
-    renderColumn("alliance-col-others", alliancesData.OTHERS, "OTHERS");
+    renderColumn("alliance-col-tvk",    tvkParties,           "TVK");
+    renderColumn("alliance-col-others", othersParties,        "OTHERS");
 
     updateAllianceTotals();
 
@@ -1155,6 +1160,19 @@ function calculateAllianceTotals() {
 function updateAllianceTotals() {
     var totals = calculateAllianceTotals();
 
+    // Update header labels with leading count badge
+    function setHeader(id, label, count) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.innerHTML = label + (count > 0
+            ? ' <span class="alliance-header__count">' + count + '</span>'
+            : '');
+    }
+    setHeader('alliance-header-nda',    'NDA',    totals.nda);
+    setHeader('alliance-header-spa',    'SPA',    totals.spa);
+    setHeader('alliance-header-tvk',    'TVK',    totals.tvk);
+    setHeader('alliance-header-others', 'Others', totals.ntk + totals.others);
+
     if (typeof window.updateParliamentChart === 'function') {
         window.updateParliamentChart(totals.nda, totals.spa, totals.ntk, totals.tvk, totals.others);
     }
@@ -1164,6 +1182,17 @@ function updateAllianceTotals() {
 }
 
 window.getAllianceTotals = calculateAllianceTotals;
+
+// Called by CM candidate cards to scroll + highlight alliance leading
+window.highlightAllianceLeading = function(partyName) {
+    selectedHighlight = { party: partyName, type: 'leading' };
+    renderAllianceTable();
+    if (typeof window.updateMapHighlightsLeading === 'function') {
+        window.updateMapHighlightsLeading(partyName);
+    }
+    var table = document.querySelector('.alliance-table');
+    if (table) table.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
 
 // -----------------------------------------------
 // STEP 4 — Toggle View all / View less

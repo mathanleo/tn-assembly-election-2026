@@ -1,31 +1,37 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="https://www.bharathelection.com/assets/images/meta/metaInfo.jpeg"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta property="og:image" itemprop="image" content="https://www.bharathelection.com/assets/images/meta/metaInfo.jpeg" />
-
-  <title>TN Election 26 - Candidates</title>
-  <link
+    <title>TN Election 26 - Candidates</title>
+    <link
       rel="icon"
       type="image/x-icon"
       href="https://www.results2024.in/images/imgs/Favion%20results2024.svg"
     />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="../css/navbar.css" />
-  <link rel="stylesheet" href="../css/candidates.css" />
-  <link rel="stylesheet" href="../css/disclaimer.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/candidates.css" />
+    <link rel="stylesheet" href="../css/disclaimer.css" />
 
-  <script
+    <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-S62DCSRH0X"
     ></script>
-    
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -34,51 +40,94 @@
       gtag("js", new Date());
       gtag("config", "G-S62DCSRH0X");
     </script>
-</head>
+  </head>
 
-<body data-page="candidates">
-  <div id="navbar-container"></div>
-  <div id="disclaimer-container"></div>
-  <main class="main-content blur">
-    <div class="candidates-page">
+  <body data-page="candidates">
+    <div id="navbar-container"></div>
+    <div class="disclaimer-bar">
+      <span class="disclaimer-icon">⚠️</span>
+      <span class="disclaimer-title">Disclaimer:</span>
+      <div class="disclaimer-marquee">
+        <div class="disclaimer-track">
+          Data shown here is sourced from official ECI updates. Minor delays or
+          differences with media coverage may occur.
+        </div>
+      </div>
+    </div>
+    <div id="disclaimer-container"></div>
+    <main class="main-content blur">
+      <div class="candidates-page">
+        <!-- Header -->
+        <div class="candidates-header">
+          <h1 class="candidates-header__title">Candidate Details</h1>
+          <div class="candidates-search">
+            <svg
+              class="candidates-search__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="text"
+              id="candidates-search-input"
+              class="candidates-search__input"
+              placeholder="Search Candidate"
+              autocomplete="off"
+            />
+          </div>
+        </div>
 
-      <!-- Header -->
-      <div class="candidates-header">
-        <h1 class="candidates-header__title">Candidate Details</h1>
-        <div class="candidates-search">
-          <svg class="candidates-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" id="candidates-search-input" class="candidates-search__input"
-            placeholder="Search Candidate" autocomplete="off" />
+        <!-- Search -->
+
+        <!-- Filter Tabs -->
+        <div class="candidates-tabs" role="tablist">
+          <button
+            class="candidates-tab candidates-tab--active"
+            data-tab="popular"
+            role="tab"
+            aria-selected="true"
+          >
+            Popular Candidates
+          </button>
+          <button
+            class="candidates-tab"
+            data-tab="celebrity"
+            role="tab"
+            aria-selected="false"
+          >
+            Celebrity Candidates
+          </button>
+          <button
+            class="candidates-tab"
+            data-tab="experienced"
+            role="tab"
+            aria-selected="false"
+          >
+            Senior Veteran
+          </button>
+          <button
+            class="candidates-tab"
+            data-tab="professional"
+            role="tab"
+            aria-selected="false"
+          >
+            Professional Candidates
+          </button>
+        </div>
+
+        <!-- Candidates Grid -->
+        <div class="candidates-grid" id="candidates-grid">
+          <!-- Cards injected by JS -->
         </div>
       </div>
 
-      <!-- Search -->
-
-      <!-- Filter Tabs -->
-      <div class="candidates-tabs" role="tablist">
-        <button class="candidates-tab candidates-tab--active" data-tab="popular" role="tab" aria-selected="true">Popular
-          Candidates</button>
-        <button class="candidates-tab" data-tab="celebrity" role="tab" aria-selected="false">Celebrity
-          Candidates</button>
-        <button class="candidates-tab" data-tab="experienced" role="tab" aria-selected="false">Senior Veteran</button>
-        <button class="candidates-tab" data-tab="professional" role="tab" aria-selected="false">Professional
-          Candidates</button>
-      </div>
-
-      <!-- Candidates Grid -->
-      <div class="candidates-grid" id="candidates-grid">
-        <!-- Cards injected by JS -->
-      </div>
-
-
-
-    </div>
-
-    <!-- <div class="page-footer">
+      <!-- <div class="page-footer">
       <div class="page-footer__inner">
         <div class="page-footer__content">
           <p class="page-footer__copy">
@@ -243,31 +292,30 @@
         </div>
       </div>
     </div> -->
-  </main>
+    </main>
 
-  <!-- Scripts — ORDER MATTERS -->
+    <!-- Scripts — ORDER MATTERS -->
 
-  <!-- Step 1: Data files -->
-  <script src="../data/navbar.js"></script>
-  <script src="../data/candidates.js"></script>
-  <script src="../data/all-candidates.js"></script>
-   <script src="../data/constituencies-with-candidates (1).js"></script>
-  <script src="../data/star-candidates-rich.js"></script>
-  <script src="../data/results2021.js"></script>
+    <!-- Step 1: Data files -->
+    <script src="../data/navbar.js"></script>
+    <script src="../data/candidates.js"></script>
+    <script src="../data/all-candidates.js"></script>
+    <script src="../data/constituencies-with-candidates (1).js"></script>
+    <script src="../data/star-candidates-rich.js"></script>
+    <script src="../data/results2021.js"></script>
 
-  <!-- Step 2: Components -->
-  <script src="../js/components/navbar.js"></script>
-  <script src="../js/components/disclaimer.js"></script>
-  <script src="../js/components/footer.js"></script>
+    <!-- Step 2: Components -->
+    <script src="../js/components/navbar.js"></script>
+    <script src="../js/components/disclaimer.js"></script>
+    <script src="../js/components/footer.js"></script>
 
-  <!-- Step 3: Page modules -->
-  <script src="../js/candidates/candidate-cards.js"></script>
-  <script src="../js/candidates/filter-tabs.js"></script>
-  <script src="../js/candidates/candidate-popup.js"></script>
+    <!-- Step 3: Page modules -->
+    <script src="../js/candidates/candidate-cards.js"></script>
+    <script src="../js/candidates/filter-tabs.js"></script>
+    <script src="../js/candidates/candidate-popup.js"></script>
 
-  <div id="footer-container"></div>
-  <script src='https://cdn.jsdelivr.net/npm/kore-web-sdk@11.24.0/dist/umd/kore-web-sdk-umd-chat.min.js'></script> 
-  <script> KoreChatSDK.chatConfig.botOptions.API_KEY_CONFIG.KEY = '6fe5f3fccf764e92846907ee7d0f801e3d5c2b7ed15a4982a8af31fea5ec1d48st6e'; new KoreChatSDK.chatWindow().show(KoreChatSDK.chatConfig); </script>
-</body>
-
+    <div id="footer-container"></div>
+    <!-- <script src='https://cdn.jsdelivr.net/npm/kore-web-sdk@11.24.0/dist/umd/kore-web-sdk-umd-chat.min.js'></script> 
+  <script> KoreChatSDK.chatConfig.botOptions.API_KEY_CONFIG.KEY = '6fe5f3fccf764e92846907ee7d0f801e3d5c2b7ed15a4982a8af31fea5ec1d48st6e'; new KoreChatSDK.chatWindow().show(KoreChatSDK.chatConfig); </script> -->
+  </body>
 </html>

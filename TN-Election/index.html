@@ -1,20 +1,28 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Tamil Nadu Election 2026" content="HTML, CSS, JavaScript" />
+    <meta
+      name="Tamilnadu Election Result Visualisation Live"
+      content="Detailed visualisation of Tamilnadu election details with interactive graphs and tables"
+    />
+    <title>Tamil Nadu Election 2026</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="Tamil Nadu Election 2026" content="HTML, CSS, JavaScript" />
-  <meta name="Tamilnadu Election Result Visualisation Live"
-    content="Detailed visualisation of Tamilnadu election details with interactive graphs and tables" />
-  <title>Tamil Nadu Election 2026</title>
-
-  <meta property="og:title" content="Tamil Nadu Election 2026" />
-  <meta property="og:url" content="https://www.bharathelection.com" />
-  <meta property="og:description" content="Crowdsourced insightful data visualizations for Election Results" />
-  <meta property="og:image" itemprop="image" content="https://www.bharathelection.com/assets/images/meta/metaInfo.jpeg" />
-  <meta property="og:type" content="article" />
-  <meta property="og:locale" content="en_GB" />
+    <meta property="og:title" content="Tamil Nadu Election 2026" />
+    <meta property="og:url" content="https://www.bharathelection.com" />
+    <meta
+      property="og:description"
+      content="Crowdsourced insightful data visualizations for Election Results"
+    />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="https://www.bharathelection.com/assets/images/meta/metaInfo.jpeg"
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_GB" />
 
     <!-- Twitter open-graph tags -->
     <meta name="twitter:site" value="@gradiouslabs" />
@@ -36,13 +44,13 @@
       type="image/x-icon"
       href="https://www.results2024.in/images/imgs/Favion%20results2024.svg"
     />
-    
+
     <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-S62DCSRH0X"
     ></script>
-    
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -64,165 +72,236 @@
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/tn-map.css" />
 
-  <link rel="stylesheet" href="./css/manifestos.css" />
-  <link rel="stylesheet" href="./css/candidates.css" />
-  <link rel="stylesheet" href="./css/bigfights.css" />
-  <link rel="stylesheet" href="./css/richest-highmargin.css" />
-  <link rel="stylesheet" href="./css/constituency-table.css" />
-  <link rel="stylesheet" href="./css/disclaimer.css" />
-</head>
+    <link rel="stylesheet" href="./css/manifestos.css" />
+    <link rel="stylesheet" href="./css/candidates.css" />
+    <link rel="stylesheet" href="./css/bigfights.css" />
+    <link rel="stylesheet" href="./css/richest-highmargin.css" />
+    <link rel="stylesheet" href="./css/constituency-table.css" />
+    <link rel="stylesheet" href="./css/disclaimer.css" />
+  </head>
 
-<body data-page="index">
-  <div id="navbar-container"></div>
-  <div id="disclaimer-container"></div>
+  <body data-page="index">
+    <div id="navbar-container"></div>
+    <div class="disclaimer-bar">
+      <span class="disclaimer-icon">⚠️</span>
+      <span class="disclaimer-title">Disclaimer:</span>
+      <div class="disclaimer-marquee">
+        <div class="disclaimer-track">
+          Data shown here is sourced from official ECI updates. Minor delays or
+          differences with media coverage may occur.
+        </div>
+      </div>
+    </div>
+    <div id="disclaimer-container"></div>
     <main class="main-content blur">
-     <section class="map-section">
-  <div class="map-body">
+      <section class="map-section">
+        <div class="map-body">
+          <!-- LEFT COL: Map (380px, pad 16px, gap 48px) -->
+          <div class="map-left-col">
+            <div class="map-search">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                id="map-search-input"
+                type="text"
+                placeholder="Search Constituency…"
+              />
+              <div class="map-search-results" id="map-search-results"></div>
+            </div>
 
-    <!-- LEFT COL: Map (380px, pad 16px, gap 48px) -->
-    <div class="map-left-col">
-      <div class="map-search">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input id="map-search-input" type="text" placeholder="Search Constituency…"/>
-        <div class="map-search-results" id="map-search-results"></div>
-      </div>
+            <div class="map-svg-wrap">
+              <svg id="tn-map-svg"></svg>
+            </div>
 
-      <div class="map-svg-wrap">
-        <svg id="tn-map-svg"></svg>
-      </div>
-
-      <div class="map-popup" id="map-popup">
-        <div class="popup-header">
-          <div class="popup-name" id="popup-name">—</div>
-          <button class="popup-close" id="map-popup-close-btn" aria-label="Close">×</button>
-        </div>
-        <div class="popup-body">
-          <div class="popup-section-label">Current MLA</div>
-          <div id="popup-mla"></div>
-          <div class="popup-section-label">Contesting Candidates</div>
-          <div id="popup-candidates"></div>
-        </div>
-        <div class="popup-footer">
-          <button class="popup-view-btn" onclick="viewConstituencyDetails()">View full details ›</button>
-        </div>
-      </div>
-    </div>
-    <!-- /map-left-col -->
-
-    <!-- RIGHT COL: Vertical, 816px fill, pad 12px top/bottom, gap 24px -->
-    <div class="map-right-col">
-
-      <!-- ROW 1: Arc (left) + CM Cards (right) — horizontal, space-between, 356px hug -->
-      <div class="map-top-row">
-
-        <!-- Parliament Arc -->
-        <div class="parliament-wrap">
-          <canvas id="parliament-chart"></canvas>
-          <div class="parliament-total">
-            <span class="parliament-number">234</span>
-            <span class="parliament-label">Total Seats</span>
-          </div>
-        </div>
-
-        <!-- CM Candidates: title + 2×2 grid -->
-        <div class="cm-panel">
-          <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
-          <div class="cm-candidates__grid" id="cm-candidates-container">
-            <!-- filled by cm-candidates.js -->
-          </div>
-        </div>
-
-      </div>
-      <!-- /map-top-row -->
-
-      <!-- ROW 2: Alliance Table — full width below arc+CM -->
-      <div class="alliance-table">
-        <div class="alliance-table__headers">
-          <div class="alliance-table__header alliance-table__header--nda">NDA</div>
-          <div class="alliance-table__vdivider-head"></div>
-          <div class="alliance-table__header alliance-table__header--spa">SPA</div>
-          <div class="alliance-table__vdivider-head"></div>
-          <div class="alliance-table__header alliance-table__header--others">Others</div>
-        </div>
-
-        <div class="alliance-table__subheaders">
-          <div style="padding: 4px 12px">
-            <div class="alliance-table__subheader alliance-table__subheader--nda">
-              <span>Parties</span><span>Leading</span><span>Seats</span>
+            <div class="map-popup" id="map-popup">
+              <div class="popup-header">
+                <div class="popup-name" id="popup-name">—</div>
+                <button
+                  class="popup-close"
+                  id="map-popup-close-btn"
+                  aria-label="Close"
+                >
+                  ×
+                </button>
+              </div>
+              <div class="popup-body">
+                <div class="popup-section-label">Current MLA</div>
+                <div id="popup-mla"></div>
+                <div class="popup-section-label">Contesting Candidates</div>
+                <div id="popup-candidates"></div>
+              </div>
+              <div class="popup-footer">
+                <button
+                  class="popup-view-btn"
+                  onclick="viewConstituencyDetails()"
+                >
+                  View full details ›
+                </button>
+              </div>
             </div>
           </div>
-          <div class="alliance-table__vdivider"></div>
-          <div style="padding: 4px 12px">
-            <div class="alliance-table__subheader alliance-table__subheader--spa">
-              <span>Parties</span><span>Leading</span><span>Seats</span>
+          <!-- /map-left-col -->
+
+          <!-- RIGHT COL: Vertical, 816px fill, pad 12px top/bottom, gap 24px -->
+          <div class="map-right-col">
+            <!-- ROW 1: Arc (left) + CM Cards (right) — horizontal, space-between, 356px hug -->
+            <div class="map-top-row">
+              <!-- Parliament Arc -->
+              <div class="parliament-wrap">
+                <canvas id="parliament-chart"></canvas>
+                <div class="parliament-total">
+                  <span class="parliament-number">234</span>
+                  <span class="parliament-label">Total Seats</span>
+                </div>
+              </div>
+
+              <!-- CM Candidates: title + 2×2 grid -->
+              <div class="cm-panel">
+                <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
+                <div class="cm-candidates__grid" id="cm-candidates-container">
+                  <!-- filled by cm-candidates.js -->
+                </div>
+              </div>
+            </div>
+            <!-- /map-top-row -->
+
+            <!-- ROW 2: Alliance Table — full width below arc+CM -->
+            <div class="alliance-table">
+              <div class="alliance-table__headers">
+                <div
+                  class="alliance-table__header alliance-table__header--nda"
+                  id="alliance-header-nda"
+                >
+                  NDA
+                </div>
+                <div class="alliance-table__vdivider-head"></div>
+                <div
+                  class="alliance-table__header alliance-table__header--spa"
+                  id="alliance-header-spa"
+                >
+                  SPA
+                </div>
+                <div class="alliance-table__vdivider-head"></div>
+                <div
+                  class="alliance-table__header alliance-table__header--tvk"
+                  id="alliance-header-tvk"
+                >
+                  TVK
+                </div>
+                <div class="alliance-table__vdivider-head"></div>
+                <div
+                  class="alliance-table__header alliance-table__header--others"
+                  id="alliance-header-others"
+                >
+                  Others
+                </div>
+              </div>
+
+              <div class="alliance-table__subheaders">
+                <div style="padding: 4px 12px">
+                  <div
+                    class="alliance-table__subheader alliance-table__subheader--nda"
+                  >
+                    <span>Parties</span><span>Leading</span><span>Seats</span>
+                  </div>
+                </div>
+                <div class="alliance-table__vdivider"></div>
+                <div style="padding: 4px 12px">
+                  <div
+                    class="alliance-table__subheader alliance-table__subheader--spa"
+                  >
+                    <span>Parties</span><span>Leading</span><span>Seats</span>
+                  </div>
+                </div>
+                <div class="alliance-table__vdivider"></div>
+                <div style="padding: 4px 12px">
+                  <div
+                    class="alliance-table__subheader alliance-table__subheader--tvk"
+                  >
+                    <span>Parties</span><span>Leading</span><span>Seats</span>
+                  </div>
+                </div>
+                <div class="alliance-table__vdivider"></div>
+                <div style="padding: 4px 12px">
+                  <div
+                    class="alliance-table__subheader alliance-table__subheader--others"
+                  >
+                    <span>Parties</span><span>Leading</span><span>Seats</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="alliance-table__body">
+                <div class="alliance-table__col" id="alliance-col-nda"></div>
+                <div class="alliance-table__vdivider"></div>
+                <div class="alliance-table__col" id="alliance-col-spa"></div>
+                <div class="alliance-table__vdivider"></div>
+                <div class="alliance-table__col" id="alliance-col-tvk"></div>
+                <div class="alliance-table__vdivider"></div>
+                <div class="alliance-table__col" id="alliance-col-others"></div>
+              </div>
+            </div>
+            <!-- /alliance-table -->
+
+            <!-- Total seats bar -->
+            <div class="alliance-table__total">
+              Total <strong>234</strong> seats
             </div>
           </div>
-          <div class="alliance-table__vdivider"></div>
-          <div style="padding: 4px 12px">
-            <div class="alliance-table__subheader alliance-table__subheader--others">
-              <span>Parties</span><span>Leading</span><span>Seats</span>
+          <!-- /map-right-col -->
+        </div>
+        <!-- /map-body -->
+
+        <!-- Stats bar -->
+        <div class="map-stats-bar-container">
+          <div class="map-stats-bar">
+            <div class="map-stats-bar__item">
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Total Voters</span>
+                <span class="map-stats-bar__value" id="map-total-voters"
+                  >—</span
+                >
+              </div>
+            </div>
+            <div class="map-stats-bar__item">
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Male</span>
+                <span class="map-stats-bar__value" id="map-voters-male">—</span>
+              </div>
+            </div>
+            <div class="map-stats-bar__item">
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Female</span>
+                <span class="map-stats-bar__value" id="map-voters-female"
+                  >—</span
+                >
+              </div>
+            </div>
+            <div class="map-stats-bar__item">
+              <div class="map-stats-bar__text">
+                <span class="map-stats-bar__label">Others</span>
+                <span class="map-stats-bar__value" id="map-voters-others"
+                  >—</span
+                >
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="alliance-table__body">
-          <div class="alliance-table__col" id="alliance-col-nda"></div>
-          <div class="alliance-table__vdivider"></div>
-          <div class="alliance-table__col" id="alliance-col-spa"></div>
-          <div class="alliance-table__vdivider"></div>
-          <div class="alliance-table__col" id="alliance-col-others"></div>
-        </div>
-      </div>
-      <!-- /alliance-table -->
-
-      <!-- Total seats bar -->
-      <div class="alliance-table__total">
-        Total <strong>234</strong> seats
-      </div>
-
-    </div>
-    <!-- /map-right-col -->
-
-  </div>
-  <!-- /map-body -->
-
-  <!-- Stats bar -->
-  <div class="map-stats-bar-container">
-    <div class="map-stats-bar">
-      <div class="map-stats-bar__item">
-        <div class="map-stats-bar__text">
-          <span class="map-stats-bar__label">Total Voters</span>
-          <span class="map-stats-bar__value" id="map-total-voters">—</span>
-        </div>
-      </div>
-      <div class="map-stats-bar__item">
-        <div class="map-stats-bar__text">
-          <span class="map-stats-bar__label">Male</span>
-          <span class="map-stats-bar__value" id="map-voters-male">—</span>
-        </div>
-      </div>
-      <div class="map-stats-bar__item">
-        <div class="map-stats-bar__text">
-          <span class="map-stats-bar__label">Female</span>
-          <span class="map-stats-bar__value" id="map-voters-female">—</span>
-        </div>
-      </div>
-      <div class="map-stats-bar__item">
-        <div class="map-stats-bar__text">
-          <span class="map-stats-bar__label">Others</span>
-          <span class="map-stats-bar__value" id="map-voters-others">—</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="map-legend" style="display:none"></div>
-  <div class="map-tooltip" id="map-tooltip"></div>
-</section> 
+        <div id="map-legend" style="display: none"></div>
+        <div class="map-tooltip" id="map-tooltip"></div>
+      </section>
 
       <!-- Hidden — kept for JS compatibility (tn-map.js populates these) -->
       <div id="map-legend" style="display: none"></div>
@@ -367,10 +446,10 @@
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 
-  <!-- Components -->
-  <script src="./js/components/navbar.js"></script>
-  <script src="./js/components/disclaimer.js"></script>
-  <script src="./js/components/footer.js"></script>
+    <!-- Components -->
+    <script src="./js/components/navbar.js"></script>
+    <script src="./js/components/disclaimer.js"></script>
+    <script src="./js/components/footer.js"></script>
 
     <!-- Page modules -->
     <script src="./js/home/cm-candidates.js"></script>
@@ -379,7 +458,7 @@
 
     <script src="./js/candidates/candidate-cards.js"></script>
     <script src="./js/candidates/candidate-alliance.js"></script>
-    
+
     <script src="./js/home/popular-candidates.js"></script>
     <script src="./js/candidates/candidate-popup.js"></script>
     <script src="./data/bigfights.js"></script>
@@ -396,7 +475,7 @@
     <script type="module" src="./js/home/constituency-table.js"></script>
 
     <script src="./js/home/parliament-home.js"></script>
-    <script src='https://cdn.jsdelivr.net/npm/kore-web-sdk@11.24.0/dist/umd/kore-web-sdk-umd-chat.min.js'></script> 
-    <script> KoreChatSDK.chatConfig.botOptions.API_KEY_CONFIG.KEY = '6fe5f3fccf764e92846907ee7d0f801e3d5c2b7ed15a4982a8af31fea5ec1d48st6e'; new KoreChatSDK.chatWindow().show(KoreChatSDK.chatConfig); </script>
+    <!-- <script src='https://cdn.jsdelivr.net/npm/kore-web-sdk@11.24.0/dist/umd/kore-web-sdk-umd-chat.min.js'></script> 
+    <script> KoreChatSDK.chatConfig.botOptions.API_KEY_CONFIG.KEY = '6fe5f3fccf764e92846907ee7d0f801e3d5c2b7ed15a4982a8af31fea5ec1d48st6e'; new KoreChatSDK.chatWindow().show(KoreChatSDK.chatConfig); </script> -->
   </body>
 </html>

@@ -130,8 +130,6 @@
   gap: 8px;
   padding: 8px;
   box-sizing: border-box;
-  
-  
 }
 
 .cm-candidates__title {
@@ -167,9 +165,11 @@
   align-items: stretch;
   padding: 0;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  width: 112px;              /* Card width: 112px */
-  height: 149px;             /* Card height: 149px */
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  width: 112px; /* Card width: 112px */
+  height: 149px; /* Card height: 149px */
   position: relative;
   box-sizing: border-box;
 }
@@ -201,25 +201,25 @@
   white-space: nowrap;
   pointer-events: none;
 }
-.chat-widgetwrapper-main-container{
-    animation: bounce-in .5s ease forwards;
-    display: flex;
-    position: absolute;
-    top: 27px;
-    right: 55px;
+.chat-widgetwrapper-main-container {
+  animation: bounce-in 0.5s ease forwards;
+  display: flex;
+  position: absolute;
+  top: 27px;
+  right: 55px;
 }
 
 .cm-card__leading-badge::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: green;
   clip-path: polygon(
-    12px 0%,             /* top-left */
-    100% 0%,             /* top-right */
-    100% 100%,           /* bottom-right */
-    12px 100%,           /* bottom-left */
-    0% 50%               /* arrow point LEFT */             /* curl fold notch */
+    12px 0%,
+    /* top-left */ 100% 0%,
+    /* top-right */ 100% 100%,
+    /* bottom-right */ 12px 100%,
+    /* bottom-left */ 0% 50% /* arrow point LEFT */ /* curl fold notch */
   );
   border-radius: 0 0 6px 0;
   z-index: -1;
@@ -228,7 +228,7 @@
 /* ── Photo: 56 × 64px, centered ── */
 .cm-card__photo-wrap {
   width: 100%;
-  height: 110px;              /* Image height: 64px */
+  height: 110px; /* Image height: 64px */
   overflow: hidden;
   position: relative;
   border-radius: 8px 8px 0 0;
@@ -239,8 +239,8 @@
 }
 
 .cm-card__photo {
-  width: 56px;               /* Image width: 56px */
-  height: 64px;              /* Image height: 64px */
+  width: 56px; /* Image width: 56px */
+  height: 64px; /* Image height: 64px */
   object-fit: cover;
   object-position: center;
 }
@@ -254,7 +254,7 @@
   padding: 4px 8px;
   flex-shrink: 0;
   width: 100%;
-  height: 36px;              /* Height: 36px */
+  height: 36px; /* Height: 36px */
   background: #fff;
   border-radius: 0 0 8px 8px;
 }
@@ -321,7 +321,7 @@
 /* ---- Alliance header row (NDA / SPA / Others) ---- */
 .alliance-table__headers {
   display: grid;
-  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
 }
 
 .alliance-table__header {
@@ -333,9 +333,31 @@
   letter-spacing: 0.05em;
 }
 
-.alliance-table__header--nda { background: #e05a46; }
-.alliance-table__header--spa { background: #5b68b8; }
-.alliance-table__header--others { background: #8a93a8; }
+.alliance-table__header--nda {
+  background: #e05a46;
+}
+.alliance-table__header--spa {
+  background: #5b68b8;
+}
+.alliance-table__header--tvk {
+  color: black;
+  background: #fde68a !important;
+}
+.alliance-table__header--others {
+  background: #8a93a8;
+}
+
+/* Leading count badge inside header */
+.alliance-header__count {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 1px 8px;
+  font-size: 12px;
+  font-weight: 900;
+  margin-left: 6px;
+  vertical-align: middle;
+}
 
 .alliance-table__vdivider-head {
   background: rgba(255, 255, 255, 0.3);
@@ -344,7 +366,7 @@
 /* ---- Sub-header row: Parties | Leading | Seats ---- */
 .alliance-table__subheaders {
   display: grid;
-  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
 }
 
 .alliance-table__subheader {
@@ -363,53 +385,59 @@
 
 .alliance-table__subheader--nda {
   color: #e05a46;
-  background-color: #FCEBE8;
+  background-color: #fcebe8;
 }
 
 .alliance-table__subheader--spa {
   color: #5b68b8;
-  background-color: #EEF4FF;
+  background-color: #eef4ff;
+}
+
+.alliance-table__subheader--tvk {
+  background-color: #fde68a;
 }
 
 .alliance-table__subheader--others {
   color: #8a93a8;
-  background-color: #F9FAFB;
+  background-color: #f9fafb;
 }
 
-.alliance-table__vdivider { background: var(--color-border); }
+.alliance-table__vdivider {
+  background: var(--color-border);
+}
 
 /* ---- Party columns body ---- */
 .alliance-table__body {
   display: grid;
-  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
 }
 
 .alliance-table__col {
   display: flex;
   flex-direction: column;
 }
-.alliance-table__count--lead{
+.alliance-table__count--lead {
   text-align: center;
   background-color: transparent;
 }
-.alliance-table__count--seats{
+.alliance-table__count--seats {
   text-align: center;
   background-color: transparent;
 }
 .alliance-table__count--lead:hover {
   cursor: pointer;
-  background-color: #A7F3D0;
+  background-color: #a7f3d0;
 }
 .alliance-table__count--seats:hover {
   cursor: pointer;
-  background-color: #E5E7EB;
+  background-color: #e5e7eb;
 }
 .alliance-table__count--selected {
   font-weight: bold;
-  background-color: #FDE68A !important;
+  background-color: #fde68a !important;
 }
-.alliance-table__count-group{
-text-align: center;
+.alliance-table__count-group {
+  text-align: center;
 }
 /* ---- Individual party row: icon+name | leading | seats ---- */
 .alliance-table__row {
@@ -423,8 +451,12 @@ text-align: center;
   transition: background 0.15s;
 }
 
-.alliance-table__row:last-child { border-bottom: none; }
-.alliance-table__row:hover { background: #fafafa; }
+.alliance-table__row:last-child {
+  border-bottom: none;
+}
+.alliance-table__row:hover {
+  background: #fafafa;
+}
 
 .alliance-table__row--selected {
   background: #e3f2fd;
@@ -492,7 +524,9 @@ text-align: center;
   text-align: right;
 }
 
-.alliance-table__seats--empty { color: #cbd5e1; }
+.alliance-table__seats--empty {
+  color: #cbd5e1;
+}
 
 /* ---- View all button ---- */
 .alliance-table__footer {
@@ -514,11 +548,13 @@ text-align: center;
   transition: color 0.2s;
 }
 
-.alliance-table__viewall-btn:hover { color: #5b68b8; }
+.alliance-table__viewall-btn:hover {
+  color: #5b68b8;
+}
 
 /* ---- Total seats footer ---- */
 .alliance-table__total {
-  background: #E0EAFF;
+  background: #e0eaff;
   border-top: 1px solid var(--color-border);
   padding: 12px var(--gap-md);
   text-align: center;
@@ -532,14 +568,16 @@ text-align: center;
 .alliance-table__total strong {
   font-size: var(--font-lg);
   font-weight: 900;
-  color: #3538CD;
+  color: #3538cd;
 }
 
 /* ==========================================
    RESPONSIVE — Tablet (577px - 992px)
    ========================================== */
 @media (max-width: 992px) {
-  .home-section { padding: var(--gap-md); }
+  .home-section {
+    padding: var(--gap-md);
+  }
 
   .map-body {
     flex-direction: column;
@@ -639,6 +677,7 @@ text-align: center;
 
   #alliance-col-nda::before,
   #alliance-col-spa::before,
+  #alliance-col-tvk::before,
   #alliance-col-others::before {
     display: block;
     position: relative;
@@ -654,9 +693,26 @@ text-align: center;
     width: 100%;
   }
 
-  #alliance-col-nda::before { content: "NDA"; background: #e05a46; }
-  #alliance-col-spa::before { content: "SPA"; background: #5b68b8; }
-  #alliance-col-others::before { content: "Others"; background: #8a93a8; }
+  #alliance-col-tvk::before {
+    color: #111;
+  }
+
+  #alliance-col-nda::before {
+    content: "NDA";
+    background: #e05a46;
+  }
+  #alliance-col-spa::before {
+    content: "SPA";
+    background: #5b68b8;
+  }
+  #alliance-col-tvk::before {
+    content: "TVK";
+    background: #fde68a !important;
+  }
+  #alliance-col-others::before {
+    content: "Others";
+    background: #8a93a8;
+  }
 
   .alliance-table__body {
     display: flex;
@@ -670,17 +726,17 @@ text-align: center;
   }
 
   #alliance-col-nda .alliance-table__mobile-header {
-    background: #FCEBE8;
+    background: #fcebe8;
     color: #e05a46;
   }
 
   #alliance-col-spa .alliance-table__mobile-header {
-    background: #EEF4FF;
+    background: #eef4ff;
     color: #5b68b8;
   }
 
   #alliance-col-others .alliance-table__mobile-header {
-    background: #F9FAFB;
+    background: #f9fafb;
     color: #8a93a8;
   }
 
@@ -774,7 +830,9 @@ text-align: center;
    RESPONSIVE — Mobile (up to 576px)
    ========================================== */
 @media (max-width: 576px) {
-  .home-section__title { font-size: var(--font-lg); }
+  .home-section__title {
+    font-size: var(--font-lg);
+  }
 
   .map-body {
     gap: 14px;
@@ -824,8 +882,12 @@ text-align: center;
     padding-top: 24px;
   }
 
-  .cm-candidates__title { font-size: 15px; }
-  .cm-card__name { font-size: var(--font-sm); }
+  .cm-candidates__title {
+    font-size: 15px;
+  }
+  .cm-card__name {
+    font-size: var(--font-sm);
+  }
   .alliance-table__party-name,
   .alliance-table__seats {
     font-size: 11px;
@@ -860,7 +922,9 @@ text-align: center;
   background: #f0f4f8;
 }
 
-#richest-candidates-container { width: 100%; }
+#richest-candidates-container {
+  width: 100%;
+}
 
 /* ==========================================
    POPULAR CANDIDATES — Home page preview
@@ -890,8 +954,8 @@ text-align: center;
 }
 
 .hpc__viewall-btn {
-  background: #F55533;
-  color: #FFFFFF;
+  background: #f55533;
+  color: #ffffff;
   font-size: var(--font-sm);
   font-weight: 700;
   font-family: inherit;
@@ -902,8 +966,12 @@ text-align: center;
   display: inline-block;
 }
 
-.hpc__viewall-btn:hover { background: #c94832; }
+.hpc__viewall-btn:hover {
+  background: #c94832;
+}
 
 @media (max-width: 992px) {
-  .popular-candidates-section { padding: var(--gap-md); }
+  .popular-candidates-section {
+    padding: var(--gap-md);
+  }
 }

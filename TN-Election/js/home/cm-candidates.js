@@ -89,20 +89,31 @@ function initCMCandidateClicks() {
     var container = document.getElementById("cm-candidates-container");
     if (!container) return;
 
+    // Map each CM candidate party to the party name to highlight in alliance table
+    var partyHighlightMap = {
+        'DMK':  'DMK',   // SPA alliance leader
+        'ADMK': 'ADMK',  // NDA alliance leader
+        'TVK':  'TVK',   // TVK column
+        'NTK':  'NTK'    // Others column
+    };
+
     container.addEventListener('click', function(e) {
         var card = e.target.closest('.cm-card');
-        if (!card || !card.dataset.candidateId) return;
+        if (!card) return;
 
-        var id = card.dataset.candidateId;
-        var allArrays = [
-            typeof popularCandidates !== 'undefined' ? popularCandidates : [],
-        ];
-        var found = null;
-        for (var i = 0; i < allArrays.length; i++) {
-            found = allArrays[i].find(function(c) { return String(c.id) === String(id); });
-            if (found) break;
+        // Get party from data attribute or find by candidate id
+        var candidateId = card.dataset.candidateId;
+        var candidate = cmCandidatesData.find(function(c) {
+            return String(c.id) === String(candidateId);
+        });
+        if (!candidate) return;
+
+        var partyToHighlight = partyHighlightMap[candidate.party] || candidate.party;
+
+        // Scroll to alliance table and highlight leading for this party
+        if (typeof window.highlightAllianceLeading === 'function') {
+            window.highlightAllianceLeading(partyToHighlight);
         }
-        if (found && typeof openCandidatePopup !== 'undefined') openCandidatePopup(found);
     });
 }
 
@@ -124,3 +135,4 @@ window.updateCMCandidates = function(ndaTotal, spaTotal, othersTotal) {
     allianceTotals.others = othersTotal;
     buildCMCandidates();
 };
+a
