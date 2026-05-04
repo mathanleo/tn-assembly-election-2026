@@ -3890,38 +3890,7 @@ const constituencyData = {
 };
 
 const parties = [
-  "ADMK",
-  "BJP",
-  "PMK",
-  "AMMK",
-  "TMC",
-  "IJK",
-  "PBK",
-  "PNK",
-  "STMK",
-  "TM-BSP",
-  "SIFB",
-  "TMMK",
-  "DMK",
-  "INC",
-  "CPI",
-  "CPM",
-  "VCK",
-  "MDMK",
-  "DMDK",
-  "IUML",
-  "KMDK",
-  "MMK",
-  "MJK",
-  "MPP",
-  "SDPI",
-  "TDK",
-  "NTK",
-  "TVK",
-  "AIPTMK",
-  "PT",
-  "PMK(SR)",
-  "PMD"
+  "AADMSK","ACDP","ADMK","AIDMMK","AIFB","AIJMK","AIMIIM","AIMMK","AIPTMK","AIUUK","AIYDP","AJPK","AMGRDMK","AMGRDMK2","AMK","AMMK","APP","APTADMK","ASMK","ASP","BDP","BJCP","BJP","BMK","BSP","CPI","CPI(M)","CPI(ML) RS","DJMK","DMDK","DMK","DMMK","DMSK","DNA","ETMK","GPI","ICF","IDMK","IJK","IKK","INC","IND","INL","ISP","IUML","JJ","KDC","KMDK","MAK","MDMK","MGRMK","MJK","MKK","MMK","MMK2","MMK3","MNK","MNK3","MPP","MSK","MSKK","NGPP","NIP","NJP","NKMK","NMK","NMK2","NMSP","NNNMNEK","NTK","OMNP","PAMK","PB","PMK","PMTDK","PROBC","PRP","PSS","PT","RJD","RPI","RPI(A)","RPI(A2)","RSD(R)","SDPI","SMNK","SP","SUCI(C)","TDK","TDMK","TK","TMC","TMGMK","TMK","TMMK","TMNK","TNIK","TPK","TPMDK","TPMK","TTNP","TVK","TVVK","VBA","VCK","VKK","VKVIP","VTK","VTNMK","VTVTK","VVP"
 ];
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -4108,7 +4077,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               .toLowerCase().includes(candidateName.toLowerCase()) &&
             parties.includes(candidateObj.party)
           ) {
-            console.log("candiaoBJ:", candidateObj);
+            // console.log("candiaoBJ:", candidateObj);
 
             data.push({
               candidate_id: candidateObj.candidateId,
@@ -4457,7 +4426,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       if (data.length > 0) {
         const tableEle = document.querySelector(".candidateTable2");
-        console.log("creating the rows");
+        // console.log("creating the rows");
 
         data.forEach((candidate) => {
           const row = createCandidates(candidate);
