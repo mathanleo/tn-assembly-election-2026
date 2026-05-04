@@ -280,28 +280,49 @@ function buildFavoriteCard(candidate, index) {
   var cardBg = colours ? colours.bg : (candidate.bg || '#f5f5f5');
   var nameColor = colours ? colours.text : (candidate.accent || '#333');
 
-  var myVotes = (candidate.votes !== undefined && candidate.votes !== null) ? Number(candidate.votes) : null;
-  var voteDisplay = '0';
+  var myVotes = null;
   var leaderTag = 'Result Awaited';
+  var leaderMargin = '';
   var barColor = '#4b5563';
+  var voteDisplay = '0';
 
-  if (myVotes !== null && myVotes > 0) {
-    voteDisplay = myVotes.toLocaleString('en-IN');
-    var maxVotes = myVotes;
-    var constituencyName = (candidate.constituency || '').trim();
-    if (typeof constituenciesWithCandidates !== 'undefined') {
-      for (var constKey in constituenciesWithCandidates) {
-        var constObj = constituenciesWithCandidates[constKey];
-        if (constObj.constituency.name === constituencyName) {
-          constObj.candidates.forEach(function(c) {
-            if (c.votes && c.votes > maxVotes) maxVotes = c.votes;
-          });
-          break;
-        }
+  // Use live data from _liveAllCandidates (same source as candidate-cards.js)
+  if (typeof _liveAllCandidates !== 'undefined' && _liveAllCandidates && _liveAllCandidates.length) {
+    // Find this candidate's live record
+    var myRecord = null;
+    for (var i = 0; i < _liveAllCandidates.length; i++) {
+      if (String(_liveAllCandidates[i].candidateId) === String(candidate.id)) {
+        myRecord = _liveAllCandidates[i]; break;
       }
     }
-    leaderTag = (myVotes === maxVotes) ? 'Leading' : 'Trailing';
-    barColor = leaderTag === 'Leading' ? '#12B76A' : '#F04438';
+    if (myRecord && myRecord.votes !== null && myRecord.votes !== undefined) {
+      myVotes = Number(myRecord.votes);
+      voteDisplay = myVotes.toLocaleString('en-IN');
+
+      if (myVotes > 0) {
+        // Find max and second max in same constituency
+        var constId = myRecord.const_id;
+        var maxVotes = 0, secondMax = 0;
+        _liveAllCandidates.forEach(function(c) {
+          if (String(c.const_id) === String(constId) && c.votes !== null) {
+            var v = Number(c.votes);
+            if (v > maxVotes)       { secondMax = maxVotes; maxVotes = v; }
+            else if (v > secondMax) { secondMax = v; }
+          }
+        });
+        var isLeading = myVotes >= maxVotes;
+        var margin = isLeading ? (myVotes - secondMax) : (maxVotes - myVotes);
+        leaderTag = isLeading ? 'Leading' : 'Trailing';
+        leaderMargin = margin > 0 ? margin.toLocaleString('en-IN') : '';
+        barColor = isLeading ? '#12B76A' : '#F04438';
+      }
+    }
+  } else if (candidate.votes !== undefined && candidate.votes !== null) {
+    // Fallback to static votes
+    myVotes = Number(candidate.votes);
+    if (myVotes > 0) {
+      voteDisplay = myVotes.toLocaleString('en-IN');
+    }
   }
 
   var animDelay = (index % 20) * 0.04;
@@ -322,7 +343,7 @@ function buildFavoriteCard(candidate, index) {
           '</div>' +
           '<div class="candidate-card__logo-wrap">' + badgeHTML + '</div>' +
           '<div class="candidate-card__party-bar">' +
-            '<div class="candidate-card__party-bar-text">' + leaderTag + '</div>' +
+            '<div class="candidate-card__party-bar-text">' + leaderTag + (leaderMargin ? ' <span class="candidate-card__margin">by ' + leaderMargin + '</span>' : '') + '</div>' +
             '<div class="candidate-card__party-bar1" style="background:' + barColor + '"></div>' +
             '<div class="candidate-card__party-bar2">' + partyKey + '</div>' +
           '</div>' +
@@ -393,5 +414,11 @@ function renderFavorites(liveData) {
 document.addEventListener('DOMContentLoaded', async function() {
   initFavoritesSearch();
   _liveVoteData = (typeof getDataFromS3 === 'function') ? await getDataFromS3() : [];
+
+  // Expose globally so candidate-popup.js getVoteInfo() can read it
+  if (_liveVoteData && _liveVoteData.length) {
+    window._liveAllCandidates = _liveVoteData;
+  }
+
   renderFavorites(_liveVoteData);
 });

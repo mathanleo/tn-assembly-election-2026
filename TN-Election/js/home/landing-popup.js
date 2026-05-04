@@ -152,16 +152,22 @@
       '<span class="lp-headline__alliance" style="color:' + meta.color + '">' + meta.emoji + ' ' + meta.alliance + ' Alliance</span>',
       '</div>',
 
-      // CM photo card
-      '<div class="lp-candidate" style="background:' + meta.bg + '; border: 2px solid ' + meta.color + '22">',
-      '<div class="lp-candidate__photo-wrap">',
-      '<img src="' + cmData.photo + '" alt="' + cmData.name + '" class="lp-candidate__photo" onerror="this.style.opacity=\'0.3\'" />',
-      '</div>',
+      // CM photo card — video for TVK, photo for others
+      '<div class="lp-candidate lp-candidate--' + (leader.party === 'TVK' ? 'video' : 'photo') + '" style="background:' + meta.bg + '; border: 2px solid ' + meta.color + '22">',
+      leader.party === 'TVK'
+        ? '<div class="lp-candidate__video-wrap">' +
+            '<video class="lp-candidate__video" autoplay muted loop playsinline webkit-playsinline>' +
+              '<source src="./assets/videos/tvk-campaign.mp4" type="video/mp4">' +
+            '</video>' +
+          '</div>'
+        : '<div class="lp-candidate__photo-wrap">' +
+            '<img src="' + cmData.photo + '" alt="' + cmData.name + '" class="lp-candidate__photo" onerror="this.style.opacity=\'0.3\'" />' +
+          '</div>',
       '<div class="lp-candidate__info">',
       '<div class="lp-candidate__name">' + cmData.name + '</div>',
       '<div class="lp-candidate__party" style="color:' + meta.color + '">',
       '<img src="' + cmData.partyIcon + '" class="lp-party-icon" onerror="this.style.display=\'none\'" />',
-      cmData.party,
+      leader.party === 'TVK' ? '<span class="lp-party-name" style="color:' + meta.color + '">' + cmData.party + '</span>' : cmData.party,
       '</div>',
       '</div>',
       '</div>',

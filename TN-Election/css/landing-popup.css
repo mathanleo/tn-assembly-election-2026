@@ -281,3 +281,88 @@
     font-size: 20px;
   }
 }
+
+/* ── TVK Campaign Video ──────────────────────── */
+.lp-candidate--video {
+  flex-direction: row;      /* side by side */
+  align-items: center;
+  padding: 10px;
+  gap: 12px;
+  min-height: 150px;
+}
+
+.lp-candidate__video-wrap {
+  width: 130px;
+  height: 150px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #fffbeb;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-candidate__video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* Right info — centered column */
+.lp-candidate--video .lp-candidate__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  padding: 0;
+}
+
+/* Name */
+.lp-candidate--video .lp-candidate__name {
+  font-size: 20px;
+  font-weight: 900;
+  color: #1a1a2e;
+}
+
+/* Party row — logo above, name below */
+.lp-candidate--video .lp-candidate__party {
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Bigger party logo */
+.lp-candidate--video .lp-party-icon {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+/* Party name text below logo */
+.lp-party-name {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .lp-candidate__video-wrap {
+    width: 110px;
+    height: 130px;
+  }
+  .lp-candidate--video .lp-candidate__name {
+    font-size: 17px;
+  }
+  .lp-candidate--video .lp-party-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
