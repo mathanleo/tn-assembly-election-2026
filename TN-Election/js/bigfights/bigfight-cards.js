@@ -181,8 +181,7 @@ function buildCandidateRow(candidate, maxVotes) {
       'src="' + candidate.photo + '" ' +
       'alt="' + candidate.name + '" ' +
       'class="fight-card__photo" ' +
-      'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'" ' +
-    '/>' +
+      'onerror="if(this.src.indexOf(\'.jpg\')!==-1){this.src=this.src.replace(\'.jpg\',\'.png\')}else{this.style.display=\'none\';this.nextSibling.style.display=\'block\'}" />' +
     '<span style="display:none">' + buildSilhouette() + '</span>';
 
   return (
