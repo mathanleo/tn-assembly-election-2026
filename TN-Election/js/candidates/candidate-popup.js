@@ -2018,10 +2018,20 @@ function buildLeftPanel(candidate, colours, rich) {
     }
   }
 
-  var mainPhotoHTML =
-    '<img src="' + (candidate.photo || '') + '" alt="' + candidate.name + '" class="popup-main__photo-img" ' +
-    'onerror="this.src=\'../assets/images/candidates/default/default.png\'"/>';
+  // FIXED — build path from candidate.id, fallback to .png, then default
+var photoSrc = candidate.photo && candidate.photo.length > 0
+    ? candidate.photo
+    : '../assets/images/candidates/mla/2026/' + candidate.id + '.jpg';
 
+var mainPhotoHTML =
+    '<img src="' + photoSrc + '" alt="' + candidate.name + '" class="popup-main__photo-img" ' +
+    'onerror="' +
+        'if(this.src.indexOf(\'.jpg\')!==-1){' +
+            'this.src=this.src.replace(\'.jpg\',\'.png\');' +
+        '}else{' +
+            'this.src=\'../assets/images/candidates/default/default.png\';' +
+        '}" ' +
+    '/>';
   var winsBarHTML = isPopularOrCelebrity ? buildWinsBar(wins, losses) : '';
 
   // ── Live vote + leading info ──────────────────
