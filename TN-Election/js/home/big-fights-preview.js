@@ -1,16 +1,6 @@
-// ============================================
-// js/home/big-fights-preview.js
-//
-// Reuses buildFightCard() from
-// js/bigfights/bigfight-cards.js
-//
-// Shows first 4 big fights on home page.
-// "View all" navigates to bigfights.html
-// ============================================
-
 var HOME_BIGFIGHTS_LIMIT = 8;
 
-function buildBigFightsPreview() {
+async function buildBigFightsPreview() {
     var container = document.getElementById('big-fights-preview-container');
     if (!container) return;
 
@@ -19,9 +9,15 @@ function buildBigFightsPreview() {
         return;
     }
 
+    // Wait for _bigFightLiveData to be populated by bigfight-cards.js (max 5s)
+    let waited = 0;
+    while ((!_bigFightLiveData || _bigFightLiveData.length === 0) && waited < 5000) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        waited += 100;
+    }
+
     var preview = bigFightsData.slice(0, HOME_BIGFIGHTS_LIMIT);
 
-    // Reuse buildFightCard() from bigfight-cards.js — no duplication
     container.innerHTML =
         '<div class="bigfight-grid">' +
         preview.map(buildFightCard).join('') +

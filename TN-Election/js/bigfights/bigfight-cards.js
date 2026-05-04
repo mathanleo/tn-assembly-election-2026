@@ -192,32 +192,28 @@ if (c.votes !== null && !isNaN(v) && (maxVotes === null || v > maxVotes)) maxVot
 }
 
 function getLeaderTags(fight) {
-  if (typeof constituenciesWithCandidates === 'undefined') {
-    return { tag1: "Waiting", tag2: "Waiting", margin: null, winnerParty: null };
-  }
-
   var v1 = getLiveVotes(fight.constituencyId, fight.candidate1.id);
   var v2 = getLiveVotes(fight.constituencyId, fight.candidate2.id);
   var maxVotes = getConstituencyMaxVotes(fight.constituencyId);
 
-  // REPLACE WITH:
-  if (maxVotes === null) {
+  // No votes anywhere in constituency yet
+  if (maxVotes === null || maxVotes === 0) {
     return { tag1: "Waiting", tag2: "Waiting", margin: null, winnerParty: null };
   }
 
   var safe1 = (v1 !== null) ? Number(v1) : 0;
   var safe2 = (v2 !== null) ? Number(v2) : 0;
 
-  var tag1 = (safe1 > safe2) ? "Leading" : (safe1 < safe2) ? "Trailing" : "Waiting";
-  var tag2 = (safe2 > safe1) ? "Leading" : (safe2 < safe1) ? "Trailing" : "Waiting";
+  // Compare each candidate against constituency-wide max (all candidates)
+  // Only "Leading" if they ARE the constituency leader
+  var tag1 = (safe1 > 0 && safe1 === maxVotes) ? "Leading" : (safe1 > 0) ? "Trailing" : "Waiting";
+  var tag2 = (safe2 > 0 && safe2 === maxVotes) ? "Leading" : (safe2 > 0) ? "Trailing" : "Waiting";
 
-  var diff = (v1 === null || v2 === null) ? null : Math.abs(v1 - v2);
+  var diff = (safe1 > 0 && safe2 > 0) ? Math.abs(safe1 - safe2) : null;
+
   var winnerParty = null;
-  if (v1 !== null && v1 === maxVotes && v2 !== null && v1 > v2) {
-    winnerParty = fight.candidate1.partyShort;
-  } else if (v2 !== null && v2 === maxVotes && v1 !== null && v2 > v1) {
-    winnerParty = fight.candidate2.partyShort;
-  }
+  if (tag1 === "Leading") winnerParty = fight.candidate1.partyShort;
+  else if (tag2 === "Leading") winnerParty = fight.candidate2.partyShort;
 
   return { tag1: tag1, tag2: tag2, margin: diff, winnerParty: winnerParty };
 }
