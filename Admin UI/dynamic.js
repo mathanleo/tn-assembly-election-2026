@@ -3927,6 +3927,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   let focusedSuggestionIndex1 = -1;
   let focusedSuggestionIndex2 = -1;
   let globalConstituencyId = "";
+  let selectedConst;
 
   console.log("globalConstituencyId:", globalConstituencyId);
   console.log("allCannnnnnnnnnn:", allCandidates);
@@ -4222,7 +4223,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         constName = data[0]?.toLowerCase();
       }
       const candidatesData = await response.json();
-      console.log("candddd:", candidatesData, constName);
+      selectedConst = candidatesData[id];
+      console.log("candddd:", candidatesData, constName, candidatesData[id]);
       return candidatesData[id][constName].candidates;
     } catch (error) {
       console.log(error);
@@ -4291,6 +4293,11 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>
         </div>`;
     candiContainer.insertAdjacentHTML("beforeend", cluster);
+
+    const rsDecl = selectedConst[Object.keys(selectedConst)[0]].rsDecl;
+    const checkBox = document.getElementById("checkBox");
+    checkBox.checked = rsDecl;
+    console.log("rs:", rsDecl);
 
     const voteInputs = document.querySelectorAll(".tableContainer input");
     candidateFound = false;
@@ -4478,7 +4485,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         const candidateId = instanceTr.children[0].id;
         const inputValue = voteInput.value;
 
-        console.log("inputValue:", inputValue);
+        const rsDecl = selectedConst[Object.keys(selectedConst)[0]].rsDecl;
+        const checkBox = document.getElementById("checkBox");
+        checkBox.checked = rsDecl;
+        console.log(rsDecl);
 
         if (inputValue !== "") {
           if (constData.length === 0) {
@@ -4486,7 +4496,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               constituencyId: Number(globalConstituencyId),
               candiId: candidateId,
               votes: Number(inputValue),
-              rsDecl: resDeclared,
+              rsDecl: rsDecl,
             });
           } else {
             let index = constData.findIndex(
@@ -4499,7 +4509,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               constituencyId: Number(globalConstituencyId),
               candiId: candidateId,
               votes: Number(inputValue),
-              rsDecl: resDeclared,
+              rsDecl: rsDecl,
             });
           }
         }
@@ -4601,7 +4611,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     //this is to change the data
     console.log("changing the votes", constData);
     const checkBox = document.getElementById("checkBox");
-    console.log("chcekbox:", checkBox);
 
     if (checkBox.checked) {
       constData.forEach((data) => {
