@@ -168,8 +168,8 @@
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-  width: 112px; /* Card width: 112px */
-  height: 149px; /* Card height: 149px */
+  width: 112px;
+  height: 149px;
   position: relative;
   box-sizing: border-box;
 }
@@ -179,9 +179,6 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* ── Leading badge
-   Positioned at top with exact 82×33 size matching the design
-   ────────────────────────────────────── */
 .cm-card__leading-badge {
   position: absolute;
   top: -2px;
@@ -216,19 +213,18 @@
   background: green;
   clip-path: polygon(
     12px 0%,
-    /* top-left */ 100% 0%,
-    /* top-right */ 100% 100%,
-    /* bottom-right */ 12px 100%,
-    /* bottom-left */ 0% 50% /* arrow point LEFT */ /* curl fold notch */
+    100% 0%,
+    100% 100%,
+    12px 100%,
+    0% 50%
   );
   border-radius: 0 0 6px 0;
   z-index: -1;
 }
 
-/* ── Photo: 56 × 64px, centered ── */
 .cm-card__photo-wrap {
   width: 100%;
-  height: 110px; /* Image height: 64px */
+  height: 110px;
   overflow: hidden;
   position: relative;
   border-radius: 8px 8px 0 0;
@@ -239,13 +235,12 @@
 }
 
 .cm-card__photo {
-  width: 56px; /* Image width: 56px */
-  height: 64px; /* Image height: 64px */
+  width: 56px;
+  height: 64px;
   object-fit: cover;
   object-position: center;
 }
 
-/* ── Bottom bar: icon left | name+party right ── */
 .cm-card-details-container {
   display: flex;
   flex-direction: row;
@@ -254,7 +249,7 @@
   padding: 4px 8px;
   flex-shrink: 0;
   width: 100%;
-  height: 36px; /* Height: 36px */
+  height: 36px;
   background: #fff;
   border-radius: 0 0 8px 8px;
 }
@@ -306,8 +301,6 @@
 
 /* ==========================================
    ALLIANCE TABLE
-   ROW 2 of .map-right-col — full width
-   sits directly below .map-top-row
    ========================================== */
 .alliance-table {
   background: var(--color-white);
@@ -318,7 +311,6 @@
   margin: 0 -16px;
 }
 
-/* ---- Alliance header row (NDA / SPA / Others) ---- */
 .alliance-table__headers {
   display: grid;
   grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
@@ -347,7 +339,6 @@
   background: #8a93a8;
 }
 
-/* Leading count badge inside header */
 .alliance-header__count {
   display: inline-block;
   background: rgba(255, 255, 255, 0.25);
@@ -363,7 +354,6 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* ---- Sub-header row: Parties | Leading | Seats ---- */
 .alliance-table__subheaders {
   display: grid;
   grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
@@ -406,7 +396,6 @@
   background: var(--color-border);
 }
 
-/* ---- Party columns body ---- */
 .alliance-table__body {
   display: grid;
   grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;
@@ -439,7 +428,7 @@
 .alliance-table__count-group {
   text-align: center;
 }
-/* ---- Individual party row: icon+name | leading | seats ---- */
+
 .alliance-table__row {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -502,7 +491,6 @@
   text-overflow: ellipsis;
 }
 
-/* Leading — green number */
 .alliance-table__leading {
   font-size: 11px;
   font-weight: 700;
@@ -513,7 +501,6 @@
   text-align: right;
 }
 
-/* Seats — dark number */
 .alliance-table__seats {
   font-size: 11px;
   font-weight: 600;
@@ -528,7 +515,6 @@
   color: #cbd5e1;
 }
 
-/* ---- View all button ---- */
 .alliance-table__footer {
   display: flex;
   justify-content: flex-end;
@@ -552,7 +538,6 @@
   color: #5b68b8;
 }
 
-/* ---- Total seats footer ---- */
 .alliance-table__total {
   background: #e0eaff;
   border-top: 1px solid var(--color-border);
@@ -572,6 +557,76 @@
 }
 
 /* ==========================================
+   VOTE SHARE — desktop default
+   ========================================== */
+.voteshare-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 180px;
+  position: relative;
+  top: 64px;
+  left: 30px;
+}
+.voteshare-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0;
+  text-align: center;
+}
+
+#voteshare-chart {
+  width: 160px !important;
+  height: 160px !important;
+}
+
+.voteshare-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.voteshare-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.voteshare-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   CM ROW — desktop default
+   ========================================== */
+.cm-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 135%;
+}
+
+.cm-candidates__grid--row {
+  display: flex;
+  flex-direction: row !important;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.cm-candidates__grid--row .cm-card {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* ==========================================
    RESPONSIVE — Tablet (577px - 992px)
    ========================================== */
 @media (max-width: 992px) {
@@ -582,9 +637,6 @@
   .map-body {
     flex-direction: column;
     gap: 16px;
-  }
-
-  .map-body {
     min-height: auto;
   }
 
@@ -607,15 +659,23 @@
     gap: 24px;
     align-items: stretch;
   }
+.voteshare-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#voteshare-legend {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
 
   .parliament-wrap {
     min-width: auto;
     width: 100%;
     min-height: auto;
-  }
-
-  .cm-panel {
-    height: auto;
   }
 
   .parliament-total {
@@ -628,9 +688,41 @@
     height: auto !important;
   }
 
+  /* FIX: reset desktop offset so chart sits naturally in flow */
+  .voteshare-wrap {
+    position: static;
+    top: unset;
+    left: unset;
+    min-width: auto;
+    width: 100%;
+    align-items: center;
+  }
+
+  #voteshare-chart {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  /* FIX: cm-row full width, no overflow */
+  .cm-row {
+    width: 100%;
+  }
+
+  .cm-candidates__grid--row {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .cm-candidates__grid--row .cm-card {
+    flex: 0 0 auto;
+    min-width: 100px;
+    width: 112px;
+  }
+
   .cm-panel {
     flex: none;
     width: 100%;
+    height: auto;
   }
 
   .cm-candidates__grid {
@@ -780,6 +872,22 @@
     gap: 20px;
   }
 
+  .voteshare-wrap {
+    position: static;
+    top: unset;
+    left: unset;
+    width: 100%;
+  }
+
+  .cm-row {
+    width: 100%;
+  }
+
+  .cm-candidates__grid--row {
+    gap: 10px;
+    justify-content: center;
+  }
+
   .cm-candidates__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
@@ -854,6 +962,42 @@
 
   .parliament-wrap {
     min-height: auto;
+  }
+
+  /* FIX: fully reset position offset on mobile */
+  .voteshare-wrap {
+    position: static;
+    top: unset;
+    left: unset;
+    min-width: auto;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  #voteshare-chart {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  /* FIX: cm-row full width on mobile */
+  .cm-row {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .cm-candidates__grid--row {
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cm-candidates__grid--row .cm-card {
+    flex: 0 0 auto;
+    width: calc(50% - 4px);
+    max-width: 160px;
+    height: auto;
   }
 
   .cm-panel {

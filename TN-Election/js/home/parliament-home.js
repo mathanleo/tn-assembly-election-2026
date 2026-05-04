@@ -1,160 +1,3 @@
-// var ALLIANCE_DOT_COLORS = {
-//   'DMK Alliance':    '#5b68b8',
-//   'AIADMK Alliance': '#E05A46',
-//   'No Alliance':     '#8a93a8'
-// };
-
-// function buildParliamentChart() {
-//   var canvas = document.getElementById('parliament-chart');
-//   if (!canvas || typeof results2021Winners === 'undefined') return;
-
-//   var seats = Object.values(results2021Winners).map(function(r) {
-//     return r.winner.alliance;
-//   });
-
-//   var total = seats.length; // 234
-
-//   var dpr = window.devicePixelRatio || 1;
-//   var W   = canvas.offsetWidth || 460;
-//   var H   = Math.round(W * 0.55);
-
-//   canvas.width        = W * dpr;
-//   canvas.height       = H * dpr;
-//   canvas.style.height = H + 'px';
-
-//   var ctx = canvas.getContext('2d');
-//   ctx.scale(dpr, dpr);
-// [
-  
-// ]
-//   var cx   = W / 2;
-//   var cy   = H - 10;
-//   var rows = 7;
-//   var rMin = W * 0.16;
-//   var rMax = W * 0.46;
-//   var dotR = Math.max(3, Math.round(W * 0.012));
-//   var gap  = (rMax - rMin) / (rows - 1);
-
-//   // Compute proportional dot count per row based on arc length
-//   var circumferences = [];
-//   var totalCirc = 0;
-//   for (var r = 0; r < rows; r++) {
-//     var circ = Math.PI * (rMin + r * gap);
-//     circumferences.push(circ);
-//     totalCirc += circ;
-//   }
-
-//   var rowCounts = [];
-//   var assigned = 0;
-//   for (var r = 0; r < rows; r++) {
-//     var count = (r === rows - 1)
-//       ? (total - assigned)
-//       : Math.round(total * circumferences[r] / totalCirc);
-//     rowCounts.push(count);
-//     assigned += count;
-//   }
-
-//   // Count each alliance
-//   var counts = { 'DMK Alliance': 0, 'AIADMK Alliance': 0, 'No Alliance': 0 };
-//   seats.forEach(function(s) {
-//     if (counts[s] !== undefined) counts[s]++;
-//     else counts['No Alliance']++;
-//   });
-//   // console.log("seats",seats);
-//   // console.log("counts",counts);
-
-//   // Build ordered seat list per row:
-//   // Each row is filled left-to-right as: [No Alliance half] [DMK] [AIADMK] [No Alliance half]
-//   // We slice proportionally from each alliance's total pool per row
-
-//   var dmkTotal      = counts['DMK Alliance'];
-//   var aiadmkTotal   = counts['AIADMK Alliance'];
-//   var noAllyTotal   = counts['No Alliance'];
-
-//   var dmkLeft      = dmkTotal;
-//   var aiadmkLeft   = aiadmkTotal;
-//   var noAllyLeft   = noAllyTotal;
-
-//   for (var row = 0; row < rows; row++) {
-//     var rowTotal  = rowCounts[row];
-//     var radius    = rMin + row * gap;
-
-//     // Proportional slice of each alliance for this row
-//     var dmkCount    = (row === rows - 1) ? dmkLeft    : Math.round(dmkTotal    * rowTotal / total);
-//     var aiadmkCount = (row === rows - 1) ? aiadmkLeft : Math.round(aiadmkTotal * rowTotal / total);
-//     var noCount     = rowTotal - dmkCount - aiadmkCount;
-//     if (noCount < 0) noCount = 0;
-
-//     dmkLeft    -= dmkCount;
-//     aiadmkLeft -= aiadmkCount;
-//     noAllyLeft -= noCount;
-
-//     // Arrange: noAlliance-left | DMK | AIADMK | noAlliance-right
-//     var noLeft  = Math.floor(noCount / 2);
-//     var noRight = noCount - noLeft;
-
-//     var rowSeats = [];
-//     // Only add 'No Alliance' if there are any left in the data
-//     for (var i = 0; i < noLeft && noAllyTotal > 0; i++) {
-//       if (noAllyLeft > 0) {
-//         rowSeats.push('No Alliance');
-//         noAllyLeft--;
-//       }
-//     }
-//     for (var i = 0; i < dmkCount; i++) rowSeats.push('DMK Alliance');
-//     for (var i = 0; i < aiadmkCount; i++) rowSeats.push('AIADMK Alliance');
-//     for (var i = 0; i < noRight && noAllyTotal > 0; i++) {
-//       if (noAllyLeft > 0) {
-//         rowSeats.push('No Alliance');
-//         noAllyLeft--;
-//       }
-//     }
-
-//     // If rounding causes fewer seats, fill with alliances that still have seats left
-//     while (rowSeats.length < rowTotal) {
-//       if (dmkLeft > 0) {
-//         rowSeats.push('DMK Alliance');
-//         dmkLeft--;
-//       } else if (aiadmkLeft > 0) {
-//         rowSeats.push('AIADMK Alliance');
-//         aiadmkLeft--;
-//       } else if (noAllyLeft > 0) {
-//         rowSeats.push('No Alliance');
-//         noAllyLeft--;
-//       } else {
-//         break;
-//       }
-//     }
-
-//     var angleSpan = Math.PI;
-//     var step      = angleSpan / (rowSeats.length - 1 || 1);
-
-//     for (var i = 0; i < rowSeats.length; i++) {
-//       var angle = Math.PI + i * step;
-//       var x     = cx + radius * Math.cos(angle);
-//       var y     = cy + radius * Math.sin(angle);
-//       var color = ALLIANCE_DOT_COLORS[rowSeats[i]] || '#94a3b8';
-
-//       ctx.beginPath();
-//       ctx.arc(x, y, dotR, 0, Math.PI * 2);
-//       ctx.fillStyle = color;
-//       ctx.fill();
-//     }
-//   }
-// }
-
-// document.addEventListener('DOMContentLoaded', function() {
-//   requestAnimationFrame(buildParliamentChart);
-//   window.addEventListener('resize', function() {
-//     clearTimeout(window._parliamentTimer);
-//     window._parliamentTimer = setTimeout(buildParliamentChart, 300);
-//   });
-// });
-
-// ============================================
-// js/home/parliament-chart.js
-// ============================================
-
 // ── Static colors (2021 results page) ──
 var ALLIANCE_DOT_COLORS = {
   'DMK Alliance':    '#8a8f98',
@@ -242,6 +85,102 @@ function refreshLiveParliamentChart() {
   } else {
     buildParliamentChart();
   }
+}
+
+function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats) {
+  var canvas = document.getElementById('voteshare-chart');
+  if (!canvas) return;
+
+  var total = ndaSeats + spaSeats + ntkSeats + tvkSeats + othersSeats;
+  if (total === 0) return;
+
+  var dpr = window.devicePixelRatio || 1;
+  var size = 160;
+  canvas.width = size * dpr;
+  canvas.height = size * dpr;
+  canvas.style.width = size + 'px';
+  canvas.style.height = size + 'px';
+
+  var ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, size, size);
+
+  var cx = size / 2, cy = size / 2, r = size / 2 - 10;
+  var segments = [
+    { label: 'TVK', value: tvkSeats,  color: '#facc15' },
+    { label: 'SPA', value: spaSeats,  color: '#5b68b8' }, 
+    { label: 'NTK', value: ntkSeats,  color: '#22c55e' },
+    { label: 'NDA', value: ndaSeats,  color: '#E05A46' },
+    { label: 'Others', value: othersSeats, color: '#8a93a8' }
+  ].filter(function(s) { return s.value > 0; });
+
+  var start = -Math.PI / 2;
+  segments.forEach(function(seg) {
+    var angle = (seg.value / total) * 2 * Math.PI;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, r, start, start + angle);
+    ctx.closePath();
+    ctx.fillStyle = seg.color;
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    start += angle;
+  });
+
+  // Donut hole
+  ctx.beginPath();
+  ctx.arc(cx, cy, r * 0.55, 0, 2 * Math.PI);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
+
+  // Center text
+  ctx.fillStyle = '#111827';
+  ctx.textAlign = 'center';
+  ctx.font = '600 10px Nunito, sans-serif';
+  ctx.fillText('Seats', cx, cy - 4);
+  ctx.font = '700 13px Nunito, sans-serif';
+  ctx.fillText(total, cx, cy + 10);
+
+  // Legend
+  var legend = document.getElementById('voteshare-legend');
+var canvas = document.getElementById('voteshare-chart');
+
+if (legend && canvas) {
+  var items = segments.map(function(s) {
+    var pct = ((s.value / total) * 100).toFixed(1);
+    return '<div class="voteshare-legend-item">' +
+      '<span class="voteshare-legend-dot" style="background:' + s.color + '"></span>' +
+      '<span>' + s.label + ': ' + s.value + ' (' + pct + '%)</span>' +
+      '</div>';
+  });
+
+  var half = Math.ceil(items.length / 2);
+  var topItems    = items.slice(0, half).join('');
+  var bottomItems = items.slice(half).join('');
+
+  // Insert top legend BEFORE canvas, bottom AFTER canvas
+  var topDiv = document.createElement('div');
+  topDiv.className = 'voteshare-legend-top';
+  topDiv.innerHTML = topItems;
+
+  var bottomDiv = document.createElement('div');
+  bottomDiv.className = 'voteshare-legend-bottom';
+  bottomDiv.innerHTML = bottomItems;
+
+  // Clear legend, insert top, then canvas, then bottom
+  legend.innerHTML = '';
+  legend.appendChild(topDiv);
+  legend.appendChild(canvas);      // move canvas inside legend
+  legend.appendChild(bottomDiv);
+
+  // Make legend the flex column container
+  legend.style.display = 'flex';
+  legend.style.flexDirection = 'column';
+  legend.style.alignItems = 'center';
+  legend.style.gap = '4px';
+}
 }
 
 // =============================================
@@ -380,7 +319,7 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, others
   if (total === 0) return;
 
   var dpr = window.devicePixelRatio || 1;
-  var W   = canvas.offsetWidth || 460;   // reads actual rendered width
+  var W   = canvas.offsetWidth || 460;
   var H   = Math.round(W * 0.55);
 
   canvas.width        = W * dpr;
@@ -399,7 +338,6 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, others
   var dotR = Math.max(3, Math.round(W * 0.012));
   var gap  = (rMax - rMin) / (rows - 1);
 
-  // Proportional row counts by arc circumference
   var circumferences = [];
   var totalCirc = 0;
   for (var r = 0; r < rows; r++) {
@@ -441,7 +379,6 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, others
     tvkLeft    -= tvkCount;
     othersLeft -= othersCount;
 
-    // Arrange: others-left | NDA | SPA | NTK | TVK | others-right
     var noLeft  = Math.floor(othersCount / 2);
     var noRight = othersCount - noLeft;
 
@@ -477,9 +414,23 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, others
   }
 }
 
+// =============================================
+// FIX 1: Define window.updateParliamentChart FIRST,
+// then wrap it so buildVoteShareChart also gets called.
+// (Previously the wrapper was defined before the real
+//  function, so it got overwritten and never fired.)
+// =============================================
+
 // Public API — called from alliance-table.js
 window.updateParliamentChart = function(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats) {
   buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats);
+};
+
+// Now wrap it to also trigger the vote-share chart
+var _origUpdateParliament = window.updateParliamentChart;
+window.updateParliamentChart = function(nda, spa, ntk, tvk, others) {
+  _origUpdateParliament(nda, spa, ntk, tvk, others);
+  buildVoteShareChart(nda, spa, ntk, tvk, others);
 };
 
 // =============================================
@@ -489,10 +440,13 @@ document.addEventListener('DOMContentLoaded', function() {
   buildPartyGroupLookup();
   refreshLiveParliamentChart();
 
+  // FIX 2: Also draw vote-share chart on initial load
+  var counts = computeLiveParliamentCounts();
+  buildVoteShareChart(counts.nda, counts.spa, counts.ntk, counts.tvk, counts.others);
+
   window.addEventListener('resize', function() {
     clearTimeout(window._parliamentTimer);
     window._parliamentTimer = setTimeout(function() {
-      // Redraw whichever mode is active
       var liveTotal = _liveNda + _liveSpa + _liveNtk + _liveTvk + _liveOthers;
       if (liveTotal > 0) {
         buildLiveParliamentChart(_liveNda, _liveSpa, _liveNtk, _liveTvk, _liveOthers);

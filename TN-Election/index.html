@@ -178,23 +178,28 @@
           <div class="map-right-col">
             <!-- ROW 1: Arc (left) + CM Cards (right) — horizontal, space-between, 356px hug -->
             <div class="map-top-row">
-              <!-- Parliament Arc -->
-              <div class="parliament-wrap">
-                <canvas id="parliament-chart"></canvas>
-                <div class="parliament-total">
-                  <span class="parliament-number">234</span>
-                  <span class="parliament-label">Total Seats</span>
-                </div>
-              </div>
+  <!-- Parliament Arc -->
+  <div class="parliament-wrap">
+    <canvas id="parliament-chart"></canvas>
+    <div class="parliament-total">
+      <span class="parliament-number">234</span>
+      <span class="parliament-label">Total Seats</span>
+    </div>
+  </div>
 
-              <!-- CM Candidates: title + 2×2 grid -->
-              <div class="cm-panel">
-                <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
-                <div class="cm-candidates__grid" id="cm-candidates-container">
-                  <!-- filled by cm-candidates.js -->
-                </div>
-              </div>
-            </div>
+  <!-- Vote Share Pie Chart -->
+  <div class="voteshare-wrap">
+    <h3 class="voteshare-title">Vote Share</h3>
+    <canvas id="voteshare-chart"></canvas>
+    <div class="voteshare-legend" id="voteshare-legend"></div>
+  </div>
+</div>
+
+<!-- CM Candidates — now in its own row -->
+<div class="cm-row">
+  <h2 class="cm-candidates__title">Chief Minister Candidates</h2>
+  <div class="cm-candidates__grid cm-candidates__grid--row" id="cm-candidates-container"></div>
+</div>
             <!-- /map-top-row -->
 
             <!-- ROW 2: Alliance Table — full width below arc+CM -->
