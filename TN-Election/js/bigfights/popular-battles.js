@@ -72,11 +72,13 @@ function getLiveRivalryCandidates(constituencyId, parties) {
 
   return filtered.map(function(c) {
     return {
-      id:    c.candidateId,
-      name:  c.candidateName || '—',
-      party: (c.party || 'IND').trim().toUpperCase(),
-      votes: Number(c.votes) || 0,
-      photo: '../assets/images/candidates/mla/2026/' + c.candidateId + '.jpg'
+      id:      c.candidateId,
+      name:    c.candidateName || '—',
+      party:   (c.party || 'IND').trim().toUpperCase(),
+      votes:   Number(c.votes) || 0,
+      const_id: c.const_id,
+      rsDecl:  c.rsDecl,
+      photo:   '../assets/images/candidates/mla/2026/' + c.candidateId + '.jpg'
     };
   });
 }
@@ -130,13 +132,34 @@ function buildPopBadge(partyShort) {
 // -----------------------------------------------
 // Build one candidate column inside the card
 // -----------------------------------------------
+function parseRsDecl(value) {
+  return value === 1 || value === '1' || value === true || value === 'true';
+}
+
+function isConstituencyDeclared(candidate) {
+  if (!candidate) return false;
+  if (parseRsDecl(candidate.rsDecl)) return true;
+  if (typeof _bigFightLiveData === 'undefined' || !_bigFightLiveData || !_bigFightLiveData.length) return false;
+  var constId = candidate.const_id;
+  if (constId === undefined || constId === null) return false;
+  for (var i = 0; i < _bigFightLiveData.length; i++) {
+    if (String(_bigFightLiveData[i].const_id) === String(constId) && parseRsDecl(_bigFightLiveData[i].rsDecl)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function buildPopCandidateCol(candidate, maxVotes, isFlipped) {
   var cfg = PARTY_CONFIG[candidate.party] || { color: "#6b7280" };
   var votes = candidate.votes;
+  var declared = isConstituencyDeclared(candidate);
 
   var leaderTag, tagBg;
   if (maxVotes === 0 || votes === 0) {
     leaderTag = 'Waiting'; tagBg = '#4b5563';
+  } else if (declared) {
+    leaderTag = votes === maxVotes ? 'Won' : 'Lost'; tagBg = votes === maxVotes ? '#12B76A' : '#F04438';
   } else if (votes === maxVotes) {
     leaderTag = 'Leading'; tagBg = '#12B76A';
   } else {
@@ -150,8 +173,8 @@ function buildPopCandidateCol(candidate, maxVotes, isFlipped) {
     '<div class="pop-card__candidate">' +
       '<div class="pop-card__photo-wrap">' +
         '<img src="' + candidate.photo + '" alt="' + candidate.name + '" ' +
-          'class="' + photoClass + '" ' +
-          'onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'" />' +
+  'class="' + photoClass + '" ' +
+  'onerror="if(this.src.indexOf(\'.jpg\')!==-1){this.src=this.src.replace(\'.jpg\',\'.png\')}else{this.style.display=\'none\';this.nextSibling.style.display=\'block\'}" />' +
         '<div style="display:none;width:100%;height:100%">' + popSilhouette() + '</div>' +
         buildPopBadge(candidate.party) +
       '</div>' +

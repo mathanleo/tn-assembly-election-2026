@@ -1048,39 +1048,71 @@ function buildCandidateCard(candidate, index) {
   var leaderTag = "Result Awaited";
   var leaderMargin = '';
 
-  if (myVotes !== null) {
-    voteDisplay = myVotes.toLocaleString('en-IN');
+  function parseRsDecl(value) {
+    return value === 1 || value === '1' || value === true || value === 'true';
+  }
 
-   if (myVotes > 0) {
-  var maxVotes = 0;
-  var secondMax = 0;
-  var constituencyName = (candidate.constituency || '').trim().toLowerCase();
+  function isConstituencyDeclared(candidateObj, allCandidates) {
+    if (!candidateObj) return false;
+    if (parseRsDecl(candidateObj.rsDecl)) return true;
 
-  if (typeof _liveAllCandidates !== 'undefined') {
+    if (!Array.isArray(allCandidates) || !allCandidates.length) return false;
+
     var constId = null;
-    for (var i = 0; i < _liveAllCandidates.length; i++) {
-      if (_liveAllCandidates[i].candidateId == candidate.id) {
-        constId = _liveAllCandidates[i].const_id;
+    for (var i = 0; i < allCandidates.length; i++) {
+      if (+allCandidates[i].candidateId === +candidateObj.id) {
+        constId = allCandidates[i].const_id;
         break;
       }
     }
-    if (constId !== null) {
-      _liveAllCandidates.forEach(function(c) {
-        if (+c.const_id === +constId && c.votes !== null) {
-          var v = Number(c.votes);
-          if (v > maxVotes)       { secondMax = maxVotes; maxVotes = v; }
-          else if (v > secondMax) { secondMax = v; }
-        }
-      });
+    if (constId === null) return false;
+
+    for (var j = 0; j < allCandidates.length; j++) {
+      if (+allCandidates[j].const_id === +constId && parseRsDecl(allCandidates[j].rsDecl)) {
+        return true;
+      }
     }
+    return false;
   }
-  var isLeading = myVotes >= maxVotes && myVotes > 0;
-  leaderTag = isLeading ? "Leading" : "Trailing";
-  var margin = isLeading ? (myVotes - secondMax) : (maxVotes - myVotes);
-  leaderMargin = margin > 0 ? margin.toLocaleString('en-IN') : '';
-}else {
-  leaderTag = "Results Awaited";
-}
+
+  var declared = isConstituencyDeclared(candidate, typeof _liveAllCandidates !== 'undefined' ? _liveAllCandidates : []);
+
+  if (myVotes !== null) {
+    voteDisplay = myVotes.toLocaleString('en-IN');
+
+    var maxVotes = 0;
+    var secondMax = 0;
+
+    if (typeof _liveAllCandidates !== 'undefined') {
+      var constId = null;
+      for (var i = 0; i < _liveAllCandidates.length; i++) {
+        if (+_liveAllCandidates[i].candidateId === +candidate.id) {
+          constId = _liveAllCandidates[i].const_id;
+          break;
+        }
+      }
+      if (constId !== null) {
+        _liveAllCandidates.forEach(function(c) {
+          if (+c.const_id === +constId && c.votes !== null) {
+            var v = Number(c.votes);
+            if (v > maxVotes)       { secondMax = maxVotes; maxVotes = v; }
+            else if (v > secondMax) { secondMax = v; }
+          }
+        });
+      }
+    }
+
+    var isLeading = myVotes >= maxVotes && myVotes > 0;
+    if (declared) {
+      leaderTag = isLeading ? "Won" : "Lost";
+    } else if (maxVotes > 0) {
+      leaderTag = isLeading ? "Leading" : "Trailing";
+    } else {
+      leaderTag = "Results Awaited";
+    }
+
+    var margin = isLeading ? (myVotes - secondMax) : (maxVotes - myVotes);
+    leaderMargin = margin > 0 ? margin.toLocaleString('en-IN') : '';
   }
   // -----------------------------------------------
 
@@ -1108,7 +1140,7 @@ function buildCandidateCard(candidate, index) {
     '</div>' +
     '<div class="candidate-card__party-bar">'+
 '<div class="candidate-card__party-bar-text">' + leaderTag + (leaderMargin ? ' <span class="candidate-card__margin">by ' + leaderMargin + '</span>' : '') + '</div>'+
-'<div class="candidate-card__party-bar1" style="background:' + (leaderTag === "Leading" ? "#12B76A" : leaderTag === "Trailing" ? "#F04438" : "#4b5563") + '">'+'</div>'+
+'<div class="candidate-card__party-bar1" style="background:' + ((leaderTag === "Leading" || leaderTag === "Won") ? "#12B76A" : (leaderTag === "Trailing" || leaderTag === "Lost") ? "#F04438" : "#4b5563") + '">'+'</div>'+
     '<div class="candidate-card__party-bar2">' + 
     partyKey +
     '</div>' +
@@ -1200,12 +1232,18 @@ function filterCandidates(candidates, query) {
 
 function mergeVoteData(candidates, allCandidates) {
   const voteMap = new Map();
+  const rsDeclMap = new Map();
+  const constIdMap = new Map();
   allCandidates.forEach(c => {
-    voteMap.set(+c.candidateId, c.votes); // number key
+    voteMap.set(+c.candidateId, c.votes);
+    rsDeclMap.set(+c.candidateId, c.rsDecl);
+    constIdMap.set(+c.candidateId, c.const_id);
   });
   return candidates.map(c => ({
     ...c,
-    votes: voteMap.has(+c.id) ? voteMap.get(+c.id) : c.votes  // force +c.id to number
+    votes: voteMap.has(+c.id) ? voteMap.get(+c.id) : c.votes,
+    rsDecl: rsDeclMap.has(+c.id) ? rsDeclMap.get(+c.id) : c.rsDecl,
+    const_id: constIdMap.has(+c.id) ? constIdMap.get(+c.id) : c.const_id
   }));
 }
 

@@ -1025,32 +1025,40 @@ function buildCandidateCard(candidate, index) {
 var voteDisplay = "Awaited";
 var leaderTag   = "Result Awaited";
 
+function parseRsDecl(value) {
+  return value === 1 || value === '1' || value === true || value === 'true';
+}
+
 if (myVotes !== null) {
   voteDisplay = myVotes.toLocaleString('en-IN');
 
-  if (myVotes > 0) {
-    // Find all candidates in the same constituency to get max votes
-    var maxVotes = myVotes;
-    var constituencyName = (candidate.constituency || '').trim();
+  // Find all candidates in the same constituency to get max votes
+  var maxVotes = myVotes;
+  var declared = false;
+  var constituencyName = (candidate.constituency || '').trim();
 
-    for (var constKey in constituenciesWithCandidates) {
-      var constObj = constituenciesWithCandidates[constKey];
-      if (constObj.constituency.name === constituencyName) {
-        var allCandidates = constObj.candidates;
-        for (var i = 0; i < allCandidates.length; i++) {
-          var v = allCandidates[i].votes;
-          if (v !== undefined && v !== null && v > maxVotes) {
-            maxVotes = v;
-          }
+  for (var constKey in constituenciesWithCandidates) {
+    var constObj = constituenciesWithCandidates[constKey];
+    if (constObj.constituency.name === constituencyName) {
+      var allCandidates = constObj.candidates;
+      for (var i = 0; i < allCandidates.length; i++) {
+        var v = allCandidates[i].votes;
+        if (v !== undefined && v !== null && v > maxVotes) {
+          maxVotes = v;
         }
-        break;
+        if (parseRsDecl(allCandidates[i].rsDecl)) {
+          declared = true;
+        }
       }
+      break;
     }
-    
-    leaderTag = (myVotes === maxVotes) ? "Leading" : "Trailing";
+  }
+  
+  var isLeading = myVotes === maxVotes;
+  if (declared) {
+    leaderTag = isLeading ? "Won" : "Lost";
   } else {
-    // myVotes === 0
-    leaderTag = "No Votes";
+    leaderTag = isLeading ? "Leading" : "Trailing";
   }
 }
 // -----------------------------------------------
@@ -1079,7 +1087,7 @@ if (myVotes !== null) {
     '</div>' +
     '<div class="candidate-card__party-bar">'+
 '<div class="candidate-card__party-bar-text">' + leaderTag + '</div>'+
-'<div class="candidate-card__party-bar1" style="background:' + (leaderTag === "Leading" ? "#12B76A" : leaderTag === "Trailing" ? "#F04438" : "#4b5563") + '">'+'</div>'+
+'<div class="candidate-card__party-bar1" style="background:' + ((leaderTag === "Leading" || leaderTag === "Won") ? "#12B76A" : (leaderTag === "Trailing" || leaderTag === "Lost") ? "#F04438" : "#4b5563") + '">'+'</div>'+
     '<div class="candidate-card__party-bar2">' + 
     partyKey +
     '</div>' +

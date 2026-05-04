@@ -1904,11 +1904,12 @@ function buildCompetitorCard(comp) {
   var compVoteHTML = '';
   if (voteInfo && voteInfo.status !== 'awaited') {
     var isL = voteInfo.isLeading;
+    var badgeText = voteInfo.status === 'won' ? '▲ Won' : voteInfo.status === 'lost' ? '▼ Lost' : isL ? '▲ Leading' : '▼ Trailing';
     compVoteHTML =
       '<div class="pcomp-card__vote-row">' +
         '<span class="pcomp-card__votes">' + voteInfo.votes.toLocaleString('en-IN') + ' votes</span>' +
         '<span class="pcomp-card__lead-badge ' + (isL ? 'pcomp-card__lead-badge--lead' : 'pcomp-card__lead-badge--trail') + '">' +
-          (isL ? '▲ Leading' : '▼ Trailing') +
+          badgeText +
         '</span>' +
       '</div>';
   } else if (voteInfo && voteInfo.status === 'awaited') {
@@ -1967,6 +1968,24 @@ function buildWinsBar(wins, losses) {
   );
 }
 
+function parseRsDecl(value) {
+  return value === 1 || value === '1' || value === true || value === 'true';
+}
+
+function isConstituencyDeclared(candidateRecord) {
+  if (!candidateRecord) return false;
+  if (parseRsDecl(candidateRecord.rsDecl)) return true;
+  if (typeof _liveAllCandidates === 'undefined' || !_liveAllCandidates || !_liveAllCandidates.length) return false;
+  var constId = candidateRecord.const_id;
+  if (constId === undefined || constId === null) return false;
+  for (var i = 0; i < _liveAllCandidates.length; i++) {
+    if (String(_liveAllCandidates[i].const_id) === String(constId) && parseRsDecl(_liveAllCandidates[i].rsDecl)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 // -----------------------------------------------
 // Get live vote info for a candidate from _liveAllCandidates
 // Returns { votes, isLeading, leadBy, status }
@@ -1994,11 +2013,20 @@ function getVoteInfo(candidateId) {
   });
 
   var isLeading = myVotes >= maxVotes && myVotes > 0;
+  var declared = isConstituencyDeclared(myRecord);
+  var status = 'trailing';
+  if (maxVotes === 0) {
+    status = 'awaited';
+  } else if (declared) {
+    status = isLeading ? 'won' : 'lost';
+  } else {
+    status = isLeading ? 'leading' : 'trailing';
+  }
   return {
     votes: myVotes,
     isLeading: isLeading,
     leadBy: isLeading ? (myVotes - secondMax) : (maxVotes - myVotes),
-    status: isLeading ? 'leading' : 'trailing'
+    status: status
   };
 }
 
@@ -2047,6 +2075,7 @@ var mainPhotoHTML =
       var fmt = voteInfo.votes.toLocaleString('en-IN');
       var leadFmt = voteInfo.leadBy.toLocaleString('en-IN');
       var isL = voteInfo.isLeading;
+      var leadLabel = voteInfo.status === 'won' ? 'Won by' : voteInfo.status === 'lost' ? 'Lost by' : isL ? 'Leading by' : 'Trailing by';
       voteHTML =
         '<div class="popup-vote-row">' +
           '<div class="popup-vote__votes">' +
@@ -2055,7 +2084,7 @@ var mainPhotoHTML =
           '</div>' +
           '<div class="popup-vote__leading ' + (isL ? 'popup-vote__leading--lead' : 'popup-vote__leading--trail') + '">' +
             '<span class="popup-vote__lead-icon">' + (isL ? '▲' : '▼') + '</span>' +
-            '<span class="popup-vote__lead-label">' + (isL ? 'Leading by' : 'Trailing by') + '</span>' +
+            '<span class="popup-vote__lead-label">' + leadLabel + '</span>' +
             '<span class="popup-vote__lead-val">' + leadFmt + '</span>' +
           '</div>' +
         '</div>';
