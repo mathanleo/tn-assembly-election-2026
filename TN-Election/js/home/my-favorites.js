@@ -284,70 +284,53 @@ function buildFavoriteCard(candidate, index) {
   var leaderTag = 'Result Awaited';
   var leaderMargin = '';
   var barColor = '#4b5563';
+  var voteDisplay = '0';
 
-  function parseRsDecl(value) {
-    return value === 1 || value === '1' || value === true || value === 'true';
-  }
-
-  function isConstituencyDeclared(candidateObj) {
-    if (!candidateObj) return false;
-    if (parseRsDecl(candidateObj.rsDecl)) return true;
-
-    // Derive const_id from live vote records when the candidate object does not already have it.
-    var constId = candidateObj.const_id;
-    if ((constId === undefined || constId === null) && typeof _liveVoteData !== 'undefined' && Array.isArray(_liveVoteData)) {
-      for (var i = 0; i < _liveVoteData.length; i++) {
-        if (String(_liveVoteData[i].candidateId) === String(candidateObj.id)) {
-          constId = _liveVoteData[i].const_id;
-          break;
-        }
+  // Use live data from _liveAllCandidates
+  if (typeof _liveAllCandidates !== 'undefined' && _liveAllCandidates && _liveAllCandidates.length) {
+    var myRecord = null;
+    for (var i = 0; i < _liveAllCandidates.length; i++) {
+      if (String(_liveAllCandidates[i].candidateId) === String(candidate.id)) {
+        myRecord = _liveAllCandidates[i]; break;
       }
     }
+    if (myRecord && myRecord.votes !== null && myRecord.votes !== undefined) {
+      myVotes = Number(myRecord.votes);
+      voteDisplay = myVotes.toLocaleString('en-IN');
 
-    if (constId !== undefined && constId !== null && typeof _liveVoteData !== 'undefined' && Array.isArray(_liveVoteData)) {
-      for (var j = 0; j < _liveVoteData.length; j++) {
-        if (String(_liveVoteData[j].const_id) === String(constId) && parseRsDecl(_liveVoteData[j].rsDecl)) {
-          return true;
-        }
-      }
-    }
+      // ── rsDecl: 1/'1'/true = voting closed (Won/Lost), else Leading/Trailing ──
+      var isDeclared = myRecord.rsDecl === 1 || myRecord.rsDecl === '1' ||
+                       myRecord.rsDecl === true || myRecord.rsDecl === 'true';
 
-    if (typeof constituenciesWithCandidates === 'undefined' || !constituenciesWithCandidates) return false;
-    var constituencyName = (candidateObj.constituency || '').trim();
-    for (var constKey in constituenciesWithCandidates) {
-      if (!Object.prototype.hasOwnProperty.call(constituenciesWithCandidates, constKey)) continue;
-      var constObj = constituenciesWithCandidates[constKey];
-      if (!constObj || !constObj.constituency) continue;
-      if (constObj.constituency.name === constituencyName) {
-        for (var k = 0; k < (constObj.candidates || []).length; k++) {
-          if (parseRsDecl(constObj.candidates[k].rsDecl)) {
-            return true;
+      if (myVotes > 0) {
+        var constId = myRecord.const_id;
+        var maxVotes = 0, secondMax = 0;
+        _liveAllCandidates.forEach(function(c) {
+          if (String(c.const_id) === String(constId) && c.votes !== null) {
+            var v = Number(c.votes);
+            if (v > maxVotes)       { secondMax = maxVotes; maxVotes = v; }
+            else if (v > secondMax) { secondMax = v; }
           }
-        }
-        return false;
-      }
-    }
-    return false;
-  }
+        });
+        var isLeading = myVotes >= maxVotes;
+        var margin = isLeading ? (myVotes - secondMax) : (maxVotes - myVotes);
 
-  if (myVotes !== null && myVotes > 0) {
-    voteDisplay = myVotes.toLocaleString('en-IN');
-    var maxVotes = myVotes;
-    var constituencyName = (candidate.constituency || '').trim();
-    if (typeof constituenciesWithCandidates !== 'undefined') {
-      for (var constKey in constituenciesWithCandidates) {
-        var constObj = constituenciesWithCandidates[constKey];
-        if (constObj.constituency.name === constituencyName) {
-          constObj.candidates.forEach(function(c) {
-            if (c.votes && c.votes > maxVotes) maxVotes = c.votes;
-          });
-          break;
+        // ── Switch label based on isDeclared ──
+        if (isDeclared) {
+          leaderTag = isLeading ? 'Won' : 'Lost';
+        } else {
+          leaderTag = isLeading ? 'Leading' : 'Trailing';
         }
+
+        leaderMargin = margin > 0 ? margin.toLocaleString('en-IN') : '';
+        barColor = isLeading ? '#12B76A' : '#F04438';
       }
     }
-    var declared = isConstituencyDeclared(candidate);
-    leaderTag = declared ? (myVotes === maxVotes ? 'Won' : 'Lost') : (myVotes === maxVotes ? 'Leading' : 'Trailing');
-    barColor = (leaderTag === 'Leading' || leaderTag === 'Won') ? '#12B76A' : '#F04438';
+  } else if (candidate.votes !== undefined && candidate.votes !== null) {
+    myVotes = Number(candidate.votes);
+    if (myVotes > 0) {
+      voteDisplay = myVotes.toLocaleString('en-IN');
+    }
   }
 
   var animDelay = (index % 20) * 0.04;
