@@ -3890,7 +3890,7 @@ const constituencyData = {
 };
 
 const parties = [
-  "AADMSK","ACDP","ADMK","AIDMMK","AIFB","AIJMK","AIMIIM","AIMMK","AIPTMK","AIUUK","AIYDP","AJPK","AMGRDMK","AMGRDMK2","AMK","AMMK","APP","APTADMK","ASMK","ASP","BDP","BJCP","BJP","BMK","BSP","CPI","CPI(M)","CPI(ML) RS","DJMK","DMDK","DMK","DMMK","DMSK","DNA","ETMK","GPI","ICF","IDMK","IJK","IKK","INC","IND","INL","ISP","IUML","JJ","KDC","KMDK","MAK","MDMK","MGRMK","MJK","MKK","MMK","MMK2","MMK3","MNK","MNK3","MPP","MSK","MSKK","NGPP","NIP","NJP","NKMK","NMK","NMK2","NMSP","NNNMNEK","NTK","OMNP","PAMK","PB","PMK","PMTDK","PROBC","PRP","PSS","PT","RJD","RPI","RPI(A)","RPI(A2)","RSD(R)","SDPI","SMNK","SP","SUCI(C)","TDK","TDMK","TK","TMC","TMGMK","TMK","TMMK","TMNK","TNIK","TPK","TPMDK","TPMK","TTNP","TVK","TVVK","VBA","VCK","VKK","VKVIP","VTK","VTNMK","VTVTK","VVP","CPI(ML)(L)"
+  "AADMSK", "ACDP", "ADMK", "AIDMMK", "AIFB", "AIJMK", "AIMIIM", "AIMMK", "AIPTMK", "AIUUK", "AIYDP", "AJPK", "AMGRDMK", "AMGRDMK2", "AMK", "AMMK", "APP", "APTADMK", "ASMK", "ASP", "BDP", "BJCP", "BJP", "BMK", "BSP", "CPI", "CPI(M)", "CPI(ML) RS", "DJMK", "DMDK", "DMK", "DMMK", "DMSK", "DNA", "ETMK", "GPI", "ICF", "IDMK", "IJK", "IKK", "INC", "IND", "INL", "ISP", "IUML", "JJ", "KDC", "KMDK", "MAK", "MDMK", "MGRMK", "MJK", "MKK", "MMK", "MMK2", "MMK3", "MNK", "MNK3", "MPP", "MSK", "MSKK", "NGPP", "NIP", "NJP", "NKMK", "NMK", "NMK2", "NMSP", "NNNMNEK", "NTK", "OMNP", "PAMK", "PB", "PMK", "PMTDK", "PROBC", "PRP", "PSS", "PT", "RJD", "RPI", "RPI(A)", "RPI(A2)", "RSD(R)", "SDPI", "SMNK", "SP", "SUCI(C)", "TDK", "TDMK", "TK", "TMC", "TMGMK", "TMK", "TMMK", "TMNK", "TNIK", "TPK", "TPMDK", "TPMK", "TTNP", "TVK", "TVVK", "VBA", "VCK", "VKK", "VKVIP", "VTK", "VTNMK", "VTVTK", "VVP", "CPI(ML)(L)"
 ];
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -4216,7 +4216,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       //   constName = `${data[0].toLowerCase()}-${data[1].toLowerCase()}`;
       // }
       if (data.length >= 3) {
-         constName = data.slice(0, -1).map(d => d.toLowerCase()).join('-');
+        constName = data.slice(0, -1).map(d => d.toLowerCase()).join('-');
       }
       else {
         constName = data[0]?.toLowerCase();
@@ -4274,8 +4274,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log("candidatesData:", candidatesData);
 
     const candidateDetails = candidatesData.filter((candidate) =>
-      parties.includes(candidate.party)
+      parties.includes(candidate.party.trim())
     );
+
 
     candidateDetails.forEach((detail) => {
       const row = createCandidates(detail);
