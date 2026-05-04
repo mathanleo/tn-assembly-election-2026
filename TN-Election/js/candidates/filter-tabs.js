@@ -41,10 +41,13 @@ async function switchTab(tabKey) {
   if (searchInput) searchInput.value = '';
 
   // Load data for this tab and merge votes
-  activeCandidates = getTabData(tabKey);
+ activeCandidates = getTabData(tabKey);
   if (typeof mergeVoteData === 'function') {
-    let allCandidates = await getDataFromS3();
-    activeCandidates = mergeVoteData(activeCandidates,allCandidates);
+    const allCandidates = window._liveAllCandidates && window._liveAllCandidates.length
+      ? window._liveAllCandidates
+      : await getDataFromS3();
+    window._liveAllCandidates = allCandidates || [];
+    activeCandidates = mergeVoteData(activeCandidates, allCandidates);
   }
   renderCandidates(activeCandidates);
 }
@@ -92,10 +95,19 @@ function initCandidateSearch() {
 // -----------------------------------------------
 // Run on DOM ready
 // -----------------------------------------------
-document.addEventListener('DOMContentLoaded', function() {
-  // Set initial active data
-  activeCandidates = popularCandidates;
-
+document.addEventListener('DOMContentLoaded', async function() {
   initFilterTabs();
   initCandidateSearch();
+
+  // Merge votes into initial popular candidates
+  if (typeof mergeVoteData === 'function' && typeof getDataFromS3 === 'function') {
+    let allCandidates = await getDataFromS3();
+    window._liveAllCandidates = allCandidates || [];
+    activeCandidates = mergeVoteData(popularCandidates, allCandidates);
+    renderCandidates(activeCandidates);
+  } else {
+    activeCandidates = popularCandidates;
+    renderCandidates(activeCandidates);
+  }
 });
+
