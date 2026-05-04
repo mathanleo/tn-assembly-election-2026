@@ -134,7 +134,16 @@ function getConstituencyMaxVotes(constituencyId) {
     return Number(c.votes) || 0;
   }));
 }
+function parseRsDecl(value) {
+  return value === 1 || value === '1' || value === true || value === 'true';
+}
 
+function isConstDeclared(constituencyId) {
+  if (!_bigFightLiveData || !_bigFightLiveData.length) return false;
+  return _bigFightLiveData.some(function(c) {
+    return +c.const_id === +constituencyId && parseRsDecl(c.rsDecl);
+  });
+}
 // -----------------------------------------------
 // Build silhouette SVG for missing photos
 // -----------------------------------------------
@@ -151,31 +160,30 @@ function buildSilhouette() {
 // -----------------------------------------------
 // Build one candidate row (used for each of top 3)
 // -----------------------------------------------
-function buildCandidateRow(candidate, maxVotes) {
+function buildCandidateRow(candidate, maxVotes, declared) {
   var votes    = Number(candidate.votes) || 0;
   var partyKey = (candidate.partyShort || 'IND').trim();
   var colours  = getAllianceColour(partyKey);
 
-  // Leading / Trailing / Waiting
   var leaderTag, tagBg;
   if (maxVotes === 0 || votes === 0) {
     leaderTag = 'Waiting';
     tagBg     = '#4b5563';
-  } else if (votes === maxVotes) {
-    leaderTag = 'Leading';
-    tagBg     = '#12B76A';
+  } else if (declared) {
+    // Result declared — Won / Lost
+    leaderTag = votes === maxVotes ? 'Won'     : 'Lost';
+    tagBg     = votes === maxVotes ? '#12B76A' : '#F04438';
   } else {
-    leaderTag = 'Trailing';
-    tagBg     = '#F04438';
+    // Still counting — Leading / Trailing
+    leaderTag = votes === maxVotes ? 'Leading'  : 'Trailing';
+    tagBg     = votes === maxVotes ? '#12B76A'  : '#F04438';
   }
 
   var voteDisplay = votes > 0 ? votes.toLocaleString('en-IN') : 'Awaited';
 
-  // Party icon
   var iconPath  = PARTY_ICONS[partyKey] || PARTY_ICONS['IND'];
   var badgeHTML = '<img src="' + iconPath + '" alt="' + partyKey + '" class="fight-card__party-icon" />';
 
-  // Photo — img with onerror fallback to silhouette
   var photoHTML =
     '<img ' +
       'src="' + candidate.photo + '" ' +
@@ -185,22 +193,19 @@ function buildCandidateRow(candidate, maxVotes) {
     '<span style="display:none">' + buildSilhouette() + '</span>';
 
   return (
-    '<div class="fight-card__candidate" ' + colours.bg + '">' +
+    '<div class="fight-card__candidate">' +
       '<div class="fight-card__photo-wrap">' +
-        '<div class="fight-card__photo-circle">' +
-          photoHTML +
-        '</div>' +
+        '<div class="fight-card__photo-circle">' + photoHTML + '</div>' +
         '<div class="fight-card__party-badge">' + badgeHTML + '</div>' +
       '</div>' +
-
       '<div class="fight-card__info">' +
-  '<div class="fight-card__name-line">' +
-    '<span class="fight-card__name">' + candidate.name + '</span>' +
-    '<span class="fight-card__party-tag" >' + partyKey + '</span>' +
-  '</div>' +
-  '<span class="fight-card__votes-label">Votes: ' + voteDisplay + '</span>' +
-  '<div class="fight-card__status" style="background:' + tagBg + ';color:#fff">' + leaderTag + '</div>' +
-'</div>'  +
+        '<div class="fight-card__name-line">' +
+          '<span class="fight-card__name">' + candidate.name + '</span>' +
+          '<span class="fight-card__party-tag">' + partyKey + '</span>' +
+        '</div>' +
+        '<span class="fight-card__votes-label">Votes: ' + voteDisplay + '</span>' +
+        '<div class="fight-card__status" style="background:' + tagBg + ';color:#fff">' + leaderTag + '</div>' +
+      '</div>' +
     '</div>'
   );
 }
@@ -209,18 +214,17 @@ function buildCandidateRow(candidate, maxVotes) {
 // Build one full fight card (top 3 candidates)
 // -----------------------------------------------
 function buildFightCard(fight) {
-  var maxVotes   = getConstituencyMaxVotes(fight.constituencyId);
-  var topThree   = getTopCandidates(fight, 3);
+  var maxVotes  = getConstituencyMaxVotes(fight.constituencyId);
+  var topThree  = getTopCandidates(fight, 3);
+  var declared  = isConstDeclared(fight.constituencyId); // ← ADD THIS
 
-  // Winner logo — party of the leading candidate (most votes)
-  var winnerParty  = (maxVotes > 0 && topThree.length > 0) ? topThree[0].partyShort : null;
-  var logoHTML     = '';
+  var winnerParty = (maxVotes > 0 && topThree.length > 0) ? topThree[0].partyShort : null;
+  var logoHTML    = '';
   if (winnerParty) {
     var logoPath = PARTY_ICONS[winnerParty] || PARTY_ICONS['IND'];
     logoHTML = '<img src="' + logoPath + '" alt="' + winnerParty + '" class="fight-card__winner-logo" />';
   }
 
-  // Margin between 1st and 2nd
   var marginHTML = '';
   if (topThree.length >= 2 && maxVotes > 0) {
     var margin = Math.abs((Number(topThree[0].votes) || 0) - (Number(topThree[1].votes) || 0));
@@ -229,14 +233,9 @@ function buildFightCard(fight) {
     marginHTML = '<div class="fight-card__margin">Margin: Awaited</div>';
   }
 
-  var rowsHTML = topThree.map(function(c) {
-    return buildCandidateRow(c, maxVotes);
-  }).join(marginHTML === '' ? '' : '');
-
-  // Only show margin between 1st and 2nd row
   var candidateRowsHTML = '';
   topThree.forEach(function(c, i) {
-    candidateRowsHTML += buildCandidateRow(c, maxVotes);
+    candidateRowsHTML += buildCandidateRow(c, maxVotes, declared); // ← pass declared
     if (i === 0 && topThree.length > 1) {
       candidateRowsHTML += marginHTML;
     }
@@ -252,7 +251,6 @@ function buildFightCard(fight) {
     '</div>'
   );
 }
-
 // -----------------------------------------------
 // Render all fight cards into the grid
 // -----------------------------------------------
