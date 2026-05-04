@@ -1,0 +1,281 @@
+/* ============================================
+   css/landing-popup.css
+   Landing popup — leading party announcement
+   ============================================ */
+
+/* ── Overlay ──────────────────────────────── */
+#landing-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 30, 0.72);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+#landing-popup-overlay.lp-visible {
+  opacity: 1;
+}
+#landing-popup-overlay.lp-hiding {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Confetti canvas */
+#landing-confetti {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Card ──────────────────────────────────── */
+.lp-card {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px 24px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+  transform: scale(0.85) translateY(30px);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#landing-popup-overlay.lp-visible .lp-card {
+  transform: scale(1) translateY(0);
+}
+
+/* ── Close ─────────────────────────────────── */
+.lp-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.lp-close:hover {
+  background: #e2e8f0;
+}
+
+/* ── Emoji banner ──────────────────────────── */
+.lp-emojis {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+  animation: lp-bounce 1.2s ease infinite alternate;
+}
+
+@keyframes lp-bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+/* ── Headline ──────────────────────────────── */
+.lp-headline {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.lp-headline__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.lp-headline__alliance {
+  display: block;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+/* ── CM Candidate card ─────────────────────── */
+.lp-candidate {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.lp-candidate__photo-wrap {
+  width: 70px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #e2e8f0;
+}
+
+.lp-candidate__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.lp-candidate__info {
+  flex: 1;
+}
+
+.lp-candidate__name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.lp-candidate__party {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lp-party-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+/* ── Stats ──────────────────────────────────── */
+.lp-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 12px 0;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.lp-stat {
+  text-align: center;
+}
+
+.lp-stat__value {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.lp-stat__label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lp-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: #e2e8f0;
+}
+
+/* ── Progress bar ──────────────────────────── */
+.lp-progress-wrap {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.lp-progress-track {
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.lp-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-progress-label {
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Majority marker at 50.4% (118/234) */
+.lp-majority-marker {
+  position: absolute;
+  top: 0;
+  left: 50.4%;
+  height: 10px;
+  width: 2px;
+  background: #cbd5e1;
+  border-radius: 1px;
+}
+
+/* ── CTA button ─────────────────────────────── */
+.lp-cta {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition:
+    opacity 0.2s,
+    transform 0.15s;
+}
+
+.lp-cta:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+/* ── Mobile ─────────────────────────────────── */
+@media (max-width: 480px) {
+  .lp-card {
+    padding: 24px 18px 20px;
+    max-width: 100%;
+  }
+  .lp-headline__alliance {
+    font-size: 18px;
+  }
+  .lp-stat__value {
+    font-size: 20px;
+  }
+}
