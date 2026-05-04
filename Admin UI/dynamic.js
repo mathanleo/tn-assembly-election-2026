@@ -3799,7 +3799,7 @@ const constituencyData = {
   },
   "217": {
     constituencyId: 217,
-    constituencyName: "OttapconstituencyIdaram",
+    constituencyName: "Ottapidaram",
     district: "Thoothukudi"
   },
   "218": {
