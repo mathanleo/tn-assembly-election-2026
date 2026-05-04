@@ -1050,20 +1050,31 @@ function buildCandidateCard(candidate, index) {
   if (myVotes !== null) {
     voteDisplay = myVotes.toLocaleString('en-IN');
 
-    if (myVotes > 0) {
+   if (myVotes > 0) {
   var maxVotes = 0;
-  var constituencyId = candidate.const_id; // use const_id from API data
-  
+  var constituencyName = (candidate.constituency || '').trim().toLowerCase();
+
   if (typeof _liveAllCandidates !== 'undefined') {
-    _liveAllCandidates.forEach(function(c) {
-      if (+c.const_id === +constituencyId && c.votes !== null) {
-        var v = Number(c.votes);
-        if (v > maxVotes) maxVotes = v;
+    // First find the const_id by matching constituency name
+    var constId = null;
+    for (var i = 0; i < _liveAllCandidates.length; i++) {
+      if (_liveAllCandidates[i].candidateId == candidate.id) {
+        constId = _liveAllCandidates[i].const_id;
+        break;
       }
-    });
+    }
+    // Then find max votes in that constituency
+    if (constId !== null) {
+      _liveAllCandidates.forEach(function(c) {
+        if (+c.const_id === +constId && c.votes !== null) {
+          var v = Number(c.votes);
+          if (v > maxVotes) maxVotes = v;
+        }
+      });
+    }
   }
   leaderTag = (myVotes >= maxVotes && myVotes > 0) ? "Leading" : "Trailing";
-} else {
+}else {
   leaderTag = "Results Awaited";
 }
   }
