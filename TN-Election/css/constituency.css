@@ -1,9 +1,3 @@
-/* ============================================
-   css/constituency.css
-   Constituency detail page styles — matches screenshot UI
-   Mobile first
-   ============================================ */
-
 .const-page {
     /* max-width: 1200px; */
     margin: 0 auto;
@@ -15,14 +9,124 @@
 @media (max-width: 576px) {
     .const-page {
         padding: var(--gap-sm);
+        padding-left: 16px;
+        padding-right: 16px;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
 
-        .const-page-container{
-            width: 93%;
-            .const-hero-outer{
-                display: unset !important;
-            }
-        }
+    .const-page-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .const-hero-outer {
+        display: block !important;
+        gap: var(--gap-sm);
+    }
+
+    .const-right-col {
+        width: 100%;
+        min-width: 0;
+        padding: var(--gap-sm);
+    }
+
+    .census-assembly-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--gap-md);
+    }
+
+    .chart-card,
+    .chart-card1 {
+        width: 100%;
+        min-width: 0;
+        margin-top: 0;
+        margin-bottom: var(--gap-lg);
+        height: auto;
+    }
+
+    .assembly-table {
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .pie-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .pie-divider {
+        display: none;
+    }
+}
+
+/* iPad and Tablet displays (577px - 899px) */
+@media (min-width: 577px) and (max-width: 899px) {
+    .const-page {
+        padding: var(--gap-md);
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .const-page-container {
+        width: 100%;
+    }
+
+    .const-hero-outer {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--gap-md);
+    }
+
+    .const-right-col {
+        width: 100%;
+        min-width: 0;
+        padding: var(--gap-md);
+    }
+
+    .census-assembly-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--gap-md);
+    }
+
+    .chart-card,
+    .chart-card1 {
+        width: 100%;
+        min-width: 0;
+        margin-top: 0;
+        margin-bottom: var(--gap-lg);
+        height: auto;
+    }
+
+    .history-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .assembly-table {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .assembly-cell:nth-child(2n) {
+        border-right: none;
+    }
+
+    .assembly-cell:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
+
+    .pie-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .pie-divider {
+        display: none;
     }
 }
 /* ── Back header ─── */
@@ -78,11 +182,10 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    svg{
-        path{
-            stroke: #656161;
-        }
-    }
+}
+
+.const-mini-map svg path {
+    stroke: #656161;
 }
 
 #const-mini-svg {
@@ -173,6 +276,13 @@
     border-radius: 16px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
     width: 1113px;
+}
+
+@media (max-width: 900px) {
+    .const-right-col {
+        width: 100%;
+        min-width: 0;
+    }
 }
 
 /* ── Section heading ─── */
@@ -554,6 +664,36 @@
     /* margin-bottom: 281px; */
 }
 
+@media (max-width: 900px) {
+    .const-right-col {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .chart-card,
+    .chart-card1 {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: var(--gap-lg);
+        min-height: auto;
+        height: auto;
+    }
+
+    .assembly-table {
+        grid-template-columns: 1fr;
+    }
+
+    .pie-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .pie-divider {
+        display: none;
+    }
+}
+
 .assembly-table {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;  /* 3 columns instead of 2 */
@@ -592,6 +732,31 @@
 
 .assembly-cell:nth-last-child(-n+3) {
   border-bottom: none;
+}
+
+@media (max-width: 576px) {
+    .assembly-table {
+        grid-template-columns: 1fr;
+    }
+
+    .assembly-cell {
+        border-right: none;
+        border-bottom: 1px solid #F1F5F9;
+        padding: 14px 12px;
+    }
+
+    .assembly-cell:last-child {
+        border-bottom: none;
+    }
+
+    .assembly-cell-label,
+    .assembly-cell-value {
+        display: block;
+    }
+
+    .assembly-cell-label {
+        margin-bottom: 6px;
+    }
 }
 
 .chart-title {

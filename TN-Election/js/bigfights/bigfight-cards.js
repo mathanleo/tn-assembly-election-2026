@@ -1,18 +1,17 @@
 // ============================================
 // js/bigfights/bigfight-cards.js
 //
-// Strictly matches Figma design:
-//   - Constituency name → top-right corner tag
-//   - Candidate photo → left, with party logo badge bottom-right
-//   - Name (PARTY) inline on same line
-//   - "Result awaiting" pill below name
-//   - Progress bar spans full width between the two candidates
+// Shows top 3 candidates per constituency
+// pulled live from AWS API (const_id match).
+// Falls back to static candidate1/candidate2
+// if no live data exists for that constituency.
 // ============================================
 
-// Party icon paths — only these 4 have SVGs in assets/icons/
-// Live vote data fetched from DB — same as candidate-cards.js
 var _bigFightLiveData = [];
 
+// -----------------------------------------------
+// Fetch live votes from AWS
+// -----------------------------------------------
 async function fetchLiveVotes() {
   try {
     const url = "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates";
@@ -21,240 +20,242 @@ async function fetchLiveVotes() {
       headers: { "Content-Type": "application/json" }
     });
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-    
     _bigFightLiveData = await response.json();
-    console.log("Live data count:", _bigFightLiveData.length);
-    console.log("Live data sample:", _bigFightLiveData[0]); // check actual keys here
+    console.log("Big fights: live data loaded, count:", _bigFightLiveData.length);
   } catch(e) {
     console.error('fetchLiveVotes error:', e);
     _bigFightLiveData = [];
   }
 }
 
+// -----------------------------------------------
+// Party icons
+// -----------------------------------------------
 var PARTY_ICONS = {
-  "DMK": "../assets/icons/dmk.svg",
-  "ADMK": "../assets/icons/admk.svg",
+  "DMK":    "../assets/icons/dmk.svg",
+  "ADMK":   "../assets/icons/admk.svg",
   "AIADMK": "../assets/icons/admk.svg",
-
-  "NTK": "../assets/icons/ntk.svg",
-  "TVK": "../assets/icons/tvk.svg",
-
-  "BJP": "../assets/icons/bjp.svg",
-  "INC": "../assets/icons/INC.svg",
-
-  "PMK": "../assets/icons/pmk.png",
-  "BSP": "../assets/icons/bsp.png",
-
-  "CPI": "../assets/icons/cpi.webp",
+  "NTK":    "../assets/icons/ntk.svg",
+  "TVK":    "../assets/icons/tvk.svg",
+  "BJP":    "../assets/icons/bjp.svg",
+  "INC":    "../assets/icons/INC.svg",
+  "PMK":    "../assets/icons/pmk.png",
+  "BSP":    "../assets/icons/bsp.png",
+  "CPI":    "../assets/icons/cpi.webp",
   "CPI(M)": "../assets/icons/CPI(M).png",
-
-  "DMDK": "../assets/icons/dmdk.png",
-  "AMMK": "../assets/icons/ammk.webp",
-
-  "IUML": "../assets/icons/iuml.png",
-  "TMC": "../assets/icons/TMC.png",
-
-  "VCK": "../assets/icons/vck.jpg",
-
-  "TVMK": "../assets/icons/tvmk.avif",
-
-  // fallback (important)
-  "IND": "../assets/icons/IND.jpg"
-
+  "DMDK":   "../assets/icons/dmdk.png",
+  "AMMK":   "../assets/icons/ammk.webp",
+  "IUML":   "../assets/icons/iuml.png",
+  "TMC":    "../assets/icons/TMC.png",
+  "VCK":    "../assets/icons/vck.jpg",
+  "TVMK":   "../assets/icons/tvmk.avif",
+  "IND":    "../assets/icons/IND.jpg"
 };
 
-// -----------------------------------------------
-// Build party logo badge HTML (bottom-right of photo)
-// -----------------------------------------------
-function buildPartyLogo(partyShort, allianceColor) {
-  var iconPath = PARTY_ICONS[partyShort];
+// Alliance colour lookup
+var ALLIANCE_PARTIES = {
+  NDA: ['ADMK','AIADMK','BJP','PMK','AMMK','TMC','IJK','PBK','PNK','STMK','TM-BSP','SIFB','TMMK'],
+  SPA: ['DMK','INC','CPI','CPI(M)','CPM','VCK','MDMK','DMDK','IUML','KMDK','MMK','MJK','MPP','SDPI','TDK'],
+  TVK: ['TVK'],
+  NTK: ['NTK']
+};
+var ALLIANCE_COLOURS = {
+  NDA: { bg: '#F97256', text: '#000000' },
+  SPA: { bg: '#6172F3', text: '#FFFFFF' },
+  TVK: { bg: '#FEDF89', text: '#000000' },
+  NTK: { bg: '#D1FADF', text: '#000000' },
+  OTH: { bg: '#6b7280', text: '#FFFFFF' }
+};
 
-  if (iconPath) {
-    return (
-      '<div class="fight-card__party-logo">' +
-        '<img src="' + iconPath + '" alt="' + partyShort + '" />' +
-      '</div>'
-    );
+function getAllianceColour(partyShort) {
+  for (var alliance in ALLIANCE_PARTIES) {
+    if (ALLIANCE_PARTIES[alliance].indexOf(partyShort) !== -1) {
+      return ALLIANCE_COLOURS[alliance];
+    }
   }
-
-  // Fallback: coloured circle with initials
-  var initials = partyShort.replace(/[^A-Za-z]/g, "").slice(0, 3).toUpperCase();
-  return (
-    '<div class="fight-card__party-logo" style="background:' + allianceColor + '">' +
-      '<span class="fight-card__party-logo--fallback">' + initials + '</span>' +
-    '</div>'
-  );
+  return ALLIANCE_COLOURS.OTH;
 }
 
 // -----------------------------------------------
-// Build inline SVG silhouette for missing photos
+// Get top N candidates for a constituency from
+// live API data, sorted by votes descending.
+// Falls back to static candidate1/candidate2
+// if no live data exists for that const_id.
+// -----------------------------------------------
+function getTopCandidates(fight, limit) {
+  limit = limit || 3;
+
+  // Filter live data by const_id
+  var constCandidates = _bigFightLiveData.filter(function(c) {
+    return +c.const_id === +fight.constituencyId;
+  });
+
+  if (constCandidates.length > 0) {
+    // Sort by votes descending
+    constCandidates.sort(function(a, b) {
+      return (Number(b.votes) || 0) - (Number(a.votes) || 0);
+    });
+
+    // Take top N and normalise field names
+    return constCandidates.slice(0, limit).map(function(c) {
+      var partyShort = (c.party || 'IND').trim();
+      return {
+        id:          c.candidateId,
+        name:        c.candidateName || '—',
+        partyShort:  partyShort,
+        votes:       Number(c.votes) || 0,
+        // Photo path — same convention as bigFightsData
+        photo: '../assets/images/candidates/mla/2026/' + c.candidateId + '.jpg'
+      };
+    });
+  }
+
+  // Fallback: use static candidate1 + candidate2
+  return [fight.candidate1, fight.candidate2].map(function(c) {
+    return {
+      id:         c.id,
+      name:       c.name,
+      partyShort: c.partyShort,
+      votes:      0,
+      photo:      c.photo
+    };
+  });
+}
+
+// -----------------------------------------------
+// Get max votes in a constituency (for Leading/Trailing)
+// -----------------------------------------------
+function getConstituencyMaxVotes(constituencyId) {
+  var constCandidates = _bigFightLiveData.filter(function(c) {
+    return +c.const_id === +constituencyId;
+  });
+  if (!constCandidates.length) return 0;
+  return Math.max.apply(null, constCandidates.map(function(c) {
+    return Number(c.votes) || 0;
+  }));
+}
+
+// -----------------------------------------------
+// Build silhouette SVG for missing photos
 // -----------------------------------------------
 function buildSilhouette() {
   return (
     '<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="fight-card__photo fight-card__photo--svg">' +
-      '<circle cx="40" cy="28" r="16" fill="#c9cdd4"/>' +
-      '<ellipse cx="40" cy="72" rx="26" ry="18" fill="#c9cdd4"/>' +
+      '<rect width="80" height="80" fill="#d1d9e0"/>' +
+      '<circle cx="40" cy="28" r="16" fill="#b0bec5"/>' +
+      '<ellipse cx="40" cy="72" rx="26" ry="18" fill="#b0bec5"/>' +
     '</svg>'
   );
 }
 
 // -----------------------------------------------
-// Build one candidate row
+// Build one candidate row (used for each of top 3)
 // -----------------------------------------------
-function buildCandidateRow(candidate, leaderTag, voteCount) {
-  var hasRealPhoto = candidate.photo && candidate.photo.indexOf('placeholder') === -1;
-  var photoHTML = hasRealPhoto
-    ? '<img src="' + candidate.photo + '" alt="' + candidate.name + '" class="fight-card__photo" />'
-    : buildSilhouette();
+function buildCandidateRow(candidate, maxVotes) {
+  var votes    = Number(candidate.votes) || 0;
+  var partyKey = (candidate.partyShort || 'IND').trim();
+  var colours  = getAllianceColour(partyKey);
 
-  var voteDisplay = (voteCount !== null && voteCount !== undefined)
-    ? voteCount.toLocaleString('en-IN')
-    : '0';
+  // Leading / Trailing / Waiting
+  var leaderTag, tagBg;
+  if (maxVotes === 0 || votes === 0) {
+    leaderTag = 'Waiting';
+    tagBg     = '#4b5563';
+  } else if (votes === maxVotes) {
+    leaderTag = 'Leading';
+    tagBg     = '#12B76A';
+  } else {
+    leaderTag = 'Trailing';
+    tagBg     = '#F04438';
+  }
 
-  var colorBG = leaderTag === "Leading" ? "#12B76A" : leaderTag === "Trailing" ? "#F04438" : "#4b5563";
+  var voteDisplay = votes > 0 ? votes.toLocaleString('en-IN') : 'Awaited';
+
+  // Party icon
+  var iconPath  = PARTY_ICONS[partyKey] || PARTY_ICONS['IND'];
+  var badgeHTML = '<img src="' + iconPath + '" alt="' + partyKey + '" class="fight-card__party-icon" />';
+
+  // Photo — img with onerror fallback to silhouette
+  var photoHTML =
+    '<img ' +
+      'src="' + candidate.photo + '" ' +
+      'alt="' + candidate.name + '" ' +
+      'class="fight-card__photo" ' +
+      'onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'" ' +
+    '/>' +
+    '<span style="display:none">' + buildSilhouette() + '</span>';
 
   return (
-    '<div class="fight-card__candidate">' +
+    '<div class="fight-card__candidate" ' + colours.bg + '">' +
       '<div class="fight-card__photo-wrap">' +
         '<div class="fight-card__photo-circle">' +
           photoHTML +
         '</div>' +
-        '<div class="fight-card__votes">Votes: ' + voteDisplay + '</div>' +
+        '<div class="fight-card__party-badge">' + badgeHTML + '</div>' +
       '</div>' +
+
       '<div class="fight-card__info">' +
-        '<div class="fight-card__name-line">' +
-          candidate.name +
-          ' <span class="fight-card__party-inline">(' + candidate.partyShort + ')</span>' +
-        '</div>' +
-        '<div class="fight-card__status_bar">'+
-        '<div class="fight-card__status" style="color:white;background-color:' + colorBG + '">' + leaderTag + '</div>' +
-        '</div>'+
-        '</div>' +
+  '<div class="fight-card__name-line">' +
+    '<span class="fight-card__name">' + candidate.name + '</span>' +
+    '<span class="fight-card__party-tag" >' + partyKey + '</span>' +
+  '</div>' +
+  '<span class="fight-card__votes-label">Votes: ' + voteDisplay + '</span>' +
+  '<div class="fight-card__status" style="background:' + tagBg + ';color:#fff">' + leaderTag + '</div>' +
+'</div>'  +
     '</div>'
   );
 }
-// -----------------------------------------------
-// Get live votes for a candidate from constituenciesWithCandidates
-// Returns vote count or null if not found / not available
-// -----------------------------------------------
-function getLiveVotes(constituencyId, candidateId) {
-  if (_bigFightLiveData && _bigFightLiveData.length) {
-    var match = _bigFightLiveData.find(function(c) {
-  return +c.candidateId === +candidateId; 
-});
-    if (match !== undefined) return match.votes;
-  }
-  // Fallback to static
-  var constKey = String(constituencyId);
-  var constObj = (typeof constituenciesWithCandidates !== 'undefined') && constituenciesWithCandidates[constKey];
-  if (!constObj) return null;
-  var candidates = constObj.candidates;
-  for (var i = 0; i < candidates.length; i++) {
-    if (candidates[i].id === candidateId) {
-      var v = candidates[i].votes;
-      return (v !== undefined && v !== null) ? v : null;
-    }
-  }
-  return null;
-}
 
 // -----------------------------------------------
-// Decide Leading / Trailing / Result Awaited for both candidates
-// -----------------------------------------------
-function getConstituencyMaxVotes(constituencyId) {
-  if (_bigFightLiveData && _bigFightLiveData.length) {
-    var constCandidates = _bigFightLiveData.filter(function(c) {
-      return +c.const_id === +constituencyId;
-    });
-    if (constCandidates.length) {
-      var maxVotes = null;
-      constCandidates.forEach(function(c) {
-        var v = Number(c.votes);
-if (c.votes !== null && !isNaN(v) && (maxVotes === null || v > maxVotes)) maxVotes = v;
-      });
-      return maxVotes;
-    }
-  }
-  // Fallback to static
-  var constKey = String(constituencyId);
-  var constObj = (typeof constituenciesWithCandidates !== 'undefined') && constituenciesWithCandidates[constKey];
-  if (!constObj) return null;
-  var candidates = constObj.candidates;
-  var maxVotes = null;
-  for (var i = 0; i < candidates.length; i++) {
-    var v = candidates[i].votes;
-    if (v !== undefined && v !== null) {
-      v = Number(v);
-      if (maxVotes === null || v > maxVotes) maxVotes = v;
-    }
-  }
-  return maxVotes;
-}
-
-function getLeaderTags(fight) {
-  var v1 = getLiveVotes(fight.constituencyId, fight.candidate1.id);
-  var v2 = getLiveVotes(fight.constituencyId, fight.candidate2.id);
-  var maxVotes = getConstituencyMaxVotes(fight.constituencyId);
-
-  // No votes anywhere in constituency yet
-  if (maxVotes === null || maxVotes === 0) {
-    return { tag1: "Waiting", tag2: "Waiting", margin: null, winnerParty: null };
-  }
-
-  var safe1 = (v1 !== null) ? Number(v1) : 0;
-  var safe2 = (v2 !== null) ? Number(v2) : 0;
-
-  // Compare each candidate against constituency-wide max (all candidates)
-  // Only "Leading" if they ARE the constituency leader
-  var tag1 = (safe1 > 0 && safe1 === maxVotes) ? "Leading" : (safe1 > 0) ? "Trailing" : "Waiting";
-  var tag2 = (safe2 > 0 && safe2 === maxVotes) ? "Leading" : (safe2 > 0) ? "Trailing" : "Waiting";
-
-  var diff = (safe1 > 0 && safe2 > 0) ? Math.abs(safe1 - safe2) : null;
-
-  var winnerParty = null;
-  if (tag1 === "Leading") winnerParty = fight.candidate1.partyShort;
-  else if (tag2 === "Leading") winnerParty = fight.candidate2.partyShort;
-
-  return { tag1: tag1, tag2: tag2, margin: diff, winnerParty: winnerParty };
-}
-// -----------------------------------------------
-// Build one full fight card
+// Build one full fight card (top 3 candidates)
 // -----------------------------------------------
 function buildFightCard(fight) {
-  var c1 = fight.candidate1;
-  var c2 = fight.candidate2;
-  var tags = getLeaderTags(fight);
-  var v1 = getLiveVotes(fight.constituencyId, c1.id);
-  var v2 = getLiveVotes(fight.constituencyId, c2.id);
+  var maxVotes   = getConstituencyMaxVotes(fight.constituencyId);
+  var topThree   = getTopCandidates(fight, 3);
 
-  // Winner party logo
-  var logoHTML = '';
-  if (tags.winnerParty) {
-    var logoPath = PARTY_ICONS[tags.winnerParty] 
-      ? PARTY_ICONS[tags.winnerParty]
-      : '../assets/icons/' + tags.winnerParty.toLowerCase() + '.png';
-    logoHTML = '<img src="' + logoPath + '" alt="' + tags.winnerParty + '" class="fight-card__winner-logo" />';
+  // Winner logo — party of the leading candidate (most votes)
+  var winnerParty  = (maxVotes > 0 && topThree.length > 0) ? topThree[0].partyShort : null;
+  var logoHTML     = '';
+  if (winnerParty) {
+    var logoPath = PARTY_ICONS[winnerParty] || PARTY_ICONS['IND'];
+    logoHTML = '<img src="' + logoPath + '" alt="' + winnerParty + '" class="fight-card__winner-logo" />';
   }
 
-  var marginHTML = tags.margin !== null
-    ? '<div class="fight-card__margin">Margin: ' + tags.margin.toLocaleString('en-IN') + '</div>'
-    : '<div class="fight-card__margin">Margin: Awaited</div>';
+  // Margin between 1st and 2nd
+  var marginHTML = '';
+  if (topThree.length >= 2 && maxVotes > 0) {
+    var margin = Math.abs((Number(topThree[0].votes) || 0) - (Number(topThree[1].votes) || 0));
+    marginHTML = '<div class="fight-card__margin">Margin: ' + margin.toLocaleString('en-IN') + '</div>';
+  } else {
+    marginHTML = '<div class="fight-card__margin">Margin: Awaited</div>';
+  }
+
+  var rowsHTML = topThree.map(function(c) {
+    return buildCandidateRow(c, maxVotes);
+  }).join(marginHTML === '' ? '' : '');
+
+  // Only show margin between 1st and 2nd row
+  var candidateRowsHTML = '';
+  topThree.forEach(function(c, i) {
+    candidateRowsHTML += buildCandidateRow(c, maxVotes);
+    if (i === 0 && topThree.length > 1) {
+      candidateRowsHTML += marginHTML;
+    }
+  });
 
   return (
     '<div class="fight-card">' +
       '<div class="fight-card__constituency_tag">' +
         '<span class="fight-card__constituency">' + fight.constituency + '</span>' +
-        logoHTML +   // ← winner logo next to constituency name
+        logoHTML +
       '</div>' +
-      buildCandidateRow(c1, tags.tag1, v1) +
-      marginHTML +
-      buildCandidateRow(c2, tags.tag2, v2) +
+      candidateRowsHTML +
     '</div>'
   );
 }
 
 // -----------------------------------------------
-// Render all fight cards into the grid (with optional filtering)
+// Render all fight cards into the grid
 // -----------------------------------------------
 function buildBigFightCards(searchTerm) {
   var container = document.getElementById('bigfight-cards-container');
@@ -262,14 +263,14 @@ function buildBigFightCards(searchTerm) {
 
   var data = bigFightsData;
 
-  // Filter by search term if provided
   if (searchTerm && searchTerm.trim()) {
     var term = searchTerm.trim().toLowerCase();
     data = data.filter(function(fight) {
-      var name1 = (fight.candidate1.name || '').toLowerCase();
-      var name2 = (fight.candidate2.name || '').toLowerCase();
-      var constituency = (fight.constituency || '').toLowerCase();
-      return name1.includes(term) || name2.includes(term) || constituency.includes(term);
+      return (
+        fight.constituency.toLowerCase().indexOf(term) !== -1 ||
+        fight.candidate1.name.toLowerCase().indexOf(term) !== -1 ||
+        fight.candidate2.name.toLowerCase().indexOf(term) !== -1
+      );
     });
   }
 
@@ -277,31 +278,26 @@ function buildBigFightCards(searchTerm) {
 }
 
 // -----------------------------------------------
-// Initialize search functionality
+// Search
 // -----------------------------------------------
 function initSearch() {
   var searchInput = document.getElementById('candidates-search-input');
   if (!searchInput) return;
 
   searchInput.addEventListener('input', function() {
-    var searchTerm = searchInput.value;
     var activeTab = document.querySelector('.bigfight-tab--active');
-    var filter = activeTab ? activeTab.dataset.filter : 'all';
-
+    var filter    = activeTab ? activeTab.dataset.filter : 'all';
     if (filter === 'popular') {
-      // For Popular Battles tab, use the renderPopularBattles function
-      if (typeof renderPopularBattles === 'function') {
-        renderPopularBattles(searchTerm);
-      }
+      if (typeof renderPopularBattles === 'function') renderPopularBattles(searchInput.value);
     } else {
-      // For Big Fights tab, filter and render bigFightsData
-      var container = document.getElementById('bigfight-cards-container');
-      if (!container) return;
-
-      buildBigFightCards(searchTerm);
+      buildBigFightCards(searchInput.value);
     }
   });
 }
+
+// -----------------------------------------------
+// Filter tabs
+// -----------------------------------------------
 function initFilterTabs() {
   var tabs = document.querySelectorAll('.bigfight-tab');
   if (!tabs.length) return;
@@ -311,13 +307,12 @@ function initFilterTabs() {
       tabs.forEach(function(t) { t.classList.remove('bigfight-tab--active'); });
       tab.classList.add('bigfight-tab--active');
 
-      var filter = tab.dataset.filter;
-      var container = document.getElementById('bigfight-cards-container');
+      var filter      = tab.dataset.filter;
+      var container   = document.getElementById('bigfight-cards-container');
       if (!container) return;
 
       var searchInput = document.getElementById('candidates-search-input');
-      var searchTerm = searchInput ? searchInput.value : '';
-
+      var searchTerm  = searchInput ? searchInput.value : '';
       var majorAlliances = ['NDA', 'SPA', 'NTK', 'TVK'];
 
       var data = filter === 'popular'
@@ -329,14 +324,14 @@ function initFilterTabs() {
           })
         : bigFightsData;
 
-      // Apply search filter if there's a search term
       if (searchTerm && searchTerm.trim()) {
         var term = searchTerm.trim().toLowerCase();
         data = data.filter(function(fight) {
-          var name1 = (fight.candidate1.name || '').toLowerCase();
-          var name2 = (fight.candidate2.name || '').toLowerCase();
-          var constituency = (fight.constituency || '').toLowerCase();
-          return name1.includes(term) || name2.includes(term) || constituency.includes(term);
+          return (
+            fight.constituency.toLowerCase().indexOf(term) !== -1 ||
+            fight.candidate1.name.toLowerCase().indexOf(term) !== -1 ||
+            fight.candidate2.name.toLowerCase().indexOf(term) !== -1
+          );
         });
       }
 
@@ -346,11 +341,32 @@ function initFilterTabs() {
 }
 
 // -----------------------------------------------
-// Run when DOM is ready
+// Live polling — refresh cards every 30s
+// -----------------------------------------------
+var _bigFightInterval = null;
+
+function startBigFightLiveUpdates(intervalMs) {
+  intervalMs = intervalMs || 30000;
+  if (_bigFightInterval) clearInterval(_bigFightInterval);
+
+  _bigFightInterval = setInterval(async function() {
+    await fetchLiveVotes();
+    buildBigFightCards();
+    console.log('Big fights live updated at:', new Date().toLocaleTimeString());
+  }, intervalMs);
+}
+
+// -----------------------------------------------
+// Init on DOM ready
 // -----------------------------------------------
 document.addEventListener('DOMContentLoaded', async function() {
-  await fetchLiveVotes();   // fetch DB votes first
-  buildBigFightCards();     // then render with live data
+  await fetchLiveVotes();
+  buildBigFightCards();
   initFilterTabs();
   initSearch();
+  startBigFightLiveUpdates(30000);
+});
+
+window.addEventListener('beforeunload', function() {
+  if (_bigFightInterval) clearInterval(_bigFightInterval);
 });

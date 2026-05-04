@@ -225,7 +225,20 @@ position: absolute;
   padding-top: 4px;
   margin-top: 10px;
 }
+.fight-card__name-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
 
+.fight-card__party-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
 .fight-card__photo-wrap {
   position: relative;
   width: 56px;
