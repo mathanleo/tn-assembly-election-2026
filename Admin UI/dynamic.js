@@ -2719,7 +2719,7 @@
 const constituencyData = {
   "1": {
     constituencyId: 1,
-    constituencyName: "GummconstituencyIdipoondi",
+    constituencyName: "Gummidipoondi",
     district: "Thiruvallur"
   },
   "2": {
