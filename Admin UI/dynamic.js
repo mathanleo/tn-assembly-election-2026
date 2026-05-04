@@ -3404,7 +3404,7 @@ const constituencyData = {
   },
   "138": {
     constituencyId: 138,
-    constituencyName: "Manapaarai",
+    constituencyName: "Manapparai",
     district: "Tiruchirappalli"
   },
   "139": {
@@ -4273,8 +4273,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     candidatesData = await getDataFromDb(constituencyId, constState);
     console.log("candidatesData:", candidatesData);
 
+<<<<<<< Updated upstream
     const candidateDetails = candidatesData.filter((candidate) =>
       parties.includes(candidate.party.trim())
+=======
+    const candidateDetails = candidatesData.filter((candidate) =>{
+      console.log("cand:",cand);
+      
+      parties.includes(candidate.party)
+    }
+>>>>>>> Stashed changes
     );
 
 
