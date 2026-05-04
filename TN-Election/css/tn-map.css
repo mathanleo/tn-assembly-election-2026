@@ -642,3 +642,35 @@
     max-width: 90vw;
   }
 }
+/* ── Map Alliance Legend ─────────────────────── */
+.map-legend-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.75);
+  border-top: 1px solid var(--color-border, #e5e7eb);
+  flex-wrap: wrap;
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.map-legend-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.map-legend-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-dark, #1a1a2e);
+  letter-spacing: 0.03em;
+}

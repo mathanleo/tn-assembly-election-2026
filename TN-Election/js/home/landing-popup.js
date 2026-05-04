@@ -27,28 +27,50 @@
   function waitForData(cb) {
     var tries = 0;
     var id = setInterval(function () {
-      if (
-        typeof calculateAllianceTotals === 'function' &&
-        typeof cmCandidatesData !== 'undefined' &&
-        tries < 30
-      ) {
+      tries++;
+
+      var hasFunction  = typeof calculateAllianceTotals === 'function';
+      var hasCMData    = typeof cmCandidatesData !== 'undefined';
+
+      // Also wait for live vote data — _liveAllCandidates set by candidate-cards.js
+      var hasLiveData  = typeof _liveAllCandidates !== 'undefined' &&
+                         _liveAllCandidates &&
+                         _liveAllCandidates.length > 0;
+
+      // Check if totals are actually non-zero (real data loaded)
+      var totalsReady  = false;
+      if (hasFunction && hasLiveData) {
+        var t = calculateAllianceTotals();
+        totalsReady = (t.nda + t.spa + t.tvk + t.ntk + t.others) > 0;
+      }
+
+      if (hasFunction && hasCMData && totalsReady) {
         clearInterval(id);
         cb();
+        return;
       }
-      tries++;
-      if (tries >= 30) clearInterval(id);
+
+      // Timeout after 8s — show popup anyway with whatever data is available
+      if (tries >= 40) {
+        clearInterval(id);
+        if (hasFunction && hasCMData) cb();
+      }
     }, 200);
   }
 
   // ── Find the leader ─────────────────────────
   function getLeader(totals) {
     var scores = [
-      { key: 'spa', party: 'DMK', total: totals.spa },
       { key: 'nda', party: 'ADMK', total: totals.nda },
-      { key: 'tvk', party: 'TVK', total: totals.tvk },
-      { key: 'ntk', party: 'NTK', total: totals.ntk },
+      { key: 'spa', party: 'DMK',  total: totals.spa },
+      { key: 'tvk', party: 'TVK',  total: totals.tvk },
+      { key: 'ntk', party: 'NTK',  total: totals.ntk },
     ];
     scores.sort(function (a, b) { return b.total - a.total; });
+
+    // If all totals are 0 (no live data), return null so popup doesn't show wrong info
+    if (scores[0].total === 0) return null;
+
     return scores[0];
   }
 
@@ -102,6 +124,7 @@
 
     var totals = calculateAllianceTotals();
     var leader = getLeader(totals);
+    if (!leader) return; // no live data yet — don't show misleading popup
     var meta = PARTY_META[leader.party] || PARTY_META.DMK;
     var cmData = cmCandidatesData.find(function (c) { return c.party === leader.party; });
     if (!cmData) return;
