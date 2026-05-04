@@ -1356,29 +1356,59 @@ function renderMiniMap(constId){
 // ─────────────────────────────────────────────────────────────────
 // INIT — unchanged
 // ─────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded',function(){
-  var constId=getSelectedConstituencyId();
+async function fetchAndMergeConstituencyVotes() {
+  try {
+    const url = "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates";
+    const response = await fetch(url, { method: "GET", headers: { "Content-Type": "application/json" } });
+    if (!response.ok) return;
+    const allCandidates = await response.json();
+
+    // Build vote map: candidateId → votes
+    const voteMap = new Map();
+    allCandidates.forEach(c => voteMap.set(+c.candidateId, c.votes));
+
+    // Patch votes into constituenciesWithCandidates
+    if (typeof constituenciesWithCandidates !== 'undefined') {
+      Object.keys(constituenciesWithCandidates).forEach(function(key) {
+        var constObj = constituenciesWithCandidates[key];
+        if (!constObj || !Array.isArray(constObj.candidates)) return;
+        constObj.candidates.forEach(function(cand) {
+          if (voteMap.has(+cand.id)) {
+            cand.votes = voteMap.get(+cand.id);
+          }
+        });
+      });
+    }
+  } catch(e) {
+    console.error('Constituency vote fetch error:', e);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async function(){
+  var constId = getSelectedConstituencyId();
   if(!constId){
     document.body.innerHTML='<div style="padding:40px;text-align:center">No constituency selected. <a href="index.html">Go Home</a></div>';
     return;
   }
-  var c=constituenciesData[constId];
+  var c = constituenciesData[constId];
   if(!c){
     document.body.innerHTML='<div style="padding:40px;text-align:center">Constituency not found. <a href="index.html">Go Home</a></div>';
     return;
   }
+
   renderHeader(c);
   renderMinister(c);
-  renderCandidates(constId);
   renderHistory(constId);
   renderCensus(c);
   renderAssemblyDetails(c);
   renderMiniMap(constId);
 
-  var viewAllBtn=document.getElementById('view-all-btn');
+  // Fetch live votes first, then render candidates with correct tags
+  await fetchAndMergeConstituencyVotes();
+  renderCandidates(constId);
+
+  var viewAllBtn = document.getElementById('view-all-btn');
   if(viewAllBtn){
-    viewAllBtn.addEventListener('click',function(){
-      viewAllCandidates(constId);
-    });
+    viewAllBtn.addEventListener('click', function(){ viewAllCandidates(constId); });
   }
 });
