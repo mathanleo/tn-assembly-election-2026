@@ -69,6 +69,7 @@
   cursor: pointer;
   color: #475569;
   display: flex;
+  visibility: hidden;
   align-items: center;
   justify-content: center;
   transition: background 0.15s;
