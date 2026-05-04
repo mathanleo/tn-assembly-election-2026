@@ -3014,7 +3014,7 @@ const constituencyData = {
   },
   "60": {
     constituencyId: 60,
-    constituencyName: "Pappireddippatti",
+    constituencyName: "Pappireddipatti",
     district: "Dharmapuri"
   },
   "61": {
@@ -3564,7 +3564,7 @@ const constituencyData = {
   },
   "170": {
     constituencyId: 170,
-    constituencyName: "ThiruvconstituencyIdaimarudur",
+    constituencyName: "Thiruvidaimarudur",
     district: "Thanjavur"
   },
   "171": {
