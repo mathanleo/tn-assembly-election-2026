@@ -2829,7 +2829,7 @@ const constituencyData = {
   },
   "23": {
     constituencyId: 23,
-    constituencyName: "SaconstituencyIdapet",
+    constituencyName: "Saidapet",
     district: "Chennai"
   },
   "24": {
@@ -3504,7 +3504,7 @@ const constituencyData = {
   },
   "158": {
     constituencyId: 158,
-    constituencyName: "ChconstituencyIdambaram",
+    constituencyName: "Chidambaram",
     district: "Cuddalore"
   },
   "159": {
