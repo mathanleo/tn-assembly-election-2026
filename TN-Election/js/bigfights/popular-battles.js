@@ -1,35 +1,98 @@
 // ============================================
 // js/bigfights/popular-battles.js
-// Popular Battles — 3-col card grid with dropdown
+// Popular Battles — 3-way rivalry cards with live votes
 // ============================================
 
-var activeRivalry = "DMK_ADMK";
+var activeRivalry = "DMK_ADMK_TVK";
 
 var PARTY_CONFIG = {
-  "DMK":  { color: "#E05A46", icon: "../assets/icons/dmk.svg"  },
-  "ADMK": { color: "#16A34A", icon: "../assets/icons/admk.svg" },
-  "BJP":  { color: "#FF6600", icon: "../assets/icons/bjp.svg"  },
-  "INC":  { color: "#1565C0", icon: "../assets/icons/INC.svg"  }
+  "DMK":  { color: "#E05A46", bg: "#6172F3", text: "#fff", icon: "../assets/icons/dmk.svg"  },
+  "ADMK": { color: "#16A34A", bg: "#F97256", text: "#000", icon: "../assets/icons/admk.svg" },
+  "BJP":  { color: "#FF6600", bg: "#F97256", text: "#000", icon: "../assets/icons/bjp.svg"  },
+  "INC":  { color: "#1565C0", bg: "#6172F3", text: "#fff", icon: "../assets/icons/INC.svg"  },
+  "TVK":  { color: "#D4A017", bg: "#FEDF89", text: "#000", icon: "../assets/icons/tvk.svg"  },
+  "NTK":  { color: "#039855", bg: "#D1FADF", text: "#000", icon: "../assets/icons/ntk.svg"  }
 };
 
+// -----------------------------------------------
+// Rivalry config — now 3-way
+// parties: array of party codes to show in this rivalry
+// For each constituency we find candidates from these parties
+// in the live data and show them sorted by votes
+// -----------------------------------------------
 var RIVALRY_CONFIG = {
-  "DMK_ADMK": { label1: "DMK",  label2: "ADMK", displayLabel: "DMK vs ADMK" },
-  "BJP_INC":  { label1: "BJP",  label2: "INC",  displayLabel: "BJP vs INC"  }
+  "DMK_ADMK_TVK": { parties: ["DMK", "ADMK", "TVK"], displayLabel: "DMK vs ADMK vs TVK" },
+  "BJP_INC_TVK":  { parties: ["BJP", "INC",  "TVK"], displayLabel: "BJP vs INC vs TVK"  }
 };
 
-// Known celebrity photos
-var CANDIDATE_PHOTOS = {
-  "M.K. Stalin":          "../assets/images/candidates/stalin.svg",
-  "Edappadi Palaniswami": "../assets/images/candidates/eps.svg",
-  "Udhayanidhi Stalin":   "../assets/images/candidates/mla/2026/490.png"
+// Constituencies to show for each rivalry — pulled from headToHeadData
+// For DMK_ADMK_TVK we reuse the DMK_ADMK constituency list
+// For BJP_INC_TVK we reuse the BJP_INC list
+var RIVALRY_CONSTITUENCY_MAP = {
+  "DMK_ADMK_TVK": "DMK_ADMK",
+  "BJP_INC_TVK":  "BJP_INC"
+};
+
+var PARTY_ICONS = {
+  "DMK":    "../assets/icons/dmk.svg",
+  "ADMK":   "../assets/icons/admk.svg",
+  "AIADMK": "../assets/icons/admk.svg",
+  "NTK":    "../assets/icons/ntk.svg",
+  "TVK":    "../assets/icons/tvk.svg",
+  "BJP":    "../assets/icons/bjp.svg",
+  "INC":    "../assets/icons/INC.svg",
+  "PMK":    "../assets/icons/pmk.png",
+  "CPI":    "../assets/icons/cpi.webp",
+  "CPI(M)": "../assets/icons/CPI(M).png",
+  "IND":    "../assets/icons/IND.jpg"
 };
 
 // -----------------------------------------------
-// Get photo for a candidate
+// Get live candidates for a constituency + party filter
+// Returns array of {id, name, party, votes, photo}
+// sorted by votes desc, filtered to rivalry parties
 // -----------------------------------------------
-function getPopPhoto(id, name) {
-  if (CANDIDATE_PHOTOS[name]) return CANDIDATE_PHOTOS[name];
-  return "../assets/images/candidates/mla/2026/" + id + ".jpg";
+function getLiveRivalryCandidates(constituencyId, parties) {
+  if (!_bigFightLiveData || !_bigFightLiveData.length) return [];
+
+  // Get all candidates in this constituency from live data
+  var constCandidates = _bigFightLiveData.filter(function(c) {
+    return +c.const_id === +constituencyId;
+  });
+
+  // Filter to only the rivalry parties
+  var filtered = constCandidates.filter(function(c) {
+    return parties.indexOf((c.party || '').trim().toUpperCase()) !== -1;
+  });
+
+  // Sort by votes desc
+  filtered.sort(function(a, b) {
+    return (Number(b.votes) || 0) - (Number(a.votes) || 0);
+  });
+
+  return filtered.map(function(c) {
+    return {
+      id:    c.candidateId,
+      name:  c.candidateName || '—',
+      party: (c.party || 'IND').trim().toUpperCase(),
+      votes: Number(c.votes) || 0,
+      photo: '../assets/images/candidates/mla/2026/' + c.candidateId + '.jpg'
+    };
+  });
+}
+
+// -----------------------------------------------
+// Get constituency max votes (all candidates, not just rivalry)
+// -----------------------------------------------
+function getPopMaxVotes(constituencyId) {
+  if (!_bigFightLiveData || !_bigFightLiveData.length) return 0;
+  var constCandidates = _bigFightLiveData.filter(function(c) {
+    return +c.const_id === +constituencyId;
+  });
+  if (!constCandidates.length) return 0;
+  return Math.max.apply(null, constCandidates.map(function(c) {
+    return Number(c.votes) || 0;
+  }));
 }
 
 // -----------------------------------------------
@@ -46,7 +109,7 @@ function popSilhouette() {
 }
 
 // -----------------------------------------------
-// Party badge (icon or initials)
+// Party badge
 // -----------------------------------------------
 function buildPopBadge(partyShort) {
   var cfg = PARTY_CONFIG[partyShort] || { color: "#6b7280", icon: null };
@@ -65,107 +128,123 @@ function buildPopBadge(partyShort) {
 }
 
 // -----------------------------------------------
-// Build one Popular Battle card
+// Build one candidate column inside the card
 // -----------------------------------------------
-function buildPopCard(match) {
-  var cfg1 = PARTY_CONFIG[match.party1] || { color: "#E05A46" };
-  var cfg2 = PARTY_CONFIG[match.party2] || { color: "#16A34A" };
+function buildPopCandidateCol(candidate, maxVotes, isFlipped) {
+  var cfg = PARTY_CONFIG[candidate.party] || { color: "#6b7280" };
+  var votes = candidate.votes;
 
-  // -----------------------------------------------
-  // Get live votes from constituenciesWithCandidates
-  // -----------------------------------------------
-  var v1 = null, v2 = null;
-if (typeof _bigFightLiveData !== 'undefined' && _bigFightLiveData.length) {
-  var match1 = _bigFightLiveData.find(function(c) { return +c.candidateId === +match.id1; });
-  var match2 = _bigFightLiveData.find(function(c) { return +c.candidateId === +match.id2; });
-  if (match.constituency === 'Alandur') {
-    console.log('id1:', match.id1, 'id2:', match.id2);
-    console.log('match1:', match1, 'match2:', match2);
-    console.log('Sample API ids:', _bigFightLiveData.slice(0,3).map(c => c.candidateId));
+  var leaderTag, tagBg;
+  if (maxVotes === 0 || votes === 0) {
+    leaderTag = 'Waiting'; tagBg = '#4b5563';
+  } else if (votes === maxVotes) {
+    leaderTag = 'Leading'; tagBg = '#12B76A';
+  } else {
+    leaderTag = 'Trailing'; tagBg = '#F04438';
   }
-  if (match1 && match1.votes !== null) v1 = Number(match1.votes);
-  if (match2 && match2.votes !== null) v2 = Number(match2.votes);
+
+  var voteDisplay = votes > 0 ? votes.toLocaleString('en-IN') : '0';
+  var photoClass  = 'pop-card__photo' + (isFlipped ? ' pop-card__photo--flip' : '');
+
+  return (
+    '<div class="pop-card__candidate">' +
+      '<div class="pop-card__photo-wrap">' +
+        '<img src="' + candidate.photo + '" alt="' + candidate.name + '" ' +
+          'class="' + photoClass + '" ' +
+          'onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'" />' +
+        '<div style="display:none;width:100%;height:100%">' + popSilhouette() + '</div>' +
+        buildPopBadge(candidate.party) +
+      '</div>' +
+      '<div class="pop-card__name">' + candidate.name + '</div>' +
+      '<div class="pop-card__party-label" style="color:' + cfg.color + '">' + candidate.party + '</div>' +
+      '<div class="pop-card__votes">Votes: ' + voteDisplay + '</div>' +
+      '<div class="pop-card__tag_bar">' +
+        '<div class="pop-card__tag" style="background:' + tagBg + ';">' + leaderTag + '</div>' +
+      '</div>' +
+    '</div>'
+  );
 }
 
-  var voteDisplay1 = (v1 !== null) ? v1.toLocaleString('en-IN') : "0";
-  var voteDisplay2 = (v2 !== null) ? v2.toLocaleString('en-IN') : "0";
+// -----------------------------------------------
+// Build one Popular Battle card (3-way)
+// match = one entry from headToHeadData[rivalry_key]
+// parties = array of party codes for this rivalry
+// -----------------------------------------------
+function buildPopCard(match, parties) {
+  // Find the constituencyId from bigFightsData by constituency name
+  var constituencyId = null;
+  if (typeof bigFightsData !== 'undefined') {
+    var found = bigFightsData.find(function(f) {
+      return f.constituency.toLowerCase() === (match.constituency || '').toLowerCase();
+    });
+    if (found) constituencyId = found.constituencyId;
+  }
 
-  var tag1 = "Waiting", tag2 = "Waiting";
-  var bg1 = "#4b5563", bg2 = "#4b5563";
+  // Also try matching from headToHeadData ids directly via live data
+  // Use id1 from match to find const_id
+  if (!constituencyId && match.id1 && _bigFightLiveData && _bigFightLiveData.length) {
+    var liveMatch = _bigFightLiveData.find(function(c) {
+      return +c.candidateId === +match.id1;
+    });
+    if (liveMatch) constituencyId = liveMatch.const_id;
+  }
 
-  if (v1 !== null || v2 !== null) {
-    var safe1 = v1 !== null ? v1 : 0;
-    var safe2 = v2 !== null ? v2 : 0;
+  var maxVotes   = constituencyId ? getPopMaxVotes(constituencyId) : 0;
+  var liveCands  = constituencyId ? getLiveRivalryCandidates(constituencyId, parties) : [];
 
-    if (safe1 > safe2) {
-      tag1 = "Leading";  bg1 = "#12B76A";
-      tag2 = "Trailing"; bg2 = "#F04438";
-    } else if (safe2 > safe1) {
-      tag2 = "Leading";  bg2 = "#12B76A";
-      tag1 = "Trailing"; bg1 = "#F04438";
+  // If no live candidates found for these parties, build from static match data
+  if (liveCands.length === 0) {
+    liveCands = [
+      { id: match.id1, name: match.candidate1, party: match.party1, votes: 0,
+        photo: '../assets/images/candidates/mla/2026/' + match.id1 + '.jpg' },
+      { id: match.id2, name: match.candidate2, party: match.party2, votes: 0,
+        photo: '../assets/images/candidates/mla/2026/' + match.id2 + '.jpg' }
+    ];
+    // Try to add a TVK/third party candidate from live data if available
+    if (constituencyId && parties.length > 2) {
+      var thirdParty = parties[2];
+      var thirdCand = (_bigFightLiveData || []).find(function(c) {
+        return +c.const_id === +constituencyId &&
+               (c.party || '').trim().toUpperCase() === thirdParty;
+      });
+      if (thirdCand) {
+        liveCands.push({
+          id:    thirdCand.candidateId,
+          name:  thirdCand.candidateName,
+          party: thirdParty,
+          votes: Number(thirdCand.votes) || 0,
+          photo: '../assets/images/candidates/mla/2026/' + thirdCand.candidateId + '.jpg'
+        });
+      }
     }
   }
 
-  // Winner logo (shown near constituency title like real UI)
-  var winnerParty = (v1 !== null && v2 !== null && v1 > v2) ? match.party1 
-                  : (v2 !== null && v1 !== null && v2 > v1) ? match.party2 
-                  : null;
+  // Winner logo
   var winnerLogoHTML = '';
-  if (winnerParty) {
-    var logoSrc = PARTY_ICONS[winnerParty] || ('../assets/icons/' + winnerParty.toLowerCase() + '.png');
-    winnerLogoHTML = '<img src="' + logoSrc + '" alt="' + winnerParty + '" class="pop-card__winner-logo" />';
+  if (maxVotes > 0 && liveCands.length > 0) {
+    var winner     = liveCands[0]; // already sorted by votes
+    var logoPath   = PARTY_ICONS[winner.party] || PARTY_ICONS['IND'];
+    winnerLogoHTML = '<img src="' + logoPath + '" alt="' + winner.party + '" class="pop-card__winner-logo" />';
   }
-  // -----------------------------------------------
+
+  // Build candidate columns — VS separator between each pair
+  var colsHTML = '';
+  liveCands.forEach(function(cand, i) {
+    if (i > 0) colsHTML += '<div class="pop-card__vs">VS</div>';
+    colsHTML += buildPopCandidateCol(cand, maxVotes, i % 2 !== 0);
+  });
 
   return (
     '<div class="pop-card">' +
       '<div class="pop-card__bg"></div>' +
       '<div class="pop-card__glow"></div>' +
       '<div class="pop-card__content">' +
-
         '<div class="pop-card__title">' +
           match.constituency.toUpperCase() +
-          winnerLogoHTML +   // ← winner logo next to title
+          winnerLogoHTML +
         '</div>' +
-
         '<div class="pop-card__versus">' +
-
-          '<div class="pop-card__candidate">' +
-            '<div class="pop-card__photo-wrap">' +
-              '<img src="' + getPopPhoto(match.id1, match.candidate1) + '" ' +
-                'alt="' + match.candidate1 + '" ' +
-                'class="pop-card__photo" ' +
-                'onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'" />' +
-              '<div style="display:none;width:100%;height:100%">' + popSilhouette() + '</div>' +
-              buildPopBadge(match.party1) +
-            '</div>' +
-            '<div class="pop-card__name">' + match.candidate1 + '</div>' +
-            '<div class="pop-card__party-label" style="color:' + cfg1.color + '">' + match.party1 + '</div>' +
-            '<div class="pop-card__votes">Votes: ' + voteDisplay1 + '</div>' +  
-            '<div class="pop-card__tag_bar">'+         // ← CHANGED
-            '<div class="pop-card__tag" style="background:' + bg1 + ';">' + tag1 + '</div>' +  // ← CHANGED
-            '</div>'+
-            '</div>' +
-
-          '<div class="pop-card__vs">VS</div>' +
-
-          '<div class="pop-card__candidate">' +
-            '<div class="pop-card__photo-wrap">' +
-              '<img src="' + getPopPhoto(match.id2, match.candidate2) + '" ' +
-                'alt="' + match.candidate2 + '" ' +
-                'class="pop-card__photo pop-card__photo--flip" ' +
-                'onerror="this.style.display=\'none\';this.nextSibling.style.display=\'block\'" />' +
-              '<div style="display:none;width:100%;height:100%">' + popSilhouette() + '</div>' +
-              buildPopBadge(match.party2) +
-            '</div>' +
-            '<div class="pop-card__name">' + match.candidate2 + '</div>' +
-            '<div class="pop-card__party-label" style="color:' + cfg2.color + '">' + match.party2 + '</div>' +
-            '<div class="pop-card__votes">Votes: ' + voteDisplay2 + '</div>' + 
-            '<div class="pop-card__tag_bar">'+           // ← CHANGED
-            '<div class="pop-card__tag" style="background:' + bg2 + ';">' + tag2 + '</div>' +  // ← CHANGED
-            '</div>'+
-            '</div>' +
-
+          colsHTML +
         '</div>' +
       '</div>' +
     '</div>'
@@ -173,66 +252,65 @@ if (typeof _bigFightLiveData !== 'undefined' && _bigFightLiveData.length) {
 }
 
 // -----------------------------------------------
-// Render grid of popular battle cards (with optional search)
+// Render grid of popular battle cards
 // -----------------------------------------------
 async function renderPopularBattles(searchTerm) {
   var container = document.getElementById('bigfight-cards-container');
   if (!container) return;
 
-  // Wait for live data if not yet loaded
-  if (typeof _bigFightLiveData === 'undefined' || !_bigFightLiveData.length) {
+  // Ensure live data is loaded
+  if (!_bigFightLiveData || !_bigFightLiveData.length) {
     try {
-      const response = await fetch("https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates");
-      _bigFightLiveData = await response.json();
+      var resp = await fetch("https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates");
+      _bigFightLiveData = await resp.json();
     } catch(e) {
       console.error('popular-battles fetch error:', e);
       _bigFightLiveData = [];
     }
   }
 
-  var data = (headToHeadData && headToHeadData[activeRivalry]) || [];
+  var cfg        = RIVALRY_CONFIG[activeRivalry];
+  var parties    = cfg ? cfg.parties : ["DMK", "ADMK", "TVK"];
+  var dataKey    = RIVALRY_CONSTITUENCY_MAP[activeRivalry] || "DMK_ADMK";
+  var data       = (headToHeadData && headToHeadData[dataKey]) || [];
 
   if (searchTerm && searchTerm.trim()) {
     var term = searchTerm.trim().toLowerCase();
-    data = data.filter(function(match) {
-      return (match.candidate1 || '').toLowerCase().includes(term) ||
-             (match.candidate2 || '').toLowerCase().includes(term) ||
-             (match.constituency || '').toLowerCase().includes(term);
+    data = data.filter(function(m) {
+      return (m.candidate1 || '').toLowerCase().indexOf(term) !== -1 ||
+             (m.candidate2 || '').toLowerCase().indexOf(term) !== -1 ||
+             (m.constituency || '').toLowerCase().indexOf(term) !== -1;
     });
   }
 
-  var gridHTML = data.map(buildPopCard).join('');
-  container.innerHTML = '<div class="pop-results-count"></div><div class="pop-grid">' + gridHTML + '</div>';
+  var gridHTML = data.map(function(m) { return buildPopCard(m, parties); }).join('');
+  container.innerHTML = '<div class="pop-grid">' + gridHTML + '</div>';
 }
 
 // -----------------------------------------------
-// Dropdown — sits below Popular Battles tab
+// Dropdown — updated for 3-way rivalries
 // -----------------------------------------------
 function buildDropdownHTML() {
   return (
     '<div class="pop-dropdown" id="pop-dropdown">' +
       Object.keys(RIVALRY_CONFIG).map(function(key) {
-        var cfg  = RIVALRY_CONFIG[key];
-        var cfg1 = PARTY_CONFIG[cfg.label1] || { color: "#666", icon: null };
-        var cfg2 = PARTY_CONFIG[cfg.label2] || { color: "#666", icon: null };
+        var cfg      = RIVALRY_CONFIG[key];
         var isActive = key === activeRivalry;
 
-        var icon1 = cfg1.icon
-          ? '<img src="' + cfg1.icon + '" class="pop-dd__icon" />'
-          : '';
-        var icon2 = cfg2.icon
-          ? '<img src="' + cfg2.icon + '" class="pop-dd__icon" />'
-          : '';
+        var pillsHTML = cfg.parties.map(function(party, i) {
+          var pc   = PARTY_CONFIG[party] || { color: '#666', icon: null };
+          var icon = pc.icon ? '<img src="' + pc.icon + '" class="pop-dd__icon" />' : '';
+          var sep  = i < cfg.parties.length - 1 ? '<span class="pop-dd__sep">vs</span>' : '';
+          return (
+            '<span class="pop-dd__pill" style="background:white;color:' + pc.color + ';">' +
+              icon + party +
+            '</span>' + sep
+          );
+        }).join('');
 
         return (
           '<div class="pop-dd__item' + (isActive ? ' pop-dd__item--active' : '') + '" data-rivalry="' + key + '">' +
-            '<span class="pop-dd__pill" style="background:white;color:' + cfg1.color + ';">' +
-              icon1 + cfg.label1 +
-            '</span>' +
-            '<span class="pop-dd__sep">vs</span>' +
-            '<span class="pop-dd__pill" style="background:white;color:' + cfg2.color + ';border-color:' + cfg2.color + '">' +
-              icon2 + cfg.label2 +
-            '</span>' +
+            pillsHTML +
             (isActive ? '<span class="pop-dd__check">✓</span>' : '') +
           '</div>'
         );
@@ -248,27 +326,22 @@ function openDropdown(tabBtn) {
   document.body.insertAdjacentHTML('beforeend', buildDropdownHTML());
   var dropdown = document.getElementById('pop-dropdown');
 
-  // Position under the tab button using viewport coords
   var btnRect = tabBtn.getBoundingClientRect();
-  dropdown.style.top = (window.scrollY + btnRect.bottom + 6) + 'px';
-  dropdown.style.left = (window.scrollX + btnRect.left) + 'px';
+  dropdown.style.top      = (window.scrollY + btnRect.bottom + 6) + 'px';
+  dropdown.style.left     = (window.scrollX + btnRect.left) + 'px';
   dropdown.style.minWidth = btnRect.width + 'px';
 
-  // Item click
   dropdown.querySelectorAll('.pop-dd__item').forEach(function(item) {
     item.addEventListener('click', function(e) {
       e.stopPropagation();
       activeRivalry = item.dataset.rivalry;
       dropdown.remove();
       var searchInput = document.getElementById('candidates-search-input');
-      var searchTerm = searchInput ? searchInput.value : '';
-      renderPopularBattles(searchTerm);
-      // Reopen with updated active state
+      renderPopularBattles(searchInput ? searchInput.value : '');
       openDropdown(tabBtn);
     });
   });
 
-  // Close on outside click
   function onOutside(e) {
     if (!dropdown.contains(e.target) && e.target !== tabBtn) {
       dropdown.remove();
@@ -288,9 +361,7 @@ function initPopularBattlesTab() {
         e.stopPropagation();
         openDropdown(tab);
         var searchInput = document.getElementById('candidates-search-input');
-        var searchTerm = searchInput ? searchInput.value : '';
-        renderPopularBattles(searchTerm);
-
+        renderPopularBattles(searchInput ? searchInput.value : '');
       });
     } else {
       tab.addEventListener('click', function() {

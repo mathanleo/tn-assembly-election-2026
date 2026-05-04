@@ -150,6 +150,7 @@ body[data-page="bigfights"] main {
   scrollbar-color: var(--color-border) transparent;
 }
 
+/* ---------- Big Fight grid: 1 → 2 → 3 cols ---------- */
 .bigfight-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -189,15 +190,15 @@ body[data-page="bigfights"] main {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.11);
 }
-.fight-card__constituency_tag{
+
+.fight-card__constituency_tag {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
-.fight-card__image{
-right: 35px;
-top: 6px;
-position: absolute;
-}
+
 .fight-card__constituency {
   position: absolute;
   top: -1px;
@@ -225,11 +226,16 @@ position: absolute;
   padding-top: 4px;
   margin-top: 10px;
 }
+
 .fight-card__name-line {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.3;
 }
 
 .fight-card__party-tag {
@@ -239,6 +245,7 @@ position: absolute;
   border-radius: 4px;
   white-space: nowrap;
 }
+
 .fight-card__photo-wrap {
   position: relative;
   width: 56px;
@@ -284,7 +291,7 @@ position: absolute;
   height: 65%;
 }
 
-.fight-card__party-logo {
+.fight-card__party-badge {
   position: absolute;
   bottom: -2px;
   right: -4px;
@@ -300,18 +307,16 @@ position: absolute;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
-.fight-card__party-logo img {
+.fight-card__party-badge img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.fight-card__party-logo--fallback {
-  font-size: 7px;
-  font-weight: 900;
-  color: var(--color-white);
-  line-height: 1;
-  text-align: center;
+.fight-card__party-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .fight-card__info {
@@ -319,33 +324,31 @@ position: absolute;
   min-width: 0;
 }
 
-.fight-card__name-line {
-  font-size: var(--font-md);
-  font-weight: 700;
-  color: var(--color-dark);
-  line-height: 1.3;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .fight-card__party-inline {
   font-size: var(--font-md);
   font-weight: 700;
   color: var(--color-muted);
 }
+
+.fight-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.fight-card__votes-label {
+  font-size: var(--font-xs);
+  color: var(--color-muted);
+}
+
 .fight-card__margin {
   font-size: var(--font-xs);
   font-weight: 700;
   color: var(--color-muted);
   text-align: right;
   padding: 4px 0;
-}
-.fight-card__constituency_tag {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
 }
 
 .fight-card__winner-logo {
@@ -355,35 +358,37 @@ position: absolute;
   object-fit: contain;
   border: 1.5px solid var(--color-border);
   background: white;
-  position:absolute;
+  position: absolute;
   top: 2px;
   right: 24px;
 }
 
-
-.fight-card__progress-wrap {
-  padding: 2px 0;
-}
-
-.fight-card__progress-bar {
-  display: flex;
+.fight-card__status_bar {
   width: 100%;
-  height: 6px;
-  border-radius: var(--radius-full);
+  background-color: transparent;
+  border-radius: 5px;
   overflow: hidden;
-  background: var(--color-border);
+  height: 26px;
 }
 
-.fight-card__bar {
-  height: 100%;
+.fight-card__status {
+  display: block;
+  font-size: var(--font-xs);
+  color: white;
+  font-weight: 700;
+  padding: 3px 8px;
+  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+  width: 0%;
+  animation: resizeHorizontal 3s ease-in-out infinite;
+  box-sizing: border-box;
+  height: 26px;
+  line-height: 20px;
 }
 
-.bigfight-empty {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--color-muted);
-  font-size: var(--font-md);
+@keyframes resizeHorizontal {
+  0%   { width: 0%; }
+  50%  { width: 70%; }
+  100% { width: 0%; }
 }
 
 /* ============================================
@@ -398,32 +403,26 @@ position: absolute;
   border-radius: var(--radius-md);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   z-index: 300;
-  min-width: 240px;
+  min-width: 260px;
   overflow: hidden;
   animation: dropIn 0.15s ease both;
 }
 
 @keyframes dropIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .pop-dd__item {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 12px 16px;
   cursor: pointer;
   transition: background 0.12s;
   border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
 }
 
 .pop-dd__item:last-child {
@@ -441,13 +440,14 @@ position: absolute;
 .pop-dd__pill {
   display: inline-flex;
   align-items: center;
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: var(--radius-full);
   font-size: var(--font-sm);
   font-weight: 800;
-  gap: 6px;
+  gap: 5px;
   white-space: nowrap;
-  background: linear-gradient(red, black);
+  border: 1.5px solid currentColor;
+  background: white !important;
 }
 
 .pop-dd__icon {
@@ -488,7 +488,9 @@ position: absolute;
 }
 
 /* ============================================
-   POPULAR BATTLES — Card Grid (4 cols desktop, 2 tablet, 1 mobile)
+   POPULAR BATTLES — Card Grid
+   1 col mobile → 2 col tablet → 3 col desktop
+   (was 4 col — changed to 3 to match Big Fights)
    ============================================ */
 .pop-grid {
   display: grid;
@@ -505,7 +507,7 @@ position: absolute;
 
 @media (min-width: 993px) {
   .pop-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -515,9 +517,9 @@ position: absolute;
   overflow: hidden;
   position: relative;
   background: #FFFFFF;
-  opacity: 80%;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
   min-height: 180px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .pop-card:hover {
@@ -535,7 +537,6 @@ position: absolute;
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-position: center;
   pointer-events: none;
   opacity: 0;
 }
@@ -550,35 +551,38 @@ position: absolute;
 }
 
 .pop-card__title {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: transparent;
-  border-radius: var(--radius-sm);
   padding: 4px 8px;
   margin-bottom: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  z-index: 4;
+  border-radius: var(--radius-sm);
 }
 
+/* ---------- 3-candidate layout ---------- */
 .pop-card__versus {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   flex: 1;
-  gap: 4px;
+  gap: 2px;          /* tighter gap to fit 3 candidates */
 }
 
 .pop-card__candidate {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   flex: 1;
+  min-width: 0;      /* prevent overflow */
 }
 
 .pop-card__photo-wrap {
@@ -586,9 +590,16 @@ position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 90px;
+  width: 80px;       /* slightly smaller to fit 3 in a row */
+  height: 75px;
   overflow: hidden;
+}
+
+@media (min-width: 993px) {
+  .pop-card__photo-wrap {
+    width: 90px;
+    height: 84px;
+  }
 }
 
 .pop-card__photo {
@@ -632,39 +643,29 @@ position: absolute;
 }
 
 .pop-card__name {
-  font-family: 'Inter', sans-serif;
+  font-size: 9px;    /* slightly smaller to fit 3 names */
   font-weight: 600;
-  font-style: Semi Bold;
-  font-size: 10px;
-  leading-trim: NONE;
-  letter-spacing: 0%;
   text-align: center;
-
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .pop-card__party-label {
-  font-family: 'Inter', sans-serif;
+  font-size: 9px;
   font-weight: 900;
-  font-style: 'Regular';
-  font-size: 10px;
-  leading-trim: NONE;
-  letter-spacing: 0%;
   text-align: center;
 }
 
 .pop-card__vs {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 900;
-  text-shadow: 0 0 12px rgba(255, 220, 80, 0.5);
   flex-shrink: 0;
   align-self: center;
   padding-bottom: 20px;
-}
-.pop-card__title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  color: var(--color-muted);
 }
 
 .pop-card__winner-logo {
@@ -676,14 +677,22 @@ position: absolute;
   background: white;
   flex-shrink: 0;
 }
-.pop-card__tag_bar{
+
+.pop-card__votes {
+  font-size: 9px;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.pop-card__tag_bar {
   width: 100%;
   background-color: #e0e0e0;
   border-radius: 5px;
   overflow: hidden;
-  height: 20px;
+  height: 18px;
 }
-.pop-card__tag{
+
+.pop-card__tag {
   height: 100%;
   width: 0%;
   clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
@@ -691,58 +700,37 @@ position: absolute;
   border-radius: 5px;
   padding-left: 5px;
   color: white;
-  font-size: 12px;
+  font-size: 10px;
+  line-height: 18px;
 }
-@keyframes resizeHorizontal {
-    0% {
-    width: 0%;
-  }
-  50% {
-    width: 70%;
-  }
-  100% {
-    width: 0%;
-  }
-  }
-.fight-card__status_bar {
-  width: 100%;
-  background-color: transparent;  /* ← was #e0e0e0, grey bar was showing empty */
-  border-radius: 5px;
-  overflow: hidden;
-  height: 26px;                   /* ← give it fixed height so it doesn't collapse */
+
+/* ============================================
+   Misc
+   ============================================ */
+.bigfight-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-muted);
+  font-size: var(--font-md);
 }
-.pop-card__votes{
-  font-size: 12px;
-}
-.fight-card__status {
-  display: block;
-  font-size: var(--font-xs);
-  color:white;
-  font-weight: 700;
-  padding: 3px 8px;
-  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
-  width: 0%;
-  animation: resizeHorizontal 3s ease-in-out infinite;
-  box-sizing: border-box;
-  height: 26px;
-  line-height: 20px;
-}
+
 .welcome-chat-section {
-    height: 100%;
-    display: flex;
-    position: relative;
-    top: 55px;
-    right: 55px;
-    flex-direction: column;
-    background: var(--welcome-bg);
-    box-shadow: var(--welcome-shadow);
-    transition: transform 1s;
-    transform-origin: 100% 100%;
-    display: none;
-    border-radius: 4px 4px 0px 0px;
+  height: 100%;
+  display: none;
+  position: relative;
+  top: 55px;
+  right: 55px;
+  flex-direction: column;
+  background: var(--welcome-bg);
+  box-shadow: var(--welcome-shadow);
+  transition: transform 1s;
+  transform-origin: 100% 100%;
+  border-radius: 4px 4px 0px 0px;
 }
-.chat-widgetwrapper-main-container{
-    position: relative;
-    top: 55px;
-    right: 55px;
+
+.chat-widgetwrapper-main-container {
+  position: relative;
+  top: 55px;
+  right: 55px;
 }
