@@ -677,7 +677,6 @@ async function fetchAndMergeConstituencyVotes() {
     //const response1 = await fetch(url1, { method: "GET", headers: { "Content-Type": "application/json" } });
     if (!response.ok) return;
     const allCandidates = await response.json();
-    const constituencyData = await response1.json();
 
     // Build map: candidateId → { votes, rsDecl }
     const voteMap = new Map();
