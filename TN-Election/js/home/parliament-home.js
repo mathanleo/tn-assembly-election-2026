@@ -126,7 +126,6 @@ function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats
   var canvas = document.getElementById('voteshare-chart');
   if (!canvas) return;
 
-  // Try actual votes first, fall back to seats
   var voteData = computeAllianceVoteShare();
   var useVotes = (voteData.nda + voteData.spa + voteData.tvk + voteData.ntk + voteData.others) > 0;
 
@@ -141,9 +140,9 @@ function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats
 
   var dpr = window.devicePixelRatio || 1;
   var size = 160;
-  canvas.width = size * dpr;
+  canvas.width  = size * dpr;
   canvas.height = size * dpr;
-  canvas.style.width = size + 'px';
+  canvas.style.width  = size + 'px';
   canvas.style.height = size + 'px';
 
   var ctx = canvas.getContext('2d');
@@ -160,20 +159,33 @@ function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats
     { label: 'Others', value: othersVal, color: '#8a93a8' }
   ].filter(function(s) { return s.value > 0; });
 
-  // Draw pie
+  // Store arc data for hit-testing
+  var arcs = [];
   var start = -Math.PI / 2;
+
   segments.forEach(function(seg) {
     var angle = (seg.value / total) * 2 * Math.PI;
+    var endAngle = start + angle;
+
     ctx.beginPath();
     ctx.moveTo(cx, cy);
-    ctx.arc(cx, cy, r, start, start + angle);
+    ctx.arc(cx, cy, r, start, endAngle);
     ctx.closePath();
     ctx.fillStyle = seg.color;
     ctx.fill();
     ctx.strokeStyle = '#fff';
     ctx.lineWidth = 2;
     ctx.stroke();
-    start += angle;
+
+    arcs.push({
+      label:      seg.label,
+      value:      seg.value,
+      color:      seg.color,
+      startAngle: start,
+      endAngle:   endAngle
+    });
+
+    start = endAngle;
   });
 
   // Donut hole
@@ -190,6 +202,74 @@ function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats
   ctx.font = '700 11px Nunito, sans-serif';
   ctx.fillText(useVotes ? (total / 100000).toFixed(1) + 'L' : total, cx, cy + 10);
 
+  // ── Tooltip interaction ──
+  var tooltip = document.getElementById('voteshare-tooltip');
+
+  function getHoveredSegment(e) {
+    var rect = canvas.getBoundingClientRect();
+    var scaleX = size / rect.width;
+    var scaleY = size / rect.height;
+    var mx = (e.clientX - rect.left) * scaleX;
+    var my = (e.clientY - rect.top)  * scaleY;
+
+    var dx = mx - cx;
+    var dy = my - cy;
+    var dist = Math.sqrt(dx * dx + dy * dy);
+
+    // Must be inside outer radius but outside donut hole
+    if (dist > r || dist < r * 0.55) return null;
+
+    var angle = Math.atan2(dy, dx);
+    // Normalize to match our start at -π/2
+    if (angle < -Math.PI / 2) angle += 2 * Math.PI;
+
+    return arcs.find(function(arc) {
+      return angle >= arc.startAngle && angle <= arc.endAngle;
+    }) || null;
+  }
+
+  // Remove old listeners by cloning canvas
+  canvas.style.cursor = 'pointer';
+
+if (!canvas._vsListenersAdded) {
+  canvas._vsListenersAdded = true;
+
+  canvas.addEventListener('mousemove', function(e) {
+    var tooltip = document.getElementById('voteshare-tooltip');
+    if (!tooltip) return;
+    var rect = canvas.getBoundingClientRect();
+    var scaleX = size / rect.width;
+    var scaleY = size / rect.height;
+    var mx = (e.clientX - rect.left) * scaleX;
+    var my = (e.clientY - rect.top)  * scaleY;
+    var dx = mx - cx, dy = my - cy;
+    var dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist > r || dist < r * 0.55) { tooltip.style.display = 'none'; return; }
+    var angle = Math.atan2(dy, dx);
+    if (angle < -Math.PI / 2) angle += 2 * Math.PI;
+    var seg = arcs.find(function(arc) {
+      return angle >= arc.startAngle && angle <= arc.endAngle;
+    });
+    if (seg) {
+      var pct = ((seg.value / total) * 100).toFixed(1);
+      var valDisplay = useVotes
+        ? (seg.value >= 100000 ? (seg.value/100000).toFixed(1)+'L' : (seg.value/1000).toFixed(1)+'K')
+        : seg.value;
+      tooltip.innerHTML = '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+seg.color+';margin-right:5px;vertical-align:middle"></span><b>'+seg.label+'</b>: '+valDisplay+' ('+pct+'%)';
+      tooltip.style.display = 'block';
+      tooltip.style.left = (e.clientX + 14) + 'px';
+      tooltip.style.top  = (e.clientY - 32) + 'px';
+    } else {
+      tooltip.style.display = 'none';
+    }
+  });
+
+  canvas.addEventListener('mouseleave', function() {
+    var tooltip = document.getElementById('voteshare-tooltip');
+    if (tooltip) tooltip.style.display = 'none';
+  });
+}
+
   // Legend
   var legend = document.getElementById('voteshare-legend');
   if (legend) {
@@ -205,7 +285,33 @@ function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats
     }).join('');
   }
 }
-
+// Add this RIGHT AFTER the buildVoteShareChart function definition
+(function injectVoteShareTooltip() {
+  if (document.getElementById('voteshare-tooltip-style')) return;
+  var s = document.createElement('style');
+  s.id = 'voteshare-tooltip-style';
+  s.textContent = [
+    '#voteshare-tooltip{',
+      'position:fixed;',
+      'background:rgba(17,24,39,0.92);',
+      'color:#fff;',
+      'padding:6px 10px;',
+      'border-radius:8px;',
+      'font-size:11px;',
+      'font-weight:600;',
+      'font-family:Nunito,sans-serif;',
+      'pointer-events:none;',
+      'z-index:9999;',
+      'display:none;',
+      'white-space:nowrap;',
+      'box-shadow:0 4px 12px rgba(0,0,0,0.3);',
+    '}'
+  ].join('');
+  document.head.appendChild(s);
+  var tip = document.createElement('div');
+  tip.id = 'voteshare-tooltip';
+  document.body.appendChild(tip);
+})();
 // =============================================
 // STATIC FUNCTION — used on 2021 results page
 // Data source: results2021Winners
