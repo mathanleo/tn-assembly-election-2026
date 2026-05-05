@@ -191,6 +191,8 @@ function getConstColor(constId) {
   return PARTY_COLORS[party] || PARTY_COLORS.OTHERS;
 }
 
+
+
 // ── Build legend ─────────────────────────────────────────────
 function buildLegend() {
   var container = document.getElementById('map-legend');
@@ -483,26 +485,53 @@ function openPopup(constId, x, y, mapRect) {
   var runnerVotes = lostCandidates.length ? Number(lostCandidates[0].votes) || 0 : 0;
 
   // Build won candidate display
-  var wonHtml = wonCandidate
-    ? '<div class="popup-candidate-row" style="margin-bottom:8px;">' +
-        '<span class="popup-cand-name" style="font-weight:700;">' +
-          (wonCandidate.name || wonCandidate.candidate || 'N/A') +
-        '</span>' +
-        '<div class="popup-party-wrap">' +
-          (PARTY_ICONS[resolvePartyKey(wonCandidate) || 'IND']
-            ? '<img class="popup-party-icon" src="' + PARTY_ICONS[resolvePartyKey(wonCandidate) || 'IND'] + '" alt="' + (resolvePartyKey(wonCandidate) || 'IND') + '" onerror="this.style.display=\'none\'">'
-            : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (resolvePartyKey(wonCandidate) || 'IND').slice(0,2) + '</div>') +
-          '<span class="popup-party-name">' + (resolvePartyKey(wonCandidate) || 'IND') + '</span>' +
-        '</div>' +
+  // var wonHtml = wonCandidate
+  //   ? '<div class="popup-candidate-row" style="margin-bottom:8px;">' +
+  //       '<span class="popup-cand-name" style="font-weight:700;">' +
+  //         (wonCandidate.name || wonCandidate.candidate || 'N/A') +
+  //       '</span>' +
+  //       '<div class="popup-party-wrap">' +
+  //         (PARTY_ICONS[resolvePartyKey(wonCandidate) || 'IND']
+  //           ? '<img class="popup-party-icon" src="' + PARTY_ICONS[resolvePartyKey(wonCandidate) || 'IND'] + '" alt="' + (resolvePartyKey(wonCandidate) || 'IND') + '" onerror="this.style.display=\'none\'">'
+  //           : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (resolvePartyKey(wonCandidate) || 'IND').slice(0,2) + '</div>') +
+  //         '<span class="popup-party-name">' + (resolvePartyKey(wonCandidate) || 'IND') + '</span>' +
+  //       '</div>' +
+  //     '</div>' +
+  //     '<div style="font-size:11px;color:#666;">' +
+  //       '<strong>Votes:</strong> ' + wonVotes.toLocaleString('en-IN') + '<br/>' +
+  //       '<strong>Margin:</strong> ' + (wonVotes - runnerVotes).toLocaleString('en-IN') +
+  //     '</div>'
+  //   : '<div class="popup-no-candidates">No candidate data available</div>';
+
+  // document.getElementById('popup-mla').innerHTML = wonHtml;
+
+  function renderRow3col(name, votes, party, extraBelow) {
+    var icon = PARTY_ICONS[party]
+      ? '<img src="' + PARTY_ICONS[party] + '" alt="' + party + '" onerror="this.style.display=\'none\'">'
+      : '<div class="popup-party-icon-fallback" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (party||'?').slice(0,2) + '</div>';
+    return '<div class="popup-row-3col">' +
+      '<span class="popup-col-name" data-tooltip="' + name + '">' + name + '</span>' +
+      '<span class="popup-col-votes">' + (votes ? Number(votes).toLocaleString('en-IN') : '—') + '</span>' +
+      '<div class="popup-col-party">' + icon +
+        '<span class="popup-col-party-name">' + party + '</span>' +
       '</div>' +
-      '<div style="font-size:11px;color:#666;">' +
-        '<strong>Votes:</strong> ' + wonVotes.toLocaleString('en-IN') + '<br/>' +
-        '<strong>Margin:</strong> ' + (wonVotes - runnerVotes).toLocaleString('en-IN') +
-      '</div>'
+    '</div>' +
+    (extraBelow ? '<div class="popup-sub-label">' + extraBelow + '</div>' : '');
+  }
+
+  var wonParty = resolvePartyKey(wonCandidate) || 'IND';
+  var margin = wonVotes - runnerVotes;
+
+  var wonHtml = wonCandidate
+    ? renderRow3col(
+        wonCandidate.name || wonCandidate.candidate || 'N/A',
+        wonVotes,
+        wonParty,
+        'Margin: ' + margin.toLocaleString('en-IN')
+      )
     : '<div class="popup-no-candidates">No candidate data available</div>';
 
   document.getElementById('popup-mla').innerHTML = wonHtml;
-
   // Build lost candidates display
   var candidatesHtml = lostCandidates.length
     ? lostCandidates.map(function(cand) {
@@ -524,7 +553,81 @@ function openPopup(constId, x, y, mapRect) {
       }).join('')
     : '<div class="popup-no-candidates">No other candidates</div>';
 
-  document.getElementById('popup-candidates').innerHTML = candidatesHtml;
+  // ── 2026 Runner Up (2nd highest votes only) ──────────────────
+  var runnerUp = sortedCandidates[1] || null;
+  var runnerParty = runnerUp ? (resolvePartyKey(runnerUp) || 'IND') : '';
+  var runnerVotesDisplay = runnerUp ? Number(runnerUp.votes) || 0 : 0;
+
+  // var runnerHtml = runnerUp
+  //   ? '<div class="popup-candidate-row" style="margin-bottom:8px;">' +
+  //       '<span class="popup-cand-name" style="font-weight:700;">' +
+  //         (runnerUp.name || runnerUp.candidate || 'N/A') +
+  //       '</span>' +
+  //       '<div class="popup-party-wrap">' +
+  //         (PARTY_ICONS[runnerParty]
+  //           ? '<img class="popup-party-icon" src="' + PARTY_ICONS[runnerParty] + '" alt="' + runnerParty + '" onerror="this.style.display=\'none\'">'
+  //           : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + runnerParty.slice(0,2) + '</div>') +
+  //         '<span class="popup-party-name">' + runnerParty + '</span>' +
+  //       '</div>' +
+  //     '</div>' +
+  //     '<div style="font-size:11px;color:#666;margin-bottom:8px;">' +
+  //       '<strong>Votes:</strong> ' + runnerVotesDisplay.toLocaleString('en-IN') +
+  //     '</div>'
+  //   : '<div class="popup-no-candidates">—</div>';
+
+  // document.getElementById('popup-runner').innerHTML = runnerHtml;
+var runnerHtml = runnerUp
+    ? renderRow3col(
+        runnerUp.name || runnerUp.candidate || 'N/A',
+        runnerVotesDisplay,
+        runnerParty,
+        null
+      )
+    : '<div class="popup-no-candidates">—</div>';
+
+  document.getElementById('popup-runner').innerHTML = runnerHtml;
+  // ── MLA (2021–2026) from constituenciesWithCandidates ─────────
+  var constEntry = typeof constituenciesWithCandidates !== 'undefined'
+    ? constituenciesWithCandidates[selectedConstId]
+    : null;
+  var cData = constEntry ? constEntry.constituency : null;
+  var currentMlaName  = (cData && cData.current_mla)        || c.current_mla  || '—';
+  var currentMlaParty = ((cData && cData.current_mla_party) || c.current_mla_party || '').replace('AIADMK', 'ADMK');
+
+  var currentMlaIcon = PARTY_ICONS[currentMlaParty]
+    ? '<img class="popup-party-icon" src="' + PARTY_ICONS[currentMlaParty] + '" alt="' + currentMlaParty + '" onerror="this.style.display=\'none\'">'
+    : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (currentMlaParty || '?').slice(0,2) + '</div>';
+
+  // document.getElementById('popup-current-mla').innerHTML =
+  //   '<div class="popup-candidate-row" style="margin-bottom:4px;">' +
+  //     '<span class="popup-cand-name" style="font-weight:700;">' + currentMlaName + '</span>' +
+  //     '<div class="popup-party-wrap">' + currentMlaIcon +
+  //       '<span class="popup-party-name">' + currentMlaParty + '</span>' +
+  //     '</div>' +
+  //   '</div>';
+
+  var currentMlaVotes = (cData && cData.mla_votes_2021) || c.mla_votes_2021 || 0;
+
+  // document.getElementById('popup-current-mla').innerHTML =
+  //   '<div class="popup-candidate-row" style="margin-bottom:4px;">' +
+  //     '<span class="popup-cand-name" style="font-weight:700;">' + currentMlaName + '</span>' +
+  //     '<div class="popup-party-wrap">' + currentMlaIcon +
+  //       '<span class="popup-party-name">' + currentMlaParty + '</span>' +
+  //     '</div>' +
+  //   '</div>' +
+  //   (currentMlaVotes
+  //     ? '<div style="font-size:11px;color:#666;margin-bottom:8px;">' +
+  //         '<strong>Votes:</strong> ' + Number(currentMlaVotes).toLocaleString('en-IN') +
+  //       '</div>'
+  //     : '');
+
+  document.getElementById('popup-current-mla').innerHTML =
+    renderRow3col(
+      currentMlaName,
+      currentMlaVotes || null,
+      currentMlaParty,
+      null
+    );
 
   // ── Position popup inside .map-left-col ──────────────────────
   var popup = document.getElementById('map-popup');
@@ -716,6 +819,47 @@ function buildStats() {
 // ── Init ──────────────────────────────────────────────────────
 buildLegend();
 buildStats();
+// ── Popup name tooltip ────────────────────────────────────────
+(function() {
+  var tip = document.createElement('div');
+  tip.id = 'popup-name-tip';
+  tip.style.cssText = [
+    'position:fixed',
+    'z-index:9999',
+    'background:rgba(26,26,46,0.92)',
+    'color:#fff',
+    'font-size:11px',
+    'font-weight:600',
+    'padding:4px 8px',
+    'border-radius:6px',
+    'white-space:nowrap',
+    'pointer-events:none',
+    'box-shadow:0 2px 8px rgba(0,0,0,0.18)',
+    'display:none'
+  ].join(';');
+  document.body.appendChild(tip);
+
+  document.addEventListener('mouseover', function(e) {
+    var el = e.target.closest('.popup-col-name[data-tooltip]');
+    if (!el) { tip.style.display = 'none'; return; }
+    // Only show if text is actually truncated
+    if (el.scrollWidth <= el.clientWidth) { tip.style.display = 'none'; return; }
+    tip.textContent = el.dataset.tooltip;
+    tip.style.display = 'block';
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    if (tip.style.display === 'none') return;
+    tip.style.left = (e.clientX + 12) + 'px';
+    tip.style.top  = (e.clientY - 28) + 'px';
+  });
+
+  document.addEventListener('mouseout', function(e) {
+    if (!e.target.closest('.popup-col-name[data-tooltip]')) {
+      tip.style.display = 'none';
+    }
+  });
+})();
 // Use requestAnimationFrame so the flex layout is fully rendered
 // before we read the container dimensions for the map
 requestAnimationFrame(function() {
