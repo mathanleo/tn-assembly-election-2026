@@ -873,24 +873,46 @@ function mergeLiveVotesIntoConstituencies(allCandidates) {
     allCandidates.length === 0
   ) return;
 
-  const voteMap = new Map();
-  allCandidates.forEach(c => {
-    voteMap.set(+c.candidateId, c.votes);
+  // Store globally so map popup and vote share chart can use it
+  window._liveAllCandidates = allCandidates;
+
+  // Build TWO lookup maps — by candidateId AND by const_id+party for fallback
+  var voteMapById = new Map();
+  var voteMapByConstParty = new Map();
+
+  allCandidates.forEach(function(c) {
+    // Primary key: candidateId
+    voteMapById.set(+c.candidateId, c);
+
+    // Fallback key: constId_PARTY
+    if (c.const_id && c.party) {
+      var fallbackKey = c.const_id + '_' + (c.party || '').trim().toUpperCase();
+      voteMapByConstParty.set(fallbackKey, c);
+    }
   });
 
-  Object.keys(constituenciesWithCandidates).forEach(function (key) {
-    var constObj = constituenciesWithCandidates[key];
+  Object.keys(constituenciesWithCandidates).forEach(function(constKey) {
+    var constObj = constituenciesWithCandidates[constKey];
     if (!constObj || !Array.isArray(constObj.candidates)) return;
 
-    constObj.candidates.forEach(function (candidate) {
-      var liveVotes = voteMap.get(+candidate.id);
-      if (liveVotes !== undefined) {
-        candidate.votes = liveVotes;
+    constObj.candidates.forEach(function(candidate) {
+      // Try primary match by id
+      var liveRecord = voteMapById.get(+candidate.id);
+
+      // Fallback: match by constKey + party
+      if (!liveRecord && candidate.party) {
+        var fbKey = constKey + '_' + (candidate.party_short || candidate.party || '').trim().toUpperCase();
+        liveRecord = voteMapByConstParty.get(fbKey);
+      }
+
+      if (liveRecord) {
+        candidate.votes  = liveRecord.votes;
+        candidate.rsDecl = liveRecord.rsDecl;
       }
     });
   });
 
-  console.log("Alliance table: votes merged into constituenciesWithCandidates");
+  console.log('Alliance table: votes merged into constituenciesWithCandidates');
 }
 
 // -----------------------------------------------
@@ -931,7 +953,11 @@ function buildAlliancePartyLookup() {
         'MADRAS MATHIYA KATCHI': 'MMK',
         'CPI(M)': 'CPI(M)',
         'CPI': 'CPI',
-        'INDEPENDENT': 'IND'
+        'INDEPENDENT': 'IND',
+        'INDIA': 'IUML',
+        'IUML':'INDIA',
+        'INDIA':'INDIA',   // ← normalize 'INDIA' → 'IUML'
+        'INDIAN UNION MUSLIM LEAGUE': 'IUML',
     });
 }
 
@@ -997,21 +1023,15 @@ function getConstituencyLeaderParty(constituencyId) {
 }
 
 function getPartyLeadCount(party) {
-    if (
-        !party.cid ||
-        !party.cid.length ||
-        typeof constituenciesWithCandidates === 'undefined'
-    ) {
-        return 0;
-    }
+    if (typeof constituenciesWithCandidates === 'undefined') return 0;
 
     var partyCode = normalizePartyCode(party.pn);
     var count = 0;
 
-    party.cid.forEach(function (constituencyId) {
+    Object.keys(constituenciesWithCandidates).forEach(function(constituencyId) {
         var leaderParty = getConstituencyLeaderParty(constituencyId);
         if (leaderParty !== null && leaderParty === partyCode) {
-            count += 1;
+            count++;
         }
     });
 
@@ -1102,7 +1122,7 @@ function renderAllianceTable() {
         var headerHTML = `
           <div class="alliance-table__mobile-header">
             <span>Parties</span>
-            <span>Leading</span>
+            <span>Won</span>
             <span>Seats</span>
           </div>`;
 
@@ -1177,8 +1197,9 @@ function updateAllianceTotals() {
         window.updateParliamentChart(totals.nda, totals.spa, totals.ntk, totals.tvk, totals.others);
     }
     if (typeof window.updateCMCandidates === 'function') {
-        window.updateCMCandidates(totals.nda, totals.spa, totals.others);
-    }
+    window.updateCMCandidates(totals.nda, totals.spa, totals.ntk, totals.tvk, totals.others);
+}
+
 }
 
 window.getAllianceTotals = calculateAllianceTotals;
@@ -1257,7 +1278,14 @@ function startAllianceLiveUpdates(intervalMs) {
                 resetAllVotes();                          // ← reset before each merge
                 mergeLiveVotesIntoConstituencies(allCandidates);
                 renderAllianceTable();
-                console.log('Alliance table live updated at:', new Date().toLocaleTimeString());
+
+// Also refresh vote share chart with updated live data
+if (typeof buildVoteShareChart === 'function') {
+  var counts = calculateAllianceTotals();
+  buildVoteShareChart(counts.nda, counts.spa, counts.ntk, counts.tvk, counts.others);
+}
+
+console.log('Alliance table live updated at:', new Date().toLocaleTimeString());
             }
         } catch (error) {
             console.error('Alliance table live update error:', error);

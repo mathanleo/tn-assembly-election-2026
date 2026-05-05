@@ -137,7 +137,7 @@ const alliancesData = {
       figmaSeats: "169–178"
     },
     {
-      pn: "CPM",
+      pn: "CPI(M)",
       fullName: "CPI(M)",
       icon: "../assets/icons/CPI(M).png",
       cid: [10, 127, 164, 178, 232],
@@ -174,7 +174,7 @@ const alliancesData = {
       icon: "../assets/icons/iuml.png",
       cid: [47, 172],
       canid: [],
-      figmaSeats: "–"
+      figmaSeats: "–" 
     },
     {
       pn: "KMDK",

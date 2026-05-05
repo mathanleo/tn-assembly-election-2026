@@ -11017,7 +11017,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 0,
       "mla_margin_2021": 0,
       "current_mla": "Maragatham K.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Selvam G.",
       "mp_party": "DMK",
       "mp_constituency": "Kancheepuram (SC)"
@@ -11630,7 +11630,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 0,
       "mla_margin_2021": 0,
       "current_mla": "S. Ravi",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "S. Jagathratchakan",
       "mp_party": "DMK",
       "mp_constituency": "Arakkonam"
@@ -13331,7 +13331,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 84579,
       "mla_margin_2021": 10582,
       "current_mla": "M. Jagan Moorthy",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "D.M. Kathir Anand",
       "mp_party": "DMK",
       "mp_constituency": "Vellore"
@@ -13693,7 +13693,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 0,
       "mla_margin_2021": 0,
       "current_mla": "G. Sendhil Kumar",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "D.M. Kathir Anand",
       "mp_party": "DMK",
       "mp_constituency": "Vellore"
@@ -13903,7 +13903,7 @@ const constituenciesWithCandidates = {
         "gender": "male",
         "address": "3/317, Yaseen Abdul Khader Street, Newtown, Vaniyambadi, Tirupathur District-63575",
         "party_full": "Indian Union Muslim League",
-        "party_short": "INDIA",
+        "party_short": "IUML",
         "constituency": "Vaniyambadi",
         "bg": "#f5f5f5",
         "accent": "#616161",
@@ -14837,7 +14837,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 99675,
       "mla_margin_2021": 28387,
       "current_mla": "T.M. Tamilselvam",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Gopinath K.",
       "mp_party": "INC",
       "mp_constituency": "Krishnagiri"
@@ -15283,7 +15283,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 96050,
       "mla_margin_2021": 794,
       "current_mla": "Ashokkumar K.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Gopinath K.",
       "mp_party": "INC",
       "mp_constituency": "Krishnagiri"
@@ -15520,7 +15520,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 94104,
       "mla_margin_2021": 3054,
       "current_mla": "K.P. Munusamy",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Gopinath K.",
       "mp_party": "INC",
       "mp_constituency": "Krishnagiri"
@@ -16105,7 +16105,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 110070,
       "mla_margin_2021": 28100,
       "current_mla": "Anbalagan K.P.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Mani A.",
       "mp_party": "DMK",
       "mp_constituency": "Dharmapuri"
@@ -17179,7 +17179,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 99061,
       "mla_margin_2021": 30362,
       "current_mla": "Sampathkumar V.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Mani A.",
       "mp_party": "DMK",
       "mp_constituency": "Dharmapuri"
@@ -18993,7 +18993,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 102961,
       "mla_margin_2021": 3128,
       "current_mla": "S. Ramachandran",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Tharaniventhan M.S.",
       "mp_party": "DMK",
       "mp_constituency": "Arani"
@@ -20416,7 +20416,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 87152,
       "mla_margin_2021": 9753,
       "current_mla": "Arjunan P.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Ravikumar D.",
       "mp_party": "VCK",
       "mp_constituency": "Viluppuram (SC)"
@@ -20639,7 +20639,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 92219,
       "mla_margin_2021": 21727,
       "current_mla": "Chakrapani M.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Ravikumar D.",
       "mp_party": "VCK",
       "mp_constituency": "Viluppuram (SC)"
@@ -22774,7 +22774,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 110643,
       "mla_margin_2021": 25891,
       "current_mla": "Senthilkumar M.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Malaiyarasan D.",
       "mp_party": "DMK",
       "mp_constituency": "Kallakurichi"
@@ -22955,7 +22955,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 89568,
       "mla_margin_2021": 7361,
       "current_mla": "Nallathambi A.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Malaiyarasan D.",
       "mp_party": "DMK",
       "mp_constituency": "Kallakurichi"
@@ -23164,7 +23164,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 95308,
       "mla_margin_2021": 8257,
       "current_mla": "Jayasankaran A.P.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Malaiyarasan D.",
       "mp_party": "DMK",
       "mp_constituency": "Kallakurichi"
@@ -23401,7 +23401,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 121561,
       "mla_margin_2021": 25955,
       "current_mla": "G. Chitra",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Malaiyarasan D.",
       "mp_party": "DMK",
       "mp_constituency": "Kallakurichi"
@@ -23610,7 +23610,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 142488,
       "mla_margin_2021": 55294,
       "current_mla": "R. Mani",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Selvaganapathi T.M.",
       "mp_party": "DMK",
       "mp_constituency": "Salem"
@@ -24126,7 +24126,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 0,
       "mla_margin_2021": 0,
       "current_mla": "Edappadi Palaniswami K.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Selvaganapathi T.M.",
       "mp_party": "DMK",
       "mp_constituency": "Salem"
@@ -24363,7 +24363,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 115472,
       "mla_margin_2021": 20045,
       "current_mla": "Sundararajan S.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Matheswaran V.S.",
       "mp_party": "DMK",
       "mp_constituency": "Namakkal"
@@ -25353,7 +25353,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 97506,
       "mla_margin_2021": 22609,
       "current_mla": "E. Balasubramanian",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Selvaganapathi T.M.",
       "mp_party": "DMK",
       "mp_constituency": "Salem"
@@ -25646,7 +25646,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 111682,
       "mla_margin_2021": 19895,
       "current_mla": "Rajamuthu M.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Selvaganapathi T.M.",
       "mp_party": "DMK",
       "mp_constituency": "Salem"
@@ -26832,7 +26832,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 86034,
       "mla_margin_2021": 7662,
       "current_mla": "Sekar S.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Matheswaran V.S.",
       "mp_party": "DMK",
       "mp_constituency": "Namakkal"
@@ -27642,7 +27642,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 100800,
       "mla_margin_2021": 31646,
       "current_mla": "Thangamani P.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "K.E. Prakash",
       "mp_party": "DMK",
       "mp_constituency": "Erode"
@@ -29092,7 +29092,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 85125,
       "mla_margin_2021": 14507,
       "current_mla": "Jayakumar S.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Subbarayan K.",
       "mp_party": "CPI",
       "mp_constituency": "Tiruppur"
@@ -29301,7 +29301,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 100915,
       "mla_margin_2021": 22523,
       "current_mla": "Karuppanan K.C.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Subbarayan K.",
       "mp_party": "CPI",
       "mp_constituency": "Tiruppur"
@@ -29747,7 +29747,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 108608,
       "mla_margin_2021": 28563,
       "current_mla": "Sengottaiyan K.A.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Subbarayan K.",
       "mp_party": "CPI",
       "mp_constituency": "Tiruppur"
@@ -30026,7 +30026,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 99181,
       "mla_margin_2021": 16008,
       "current_mla": "A. Bannari",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Raja A.",
       "mp_party": "DMK",
       "mp_constituency": "Nilgiris (SC)"
@@ -30332,7 +30332,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 64496,
       "mla_margin_2021": 1945,
       "current_mla": "Pon Jayaseelan",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Raja A.",
       "mp_party": "DMK",
       "mp_constituency": "Nilgiris (SC)"
@@ -30889,7 +30889,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 117284,
       "mla_margin_2021": 50902,
       "current_mla": "Dhanapal P.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Raja A.",
       "mp_party": "DMK",
       "mp_constituency": "Nilgiris (SC)"
@@ -31112,7 +31112,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 113384,
       "mla_margin_2021": 40102,
       "current_mla": "Vijeyakumar K.N.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Subbarayan K.",
       "mp_party": "CPI",
       "mp_constituency": "Tiruppur"
@@ -31712,7 +31712,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 126903,
       "mla_margin_2021": 32691,
       "current_mla": "Anandan M.S.M.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Ganapathy Rajkumar P.",
       "mp_party": "DMK",
       "mp_constituency": "Coimbatore"
@@ -31949,7 +31949,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 118968,
       "mla_margin_2021": 31932,
       "current_mla": "Kandasamy V.P.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Ganapathy Rajkumar P.",
       "mp_party": "DMK",
       "mp_constituency": "Coimbatore"
@@ -32186,7 +32186,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 135669,
       "mla_margin_2021": 9776,
       "current_mla": "G. Arunkumar",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Ganapathy Rajkumar P.",
       "mp_party": "DMK",
       "mp_constituency": "Coimbatore"
@@ -32409,7 +32409,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 81454,
       "mla_margin_2021": 4001,
       "current_mla": "Amman K. Arjunan",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Ganapathy Rajkumar P.",
       "mp_party": "DMK",
       "mp_constituency": "Coimbatore"
@@ -32828,7 +32828,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 124225,
       "mla_margin_2021": 41630,
       "current_mla": "S.P. Velumani",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Eswarasamy K.",
       "mp_party": "DMK",
       "mp_constituency": "Pollachi"
@@ -33610,7 +33610,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 81244,
       "mla_margin_2021": 10854,
       "current_mla": "Jayaram K.R.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Ganapathy Rajkumar P.",
       "mp_party": "DMK",
       "mp_constituency": "Coimbatore"
@@ -34029,7 +34029,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 101537,
       "mla_margin_2021": 1095,
       "current_mla": "Damodaran S.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Eswarasamy K.",
       "mp_party": "DMK",
       "mp_constituency": "Pollachi"
@@ -34126,7 +34126,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 80567,
       "mla_margin_2021": 1725,
       "current_mla": "Pollachi V. Jayaraman",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Eswarasamy K.",
       "mp_party": "DMK",
       "mp_constituency": "Pollachi"
@@ -34335,7 +34335,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 71672,
       "mla_margin_2021": 12223,
       "current_mla": "Amulkandasami T.K.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Eswarasamy K.",
       "mp_party": "DMK",
       "mp_constituency": "Pollachi"
@@ -34446,7 +34446,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 0,
       "mla_margin_2021": 0,
       "current_mla": "Radhakrishnan K.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Eswarasamy K.",
       "mp_party": "DMK",
       "mp_constituency": "Pollachi"
@@ -34627,7 +34627,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 84313,
       "mla_margin_2021": 6438,
       "current_mla": "C. Mahendran",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Eswarasamy K.",
       "mp_party": "DMK",
       "mp_constituency": "Pollachi"
@@ -35770,7 +35770,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 107762,
       "mla_margin_2021": 11932,
       "current_mla": "Natham R. Viswanathan",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Sachithanantham R.",
       "mp_party": "CPI(M)",
       "mp_constituency": "Dindigul"
@@ -36091,7 +36091,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 90595,
       "mla_margin_2021": 17747,
       "current_mla": "Sreenivasan C.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Sachithanantham R.",
       "mp_party": "CPI(M)",
       "mp_constituency": "Dindigul"
@@ -43683,7 +43683,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 96453,
       "mla_margin_2021": 8259,
       "current_mla": "Arunmozhithevan A.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Thirumaavalavan Thol.",
       "mp_party": "VCK",
       "mp_constituency": "Chidambaram (SC)"
@@ -43892,7 +43892,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 91961,
       "mla_margin_2021": 16937,
       "current_mla": "K.A. Pandian",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Thirumaavalavan Thol.",
       "mp_party": "VCK",
       "mp_constituency": "Chidambaram (SC)"
@@ -45271,7 +45271,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 78719,
       "mla_margin_2021": 12329,
       "current_mla": "O.S. Manian",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Selvaraj V.",
       "mp_party": "CPI",
       "mp_constituency": "Nagapattinam (SC)"
@@ -45981,7 +45981,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 103637,
       "mla_margin_2021": 4424,
       "current_mla": "Kamaraj R.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Selvaraj V.",
       "mp_party": "CPI",
       "mp_constituency": "Nagapattinam (SC)"
@@ -46790,7 +46790,7 @@ const constituenciesWithCandidates = {
         "gender": "male",
         "address": "47/25, SOUTH SENIYA STREET, ADUTHURAI, THIRUVIDAIMARUTHUR TALUKA, THANJAVUR DISTRICT",
         "party_full": "Indian Union Muslim League",
-        "party_short": "INDIA",
+        "party_short": "IUML",
         "constituency": "Papanasam",
         "bg": "#f5f5f5",
         "accent": "#616161",
@@ -47235,7 +47235,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 90063,
       "mla_margin_2021": 28835,
       "current_mla": "Vaithilingam R.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Murasoli S.",
       "mp_party": "DMK",
       "mp_constituency": "Thanjavur"
@@ -47903,7 +47903,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 102179,
       "mla_margin_2021": 23598,
       "current_mla": "Vijaya Basker C.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Jothimani S.",
       "mp_party": "INC",
       "mp_constituency": "Karur"
@@ -50038,7 +50038,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 82153,
       "mla_margin_2021": 11253,
       "current_mla": "PR. Senthilnathan",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Karti P Chidambaram",
       "mp_party": "INC",
       "mp_constituency": "Sivaganga"
@@ -50526,7 +50526,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 83344,
       "mla_margin_2021": 35162,
       "current_mla": "Periyapullan @ Selvam P.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Venkatesan S.",
       "mp_party": "CPI(M)",
       "mp_constituency": "Madurai"
@@ -51710,7 +51710,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 83883,
       "mla_margin_2021": 9121,
       "current_mla": "Raju K.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Venkatesan S.",
       "mp_party": "CPI(M)",
       "mp_constituency": "Madurai"
@@ -51933,7 +51933,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 103683,
       "mla_margin_2021": 29489,
       "current_mla": "Rajanchellappa V.V.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Manickam Tagore B.",
       "mp_party": "INC",
       "mp_constituency": "Virudhunagar"
@@ -52170,7 +52170,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 100338,
       "mla_margin_2021": 14087,
       "current_mla": "Udhayakumar R.B.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Manickam Tagore B.",
       "mp_party": "INC",
       "mp_constituency": "Virudhunagar"
@@ -52407,7 +52407,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 71255,
       "mla_margin_2021": 7477,
       "current_mla": "Ayyappan P.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Thanga Tamilselvan",
       "mp_party": "DMK",
       "mp_constituency": "Theni"
@@ -53091,7 +53091,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 100050,
       "mla_margin_2021": 11021,
       "current_mla": "O. Panneerselvam",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Thanga Tamilselvan",
       "mp_party": "DMK",
       "mp_constituency": "Theni"
@@ -53956,7 +53956,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 70475,
       "mla_margin_2021": 12738,
       "current_mla": "Manraj E.M.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Dr. Rani Srikumar",
       "mp_party": "DMK",
       "mp_constituency": "Tenkasi (SC)"
@@ -57861,7 +57861,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 68556,
       "mla_margin_2021": 12403,
       "current_mla": "Kadambur Raju",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Kanimozhi Karunanidhi",
       "mp_party": "DMK",
       "mp_constituency": "Thoothukkudi"
@@ -58768,7 +58768,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 88474,
       "mla_margin_2021": 24349,
       "current_mla": "C. Krishnamurali",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Dr. Rani Srikumar",
       "mp_party": "DMK",
       "mp_constituency": "Tenkasi (SC)"
@@ -59452,7 +59452,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 74153,
       "mla_margin_2021": 3539,
       "current_mla": "Paul Manoj Pandian",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Dr. Rani Srikumar",
       "mp_party": "DMK",
       "mp_constituency": "Tenkasi (SC)"
@@ -59968,7 +59968,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 85211,
       "mla_margin_2021": 16915,
       "current_mla": "E. Subaya",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Robert Bruce C.",
       "mp_party": "INC",
       "mp_constituency": "Tirunelveli"
@@ -61056,7 +61056,7 @@ const constituenciesWithCandidates = {
       "mla_votes_2021": 109745,
       "mla_margin_2021": 16213,
       "current_mla": "Thalavai Sundaram N.",
-      "current_mla_party": "AIADMK",
+      "current_mla_party": "ADMK",
       "mp_name": "Vijayakumar (alias) Vijay Vasanth",
       "mp_party": "INC",
       "mp_constituency": "Kanniyakumari"

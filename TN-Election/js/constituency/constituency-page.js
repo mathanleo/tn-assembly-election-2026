@@ -31,7 +31,7 @@ var PARTY_ICONS = {
 };
 
 var PARTY_TO_ALLIANCE = {
-  'DMK':'SPA','INC':'SPA','CPI':'SPA','CPM':'SPA','VCK':'SPA','MDMK':'SPA','YSRC':'SPA',
+  'DMK':'SPA','INC':'SPA','CPI':'SPA','CPI(M)':'SPA','VCK':'SPA','MDMK':'SPA','YSRC':'SPA','INDIA':'SPA',
   'ADMK':'NDA','BJP':'NDA','PMK':'NDA','AMMK':'NDA','TMC':'NDA','IJK':'NDA','PBK':'NDA','PNK':'NDA','STMK':'NDA','TM-BSP':'NDA','SIFB':'NDA','TMMK':'NDA',
   'NTK':'NTK','TVK':'TVK','DMDK':'DMDK'
 };
@@ -76,7 +76,7 @@ function getPartyOrderWithinAlliance(p){
   var alliance=PARTY_TO_ALLIANCE[key]||'OTHERS';
   if(alliance==='SPA'){
     if(key==='DMK') return 1; if(key==='INC') return 2; if(key==='VCK') return 3;
-    if(key==='CPI') return 4; if(key==='CPM') return 5; if(key==='MDMK') return 6;
+    if(key==='CPI') return 4; if(key==='CPI(M)') return 5; if(key==='MDMK') return 6;
     return 7;
   }
   if(alliance==='NDA'){
@@ -672,9 +672,12 @@ function renderMiniMap(constId){
 async function fetchAndMergeConstituencyVotes() {
   try {
     const url = "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates";
+    //const url1="https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/constituency-data";
     const response = await fetch(url, { method: "GET", headers: { "Content-Type": "application/json" } });
+    //const response1 = await fetch(url1, { method: "GET", headers: { "Content-Type": "application/json" } });
     if (!response.ok) return;
     const allCandidates = await response.json();
+    const constituencyData = await response1.json();
 
     // Build map: candidateId → { votes, rsDecl }
     const voteMap = new Map();

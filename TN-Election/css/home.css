@@ -668,8 +668,17 @@
 #voteshare-legend {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: left;
   width: 100%;
+}
+.voteshare-legend-top,
+.voteshare-legend-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  width: auto;
 }
 
   .parliament-wrap {
@@ -1054,6 +1063,19 @@
   .stats-wrapper {
     min-width: 0;
   }
+  .cm-candidates__grid--row {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 8px;
+  width: 100%;
+}
+
+.cm-candidates__grid--row .cm-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: unset !important;
+  height: auto;
+}
 }
 
 /* ==========================================
@@ -1118,4 +1140,16 @@
   .popular-candidates-section {
     padding: var(--gap-md);
   }
+  .cm-candidates__grid--row {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 12px;
+  width: 100%;
+}
+
+.cm-candidates__grid--row .cm-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: unset !important;
+}
 }

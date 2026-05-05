@@ -15,6 +15,7 @@ var _bigFightLiveData = [];
 async function fetchLiveVotes() {
   try {
     const url = "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates";
+    
     const response = await fetch(url, {
       method: "GET",
       headers: { "Content-Type": "application/json" }

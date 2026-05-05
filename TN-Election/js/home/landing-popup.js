@@ -148,8 +148,8 @@
 
       // Headline
       '<div class="lp-headline">',
-      '<span class="lp-headline__label">Currently Leading</span>',
-      '<span class="lp-headline__alliance" style="color:' + meta.color + '">' + meta.emoji + ' ' + meta.alliance + ' Alliance</span>',
+      '<span class="lp-headline__label">Tamil Nadu Assembly Election 2026 Winner</span>',
+      '<span class="lp-headline__alliance" style="color:' + meta.color + '">' + meta.emoji + ' ' + meta.alliance + '</span>',
       '</div>',
 
       // CM photo card — video for TVK, photo for others

@@ -22,7 +22,7 @@ var RESULTS_PARTY_ICONS = {
 
 // NDA = AIADMK Alliance parties, SPA = DMK Alliance parties, Others = No Alliance
 var NDA_PARTIES  = ['AIADMK', 'BJP', 'PMK', 'TMC', 'MNK', 'AMMK'];
-var SPA_PARTIES  = ['DMK', 'INC', 'VCK', 'CPI(M)', 'CPI', 'DMDK', 'MDMK', 'MNM', 'IUML'];
+var SPA_PARTIES  = ['DMK', 'INC', 'VCK', 'CPI(M)', 'CPI', 'DMDK', 'MDMK', 'MNM', 'IUML','INDIA'];
 
 function buildAllianceResultsTable() {
   var container = document.getElementById('alliance-table');

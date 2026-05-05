@@ -85,13 +85,58 @@ function refreshLiveParliamentChart() {
   } else {
     buildParliamentChart();
   }
+  // Always refresh vote share chart with latest live data
+  buildVoteShareChart(counts.nda, counts.spa, counts.ntk, counts.tvk, counts.others);
 }
+function computeAllianceVoteShare() {
+  var totals = { nda: 0, spa: 0, tvk: 0, ntk: 0, others: 0 };
 
+  // Try _liveAllCandidates first, then _bigFightLiveData as fallback
+  var liveData = (window._liveAllCandidates && window._liveAllCandidates.length)
+    ? window._liveAllCandidates
+    : (typeof _bigFightLiveData !== 'undefined' && _bigFightLiveData.length)
+    ? _bigFightLiveData
+    : [];
+
+  if (!liveData.length) return totals;
+
+
+  liveData.forEach(function(c) {
+    var votes = (c.votes !== null && c.votes !== undefined) ? Number(c.votes) : 0;
+    if (!votes || isNaN(votes)) return;
+
+    var party = (c.party || '').trim().toUpperCase();
+
+    // NDA parties
+    if (['ADMK', 'AIADMK', 'BJP', 'PMK', 'AMMK', 'TMC', 'IJK', 'PBK', 'PNK', 'STMK', 'TM-BSP', 'SIFB', 'TMMK'].indexOf(party) !== -1) {
+      totals.nda += votes;
+    }
+    // SPA parties
+    else if (['DMK', 'INC', 'CPI', 'CPI(M)', 'CPM', 'VCK', 'MDMK', 'DMDK', 'IUML','INDIA', 'KMDK', 'MMK', 'MJK', 'MPP', 'SDPI', 'TDK'].indexOf(party) !== -1) {
+      totals.spa += votes;
+    }
+    else if (party === 'TVK') { totals.tvk += votes; }
+    else if (party === 'NTK') { totals.ntk += votes; }
+    else { totals.others += votes; }
+  });
+
+  return totals;
+}
 function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats) {
   var canvas = document.getElementById('voteshare-chart');
   if (!canvas) return;
 
-  var total = ndaSeats + spaSeats + ntkSeats + tvkSeats + othersSeats;
+  // Try actual votes first, fall back to seats
+  var voteData = computeAllianceVoteShare();
+  var useVotes = (voteData.nda + voteData.spa + voteData.tvk + voteData.ntk + voteData.others) > 0;
+
+  var ndaVal    = useVotes ? voteData.nda    : ndaSeats;
+  var spaVal    = useVotes ? voteData.spa    : spaSeats;
+  var tvkVal    = useVotes ? voteData.tvk    : tvkSeats;
+  var ntkVal    = useVotes ? voteData.ntk    : ntkSeats;
+  var othersVal = useVotes ? voteData.others : othersSeats;
+
+  var total = ndaVal + spaVal + tvkVal + ntkVal + othersVal;
   if (total === 0) return;
 
   var dpr = window.devicePixelRatio || 1;
@@ -106,14 +151,16 @@ function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats
   ctx.clearRect(0, 0, size, size);
 
   var cx = size / 2, cy = size / 2, r = size / 2 - 10;
+
   var segments = [
-    { label: 'TVK', value: tvkSeats,  color: '#facc15' },
-    { label: 'SPA', value: spaSeats,  color: '#5b68b8' }, 
-    { label: 'NTK', value: ntkSeats,  color: '#22c55e' },
-    { label: 'NDA', value: ndaSeats,  color: '#E05A46' },
-    { label: 'Others', value: othersSeats, color: '#8a93a8' }
+    { label: 'TVK', value: tvkVal,    color: '#facc15' },
+    { label: 'SPA', value: spaVal,    color: '#5b68b8' },
+    { label: 'NDA', value: ndaVal,    color: '#E05A46' },
+    { label: 'NTK', value: ntkVal,    color: '#22c55e' },
+    { label: 'Others', value: othersVal, color: '#8a93a8' }
   ].filter(function(s) { return s.value > 0; });
 
+  // Draw pie
   var start = -Math.PI / 2;
   segments.forEach(function(seg) {
     var angle = (seg.value / total) * 2 * Math.PI;
@@ -135,52 +182,28 @@ function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats
   ctx.fillStyle = '#fff';
   ctx.fill();
 
-  // Center text
+  // Center label
   ctx.fillStyle = '#111827';
   ctx.textAlign = 'center';
-  ctx.font = '600 10px Nunito, sans-serif';
-  ctx.fillText('Seats', cx, cy - 4);
-  ctx.font = '700 13px Nunito, sans-serif';
-  ctx.fillText(total, cx, cy + 10);
+  ctx.font = '600 9px Nunito, sans-serif';
+  ctx.fillText(useVotes ? 'Votes' : 'Seats', cx, cy - 4);
+  ctx.font = '700 11px Nunito, sans-serif';
+  ctx.fillText(useVotes ? (total / 100000).toFixed(1) + 'L' : total, cx, cy + 10);
 
   // Legend
   var legend = document.getElementById('voteshare-legend');
-var canvas = document.getElementById('voteshare-chart');
-
-if (legend && canvas) {
-  var items = segments.map(function(s) {
-    var pct = ((s.value / total) * 100).toFixed(1);
-    return '<div class="voteshare-legend-item">' +
-      '<span class="voteshare-legend-dot" style="background:' + s.color + '"></span>' +
-      '<span>' + s.label + ': ' + s.value + ' (' + pct + '%)</span>' +
-      '</div>';
-  });
-
-  var half = Math.ceil(items.length / 2);
-  var topItems    = items.slice(0, half).join('');
-  var bottomItems = items.slice(half).join('');
-
-  // Insert top legend BEFORE canvas, bottom AFTER canvas
-  var topDiv = document.createElement('div');
-  topDiv.className = 'voteshare-legend-top';
-  topDiv.innerHTML = topItems;
-
-  var bottomDiv = document.createElement('div');
-  bottomDiv.className = 'voteshare-legend-bottom';
-  bottomDiv.innerHTML = bottomItems;
-
-  // Clear legend, insert top, then canvas, then bottom
-  legend.innerHTML = '';
-  legend.appendChild(topDiv);
-  legend.appendChild(canvas);      // move canvas inside legend
-  legend.appendChild(bottomDiv);
-
-  // Make legend the flex column container
-  legend.style.display = 'flex';
-  legend.style.flexDirection = 'column';
-  legend.style.alignItems = 'center';
-  legend.style.gap = '4px';
-}
+  if (legend) {
+    legend.innerHTML = segments.map(function(s) {
+      var pct = ((s.value / total) * 100).toFixed(1);
+      var display = useVotes
+        ? (s.value >= 100000 ? (s.value / 100000).toFixed(1) + 'L' : (s.value / 1000).toFixed(1) + 'K')
+        : s.value;
+      return '<div class="voteshare-legend-item">' +
+        '<span class="voteshare-legend-dot" style="background:' + s.color + '"></span>' +
+        '<span><b>' + s.label + '</b> ' + display + ' (' + pct + '%)</span>' +
+        '</div>';
+    }).join('');
+  }
 }
 
 // =============================================
@@ -430,17 +453,29 @@ window.updateParliamentChart = function(ndaSeats, spaSeats, ntkSeats, tvkSeats, 
 var _origUpdateParliament = window.updateParliamentChart;
 window.updateParliamentChart = function(nda, spa, ntk, tvk, others) {
   _origUpdateParliament(nda, spa, ntk, tvk, others);
-  buildVoteShareChart(nda, spa, ntk, tvk, others);
+  //buildVoteShareChart(nda, spa, ntk, tvk, others);
 };
 
 // =============================================
 // INIT
 // =============================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   buildPartyGroupLookup();
-  refreshLiveParliamentChart();
 
-  // FIX 2: Also draw vote-share chart on initial load
+  // Step 1: Fetch live vote data BEFORE drawing anything
+  try {
+    var url = "https://1z625vwhy3.execute-api.ap-south-1.amazonaws.com/TN-election-2026/candidates";
+    var response = await fetch(url, { method: "GET", headers: { "Content-Type": "application/json" } });
+    if (response.ok) {
+      window._liveAllCandidates = await response.json();
+    }
+  } catch(e) {
+    console.error('Vote share pre-fetch error:', e);
+    window._liveAllCandidates = window._liveAllCandidates || [];
+  }
+
+  // Step 2: Now draw parliament + vote share (votes data is ready)
+  refreshLiveParliamentChart();
   var counts = computeLiveParliamentCounts();
   buildVoteShareChart(counts.nda, counts.spa, counts.ntk, counts.tvk, counts.others);
 
