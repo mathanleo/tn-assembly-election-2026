@@ -446,25 +446,9 @@ function openPopup(constId, x, y, mapRect) {
   // Current MLA
   var mlaName  = c.current_mla  || c.mla_2021  || '—';
   var mlaParty = (c.current_mla_party || c.mla_party_2021 || '').replace('AIADMK', 'ADMK');
-  console.log("part:",PARTY_ICONS);
   
-  var mlaIcon  = PARTY_ICONS[mlaParty]
-    ? '<img class="popup-party-icon" src="' + PARTY_ICONS[mlaParty] + '" alt="' + mlaParty + '" onerror="this.style.display=\'none\'">'
-    : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (mlaParty||'?').slice(0,2) + '</div>';
-
-  document.getElementById('popup-mla').innerHTML =
-    '<div class="popup-mla-row">' +
-      '<span class="popup-mla-name">' + mlaName + '</span>' +
-      '<div class="popup-party-wrap">' + mlaIcon +
-        '<span class="popup-party-name">' + mlaParty + '</span>' +
-      '</div>' +
-    '</div>';
-
-  // Contesting Candidates - DMK, ADMK, TVK, NTK
-  var candidatesHtml = '';
+  // Get all candidates and merge with live vote data
   var allCandidates = [];
-  
-  // Prefer the full list from constituenciesWithCandidates if available
   if (typeof constituenciesWithCandidates !== 'undefined' && constituenciesWithCandidates[selectedConstId]) {
     allCandidates = constituenciesWithCandidates[selectedConstId].candidates || [];
   } else if (typeof candidates2026Data !== 'undefined' && candidates2026Data[selectedConstId]) {
@@ -474,54 +458,73 @@ function openPopup(constId, x, y, mapRect) {
     var constName = (constMeta.name || '').toUpperCase();
     allCandidates = allCandidatesByConstituency[constName] || [];
   }
-  var dmkCandidate = allCandidates.find(function(cand) {
-    return resolvePartyKey(cand) === 'DMK';
-  });
-  if (!dmkCandidate && typeof alliancesData !== 'undefined' && alliancesData.SPA) {
-    for (var i = 0; i < alliancesData.SPA.length; i++) {
-      var party = alliancesData.SPA[i];
-      if (party.pn !== 'DMK' && party.cid && party.cid.includes(parseInt(selectedConstId))) {
-        dmkCandidate = allCandidates.find(function(cand) {
-          return resolvePartyKey(cand) === party.pn;
-        });
-        if (dmkCandidate) break;
+
+  // Merge live votes data if available
+  if (typeof window._liveAllCandidates !== 'undefined' && window._liveAllCandidates && window._liveAllCandidates.length) {
+    allCandidates = allCandidates.map(function(candidate) {
+      var liveRecord = window._liveAllCandidates.find(function(live) {
+        return String(live.candidateId) === String(candidate.id);
+      });
+      if (liveRecord && liveRecord.votes !== null && liveRecord.votes !== undefined) {
+        return Object.assign({}, candidate, { votes: liveRecord.votes });
       }
-    }
+      return candidate;
+    });
   }
 
-  var admkCandidate = allCandidates.find(function(cand) {
-    return resolvePartyKey(cand) === 'ADMK';
+  // Sort by votes to find won/lost candidates
+  var sortedCandidates = allCandidates.slice().sort(function (a, b) {
+    return (Number(b.votes) || 0) - (Number(a.votes) || 0);
   });
-  if (!admkCandidate && typeof alliancesData !== 'undefined' && alliancesData.NDA) {
-    for (var i = 0; i < alliancesData.NDA.length; i++) {
-      var party = alliancesData.NDA[i];
-      if (party.pn !== 'ADMK' && party.cid && party.cid.includes(parseInt(selectedConstId))) {
-        admkCandidate = allCandidates.find(function(cand) {
-          return resolvePartyKey(cand) === party.pn;
-        });
-        if (admkCandidate) break;
-      }
-    }
-  }
-  var tvkCandidate = allCandidates.find(function(cand) {
-    return resolvePartyKey(cand) === 'TVK';
-  });
-  var ntkCandidate = allCandidates.find(function(cand) {
-    return resolvePartyKey(cand) === 'NTK';
-  });
-  if (dmkCandidate) {
-    candidatesHtml += renderCandidateLine(dmkCandidate);
-  }
-  if (admkCandidate) {
-    candidatesHtml += renderCandidateLine(admkCandidate);
-  }
-  if (tvkCandidate) {
-    candidatesHtml += renderCandidateLine(tvkCandidate);
-  }
-  if (ntkCandidate) {
-    candidatesHtml += renderCandidateLine(ntkCandidate);
-  }
-  document.getElementById('popup-candidates').innerHTML = candidatesHtml || '<div class="popup-no-candidates">No DMK/ADMK/TVK/NTK candidates found</div>';
+
+  var wonCandidate = sortedCandidates[0] || null;
+  var lostCandidates = sortedCandidates.slice(1, 4);
+  var wonVotes = wonCandidate ? Number(wonCandidate.votes) || 0 : 0;
+  var runnerVotes = lostCandidates.length ? Number(lostCandidates[0].votes) || 0 : 0;
+
+  // Build won candidate display
+  var wonHtml = wonCandidate
+    ? '<div class="popup-candidate-row" style="margin-bottom:8px;">' +
+        '<span class="popup-cand-name" style="font-weight:700;">' +
+          (wonCandidate.name || wonCandidate.candidate || 'N/A') +
+        '</span>' +
+        '<div class="popup-party-wrap">' +
+          (PARTY_ICONS[resolvePartyKey(wonCandidate) || 'IND']
+            ? '<img class="popup-party-icon" src="' + PARTY_ICONS[resolvePartyKey(wonCandidate) || 'IND'] + '" alt="' + (resolvePartyKey(wonCandidate) || 'IND') + '" onerror="this.style.display=\'none\'">'
+            : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (resolvePartyKey(wonCandidate) || 'IND').slice(0,2) + '</div>') +
+          '<span class="popup-party-name">' + (resolvePartyKey(wonCandidate) || 'IND') + '</span>' +
+        '</div>' +
+      '</div>' +
+      '<div style="font-size:11px;color:#666;">' +
+        '<strong>Votes:</strong> ' + wonVotes.toLocaleString('en-IN') + '<br/>' +
+        '<strong>Margin:</strong> ' + (wonVotes - runnerVotes).toLocaleString('en-IN') +
+      '</div>'
+    : '<div class="popup-no-candidates">No candidate data available</div>';
+
+  document.getElementById('popup-mla').innerHTML = wonHtml;
+
+  // Build lost candidates display
+  var candidatesHtml = lostCandidates.length
+    ? lostCandidates.map(function(cand) {
+        var votes = Number(cand.votes) || 0;
+        return '<div class="popup-candidate-row" style="margin-bottom:8px;">' +
+          '<span class="popup-cand-name" style="font-weight:700;">' +
+            (cand.name || cand.candidate || 'N/A') +
+          '</span>' +
+          '<div class="popup-party-wrap">' +
+            (PARTY_ICONS[resolvePartyKey(cand) || 'IND']
+              ? '<img class="popup-party-icon" src="' + PARTY_ICONS[resolvePartyKey(cand) || 'IND'] + '" alt="' + (resolvePartyKey(cand) || 'IND') + '" onerror="this.style.display=\'none\'">'
+              : '<div class="popup-party-icon" style="background:#E2E8F0;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;color:#475569">' + (resolvePartyKey(cand) || 'IND').slice(0,2) + '</div>') +
+            '<span class="popup-party-name">' + (resolvePartyKey(cand) || 'IND') + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div style="font-size:11px;color:#666;margin-bottom:8px;">' +
+          '<strong>Votes:</strong> ' + votes.toLocaleString('en-IN') +
+        '</div>';
+      }).join('')
+    : '<div class="popup-no-candidates">No other candidates</div>';
+
+  document.getElementById('popup-candidates').innerHTML = candidatesHtml;
 
   // ── Position popup inside .map-left-col ──────────────────────
   var popup = document.getElementById('map-popup');

@@ -142,44 +142,41 @@ function initFavoritesSearch() {
   var searchInput = document.getElementById('favorites-search-input');
   var dropdown = document.getElementById('favorites-dropdown');
   var resultCard = document.getElementById('favorites-search-result-card');
-  var resultContent = document.querySelector('.favorites-search-result-content');
-  var addBtn = document.getElementById('favorites-add-btn');
 
   if (!searchInput) return;
 
   var allCandidates = getAllCandidates();
-  var currentSelected = null;  // ← single candidate object, not array
 
-  searchInput.addEventListener('input', function() {
-    var q = searchInput.value.trim();
-    currentSelected = null;
-    resultCard.style.display = 'none';
-
-    if (!q) { dropdown.style.display = 'none'; return; }
-
-    // Filter — returns array
-    var results = allCandidates.filter(function(c) {
-      return (
-        (c.name || '').toLowerCase().indexOf(q.toLowerCase()) !== -1 ||
-        (c.constituency || '').toLowerCase().indexOf(q.toLowerCase()) !== -1
-      );
-    }).slice(0, 8);
-
-    if (results.length === 0) { dropdown.style.display = 'none'; return; }
-
+  function renderDropdown(results) {
     dropdown.innerHTML = results.map(function(c) {
       var photoSrc = (c.photo && c.photo.length > 0)
         ? c.photo
         : '../assets/images/candidates/mla/2026/' + c.id + '.jpg';
+      
+      var colours = (typeof getAllianceColours === 'function') ? getAllianceColours(c.party_short) : null;
+      var cardBg = colours ? colours.bg : (c.bg || '#f5f5f5');
+      var nameColor = colours ? colours.text : (c.accent || '#333');
+
+      var isAlreadyFavorited = isFavorited(c.id);
+      var favorites = getFavorites();
+      var limitReached = favorites.length >= MAX_FAVORITES && !isAlreadyFavorited;
 
       return (
-        '<div class="favourites-dropdown-item" data-id="' + c.id + '">' +
+        '<div class="favourites-dropdown-item" data-id="' + c.id + '" style="position:relative;">' +
           '<div class="favourites-dropdown-item__photo">' +
             '<img src="' + photoSrc + '" style="width:100%;height:100%;object-fit:cover;" ' +
             'onerror="this.style.display=\'none\'" />' +
           '</div>' +
           '<div class="favourites-dropdown-item__info">' +
-            '<div class="favourites-dropdown-item__name">' + c.name + '</div>' +
+            '<div class="favourites-dropdown-item__title-row">' +
+              '<div class="favourites-dropdown-item__name">' + c.name + '</div>' +
+              '<button class="favourites-dropdown-item__add-btn" data-id="' + c.id + '" type="button" ' +
+                (isAlreadyFavorited ? 'disabled style="cursor:not-allowed;opacity:0.5;"' : '') +
+                (limitReached ? 'disabled style="cursor:not-allowed;opacity:0.5;"' : '') +
+              '>' +
+                (isAlreadyFavorited ? '✓ Added' : (limitReached ? 'Limit reached' : '+ Add')) +
+              '</button>' +
+            '</div>' +
             '<div class="favourites-dropdown-item__sub">' + c.constituency + ' · ' + c.party_short + '</div>' +
           '</div>' +
         '</div>'
@@ -188,20 +185,69 @@ function initFavoritesSearch() {
 
     dropdown.style.display = 'block';
 
-    // Click on dropdown item → set currentSelected as SINGLE object
-    dropdown.querySelectorAll('.favourites-dropdown-item').forEach(function(item) {
-      item.addEventListener('click', function() {
-        var id = parseInt(item.dataset.id);
-        currentSelected = results.find(function(c) { return c.id === id; }); // ← single object
-
-        dropdown.style.display = 'none';
-        searchInput.value = currentSelected.name;
-
-        // Show result preview card
-        resultContent.innerHTML = buildSearchResultCard(currentSelected);
-        resultCard.style.display = 'flex';
+    // Add button listeners
+    dropdown.querySelectorAll('.favourites-dropdown-item__add-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var candId = parseInt(this.dataset.id);
+        var candidate = results.find(function(c) { return c.id === candId; });
+        
+        if (candidate) {
+          var added = addToFavorites(candidate);
+          if (added) {
+            searchInput.value = '';
+            dropdown.style.display = 'none';
+            renderFavorites(_liveVoteData);
+            
+            // Re-render dropdown to update button states
+            var currentResults = allCandidates.filter(function(c) {
+              var q = searchInput.value.toLowerCase().trim();
+              return !q || (
+                (c.name || '').toLowerCase().indexOf(q) !== -1 ||
+                (c.constituency || '').toLowerCase().indexOf(q) !== -1
+              );
+            }).slice(0, 8);
+            
+            if (currentResults.length > 0) {
+              renderDropdown(currentResults);
+            }
+          }
+        }
       });
     });
+  }
+
+  // Input event: filter and show dropdown
+  searchInput.addEventListener('input', function() {
+    var q = searchInput.value.trim().toLowerCase();
+
+    if (!q) {
+      dropdown.style.display = 'none';
+      resultCard.style.display = 'none';
+      return;
+    }
+
+    var results = allCandidates.filter(function(c) {
+      return (
+        (c.name || '').toLowerCase().indexOf(q) !== -1 ||
+        (c.constituency || '').toLowerCase().indexOf(q) !== -1
+      );
+    }).slice(0, 8);
+
+    if (results.length === 0) {
+      dropdown.style.display = 'none';
+      resultCard.style.display = 'none';
+      return;
+    }
+
+    renderDropdown(results);
+  });
+
+  // Focus event: show top 8 if empty
+  searchInput.addEventListener('focus', function() {
+    if (!searchInput.value.trim()) {
+      renderDropdown(allCandidates.slice(0, 8));
+    }
   });
 
   // Close dropdown on outside click
@@ -210,26 +256,6 @@ function initFavoritesSearch() {
       dropdown.style.display = 'none';
     }
   });
-
-  // Add button — currentSelected is now guaranteed a single object
-  if (addBtn) {
-    addBtn.addEventListener('click', function() {
-      if (!currentSelected) {
-        console.warn('No candidate selected');
-        return;
-      }
-
-      var added = addToFavorites(currentSelected); // ← passes single object
-      if (added) {
-        searchInput.value = '';
-        resultCard.style.display = 'none';
-        dropdown.style.display = 'none';
-        currentSelected = null;
-        renderFavorites(); 
-        renderFavorites(_liveVoteData);// ← re-renders grid from localStorage
-      }
-    });
-  }
 }
 // Build a single favorite card
 function buildFavoriteCard(candidate, index) {
@@ -298,10 +324,6 @@ function buildFavoriteCard(candidate, index) {
       myVotes = Number(myRecord.votes);
       voteDisplay = myVotes.toLocaleString('en-IN');
 
-      // ── rsDecl: 1/'1'/true = voting closed (Won/Lost), else Leading/Trailing ──
-      var isDeclared = myRecord.rsDecl === 1 || myRecord.rsDecl === '1' ||
-                       myRecord.rsDecl === true || myRecord.rsDecl === 'true';
-
       if (myVotes > 0) {
         var constId = myRecord.const_id;
         var maxVotes = 0, secondMax = 0;
@@ -315,12 +337,8 @@ function buildFavoriteCard(candidate, index) {
         var isLeading = myVotes >= maxVotes;
         var margin = isLeading ? (myVotes - secondMax) : (maxVotes - myVotes);
 
-        // ── Switch label based on isDeclared ──
-        if (isDeclared) {
-          leaderTag = isLeading ? 'Won' : 'Lost';
-        } else {
-          leaderTag = isLeading ? 'Leading' : 'Trailing';
-        }
+        // ── Always show Won/Lost based on vote comparison ──
+        leaderTag = isLeading ? 'Won' : 'Lost';
 
         leaderMargin = margin > 0 ? margin.toLocaleString('en-IN') : '';
         barColor = isLeading ? '#12B76A' : '#F04438';
@@ -351,7 +369,7 @@ function buildFavoriteCard(candidate, index) {
           '</div>' +
           '<div class="candidate-card__logo-wrap">' + badgeHTML + '</div>' +
           '<div class="candidate-card__party-bar">' +
-            '<div class="candidate-card__party-bar-text">' + leaderTag + (leaderMargin ? ' <span class="candidate-card__margin">by ' + leaderMargin + '</span>' : '') + '</div>' +
+            '<div class="candidate-card__party-bar-text">' + (leaderTag === 'Won' ? '2026 Winner' : leaderTag === 'Lost' ? 'Contested' : leaderTag) + (leaderMargin ? ' <span class="candidate-card__margin">by ' + leaderMargin + '</span>' : '') + '</div>' +
             '<div class="candidate-card__party-bar1" style="background:' + barColor + '"></div>' +
             '<div class="candidate-card__party-bar2">' + partyKey + '</div>' +
           '</div>' +
@@ -429,4 +447,9 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
 
   renderFavorites(_liveVoteData);
+
+  // Refresh constituency favorites with live data
+  if (typeof window.refreshConstituencyFavorites === 'function') {
+    window.refreshConstituencyFavorites();
+  }
 });

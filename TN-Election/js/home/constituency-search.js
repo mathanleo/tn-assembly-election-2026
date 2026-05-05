@@ -115,11 +115,38 @@
 
   function buildDropdownItem(c) {
     var icons    = window.PARTY_ICONS || {};
-    var mlaParty = (c.current_mla_party || c.mla_party_2021 || '')
-                     .replace('AIADMK', 'ADMK').trim().toUpperCase();
+    
+    // Get winning party from live data
+    var winningParty = 'IND';
+    if (typeof constituenciesWithCandidates !== 'undefined' && constituenciesWithCandidates[c.id]) {
+      var allCandidates = constituenciesWithCandidates[c.id].candidates || [];
+      
+      // Merge live votes if available
+      if (typeof window._liveAllCandidates !== 'undefined' && window._liveAllCandidates && window._liveAllCandidates.length) {
+        allCandidates = allCandidates.map(function(candidate) {
+          var liveRecord = window._liveAllCandidates.find(function(live) {
+            return String(live.candidateId) === String(candidate.id);
+          });
+          if (liveRecord && liveRecord.votes !== null && liveRecord.votes !== undefined) {
+            return Object.assign({}, candidate, { votes: liveRecord.votes });
+          }
+          return candidate;
+        });
+      }
+      
+      // Sort by votes to find winner
+      var sorted = allCandidates.slice().sort(function (a, b) {
+        return (Number(b.votes) || 0) - (Number(a.votes) || 0);
+      });
+      
+      if (sorted[0]) {
+        winningParty = (sorted[0].party || sorted[0].party_short || sorted[0].party_full || 'IND')
+          .toString().trim().toUpperCase();
+      }
+    }
 
-    var photoInner = icons[mlaParty]
-      ? '<img src="' + icons[mlaParty] + '" alt="' + mlaParty + '" ' +
+    var photoInner = icons[winningParty]
+      ? '<img src="' + icons[winningParty] + '" alt="' + winningParty + '" ' +
         'style="width:100%;height:100%;object-fit:contain;border-radius:50%;" ' +
         'onerror="this.style.display=\'none\'">'
       : '<div style="width:100%;height:100%;display:flex;align-items:center;' +
@@ -135,7 +162,7 @@
           '<button class="favourites-dropdown-item__add-btn" data-id="' + c.id + '" type="button">Add</button>' +
         '</div>' +
         '<div class="favourites-dropdown-item__sub">' +
-          c.district + ' · ' + (mlaParty || c.reserved_status) +
+          c.district + ' · ' + winningParty +
         '</div>' +
       '</div>' +
     '</div>';
@@ -180,12 +207,25 @@
       allCandidates = constituenciesWithCandidates[c.id].candidates || [];
     }
 
+    // ── Merge live votes data if available ──
+    if (typeof window._liveAllCandidates !== 'undefined' && window._liveAllCandidates && window._liveAllCandidates.length) {
+      allCandidates = allCandidates.map(function(candidate) {
+        var liveRecord = window._liveAllCandidates.find(function(live) {
+          return String(live.candidateId) === String(candidate.id);
+        });
+        if (liveRecord && liveRecord.votes !== null && liveRecord.votes !== undefined) {
+          return Object.assign({}, candidate, { votes: liveRecord.votes });
+        }
+        return candidate;
+      });
+    }
+
     var sortedCandidates = allCandidates.slice().sort(function (a, b) {
       return (Number(b.votes) || 0) - (Number(a.votes) || 0);
     });
 
     var leader = sortedCandidates[0] || null;
-    var trailers = sortedCandidates.slice(1, 3);
+    var trailers = sortedCandidates.slice(1, 4);
     var leaderVotes = leader ? Number(leader.votes) || 0 : 0;
     var runnerVotes = trailers.length ? Number(trailers[0].votes) || 0 : 0;
     var marginText = leader
@@ -203,7 +243,7 @@
           '</div>' +
         '</div>' +
         '<div class="constituency-fav-card__leader-margin"><span class="constituency-fav-card__metric-label">Margin:</span> <span class="constituency-fav-card__metric-value">' + (leaderVotes - runnerVotes).toLocaleString('en-IN') + '</span></div>'
-      : '<div class="constituency-fav-card__candidate-placeholder">No leading candidate available</div>';
+      : '<div class="constituency-fav-card__candidate-placeholder">No won candidate available</div>';
 
     var trailingHtml = trailers.length ? trailers.map(function (cand) {
       var party = resolvePartyKey(cand) || 'IND';
@@ -215,7 +255,7 @@
         '</div>' +
         '<div class="constituency-fav-card__candidate-party">' + partyIconHtml(party) + '<span>' + party + '</span></div>' +
       '</div>';
-    }).join('') : '<div class="constituency-fav-card__candidate-placeholder">No trailing candidates available</div>';
+    }).join('') : '<div class="constituency-fav-card__candidate-placeholder">No lost candidates available</div>';
 
     return '<div class="constituency-fav-card" data-const-id="' + c.id + '">' +
       '<button class="constituency-fav-card__remove" data-const-id="' + c.id + '" title="Remove">×</button>' +
@@ -223,9 +263,9 @@
         '<div class="constituency-fav-card__name">' + c.name + '</div>' +
         '<span class="constituency-fav-card__badge">' + (c.reserved_status || 'General') + '</span>' +
       '</div>' +
-      '<div class="constituency-fav-card__section-label">LEADING CANDIDATE</div>' +
+      '<div class="constituency-fav-card__section-label">2026 WINNER</div>' +
       '<div class="constituency-fav-card__candidate-list">' + leaderHtml + '</div>' +
-      '<div class="constituency-fav-card__section-label">TRAILING CANDIDATES</div>' +
+      '<div class="constituency-fav-card__section-label">CONTESTED CANDIDATES</div>' +
       '<div class="constituency-fav-card__candidate-list">' + trailingHtml + '</div>' +
       '<button class="constituency-fav-card__details-btn" type="button">View full details ›</button>' +
     '</div>';
@@ -286,35 +326,74 @@
     document.getElementById('cs-popup-name').textContent =
       c.name.toUpperCase() + ' (' + c.reserved_status + ')';
 
-    var mlaName  = c.current_mla  || c.mla_2021  || '—';
-    var mlaParty = (c.current_mla_party || c.mla_party_2021 || '').replace('AIADMK', 'ADMK');
-
-    document.getElementById('cs-popup-mla').innerHTML =
-      '<div class="popup-mla-row">' +
-        '<span class="popup-mla-name">' + mlaName + '</span>' +
-        '<div class="popup-party-wrap">' +
-          partyIconHtml(mlaParty) +
-          '<span class="popup-party-name">' + mlaParty + '</span>' +
-        '</div>' +
-      '</div>';
-
+    // ── Get all candidates for this constituency ──
     var allCandidates = [];
     if (typeof constituenciesWithCandidates !== 'undefined' && constituenciesWithCandidates[id]) {
       allCandidates = constituenciesWithCandidates[id].candidates || [];
     }
 
-    function findByParty(pn) {
-      return allCandidates.find(function (cand) { return resolvePartyKey(cand) === pn; });
+    // ── Merge live votes data if available ──
+    if (typeof window._liveAllCandidates !== 'undefined' && window._liveAllCandidates && window._liveAllCandidates.length) {
+      allCandidates = allCandidates.map(function(candidate) {
+        var liveRecord = window._liveAllCandidates.find(function(live) {
+          return String(live.candidateId) === String(candidate.id);
+        });
+        if (liveRecord && liveRecord.votes !== null && liveRecord.votes !== undefined) {
+          return Object.assign({}, candidate, { votes: liveRecord.votes });
+        }
+        return candidate;
+      });
     }
 
-    var html = ['DMK', 'ADMK', 'TVK', 'NTK']
-      .map(findByParty)
-      .filter(Boolean)
-      .map(renderCandidateLine)
-      .join('');
+    // ── Sort by votes to find won/lost candidates ──
+    var sortedCandidates = allCandidates.slice().sort(function (a, b) {
+      return (Number(b.votes) || 0) - (Number(a.votes) || 0);
+    });
 
-    document.getElementById('cs-popup-candidates').innerHTML =
-      html || '<div class="popup-placeholder">No major candidates found</div>';
+    var wonCandidate = sortedCandidates[0] || null;
+    var lostCandidates = sortedCandidates.slice(1, 4);
+    var wonVotes = wonCandidate ? Number(wonCandidate.votes) || 0 : 0;
+    var runnerVotes = lostCandidates.length ? Number(lostCandidates[0].votes) || 0 : 0;
+
+    // ── Build won candidate display ──
+    var wonHtml = wonCandidate
+      ? '<div class="popup-candidate-row" style="margin-bottom:12px;">' +
+          '<span class="popup-cand-name" style="font-weight:700;">' +
+            (wonCandidate.name || wonCandidate.candidate || 'N/A') +
+          '</span>' +
+          '<div class="popup-party-wrap">' +
+            partyIconHtml(resolvePartyKey(wonCandidate) || 'IND') +
+            '<span class="popup-party-name">' + (resolvePartyKey(wonCandidate) || 'IND') + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div style="font-size:12px;color:#666;margin-bottom:8px;">' +
+          '<strong>Votes:</strong> ' + wonVotes.toLocaleString('en-IN') + '<br/>' +
+          '<strong>Margin:</strong> ' + (wonVotes - runnerVotes).toLocaleString('en-IN') +
+        '</div>'
+      : '<div class="popup-placeholder">No candidate data available</div>';
+
+    document.getElementById('cs-popup-mla').innerHTML = wonHtml;
+
+    // ── Build lost candidates display ──
+    var lostHtml = lostCandidates.length
+      ? lostCandidates.map(function(cand) {
+          var votes = Number(cand.votes) || 0;
+          return '<div class="popup-candidate-row" style="margin-bottom:12px;">' +
+            '<span class="popup-cand-name" style="font-weight:700;">' +
+              (cand.name || cand.candidate || 'N/A') +
+            '</span>' +
+            '<div class="popup-party-wrap">' +
+              partyIconHtml(resolvePartyKey(cand) || 'IND') +
+              '<span class="popup-party-name">' + (resolvePartyKey(cand) || 'IND') + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div style="font-size:12px;color:#666;margin-bottom:8px;">' +
+            '<strong>Votes:</strong> ' + votes.toLocaleString('en-IN') +
+          '</div>';
+        }).join('')
+      : '<div class="popup-placeholder">No other candidates</div>';
+
+    document.getElementById('cs-popup-candidates').innerHTML = lostHtml;
 
     var viewBtn = document.getElementById('cs-popup-view-btn');
     if (viewBtn) {
@@ -475,6 +554,9 @@
 
     // Initial render of saved grid
     renderCsGrid();
+
+    // Expose renderCsGrid globally for refresh after live data loads
+    window.refreshConstituencyFavorites = renderCsGrid;
   }
 
   // Boot
