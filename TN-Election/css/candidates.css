@@ -591,10 +591,10 @@
 .popup-body {
   overflow-y: auto;
   flex: 1;
-  padding: var(--gap-md);
+  padding: 2px 10px;
   display: flex;
   flex-direction: column;
-  gap: var(--gap-md);
+  /* gap: var(--gap-md); */
   -webkit-overflow-scrolling: touch;
 }
 
