@@ -1,7 +1,7 @@
 var ALLIANCE_DOT_COLORS = {
   'DMK Alliance':    '#5b68b8',
   'AIADMK Alliance': '#E05A46',
-  'No Alliance':     '#8a93a8'
+  'No Alliance':     '#facc15'
 };
 
 function buildParliamentChart() {
@@ -12,7 +12,7 @@ function buildParliamentChart() {
     return r.winner.alliance;
   });
 
-  var total = seats.length; // 234
+  var total = seats.length; //234
 
   var dpr = window.devicePixelRatio || 1;
   var W   = canvas.offsetWidth || 460;
@@ -49,7 +49,7 @@ function buildParliamentChart() {
   for (var r = 0; r < rows; r++) {
     var count = (r === rows - 1)
       ? (total - assigned)
-      : Math.round(total * circumferences[r] / totalCirc);
+      : Math.floor(total * circumferences[r] / totalCirc);
     rowCounts.push(count);
     assigned += count;
   }
@@ -133,7 +133,7 @@ function buildParliamentChart() {
       var angle = Math.PI + i * step;
       var x     = cx + radius * Math.cos(angle);
       var y     = cy + radius * Math.sin(angle);
-      var color = ALLIANCE_DOT_COLORS[rowSeats[i]] || '#94a3b8';
+      var color = ALLIANCE_DOT_COLORS[rowSeats[i]] || '#facc15';
 
       ctx.beginPath();
       ctx.arc(x, y, dotR, 0, Math.PI * 2);

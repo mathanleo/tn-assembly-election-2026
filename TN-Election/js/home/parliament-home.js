@@ -2,7 +2,7 @@
 var ALLIANCE_DOT_COLORS = {
   'DMK Alliance':    '#8a8f98',
   'AIADMK Alliance': '#8a8f98',
-  'No Alliance':     '#8a93a8'
+  'No Alliance':     '#facc15'
 };
 
 // ── Dynamic colors (home page live data) ──
@@ -11,7 +11,7 @@ var PARLIAMENT_LIVE_COLORS = {
   spa:    '#5b68b8',
   ntk:    '#22c55e',
   tvk:    '#facc15',
-  others: '#8a93a8'
+  others: '#facc15'
 };
 
 var PARTY_GROUP_LOOKUP = {};
@@ -156,7 +156,7 @@ function buildVoteShareChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, othersSeats
     { label: 'SPA', value: spaVal,    color: '#5b68b8' },
     { label: 'NDA', value: ndaVal,    color: '#E05A46' },
     { label: 'NTK', value: ntkVal,    color: '#22c55e' },
-    { label: 'Others', value: othersVal, color: '#8a93a8' }
+    { label: 'Others', value: othersVal, color: '#facc15' }
   ].filter(function(s) { return s.value > 0; });
 
   // Store arc data for hit-testing
@@ -324,7 +324,7 @@ function buildParliamentChart() {
     return r.winner.alliance;
   });
 
-  var total = seats.length; // 234
+  var total = 234;
 
   var dpr = window.devicePixelRatio || 1;
   var W   = canvas.offsetWidth || 460;
@@ -358,7 +358,7 @@ function buildParliamentChart() {
   for (var r = 0; r < rows; r++) {
     var count = (r === rows - 1)
       ? (total - assigned)
-      : Math.round(total * circumferences[r] / totalCirc);
+      : Math.floor(total * circumferences[r] / totalCirc);
     rowCounts.push(count);
     assigned += count;
   }
@@ -480,7 +480,7 @@ function buildLiveParliamentChart(ndaSeats, spaSeats, ntkSeats, tvkSeats, others
   for (var r = 0; r < rows; r++) {
     var count = (r === rows - 1)
       ? (total - assigned)
-      : Math.round(total * circumferences[r] / totalCirc);
+      : Math.floor(total * circumferences[r] / totalCirc);
     rowCounts.push(count);
     assigned += count;
   }
