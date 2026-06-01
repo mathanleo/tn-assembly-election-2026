@@ -1053,7 +1053,7 @@ let candidates = [];
 async function fetchMoreCards() {
   try {
     // Fetch the state-constituency-candidate JSON
-    const stateResponse = await fetch("../data/popular.json");
+    const stateResponse = await fetch("./data/popular.json");
     const stateData = await stateResponse.json();
     // console.log("State Data:", stateData);
 
@@ -1546,10 +1546,10 @@ function updatePaginationControls(totalRows, class_name, second_class_name) {
   // Ensure the pagination controls are displayed as flex
   paginationControls.style.display = "flex";
 }
-nextButton.addEventListener("click", function (event) {
-  event.preventDefault(); // Prevent default action
-  // Your existing code for handling the "Next" button click
-});
+// nextButton.addEventListener("click", function (event) {
+//   event.preventDefault(); // Prevent default action
+//   // Your existing code for handling the "Next" button click
+// });
 function setActiveButton(page, class_name) {
   const paginationControls = document.getElementById(class_name);
   const buttons = paginationControls.querySelectorAll(".newbuttons");
@@ -3003,7 +3003,7 @@ function render_whole_carousel() {
       return response.json();
     })
     .then((data2024) => {
-      fetch("../data/partyicon-candimg.json")
+      fetch("./data/partyicon-candimg.json")
         .then((response) => {
           if (!response.ok) {
             throw new Error(

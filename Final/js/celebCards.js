@@ -18,7 +18,7 @@ async function fetchMoreCards1() {
   document.getElementById("more-cards-root").innerHTML = "";
   try {
     // Fetch the state-constituency-candidate JSON
-    const stateResponse = await fetch("../data/celebrity.json");
+    const stateResponse = await fetch("./data/celebrity.json");
     const stateData = await stateResponse.json();
     let candidateData = null;
     console.log("State Data:", stateData);

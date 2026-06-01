@@ -17,8 +17,10 @@ body {
   margin: 0;
   padding-bottom: 40px;
   padding: 0;
-  width: 27.688;
-  height: 5.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .headerlogo img {
@@ -36,8 +38,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-left: 0;
-  margin-top: 10px;
+  margin: 0;
 }
 
 .navigations li {

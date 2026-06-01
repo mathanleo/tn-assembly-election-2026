@@ -16,19 +16,19 @@ let sym = {
   blur1: "./images/imgs/results_awaited.svg",
   blur2: "./images/imgs/results_awaited2.svg",
   extra: "./images/imgs/notknown.svg",
-  UPPL: "./images/img/UPPL.svg",
-  SDF: "./images/img/SDF.svg",
-  SHS: "./images/img/SHS.svg",
-  JNKC: "./images/img/JNKC.svg",
-  JJP: "./images/img/JJP.svg",
-  INLD: "./images/img/INLD.svg",
-  BPF: "./images/img/BPF.svg",
-  INLD: "./images/img/INLD.svg",
+  UPPL: "./images/imgs/UPPL.svg",
+  SDF: "./images/imgs/SDF.svg",
+  SHS: "./images/imgs/SHS.svg",
+  JNKC: "./images/imgs/JNKC.svg",
+  JJP: "./images/imgs/JJP.svg",
+  INLD: "./images/imgs/INLD.svg",
+  BPF: "./images/imgs/BPF.svg",
+  INLD: "./images/imgs/INLD.svg",
   AAP: "./images/imgs/AAP.svg",
-  PDP: "./images/img/PDP.svg",
-  ADMK: "./images/img/ADMK.svg",
-  AGP: "./images/img/AGP.svg",
-  AIFB: "./images/img/AIFB.svg",
+  PDP: "./images/imgs/PDP.svg",
+  ADMK: "./images/imgs/ADMK.svg",
+  AGP: "./images/imgs/AGP.svg",
+  AIFB: "./images/imgs/AIFB.svg",
   extra: "./images/imgs/notknown.svg",
   NOTA: "./images/imgs/NOTA.svg",
   IND: "./images/imgs/IND.svg",
@@ -2843,7 +2843,7 @@ function render_whole_carousel() {
   document
     .getElementById("view_all")
     .setAttribute("href", "./bigfights_viewall.html" + "?state=" + "all");
-  fetch("../data/partyicon-candimg.json")
+  fetch("./data/partyicon-candimg.json")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
@@ -3193,7 +3193,7 @@ function render_state_carousel(state) {
       `;
   }
 
-  fetch("../data/bigfights.json")
+  fetch("./data/bigfights.json")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
@@ -3201,7 +3201,7 @@ function render_state_carousel(state) {
       return response.json();
     })
     .then((data) => {
-      fetch("../data/overallpopular.json")
+      fetch("./data/overallpopular.json")
         .then((response) => {
           if (!response.ok) {
             throw new Error(

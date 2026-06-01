@@ -172,7 +172,7 @@ async function createCard(item) {
 async function fetchMoreCards1() {
   document.getElementById("more-cards-root").innerHTML = "";
   try {
-    const stateResponse = await fetch("../data/popular.json");
+    const stateResponse = await fetch("./data/popular.json");
     const stateData = await stateResponse.json();
     console.log("State Data:", stateData);
 

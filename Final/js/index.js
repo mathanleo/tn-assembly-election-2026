@@ -54,10 +54,9 @@ fetch("./data/overallpopular.json")
 
 let flag = 0;
 let pollinfo = {};
-// Declare a global variable to store the fetched data
 
 // Define the path to the JSON file
-const jsonFilePath = "../data/pollInfo.json";
+const jsonFilePath = "./data/pollInfo.json";
 
 // Fetch and read the JSON file
 fetch(jsonFilePath)
@@ -1119,7 +1118,7 @@ let candidates = [];
 async function fetchMoreCards() {
   try {
     // Fetch the state-constituency-candidate JSON
-    const stateResponse = await fetch("../data/popular.json");
+    const stateResponse = await fetch("./data/popular.json");
     const stateData = await stateResponse.json();
     console.log("State Data:", stateData);
     let candidateData = null;
