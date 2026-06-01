@@ -2,153 +2,67 @@ body {
   margin-top: 0;
 }
 
-.logo-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 32px;   /* ↓ slightly reduced to fit inside 292px */
-  font-weight: 400;
-  line-height: 1;
-  margin: 0;
-}
-
-/* TN in red */
-.logo-text .tn {
-  color: #FF0000;
-}
-
-/* rest in black */
-.logo-text .rest {
-  color: #000000;
-}
-
 #navHeader {
   display: flex;
-  align-items: center;
-  /* flex-direction: row; */
+  flex-direction: row;
   justify-content: space-between;
-  height: 82px; /* exact from Figma */
+  height: 5.625rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
-  padding: 0px 60px;
-  margin-top: 12px;
-  margin: right 120px;
-
+  padding: 0px 60px 0 60px;
+  margin-bottom: 0;
+  padding-top: 13px;
 }
 
 .headerlogo {
-  display: flex;
   margin: 0;
-  padding:0;
-  height: 58px;
+  padding-bottom: 40px;
+  padding: 0;
+  width: 27.688;
+  height: 5.625rem;
 }
 
 .headerlogo img {
-  width: 48px;
-  height: 48px;
-  padding-bottom: 0 ;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  width: 292px;
-  height: 58px;
-  text-decoration: none;
-}
-
-.logo-container img {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  display: block;
-}
-
-.logo-text .tn {
-  color: #FF0000;
-}
-
-.logo-text .rest {
-  color: #000000;
-}
-.logo-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 32px; 
-  font-weight: 500; /* Adjusted for better visibility like Figma */
-  line-height: 1;
-  margin: 0;
-  display: flex;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 20px;
 }
 
 .navigations {
-  display: flex; 
-  /* align-items: center;  */
-
-  width: 635px;
-  height: 24px;
-
-  /* gap: 41px; */
+  display: flex;
+  align-items: center;
 }
 
 .navigations ul {
-  margin-top: 0;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-
-  gap: 41px;
-  margin: 0;
-  padding: 0;
+  padding-left: 0;
+  margin-top: 10px;
 }
 
 .navigations li {
   list-style-type: none;
   position: relative;
+  margin: 0 5px;
 }
 
 .navigations li a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 24px;
-  width: 100%;
-
-  line-height: 24px;
-  padding: 0;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  padding: 4px 12px;
+  cursor: pointer;
 }
 
 .links:hover {
-
-  color: #F55533;
+  font-weight: bolder;
 }
 
 #candidates {
-  width: 87px;
-}
-
-#constituencies {
-  width: 113px;
-}
-
-#candidates {
-  width: 87px;
-}
-
-#bigfights {
-  width: 75px;
-}
-
-#head2head {
-  width: 99px;
-}
-
-#results2021 {
-  width: 97px;
+  padding-right: 0px;
 }
 
 #menu {
@@ -193,13 +107,6 @@ body {
   visibility: visible;
 }
 
-footer a:hover {
-  color: #F55533 !important;
-  text-decoration: underline !important;
-  text-underline-offset: 3px;
-  transition: color 0.2s ease;
-}
-
 @media (max-width: 950px) {
   #navHeader {
     padding: 0 10px 20px 30px;
@@ -208,13 +115,12 @@ footer a:hover {
     height: 80px;
     background-color: #ffffff;
     z-index: 1000;
-  
   }
 
   .headerlogo {
     width: 180px;
     height: 45px;
-    margin-top: px;
+    margin-top: 20px;
   }
 
   .headerlogo img {
@@ -222,11 +128,6 @@ footer a:hover {
   }
 
   .navigations {
-
-     width: 635px;
-  height: 24px;
-  gap: 41px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
